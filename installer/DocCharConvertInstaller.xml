@@ -47,12 +47,18 @@
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.bat" type="plain"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.sh" type="shell"/>
             <fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
-              <include name="*.xml" />
-              <include name="*.tec" />
-              <include name="*.dccx" />
-              <include name="*.pl" />
-              <include name="*.so" />
-              <include name="*.dll" />
+              <include name="Academy.dccx" />
+              <include name="academy.tec" />
+              <include name="academy.xml" />
+              <include name="ThaiUPC2Unicode.dccx" />
+              <include name="thaiupc.tec" />
+              <include name="thaiupc.xml" />
+              <include name="WinMyanmar.tec" />
+              <include name="WinMyanmar.xml" />
+              <include name="Winnwa.dccx" />
+              <include name="utr22tec.pl" />
+              <include name="libTecKitJni.so" />
+              <include name="TecKitJni.dll" />
             </fileset>
             <executable targetfile="$INSTALL_PATH/DocCharConvert.sh" stage="never"/>
         </pack>
