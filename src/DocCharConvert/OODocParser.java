@@ -121,11 +121,11 @@ public class OODocParser
     private OOMainInterface ooMain = null;
     private java.io.File inFile = null;
     private StringBuffer warningBuffer = null;
-    private java.util.Map converterMap = null;
+    private java.util.Map<TextStyle,CharConverter> converterMap = null;
     private XComponentLoader mxComponentLoader = null;
     private PropertyValue[] loadProps = null;
-    private HashSet paraStyles = null;
-    private HashSet charStyles = null;
+    private HashSet <String>paraStyles = null;
+    private HashSet <String>charStyles = null;
     private boolean onlyStylesInUse = true;
     private int paraCount = 0;
     private static final int STAGE_INIT = 0;
@@ -153,6 +153,7 @@ public class OODocParser
         DocInterface.InterfaceException
     {
         stage = STAGE_INIT;
+        paraCount = 0;
         warningBuffer.delete(0, warningBuffer.length());
         XComponent xWriterComponent = newDocComponent("swriter",inFile);
         if (xWriterComponent == null)
@@ -177,12 +178,12 @@ public class OODocParser
         this.onlyStylesInUse = onlyConvertStylesInUse;
         if (onlyStylesInUse)
         {
-            paraStyles = new HashSet();
-            charStyles = new HashSet();
+            paraStyles = new HashSet<String>();
+            charStyles = new HashSet<String>();
         }
     }
     /** This method demonstrates how to iterate over paragraphs */
-    protected void parse(java.util.Map converters) 
+    protected void parse(java.util.Map<TextStyle,CharConverter> converters) 
         throws CharConverter.FatalException, DocInterface.InterfaceException
     {
         if (mxDoc == null) return;
@@ -248,6 +249,7 @@ public class OODocParser
                     }
                 }
                 paraCount++;
+                //System.out.print('.');
             }
             
             // convert the styles in the document if necessary
@@ -838,7 +840,7 @@ public class OODocParser
                 System.out.println(e.getMessage());
             }
     }
-    public synchronized String getStatusDesc()
+    public String getStatusDesc()
     {
       String desc = new String("");
       switch (stage)

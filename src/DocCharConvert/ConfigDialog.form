@@ -48,85 +48,113 @@
                 <Property name="axis" type="int" value="1"/>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="ooPathPanel">
-                  <Properties>
-                    <Property name="alignmentX" type="float" value="0.0"/>
-                  </Properties>
+                <Container class="javax.swing.JPanel" name="jPanel4">
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="ooPathLabel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Path: "/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="ooPath">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="ooffice"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Path to OO Executable, or just the executable name if it is already in your PATH."/>
-                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[200, 20]"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ooPathActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="ooPathButton">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Browse..."/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ooPathButtonActionPerformed"/>
-                      </Events>
-                    </Component>
+                    <Container class="javax.swing.JPanel" name="ooLabelPanel">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="0"/>
+                        <Property name="rows" type="int" value="3"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="ooPathLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Path: "/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="optionsLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Options: "/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="unoLabel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="UNO Address: "/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="ooFieldPanel">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="0"/>
+                        <Property name="rows" type="int" value="3"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextField" name="ooPath">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="ooffice"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Path to OO Executable, or just the executable name if it is already in your PATH."/>
+                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[200, 20]"/>
+                            </Property>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ooPathActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="ooOptionsField">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="-headless -accept=socket,port=8100;urp;"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Host and Port must be correct. Do not change these unless you understand what you are doing."/>
+                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[400, 20]"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="unoField">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Host and Port must be correct. Do not change these unless you understand what you are doing."/>
+                            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                              <Dimension value="[400, 20]"/>
+                            </Property>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="ooButtonPanel">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="0"/>
+                        <Property name="rows" type="int" value="3"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="ooPathButton">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Browse..."/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ooPathButtonActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="ooDefaultOpt">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Default"/>
+                            <Property name="toolTipText" type="java.lang.String" value="restore default value"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ooDefaultOptActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="ooDefaultUno">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Default"/>
+                            <Property name="toolTipText" type="java.lang.String" value="restore default value"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ooDefaultUnoActionPerformed"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="ooOptionsPanel">
-                  <Properties>
-                    <Property name="alignmentX" type="float" value="0.0"/>
-                  </Properties>
+                <Container class="javax.swing.JPanel" name="ooPadPanel">
 
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="optionsLabel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Options: "/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="ooOptionsField">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value=" -headless -accept=socket,hostname=localhost,port=8100;urp;"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Host and Port must be correct. Do not change these unless you understand what you are doing."/>
-                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[400, 20]"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="unoAddressPanel">
-                  <Properties>
-                    <Property name="alignmentX" type="float" value="0.0"/>
-                  </Properties>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JLabel" name="unoLabel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="UNO Address: "/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="unoField">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager"/>
-                        <Property name="toolTipText" type="java.lang.String" value="Host and Port must be correct. Do not change these unless you understand what you are doing."/>
-                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[400, 20]"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                 </Container>
               </SubComponents>
             </Container>

@@ -7,6 +7,7 @@
 package DocCharConvert.Converter;
 
 import DocCharConvert.TextStyle;
+import DocCharConvert.Config;
 
 import java.io.IOException;
 import java.io.File;
@@ -32,13 +33,16 @@ public class TecKitConverter extends ReversibleConverter
     private StringBuffer ob = null;
     private Charset beforeCharset = null;
     private Charset afterCharset = null;
+    private long converterInstance = 0;
     /** Creates a new instance of TecKitConverter */
     public TecKitConverter(File mapFile, TextStyle origFont, TextStyle targFont)
     {
+        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
         construct(mapFile, origFont, targFont);
     }
     public TecKitConverter(File mapFile)
     {
+        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
         construct(mapFile,null,null);
     }
     private void construct(File mapFile, TextStyle origFont, TextStyle targFont)
@@ -71,7 +75,9 @@ public class TecKitConverter extends ReversibleConverter
         }
         try
         {
-            initOk = jni.createConverter(mapFilePath,isForwards());
+            converterInstance = jni.createConverter(mapFilePath,isForwards());
+            if (converterInstance == 0) initOk = false;
+            else initOk = true;
             if (isForwards())
             {
                 beforeCharset = Charset.forName("ISO-8859-1");
@@ -132,7 +138,7 @@ public class TecKitConverter extends ReversibleConverter
             bWriter.close();
             byte [] inputBytes = os.toByteArray();
             // decode
-            byte [] convertedBytes = jni.convert(inputBytes);
+            byte [] convertedBytes = jni.convert(converterInstance, inputBytes);
             ByteArrayInputStream is = new ByteArrayInputStream(convertedBytes);
             InputStreamReader ir = new InputStreamReader(is, newEncoding);
             BufferedReader bReader = new BufferedReader(ir);
@@ -156,7 +162,9 @@ public class TecKitConverter extends ReversibleConverter
     
     public void destroy()
     {
-        jni.destroyConverter();
+        if (converterInstance != 0)
+            jni.destroyConverter(converterInstance);
+        converterInstance = 0;
         initOk = false;
     }
     

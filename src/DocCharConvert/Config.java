@@ -9,6 +9,8 @@ package DocCharConvert;
 import java.io.File;
 import java.net.URL;
 import java.util.prefs.Preferences;
+import java.util.ResourceBundle;
+import java.text.MessageFormat;
 /**
  *
  * @author  keith
@@ -28,9 +30,11 @@ public class Config
     private final String OOUNO = "OOUNO";
     private final String OOOPTIONS = "OOOptions";
     public static final String CONVERTER_CONFIG_PATH = "Converters";
-    private String ooPath = "ooffice";
-    private String oouno = "uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
-    private String ooOptions = " -headless -accept=socket,hostname=localhost,port=8100;urp;";
+    private String ooPath = "soffice";
+    public static final String OO_DEFAULT_UNO = "uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
+    public static final String OO_DEFAULT_OPTIONS = "-accept=socket,port=8100;urp;";
+    private String oouno = OO_DEFAULT_UNO;
+    private String ooOptions = OO_DEFAULT_OPTIONS;
     private String ooClassPath = "";
     private final String OO_INVALID_PATH = "Invalid OpenOffice path: ";
     private final String OO_CLASSES_UNFOUND = "OpenOffice classes not found:";
@@ -38,6 +42,7 @@ public class Config
         "\nYou will not be able to convert OpenOffice files until this is fixed.\n" +
         "You can change the OpenOffice location in the configuration dialog after installation.\n" +
         "Text file conversions will still work.";
+    private ResourceBundle i18nResource = null;
     public static Config getCurrent()
     {
         if (instance == null) instance = new Config();
@@ -96,10 +101,13 @@ public class Config
         oouno = packagePref.get(OOUNO, OOMainInterface.UNO_URL);
         try
         {
+            File defaultConvPath = converterPath;
             converterPath = new File(packagePref.get(INSTALL_PATH, 
                                                 converterPath.getCanonicalPath()));
             if (!converterPath.exists()) 
             {
+                // revert to default
+                converterPath = defaultConvPath;
                 converterPath.mkdirs();
             }
             packagePref.put(INSTALL_PATH, converterPath.getCanonicalPath());
@@ -110,6 +118,7 @@ public class Config
         }
         if (!inputPath.isDirectory()) inputPath = null;
         if (!outputPath.isDirectory()) outputPath = null;
+        i18nResource = ResourceBundle.getBundle("DocCharConvert/Messages");
     }
     private File getBasePath()
     {
@@ -187,6 +196,10 @@ public class Config
             {
               System.out.println(OO_CLASSES_UNFOUND + classDir.toString() + 
                                  OO_PATH_FAIL);
+              MessageFormat mf = new MessageFormat("");
+              Object [] args = {classDir.toString()};
+              String msg = mf.format(i18nResource.getString("no_oo_classes"), 
+                                     args);
               return null;
             }
             java.io.FilenameFilter jarFilter = new java.io.FilenameFilter() {
@@ -292,4 +305,5 @@ public class Config
     public String getOOPath() { return ooPath; }
     public String getOOOptions() { return ooOptions; }
     public String getOOUNO() { return oouno; }
+    public ResourceBundle getMsgResource() { return i18nResource; }
 }

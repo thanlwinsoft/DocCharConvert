@@ -1,42 +1,34 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="7" >
+ <DocsAndViews NumberOfDocuments="9" >
   <Doc0 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/src/TECkit_Common.h" >
-   <View0 line="0" Type="???" >
-    <AdditionalSettings Top="1" Width="774" Attach="1" Height="544" Left="1" MinMaxMode="0" />
-   </View0>
+   <View0 line="0" Type="Source" />
   </Doc0>
   <Doc1 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/src/TECkit_Engine.h" >
-   <View0 line="62" Type="???" >
-    <AdditionalSettings Top="1" Width="954" Attach="1" Height="556" Left="1" MinMaxMode="0" />
-   </View0>
+   <View0 line="0" Type="Source" />
   </Doc1>
   <Doc2 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/src/TecKitJni.cpp" >
-   <View0 line="176" Type="???" >
-    <AdditionalSettings Top="1" Width="725" Attach="1" Height="404" Left="1" MinMaxMode="0" />
-   </View0>
+   <View0 line="184" Type="Source" />
   </Doc2>
   <Doc3 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/src/TecKitJni.h" >
-   <View0 line="15" Type="???" >
-    <AdditionalSettings Top="1" Width="725" Attach="1" Height="404" Left="1" MinMaxMode="0" />
-   </View0>
+   <View0 line="0" Type="Source" />
   </Doc3>
   <Doc4 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/src/teckitjniTest.cpp" >
-   <View0 line="116" Type="???" >
-    <AdditionalSettings Top="1" Width="725" Attach="1" Height="404" Left="1" MinMaxMode="0" />
-   </View0>
+   <View0 line="0" Type="Source" />
   </Doc4>
   <Doc5 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/src/Engine.cpp" >
-   <View0 line="1249" Type="???" >
-    <AdditionalSettings Top="1" Width="956" Attach="1" Height="519" Left="1" MinMaxMode="0" />
-   </View0>
+   <View0 line="35" Type="Source" />
   </Doc5>
-  <Doc6 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/DocCharConvert_Converter_TecKitJni.h" >
-   <View0 line="33" Type="???" >
-    <AdditionalSettings Top="1" Width="725" Attach="1" Height="404" Left="1" MinMaxMode="0" />
-   </View0>
+  <Doc6 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/Makefile.am" >
+   <View0 line="5" Type="Source" />
   </Doc6>
+  <Doc7 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/teckitjni/src/Makefile.am" >
+   <View0 line="0" Type="Source" />
+  </Doc7>
+  <Doc8 NumberOfViews="1" URL="file:/home/keith/projects/DocCharConvert/build/classes/DocCharConvert_Converter_TecKitJni.h" >
+   <View0 line="23" Type="Source" />
+  </Doc8>
  </DocsAndViews>
  <pluginList>
   <kdevbookmarks>
@@ -48,6 +40,8 @@
   <kdevvalgrind>
    <executable path="" params="" />
    <valgrind path="" params="" />
+   <calltree path="" params="" />
+   <kcachegrind path="" />
   </kdevvalgrind>
   <kdevdebugger>
    <breakpointList>

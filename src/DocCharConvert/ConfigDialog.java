@@ -44,16 +44,20 @@ public class ConfigDialog extends javax.swing.JDialog
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         ooPanel = new javax.swing.JPanel();
-        ooPathPanel = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        ooLabelPanel = new javax.swing.JPanel();
         ooPathLabel = new javax.swing.JLabel();
-        ooPath = new javax.swing.JTextField();
-        ooPathButton = new javax.swing.JButton();
-        ooOptionsPanel = new javax.swing.JPanel();
         optionsLabel = new javax.swing.JLabel();
-        ooOptionsField = new javax.swing.JTextField();
-        unoAddressPanel = new javax.swing.JPanel();
         unoLabel = new javax.swing.JLabel();
+        ooFieldPanel = new javax.swing.JPanel();
+        ooPath = new javax.swing.JTextField();
+        ooOptionsField = new javax.swing.JTextField();
         unoField = new javax.swing.JTextField();
+        ooButtonPanel = new javax.swing.JPanel();
+        ooPathButton = new javax.swing.JButton();
+        ooDefaultOpt = new javax.swing.JButton();
+        ooDefaultUno = new javax.swing.JButton();
+        ooPadPanel = new javax.swing.JPanel();
         converterPanel = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         convLabel = new javax.swing.JLabel();
@@ -77,11 +81,22 @@ public class ConfigDialog extends javax.swing.JDialog
         ooPanel.setLayout(new javax.swing.BoxLayout(ooPanel, javax.swing.BoxLayout.Y_AXIS));
 
         ooPanel.setBorder(new javax.swing.border.TitledBorder("OpenOffice Config"));
-        ooPathPanel.setLayout(new javax.swing.BoxLayout(ooPathPanel, javax.swing.BoxLayout.X_AXIS));
+        jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.X_AXIS));
 
-        ooPathPanel.setAlignmentX(0.0F);
+        ooLabelPanel.setLayout(new java.awt.GridLayout(3, 0));
+
         ooPathLabel.setText("Path: ");
-        ooPathPanel.add(ooPathLabel);
+        ooLabelPanel.add(ooPathLabel);
+
+        optionsLabel.setText("Options: ");
+        ooLabelPanel.add(optionsLabel);
+
+        unoLabel.setText("UNO Address: ");
+        ooLabelPanel.add(unoLabel);
+
+        jPanel4.add(ooLabelPanel);
+
+        ooFieldPanel.setLayout(new java.awt.GridLayout(3, 0));
 
         ooPath.setText("ooffice");
         ooPath.setToolTipText("Path to OO Executable, or just the executable name if it is already in your PATH.");
@@ -94,7 +109,21 @@ public class ConfigDialog extends javax.swing.JDialog
             }
         });
 
-        ooPathPanel.add(ooPath);
+        ooFieldPanel.add(ooPath);
+
+        ooOptionsField.setText("-headless -accept=socket,port=8100;urp;");
+        ooOptionsField.setToolTipText("Host and Port must be correct. Do not change these unless you understand what you are doing.");
+        ooOptionsField.setMaximumSize(new java.awt.Dimension(400, 20));
+        ooFieldPanel.add(ooOptionsField);
+
+        unoField.setText("uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager");
+        unoField.setToolTipText("Host and Port must be correct. Do not change these unless you understand what you are doing.");
+        unoField.setMaximumSize(new java.awt.Dimension(400, 20));
+        ooFieldPanel.add(unoField);
+
+        jPanel4.add(ooFieldPanel);
+
+        ooButtonPanel.setLayout(new java.awt.GridLayout(3, 0));
 
         ooPathButton.setText("Browse...");
         ooPathButton.addActionListener(new java.awt.event.ActionListener()
@@ -105,35 +134,39 @@ public class ConfigDialog extends javax.swing.JDialog
             }
         });
 
-        ooPathPanel.add(ooPathButton);
+        ooButtonPanel.add(ooPathButton);
 
-        ooPanel.add(ooPathPanel);
+        ooDefaultOpt.setText("Default");
+        ooDefaultOpt.setToolTipText("restore default value");
+        ooDefaultOpt.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ooDefaultOptActionPerformed(evt);
+            }
+        });
 
-        ooOptionsPanel.setLayout(new javax.swing.BoxLayout(ooOptionsPanel, javax.swing.BoxLayout.X_AXIS));
+        ooButtonPanel.add(ooDefaultOpt);
 
-        ooOptionsPanel.setAlignmentX(0.0F);
-        optionsLabel.setText("Options: ");
-        ooOptionsPanel.add(optionsLabel);
+        ooDefaultUno.setText("Default");
+        ooDefaultUno.setToolTipText("restore default value");
+        ooDefaultUno.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ooDefaultUnoActionPerformed(evt);
+            }
+        });
 
-        ooOptionsField.setText(" -headless -accept=socket,hostname=localhost,port=8100;urp;");
-        ooOptionsField.setToolTipText("Host and Port must be correct. Do not change these unless you understand what you are doing.");
-        ooOptionsField.setMaximumSize(new java.awt.Dimension(400, 20));
-        ooOptionsPanel.add(ooOptionsField);
+        ooButtonPanel.add(ooDefaultUno);
 
-        ooPanel.add(ooOptionsPanel);
+        jPanel4.add(ooButtonPanel);
 
-        unoAddressPanel.setLayout(new javax.swing.BoxLayout(unoAddressPanel, javax.swing.BoxLayout.X_AXIS));
+        ooPanel.add(jPanel4);
 
-        unoAddressPanel.setAlignmentX(0.0F);
-        unoLabel.setText("UNO Address: ");
-        unoAddressPanel.add(unoLabel);
+        ooPadPanel.setLayout(new java.awt.BorderLayout());
 
-        unoField.setText("uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager");
-        unoField.setToolTipText("Host and Port must be correct. Do not change these unless you understand what you are doing.");
-        unoField.setMaximumSize(new java.awt.Dimension(400, 20));
-        unoAddressPanel.add(unoField);
-
-        ooPanel.add(unoAddressPanel);
+        ooPanel.add(ooPadPanel);
 
         jTabbedPane1.addTab("OpenOffice", ooPanel);
 
@@ -209,6 +242,17 @@ public class ConfigDialog extends javax.swing.JDialog
         pack();
     }//GEN-END:initComponents
 
+    private void ooDefaultUnoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ooDefaultUnoActionPerformed
+    {//GEN-HEADEREND:event_ooDefaultUnoActionPerformed
+        // TODO add your handling code here:
+        unoField.setText(Config.OO_DEFAULT_UNO);
+    }//GEN-LAST:event_ooDefaultUnoActionPerformed
+
+    private void ooDefaultOptActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ooDefaultOptActionPerformed
+    {//GEN-HEADEREND:event_ooDefaultOptActionPerformed
+        ooOptionsField.setText(Config.OO_DEFAULT_OPTIONS);
+    }//GEN-LAST:event_ooDefaultOptActionPerformed
+
     private void convPathButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_convPathButtonActionPerformed
     {//GEN-HEADEREND:event_convPathButtonActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -269,7 +313,7 @@ public class ConfigDialog extends javax.swing.JDialog
                     return true;
                 return false;
             }
-            public String getDescription() { return "Text files"; }
+            public String getDescription() { return "OpenOffice program"; }
         });
         if (chooser.showOpenDialog(this)  == 
             JFileChooser.APPROVE_OPTION)
@@ -324,18 +368,22 @@ public class ConfigDialog extends javax.swing.JDialog
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton okButton;
+    private javax.swing.JPanel ooButtonPanel;
+    private javax.swing.JButton ooDefaultOpt;
+    private javax.swing.JButton ooDefaultUno;
+    private javax.swing.JPanel ooFieldPanel;
+    private javax.swing.JPanel ooLabelPanel;
     private javax.swing.JTextField ooOptionsField;
-    private javax.swing.JPanel ooOptionsPanel;
+    private javax.swing.JPanel ooPadPanel;
     private javax.swing.JPanel ooPanel;
     private javax.swing.JTextField ooPath;
     private javax.swing.JButton ooPathButton;
     private javax.swing.JLabel ooPathLabel;
-    private javax.swing.JPanel ooPathPanel;
     private javax.swing.JLabel optionsLabel;
-    private javax.swing.JPanel unoAddressPanel;
     private javax.swing.JTextField unoField;
     private javax.swing.JLabel unoLabel;
     // End of variables declaration//GEN-END:variables

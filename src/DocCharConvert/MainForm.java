@@ -9,6 +9,10 @@ package DocCharConvert;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Map.Entry;
+import java.text.MessageFormat;
 import java.nio.charset.Charset;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -19,6 +23,7 @@ import java.util.SortedMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
+import java.util.ResourceBundle;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFileChooser;
@@ -40,7 +45,7 @@ import DocCharConvert.Converter.ChildConverter;
  *
  * @author  keith
  */
-public class MainForm extends javax.swing.JDialog
+public class MainForm extends javax.swing.JFrame
 {
     private BatchConversion conversion = null;
     private Vector availableConverters = null;
@@ -48,12 +53,11 @@ public class MainForm extends javax.swing.JDialog
     private DefaultListModel sModel = null;
     private Timer timer = null;
     private int TIMER_DELAY = 250;
-    private java.awt.Frame parentFrame;
+    private ResourceBundle guiResource = null;
+    private ResourceBundle msgResource = null;
     /** Creates new form MainForm */
-    public MainForm(java.awt.Frame parent, boolean modal)
+    public MainForm()
     {
-        super(parent, modal);
-        this.parentFrame = parent;
         initComponents();
         int cid = 0;
         conversion = new BatchConversion(this);
@@ -74,6 +78,8 @@ public class MainForm extends javax.swing.JDialog
         oEncCombo.setSelectedIndex(utf8Index);
         parseConverters();
         setOutputMode();
+        guiResource = ResourceBundle.getBundle("DocCharConvert/GUI");
+        msgResource = Config.getCurrent().getMsgResource();
     }
     
     public void parseConverters()
@@ -115,11 +121,11 @@ public class MainForm extends javax.swing.JDialog
     {
         outputBGroup = new javax.swing.ButtonGroup();
         converterPanel = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        availPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         availableCList = new javax.swing.JList();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        selectedPanel = new javax.swing.JPanel();
+        fileModePanel = new javax.swing.JPanel();
         modeCombo = new javax.swing.JComboBox();
         jPanel10 = new javax.swing.JPanel();
         addConverter = new javax.swing.JButton();
@@ -140,6 +146,7 @@ public class MainForm extends javax.swing.JDialog
         iFileAdd = new javax.swing.JButton();
         iFileRemove = new javax.swing.JButton();
         loadFileList = new javax.swing.JButton();
+        saveFileList = new javax.swing.JButton();
         outputPanel = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         outputPrefix = new javax.swing.JTextField();
@@ -152,7 +159,7 @@ public class MainForm extends javax.swing.JDialog
         convertButton = new javax.swing.JButton();
         configButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
+        progressPanel = new javax.swing.JPanel();
         progressLabel = new javax.swing.JLabel();
         jProgressBar = new javax.swing.JProgressBar();
 
@@ -167,19 +174,19 @@ public class MainForm extends javax.swing.JDialog
 
         converterPanel.setLayout(new javax.swing.BoxLayout(converterPanel, javax.swing.BoxLayout.X_AXIS));
 
-        jPanel4.setLayout(new java.awt.BorderLayout());
+        availPanel.setLayout(new java.awt.BorderLayout());
 
-        jPanel4.setBorder(new javax.swing.border.TitledBorder("Available Converters"));
+        availPanel.setBorder(new javax.swing.border.TitledBorder("Available Converters"));
         availableCList.setToolTipText("Select the converter that you want and click add.");
         jScrollPane1.setViewportView(availableCList);
 
-        jPanel4.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        availPanel.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        converterPanel.add(jPanel4);
+        converterPanel.add(availPanel);
 
-        jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6, javax.swing.BoxLayout.Y_AXIS));
+        selectedPanel.setLayout(new javax.swing.BoxLayout(selectedPanel, javax.swing.BoxLayout.Y_AXIS));
 
-        jPanel7.setBorder(new javax.swing.border.TitledBorder("File Mode"));
+        fileModePanel.setBorder(new javax.swing.border.TitledBorder("File Mode"));
         modeCombo.setMaximumRowCount(5);
         modeCombo.setToolTipText("Choose the type of input files.");
         modeCombo.addActionListener(new java.awt.event.ActionListener()
@@ -190,9 +197,9 @@ public class MainForm extends javax.swing.JDialog
             }
         });
 
-        jPanel7.add(modeCombo);
+        fileModePanel.add(modeCombo);
 
-        jPanel6.add(jPanel7);
+        selectedPanel.add(fileModePanel);
 
         jPanel10.setLayout(new java.awt.GridLayout(2, 1));
 
@@ -223,9 +230,9 @@ public class MainForm extends javax.swing.JDialog
 
         jPanel10.add(removeConverter);
 
-        jPanel6.add(jPanel10);
+        selectedPanel.add(jPanel10);
 
-        converterPanel.add(jPanel6);
+        converterPanel.add(selectedPanel);
 
         jPanel2.setLayout(new java.awt.BorderLayout());
 
@@ -298,6 +305,17 @@ public class MainForm extends javax.swing.JDialog
         });
 
         iFilePanel.add(loadFileList);
+
+        saveFileList.setText("Save List...");
+        saveFileList.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                saveFileListActionPerformed(evt);
+            }
+        });
+
+        iFilePanel.add(saveFileList);
 
         inputPanel.add(iFilePanel);
 
@@ -416,19 +434,77 @@ public class MainForm extends javax.swing.JDialog
 
         getContentPane().add(jPanel8, java.awt.BorderLayout.EAST);
 
-        jPanel9.setLayout(new java.awt.GridLayout(2, 2));
+        progressPanel.setLayout(new java.awt.GridLayout(2, 2));
 
-        jPanel9.setBorder(new javax.swing.border.TitledBorder("Progress"));
+        progressPanel.setBorder(new javax.swing.border.TitledBorder("Progress"));
         progressLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         progressLabel.setText("1. Select Converter 2. Select Input Files 3. Select Output Prefix 4. Click Convert");
-        jPanel9.add(progressLabel);
+        progressPanel.add(progressLabel);
 
-        jPanel9.add(jProgressBar);
+        progressPanel.add(jProgressBar);
 
-        getContentPane().add(jPanel9, java.awt.BorderLayout.SOUTH);
+        getContentPane().add(progressPanel, java.awt.BorderLayout.SOUTH);
 
         pack();
     }//GEN-END:initComponents
+
+    private void saveFileListActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_saveFileListActionPerformed
+    {//GEN-HEADEREND:event_saveFileListActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        chooser.setMultiSelectionEnabled(false);
+        chooser.setFileFilter(new FileFilter() {
+            public boolean accept(File file)
+            {
+                if (file.isDirectory()) return true;
+                if (file.getName().toLowerCase().endsWith(".txt")) 
+                    return true;
+                return false;
+            }
+            public String getDescription() { return "Text files"; }
+        });
+        chooser.setCurrentDirectory(Config.getCurrent().getInputPath());
+        if (chooser.showSaveDialog(this)  == 
+            JFileChooser.APPROVE_OPTION)
+        {
+            try
+            {
+                File listFile = chooser.getSelectedFile();
+                Config.getCurrent().setInputPath(listFile.getParentFile());
+                BufferedWriter bw = new BufferedWriter(new FileWriter(listFile));
+                if (conversion.getInputFileList() != null)
+                {
+                  Object [] iFiles = conversion.getInputFileList();    
+                  if (iFiles.length > 0)
+                  {
+                      if (iFiles[0] instanceof java.util.Map.Entry &&
+                          ((Map.Entry)iFiles[0]).getKey() instanceof File)
+                      {
+                          for (int i = 0; i< iFiles.length; i++)
+                          {
+                            Map.Entry pair = (Map.Entry)iFiles[i];
+                            if (pair.getKey() instanceof File && 
+                                pair.getValue() instanceof File)
+                            {
+                                bw.write("\"" + 
+                                    ((File)pair.getKey()).getAbsolutePath() + "\" \"" 
+                                    + ((File)pair.getValue()).getAbsolutePath() + "\"\n");
+                            }
+                          }
+                      }
+
+                  }
+                }
+                bw.close();
+            }
+            catch (java.io.IOException e)
+            {
+                System.out.println(e.getLocalizedMessage());
+                JOptionPane.showMessageDialog(null, e.getLocalizedMessage(),
+                Config.getCurrent().getMsgResource().getString("saveListError"),
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_saveFileListActionPerformed
 
     private void modeComboActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_modeComboActionPerformed
     {//GEN-HEADEREND:event_modeComboActionPerformed
@@ -449,7 +525,7 @@ public class MainForm extends javax.swing.JDialog
 
     private void configButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_configButtonActionPerformed
     {//GEN-HEADEREND:event_configButtonActionPerformed
-        (new ConfigDialog(parentFrame,true)).setVisible(true);
+        (new ConfigDialog(this,true)).setVisible(true);
         parseConverters();
     }//GEN-LAST:event_configButtonActionPerformed
 
@@ -491,6 +567,7 @@ public class MainForm extends javax.swing.JDialog
             BufferedReader reader = new BufferedReader
                 (new FileReader(fileList));
             Pattern p = Pattern.compile("([^\\s]*?[^\\\\])\\s+(.*)");
+            Pattern qp = Pattern.compile("\"([^\"]*?)\"\\s+\"(.*)\"");
             StringBuffer invalidLines = new StringBuffer();
             String line = reader.readLine();
             // if we have got this far without an excpetion, 
@@ -499,7 +576,9 @@ public class MainForm extends javax.swing.JDialog
             while (line != null)
             {
                 String trimmedLine = line.trim();
-                Matcher m = p.matcher(trimmedLine);
+                Matcher m = qp.matcher(trimmedLine);
+                // try match quoted file names if first match fails
+                if (!m.matches()) m = p.matcher(trimmedLine);
                 if (m.matches())
                 {
                     File iFile = new File(m.group(1));
@@ -534,13 +613,13 @@ public class MainForm extends javax.swing.JDialog
             if (invalidLines.length()>0)
             {
                 Object [] msg = new Object[2];
-                msg[0] = "Warning, the following lines were ignored";
+                msg[0] = Config.getCurrent().getMsgResource().getString("fileListIgnoreLine");
                 JScrollPane pane = 
                     new JScrollPane(new JTextArea(invalidLines.toString()));
                 pane.setMaximumSize(new Dimension(300, 100));
                 msg[1] = pane;                    
                 JOptionPane.showMessageDialog(null, msg,
-                    "Invalid format",
+                    Config.getCurrent().getMsgResource().getString("invalidFormat"),
                     JOptionPane.WARNING_MESSAGE);
             }
             reader.close();
@@ -549,7 +628,8 @@ public class MainForm extends javax.swing.JDialog
         {
             JOptionPane.showMessageDialog(null,
                 "Error reading " + fileList.getName() + "\n" + 
-                e.getLocalizedMessage(),"Error loading list",
+                e.getLocalizedMessage(),
+                Config.getCurrent().getMsgResource().getString("fileListError"),
                 JOptionPane.ERROR_MESSAGE);
         }
         catch (java.util.regex.PatternSyntaxException e)
@@ -578,11 +658,13 @@ public class MainForm extends javax.swing.JDialog
         {
             conversion.setPairsMode(true);
             outputPrefix.setEnabled(false);
+            saveFileList.setEnabled(true);
         }
         else
         {
             conversion.setPairsMode(false);
-            outputPrefix.setEnabled(false);
+            outputPrefix.setEnabled(true);
+            saveFileList.setEnabled(false);
         }
     }
     
@@ -653,16 +735,8 @@ public class MainForm extends javax.swing.JDialog
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_exitButtonActionPerformed
     {//GEN-HEADEREND:event_exitButtonActionPerformed
         // Add your handling code here:
-        if (conversion.isRunning())
-        {
-            JOptionPane.showMessageDialog(this,"Conversion is still running","Converting...",JOptionPane.WARNING_MESSAGE);
-        }
-        else
-        {
-            setVisible(false);
-            dispose();
-            System.exit(0);
-        }
+        close();
+        
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void convertButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_convertButtonActionPerformed
@@ -703,6 +777,7 @@ public class MainForm extends javax.swing.JDialog
                   else
                   {
                       progressLabel.setText("Conversion finished.");
+                      jProgressBar.setValue(conversion.getFileCount());
                       jProgressBar.setIndeterminate(false);
                       enableButtons();
                       timer.stop();
@@ -745,7 +820,8 @@ public class MainForm extends javax.swing.JDialog
         chooser.setFileFilter(ConversionMode.getAllFilesFilter());
         chooser.setCurrentDirectory(Config.getCurrent().getInputPath());
         chooser.setMultiSelectionEnabled(true);
-        if (chooser.showDialog(this, "Add File")  == 
+        if (chooser.showDialog(this, 
+            msgResource.getString("addFile"))  == 
             JFileChooser.APPROVE_OPTION)
         {
             Config.getCurrent().setInputPath
@@ -758,12 +834,16 @@ public class MainForm extends javax.swing.JDialog
             else
             {
                 File iFile = chooser.getSelectedFile();
-                chooser.setDialogTitle("Choose Output file for " + 
-                    iFile.getName());
+                MessageFormat mf = new MessageFormat("");
+                Object [] args = {iFile.getName()};
+                String msg = mf.format(msgResource.getString("setOutputFileTitle"), 
+                                     args);
+                chooser.setDialogTitle(msg);
                 chooser.setCurrentDirectory
                     (Config.getCurrent().getOutputPath());
-                if (chooser.showDialog(this, "Set Output File")  == 
-                    JFileChooser.APPROVE_OPTION)
+                if (chooser.showDialog(this, 
+                    msgResource.getString("outputFile"))
+                      == JFileChooser.APPROVE_OPTION)
                 {
                     File oFile = chooser.getSelectedFile();
                     Config.getCurrent().setOutputPath(oFile);
@@ -783,11 +863,23 @@ public class MainForm extends javax.swing.JDialog
     
     private void close()
     {
-        conversion.destroy();
-        Config.getCurrent().save();
-        setVisible(false);
-        dispose();
-        System.exit(0);
+        if (conversion.isRunning())
+        {
+            JOptionPane.showConfirmDialog(this,
+                    msgResource.getString("confirmAbortConversion"),
+                    msgResource.getString("conversionInProgress"),
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            conversion.destroy();
+            Config.getCurrent().save();
+            setVisible(false);
+            dispose();
+            System.exit(0);
+        }
+        
     }
     /**
      * @param args the command line arguments
@@ -800,22 +892,26 @@ public class MainForm extends javax.swing.JDialog
         }
         
         final JFrame frame = new JFrame();
-        frame.setTitle("Document Character Converter ");
+        frame.setTitle(Config.getCurrent().getMsgResource().getString("dialogTitle"));
         frame.setIconImage(new javax.swing.ImageIcon(frame.getClass().
             getResource("/DocCharConvert/icons/DocCharConvert16.png"))
             .getImage());
         JPanel panel = new JPanel(new BorderLayout());
-        JLabel label = new JLabel("Please wait, initalising...");
+        JLabel label = new JLabel(Config.getCurrent().getMsgResource().getString("init_wait"));
         panel.add(label,BorderLayout.CENTER);
         frame.getContentPane().add(panel);
         frame.pack();
         frame.setVisible(true);
          
         
-        final MainForm mainForm = new MainForm(frame, false);
+        final MainForm mainForm = new MainForm();
+        mainForm.setTitle(Config.getCurrent().getMsgResource().getString("dialogTitle"));
+        mainForm.setIconImage(new javax.swing.ImageIcon(frame.getClass().
+            getResource("/DocCharConvert/icons/DocCharConvert16.png"))
+            .getImage());
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         //frame.setEnabled(false);
-        label.setText("Initialisation finished.");
+        label.setText(Config.getCurrent().getMsgResource().getString("init_finished"));
         //mainForm.show();
         frame.setVisible(false);
         mainForm.setVisible(true);
@@ -839,6 +935,7 @@ public class MainForm extends javax.swing.JDialog
             String inputPath = null;
             String outputPath = null;
             File fileList = null;
+            boolean isReverse = false;
             for (int a = 0; a<args.length; a++)
             {
               if (state == NORMAL)
@@ -856,6 +953,12 @@ public class MainForm extends javax.swing.JDialog
                 else if (args[a].equals("-f")) 
                 {
                   state = FILE_LIST;
+                  continue;
+                }
+                else if (args[a].equals("-r")) 
+                {
+                  state = NORMAL;
+                  isReverse = true;
                   continue;
                 }
                 else if (args[a].equals("--help")) 
@@ -968,14 +1071,27 @@ public class MainForm extends javax.swing.JDialog
             {
               CharConverter cc =
                 (CharConverter)xmlParser.getConverters().elementAt(convIndex++);
-              System.out.println(cc);  
               if (cc instanceof ChildConverter)
               {
                 ChildConverter cccc = (ChildConverter)cc;
                 if (cccc.getParent() instanceof ReversibleConverter)
                 {
                   if (((ReversibleConverter)cccc.getParent()).isForwards())
-                    conv.addConverter(cc);
+                  {
+                    if (!isReverse) 
+                    {
+                        conv.addConverter(cc);
+                        System.out.println(cc);  
+                    }
+                  }
+                  else
+                  {
+                    if (isReverse) 
+                    {
+                        conv.addConverter(cc);     
+                        System.out.println(cc);  
+                    } 
+                  }
                 }
                 else conv.addConverter(cc);
               }
@@ -1011,19 +1127,26 @@ public class MainForm extends javax.swing.JDialog
     
     private static void printUsage()
     {
-      System.out.println("Arguments: [-i iEnc] [-o oEnc] converter.dccx mode " +
-                         "           [-f list]|[inputFile outputFile]");
+      File [] converterFiles = ConverterXmlParser.getConverterFiles(getConverterPath());
+      System.out.println("Arguments: [-i iEnc] [-o oEnc] [-r] converter.dccx mode "); 
+      System.out.println("           [-f list]|[inputFile outputFile]");
       System.out.println("Modes:");
       for (int m = 0; m<ConversionMode.NUM_MODES; m++)
       {
           System.out.println("\t" + m + "\t" + ConversionMode.getById(m));
       }
-      System.out.println("Notes:");
-      System.out.println("\tThe converter must be in the Converter directory (don't give a path)");
       System.out.println("Optional Arguments:");
+      System.out.println("\t--help display this help");
+      System.out.println("\t-r use the converter in reverse mode");
       System.out.println("\t-i iEnc = input encoding e.g. -i iso-8859-1 (default UTF-8)");
       System.out.println("\t-o oEnc = output encoding e.g. -o iso-8859-1 (default UTF-8)");
       System.out.println("\t-f fileList = file containing list input output files");
+      System.out.println("Please choose from one of the following converters:");
+      for (int i = 0; i<converterFiles.length; i++)
+      {
+          System.out.println("\t" + converterFiles[i].getName());          
+      }
+      System.out.println("Run with no arguments for Graphical mode and Configuration editor.");
     }
     
     private void enableButtons()
@@ -1031,6 +1154,7 @@ public class MainForm extends javax.swing.JDialog
         addConverter.setEnabled(true);
         removeConverter.setEnabled(true);
         convertButton.setEnabled(true);
+        configButton.setEnabled(true);
         iFileAdd.setEnabled(true);
         iFileRemove.setEnabled(true);
         oFileButton.setEnabled(true);
@@ -1045,12 +1169,16 @@ public class MainForm extends javax.swing.JDialog
         individualOutput.setEnabled(true);
         prefixOutput.setEnabled(true);
         loadFileList.setEnabled(true);
+        oEncCombo.setEnabled(true);
+        iEncCombo.setEnabled(true);
+        outputPanel.setEnabled(true);
     }
     private void disableButtons()
     {
         addConverter.setEnabled(false);
         removeConverter.setEnabled(false);
         convertButton.setEnabled(false);
+        configButton.setEnabled(false);
         iFileAdd.setEnabled(false);
         iFileRemove.setEnabled(false);
         oFileButton.setEnabled(false);
@@ -1059,17 +1187,25 @@ public class MainForm extends javax.swing.JDialog
         availableCList.setEnabled(false);
         selectedCList.setEnabled(false);
         inputList.setEnabled(false);
+        individualOutput.setEnabled(false);
+        prefixOutput.setEnabled(false);
         loadFileList.setEnabled(false);
+        oEncCombo.setEnabled(false);
+        iEncCombo.setEnabled(false);
+        outputPanel.setEnabled(false);
     }
+    public ResourceBundle getResource() { return guiResource; }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addConverter;
+    private javax.swing.JPanel availPanel;
     private javax.swing.JList availableCList;
     private javax.swing.JButton configButton;
     private javax.swing.JButton convertButton;
     private javax.swing.JPanel converterPanel;
     private javax.swing.JPanel encPanel;
     private javax.swing.JButton exitButton;
+    private javax.swing.JPanel fileModePanel;
     private javax.swing.JComboBox iEncCombo;
     private javax.swing.JPanel iEncPanel;
     private javax.swing.JButton iFileAdd;
@@ -1083,12 +1219,8 @@ public class MainForm extends javax.swing.JDialog
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1103,8 +1235,11 @@ public class MainForm extends javax.swing.JDialog
     private javax.swing.JTextField outputPrefix;
     private javax.swing.JRadioButton prefixOutput;
     private javax.swing.JLabel progressLabel;
+    private javax.swing.JPanel progressPanel;
     private javax.swing.JButton removeConverter;
+    private javax.swing.JButton saveFileList;
     private javax.swing.JList selectedCList;
+    private javax.swing.JPanel selectedPanel;
     // End of variables declaration//GEN-END:variables
     
 }

@@ -9,7 +9,10 @@ package DocCharConvert;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.util.Map;
-
+import java.util.ResourceBundle;
+import java.io.BufferedReader;
+import java.io.BufferedInputStream;
+import java.io.InputStreamReader;
 import com.sun.star.uno.UnoRuntime;
 import com.sun.star.uno.XComponentContext;
 import com.sun.star.lang.XMultiComponentFactory;
@@ -28,15 +31,15 @@ public class OOMainInterface implements DocInterface
     public final static String UNO_URL =
         "uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
     public final static String RUN_OO =
-        " -headless -accept=socket,hostname=localhost,port=8100;urp;"; 
+        "-accept=socket,hostname=localhost,port=8100;urp;"; 
     private XComponentContext xRemoteContext = null;
 
     private XMultiComponentFactory xRemoteServiceManager = null;
 
     private Process ooProcess = null;
     private int sleepCount = 0;
-    private int SLEEP = 1000;
-    private int MAX_SLEEP_COUNT = 60; // wait one minute
+    private int SLEEP = 10;
+    private int MAX_SLEEP_COUNT = 3000; // wait 30 seconds
     private boolean onlyStylesInUse = false;
     private OODocParser parser = null;
     /** Creates a new instance of OOMainInterface */
@@ -92,7 +95,7 @@ public class OOMainInterface implements DocInterface
         xRemoteServiceManager = null;
     }
 
-    protected void useConnection(File inputFile, File outputFile, Map converters) 
+    protected void useConnection(File inputFile, File outputFile, Map<TextStyle,CharConverter> converters) 
         throws InterfaceException, WarningException
     {
 
@@ -134,6 +137,8 @@ public class OOMainInterface implements DocInterface
             catch (InterfaceException e)
             {
                 parser = null; // force reset of parser next time around
+                xRemoteContext = null;
+                xRemoteServiceManager = null;
                 throw e;
             }
             finally
@@ -182,6 +187,7 @@ public class OOMainInterface implements DocInterface
             System.err.println("No process listening on the resource");
             spawnLocalOO();
         }
+        
         while (xRemoteServiceManager == null)
         {
             try
@@ -190,9 +196,11 @@ public class OOMainInterface implements DocInterface
             }
             catch (com.sun.star.connection.NoConnectException e1)
             {   
+                
                 waitForOOToStart();
             }
         }
+        
         String available = (null != xRemoteServiceManager ? 
             "available" : "not available");
         System.out.println("remote ServiceManager is " + available);
@@ -212,7 +220,8 @@ public class OOMainInterface implements DocInterface
             {
                 if (++sleepCount > MAX_SLEEP_COUNT) 
                 {
-                    throw new InterfaceException("Timeout waiting for connection");
+                    throw new InterfaceException(Config.getCurrent().getMsgResource()
+                                                 .getString("oo_connect_timeout"));
                 }
             }
         }
@@ -226,7 +235,8 @@ public class OOMainInterface implements DocInterface
             catch (InterruptedException e) {} // ignore
             if (++sleepCount > MAX_SLEEP_COUNT) 
             {
-                throw new InterfaceException("Timeout waiting for connection");
+                throw new InterfaceException(Config.getCurrent().getMsgResource()
+                                             .getString("oo_connect_timeout"));
             }
         }
     }
@@ -236,13 +246,57 @@ public class OOMainInterface implements DocInterface
         // try to start OO ourselves
         if (ooProcess == null)
         {
-            System.err.println("Executing: " + Config.getCurrent().getOOPath() + " " +
+            System.err.println("Executing: " + Config.getCurrent().getOOPath() + " -headless " +
                 Config.getCurrent().getOOOptions());
             try
             {
-                ooProcess = Runtime.getRuntime().exec
-                    (Config.getCurrent().getOOPath() + " " + 
-                     Config.getCurrent().getOOOptions());
+                // oo dir is grand father of program
+                File ooDir = (new File(Config.getCurrent().getOOPath()))
+                    .getParentFile();
+                if (ooDir != null) ooDir = ooDir.getParentFile();
+                //ooProcess = Runtime.getRuntime().exec(args, null, ooDir);
+                ProcessBuilder pb = new ProcessBuilder(
+                        Config.getCurrent().getOOPath(), "-headless", 
+                        Config.getCurrent().getOOOptions());
+                pb.redirectErrorStream(true);
+                pb.directory(ooDir);
+                
+        
+                ooProcess = pb.start();
+                if (ooProcess != null) 
+                {
+                    BufferedReader br = new BufferedReader(
+                            new InputStreamReader(ooProcess.getInputStream()));
+                    final BufferedReader ooor = br;
+                    Runnable stdoutMonitor =  new Runnable() {
+                        public void run()
+                        {                            
+                            System.out.println("OO Stdout monitor running\n");
+                            try {
+                                // need to read stdout otherwise it stalls OpenOffice
+                                String line = "";
+                                while (line != null) {
+                                    line = ooor.readLine();
+                                    //System.out.println(line);
+                                }
+                            }
+                            catch (java.io.IOException e)
+                            {
+                             System.out.println(e.getMessage());
+
+                            }
+                            try {
+                                if (ooor != null) ooor.close();
+                            }
+                            catch (java.io.IOException e)
+                            {
+                                System.out.println(e.getMessage());
+                            }
+                            System.out.println("OO Stdout monitor finished\n");
+                        }
+                    };
+                    new Thread(stdoutMonitor).start();
+                }
             }
             catch (java.io.IOException ioe)
             {
@@ -327,11 +381,14 @@ public class OOMainInterface implements DocInterface
     
     
     
-    public void parse(File input, File output, java.util.Map converters) 
+    public void parse(File input, File output, java.util.Map<TextStyle,CharConverter> converters) 
         throws DocCharConvert.Converter.CharConverter.FatalException,
         InterfaceException, WarningException
     {
         useConnection(input, output, converters);
+        parser = null;
+        xRemoteContext = null;
+        xRemoteServiceManager = null;
     }
     
     public ConversionMode getMode()

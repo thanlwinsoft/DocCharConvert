@@ -1,1 +1,1 @@
-../../DocCharConvert_Converter_TecKitJni.h
+../../build/classes/DocCharConvert_Converter_TecKitJni.h

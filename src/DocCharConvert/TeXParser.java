@@ -15,9 +15,9 @@ import DocCharConvert.Converter.CharConverter;
  */
 public class TeXParser extends TextParser
 {
-    private HashSet onCommands;
-    private HashSet offCommands;
-    private HashSet ignoreLineCommands;
+    private HashSet <String>onCommands;
+    private HashSet <String>offCommands;
+    private HashSet <String>ignoreLineCommands;
     int lineIndex = 0;
     boolean conversionOn = true; // on by default
     boolean ignoreLine = false;
@@ -28,9 +28,9 @@ public class TeXParser extends TextParser
     public TeXParser()
     {
         convertedLine = new StringBuffer();
-        onCommands = new HashSet();
-        offCommands =new HashSet();
-        ignoreLineCommands = new HashSet();
+        onCommands = new HashSet<String>();
+        offCommands =new HashSet<String>();
+        ignoreLineCommands = new HashSet<String>();
         ignoreLineCommands.add(new String("id"));
         onCommands.add(new String("tx"));
         offCommands.add(new String("en"));

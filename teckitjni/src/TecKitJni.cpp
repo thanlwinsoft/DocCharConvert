@@ -20,7 +20,7 @@ class TecKitJni;
 
 
 
-static TecKitJni * instance = NULL;
+//static TecKitJni * instance = NULL;
 
 TecKitJni::TecKitJni()
 : converter(NULL), mapBuffer(NULL), outputLength(0), maxOutputLength(8192), 
@@ -171,18 +171,18 @@ void TecKitJni::flush()
 
 
 
-JNIEXPORT jboolean JNICALL Java_DocCharConvert_Converter_TecKitJni_createConverter
-  (JNIEnv * env, jobject obj, jstring path, jboolean toUnicode)
+JNIEXPORT jlong JNICALL Java_DocCharConvert_Converter_TecKitJni_createConverter
+  (JNIEnv * env, jobject, jstring path, jboolean toUnicode)
   {
       //fprintf(stderr,"in createConverter\n");
 	
-      jboolean success = false;
+      jlong success = 0;
       
-      if (instance != NULL) return success;
-      instance = new TecKitJni();
+      TecKitJni * instance = new TecKitJni();
       const char *str = env->GetStringUTFChars(path, 0);
       success = instance->openMapping(str, toUnicode);
       env->ReleaseStringUTFChars(path, str);
+      success = reinterpret_cast<jlong>(instance);
       return success;
   }
   
@@ -194,10 +194,11 @@ JNIEXPORT jboolean JNICALL Java_DocCharConvert_Converter_TecKitJni_createConvert
  * Signature: ([B)[B
  */
 JNIEXPORT jbyteArray JNICALL Java_DocCharConvert_Converter_TecKitJni_convert
-  (JNIEnv *env, jobject, jbyteArray iArray)
+  (JNIEnv *env, jobject, jlong instanceId, jbyteArray iArray)
 {
   jsize inLength = env->GetArrayLength(iArray);
   jbyte * inData = env->GetByteArrayElements(iArray, 0);
+  TecKitJni * instance = reinterpret_cast<TecKitJni*>(instanceId);
   char * converted = instance->convert(reinterpret_cast<const char *>(inData), inLength);
   //fprintf(stderr, "Input length %d\n",inLength);
   env->ReleaseByteArrayElements(iArray, inData, 0);
@@ -221,8 +222,9 @@ JNIEXPORT jbyteArray JNICALL Java_DocCharConvert_Converter_TecKitJni_convert
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_DocCharConvert_Converter_TecKitJni_flush
-  (JNIEnv *env, jobject)
+  (JNIEnv *env, jobject, jlong instanceId)
   {
+      TecKitJni * instance = reinterpret_cast<TecKitJni*>(instanceId);
       if (instance) instance->flush();
   }
 
@@ -232,8 +234,9 @@ JNIEXPORT void JNICALL Java_DocCharConvert_Converter_TecKitJni_flush
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_DocCharConvert_Converter_TecKitJni_destroyConverter
-  (JNIEnv *env, jobject)
+  (JNIEnv *env, jobject, jlong instanceId)
   {
+      TecKitJni * instance = reinterpret_cast<TecKitJni*>(instanceId);
       if (instance != NULL) 
       {
           delete instance;

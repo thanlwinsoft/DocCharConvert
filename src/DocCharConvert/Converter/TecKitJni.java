@@ -5,7 +5,6 @@
  */
 
 package DocCharConvert.Converter;
-import DocCharConvert.Config;
 import java.net.URL;
 import java.io.File;
 /**
@@ -16,30 +15,32 @@ public class TecKitJni
 {
     static final String LIBRARY = "TecKitJni";
     static boolean libraryLoaded = false;
-    //static final String PATH = "/usr/local/lib/";
-    //static final String PATH = "/home/keith/projects/DocCharConvert/teckitjni/src/";
-    static 
+    static boolean loadLibrary(File libraryPath)
     {
-        try
+        if (!libraryLoaded) 
         {
-            File library = new File
-                (Config.getCurrent().getConverterPath(), 
-                System.mapLibraryName(LIBRARY));
-            System.load(library.getAbsolutePath());
-            System.out.println("Loaded " + System.mapLibraryName(LIBRARY));
-            libraryLoaded = true;
+            try
+            {
+                File library = new File
+                    (libraryPath, 
+                    System.mapLibraryName(LIBRARY));
+                System.load(library.getAbsolutePath());
+                System.out.println("Loaded " + System.mapLibraryName(LIBRARY));
+                libraryLoaded = true;
+            }
+            catch (UnsatisfiedLinkError e)
+            {
+                System.out.println(e);
+                System.out.println(e.getMessage() + " " + 
+                    System.mapLibraryName(LIBRARY) + " " + 
+                    System.getProperty("java.library.path"));
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
         }
-        catch (UnsatisfiedLinkError e)
-        {
-            System.out.println(e);
-            System.out.println(e.getMessage() + " " + 
-                System.mapLibraryName(LIBRARY) + " " + 
-                System.getProperty("java.library.path"));
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
+        return libraryLoaded;
     }
     public static boolean isLibraryLoaded() { return libraryLoaded; }
     
@@ -49,11 +50,10 @@ public class TecKitJni
         
     }
     
-    public native boolean createConverter(String path, boolean toUnicode);
-    //public native String convert(String aString);
+    public native long createConverter(String path, boolean toUnicode);
     
-    public native byte [] convert(byte [] inputArray);
+    public native byte [] convert(long convId, byte [] inputArray);
     
-    public native void flush();
-    public native void destroyConverter();
+    public native void flush(long convId);
+    public native void destroyConverter(long convId);
 }

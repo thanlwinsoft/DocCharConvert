@@ -199,6 +199,37 @@ public class BatchConversion implements Runnable
     }
     synchronized public boolean isRunning() { return running; }
     
+    protected void initDocInterface() throws DocCharConvert.DocInterface.InterfaceException
+    {
+        if (docInterface == null)
+        {
+            switch (mode.getId())
+            {
+                case ConversionMode.OO_ID:
+                    OOMainInterface ooInterface = new OOMainInterface();
+                    ooInterface.setOnlyStylesInUse(onlyStylesInUse);
+                    docInterface = ooInterface;
+                    break;
+                case ConversionMode.TEXT_ID:
+                    docInterface = new TextParser();
+                    break;
+                case ConversionMode.TEX_ID:
+                    docInterface = new TeXParser();
+                    break;
+            }
+            if (iCharset != null) docInterface.setInputEncoding(iCharset);
+            if (oCharset != null) docInterface.setOutputEncoding(oCharset);
+        }
+        if (docInterface == null) 
+        {
+            running = false; 
+            System.out.println("No document interface!");
+            showWarning("Failed to intialise document interface");
+            return;
+        }
+        docInterface.initialise();
+    }
+    
     public void run()
     {
         Iterator i;
@@ -229,35 +260,9 @@ public class BatchConversion implements Runnable
                 docInterface = null;
             }
         }
-        if (docInterface == null)
-        {
-            switch (mode.getId())
-            {
-                case ConversionMode.OO_ID:
-                    OOMainInterface ooInterface = new OOMainInterface();
-                    ooInterface.setOnlyStylesInUse(onlyStylesInUse);
-                    docInterface = ooInterface;
-                    break;
-                case ConversionMode.TEXT_ID:
-                    docInterface = new TextParser();
-                    break;
-                case ConversionMode.TEX_ID:
-                    docInterface = new TeXParser();
-                    break;
-            }
-            if (iCharset != null) docInterface.setInputEncoding(iCharset);
-            if (oCharset != null) docInterface.setOutputEncoding(oCharset);
-        }
-        if (docInterface == null) 
-        {
-            running = false; 
-            System.out.println("No document interface!");
-            showWarning("Failed to intialise document interface");
-            return;
-        }
+        
         try 
         {
-            docInterface.initialise();
             // initialise converters
             while (c.hasNext())
             {
@@ -276,11 +281,13 @@ public class BatchConversion implements Runnable
                     {
                         currentFileIndex++;
                         status = inputFile.getName();
-                    }                
+                    }
+                    if (docInterface == null)
+                        initDocInterface();
                 }
                 else
                 {
-                    docInterface.initialise();
+                    initDocInterface();
                 }
                 File outputFile = getOutputFile(inputFile);
                 final String filePath = outputFile.getAbsolutePath();
@@ -336,6 +343,7 @@ public class BatchConversion implements Runnable
                     {
                         retry = true;
                         docInterface.destroy();
+                        docInterface = null;
                         continue;
                     }
                     retry = true;
@@ -379,7 +387,12 @@ public class BatchConversion implements Runnable
                     }
                 }
             } // while ((i.hasNext())&&(stop == false))
-        
+            
+            if (docInterface != null)
+            {
+                docInterface.destroy();
+                docInterface = null;
+            }
             c = converterList.values().iterator();
             // tidy up converters
             while (c.hasNext())
@@ -407,6 +420,11 @@ public class BatchConversion implements Runnable
         }
         finally
         {
+            if (docInterface != null)
+            {
+                docInterface.destroy();
+                docInterface = null;
+            }
             running = false;
         }
     }

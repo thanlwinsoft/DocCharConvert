@@ -48,7 +48,7 @@ public class DocCharConvertMain
                         "Padauk Academy",
                         "Padauk");
                  */
-            Hashtable converters = new Hashtable();
+            Hashtable<TextStyle,CharConverter> converters = new Hashtable<TextStyle,CharConverter>();
             converters.put(new FontStyle(""), converter);
             firstConnection1.useConnection(new File("test1.sxw"), 
                 new File("test1Output.sxw"),converters);

@@ -17,7 +17,7 @@ public interface DocInterface
 {
     void initialise() throws InterfaceException;
     void destroy();
-    void parse(File input, File output, java.util.Map converters) 
+    void parse(File input, File output, java.util.Map<TextStyle,CharConverter> converters) 
         throws CharConverter.FatalException, InterfaceException,
         WarningException;
     String getStatusDesc();

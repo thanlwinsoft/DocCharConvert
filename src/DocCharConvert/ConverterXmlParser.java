@@ -45,16 +45,16 @@ public class ConverterXmlParser
     public final static String NEW = "new";
     public final static String EXT = ".dccx";
     File converterDir = null;
-    Vector converters = null;
+    Vector<CharConverter> converters = null;
     StringBuffer errorLog = null;
     /** Creates a new instance of ConverterXmlParser */
     public ConverterXmlParser(File converterDir)
     {
         this.converterDir = converterDir;
-        this.converters = new Vector();
+        this.converters = new Vector<CharConverter>();
         this.errorLog = new StringBuffer();
     }
-    public boolean parse()
+    public static File [] getConverterFiles(File converterDir)
     {
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name)
@@ -64,13 +64,16 @@ public class ConverterXmlParser
         };
         if (converterDir == null) 
         {
-            errorLog.append("No Converter directory specified.");
-            return false;
+            return null;
         }
-        File [] files = converterDir.listFiles(filter);
+        return converterDir.listFiles(filter);
+    }
+    public boolean parse()
+    {
+        File [] files = getConverterFiles(converterDir);
         if (files == null) 
         {
-            errorLog.append("No Converters found. Please check the converter directory is correct.");
+            errorLog.append(Config.getCurrent().getMsgResource().getString("noConvDir"));
             return false;
         }
         for (int i = 0; i<files.length; i++)
