@@ -4,7 +4,8 @@ use Getopt::Std;
 use IO::File;
 use Compress::Zlib;
 
-$VERSION = 0.01;    # MJPH   7-SEP-2002     Original
+$VERSION = 0.02;    # MJPH   7-JUL-2002     add bctxt to re-order rules
+# $VERSION = 0.01;    # MJPH   7-SEP-2002     Original
 
 getopts('z');
 
@@ -235,7 +236,7 @@ sub compile_map
                     || $a->[8]{'line'} <=> $b->[8]{'line'}} @{$r};
         
         error(undef, undef, "Ambiguous mapping from " . strerror($k, !$toBytes) . 
-                " at lines $r->[-2][8]{'line'} and $r->[-1][8]{'line'}")
+                " at lines $r[-2][8]{'line'} and $r[-1][8]{'line'}")
                 if (scalar @{$r} > 1 && $r->[-2][3] == 1 && $r->[-2][1] == 0 && $r->[-2][5] == 0);
         if (scalar @{$r} == 1)
         {
@@ -373,13 +374,24 @@ sub compile_order
     my ($isBytes) = ($side eq 'bytes');
     my ($count, $obj, $r, $tec, $list, $dummy, $i, $name, $reg1, $num, $outtec);
     my ($lkup, @teclist, @toffsets, @moffsets, $k, $c, $surrogates, $lmatch, $lgen, $mmatch, $mgen);
+    my ($mpre, $mpost);
     my (@classes, $ocount, $vcount, %firsts, %map, %vals);
 
     foreach $r (@{$self->{'orders'}{$side}})
     {
         my (%names, @nums, $outtec);
+        my ($btec, $lpre, $atec, $lpost);
         my ($reg1, $list, $dummy);
         my ($tec, $list, $lmatch) = @{$self->{'contexts'}{$r->{$srcl}}->asTec(collect => 1, pass => "$srcl$side")};
+        if ($r->{'bctxt'})
+        { ($btec, $dummy, $lpre) = @{$self->{'contexts'}{$r->{'bctxt'}}->asTec(reverse => 1, pass => "$srcl$side")}; }
+        else
+        { $btec = ''; $lpre = 0; }
+        
+        if ($r->{'actxt'})
+        { ($atec, $dummy, $lpost) = @{$self->{'contexts'}{$r->{'bctxt'}}->asTec(pass => "$srcl$side")}; }
+        else
+        { $atec = ''; $lpost = 0; }
         
         error(undef, undef, "Match regexp too long at line $r->{'line'}") if (length($tec) > 1024);
         foreach $i (keys %{$list})
@@ -412,9 +424,11 @@ sub compile_order
         
         $mmatch = $lmatch if ($lmatch > $mmatch);
         $mgen = $lgen if ($lgen > $mgen);
+        $mpre = $lpre if ($lpre > $mpre);
+        $mpost = $lpost if ($lpost > $mpost);
         
         push (@toffsets, length($lkup));
-        $lkup = pack('CCCCa*a*', length($tec) / 4, 0, 0, length($outtec) / 4, $tec, $outtec);
+        $lkup = pack('CCCCa*a*a*a*', length($tec) / 4, length($atec) / 4, length($btec) / 4, length($outtec) / 4, $tec, $atec, $btec, $outtec);
         push (@teclist, $lkup);
         
         foreach $num ($self->{'contexts'}{$r->{$srcl}}->findfirst())
@@ -455,7 +469,7 @@ sub compile_order
         }
     }
     
-    output_map(\%map, \@teclist, \@classes, 0, $mmatch, 0, $mgen, 0, $side eq 'unicode', $surrogates, 1, $outfh, \@moffsets);
+    output_map(\%map, \@teclist, \@classes, $mpre, $mmatch, 0, $mgen, 0, $side eq 'unicode', $surrogates, 1, $outfh, \@moffsets);
 }
 
 package Encode::UTR22::Regexp::Element;

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xslt" href="utr_display.xsl"?>
+<!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
+<!--
+
+--> 
+<characterMapping
+    id="MienLao-LaoUnicode" 
+    version="01"
+    description="Converts between Mien Lao font (Bytes) and Mien Lao (Unicode)"
+    contact="mailto:jungleglacier@snc.co.uk"
+    registrationAuthority="none"
+    registrationName=""
+    byte-font="Arial,Times New Roman"
+    normalization="NFD"
+>
+
+<history>
+    <modified version="1" date="2005-02-10">
+        Initial version
+    </modified>
+</history>
+
+<!-- 
+use U+2612 (Ballot box with X) for unicode errors 
+It is hard to find where a consonant ends since some characters 
+can be both consonants and vowels. It is therefore easier to 
+use a ZWJ 200D character after every consonant and a
+ZWNJ before every consonant. i.e. 200C 200D
+Some tones are unmarked so substitute 200b ZWSP at this stage.
+They will be stripped out later during the vowel & tone reordering
+-->
+<assignments sub="2A">
+    <range bFirst="00" bLast="1F" uFirst="0000" uLast="001F"/>
+
+    <a b="20" u="0020"/>
+    <a b="21" u="0021"/><!-- ! -->
+    <a b="22" u="0022"/><!-- " -->
+    <a b="23" u="0023"/><!-- # -->
+    <a b="24" u="0024"/><!-- $ -->
+    <a b="25" u="0025"/><!-- % -->
+    <a b="26" u="0026"/><!-- & -->
+    <a b="27" u="0027"/><!-- ' -->
+    <a b="28" u="0028"/><!-- ( -->
+    <a b="29" u="0029"/><!-- ) -->
+    <a b="2a" u="002a"/><!-- * -->
+    <a b="2b" u="002b"/><!-- + -->
+    <a b="2c" u="002c"/><!-- , -->
+    <a b="2d" u="002d"/><!-- - -->
+    <a b="2e" u="002e"/><!-- . -->
+    <a b="2f" u="002f"/><!-- / -->
+    <a b="30" u="0030"/><!-- 0 -->
+    <a b="31" u="0031"/><!-- 1 -->
+    <a b="32" u="0032"/><!-- 2 -->
+    <a b="33" u="0033"/><!-- 3 -->
+    <a b="34" u="0034"/><!-- 4 -->
+    <a b="35" u="0035"/><!-- 5 -->
+    <a b="36" u="0036"/><!-- 6 -->
+    <a b="37" u="0037"/><!-- 7 -->
+    <a b="38" u="0038"/><!-- 8 -->
+    <a b="39" u="0039"/><!-- 9 -->
+    <a b="3a" u="003a"/><!-- : -->
+    <a b="3b" u="003b"/><!-- ; -->
+    <a b="3c" u="003c"/><!-- < -->
+    <a b="3d" u="003d"/><!-- = -->
+    <a b="3e" u="003e"/><!-- > -->
+    <a b="3f" u="003f"/><!-- ? -->
+    <a b="40" u="0040"/><!-- @ -->
+    <a b="41" u="0041"/><!-- A -->
+    <a b="42" u="0042"/><!-- B -->
+    <a b="43" u="0043"/><!-- C -->
+    <a b="44" u="0044"/><!-- D -->
+    <a b="45" u="0045"/><!-- E -->
+    <a b="46" u="0046"/><!-- F -->
+    <a b="47" u="0047"/><!-- G -->
+    <a b="48" u="0048"/><!-- H -->
+    <a b="49" u="0049"/><!-- I -->
+    <a b="4a" u="004a"/><!-- J -->
+    <a b="4b" u="004b"/><!-- K -->
+    <a b="4c" u="004c"/><!-- L -->
+    <a b="4d" u="004d"/><!-- M -->
+    <a b="4e" u="004e"/><!-- N -->
+    <a b="4f" u="004f"/><!-- O -->
+    <a b="50" u="0050"/><!-- P -->
+    <a b="51" u="0051"/><!-- Q -->
+    <a b="52" u="0052"/><!-- R -->
+    <a b="53" u="0053"/><!-- S -->
+    <a b="54" u="0054"/><!-- T -->
+    <a b="55" u="0055"/><!-- U -->
+    <a b="56" u="0056"/><!-- V -->
+    <a b="57" u="0057"/><!-- W -->
+    <a b="58" u="0058"/><!-- X -->
+    <a b="59" u="0059"/><!-- Y -->
+    <a b="5a" u="005a"/><!-- Z -->
+    <a b="5b" u="005b"/><!-- [ -->
+    <a b="5c" u="005c"/><!-- \ -->
+    <a b="5d" u="005d"/><!-- ] -->
+    <a b="5e" u="005e"/><!-- ^ -->
+    <a b="5f" u="005f"/><!-- _ -->
+    <a b="60" u="0060"/><!-- ` -->
+    <a b="61" u="0061"/><!-- a -->
+    <a b="62" u="0062"/><!-- b -->
+    <a b="63" u="0063"/><!-- c -->
+    <a b="64" u="0064"/><!-- d -->
+    <a b="65" u="0065"/><!-- e -->
+    <a b="66" u="0066"/><!-- f -->
+    <a b="67" u="0067"/><!-- g -->
+    <a b="68" u="0068"/><!-- h -->
+    <a b="69" u="0069"/><!-- i -->
+    <a b="6a" u="006a"/><!-- j -->
+    <a b="6b" u="006b"/><!-- k -->
+    <a b="6c" u="006c"/><!-- l -->
+    <a b="6d" u="006d"/><!-- m -->
+    <a b="6e" u="006e"/><!-- n -->
+    <a b="6f" u="006f"/><!-- o -->
+    <a b="70" u="0070"/><!-- p -->
+    <a b="71" u="0071"/><!-- q -->
+    <a b="72" u="0072"/><!-- r -->
+    <a b="73" u="0073"/><!-- s -->
+    <a b="74" u="0074"/><!-- t -->
+    <a b="75" u="0075"/><!-- u -->
+    <a b="76" u="0076"/><!-- v -->
+    <a b="77" u="0077"/><!-- w -->
+    <a b="78" u="0078"/><!-- x -->
+    <a b="79" u="0079"/><!-- y -->
+    <a b="7a" u="007a"/><!-- z -->
+
+    <a b="7b" u="007b"/><!-- {-->
+    <a b="7c" u="007c"/><!-- |-->
+    <a b="7d" u="007d"/><!-- }-->
+    <a b="7e" u="007e"/><!-- ~-->
+    <a b="7f" u="007f"/><!-- DELETE key -->
+    
+    <range bFirst="80" bLast="9F" uFirst="0080" uLast="009F"/>
+    
+    <a b="a0" u="00a0"/>
+    <a b="a1" u="0e81"/>
+    <a b="a2" u="0e82"/>
+    <a b="a3" u="0e84"/>
+    <a b="a4" u="0e87"/>
+    <a b="a5" u="0e88"/>
+    <a b="a6" u="0eaa"/>
+    <a b="a7" u="0e8a"/>
+    <a b="a8" u="0e8d"/>
+    <a b="a9" u="0e94"/>
+    <a b="aa" u="0e95"/>
+    <a b="ab" u="0e96"/>
+    <fbu b="ac" u="002d"/>
+    <a b="ad" u="0e99"/>
+    <a b="ae" u="0e9a"/>
+    <a b="af" u="0e9b"/>    
+    <a b="b0" u="0e9c"/>
+    <a b="b1" u="0e9d"/>
+    <a b="b2" u="0e9e"/>
+    <a b="b3" u="0e9f"/>
+    <a b="b4" u="0ea1"/>
+    <a b="b5" u="0ea2"/>
+    <a b="b6" u="00b6"/>
+    <a b="b7" u="00b7"/>
+    <a b="b8" u="0ea7"/>
+    <a b="b9" u="0eab"/>
+    <a b="ba" u="0ead"/>
+    <a b="bb" u="0eae"/>
+    <a b="bc" u="0ebd"/>
+    <a b="bd" u="0eb0"/>
+    <a b="be" u="0eb2"/>
+    <a b="bf" u="0eb3"/>    
+    <a b="c0" u="0ec0"/>
+    <a b="c1" u="0ec1"/>
+    <a b="c2" u="0ec2"/>
+    <a b="c3" u="0ec3"/>
+    <a b="c4" u="0ec4"/>
+    <a b="c5" u="0ec6"/>
+    <fbu b="c6" u="0e87"/>
+    <a b="c7" u="00c7"/>
+    <a b="c8" u="0ec8"/>
+    <a b="c9" u="0ec9"/>
+    <a b="ca" u="0eca"/>
+    <a b="cb" u="0ecb"/>
+    <a b="cc" u="0ecc"/>
+    <a b="cd" u="0eab 0ebc"/>
+    <a b="ce" u="0edc"/>
+    <a b="cf" u="0edd"/>    
+    <a b="d0" u="0eb8"/>
+    <a b="d1" u="0eb9"/>
+    <a b="d2" u="00d2"/>
+    <a b="d3" u="00d3"/>
+    <a b="d4" u="00d4"/>
+    <a b="d5" u="00d5"/>
+    <a b="d6" u="0ecd"/>
+    <a b="d7" u="0eb1"/>
+    <a b="d8" u="0eb4"/>
+    <a b="d9" u="0eb5"/>
+    <a b="da" u="0eb6"/>
+    <a b="db" u="0eb7"/>
+    <a b="dc" u="0ebb"/>
+    <a b="dd" u="00dd"/>
+    <a b="de" u="00de"/>
+    <a b="df" u="00df"/>    
+    <a b="e0" u="0ed0"/>
+    <a b="e1" u="0ed1"/>
+    <a b="e2" u="0ed2"/>
+    <a b="e3" u="0ed3"/>
+    <a b="e4" u="0ed4"/>
+    <a b="e5" u="0ed5"/>
+    <a b="e6" u="0ed6"/>
+    <a b="e7" u="0ed7"/>
+    <a b="e8" u="0ed8"/>
+    <a b="e9" u="0ed9"/>
+    <a b="ea" u="0e97"/>
+    <a b="eb" u="0ea3"/>
+    <a b="ec" u="0ea5"/>
+    <a b="ed" u="00ed"/>
+    <a b="ee" u="00ee"/>
+    <a b="ef" u="00ef"/>
+    <fbu b="f0" u="0ecd"/>
+    <fbu b="f1" u="0ebb"/>
+    <fbu b="f2" u="0eb4"/>
+    <fbu b="f3" u="0eb5"/>
+    <fbu b="f4" u="0eb6"/>
+    <fbu b="f5" u="0eb7"/>
+    <fbu b="f6" u="0ebb"/>
+    <fbu b="f7" u="0eb8"/>
+    <fbu b="f8" u="0eb9"/>
+    <a b="f9" u="0ebc"/>
+    <fbu b="fa" u="0ec8"/>
+    <fbu b="fb" u="0ec9"/>
+    <fbu b="fc" u="0eca"/>
+    <fbu b="fd" u="0eca"/>
+    <fbu b="fe" u="0ecc"/>
+    <a b="ff" u="00ff"/>
+    
+    
+    <ordering side="unicode">
+    </ordering>
+    
+    <ordering side="bytes">
+    <!--    <order b="reorder-bytes-b" u="reorder-bytes-u"/>-->
+    </ordering>
+    
+</assignments>
+<!--
+<contexts>
+
+    
+</contexts>
+-->
+
+</characterMapping>
+
