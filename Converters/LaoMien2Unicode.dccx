@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Mien NRM to Lao">
+<DocCharConverter name="MienLao to Lao Unicode">
 <ConverterClass name="DocCharConvert.Converter.TecKitConverter">
 <Argument value="laoMien2Unicode.tec" type="File" />
 </ConverterClass>

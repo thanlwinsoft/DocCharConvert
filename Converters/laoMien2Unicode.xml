@@ -256,7 +256,7 @@ They will be stripped out later during the vowel & tone reordering
 </group>
 
 <class name="niggahita-b" size="bytes">f0 d6</class>
-<class name="sign-above-b" size="bytes">c9 ca cb cc d7 dc d8 d9 da db dc f1 f2 f3 f4 f5 f6 fe</class>
+<class name="sign-above-b" size="bytes">c8 c9 ca cb cc d7 dc d8 d9 da db dc f1 f2 f3 f4 f5 f6 fe</class>
 <class name="sign-aa-b" size="bytes">be</class>
     
 </contexts>
