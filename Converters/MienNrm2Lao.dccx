@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Mien NRM to Lao">
+<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<Argument value="mienNrm2Lao.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Arial" type="old" />
+<Font name="Saysetta" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>

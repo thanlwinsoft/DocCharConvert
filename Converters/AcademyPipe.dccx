@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Academy Pipe">
+<ConverterClass name="DocCharConvert.Converter.ExternalConverter">
+<Argument value="testTecKit" type="String" />
+<Argument value="-char2utf8 academy.tec" type="String" />
+<Argument value="0" type="int" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Padauk Academy" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>

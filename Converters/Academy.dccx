@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Academy">
+<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<Argument value="academy.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Padauk Academy" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>

@@ -1,0 +1,1315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="utr_display.xsl"?>
+<!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
+ 
+<characterMapping
+    id="Mien-NRM2Lao" 
+    version="01"
+    description="Converts between Mien New Roman (Bytes) and Mien Lao (Unicode) scripts"
+    contact="mailto:jungleglacier@snc.co.uk"
+    registrationAuthority="none"
+    registrationName=""
+    byte-font="Arial,Times New Roman"
+    normalization="NFD"
+>
+
+<history>
+    <modified version="1" date="2004-11-16">
+        Original. 
+    </modified>
+</history>
+
+<!-- 
+use U+2612 (Ballot box with X) for unicode errors 
+It is hard to find where a consonant ends since some characters 
+can be both consonants and vowels. It is therefore easier to 
+use a ZWJ 200D character after every consonant and a
+ZWNJ before every consonant. i.e. 200C 200D
+Some tones are unmarked so substitute 200b ZWSP at this stage.
+They will be stripped out later during the vowel & tone reordering
+-->
+<assignments sub="2A">
+    <range bFirst="00" bLast="1F" uFirst="0000" uLast="001F"/>
+
+    <a b="20" u="0020"/>
+    <a b="21" u="0021"/><!-- ! -->
+    <a b="22" u="0022"/><!-- " -->
+    <a b="23" u="0023"/><!-- # -->
+    <a b="24" u="0024"/><!-- $ -->
+    <a b="25" u="0025"/><!-- % -->
+    <a b="26" u="0026"/><!-- & -->
+    <a b="27" u="0027"/><!-- ' -->
+    <a b="28" u="0028"/><!-- ( -->
+    <a b="29" u="0029"/><!-- ) -->
+    <a b="2a" u="002a"/><!-- * -->
+    <a b="2b" u="002b"/><!-- + -->
+    <a b="2c" u="002c"/><!-- , -->
+    <a b="2d" u="002d"/><!-- - -->
+    <a b="2e" u="002e"/><!-- . -->
+    <a b="2f" u="002f"/><!-- / -->
+    <a b="30" u="0030"/><!-- 0 -->
+    <a b="31" u="0031"/><!-- 1 -->
+    <a b="32" u="0032"/><!-- 2 -->
+    <a b="33" u="0033"/><!-- 3 -->
+    <a b="34" u="0034"/><!-- 4 -->
+    <a b="35" u="0035"/><!-- 5 -->
+    <a b="36" u="0036"/><!-- 6 -->
+    <a b="37" u="0037"/><!-- 7 -->
+    <a b="38" u="0038"/><!-- 8 -->
+    <a b="39" u="0039"/><!-- 9 -->
+    <a b="3a" u="003a"/><!-- : -->
+    <a b="3b" u="003b"/><!-- ; -->
+    <a b="3c" u="003c"/><!-- < -->
+    <a b="3d" u="003d"/><!-- = -->
+    <a b="3e" u="003e"/><!-- > -->
+    <a b="3f" u="003f"/><!-- ? -->
+    <a b="40" u="0040"/><!-- @ -->
+    <fbu b="41" u="0eb0"/><!-- A vowel -->
+    <fbu b="41" u="0eb3" bactxt="final-m-b" /><!-- A vowel -->
+    <fbu b="41" u="0eb1" bactxt="final-kptnng-b" /><!-- A vowel-->
+    <fbu b="41 61" u="0eb2"/><!-- Aa vowel-->
+    <fbu b="41 69" u="0ec4"/><!-- Ai vowel-->
+    <fbu b="41 61 69" u="0eb2 0e8d"/><!-- Aai vowel-->
+    <fbu b="41 75" u="0ec0 0ebb 0eb2"/><!-- Au vowel-->
+    <fbu b="41 61 75" u="0eb2 0ea7"/><!-- Aau vowel-->
+    <fbu b="41 65" u="0ec1"/><!-- Ae long  vowel-->
+    <fbu b="41 65" u="0ec1 0eb0" bactxt="q-final-b"/><!-- Ae short vowel-->
+    <fbu b="41 65" u="0ec1 0eb1" bactxt="final-cons-b" /><!-- Ae final cons-->
+    <fbu b="42" u="200c 0e9b 200d"/><!-- B-->
+    <fbu b="43" u="200c 0e97 0eaa 200d"/><!-- C-->
+    <fbu b="43" u="200c 0e96 0eaa 200d" bactxt="high-vowel-tone-b"/><!-- C high -->
+    <fbu b="44" u="200c 0e95 200d"/><!-- D-->
+    <fbu b="45" u="0ec0"/><!-- E vowel -->
+    <fbu b="45" u="0ec0 0eb0" bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short E vowel with final q-->
+    <fbu b="45" u="0ec0 0eb1" bactxt="final-cons-b"/><!-- E with final-->
+    <fbu b="45 69" u="0ec0 0eb5 0e8d"/><!-- Ei vowel-->
+    <fbu b="45 75" u="0ec0 0ea7"/><!-- Eu vowel-->
+    <fbu b="45 72" u="0ec0 0eb5"/><!-- long Er vowel-->
+    <fbu b="45 72" u="0ec0 0eb4" bactxt="q-final-b"/><!-- short Er vowel with final q -->
+    <fbu b="46" u="200c 0e9f 200d"/><!-- F-->
+    <fbu b="46" u="200c 0e9d 200d" bactxt="high-vowel-tone-b" /><!-- F high-->
+    <fbu b="47" u="200c 0e81 200d"/><!-- G-->
+    <fbu b="48" u="200c 0eae 200d"/><!-- H-->
+    <fbu b="48" u="200c 0eab 200d" bactxt="high-vowel-tone-b"/><!-- H high-->
+    <fbu b="48 6e 67" u="200c 0eae 0e87 200d"/><!-- Hng low -->
+    <fbu b="48 6e 67" u="200c 0eab 0eae 0e87 200d" bactxt="high-vowel-tone-b"/><!-- Hng high-->
+    <fbu b="48 6e 79" u="200c 0eae 0e8d 200d"/><!-- Hny low-->
+    <fbu b="48 6e 79" u="200c 0eab 0eae 0e8d 200d" bactxt="high-vowel-tone-b"/><!-- Hny high-->
+    <fbu b="48 6d" u="200c 0eae 0ea1 200d"/><!-- Hm low -->
+    <fbu b="48 6d" u="200c 0eab 0eae 0ea1 200d" bactxt="high-vowel-tone-b"/><!-- Hm high-->
+    <fbu b="48 6e" u="200c 0eae 0e99 200d"/><!-- Hn low -->
+    <fbu b="48 6e" u="200c 0eab 0eae 0e99 200d" bactxt="high-vowel-tone-b"/><!-- Hn high-->
+    <fbu b="48 6c" u="200c 0eae 0ea5 200d"/><!-- Hl-->
+    <fbu b="48 6c" u="200c 0eab 0eae 0ea5 200d" bactxt="high-vowel-tone-b"/><!-- Hl high-->
+    <fbu b="48 75" u="200c 0eae 0ea7 200d"/><!-- Hu -->
+    <fbu b="48 75" u="200c 0eab 0eae 0ea7 200d" bactxt="high-vowel-tone-b"/><!-- Hu high-->
+    <fbu b="48 69" u="200c 0eae 0ea2 200d"/><!-- Hi-->
+    <fbu b="48 69" u="200c 0eab 0eae 0ea2 200d" bactxt="high-vowel-tone-b"/><!-- Hi high-->
+    <fbu b="49" u="0eb5"/><!-- long I vowel -->
+    <fbu b="49" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
+    <fbu b="49 6f 75" u="0ebd 0ea7"/><!-- Iou vowel-->
+    <fbu b="49 75" u="0eb5 0ea7"/><!-- Iu-->
+    <fbu b="49 65" u="0ec0 0e8d"/><!-- Ie-->
+    <fbu b="49 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
+    <fbu b="49 65" u="0ebd" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
+    <fbu b="4a" u="200c 0e88 200d"/><!-- J-->
+    <fbu b="4b" u="200c 0e84 200d"/><!-- K-->
+    <fbu b="4b" u="200c 0e82 200d"  bactxt="high-vowel-tone-b"/><!-- K high-->
+    <fbu b="4c" u="200c 0ea5 200d"/><!-- L low -->
+    <fbu b="4c" u="200c 0eab 0ea5 200d" bactxt="high-vowel-tone-b" /><!-- L high-->
+    <fbu b="4d" u="200c 0ea1 200d"/><!-- M low -->
+    <fbu b="4d" u="200c 0edd 200d" bactxt="high-vowel-tone-b" /><!-- M high -->
+    <fbu b="4d 62" u="200c 0e9a 200d"/><!-- Mb mid -->
+    <fbu b="4e" u="200c 0e99 200d"/><!-- N-->
+    <fbu b="4e" u="200c 0edc 200d" bactxt="high-vowel-tone-b" /><!-- N high-->
+    <fbu b="4e 64" u="200c 0e94 200d"/><!-- Nd mid -->
+    <fbu b="4e 67" u="200c 0e87 200d"/><!-- Ng low -->
+    <fbu b="4e 67" u="200c 0eab 0e87 200d" bactxt="high-vowel-tone-b" /><!-- Ng high -->
+    <fbu b="4e 6a" u="200c 0ead 0e88 200d"/><!-- Nj mid -->
+    <fbu b="4e 71" u="200c 0ead 0e81 200d"/><!-- Nq mid -->
+    <fbu b="4e 79" u="200c 0e8d 200d"/><!-- Ny low -->
+    <fbu b="4e 79" u="200c 0eab 0e8d 200d" bactxt="high-vowel-tone-b" /><!-- Ny high-->
+    <fbu b="4e 7a" u="200c 0e94 0eaa 200d"/><!-- Nz mid -->
+    <fbu b="4f" u="0ec2"/><!-- O vowel -->
+    <fbu b="4f" u="0ec2 0eb0"  bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
+    <fbu b="4f" u="0ebb"  bactxt="final-cons-b"/><!-- O vowel with final cons-->
+    <fbu b="4f 69" u="0ead 0e8d"/><!-- Oi vowel -->
+    <fbu b="4f 75" u="0ec2 0ea7"/><!-- Ou vowel-->
+    <fbu b="4f 72" u="0ecd"/><!-- long Or vowel-->
+    <fbu b="4f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short Or vowel with q final-->
+    <fbu b="4f 72" u="0ead" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
+    <fbu b="50" u="200c 0e9e 200d"/><!-- P low -->
+    <fbu b="50" u="200c 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
+    <fbu b="51" u="200c 0e97 0e88 200d"/><!-- Q low -->
+    <fbu b="71" u="200c 0e96 0e88 200d"  bactxt="high-vowel-tone-b"/><!-- q high -->
+    <fbu b="52" u="2612"/><!-- R does not occur outside a vowel -->
+    <fbu b="53" u="200c 0e8a 200d"/><!-- S low -->
+    <fbu b="53" u="200c 0eaa 200d" bactxt="high-vowel-tone-b" /><!-- S high-->
+    <fbu b="54" u="200c 0e97 200d"/><!-- T low -->
+    <fbu b="54" u="200c 0e96 200d" bactxt="high-vowel-tone-b" /><!-- T high-->
+    <fbu b="55" u="0eb9"/><!-- long U vowel -->
+    <fbu b="55" u="0eb8" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
+    <fbu b="55 69" u="0eb8 0e8d"/><!-- Ui vowel -->
+    <fbu b="55 65" u="0eb7"/><!-- long ue vowel -->
+    <fbu b="55 65" u="0eb6" bactxt="q-final-b" /><!-- short ue vowel -->
+    <fbu b="55 65 69" u="0ec0 0ea7 0eb5 0e8d"/><!--  u ei vowel -->
+    <fbu b="55 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/><!--  u ei vowel in fu'juei-->
+    <fbu b="55 65 61" u="0ec0 0eb7 0ead" /><!-- Uea vowel -->
+    <fbu b="55 65 61" u="0ec0 0eb6" bactxt="q-final-b"/><!-- Uea vowel -->
+    <fbu b="55 6f" u="0ebb 0ea7"/><!-- long Uo vowel -->
+    <fbu b="55 6f" u="0ebb 0ea7 0eb0" bactxt="q-final-b"/><!-- short Uo vowel -->
+    <fbu b="55 6f" u="0ea7" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
+    <fbu b="56" u="2612"/><!-- V does not occur as capital -->
+    <fbu b="57" u="200c 0ea7 200d"/><!-- W-->
+    <fbu b="57" u="200c 0eab 0ea7 200d" bactxt="high-vowel-tone-b" /><!-- high w-->
+    <fbu b="58" u="2612"/><!-- X does not occur as capital -->
+    <fbu b="59" u="200c 0ea2 200d"/><!-- Y-->
+    <fbu b="5a" u="200c 0e95 0eaa 200d"/><!-- Z mid -->
+    <a b="5b" u="005b"/><!-- [ -->
+    <a b="5c" u="005c"/><!-- \ -->
+    <a b="5d" u="005d"/><!-- ] -->
+    <a b="5e" u="005e"/><!-- ^ -->
+    <a b="5f" u="005f"/><!-- _ -->
+    <a b="60" u="0060"/><!-- ` -->
+    <a b="61" u="0eb3" bactxt="final-m-b" /><!-- a vowel-->
+    <a b="61" u="0eb1" bactxt="final-kptnng-b" /><!-- a vowel-->
+    <a b="61" u="0eb0" /><!-- a vowel -->
+    <a b="61 61" u="0eb2"/><!-- aa vowel-->
+    <a b="61 69" u="0ec4"/><!-- ai vowel-->
+    <a b="61 61 69" u="0eb2 0e8d"/><!-- aai vowel-->
+    <a b="61 75" u="0ec0 0ebb 0eb2"/><!-- au vowel-->
+    <a b="61 61 75" u="0eb2 0ea7"/><!-- aau vowel-->
+    <a b="61 65" u="0ec1"/><!-- ae long  vowel-->
+    <a b="61 65" u="0ec1 0eb0" bactxt="q-final-b"/><!-- ae short vowel-->
+    
+    <a b="62" u="200c 0e9b 200d"/><!-- b-->
+    <a b="63" u="200c 0e97 0eaa 200d"/><!-- c low -->
+    <a b="63" u="200c 0e96 0eaa 200d" bactxt="high-vowel-tone-b"/><!-- c high -->
+    <!-- c as tone mark on high class final stop or glottal -->
+    <fbu b="63" u="200b" bbctxt="high-cons-final-b" />
+    <!-- c as tone mark on high or middle class no final -->
+    <a b="63" u="0ec8" bbctxt="high-cons-nof-b" />
+    <fbu b="63" u="0ec8" bbctxt="middle-cons-nof-b" />
+    <!-- c as tone mark on middle class final stop or glottal -->
+    <fbu b="63" u="" bbctxt="middle-cons-final-b" />
+    <a b="64" u="200c 0e95 200d"/><!-- d-->
+    <a b="65" u="0ec0"/><!-- long e vowel-->
+    <a b="65" u="0ec0 0eb0" bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short e vowel with final q-->
+    <a b="65 69" u="0ec0 0eb5 0e8d"/><!-- ei vowel-->
+    <a b="65 75" u="0ec0 0ea7"/><!-- eu vowel-->
+    <a b="65 72" u="0ec0 0eb5"/><!-- long er vowel-->
+    <a b="65 72" u="0ec0 0eb4" bactxt="q-final-b"/><!-- short er vowel with final q -->
+    <a b="66" u="200c 0e9f 200d"/><!-- f low -->
+    <a b="66" u="200c 0e9d 200d" bactxt="high-vowel-tone-b" /><!-- f high-->
+    <fbu b="67" u="2612"/><!-- g -->
+    <fbu b="67" u="200c 0e81 200d" bbctxt="not-n-b"/><!-- g-->
+    <a b="68" u="200c 0eae 200d"/><!-- h-->
+    <a b="68" u="200c 0eab 200d" bactxt="high-vowel-tone-b"/><!-- h high-->
+    <a b="68 6e 67" u="200c 0eae 0e87 200d"/><!-- hng low -->
+    <a b="68 6e 67" u="200c 0eab 0eae 0e87 200d" bactxt="high-vowel-tone-b"/><!-- hng high-->
+    <a b="68 6e 79" u="200c 0eae 0e8d 200d"/><!-- hny low-->
+    <a b="68 6e 79" u="200c 0eab 0eae 0e8d 200d" bactxt="high-vowel-tone-b"/><!-- hny high-->
+    <a b="68 6d" u="200c 0eae 0ea1 200d"/><!-- hm low -->
+    <a b="68 6d" u="200c 0eab 0eae 0ea1 200d" bactxt="high-vowel-tone-b"/><!-- hm high-->
+    <a b="68 6e" u="200c 0eae 0e99 200d"/><!-- hn low -->
+    <a b="68 6e" u="200c 0eab 0eae 0e99 200d" bactxt="high-vowel-tone-b"/><!-- hn high-->
+    <a b="68 6c" u="200c 0eae 0ea5 200d"/><!-- hl-->
+    <a b="68 6c" u="200c 0eab 0eae 0ea5 200d" bactxt="high-vowel-tone-b"/><!-- hl high-->
+    <a b="68 75" u="200c 0eae 0ea7 200d"/><!-- hu -->
+    <a b="68 75" u="200c 0eab 0eae 0ea7 200d" bactxt="high-vowel-tone-b"/><!-- hu high-->
+    <a b="68 69" u="200c 0eae 0ea2 200d"/><!-- hi-->
+    <a b="68 69" u="200c 0eab 0eae 0ea2 200d" bactxt="high-vowel-tone-b"/><!-- hi high-->
+    <fbu b="68" u="0ec9" bbctxt="middle-cons-any-b"/><!-- h as tone on middle class -->
+    <fbu b="68" u="0ec8" bbctxt="low-cons-any-b"/><!-- h as tone on low class -->
+    <a b="69" u="0eb5"/><!-- long i vowel -->
+    <a b="69" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short i vowel with q,k,t,p,n,m finals -->
+    <a b="69 6f 75" u="0ebd 0ea7"/><!-- iou vowel-->
+    <a b="69 75" u="0eb5 0ea7"/><!-- iu-->
+    <a b="69 65" u="0ec0 0e8d"/><!-- ie-->
+    <a b="69 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short ie vowel with q final -->
+    <a b="69 65" u="0ebd" bactxt="final-cons-b" uactxt="final-u"/><!-- ie vowel with final cons -->
+    <a b="6a" u="200c 0e88 200d"/><!-- j-->
+    <a b="6b" u="200c 0e84 200d"/><!-- k low -->
+    <a b="6b" u="200c 0e82 200d"  bactxt="high-vowel-tone-b"/><!-- k high-->
+    <a b="6b" u="0e81"  bbctxt="vowel-final-b"/><!-- k final-->
+    <a b="6c" u="200c 0ea5 200d"/><!-- l low-->
+    <a b="6c" u="200c 0eab 0ea5 200d" bactxt="high-vowel-tone-b" /><!-- l high-->
+    <a b="6d" u="200c 0ea1 200d"/><!-- m low -->
+    <a b="6d" u="200c 0edd 200d" bactxt="high-vowel-tone-b" /><!-- m high -->
+    <a b="6d" u="0ea1" bbctxt="vowel-final-b"/><!-- m  final -->
+    <fub b="6d 62" u="0e9a"/><!-- mb mid -->
+    <a b="6d 62" u="200c 0e9a 200d"/><!-- mb mid -->
+    <fub b="6e 64" u="0e94"/><!-- nd mid -->
+    <a b="6e 64" u="200c 0e94 200d"/><!-- nd mid -->
+    <a b="6e 67" u="200c 0e87 200d"/><!-- ng low  -->
+    <a b="6e 67" u="0e87" bbctxt="vowel-final-b" /><!-- ng final -->
+    <a b="6e 67" u="200c 0eab 0e87 200d" bactxt="high-vowel-tone-b" /><!-- ng high -->
+    <a b="6e 6a" u="200c 0ead 0e88 200d"/><!-- nj mid -->
+    <a b="6e 71" u="200c 0ead 0e81 200d"/><!-- nq mid -->
+    <a b="6e 79" u="200c 0e8d 200d"/><!-- ny low -->
+    <a b="6e 79" u="200c 0eab 0e8d 200d" bactxt="high-vowel-tone-b" /><!-- ny high-->
+    <a b="6e 7a" u="200c 0e94 0eaa 200d"/><!-- nz mid -->
+    <a b="6e" u="200c 0edc 200d" bactxt="high-vowel-tone-b" /><!-- n high-->
+    <a b="6e" u="0e99" bbctxt="vowel-final-b"/><!-- n final -->
+    <a b="6e" u="200c 0e99 200d"/><!-- n low class -->
+    <a b="6f" u="0ec2"/><!-- long o vowel -->
+    <a b="6f" u="0ec2 0eb0"  bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short o vowel with q final-->
+    <a b="6f" u="0ebb"  bactxt="final-cons-b"/><!-- o vowel with final cons-->
+    <a b="6f 69" u="0ead 0e8d"/><!-- oi vowel -->
+    <a b="6f 75" u="0ec2 0ea7"/><!-- ou vowel-->
+    <a b="6f 72" u="0ecd"/><!-- long or vowel-->
+    <a b="6f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short or vowel with q final-->
+    <a b="6f 72" u="0ead" bactxt="final-cons-b"/><!-- or vowel with final cons -->
+    <a b="70" u="200c 0e9e 200d"/><!-- p low-->
+    <a b="70" u="200c 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
+    <a b="70" u="0e9a"  bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- p final-->
+    <a b="71" u="200c 0e97 0e88 200d"/><!-- q low -->
+    <a b="71" u="200c 0e96 0e88 200d"  bactxt="high-vowel-tone-b"/><!-- q high -->
+    <fbu b="72" u="2612"/><!-- r does not occur outside a vowel -->
+    <a b="73" u="200c 0e8a 200d"/><!-- s low-->
+    <a b="73" u="200c 0eaa 200d" bactxt="high-vowel-tone-b" /><!-- s high-->
+    <a b="74" u="200c 0e97 200d"/><!-- t low -->
+    <a b="74" u="200c 0e96 200d" bactxt="high-vowel-tone-b" /><!-- t high-->
+    <a b="74" u="0e94" bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- t final-->
+    <a b="75" u="0ea7 200d" bbctxt="any-cons-b" bactxt="a-vowel-b"/><!-- u semi-vowel -->
+    <a b="75" u="0eb8" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short u vowel-->
+    <a b="75" u="0eb9"/><!-- long u vowel-->
+    <a b="75 69" u="0eb8 0e8d"/><!-- ui vowel -->
+    <a b="75 65" u="0eb7"/><!-- long ue vowel -->
+    <a b="75 65" u="0eb6" bactxt="q-final-b" /><!-- short ue vowel -->
+    <a b="75 65 69" u="0ec0 0ea7 0eb5 0e8d"/><!--  u ei vowel -->
+    <a b="75 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/><!--  u ei vowel in fu'juei-->
+    <a b="75 65 61" u="0ec0 0eb7 0ead" /><!-- uea vowel -->
+    <a b="75 65 61" u="0ec0 0eb6" bactxt="q-final-b"/><!-- uea vowel -->
+    <a b="75 6f" u="0ebb 0ea7"/><!-- long uo vowel -->
+    <a b="75 6f" u="0ebb 0ea7 0eb0" bactxt="q-final-b"/><!-- short uo vowel -->
+    <a b="75 6f" u="0ea7" bactxt="final-cons-b" uactxt="final-u"/><!-- vowel uo with final cons-->
+    <fbu b="76" u="2612"/><!-- v error if not in explicit context below -->
+    <!-- v as tone mark on middle class with or without final -->
+    <a b="76" u="0eca" bbctxt="middle-cons-any-b" />
+    <!-- v as tone mark on low class final stop or glottal -->
+    <fbu b="76" u="200b" bbctxt="low-cons-final-b" />
+    <!-- v as tone mark on low class no final -->
+    <a b="76" u="0ec9" bbctxt="low-cons-nof-b" />
+    <a b="77" u="200c 0ea7 200d"/><!-- low w-->
+    <a b="77" u="200c 0eab 0ea7 200d" bactxt="high-vowel-tone-b" /><!-- high w-->
+    <a b="78" u="0ecb" bbctxt="middle-cons-any-b"/><!-- x tone on mid class -->
+    <fbu b="78" u="2612"/><!-- x error if not in tone position -->
+    <fbu b="78" u="200b" bbctxt="high-cons-any-b"/><!-- x tone on low class -->
+    <a b="79" u="200c 0ea2 200d"/><!-- y mid -->
+    <a b="7a" u="200c 0e95 0eaa 200d"/><!-- z mid -->
+    <a b="7a" u="0ecc" bbctxt="low-cons-any-b"/>
+    <fbu b="7a" u="0ecc" bbctxt="middle-cons-any-b"/>
+    <!--<a b="7a" u="0ecc" bbctxt="mid-low-cons-b"/>--><!-- z tone on middle or low class -->
+    <a b="7b" u="007b"/><!-- {-->
+    <a b="7c" u="007c"/><!-- |-->
+    <a b="7d" u="007d"/><!-- }-->
+    <a b="7e" u="007e"/><!-- ~-->
+    <a b="7f" u="007f"/><!-- DELETE key -->
+    
+    <range bFirst="80" bLast="FF" uFirst="0080" uLast="00FF"/>
+    
+    <ordering side="unicode">
+        <order b="reorder-vowel-b" u="reorder-vowel-u"/>
+        <order b="strip-b" u="strip-u"/>
+        <!--<order b="reorder-tone-b" u="reorder-tone-u"/>-->
+    </ordering>
+    <!--
+    <ordering side="bytes">
+        <order b="reorder-bytes-b" u="reorder-bytes-u"/>
+    </ordering>
+    -->
+</assignments>
+
+<contexts>
+
+<!-- byte side re-ordering contexts -->
+
+    <group id="reorder-bytes-b">
+        <!--<class-ref name="evowel-b" id="e" min="0"/>
+        <context-ref name="dia-b" id="d1" min="0"/>-->
+    </group>
+
+    <group id="reorder-bytes-u">
+        
+    </group>
+    
+    <group id="reorder-vowel-b">
+        <class-ref name="before-cons-u" id="before-cons" min="1"/>
+        <context-ref name="cons-u" id="consonant" min="1"/>
+        <class-ref name="after-cons-u" id="before-semi" min="0"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="after-cons-u" id="after-cons" min="1"/>
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <context-ref name="vowels-after-u" id="v-after" min="0"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+    </group>
+    
+    <group id="reorder-vowel-u">
+        <context-ref name="reorder-vowel-b/v-before"/>
+                
+        <context-ref name="reorder-vowel-b/consonant/hng-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hny-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hm-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/ng-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hn-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hl-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hu-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hi-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/z-mid-u"/>
+        <context-ref name="reorder-vowel-b/consonant/q-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/q-high-u"/>    
+        <context-ref name="reorder-vowel-b/consonant/c-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/c-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hng-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hny-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/ny-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hn-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hm-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hl-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hu-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/hi-low-u"/>
+        <context-ref name="reorder-vowel-b/consonant/nq-mid-u"/>
+        <context-ref name="reorder-vowel-b/consonant/nj-mid-u"/>
+        <context-ref name="reorder-vowel-b/consonant/nz-mid-u"/>
+        <context-ref name="reorder-vowel-b/consonant/l-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/w-high-u"/>
+        <context-ref name="reorder-vowel-b/consonant/c"/>   
+        <context-ref name="reorder-vowel-b/semi-vowel"/>
+        <context-ref name="reorder-vowel-b/v-above"/>
+        <context-ref name="reorder-vowel-b/v-below"/>
+        <context-ref name="reorder-vowel-b/tone"/>
+        <context-ref name="reorder-vowel-b/v-after/va1"/>
+        <context-ref name="reorder-vowel-b/v-after/va2"/>
+        <context-ref name="reorder-vowel-b/v-after/va3"/>
+        <context-ref name="reorder-vowel-b/v-after/va4"/>
+        <context-ref name="reorder-vowel-b/v-after/va5"/>
+        <context-ref name="reorder-vowel-b/v-after/va6"/>
+        <context-ref name="reorder-vowel-b/v-after/va7"/>
+        <context-ref name="reorder-vowel-b/v-after/va8"/>
+        <context-ref name="reorder-vowel-b/v-after/va9"/>
+        <context-ref name="reorder-vowel-b/final"/>
+    </group>
+    <group id="test">
+    <class name="test">2612</class>
+    </group>
+    <!-- strip out unwanted characters -->
+    <group id="strip-b" alt="1">
+        <class-ref name="appos-u"/>
+        <class-ref name="zwsp-u"/>
+        <!--<class-ref name="carret-u"/>
+        <class-ref name="after-cons-u"/>-->
+    </group>
+    
+    <group id="strip-u">
+    </group>
+    
+    <group id="reorder-tone-b">
+        <class-ref name="finals-u" id="final" min="1"/>
+        <class-ref name="tones-u" id="tone" min="1"/>
+    </group>
+    
+    <group id="reorder-tone-u">
+        <context-ref name="reorder-tone-b/tone"/>
+        <context-ref name="reorder-tone-b/final"/>
+    </group>
+    
+    <!-- UNICODE SIDE contexts -->
+    <group id="vowel-u">
+        <class-ref name="vowels-u" min="1" max="2"/>
+    </group>
+    <group id="final-u">
+        <class-ref name="finals-u" min="1"/>
+    </group>
+    
+    
+    <!-- BYTE SIDE contexts -->
+    <!-- Vowel contexts -->
+    
+    <group id="fu-juei">
+        <class-ref name="let-u-b" id="q" min="1"/>
+        <class-ref name="appos-b" id="q" min="1"/>
+        <class-ref name="let-j-b" id="q" min="1"/>
+    </group>
+    
+    <group id="final-cons-b">
+        <context-ref name="final-b" id="fc" min="1"/>
+    </group>
+    
+    <group id="final-kptnng-b" alt="1">
+        <context-ref name="ng-final-b" id="ng" />
+        <class-ref name="let-k-b" id="k" />
+        <class-ref name="let-p-b" id="p" />
+        <class-ref name="let-t-b" id="t" />
+        <class-ref name="let-n-b" />
+    </group>
+    
+    <group id="final-m-b">
+        <class-ref name="let-m-b" id="m"/>
+    </group>
+    
+    <group id="ng-final-b">
+        <class-ref name="let-n-b" id="n" min="1"/>
+        <class-ref name="let-g-b" id="g" min="1"/>
+    </group>
+    
+    <group id="not-n-b">
+        <class-ref name="let-g-b" neg="1"/>
+    </group>
+    
+    <group id="q-final-b">
+        <class-ref name="let-q-b" id="q" min="1"/>
+    </group>
+    
+    <group id="tones-b" alt="1">
+        <class-ref name="high-tones-b" id="th"/>
+        <class-ref name="mid-tones-b" id="tm"/>
+        <class-ref name="low-tones-b" id="tl"/>
+    </group>
+    
+    <group id="qktpnm-final-b">
+        <context-ref name="qktpnm-finals-b" id="f" min="1"/>
+        <context-ref name="tones-b" id="t" min="0"/>
+        <!-- check there is not a caret following, which would indicate
+        a foreign word -->
+        <context-ref name="syllable-start-b" id="ss"/>
+    </group>
+    
+    <group id="not-foreign-b">
+        <context-ref name="syllable-start-b" id="ss"/>
+        <class-ref name="any-cons-b" id="c"/>
+    </group>
+    
+    <group id="syllable-start-b" alt="1">
+        <eos/>
+        <class-ref name="caret-b" id="nc" neg="1"/>
+    </group>
+    
+    <group id="qktpnm-finals-b" alt="1">
+        <class-ref name="let-q-b" id="q"/>
+        <class-ref name="let-k-b" id="k"/>
+        <class-ref name="let-t-b" id="t"/>
+        <class-ref name="let-p-b" id="p"/>
+        <class-ref name="let-n-b" id="n"/>
+        <class-ref name="let-m-b" id="m"/>
+    </group>
+    
+    <!-- consonant after contexts -->
+    
+    <group id="high-vowel-tone-b">
+        <context-ref name="vowel-b" id="sv" min="1"/><!-- need at least one otherwise final also matches -->
+        <context-ref name="final-b" id="f" min="0"/>
+        <class-ref name="high-tones-b" id="t" min="1"/>
+    </group>
+    
+    <group id="a-vowel-b">
+        <class-ref name="let-a-b" id="a" min="1"/>
+    </group>
+    
+    
+    
+    <!-- consonant before contexts -->
+    <group id="vowel-final-b">
+        <context-ref name="any-cons-b" id="c" min="0"/>
+        <context-ref name="vowel-b" min="1"/>
+    </group>
+    
+    <group id="not-vowel-b">
+        <context-ref name="vowel-b" id="sv" min="1" neg="1"/>
+    </group>
+    
+    
+    <!-- Tone before contexts -->
+    <!--
+    <group id="high-mid-nof-b" alt="1">
+    <context-ref name="high-cons-nof-b" id="h"/>
+    <context-ref name="middle-cons-nof-b" id="m"/>
+    </group>
+    
+    <group id="mid-low-cons-b" alt="1">
+    <context-ref name="middle-cons-any-b" id="m"/>
+    <context-ref name="low-cons-any-b" id="l"/>
+    </group>
+    -->
+    <group id="high-cons-final-b">
+    <context-ref name="high-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="sv" min="1"/>
+    <context-ref name="qktp-final-b" id="f" min="1"/>
+    </group>
+    
+    <group id="high-cons-any-b">
+    <context-ref name="high-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="sv" min="1"/>
+    <context-ref name="final-b" id="f" min="0"/>
+    </group>
+    
+    
+    <group id="high-cons-nof-b">
+    <context-ref name="high-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
+    <context-ref name="mnng-final-b" id="f" min="0"/>
+    </group>
+    
+    <group id="middle-cons-final-b">
+    <context-ref name="mid-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="sv" min="1"/>
+    <context-ref name="qktp-final-b" id="f" min="1"/>
+    </group>
+    
+    <group id="middle-cons-nof-b">
+    <context-ref name="mid-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
+    <context-ref name="mnng-final-b" id="f" min="0"/>
+    </group>
+    
+    <group id="middle-cons-any-b">
+    <context-ref name="mid-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
+    <context-ref name="final-b" id="f" min="0"/>
+    </group>
+    
+    <group id="low-cons-final-b">
+    <context-ref name="low-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
+    <context-ref name="qktp-final-b" id="f" min="1"/>
+    </group>
+    
+    <group id="low-cons-nof-b">
+    <context-ref name="low-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
+    <context-ref name="mnng-final-b" id="f" min="0"/>
+    </group>
+    
+    <group id="low-cons-any-b">
+    <context-ref name="low-cons-b" id="hc" min="1"/>
+    <class-ref name="let-u-b" id="semi" min="0"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
+    <context-ref name="final-b" id="f" min="0"/>
+    </group>
+    
+    <group id="qktp-final-b" alt="1">
+        <class-ref name="let-q-b" id="q"/>
+        <class-ref name="let-k-b" id="k"/>
+        <class-ref name="let-t-b" id="t"/>
+        <class-ref name="let-p-b" id="p"/>
+    </group>
+    <group id="mnng-final-b" alt="1">
+        <class-ref name="let-m-b" id="m"/>
+        <class-ref name="let-n-b" id="n"/>
+        <context-ref name="ng-final-b" id="ng"/>
+    </group>
+    <!-- vowels -->
+    <!--
+    <group id="vowel-b">
+        <class-ref name="first-vowel-let-b"  min="1"/>
+        <class-ref name="second-vowel-let-b" min="0"/>
+        <class-ref name="third-vowel-let-b" min="0"/>
+    </group>
+    -->
+    
+    
+    
+    <group id="final-b" alt="1">
+        <class-ref name="final-b"/>
+        <context-ref name="ng-final-b"/>
+    </group>
+    
+    <group id="any-cons-b" alt="1">
+        <context-ref name="high-cons-b"/>
+        <context-ref name="mid-cons-b"/>
+        <context-ref name="low-cons-b"/>
+    </group>
+    
+    <group id="high-cons-b" alt="1">
+        <context-ref name="hng-cons-b"/>
+        <context-ref name="hny-cons-b"/>
+        <context-ref name="hm-cons-b"/>
+        <context-ref name="hn-cons-b"/>
+        <context-ref name="hl-cons-b"/>
+        <context-ref name="hu-cons-b"/>
+        <context-ref name="hi-cons-b"/>
+        <context-ref name="ny-cons-b"/>
+        <context-ref name="ng-cons-b"/>
+        <class-ref name="high-single-cons-b"/>
+    </group>
+    
+    <group id="mid-cons-b" alt="1">
+        <context-ref name="nd-cons-b"/>
+        <context-ref name="nq-cons-b"/>
+        <context-ref name="nj-cons-b"/>
+        <context-ref name="nz-cons-b"/>
+        <context-ref name="mb-cons-b"/>
+        <class-ref name="mid-single-cons-b"/>
+    </group>
+    
+    <group id="low-cons-b" alt="1">
+        <context-ref name="hng-cons-b"/>
+        <context-ref name="hny-cons-b"/>
+        <context-ref name="hm-cons-b"/>
+        <context-ref name="hn-cons-b"/>
+        <context-ref name="hl-cons-b"/>
+        <context-ref name="hu-cons-b"/>
+        <context-ref name="hi-cons-b"/>
+        <context-ref name="ny-cons-b"/>
+        <context-ref name="ng-cons-b"/>
+        <class-ref name="low-single-cons-b"/>
+    </group>
+
+    
+    <!-- a e i o u-->
+    <class name="single-vowel-b" size="bytes">
+        61 65 69 6f 75
+        41 45 49 4f 55
+    </class>
+    <!-- vowel groups  ignore uei since it includes prevowel -->
+    <group id="vowel-b" alt="1">
+        <group id="v-aai-b">
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-aau-b">
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-iou-b">
+            <class-ref name="let-i-b"/>
+            <class-ref name="let-o-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-uea-b">
+            <class-ref name="let-u-b"/>
+            <class-ref name="let-e-b"/>
+            <class-ref name="let-a-b"/>
+        </group>
+        <group id="v-Aai-b">
+            <class-ref name="let-A-b"/>
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-Aau-b">
+            <class-ref name="let-A-b"/>
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-Iou-b">
+            <class-ref name="let-I-b"/>
+            <class-ref name="let-o-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-Uea-b">
+            <class-ref name="let-U-b"/>
+            <class-ref name="let-e-b"/>
+            <class-ref name="let-a-b"/>
+        </group>
+        <group id="v-aa-b">
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-a-b"/>
+        </group>
+        <group id="v-ai-b">
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-au-b">
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-ei-b">
+            <class-ref name="let-e-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-eu-b">
+            <class-ref name="let-e-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-oi-b">
+            <class-ref name="let-o-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-ou-b">
+            <class-ref name="let-o-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-iu-b">
+            <class-ref name="let-i-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-ui-b">
+            <class-ref name="let-u-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-ue-b">
+            <class-ref name="let-u-b"/>
+            <class-ref name="let-e-b"/>
+        </group>
+        <group id="v-er-b">
+            <class-ref name="let-e-b"/>
+            <class-ref name="let-r-b"/>
+        </group>
+        <group id="v-ie-b">
+            <class-ref name="let-i-b"/>
+            <class-ref name="let-e-b"/>
+        </group>
+        <group id="v-or-b">
+            <class-ref name="let-o-b"/>
+            <class-ref name="let-r-b"/>
+        </group>
+        <group id="v-uo-b">
+            <class-ref name="let-u-b"/>
+            <class-ref name="let-o-b"/>
+        </group>
+        <group id="v-ae-b">
+            <class-ref name="let-a-b"/>
+            <class-ref name="let-e-b"/>
+        </group>
+        <group id="v-Aa-b">
+            <class-ref name="let-A-b"/>
+            <class-ref name="let-a-b"/>
+        </group>
+        <group id="v-Ai-b">
+            <class-ref name="let-A-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-Au-b">
+            <class-ref name="let-A-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-Ei-b">
+            <class-ref name="let-E-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-Eu-b">
+            <class-ref name="let-E-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-Oi-b">
+            <class-ref name="let-O-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-Ou-b">
+            <class-ref name="let-O-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-Iu-b">
+            <class-ref name="let-I-b"/>
+            <class-ref name="let-u-b"/>
+        </group>
+        <group id="v-Ui-b">
+            <class-ref name="let-U-b"/>
+            <class-ref name="let-i-b"/>
+        </group>
+        <group id="v-Ue-b">
+            <class-ref name="let-U-b"/>
+            <class-ref name="let-e-b"/>
+        </group>
+        <group id="v-Er-b">
+            <class-ref name="let-E-b"/>
+            <class-ref name="let-r-b"/>
+        </group>
+        <group id="v-Ie-b">
+            <class-ref name="let-I-b"/>
+            <class-ref name="let-e-b"/>
+        </group>
+        <group id="v-Or-b">
+            <class-ref name="let-O-b"/>
+            <class-ref name="let-r-b"/>
+        </group>
+        <group id="v-Uo-b">
+            <class-ref name="let-U-b"/>
+            <class-ref name="let-o-b"/>
+        </group>
+        <group id="v-Ae-b">
+            <class-ref name="let-A-b"/>
+            <class-ref name="let-e-b"/>
+        </group>
+        <class-ref name="single-vowel-b"/>
+    </group>
+    <!-- a e i o u q r - ->
+    <class name="second-vowel-let-b" size="bytes">
+    61 65 69 6f 75 71 72
+    </class>
+    <!- - a i u q - ->
+    <class name="third-vowel-let-b" size="bytes">
+    61 69 75 71
+    </class>
+    -->
+    <class name="let-A-b" size="bytes">41</class>
+    <class name="let-a-b" size="bytes">61</class>
+    <class name="let-b-b" size="bytes">62</class>
+    <class name="let-c-b" size="bytes">63</class>
+    <class name="let-d-b" size="bytes">64</class>
+    <class name="let-E-b" size="bytes">45</class>
+    <class name="let-e-b" size="bytes">65</class>
+    <class name="let-f-b" size="bytes">66</class>
+    <class name="let-g-b" size="bytes">67</class>
+    <class name="let-H-b" size="bytes">48</class>
+    <class name="let-h-b" size="bytes">68</class>
+    <class name="let-I-b" size="bytes">49</class>
+    <class name="let-i-b" size="bytes">69</class>
+    <class name="let-j-b" size="bytes">6a</class>
+    <class name="let-k-b" size="bytes">6b</class>
+    <class name="let-l-b" size="bytes">6c</class>
+    <class name="let-M-b" size="bytes">4d</class>
+    <class name="let-m-b" size="bytes">6d</class>
+    <class name="let-N-b" size="bytes">ee</class>
+    <class name="let-n-b" size="bytes">6e</class>
+    <class name="let-O-b" size="bytes">4f</class>
+    <class name="let-o-b" size="bytes">6f</class>
+    <class name="let-p-b" size="bytes">70</class>
+    <class name="let-q-b" size="bytes">71</class>
+    <class name="let-r-b" size="bytes">72</class>
+    <class name="let-s-b" size="bytes">73</class>
+    <class name="let-t-b" size="bytes">74</class>
+    <class name="let-U-b" size="bytes">55</class>
+    <class name="let-u-b" size="bytes">75</class>
+    <class name="let-v-b" size="bytes">76</class>
+    <class name="let-w-b" size="bytes">77</class>
+    <class name="let-x-b" size="bytes">78</class>
+    <class name="let-y-b" size="bytes">79</class>
+    <class name="let-z-b" size="bytes">7a</class>
+    
+    <class name="appos-b" size="bytes">27</class><!-- ' -->
+    
+    <!-- c x -->
+    <class name="high-tones-b" size="bytes">63 78</class>
+    <!-- c h v x z -->
+    <class name="mid-tones-b" size="bytes">63 68 76 78 7A</class>
+    <!-- h v z -->
+    <class name="low-tones-b" size="bytes">68 76 7A</class>
+    
+    <!-- k ng s ny t n p f q c hng hny hm hn hl hu hi m m' l w h -->
+    <group id="hng-cons-b">
+        <class-ref name="let-h-b"/>
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-g-b"/>
+    </group>
+    <group id="hny-cons-b">
+        <class-ref name="let-h-b"/>
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-y-b"/>
+    </group>
+    <group id="hm-cons-b">
+        <class-ref name="let-h-b"/>
+        <class-ref name="let-m-b"/>
+    </group>
+    <group id="hn-cons-b">
+        <class-ref name="let-h-b"/>
+        <class-ref name="let-n-b"/>
+    </group>
+    <group id="hl-cons-b">
+        <class-ref name="let-h-b"/>
+        <class-ref name="let-l-b"/>
+    </group>
+    <group id="hu-cons-b">
+        <class-ref name="let-h-b"/>
+        <class-ref name="let-u-b"/>
+    </group>
+    <group id="hi-cons-b">
+        <class-ref name="let-h-b"/>
+        <class-ref name="let-i-b"/>
+    </group>
+    <group id="ng-cons-b">
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-g-b"/>
+    </group>
+    <group id="ny-cons-b">
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-y-b"/>
+    </group>
+    <group id="Hng-cons-b">
+        <class-ref name="let-H-b"/>
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-g-b"/>
+    </group>
+    <group id="Hny-cons-b">
+        <class-ref name="let-H-b"/>
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-y-b"/>
+    </group>
+    <group id="Hm-cons-b">
+        <class-ref name="let-H-b"/>
+        <class-ref name="let-m-b"/>
+    </group>
+    <group id="Hn-cons-b">
+        <class-ref name="let-H-b"/>
+        <class-ref name="let-n-b"/>
+    </group>
+    <group id="Hl-cons-b">
+        <class-ref name="let-H-b"/>
+        <class-ref name="let-l-b"/>
+    </group>
+    <group id="Hu-cons-b">
+        <class-ref name="let-H-b"/>
+        <class-ref name="let-u-b"/>
+    </group>
+    <group id="Hi-cons-b">
+        <class-ref name="let-H-b"/>
+        <class-ref name="let-i-b"/>
+    </group>
+    <group id="Ng-cons-b">
+        <class-ref name="let-N-b"/>
+        <class-ref name="let-g-b"/>
+    </group>
+    <group id="Ny-cons-b">
+        <class-ref name="let-N-b"/>
+        <class-ref name="let-y-b"/>
+    </group>
+    <class name="low-single-cons-b" size="bytes">
+    6b 6e 73 74 6e 70 66 71 63 68 6d 6c 77
+    4b 4e 53 54 4e 50 46 51 43 48 4d 4c 57
+    </class>
+    <!-- g y n l m u i - ->
+    <class name="low-second-cons-b" size="bytes">
+    67 79 6e 6d 6c 75 69
+    </class>
+    <!- - g y - ->
+    <class name="low-third-cons-b" size="bytes">67 79</class>
+    -->
+    
+    <group id="nd-cons-b">
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-d-b"/>
+    </group>
+    <group id="nq-cons-b">
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-q-b"/>
+    </group>
+    <group id="nj-cons-b">
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-j-b"/>
+    </group>
+    <group id="nz-cons-b">
+        <class-ref name="let-n-b"/>
+        <class-ref name="let-z-b"/>
+    </group>
+    <group id="mb-cons-b">
+        <class-ref name="let-m-b"/>
+        <class-ref name="let-b-b"/>
+    </group>
+    <group id="Nd-cons-b">
+        <class-ref name="let-N-b"/>
+        <class-ref name="let-d-b"/>
+    </group>
+    <group id="Nq-cons-b">
+        <class-ref name="let-N-b"/>
+        <class-ref name="let-q-b"/>
+    </group>
+    <group id="Nj-cons-b">
+        <class-ref name="let-N-b"/>
+        <class-ref name="let-j-b"/>
+    </group>
+    <group id="Nz-cons-b">
+        <class-ref name="let-N-b"/>
+        <class-ref name="let-z-b"/>
+    </group>
+    <group id="Mb-cons-b">
+        <class-ref name="let-M-b"/>
+        <class-ref name="let-b-b"/>
+    </group>
+    <!-- g j nd d mb b z nq nj nz y _ -->
+    <class name="mid-single-cons-b" size="bytes">
+    67 6a 64 62 79 7a
+    47 4a 44 42 59 5a
+    </class>
+    <!-- d b q j z - ->
+    <class name="mid-second-cons-b" size="bytes">
+    64 62 71 6a 7a
+    </class>-->
+    
+    <!-- k ng s t n p f q c hng hny hm hn hl hu hi m l w h -->
+    <class name="high-single-cons-b" size="bytes">
+    6b 6e 73 74 6e 70 66 71 63 68 6d 6c 77
+    4b 4e 53 54 4e 50 46 51 43 48 4d 4c 57
+    </class>
+    <!-- g y n l m u i - ->
+    <class name="high-second-cons-b" size="bytes">
+        67 79 6e 6d 6c 75 69
+    </class>
+    <!- - g y - ->
+    <class name="high-third-cons-b" size="bytes">67 79</class>
+    -->
+    
+    <!-- k p t m n ng -->
+    <class name="final-b" size="bytes">6b 70 74 6d 6e</class>
+    <!-- g -->
+    <class name="final-second-b" size="bytes">67</class>
+    
+    <class name="caret-b" size="bytes">5e</class>
+
+        
+    <!-- Vowels that need to be moved before the consonant -->
+    <class name="vowels-before-u">0ec0 0ec1 0ec2 0ec4 </class>
+    
+    <group id="cons-u" alt="1">
+        <context-ref name="hng-high-u"/>
+        <context-ref name="hny-high-u"/>
+        <context-ref name="hm-high-u"/>
+        <context-ref name="ng-high-u"/>
+        <context-ref name="hn-high-u"/>
+        <context-ref name="hl-high-u"/>
+        <context-ref name="hu-low-u"/>
+        <context-ref name="hi-high-u"/>
+        <context-ref name="z-mid-u"/>
+        <context-ref name="q-low-u"/>
+        <context-ref name="q-high-u"/>    
+        <context-ref name="c-low-u"/>
+        <context-ref name="c-high-u"/>
+        <context-ref name="hng-low-u"/>
+        <context-ref name="hny-low-u"/>
+        <context-ref name="ny-high-u"/>
+        <context-ref name="hn-low-u"/>
+        <context-ref name="hm-low-u"/>
+        <context-ref name="hl-low-u"/>
+        <context-ref name="hu-high-u"/>
+        <context-ref name="hi-low-u"/>
+        <context-ref name="nq-mid-u"/>
+        <context-ref name="nj-mid-u"/>
+        <context-ref name="nz-mid-u"/>
+        <context-ref name="l-high-u"/>
+        <context-ref name="w-high-u"/>
+        <class-ref name="single-cons-u" id="c"/>
+    </group>
+    
+    <group id="ng-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="e87-u"/>
+    </group>
+    <group id="z-mid-u">
+        <class-ref name="e95-u"/>
+        <class-ref name="eaa-u"/>
+    </group>
+    <group id="q-low-u">
+        <class-ref name="e97-u"/>
+        <class-ref name="e88-u"/>
+    </group>
+    <group id="q-high-u">
+        <class-ref name="e96-u"/>
+        <class-ref name="e88-u"/>
+    </group>
+    <group id="c-low-u">
+        <class-ref name="e97-u"/>
+        <class-ref name="eaa-u"/>
+    </group>
+    <group id="c-high-u">
+        <class-ref name="e96-u"/>
+        <class-ref name="eaa-u"/>
+    </group>
+    <group id="hng-low-u">
+        <class-ref name="eae-u"/>
+        <class-ref name="e87-u"/>
+    </group>
+    <group id="hng-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="eae-u"/>
+        <class-ref name="e87-u"/>
+    </group>
+    <group id="hny-low-u">
+        <class-ref name="eae-u"/>
+        <class-ref name="e8d-u"/>
+    </group>
+    <group id="hny-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="eae-u"/>
+        <class-ref name="e8d-u"/>
+    </group>
+    <group id="ny-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="e8d-u"/>
+    </group>
+    <group id="hm-low-u">
+        <class-ref name="eae-u"/>
+        <class-ref name="ea1-u"/>
+    </group>
+    <group id="hm-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="eae-u"/>
+        <class-ref name="ea1-u"/>
+    </group>
+    <group id="hn-low-u">
+        <class-ref name="eae-u"/>
+        <class-ref name="e99-u"/>
+    </group>
+    <group id="hn-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="eae-u"/>
+        <class-ref name="e99-u"/>
+    </group>
+    <group id="hl-low-u">
+        <class-ref name="eae-u"/>
+        <class-ref name="ea5-u"/>
+    </group>
+    <group id="hl-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="eae-u"/>
+        <class-ref name="ea5-u"/>
+    </group>
+    <group id="hu-low-u">
+        <class-ref name="eae-u"/>
+        <class-ref name="ea7-u"/>
+    </group>
+    <group id="hu-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="eae-u"/>
+        <class-ref name="ea7-u"/>
+    </group>
+    <group id="hi-low-u">
+        <class-ref name="eae-u"/>
+        <class-ref name="ea2-u"/>
+    </group>
+    <group id="hi-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="eae-u"/>
+        <class-ref name="ea2-u"/>
+    </group>
+    <group id="nq-mid-u">
+        <class-ref name="ead-u"/>
+        <class-ref name="e81-u"/>
+    </group>
+    <group id="nj-mid-u">
+        <class-ref name="ead-u"/>
+        <class-ref name="e88-u"/>
+    </group>
+    <group id="nz-mid-u">
+        <class-ref name="e94-u"/>
+        <class-ref name="eaa-u"/>
+    </group>
+    <group id="l-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="ea5-u"/>
+    </group>
+    <group id="w-high-u">
+        <class-ref name="eab-u"/>
+        <class-ref name="ea7-u"/>
+    </group>
+    <class name="e81-u">0e81</class>
+    <class name="e87-u">0e87</class>
+    <class name="e88-u">0e88</class>
+    <class name="e8d-u">0e8d</class>
+    <class name="e94-u">0e94</class>
+    <class name="e95-u">0e95</class>
+    <class name="e96-u">0e96</class>
+    <class name="e97-u">0e97</class>
+    <class name="e99-u">0e99</class>
+    <class name="ea1-u">0ea1</class>
+    <class name="ea2-u">0ea2</class>
+    <class name="ea5-u">0ea5</class>
+    <class name="ea7-u">0ea7</class>
+    <class name="eaa-u">0eaa</class>
+    <class name="eab-u">0eab</class>
+    <class name="ead-u">0ead</class>
+    <class name="eae-u">0eae</class>
+    
+    <class name="eb0-u">0eb0</class>
+    <class name="eb2-u">0eb2</class>
+    <class name="ebd-u">0ebd</class>
+    
+    
+    <class name="single-cons-u">
+        0e81 0e82 0e87 0e88 0e8a 0e8d 
+        0e94 0e95 0e96 0e97 0e99 0e9a 0e9b 0e9c 0e9d 0e9e 0e9f
+        0ea1 0ea2 0ea5 0ea7 0eaa 0eab 0eae
+        0edc 0edd
+    </class>
+    <!--
+    <class name="consonant-1-u">
+        0e81 0e82 0e84 0e87 0e88 0e8d 
+        0e94 0e95 0e96 0e96 0e97 0e99 0e9a 0e9c 0e9d 0e9e 0e9f
+        0ea1 0ea2 0ea5 0ea7 0eaa 0eab 0ead 0eae 
+        0edc 0edd
+    </class>
+    <class name="consonant-2-u">0e87 0e88 0e8d 0ea1 0ea2 0ea5 0ea7 0eaa 0eae</class>
+    <class name="consonant-3-u">
+    0e87 0e8d 0ea1 0ea2 0ea7 0e99
+    </class>-->
+    <class name="vowels-u"><!-- excluding vowels before -->
+        0e8d 
+        0ead 0ea7 
+        0eb0 0eb1 0eb2 0eb3 0eb4 0eb5 0eb6 0eb7 
+        0eb8 0eb9 0ebb 0ebd 
+    </class>
+    <class name="vowels-above-u">
+        0eb1 0eb4 0eb5 0eb6 0eb7 0ebb 
+    </class>
+    <class name="vowels-below-u">
+        0eb8 0eb9 
+    </class>
+    
+    <group id="vowels-after-u" alt="1">
+        <context-ref name="eb2-ebd-u" id="va1"/>
+        <context-ref name="eb2-ea7-u" id="va2"/>
+        <context-ref name="ebd-ea7-u" id="va3"/>
+        <context-ref name="eb2-e8d-u" id="va4"/>
+        <context-ref name="ead-e8d-u" id="va5"/>
+        <context-ref name="ea7-e8d-u" id="va6"/>
+        <context-ref name="eb2-eb0-u" id="va7"/>
+        <context-ref name="ea7-eb0-u" id="va8"/>
+        <class-ref name="vowels-after-u" id="va9"/>
+    </group>
+    <group id="ea7-eb0-u">
+        <class-ref name="ea7-u"/>
+        <class-ref name="eb0-u"/>
+    </group>
+    <group id="eb2-eb0-u">
+        <class-ref name="eb2-u"/>
+        <class-ref name="eb0-u"/>
+    </group>
+    <group id="eb2-e8d-u">
+        <class-ref name="eb2-u"/>
+        <class-ref name="e8d-u"/>
+    </group>
+    <group id="ea7-e8d-u">
+        <class-ref name="ea7-u"/>
+        <class-ref name="e8d-u"/>
+    </group>
+    <group id="ead-e8d-u">
+        <class-ref name="ead-u"/>
+        <class-ref name="e8d-u"/>
+    </group>
+    <group id="ebd-ea7-u">
+        <class-ref name="ebd-u"/>
+        <class-ref name="ea7-u"/>
+    </group>
+    
+    <group id="eb2-ea7-u">
+        <class-ref name="eb2-u"/>
+        <class-ref name="ea7-u"/>
+    </group>
+    <group id="eb2-ebd-u">
+        <class-ref name="eb2-u"/>
+        <class-ref name="ebd-u"/>
+    </group>
+    
+    <class name="vowels-after-u">
+        0e8d 
+        0ead 0ea7 
+        0eb0 0eb2 0eb3 
+        0ebd 
+    </class>
+    
+    <class name="finals-u">0e81 0e9a 0e94 0ea1 0e99 0e87</class>
+    <class name="tones-u">0ec8 0ec9 0eca 0ecb 0ecc</class> 
+    
+    <class name="semi-vowel-u">0ea7</class>
+    
+    <!-- Use a ZWNJ/ZWJ to indicate consonant position -->
+    <class name="after-cons-u">200D</class>
+    <class name="before-cons-u">200C</class>
+    <class name="appos-u">0027</class>
+    <class name="carret-u">005e</class>
+    <class name="zwsp-u">200b</class>
+</contexts>
+
+</characterMapping>
+
