@@ -7,6 +7,7 @@
 package DocCharConvert;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import java.util.Map;
 
 import com.sun.star.uno.UnoRuntime;
@@ -35,7 +36,7 @@ public class OOMainInterface implements DocInterface
     private Process ooProcess = null;
     private int sleepCount = 0;
     private int SLEEP = 1000;
-    private int MAX_SLEEP_COUNT = 120; // wait one minute
+    private int MAX_SLEEP_COUNT = 60; // wait one minute
     private boolean onlyStylesInUse = false;
     private OODocParser parser = null;
     /** Creates a new instance of OOMainInterface */
@@ -235,7 +236,7 @@ public class OOMainInterface implements DocInterface
         // try to start OO ourselves
         if (ooProcess == null)
         {
-            System.err.println("Executing: " + Config.getCurrent().getOOPath() +
+            System.err.println("Executing: " + Config.getCurrent().getOOPath() + " " +
                 Config.getCurrent().getOOOptions());
             try
             {
@@ -337,5 +338,13 @@ public class OOMainInterface implements DocInterface
     {
         return ConversionMode.OO_MODE;
     }
-    
+    /** Not implemented yet */
+    public void setInputEncoding(Charset iEnc)
+    {
+      //inputCharset = iEnc;
+    }
+    public void setOutputEncoding(Charset oEnc)
+    {
+      //outputCharset = oEnc;
+    }
 }

@@ -26,7 +26,7 @@ public class ConfigDialog extends javax.swing.JDialog
         unoField.setText(Config.getCurrent().getOOUNO());
         try 
         {
-            converterPath.setText(Config.getCurrent().getBasePath().getCanonicalPath());
+            converterPath.setText(Config.getCurrent().getConverterPath().getCanonicalPath());
         }
         catch (java.io.IOException e)
         {
@@ -295,7 +295,7 @@ public class ConfigDialog extends javax.swing.JDialog
         Config.getCurrent().setOOPath(ooPath.getText());
         Config.getCurrent().setOOOptions(ooOptionsField.getText());
         Config.getCurrent().setOOUNO(unoField.getText());
-        Config.getCurrent().setBasePath(new File(converterPath.getText()));
+        Config.getCurrent().setConverterPath(new File(converterPath.getText()));
         setVisible(false);
     }//GEN-LAST:event_okButtonActionPerformed
     

@@ -15,6 +15,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 //import java.util.HashSet;
 import java.io.File;
+import java.nio.charset.Charset;
 import java.util.Hashtable;
 import javax.swing.SwingUtilities;
 import javax.swing.JOptionPane;
@@ -50,6 +51,8 @@ public class BatchConversion implements Runnable
     boolean onlyStylesInUse = true;
     boolean autoRetry = false;
     Component dialog = null;
+    Charset iCharset = null;
+    Charset oCharset = null;
     /** Creates a new instance of BatchConversion */
     public BatchConversion(Component dialog) 
     {
@@ -242,6 +245,8 @@ public class BatchConversion implements Runnable
                     docInterface = new TeXParser();
                     break;
             }
+            if (iCharset != null) docInterface.setInputEncoding(iCharset);
+            if (oCharset != null) docInterface.setOutputEncoding(oCharset);
         }
         if (docInterface == null) 
         {
@@ -373,7 +378,7 @@ public class BatchConversion implements Runnable
                         System.out.println(ite2.getMessage());
                     }
                 }
-            }
+            } // while ((i.hasNext())&&(stop == false))
         
             c = converterList.values().iterator();
             // tidy up converters
@@ -456,4 +461,6 @@ public class BatchConversion implements Runnable
             docInterface = null;
         }
     }
+    public void setInputEncoding(Charset iEnc) {iCharset = iEnc; };
+    public void setOutputEncoding(Charset oEnc) { oCharset = oEnc; };
 }

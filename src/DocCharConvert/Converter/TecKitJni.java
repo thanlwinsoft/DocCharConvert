@@ -23,7 +23,7 @@ public class TecKitJni
         try
         {
             File library = new File
-                (Config.getCurrent().getBasePath(), 
+                (Config.getCurrent().getConverterPath(), 
                 System.mapLibraryName(LIBRARY));
             System.load(library.getAbsolutePath());
             System.out.println("Loaded " + System.mapLibraryName(LIBRARY));

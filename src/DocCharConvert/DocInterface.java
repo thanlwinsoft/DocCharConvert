@@ -7,6 +7,7 @@
 package DocCharConvert;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import DocCharConvert.Converter.CharConverter;
 /**
  *
@@ -34,4 +35,6 @@ public interface DocInterface
         }
     }
     ConversionMode getMode();
+    public void setInputEncoding(Charset iEnc);
+    public void setOutputEncoding(Charset oEnc);
 }

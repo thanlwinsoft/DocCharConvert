@@ -17,6 +17,7 @@ public class Config
 {
     private static Config instance = null; 
     private File basePath = null;
+    private File converterPath = null;
     private Preferences packagePref = null;
     private File inputPath = null;
     private File outputPath = null;
@@ -30,6 +31,7 @@ public class Config
     private String ooPath = "ooffice";
     private String oouno = "uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
     private String ooOptions = " -headless -accept=socket,hostname=localhost,port=8100;urp;";
+    private String ooClassPath = "";
     public static Config getCurrent()
     {
         if (instance == null) instance = new Config();
@@ -46,18 +48,31 @@ public class Config
         System.out.println(classSource);
         if (classSource != null)
         {
-            thisClassFile = new File(classSource.getPath());
-            basePath = thisClassFile.getParentFile();
-            while (basePath != null && !basePath.isDirectory())
+            String classSrcPath = classSource.getPath();
+            int iJar = classSrcPath.indexOf("file:");
+            int jJar = classSrcPath.indexOf("!");
+            if (iJar > -1) 
             {
-              basePath = basePath.getParentFile();
+               classSrcPath = classSrcPath.substring(iJar + 5,jJar);
             }
+            thisClassFile = new File(classSrcPath);
+            if (thisClassFile != null)
+            {
+                
+                basePath = thisClassFile.getParentFile();
+                while (basePath != null && !basePath.isDirectory())
+                {
+                  basePath = basePath.getParentFile();
+                }
+                
+            }
+            System.out.println("Path: " + basePath);
         }
         if (basePath == null)
         {
             basePath = new File(System.getProperty("user.home"));
         }
-        basePath = new File(basePath, CONVERTER_CONFIG_PATH);
+        converterPath = new File(basePath, CONVERTER_CONFIG_PATH);
         packagePref = Preferences.userNodeForPackage(this.getClass());
         inputPath = new File(packagePref.get(INPUT_PATH, ""));
         outputPath = new File(packagePref.get(OUTPUT_PATH, ""));
@@ -66,13 +81,13 @@ public class Config
         oouno = packagePref.get(OOUNO, OOMainInterface.UNO_URL);
         try
         {
-            basePath = new File(packagePref.get(INSTALL_PATH, 
-                                                basePath.getCanonicalPath()));
-            if (!basePath.exists()) 
+            converterPath = new File(packagePref.get(INSTALL_PATH, 
+                                                converterPath.getCanonicalPath()));
+            if (!converterPath.exists()) 
             {
-                basePath.mkdirs();
+                converterPath.mkdirs();
             }
-            packagePref.put(INSTALL_PATH, basePath.getCanonicalPath());
+            packagePref.put(INSTALL_PATH, converterPath.getCanonicalPath());
         }
         catch (java.io.IOException e)
         {
@@ -81,9 +96,13 @@ public class Config
         if (!inputPath.isDirectory()) inputPath = null;
         if (!outputPath.isDirectory()) outputPath = null;
     }
-    public File getBasePath()
+    private File getBasePath()
     {
         return basePath;
+    }
+    public File getConverterPath()
+    {
+        return converterPath;
     }
     public File getInputPath()
     {
@@ -94,9 +113,9 @@ public class Config
         if (outputPath == null) outputPath = inputPath;
         return outputPath;
     }
-    public void setBasePath(File file)
+    public void setConverterPath(File file)
     {
-        basePath = file;
+        converterPath = file;
         try
         {
             packagePref.put(INSTALL_PATH, file.getCanonicalPath());
@@ -147,7 +166,8 @@ public class Config
     {
         try
         {
-            File classDir = new File("/usr/lib/openoffice/program/classes/");
+            StringBuffer ooPaths = new StringBuffer();
+            File classDir = new File(new File(ooPath).getParent(),"classes");
             java.io.FilenameFilter jarFilter = new java.io.FilenameFilter() {
                 public boolean accept(File parent, String name)
                 {
@@ -161,11 +181,18 @@ public class Config
             for (int i = 0; i<jarFiles.length; i++)
             {
                 urls[i + 1] = jarFiles[i].toURL();
+                ooPaths.append(jarFiles[i].getCanonicalPath());
+                ooPaths.append(' ');
                 System.out.println(urls[i+1].toString());
             }
+            ooClassPath = ooPaths.toString();
             return urls;
         }
         catch (java.net.MalformedURLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        catch (java.io.IOException e)
         {
             System.out.println(e.getMessage());
         }
@@ -176,6 +203,29 @@ public class Config
     {
         this.ooPath = path;
         packagePref.put(OOPATH, ooPath);
+        getOOClasses();
+        java.util.jar.Manifest manifest = new java.util.jar.Manifest();
+        java.util.jar.Attributes mainAttrib = manifest.getMainAttributes();
+        System.out.println(mainAttrib);
+        mainAttrib.putValue("Manifest-Version","1.0");
+        mainAttrib.putValue("CreatedBy","DocCharConvert.Config");
+        mainAttrib.putValue("Class-Path",ooClassPath);
+        System.out.println(mainAttrib);
+        File ooClassPathJar = new File(basePath, "ooClassPath.jar");
+        try
+        {
+          java.io.FileOutputStream fos = new java.io.FileOutputStream(ooClassPathJar);
+          java.util.jar.JarOutputStream jos = new java.util.jar.JarOutputStream(fos, manifest);
+          jos.close();
+        }
+        catch (java.io.FileNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        catch (java.io.IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     public void setOOOptions(String options)
     {

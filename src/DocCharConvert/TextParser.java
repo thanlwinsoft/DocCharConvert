@@ -8,8 +8,13 @@ package DocCharConvert;
 
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
+import java.nio.charset.Charset;
 import DocCharConvert.Converter.CharConverter;
 /**
  *
@@ -21,14 +26,26 @@ public class TextParser implements DocCharConvert.DocInterface
     protected BufferedWriter writer;
     protected java.util.Map converterMap;
     protected DocCharConvert.Converter.CharConverter converter;
+    protected Charset inputCharset;
+    protected Charset outputCharset;
     /** Creates a new instance of TextParser */
     public TextParser()
     {
-        
+        // default to UTF-8
+        inputCharset = Charset.forName("UTF-8");
+        outputCharset = Charset.forName("UTF-8");
     }
     
     public void destroy()
     {
+    }
+    public void setInputEncoding(Charset iEnc)
+    {
+      inputCharset = iEnc;
+    }
+    public void setOutputEncoding(Charset oEnc)
+    {
+      outputCharset = oEnc;
     }
     
     public ConversionMode getMode()
@@ -48,8 +65,12 @@ public class TextParser implements DocCharConvert.DocInterface
     {
         try
         {
-            reader = new BufferedReader(new FileReader(input));
-            writer = new BufferedWriter(new FileWriter(output));
+            reader = new BufferedReader(new InputStreamReader(
+                                        new FileInputStream(input),
+                                        inputCharset));
+            writer = new BufferedWriter(new OutputStreamWriter(
+                                        new FileOutputStream(output),
+                                        outputCharset));
             this.converterMap = converters;
             if (converterMap.size() != 1)
             {

@@ -9,11 +9,13 @@ package DocCharConvert;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.nio.charset.Charset;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 //import java.net.URL;
 import java.util.Map;
 import java.util.Vector;
+import java.util.SortedMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -24,6 +26,7 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.Timer;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.JFrame;
@@ -59,9 +62,16 @@ public class MainForm extends javax.swing.JDialog
             mode = ConversionMode.getById(++cid);
         }
         
-        
+        SortedMap charsets = Charset.availableCharsets();
+        DefaultComboBoxModel charsetModel = 
+           new DefaultComboBoxModel(charsets.keySet().toArray());
+        iEncCombo.setModel(charsetModel);
+        oEncCombo.setModel(charsetModel);
+        int utf8Index = charsetModel.getIndexOf("UTF-8");
+        iEncCombo.setSelectedIndex(utf8Index);
+        oEncCombo.setSelectedIndex(utf8Index);
         parseConverters();
-        
+        setOutputMode();
     }
     
     public void parseConverters()
@@ -88,7 +98,7 @@ public class MainForm extends javax.swing.JDialog
     
     static File getConverterPath()
     {
-        File converterConfigPath = Config.getCurrent().getBasePath();
+        File converterConfigPath = Config.getCurrent().getConverterPath();
         System.out.println("Using config dir:" + 
             converterConfigPath.getAbsolutePath());
         return converterConfigPath;
@@ -115,6 +125,11 @@ public class MainForm extends javax.swing.JDialog
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         selectedCList = new javax.swing.JList();
+        encPanel = new javax.swing.JPanel();
+        iEncPanel = new javax.swing.JPanel();
+        iEncCombo = new javax.swing.JComboBox();
+        oEncPanel = new javax.swing.JPanel();
+        oEncCombo = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         inputPanel = new javax.swing.JPanel();
         iFileScroll = new javax.swing.JScrollPane();
@@ -217,6 +232,20 @@ public class MainForm extends javax.swing.JDialog
         jScrollPane2.setViewportView(selectedCList);
 
         jPanel2.add(jScrollPane2, java.awt.BorderLayout.CENTER);
+
+        encPanel.setLayout(new java.awt.GridLayout(2, 1));
+
+        iEncPanel.setBorder(new javax.swing.border.TitledBorder("Input Encoding"));
+        iEncPanel.add(iEncCombo);
+
+        encPanel.add(iEncPanel);
+
+        oEncPanel.setBorder(new javax.swing.border.TitledBorder("Output Encoding"));
+        oEncPanel.add(oEncCombo);
+
+        encPanel.add(oEncPanel);
+
+        jPanel2.add(encPanel, java.awt.BorderLayout.SOUTH);
 
         converterPanel.add(jPanel2);
 
@@ -444,11 +473,16 @@ public class MainForm extends javax.swing.JDialog
             
             File listFile = chooser.getSelectedFile();
             Config.getCurrent().setInputPath(listFile.getParentFile());
-            loadFileList(listFile);               
+            prefixOutput.setSelected(false);
+            individualOutput.setSelected(true);
+            setOutputMode();
+            MainForm.loadFileList(conversion, listFile); 
+            if (conversion.getInputFileList() != null)
+              inputList.setListData(conversion.getInputFileList());              
         }
     }//GEN-LAST:event_loadFileListActionPerformed
 
-    protected void loadFileList(File fileList)
+    protected static void loadFileList(BatchConversion conv, File fileList)
     {
         try
         {
@@ -459,9 +493,6 @@ public class MainForm extends javax.swing.JDialog
             String line = reader.readLine();
             // if we have got this far without an excpetion, 
             // then we assume file is OK
-            prefixOutput.setSelected(false);
-            individualOutput.setSelected(true);
-            setOutputMode();
 
             while (line != null)
             {
@@ -481,7 +512,7 @@ public class MainForm extends javax.swing.JDialog
                     if (iFile.canRead() &&
                         oFile.getParentFile().exists())
                     {
-                        conversion.addFilePair(iFile, oFile);
+                        conv.addFilePair(iFile, oFile);
                     }
                     else
                     {
@@ -506,7 +537,7 @@ public class MainForm extends javax.swing.JDialog
                     new JScrollPane(new JTextArea(invalidLines.toString()));
                 pane.setMaximumSize(new Dimension(300, 100));
                 msg[1] = pane;                    
-                JOptionPane.showMessageDialog(this, msg,
+                JOptionPane.showMessageDialog(null, msg,
                     "Invalid format",
                     JOptionPane.WARNING_MESSAGE);
             }
@@ -514,7 +545,7 @@ public class MainForm extends javax.swing.JDialog
         }
         catch (java.io.IOException e)
         {
-            JOptionPane.showMessageDialog(this,
+            JOptionPane.showMessageDialog(null,
                 "Error reading " + fileList.getName() + "\n" + 
                 e.getLocalizedMessage(),"Error loading list",
                 JOptionPane.ERROR_MESSAGE);
@@ -526,7 +557,6 @@ public class MainForm extends javax.swing.JDialog
         }
         finally 
         {
-            inputList.setListData(conversion.getInputFileList());
         }
     }
     
@@ -643,6 +673,8 @@ public class MainForm extends javax.swing.JDialog
                 "Insufficient Options",JOptionPane.INFORMATION_MESSAGE);
             return;
         }
+        conversion.setInputEncoding(Charset.forName(iEncCombo.getSelectedItem().toString()));
+        conversion.setOutputEncoding(Charset.forName(oEncCombo.getSelectedItem().toString()));
         jProgressBar.setIndeterminate(true);
         disableButtons();
         new Thread(conversion).start();
@@ -788,15 +820,132 @@ public class MainForm extends javax.swing.JDialog
     
     private static int runCommandLine(String args[])
     {
-        if (args.length == 4)
+        if (args.length > 0)
         {
+            final int NORMAL = 0;
+            final int IN_ENC = 1;
+            final int OUT_ENC = 2;
+            final int FILE_LIST = 3;
+            Charset inEnc = null;
+            Charset outEnc = null;
+            int normalArgCount = 0;
+            int state = NORMAL;
+            String converter = null;
+            String mode = null;
+            String inputPath = null;
+            String outputPath = null;
+            File fileList = null;
+            for (int a = 0; a<args.length; a++)
+            {
+              if (state == NORMAL)
+              {
+                if (args[a].equals("-i")) 
+                {
+                  state = IN_ENC;
+                  continue;
+                }
+                else if (args[a].equals("-o")) 
+                {
+                  state = OUT_ENC;
+                  continue;
+                }
+                else if (args[a].equals("-f")) 
+                {
+                  state = FILE_LIST;
+                  continue;
+                }
+                else if (args[a].equals("--help")) 
+                {
+                  printUsage();
+                  return 0;
+                }
+                else if (args[a].startsWith("-"))
+                {
+                  System.out.println("Unknown option: " + args[a]);
+                  printUsage();
+                  return 3;
+                }
+                else
+                {
+                  switch (normalArgCount)
+                  {
+                    case 0:
+                      converter = args[a];
+                      break;
+                    case 1:
+                      mode = args[a];
+                      break;
+                    case 2: 
+                      inputPath = args[a];
+                      break;
+                    case 3:
+                      outputPath = args[a];
+                      break;
+                    default:
+                      System.out.println("Ignoring argument " + args[a]);
+                  }
+                  normalArgCount++;
+                }
+              }
+              else 
+              {
+                try
+                {
+                  switch (state)
+                  {
+                  case IN_ENC:
+                    inEnc = Charset.forName(args[a]);
+                    break;
+                  case OUT_ENC:
+                    outEnc = Charset.forName(args[a]);
+                    break;
+                  case FILE_LIST:
+                    fileList = new File(args[a]);
+                    break;
+                  }
+                }
+                catch (java.nio.charset.IllegalCharsetNameException e)
+                {
+                  System.out.println("Illegal Charset: " + e.getLocalizedMessage());
+                  printUsage();
+                  return 5;
+                }
+                catch (java.nio.charset.UnsupportedCharsetException e)
+                {
+                  System.out.println("Unknown charset: "+ e.getLocalizedMessage());
+                  printUsage();
+                  return 6;
+                }
+                state = NORMAL;
+              }
+              
+            }
+            // check that minimum number of arguments reached
+            if (normalArgCount < 4)
+            {
+              if (normalArgCount < 2 || fileList == null)
+              {
+                printUsage();
+                return 7;
+              }
+            }
             BatchConversion conv = new BatchConversion(null);
-            conv.setConversionMode(ConversionMode.getById(Integer.parseInt(args[1])));
-            
+            try 
+            {
+              conv.setConversionMode(ConversionMode.getById(Integer.parseInt(mode)));
+            }
+            catch (NumberFormatException e)
+            {
+              System.out.println(e.getLocalizedMessage());
+              printUsage();
+              return 4;
+            }
+            if (inEnc != null) conv.setInputEncoding(inEnc);
+            if (outEnc != null) conv.setOutputEncoding(outEnc);
             File convPath = getConverterPath();
             ConverterXmlParser xmlParser = 
                 new ConverterXmlParser(convPath);
-            File convXml = new File(convPath, args[0]);
+            File convXml = new File(convPath, converter);
             if (!xmlParser.parseFile(convXml))
             {
                 System.out.println(xmlParser.getErrorLog());
@@ -804,10 +953,17 @@ public class MainForm extends javax.swing.JDialog
             }
             CharConverter cc = (CharConverter)xmlParser.getConverters().elementAt(0);
             conv.addConverter(cc);
-            File input = new File(args[2]);
-            File output = new File(args[3]);
             conv.setPairsMode(true);
-            conv.addFilePair(input,output);
+            if (fileList == null)
+            {
+              File input = new File(inputPath);
+              File output = new File(outputPath);
+              conv.addFilePair(input,output);
+            }
+            else
+            {
+                MainForm.loadFileList(conv, fileList);
+            }
             conv.setPromptMode(BatchConversion.OVERWRITE_ALL);
             new Thread(conv).start();
             do 
@@ -815,21 +971,30 @@ public class MainForm extends javax.swing.JDialog
                 try { Thread.sleep(100); }
                 catch (java.lang.InterruptedException e) {}
             } while (conv.isRunning());
-            System.out.println("Processed: " + input.getAbsolutePath() + " " +
-                output.getAbsolutePath());
             conv.destroy();
             return 0;
         }
         else
         {
-            System.out.println("Usage: converter.dccx mode inputFile outputFile");
-            System.out.println("Modes:");
-            for (int m = 0; m<ConversionMode.NUM_MODES; m++)
-            {
-                System.out.println("\t" + m + "\t" + ConversionMode.getById(m));
-            }
+            printUsage();
+            return 1;
         }
-        return 1;
+    }
+    
+    private static void printUsage()
+    {
+      System.out.println("Arguments: [-i iEnc] [-o oEnc] converter.dccx mode [inputFile outputFile]");
+      System.out.println("Modes:");
+      for (int m = 0; m<ConversionMode.NUM_MODES; m++)
+      {
+          System.out.println("\t" + m + "\t" + ConversionMode.getById(m));
+      }
+      System.out.println("Notes:");
+      System.out.println("\tThe converter must be in the Converter directory (don't give a path)");
+      System.out.println("Optional Arguments:");
+      System.out.println("\t-i iEnc = input encoding e.g. -i iso-8859-1 (default UTF-8)");
+      System.out.println("\t-o oEnc = output encoding e.g. -o iso-8859-1 (default UTF-8)");
+      System.out.println("\t-f fileList = file containing list input output files");
     }
     
     private void enableButtons()
@@ -874,7 +1039,10 @@ public class MainForm extends javax.swing.JDialog
     private javax.swing.JButton configButton;
     private javax.swing.JButton convertButton;
     private javax.swing.JPanel converterPanel;
+    private javax.swing.JPanel encPanel;
     private javax.swing.JButton exitButton;
+    private javax.swing.JComboBox iEncCombo;
+    private javax.swing.JPanel iEncPanel;
     private javax.swing.JButton iFileAdd;
     private javax.swing.JPanel iFilePanel;
     private javax.swing.JButton iFileRemove;
@@ -897,6 +1065,8 @@ public class MainForm extends javax.swing.JDialog
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton loadFileList;
     private javax.swing.JComboBox modeCombo;
+    private javax.swing.JComboBox oEncCombo;
+    private javax.swing.JPanel oEncPanel;
     private javax.swing.JButton oFileButton;
     private javax.swing.JLabel oModeLabel;
     private javax.swing.ButtonGroup outputBGroup;
