@@ -829,6 +829,7 @@ public class MainForm extends javax.swing.JDialog
             final int IN_ENC = 1;
             final int OUT_ENC = 2;
             final int FILE_LIST = 3;
+            final int OOO_SETUP = 4;
             Charset inEnc = null;
             Charset outEnc = null;
             int normalArgCount = 0;
@@ -861,6 +862,11 @@ public class MainForm extends javax.swing.JDialog
                 {
                   printUsage();
                   return 0;
+                }
+                else if (args[a].equals("--oopath")) 
+                {
+                  state = OOO_SETUP;
+                  continue;
                 }
                 else if (args[a].startsWith("-"))
                 {
@@ -905,6 +911,9 @@ public class MainForm extends javax.swing.JDialog
                   case FILE_LIST:
                     fileList = new File(args[a]);
                     break;
+                  case OOO_SETUP:
+                    Config.getCurrent().setOOPath(args[a]);
+                    return 0;
                   }
                 }
                 catch (java.nio.charset.IllegalCharsetNameException e)
@@ -1002,7 +1011,8 @@ public class MainForm extends javax.swing.JDialog
     
     private static void printUsage()
     {
-      System.out.println("Arguments: [-i iEnc] [-o oEnc] converter.dccx mode [inputFile outputFile]");
+      System.out.println("Arguments: [-i iEnc] [-o oEnc] converter.dccx mode " +
+                         "           [-f list]|[inputFile outputFile]");
       System.out.println("Modes:");
       for (int m = 0; m<ConversionMode.NUM_MODES; m++)
       {

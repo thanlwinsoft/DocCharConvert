@@ -22,6 +22,7 @@
         <res src="TargetPanel.dir.unix" id="TargetPanel.dir.unix"/>
         <res src="shortcutSpec.xml" id="shortcutSpec.xml"/>
         <res src="userInputSpec.xml" id="userInputSpec.xml"/>
+        <res src="ProcessPanel.Spec.xml" id="ProcessPanel.Spec.xml"/>
     </resources>
 
     <panels>
@@ -31,7 +32,9 @@
         <panel classname="PacksPanel"/>
         <panel classname="TargetPanel"/>
         <panel classname="InstallPanel"/>
+        <panel classname="ProcessPanel"/>
         <panel classname="ShortcutPanel"/>
+        <panel classname="SimpleFinishPanel"/>
     </panels>
     <packs>
         <pack name="DocCharConverter" preselected="yes" required="yes">
@@ -39,8 +42,8 @@
             <file targetdir="$INSTALL_PATH" src="../dist/DocCharConvert.jar" override="true"/>
             <file targetdir="$INSTALL_PATH" src="DocCharConvert16.ico" override="true"/>
             <file targetdir="$INSTALL_PATH" src="UninstallDCC16.ico" override="true"/>
-            <file targetdir="$INSTALL_PATH" src="DocCharConvert.bat" override="true" />
-            <file targetdir="$INSTALL_PATH" src="DocCharConvert.sh" override="true" />
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert.bat" override="true" os="windows" />
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert.sh" override="true" os="unix"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.bat" type="plain"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.sh" type="shell"/>
             <fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">

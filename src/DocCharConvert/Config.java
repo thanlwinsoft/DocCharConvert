@@ -32,6 +32,12 @@ public class Config
     private String oouno = "uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
     private String ooOptions = " -headless -accept=socket,hostname=localhost,port=8100;urp;";
     private String ooClassPath = "";
+    private final String OO_INVALID_PATH = "Invalid OpenOffice path: ";
+    private final String OO_CLASSES_UNFOUND = "OpenOffice classes not found:";
+    private final String OO_PATH_FAIL = 
+        "\nYou will not be able to convert OpenOffice files until this is fixed.\n" +
+        "You can change the OpenOffice location in the configuration dialog after installation.\n" +
+        "Text file conversions will still work.";
     public static Config getCurrent()
     {
         if (instance == null) instance = new Config();
@@ -45,7 +51,7 @@ public class Config
             this.getClass().getClassLoader().getResource(className);
         
         File thisClassFile = null;
-        System.out.println(classSource);
+        //System.out.println(classSource);
         if (classSource != null)
         {
             String classSrcPath = classSource.getPath();
@@ -63,7 +69,7 @@ public class Config
                else
                  classSrcPath = classSrcPath.substring(iJar + 5,jJar);
             }
-            System.out.println("ThisJar: " + classSrcPath);
+            //System.out.println("ThisJar: " + classSrcPath);
             thisClassFile = new File(classSrcPath);
             if (thisClassFile != null)
             {
@@ -75,7 +81,7 @@ public class Config
                 }
                 
             }
-            System.out.println("Path: " + basePath);
+            System.out.println("Installed Path: " + basePath);
         }
         if (basePath == null)
         {
@@ -179,7 +185,8 @@ public class Config
             File classDir = new File(new File(ooPath).getParent(),"classes");
             if (!classDir.exists()) 
             {
-              System.out.println(classDir.toString() + " doesn't exist");
+              System.out.println(OO_CLASSES_UNFOUND + classDir.toString() + 
+                                 OO_PATH_FAIL);
               return null;
             }
             java.io.FilenameFilter jarFilter = new java.io.FilenameFilter() {
@@ -199,9 +206,10 @@ public class Config
                 urls[i + 1] = jarFiles[i].toURL();
                 ooPaths.append(jarFiles[i].getCanonicalPath());
                 ooPaths.append(' ');
-                System.out.println(urls[i+1].toString());
+                //System.out.println(urls[i+1].toString());
             }
             ooClassPath = ooPaths.toString();
+            System.out.println("OpenOffice class configuration successful!");
             return urls;
         }
         catch (java.net.MalformedURLException e)
@@ -218,15 +226,43 @@ public class Config
     public void setOOPath(String path)
     {
         this.ooPath = path;
+        File testFile = new File(path);
+        if (testFile.isDirectory())
+        {
+            testFile = new File(testFile, "program");
+            if (testFile.isDirectory())
+            {
+                testFile = new File(testFile, "soffice");
+                if (testFile.isFile()) this.ooPath = testFile.getAbsolutePath();
+                else 
+                {
+                    testFile = new File(testFile, "soffice.exe");
+                    if (testFile.isFile()) this.ooPath = testFile.getAbsolutePath();
+                    else 
+                    {
+                        // doesn't seem valid
+                        System.out.println(OO_INVALID_PATH + path + OO_PATH_FAIL);
+                        return;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (!testFile.isFile()) 
+            {
+                // doesn't seem valid
+                System.out.println(OO_INVALID_PATH + path + OO_PATH_FAIL);
+                return;
+            }    
+        }
         packagePref.put(OOPATH, ooPath);
         getOOClasses();
         java.util.jar.Manifest manifest = new java.util.jar.Manifest();
         java.util.jar.Attributes mainAttrib = manifest.getMainAttributes();
-        System.out.println(mainAttrib);
         mainAttrib.putValue("Manifest-Version","1.0");
         mainAttrib.putValue("CreatedBy","DocCharConvert.Config");
         mainAttrib.putValue("Class-Path",ooClassPath);
-        System.out.println(mainAttrib);
         File ooClassPathJar = new File(basePath, "ooClassPath.jar");
         try
         {

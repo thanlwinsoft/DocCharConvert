@@ -29,8 +29,8 @@ import DocCharConvert.Converter.CharConverter;
 public class BatchConversion implements Runnable
 {
     
-    Vector inputFileList;
-    Hashtable converterList;
+    Vector <File>inputFileList;
+    Hashtable <TextStyle,CharConverter>converterList;
     String outputPrefix = "";
     File outputDir = null;
     ConversionMode mode = ConversionMode.OO_MODE;
@@ -40,7 +40,7 @@ public class BatchConversion implements Runnable
     boolean running = false;
     DocInterface docInterface = null;
     boolean useFilePairs = false;
-    TreeMap filePairList = null;
+    TreeMap<File,File> filePairList = null;
     String status = "";
     public final static int PROMPT_YES = 0;
     public final static int PROMPT_NO = 1;
@@ -57,8 +57,8 @@ public class BatchConversion implements Runnable
     public BatchConversion(Component dialog) 
     {
         this.dialog = dialog;
-        inputFileList = new Vector();
-        converterList = new Hashtable();
+        inputFileList = new Vector<File>();
+        converterList = new Hashtable<TextStyle,CharConverter>();
     }
     public void setConversionMode(ConversionMode mode)
     {
@@ -68,7 +68,7 @@ public class BatchConversion implements Runnable
     {
         useFilePairs = isPairs;
         if (useFilePairs == true && filePairList == null)
-            filePairList = new TreeMap();
+            filePairList = new TreeMap<File,File>();
     }
     public void setOnlyStylesInUse(boolean onlyConvertStylesInUse)
     {
@@ -77,7 +77,7 @@ public class BatchConversion implements Runnable
     public void addFilePair(File oldF, File newF)
     {
         if (useFilePairs)
-        {
+        {   
             filePairList.put(oldF,newF);
         }
     }
@@ -167,7 +167,7 @@ public class BatchConversion implements Runnable
         if (!mode.hasStyleSupport())
         {
             // can only have one converter in text mode
-            converterList.put("",cc);
+            converterList.put(new FontStyle(""),cc);
         }
         else if (!converterList.containsValue(cc) &&
                  !converterList.containsKey(cc.getOldStyle()))

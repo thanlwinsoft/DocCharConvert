@@ -4,16 +4,16 @@
           <description align="left" 
                       txt="Please specify the path to your OpenOffice installation."
                       id="description.oo_home"/>
-          <spec txt="Path to OpenOffice" checkfilename="program/classes"
-                type="directory" result="directory">
+          <spec txt="Path to OpenOffice" checkfilename="program"
+                type="directory" result="file">
           <choice value="/usr/lib/openoffice" os="unix" />
-          <choice value="/usr/lib/local/openoffice" os="unix" />
-          <choice value="/usr/lib/local/OpenOffice.org1.1.0" os="unix" />
-          <choice value="/usr/lib/local/OpenOffice.org1.1.1" os="unix" />
-          <choice value="/usr/lib/local/OpenOffice.org1.1.2" os="unix" />
-          <choice value="/usr/lib/local/OpenOffice.org1.1.3" os="unix" />
-          <choice value="/usr/lib/local/OpenOffice.org1.1.4" os="unix" />
-          <choice value="/usr/lib/local/OpenOffice.org1.1.5" os="unix" />
+          <choice value="/usr/local/lib/openoffice" os="unix" />
+          <choice value="/usr/local/OpenOffice.org1.1.0" os="unix" />
+          <choice value="/usr/local/OpenOffice.org1.1.1" os="unix" />
+          <choice value="/usr/local/OpenOffice.org1.1.2" os="unix" />
+          <choice value="/usr/local/OpenOffice.org1.1.3" os="unix" />
+          <choice value="/usr/local/OpenOffice.org1.1.4" os="unix" />
+          <choice value="/usr/local/OpenOffice.org1.1.5" os="unix" />
           <choice value="C:\Program Files\OpenOffice" os="windows" />
           <choice value="C:\Program Files\OpenOffice.org1.1.0" os="windows" />
           <choice value="C:\Program Files\OpenOffice.org1.1.1" os="windows" />
