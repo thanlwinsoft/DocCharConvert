@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Thai UPC to Unicode">
+<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<Argument value="thaiupc.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Tag Doisuthep" type="old" />
+<Font name="Tahoma" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>

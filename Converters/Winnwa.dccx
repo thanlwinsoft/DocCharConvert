@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="WinMyanmar Fonts">
+<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<Argument value="WinMyanmar.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Winnwa" type="old" />
+<Font name="MyaZedi_Graphite" type="new" />
+</Style>
+<Style>
+  <Font name="WinResearcher" type="old" />
+  <Font name="MyaZedi_Graphite" type="new" />
+</Style>
+<Style>
+  <Font name="-Win---Researcher" type="old" />
+  <Font name="MyaZedi_Graphite" type="new" />
+</Style>
+<Style>
+  <Font name="Win---Researcher" type="old" />
+  <Font name="MyaZedi_Graphite" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>

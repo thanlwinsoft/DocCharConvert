@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="utr_display.xsl"?>
+<!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
+
+<characterMapping
+    id="SIL-ThaiUPC-2001"
+    version="3"
+    description="Extended Thai UPC encoding with typographical extras"
+    contact="mailto:martin_hosken@sil.org"
+    registrationAuthority="SIL International"
+    registrationName="ThaiUPC"
+    normalization="NFD"
+    byte-font="DilleniaUPC98"
+>
+<history>
+    <modified version="3" date="2001-07-17">
+        Tidy up and conform to DTD
+    </modified>
+    <modified version="2" date="2001-01-18">
+        Use range operators to make the description shorter
+    </modified>
+    <modified version="1" date="2000-07-17">
+        Original. Trying new language extensions
+    </modified>
+</history>
+
+<assignments sub="3F">
+    <range uFirst="0000" uLast="007F" bFirst="00" bLast="7F"/>
+
+    <a b="80" u="0E10" uactxt="ldia"/>
+    <a b="81" u="0E34" ubctxt="tall"/>
+    <a b="82" u="0E35" ubctxt="tall"/>
+    <a b="83" u="0E36" ubctxt="tall"/>
+    <a b="84" u="0E37" ubctxt="tall"/>
+    <a b="85" u="2026"/>
+    <a b="86" u="0E48" ubctxt="tall"/>
+    <a b="87" u="0E49" ubctxt="tall"/>
+    <a b="88" u="0E4A" ubctxt="tall"/>
+    <a b="89" u="0E4B" ubctxt="tall"/>
+    <a b="8A" u="0E4C" ubctxt="tall"/>
+    <a b="8B" u="0E48"/>
+    <a b="8C" u="0E49"/>
+    <a b="8D" u="0E4A"/>
+    <a b="8E" u="0E4B"/>
+    <a b="8F" u="0E4C"/>
+
+    <a b="90" u="0E0D" uactxt="ldia"/>
+    <a b="91" u="2018"/>
+    <a b="92" u="2019"/>
+    <a b="93" u="201C"/>
+    <a b="94" u="201D"/>
+    <a b="95" u="2022"/>
+    <a b="96" u="2013"/>
+    <a b="97" u="2014"/>
+    <a b="98" u="0E31" uactxt="move-a"/>
+    <a b="99" u="0E4D" ubctxt="tall"/>
+    <a b="99 D2" u="0E33" ubctxt="tall_t"/>
+    <a b="9A" u="0E47" ubctxt="tall"/>
+    <a b="9B" u="0E48" ubctxt="tall_u"/>
+    <fub b="9B" u="0E48" ubctxt="tall" uactxt="am"/>
+    <a b="9C" u="0E49" ubctxt="tall_u"/>
+    <fub b="9C" u="0E49" ubctxt="tall" uactxt="am"/>
+    <a b="9D" u="0E4A" ubctxt="tall_u"/>
+    <fub b="9D" u="0E4A" ubctxt="tall" uactxt="am"/>
+    <a b="9E" u="0E4B" ubctxt="tall_u"/>
+    <fub b="9E" u="0E4B" ubctxt="tall" uactxt="am"/>
+    <a b="9F" u="0E4C" ubctxt="tall_u"/>
+    <fub b="9F" u="0E4C" ubctxt="tall" uactxt="am"/>
+
+    <a b="A0" u="00A0"/>
+
+    <range uFirst="0E01" uLast="0E32" bFirst="A1" bLast="D2"/>
+
+    <fbu b="D3" u="0E33"/>
+    <a b="ED D2" u="0E33"/>
+    <a b="D4" u="0E34"/>
+    <a b="D5" u="0E35"/>
+    <a b="D6" u="0E36"/>
+    <a b="D7" u="0E37"/>
+    <a b="D8" u="0E38"/>
+    <a b="D9" u="0E39"/>
+    <a b="DA" u="0E3A"/>
+    <a b="DB" u="2002"/>    <!-- Needs checking -->
+    <a b="DC" u="200B"/>
+    <a b="DF" u="0E3F"/>
+
+    <a b="E0" u="0E40"/>
+    <a b="E1" u="0E41"/>
+    <a b="E2" u="0E42"/>
+    <a b="E3" u="0E43"/>
+    <a b="E4" u="0E44"/>
+    <a b="E5" u="0E45"/>
+    <a b="E6" u="0E46"/>
+    <a b="E7" u="0E47"/>
+    <a b="E8" u="0E48" ubctxt="udia"/>
+    <fub b="E8" u="0E48" uactxt="am"/>
+    <a b="E9" u="0E49" ubctxt="udia"/>
+    <fub b="E9" u="0E49" uactxt="am"/>
+    <a b="EA" u="0E4A" ubctxt="udia"/>
+    <fub b="EA" u="0E4A" uactxt="am"/>
+    <a b="EB" u="0E4B" ubctxt="udia"/>
+    <fub b="EB" u="0E4B" uactxt="am"/>
+    <a b="EC" u="0E4C" ubctxt="udia"/>
+    <fub b="EC" u="0E4C" uactxt="am"/>
+
+    <range uFirst="0E4D" uLast="0E5B" bFirst="ED" bLast="FB"/>
+
+    <a b="FC" u="0E38" ubctxt="lowc"/>
+    <a b="FD" u="0E39" ubctxt="lowc"/>
+    <a b="FE" u="0E3A" ubctxt="low"/>
+
+    <ordering side="bytes">
+        <order b="order-in" u="order-out"/>
+    </ordering>
+</assignments>
+
+<contexts>
+
+    <group id="order-in">
+        <class-ref name="nikhahitb" id="nikh"/>
+        <class-ref name="toneb" id="tone"/>
+        <class-ref name="sara-aa" id="a"/>
+    </group>
+
+    <group id="order-out">
+        <class-ref name="toneb" id="tone"/>
+        <class-ref name="nikhahitb" id="nikh"/>
+        <class-ref name="sara-aa" id="a"/>
+    </group>
+
+    <group id="am">
+        <class-ref name="sara-am"/>
+    </group>
+
+    <group id="tall">
+        <class-ref name="tallc"/>
+        <class-ref name="ldia" min="0" max="2"/>
+    </group>
+
+    <group id="tall_u">
+        <context-ref name="tall"/>
+        <class-ref name="udia"/>
+    </group>
+
+    <group id="tall_t">
+        <context-ref name="tall"/>
+        <class-ref name="tone" min="0"/>
+    </group>
+
+    <group id="move-a">
+        <class-ref name="tone" min="0"/>
+        <class-ref name="cons"/>
+        <class-ref name="ldia" min="0" max="2"/>
+        <class-ref name="udia"/>
+    </group>
+
+    <group id="udia">
+        <class-ref name="udia"/>
+    </group>
+
+    <group id="ldia">
+        <class-ref name="ldia"/>
+    </group>
+
+    <group id="lowc">
+        <class-ref name="lowc"/>
+    </group>
+
+    <group id="low" alt="1">
+        <class-ref name="ldia"/>
+        <class-ref name="lowc"/>
+    </group>
+
+    <class name="cons">
+        0E01 0E02 0E03 0E04 0E05 0E06 0E07
+        0E08 0E09 0E0A 0E0B 0E0C 0E0D 0E0E 0E0F
+
+        0E10 0E11 0E12 0E13 0E14 0E15 0E16 0E17
+        0E18 0E19 0E1A 0E1B 0E1C 0E1D 0E1E 0E1F
+
+        0E20 0E21 0E22 0E23 0E24 0E25 0E26 0E27
+        0E28 0E29 0E2A 0E2B 0E2C 0E2D 0E2E
+    </class>
+    <class name="consb" size="bytes">
+           A1 A2 A3 A4 A5 A6 A7 A8 A9 AA AB AC AD AE AF
+        B0 B1 B2 B3 B4 B5 B6 B7 B8 B9 BA BB BC BD BE BF
+        C0 C1 C2 C3 C4 C5 C6 C7 C8 C9 CA CB CC CD CE
+    </class>
+    <class name="tallc">
+        0E1B 0E1D 0E1F
+    </class>
+    <class name="lowc">
+        0E0E 0E0F 0E24 0E26
+    </class>
+    <class name="udia">
+        0E31 0E34 0E35 0E36 0E37
+    </class>
+    <class name="ldia">
+        0E38 0E39 0E3A
+    </class>
+    <class name="tone">
+        0E48 0E49 0E4A 0E4B 0E4C
+    </class>
+    <class name="sara-am">
+        0E33
+    </class>
+    <class name="ldiab" size="bytes">
+        D8 D9 DA FC FD FE
+    </class>
+    <class name="toneb" size="bytes">
+        86 87 88 89 8A 8B 8C 8D 8E 8F 9A 9B 9C 9D 9E 9F
+        E7 E8 E9 EA EB EC
+    </class>
+    <class name="nikhahitb" size="bytes">
+        99 ED
+    </class>
+    <class name="sara-aa" size="bytes">
+        D2
+    </class>
+
+</contexts>
+
+</characterMapping>
+
