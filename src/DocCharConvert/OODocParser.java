@@ -127,6 +127,11 @@ public class OODocParser
     private HashSet paraStyles = null;
     private HashSet charStyles = null;
     private boolean onlyStylesInUse = true;
+    private int paraCount = 0;
+    private static final int STAGE_INIT = 0;
+    private static final int STAGE_PARAS = 1;
+    private static final int STAGE_STYLES = 2;
+    private int stage = STAGE_INIT;
     /** Creates a new instance of OODocParser */
     public OODocParser(OOMainInterface ooMain) 
         
@@ -147,6 +152,7 @@ public class OODocParser
         com.sun.star.lang.IllegalArgumentException, 
         DocInterface.InterfaceException
     {
+        stage = STAGE_INIT;
         warningBuffer.delete(0, warningBuffer.length());
         XComponent xWriterComponent = newDocComponent("swriter",inFile);
         if (xWriterComponent == null)
@@ -196,9 +202,9 @@ public class OODocParser
             XEnumeration xParaEnum = xParaAccess.createEnumeration();
 
             // While there are paragraphs, do things to them
-
+            stage = STAGE_PARAS;
             while (xParaEnum.hasMoreElements()) {
-
+                
                 // Get a reference to the next paragraphs XServiceInfo interface. TextTables
                 // are also part of this
 
@@ -241,11 +247,11 @@ public class OODocParser
                         }
                     }
                 }
-
+                paraCount++;
             }
             
             // convert the styles in the document if necessary
-            
+            stage = STAGE_STYLES;
             parseAllStyles();
             
         }
@@ -495,6 +501,7 @@ public class OODocParser
             {
                 String charFontName = AnyConverter.toString(oName);
                 TextStyle thisStyle = new FontStyle(charFontName);
+                //System.out.println("<" + thisStyle.getFontName() + ">");
                 if (converterMap.containsKey(thisStyle)) 
                 {
                     convert = true;
@@ -830,5 +837,22 @@ public class OODocParser
             {
                 System.out.println(e.getMessage());
             }
+    }
+    public synchronized String getStatusDesc()
+    {
+      String desc = new String("");
+      switch (stage)
+      {
+      case STAGE_INIT: 
+        desc = new String("Initialising");
+        break;
+      case STAGE_PARAS: 
+        desc = new String("Parsing paragraph " + paraCount);
+        break;
+      case STAGE_STYLES:
+        desc = new String("Parsing styles");
+        break;
+      }
+      return desc;
     }
 }

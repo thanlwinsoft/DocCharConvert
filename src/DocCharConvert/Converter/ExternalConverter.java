@@ -51,6 +51,7 @@ public class ExternalConverter implements CharConverter, Runnable
     protected String eol = "\n";
     private String name = "";
     private File execDir = null;
+    private boolean initialized = false;
     /** Creates a new instance of ExternalConverter 
      * This should be used when wrapped in a ChildConverter     
      */
@@ -68,8 +69,7 @@ public class ExternalConverter implements CharConverter, Runnable
     {
         if (mode < 0 || mode > USE_ARGSINOUT) 
             throw new java.lang.IllegalArgumentException("Invalid mode " + mode);
-        this.execDir = new File(Config.getCurrent().getBasePath(), 
-            Config.CONVERTER_CONFIG_PATH);
+        this.execDir = Config.getCurrent().getConverterPath();
         this.mode = mode;
         this.programPath = program;
         this.arguments = arguments;
@@ -179,6 +179,7 @@ public class ExternalConverter implements CharConverter, Runnable
         if (mode == USE_STDINOUT)
         {
             startProgram(arguments);
+            initialized = true;
         }
         else
         {
@@ -189,6 +190,8 @@ public class ExternalConverter implements CharConverter, Runnable
                 // out file for java is in file for program and vice versa
                 arguments = arguments.replaceAll(INTAG, outFile.getAbsolutePath());
                 arguments = arguments.replaceAll(OUTTAG, inFile.getAbsolutePath());
+                
+                initialized = true;
             }
             catch (IOException e)
             {
@@ -377,5 +380,9 @@ public class ExternalConverter implements CharConverter, Runnable
             index = text.indexOf(eol,index);
         }
         return count;
+    }
+    public boolean isInitialized()
+    {
+      return initialized;
     }
 }

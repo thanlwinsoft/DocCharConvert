@@ -34,6 +34,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import DocCharConvert.Converter.CharConverter;
+import DocCharConvert.Converter.ReversibleConverter;
+import DocCharConvert.Converter.ChildConverter;
 /**
  *
  * @author  keith
@@ -688,13 +690,14 @@ public class MainForm extends javax.swing.JDialog
                       progressLabel.setText("Please wait. Processing: " + 
                           conversion.getFileBeingConverted() + " (" +
                           conversion.getCurrentFileIndex() + "/" +
-                          conversion.getFileCount() + ")");
+                          conversion.getFileCount() + ") " + 
+                          conversion.getProgressDesc());
                       if (conversion.getCurrentFileIndex() > 0)
                       {
                           jProgressBar.setIndeterminate(false);
                           jProgressBar.setMinimum(0);
                           jProgressBar.setMaximum(conversion.getFileCount());
-                          jProgressBar.setValue(conversion.getCurrentFileIndex());
+                          jProgressBar.setValue(conversion.getCurrentFileIndex() - 1);
                       }
                   }
                   else
@@ -951,8 +954,24 @@ public class MainForm extends javax.swing.JDialog
                 System.out.println(xmlParser.getErrorLog());
                 return 2;
             }
-            CharConverter cc = (CharConverter)xmlParser.getConverters().elementAt(0);
-            conv.addConverter(cc);
+            int convIndex = 0; 
+            while (convIndex < xmlParser.getConverters().size())
+            {
+              CharConverter cc =
+                (CharConverter)xmlParser.getConverters().elementAt(convIndex++);
+              System.out.println(cc);  
+              if (cc instanceof ChildConverter)
+              {
+                ChildConverter cccc = (ChildConverter)cc;
+                if (cccc.getParent() instanceof ReversibleConverter)
+                {
+                  if (((ReversibleConverter)cccc.getParent()).isForwards())
+                    conv.addConverter(cc);
+                }
+                else conv.addConverter(cc);
+              }
+              else conv.addConverter(cc);
+            }
             conv.setPairsMode(true);
             if (fileList == null)
             {

@@ -50,5 +50,5 @@ public class DummyConverter implements CharConverter
     public void setName(String newName)
     {
     }
-    
+    public boolean isInitialized() { return true; }
 }

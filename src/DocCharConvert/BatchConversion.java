@@ -463,4 +463,10 @@ public class BatchConversion implements Runnable
     }
     public void setInputEncoding(Charset iEnc) {iCharset = iEnc; };
     public void setOutputEncoding(Charset oEnc) { oCharset = oEnc; };
+    public synchronized String getProgressDesc()
+    {
+      if (docInterface != null)
+        return docInterface.getStatusDesc();
+      else return new String("");
+    }
 }

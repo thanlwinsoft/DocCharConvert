@@ -347,4 +347,10 @@ public class OOMainInterface implements DocInterface
     {
       //outputCharset = oEnc;
     }
+    public String getStatusDesc()
+    {
+      if (parser == null)
+        return new String("Initializing");
+      else return parser.getStatusDesc();
+    }
 }

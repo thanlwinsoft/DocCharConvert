@@ -69,28 +69,41 @@ They will be stripped out later during the vowel & tone reordering
     <a b="3e" u="003e"/><!-- > -->
     <a b="3f" u="003f"/><!-- ? -->
     <a b="40" u="0040"/><!-- @ -->
+    <fbu b="41" u="005e 0ead 200d 0eb0" bbctxt="no-cons-b" /><!-- a vowel no cons -->
     <fbu b="41" u="0eb0"/><!-- A vowel -->
+    <fbu b="41 6d" u="005e 0ead 200d 0eb3" bbctxt="no-cons-b" /><!-- a vowel + m final -->
     <fbu b="41 6d" u="0eb3"/><!-- A vowel + m final-->
+    <fbu b="41" u="005e 0ead 200d 0eb1" bbctxt="no-cons-b" bactxt="final-kptnng-b" /><!-- A vowel-->
     <fbu b="41" u="0eb1" bactxt="final-kptnng-b" /><!-- A vowel-->
+    <fbu b="41 61" u="005e 0ead 200d 0eb2" bbctxt="no-cons-b"/><!-- Aa vowel-->
     <fbu b="41 61" u="0eb2"/><!-- Aa vowel-->
+    <fbu b="41 69" u="005e 0ead 200d 0ec4" bbctxt="no-cons-b"/><!-- Ai vowel no cons-->
     <fbu b="41 69" u="0ec4"/><!-- Ai vowel-->
+    <fbu b="41 61 69" u="005e 0ead 200d 0eb2 0e8d" bbctxt="no-cons-b"/><!-- Aai vowel-->
     <fbu b="41 61 69" u="0eb2 0e8d"/><!-- Aai vowel-->
+    <fbu b="41 75" u="005e 0ead 200d 0ec0 0ebb 0eb2" bbctxt="no-cons-b"/><!-- Au vowel-->
     <fbu b="41 75" u="0ec0 0ebb 0eb2"/><!-- Au vowel-->
+    <fbu b="41 61 75" u="005e 0ead 200d 0eb2 0ea7" bbctxt="no-cons-b"/><!-- Aau vowel-->
     <fbu b="41 61 75" u="0eb2 0ea7"/><!-- Aau vowel-->
+    <fbu b="41 65" u="005e 0ead 200d 0ec1" bbctxt="no-cons-b"/><!-- Ae long  vowel-->
+    <fbu b="41 65" u="005e 0ead 200d 0ec1 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Ae short vowel-->
     <fbu b="41 65" u="0ec1"/><!-- Ae long  vowel-->
     <fbu b="41 65" u="0ec1 0eb0" bactxt="q-final-b"/><!-- Ae short vowel-->
-    <fbu b="41 65" u="0ec1 0eb1" bactxt="final-cons-b" /><!-- Ae final cons-->
     <fbu b="42" u="005e 0e9b 200d"/><!-- B-->
     <fbu b="43" u="005e 0e97 0eaa 200d"/><!-- C-->
     <fbu b="43" u="005e 0e96 0eaa 200d" bactxt="high-vowel-tone-b"/><!-- C high -->
     <fbu b="44" u="005e 0e95 200d"/><!-- D-->
     <fbu b="45" u="0ec0"/><!-- E vowel -->
-    <fbu b="45" u="0ec0 0ead" bbctxt="word-sep-b"/><!-- E vowel nocons -->
+    <!--<fbu b="45" u="0ec0 0ead" bbctxt="no-cons-b"/>--><!-- E vowel nocons -->
+    <fbu b="45" u="005e 0ead 200d 0ec0" bbctxt="no-cons-b"/><!-- E vowel nocons -->
     <fbu b="45" u="0ec0 0eb0" bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short E vowel with final q-->
-    <fbu b="45" u="0ec0 0eb1" bactxt="final-cons-b"/><!-- E with final-->
+    <fbu b="45 69" u="005e 0ead 200d 0ec0 0eb5 0e8d" bbctxt="no-cons-b"/><!-- Ei vowel-->
     <fbu b="45 69" u="0ec0 0eb5 0e8d"/><!-- Ei vowel-->
+    <fbu b="45 75" u="005e 0ead 200d 0ec0 0ea7" bbctxt="no-cons-b"/><!-- Eu vowel-->
     <fbu b="45 75" u="0ec0 0ea7"/><!-- Eu vowel-->
+    <fbu b="45 72" u="005e 0ead 200d 0ec0 0eb5" bbctxt="no-cons-b"/><!-- long Er vowel-->
     <fbu b="45 72" u="0ec0 0eb5"/><!-- long Er vowel-->
+    <fbu b="45 72" u="005e 0ead 200d 0ec0 0eb4" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Er vowel with final q -->
     <fbu b="45 72" u="0ec0 0eb4" bactxt="q-final-b"/><!-- short Er vowel with final q -->
     <fbu b="46" u="005e 0e9f 200d"/><!-- F-->
     <fbu b="46" u="005e 0e9d 200d" bactxt="high-vowel-tone-b" /><!-- F high-->
@@ -112,15 +125,23 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="48 69" u="005e 0eab 0eae 0ea2 200d" bactxt="hi-high-b"/><!-- Hi high-->
     <fbu b="48 69" u="005e 0eae 0ea2 200d" bactxt="hi-low-b"/><!-- Hi-->
     <fbu b="49" u="0ea2" bactxt="v-a-or-ei-b"/><!-- i semi-vowel -->
+    <fbu b="49" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b"/><!-- long I vowel -->
     <fbu b="49" u="0eb5"/><!-- long I vowel -->
-    <fbu b="49" u="0ead 0eb5" bbctxt="word-sep-b"/><!-- long I vowel nocons-->
+    <!--<fbu b="49" u="0ead 0eb5" bbctxt="no-cons-b"/>--><!-- long I vowel nocons-->
+    <fbu b="49" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
     <fbu b="49" u="0eb5" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
-    <fbu b="49" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
+    <fbu b="49" u="005e 0ead 200d 0eb4" bbctxt="no-cons-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
+    <fbu b="49" u="0eb4" bbctxt="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
+    <fbu b="49 6f 75" u="005e 0ead 200d 0ebd 0ea7" bbctxt="no-cons-b"/><!-- Iou vowel-->
     <fbu b="49 6f 75" u="0ebd 0ea7"/><!-- Iou vowel-->
+    <fbu b="49 75" u="005e 0ead 200d 0eb4 0ea7" bbctxt="no-cons-b"/><!-- Iu-->
     <fbu b="49 75" u="0eb4 0ea7"/><!-- Iu-->
-    <fbu b="49 65" u="0ec0 0e8d"/><!-- Ie-->
+    <fbu b="49 65" u="005e 0ead 200d 0ec0 0e8d" bbctxt="no-cons-b"/><!-- Ie-->
+    <fbu b="49 65" u="005e 0ead 200d 0ec0 0eb1 0e8d" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
     <fbu b="49 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
+    <fbu b="49 65" u="005e 0ead 200d 0ebd" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
     <fbu b="49 65" u="0ebd" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
+    <fbu b="49 65" u="0ec0 0e8d" bactxt="not-i-b"/><!-- Ie-->
     <fbu b="4a" u="005e 0e88 200d"/><!-- J-->
     <fbu b="4b" u="005e 0e84 200d"/><!-- K-->
     <fbu b="4b" u="005e 0e82 200d"  bactxt="high-vowel-tone-b"/><!-- K high-->
@@ -139,16 +160,24 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="4e 79" u="005e 0e8d 200d"/><!-- Ny low -->
     <fbu b="4e 79" u="005e 0eab 0e8d 200d" bactxt="high-vowel-tone-b" /><!-- Ny high-->
     <fbu b="4e 7a" u="005e 0e94 0eaa 200d"/><!-- Nz mid -->
+    <fbu b="4f" u="005e 0ead 200d 0ec2" bbctxt="no-cons-b"/><!-- O vowel -->
     <fbu b="4f" u="0ec2"/><!-- O vowel -->
-    <fbu b="4f" u="0ec2 0eb0"  bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
+    <fbu b="4f" u="005e 0ead 200d 0ec2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
+    <fbu b="4f" u="0ec2 0eb0"  bbctxt="not-foreign-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
+    <fbu b="4f" u="005e 0ead 200d 0ebb"  bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- O vowel with final cons-->
     <fbu b="4f" u="0ebb"  bactxt="final-cons-b"/><!-- O vowel with final cons-->
+    <fbu b="4f 69" u="005e 0ead 200d 0ead 0e8d" bbctxt="no-cons-b"/><!-- Oi vowel -->
     <fbu b="4f 69" u="0ead 0e8d"/><!-- Oi vowel -->
-    <fbu b="4f 69" u="0ead 0ead 0e8d" bbctxt="word-sep-b"/><!-- no cons oi vowel -->
+    <!--<fbu b="4f 69" u="0ead 0ead 0e8d" bbctxt="no-cons-b"/>--><!-- no cons oi vowel -->
+    <fbu b="4f 75" u="005e 0ead 200d 0ec2 0ea7" bbctxt="no-cons-b"/><!-- Ou vowel-->
     <fbu b="4f 75" u="0ec2 0ea7"/><!-- Ou vowel-->
+    <fbu b="4f 72" u="005e 0ead 200d 0ecd" bbctxt="no-cons-b"/><!-- long Or vowel-->
     <fbu b="4f 72" u="0ecd"/><!-- long Or vowel-->
+    <fbu b="4f 72" u="005e 0ead 200d 0ec0 0eb2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Or vowel with q final-->
     <fbu b="4f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short Or vowel with q final-->
+    <fbu b="4f 72" u="005e 0ead 200d 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
     <fbu b="4f 72" u="0ead" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
-    <fbu b="4f 72" u="0ead 0ead" bbctxt="word-sep-b" bactxt="final-cons-b"/><!-- or vowel with final cons -->
+    <!--<fbu b="4f 72" u="0ead 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/>--><!-- or vowel with final cons -->
     <fbu b="50" u="005e 0e9e 200d"/><!-- P low -->
     <fbu b="50" u="005e 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
     <fbu b="51" u="005e 0e97 0e88 200d"/><!-- Q low -->
@@ -159,18 +188,29 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="54" u="005e 0e97 200d"/><!-- T low -->
     <fbu b="54" u="005e 0e96 200d" bactxt="high-vowel-tone-b" /><!-- T high-->
     <fbu b="55" u="0ea7" bactxt="a-vowel-b"/><!-- U semi-vowel -->
+    <fbu b="55" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b"/><!-- long U vowel -->
     <fbu b="55" u="0eb9"/><!-- long U vowel -->
+    <fbu b="55" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
     <fbu b="55" u="0eb9" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
+    <fbu b="55" u="005e 0ead 200d 0eb8" bbctxt="no-cons-b" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
     <fbu b="55" u="0eb8" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
+    <fbu b="55 69" u="005e 0ead 200d 0eb8 0e8d" bbctxt="no-cons-b"/><!-- Ui vowel -->
     <fbu b="55 69" u="0eb8 0e8d"/><!-- Ui vowel -->
+    <fbu b="55 65" u="0005e 0ead 200d eb7" bbctxt="no-cons-b"/><!-- long ue vowel -->
     <fbu b="55 65" u="0eb7"/><!-- long ue vowel -->
+    <fbu b="55 65" u="005e 0ead 200d 0eb6" bbctxt="no-cons-b" bactxt="q-final-b" /><!-- short ue vowel -->
     <fbu b="55 65" u="0eb6" bactxt="q-final-b" /><!-- short ue vowel -->
     <fbu b="55 65 69" u="0ec0 0ea7 0eb5 0e8d"/><!--  u ei vowel -->
     <fbu b="55 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/><!--  u ei vowel in fu'juei-->
+    <fbu b="55 65 61" u="005e 0ead 200d 0ec0 0eb7 0ead" bbctxt="no-cons-b" /><!-- Uea vowel -->
     <fbu b="55 65 61" u="0ec0 0eb7 0ead" /><!-- Uea vowel -->
+    <fbu b="55 65 61" u="005e 0ead 200d 0ec0 0eb6" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Uea vowel -->
     <fbu b="55 65 61" u="0ec0 0eb6" bactxt="q-final-b"/><!-- Uea vowel -->
+    <fbu b="55 6f" u="005e 0ead 200d 0ebb 0ea7" bbctxt="no-cons-b"/><!-- long Uo vowel -->
     <fbu b="55 6f" u="0ebb 0ea7"/><!-- long Uo vowel -->
+    <fbu b="55 6f" u="005e 0ead 200d 0ebb 0ea7 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Uo vowel -->
     <fbu b="55 6f" u="0ebb 0ea7 0eb0" bactxt="q-final-b"/><!-- short Uo vowel -->
+    <fbu b="55 6f" u="005e 0ead 200d 0ea7" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
     <fbu b="55 6f" u="0ea7" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
     <fbu b="56" u="2612"/><!-- V does not occur as capital -->
     <fbu b="57" u="005e 0ea7 200d"/><!-- W-->
@@ -184,17 +224,28 @@ They will be stripped out later during the vowel & tone reordering
     <a b="5e" u="005e"/><!-- ^ -->
     <a b="5f" u="005f"/><!-- _ -->
     <a b="60" u="0060"/><!-- ` -->
-    <a b="61" u="005e 0ead 200d 0eb0" bbctxt="word-sep-b" /><!-- a vowel no cons -->
+    <a b="61" u="005e 0ead 200d 0eb0" bbctxt="no-cons-b" /><!-- a vowel no cons -->
+    <a b="61" u="005e 0ead 200d 0eb1" bbctxt="no-cons-b" bactxt="final-kptnng-b" /><!-- a vowel-->
     <a b="61" u="0eb1" bactxt="final-kptnng-b" /><!-- a vowel-->
     <a b="61" u="0eb0" /><!-- a vowel -->
+    <a b="61 6d" u="005e 0ead 200d 0eb3" bbctxt="no-cons-b" /><!-- a vowel + m final -->
     <a b="61 6d" u="0eb3" /><!-- a vowel + m final -->
+    <a b="61 61" u="005e 0ead 200d 0eb2" bbctxt="no-cons-b"/><!-- aa vowel no cons-->
     <a b="61 61" u="0eb2"/><!-- aa vowel-->
+    <a b="61 69" u="005e 0ead 200d 0ec4" bbctxt="no-cons-b"/><!-- Ai vowel no cons-->
     <a b="61 69" u="0ec4"/><!-- ai vowel-->
+    <a b="61 61 69" u="005e 0ead 200d 0eb2 0e8d" bbctxt="no-cons-b"/><!-- Aai vowel-->
     <a b="61 61 69" u="0eb2 0e8d"/><!-- aai vowel-->
+    <a b="61 75" u="005e 0ead 200d 0ec0 0ebb 0eb2" bbctxt="no-cons-b"/><!-- Au vowel-->
     <a b="61 75" u="0ec0 0ebb 0eb2"/><!-- au vowel-->
+    <a b="61 61 75" u="005e 0ead 200d 0eb2 0ea7" bbctxt="no-cons-b"/><!-- Aau vowel-->
     <a b="61 61 75" u="0eb2 0ea7"/><!-- aau vowel-->
+    <a b="61 65" u="005e 0ead 200d 0ec1" bbctxt="no-cons-b"/><!-- Ae long  vowel-->
+    <a b="61 65" u="005e 0ead 200d 0ec1 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Ae short vowel-->
+    
     <a b="61 65" u="0ec1"/><!-- ae long  vowel-->
     <a b="61 65" u="0ec1 0eb0" bactxt="q-final-b"/><!-- ae short vowel-->
+    
     
     <a b="62" u="005e 0e9b 200d"/><!-- b-->
     <a b="63" u="005e 0e96 0eaa 200d" bactxt="high-vowel-tone-b"/><!-- c high -->
@@ -205,16 +256,22 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="63" u="0ec8" bbctxt="middle-cons-nof-b" />
     <!-- c as tone mark on middle class final stop or glottal -->
     <fbu b="63" u="200b" bbctxt="middle-cons-final-b" />
-    <a b="63" u="0ec8 0ead" bbctxt="middle-no-cons-any-b"/><!-- c as tone mark with invisible middle cons -->
+    <fbu b="63" u="200b" bbctxt="middle-no-cons-final-b"/><!-- c as tone mark with invisible middle cons -->
+    <fbu b="63" u="200b" bbctxt="middle-no-cons-nof-b"/><!-- c as tone mark with invisible middle cons -->
     <a b="63" u="005e 0e97 0eaa 200d"/><!-- c low -->
     <a b="64" u="005e 0e95 200d"/><!-- d-->
     <a b="65" u="0ec0"/><!-- long e vowel-->
-    <a b="65" u="0ec0 0ead" bbctxt="word-sep-b"/><!-- e vowel nocons -->
+    <!--<a b="65" u="0ec0 0ead" bbctxt="no-cons-b"/>--><!-- e vowel nocons -->
+    <a b="65" u="005e 0ead 200d 0ec0" bbctxt="no-cons-b"/><!-- E vowel nocons -->
     <a b="65" u="0ec0 0eb0" bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short e vowel with final q-->
     <a b="65 69" u="0ec0 0eb5 0e8d"/><!-- ei vowel-->
-    <a b="65 69" u="0ec0 0ead 0eb5 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/><!-- ei vowel only -->
+    <a b="65 69" u="005e 0ead 200d 0ec0 0eb5 0e8d" bbctxt="no-cons-b"/><!-- Ei vowel-->
+    <!--<a b="65 69" u="0ec0 0ead 0eb5 0e8d" bbctxt="no-cons-b" bactxt="no-cons-b"/>--><!-- ei vowel only -->
+    <a b="65 75" u="005e 0ead 200d 0ec0 0ea7" bbctxt="no-cons-b"/><!-- Eu vowel-->
     <a b="65 75" u="0ec0 0ea7"/><!-- eu vowel-->
+    <a b="65 72" u="005e 0ead 200d 0ec0 0eb5" bbctxt="no-cons-b"/><!-- long Er vowel-->
     <a b="65 72" u="0ec0 0eb5"/><!-- long er vowel-->
+    <a b="65 72" u="005e 0ead 200d 0ec0 0eb4" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Er vowel with final q -->
     <a b="65 72" u="0ec0 0eb4" bactxt="q-final-b"/><!-- short er vowel with final q -->
     <a b="66" u="005e 0e9f 200d"/><!-- f low -->
     <a b="66" u="005e 0e9d 200d" bactxt="high-vowel-tone-b" /><!-- f high-->
@@ -240,15 +297,23 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="68" u="0ec9" bbctxt="middle-no-cons-any-b"/>
     <fbu b="68" u="0ec8" bbctxt="low-cons-any-b"/><!-- h as tone on low class -->
     <a b="69" u="0ea2" bactxt="v-a-or-ei-b"/><!-- i semi-vowel -->
+    <a b="69" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b"/><!-- long I vowel -->
     <a b="69" u="0eb5"/><!-- long i vowel -->
-    <a b="69" u="0ead 0eb5" bbctxt="word-sep-b"/><!-- long i vowel nocons-->
+    <!--<a b="69" u="0ead 0eb5" bbctxt="no-cons-b"/>--><!-- long i vowel nocons-->
+    <a b="69" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
     <fbu b="69" u="0eb5" bactxt="ng-final-tone-b"/><!-- long i with ng -->
+    <a b="69" u="005e 0ead 200d 0eb4" bbctxt="no-cons-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
     <a b="69" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short i vowel with q,k,t,p,n,m finals -->
+    <a b="69 6f 75" u="005e 0ead 200d 0ebd 0ea7" bbctxt="no-cons-b"/><!-- Iou vowel-->
     <a b="69 6f 75" u="0ebd 0ea7"/><!-- iou vowel-->
+    <a b="69 75" u="005e 0ead 200d 0eb4 0ea7" bbctxt="no-cons-b"/><!-- Iu-->
     <a b="69 75" u="0eb4 0ea7"/><!-- iu-->
-    <a b="69 65" u="0ec0 0e8d"/><!-- ie-->
+    <a b="69 65" u="005e 0ead 200d 0ec0 0e8d" bbctxt="no-cons-b"/><!-- Ie-->
+    <a b="69 65" u="005e 0ead 200d 0ec0 0eb1 0e8d" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
     <a b="69 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short ie vowel with q final -->
+    <a b="69 65" u="005e 0ead 200d 0ebd" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
     <a b="69 65" u="0ebd" bactxt="final-cons-b" uactxt="final-u"/><!-- ie vowel with final cons -->
+    <a b="69 65" u="0ec0 0e8d" bactxt="not-i-b"/><!-- ie-->
     <a b="6a" u="005e 0e88 200d"/><!-- j-->
     <a b="6b" u="005e 0e84 200d"/><!-- k low -->
     <a b="6b" u="005e 0e82 200d"  bactxt="high-vowel-tone-b"/><!-- k high-->
@@ -273,16 +338,24 @@ They will be stripped out later during the vowel & tone reordering
     <a b="6e" u="005e 0edc 200d" bactxt="high-vowel-tone-b" /><!-- n high-->
     <a b="6e" u="0e99" bbctxt="vowel-final-b"/><!-- n final -->
     <a b="6e" u="005e 0e99 200d"/><!-- n low class -->
+    <a b="6f" u="005e 0ead 200d 0ec2" bbctxt="no-cons-b"/><!-- O vowel -->
     <a b="6f" u="0ec2"/><!-- long o vowel -->
+    <a b="6f" u="005e 0ead 200d 0ec2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
     <a b="6f" u="0ec2 0eb0"  bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short o vowel with q final-->
+    <a b="6f" u="005e 0ead 200d 0ebb" bbctxt="no-cons-b"  bactxt="final-cons-b"/><!-- O vowel with final cons-->
     <a b="6f" u="0ebb"  bactxt="final-cons-b"/><!-- o vowel with final cons-->
+    <a b="6f 69" u="005e 0ead 200d 0ead 0e8d" bbctxt="no-cons-b"/><!-- Oi vowel -->
     <a b="6f 69" u="0ead 0e8d"/><!-- oi vowel -->
-    <a b="6f 69" u="005e 0ead 200d 0ead 0e8d" bbctxt="word-sep-b"/><!-- no cons oi vowel -->
+    <!--<a b="6f 69" u="005e 0ead 200d 0ead 0e8d" bbctxt="no-cons-b"/>--><!-- no cons oi vowel -->
+    <a b="6f 75" u="005e 0ead 200d 0ec2 0ea7" bbctxt="no-cons-b"/><!-- Ou vowel-->
     <a b="6f 75" u="0ec2 0ea7"/><!-- ou vowel-->
+    <a b="6f 72" u="005e 0ead 200d 0ecd" bbctxt="no-cons-b"/><!-- long Or vowel-->
     <a b="6f 72" u="0ecd"/><!-- long or vowel-->
+    <a b="6f 72" u="005e 0ead 200d 0ec0 0eb2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Or vowel with q final-->
     <a b="6f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short or vowel with q final-->
+    <a b="6f 72" u="005e 0ead 200d 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
     <a b="6f 72" u="0ead" bactxt="final-cons-b"/><!-- or vowel with final cons -->
-    <a b="6f 72" u="0ead 0ead" bbctxt="word-sep-b" bactxt="final-cons-b"/><!-- or vowel with final cons -->
+    <!--<a b="6f 72" u="0ead 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/>--><!-- or vowel with final cons -->
     <a b="70" u="005e 0e9e 200d"/><!-- p low-->
     <a b="70" u="005e 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
     <a b="70" u="0e9a"  bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- p final-->
@@ -296,37 +369,48 @@ They will be stripped out later during the vowel & tone reordering
     <a b="74" u="005e 0e96 200d" bactxt="high-vowel-tone-b" /><!-- t high-->
     <a b="74" u="0e94" bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- t final-->
     <a b="75" u="0ea7 200d" bbctxt="any-cons-b" bactxt="a-vowel-b"/><!-- u semi-vowel -->
+    <a b="75" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
     <fbu b="75" u="0eb9" bactxt="ng-final-tone-b" priority="1"/><!-- long u vowel with ng this rule must be before the next one -->
+    <a b="75" u="005e 0ead 200d 0eb8" bbctxt="no-cons-b" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
     <a b="75" u="0eb8" bbctxt="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short u vowel-->
     <a b="75" u="0ea7" bactxt="a-vowel-b"/><!-- U semi-vowel -->
+    <a b="75" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b"/><!-- long U vowel -->
     <a b="75" u="0eb9"/><!-- long u vowel-->
+    <a b="75 69" u="005e 0ead 200d 0eb8 0e8d" bbctxt="no-cons-b"/><!-- Ui vowel -->
     <a b="75 69" u="0eb8 0e8d"/><!-- ui vowel -->
+    <a b="75 65" u="0005e 0ead 200d eb7" bbctxt="no-cons-b"/><!-- long ue vowel -->
     <a b="75 65" u="0eb7"/><!-- long ue vowel -->
+    <a b="75 65" u="005e 0ead 200d 0eb6" bbctxt="no-cons-b" bactxt="q-final-b" /><!-- short ue vowel -->
     <a b="75 65" u="0eb6" bactxt="q-final-b" /><!-- short ue vowel -->
     <a b="75 65 69" u="0ec0 0ea7 0eb5 0e8d"/><!--  u ei vowel -->
     <!--<a b="75 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/>  u ei vowel in fu'juei-->
+    <a b="75 65 61" u="005e 0ead 200d 0ec0 0eb7 0ead" bbctxt="no-cons-b" /><!-- Uea vowel -->
     <a b="75 65 61" u="0ec0 0eb7 0ead" /><!-- uea vowel -->
+    <a b="75 65 61" u="005e 0ead 200d 0ec0 0eb6" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Uea vowel -->
     <a b="75 65 61" u="0ec0 0eb6" bactxt="q-final-b"/><!-- uea vowel -->
+    <a b="75 6f" u="005e 0ead 200d 0ebb 0ea7" bbctxt="no-cons-b"/><!-- long Uo vowel -->
     <a b="75 6f" u="0ebb 0ea7"/><!-- long uo vowel -->
+    <a b="75 6f" u="005e 0ead 200d 0ebb 0ea7 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Uo vowel -->
     <a b="75 6f" u="0ebb 0ea7 0eb0" bactxt="q-final-b"/><!-- short uo vowel -->
+    <a b="75 6f" u="005e 0ead 200d 0ea7" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
     <a b="75 6f" u="0ea7" bactxt="final-cons-b" uactxt="final-u"/><!-- vowel uo with final cons-->
     <fbu b="76" u="0eca" bbctxt="middle-no-cons-any-b"/><!-- v error if not in explicit context below -->
-    <!-- v as tone mark on middle class with or without final -->
-    <a b="76" u="0eca" bbctxt="middle-cons-any-b" />
     <!-- v as tone mark on low class final stop or glottal -->
     <fbu b="76" u="200b" bbctxt="low-cons-final-b" />
+    <!-- v as tone mark on middle class with or without final -->
+    <a b="76" u="0eca" bbctxt="middle-cons-any-b" />
     <!-- v as tone mark on low class no final -->
     <a b="76" u="0ec9" bbctxt="low-cons-nof-b" />
     <a b="77" u="005e 0ea7 200d"/><!-- low w-->
     <a b="77" u="005e 0eab 0ea7 200d" bactxt="high-vowel-tone-b" /><!-- high w-->
     <a b="78" u="0ecb" bbctxt="middle-cons-any-b"/><!-- x tone on mid class -->
-    <fbu b="78" u="0ecb" bbctxt="middle-no-cons-any-b"/><!-- x if no cons, then must be invisible mid - add it after and rearrange later -->
+    <fbu b="78" u="0ecb" bbctxt="middle-no-cons-any-b"/><!-- x if no cons, then must be invisible mid-->
     <fbu b="78" u="200b" bbctxt="high-cons-any-b"/><!-- x tone on low class -->
     <a b="79" u="005e 0ea2 200d"/><!-- y mid -->
     <a b="7a" u="005e 0e95 0eaa 200d"/><!-- z mid -->
     <a b="7a" u="0ecc" bbctxt="low-cons-any-b"/>
     <fbu b="7a" u="0ecc" bbctxt="middle-cons-any-b"/>
-    <fbu b="7a" u="0ecc 0ead" bbctxt="middle-no-cons-any-b"/><!-- z if no cons, then must be invisible mid - add it after and rearrange later -->
+    <fbu b="7a" u="0ecc" bbctxt="middle-no-cons-any-b"/><!-- z if no cons, then must be invisible mid -->
     <a b="7b" u="007b"/><!-- {-->
     <a b="7c" u="007c"/><!-- |-->
     <a b="7d" u="007d"/><!-- }-->
@@ -344,7 +428,127 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="68 69 75 76" u="0eae 0eb4 0ec9 0ea7"/><!-- hiuv -->
     <a b="6d 76 20 62 61 61 63" u="0ea1 0e9b 0ec8 0eb2"/><!-- mv baac-->
     <a b="4d 76 20 62 61 61 63" u="0ea1 0e9b 0ec8 0eb2"/><!-- Mv baac-->
+    <a b="67 75 27 6e 67 75 61 61 69 63" u="0e81 0eb9 0ec9 0020 0eab 0e87 0ea7 0ec8 0eb2 0e8d"/><!-- gu'nguaaic -->
+    <fbu b="47 75 27 6e 67 75 61 61 69 63" u="0e81 0eb9 0ec9 0020 0eab 0e87 0ea7 0ec8 0eb2 0e8d"/><!-- gu'nguaaic -->
+    <a b="6d 69 27 61 71 76" u="0edd 0eb5 0ec8 0020 0ead 0eca 0eb0" /><!-- mi'aqv -->
+    <fbu b="4d 69 27 61 71 76" u="0edd 0eb5 0ec8 0020 0ead 0eca 0eb0" /><!-- mi'aqv -->
+    <!-- Keith's exceptions -->
     
+    <!-- Gin^mbo^aa = ກິນ^ໂບ^ອາ -->
+<a b="47 69 6e 5e 6d 62 6f 5e 61 61"
+   u="0e81 0eb4 0e99 005e 0ec2 0e9a 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- nyungc-nyungc = ຫຍູ່ງໆ -->
+<a b="6e 79 75 6e 67 63 2d 6e 79 75 6e 67 63"
+   u="0eab 0e8d 0eb9 0ec8 0e87 0ec6" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Nyungc-nyungc = ຫຍູ່ງໆ -->
+<a b="4e 79 75 6e 67 63 2d 6e 79 75 6e 67 63"
+   u="0eab 0e8d 0eb9 0ec8 0e87 0ec6" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- jatv = ຈ໊ຽດ -->
+<a b="6a 61 74 76"
+   u="0e88 0eca 0ebd 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Jetc^si = ຈຽດ^ຊີ -->
+<a b="4a 65 74 63 5e 73 69"
+   u="0e88 0ebd 0e94 005e 0e8a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- gu'nyuoz = ກະຍົ໌ວ -->
+<a b="67 75 27 6e 79 75 6f 7a"
+   u="0e81 0eb0 0e8d 0ebb 0ecc 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Nernh = ເນິ່ນ -->
+<a b="4e 65 72 6e 68"
+   u="0ec0 0e99 0eb4 0ec8 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- mbu'ndongx = ບຸດົ໋ງ -->
+<a b="6d 62 75 27 6e 64 6f 6e 67 78"
+   u="0e9a 0eb8 0e94 0ebb 0ecb 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^ndun^lam = ອາ^ດຸນ^ລຳ -->
+<a b="41 61 5e 6e 64 75 6e 5e 6c 61 6d"
+   u="0ead 0eb2 005e 0e94 0eb8 0e99 005e 0ea5 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- la'bieiv-zorng = ຫລະເປຢີ໊ຍ-ຕສອງ -->
+<a b="6c 61 27 62 69 65 69 76 2d 7a 6f 72 6e 67"
+   u="0eab 0ea5 0eb0 0ec0 0e9b 0ea2 0eb5 0eca 0e8d 002d 0e95 0eaa 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Naatan = ນາ^ທັນ -->
+<a b="4e 61 61 74 61 6e"
+   u="0e99 0eb2 005e 0e97 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Selekv = ເສ^ເລກ -->
+<a b="53 65 6c 65 6b 76"
+   u="0ec0 0eaa 005e 0ec0 0ea5 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Utc^si^yaa = ອຸດ^ຊີ^ຢາ -->
+<a b="55 74 63 5e 73 69 5e 79 61 61"
+   u="0ead 0eb8 0e94 005e 0e8a 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Me^tu^se^laa = ເມ^ທູ^ເສ^ລາ -->
+<a b="4d 65 5e 74 75 5e 73 65 5e 6c 61 61"
+   u="0ec0 0ea1 005e 0e97 0eb9 005e 0ec0 0eaa 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kitv^tim = ຄິດ^ທິມ -->
+<a b="4b 69 74 76 5e 74 69 6d"
+   u="0e84 0eb4 0e94 005e 0e97 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kutv = ຄຸດ -->
+<a b="4b 75 74 76"
+   u="0e84 0eb8 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Se^mbaa = ເສ^ບາ -->
+<!--<a b="53 65 5e 6d 62 61 61"
+   u="0ec0 0eaa 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>-->
+<!-- Si^ni = ຊີ^ນີ -->
+<a b="53 69 5e 6e 69"
+   u="0e8a 0eb5 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- wuov = ອົ໊ວ -->
+<!--<a b="77 75 6f 76"
+   u="0ead 0ebb 0eca 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>-->
+<!-- Temaa = ເທ^ມາ -->
+<a b="54 65 6d 61 61"
+   u="0ec0 0e97 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yetu = ເຢ^ທູ -->
+<a b="59 65 74 75"
+   u="0ec0 0ea2 005e 0e97 0eb9" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Temaan = ເທ^ມານ -->
+<a b="54 65 6d 61 61 6e"
+   u="0ec0 0e97 005e 0ea1 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Sefi = ເສ^ຟີ -->
+<a b="53 65 66 69"
+   u="0ec0 0eaa 005e 0e9f 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Selaa = ເສ^ລາ -->
+<a b="53 65 6c 61 61"
+   u="0ec0 0eaa 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Se^i = ເສ^ອີ -->
+<a b="53 65 5e 69"
+   u="0ec0 0eaa 005e 0ead 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Lotaan = ໂລ^ທານ -->
+<a b="4c 6f 74 61 61 6e"
+   u="0ec2 0ea5 005e 0e97 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbin^haan = ບິນ^ຮານ -->
+<a b="4d 62 69 6e 5e 68 61 61 6e"
+   u="0e9a 0eb4 0e99 005e 0eae 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ndin^haa^mbaa = ດິນ^ຮາ^ບາ -->
+<a b="4e 64 69 6e 5e 68 61 61 5e 6d 62 61 61"
+   u="0e94 0eb4 0e99 005e 0eae 0eb2 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^an Haanan = ບາ^ອັນ^ຮາ^ນັນ -->
+<a b="4d 62 61 61 5e 61 6e 20 48 61 61 6e 61 6e"
+   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0eae 0eb2 005e 0e99 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Me^Saahapc = ເມ^ຊາ^ຫັບ -->
+<a b="4d 65 5e 53 61 61 68 61 70 63"
+   u="0ec0 0ea1 005e 0e8a 0eb2 005e 0eab 0eb1 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yetetv = ເຢ^ເທດ -->
+<a b="59 65 74 65 74 76"
+   u="0ec0 0ea2 005e 0ec0 0e97 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- zanc-zanc = ຕສັ່ນໆ -->
+<a b="7a 61 6e 63 2d 7a 61 6e 63"
+   u="0e95 0eaa 0eb1 0ec8 0e99 0ec6" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- mengh mengh = ເມ່ງໆ -->
+<a b="6d 65 6e 67 68 20 6d 65 6e 67 68"
+   u="0ec0 0ea1 0ec8 0e87 0ec6" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Maako = ມາ^ໂຄ -->
+<a b="4d 61 61 6b 6f"
+   u="0ea1 0eb2 005e 0ec2 0e84" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- za'gengh = ຕສະເກ້ງ -->
+<a b="7a 61 27 67 65 6e 67 68"
+   u="0e95 0eaa 0eb0 0ec0 0e81 0ec9 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- mv = ມ້ -->
+<a b="6d 76"
+   u="0ea1 0ec9" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Simon = ຊີ^ມົນ -->
+<a b="53 69 6d 6f 6e"
+   u="0e8a 0eb5 005e 0ea1 0ebb 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- la'kuqv = ຫລະຄຸ -->
+<a b="6c 61 27 6b 75 71 76"
+   u="0eab 0ea5 0eb0 0e84 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+
     
     <!-- EXCEOTION LIST START -->
 <!-- a'ngunc = ອະຫງຸ່ນ -->
@@ -392,8 +596,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- m'nqorngv = ມອກ໊ອງ -->
 <a b="6d 27 6e 71 6f 72 6e 67 76"
    u="0ea1 0ead 0e81 0eca 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- segorngv = ເຊກ໊ອງ -->
-<a b="73 65 67 6f 72 6e 67 76"
+<!-- se gorngv = ເຊກ໊ອງ -->
+<a b="73 65 20 67 6f 72 6e 67 76"
    u="0ec0 0e8a 0e81 0eca 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- fu'jueiv = ຝຸຈ໊ວຍ -->
 <!--<a b="66 75 27 6a 75 65 69 76"
@@ -419,8 +623,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Lewi = ເລ^ວີ -->
 <a b="4c 65 77 69"
    u="0ec0 0ea5 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^mbenMbetcMaa^aa^kaa = ອາ^ເບນ^ເບດ^ມາ^ອະ^ຄາ -->
-<a b="41 61 5e 6d 62 65 6e 4d 62 65 74 63 4d 61 61 5e 61 61 5e 6b 61 61"
+<!-- Aa^mben Mbetc Maa^aa^kaa = ອາ^ເບນ^ເບດ^ມາ^ອະ^ຄາ -->
+<a b="41 61 5e 6d 62 65 6e 20 4d 62 65 74 63 20 4d 61 61 5e 61 61 5e 6b 61 61"
    u="0ead 0eb2 005e 0ec0 0e9a 0e99 005e 0ec0 0e9a 0e94 005e 0ea1 0eb2 005e 0ead 0eb0 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Aa^mbi^hutv = ອາ^ບີ^ຮູດ -->
 <a b="41 61 5e 6d 62 69 5e 68 75 74 76"
@@ -527,8 +731,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- aa^lam^naa^haa^laa^im = ອາ^ລຳ^ນາ^ຫະ^ລາ^ອິມ -->
 <a b="61 61 5e 6c 61 6d 5e 6e 61 61 5e 68 61 61 5e 6c 61 61 5e 69 6d"
    u="0ead 0eb2 005e 0ea5 0eb3 005e 0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- AalamSo^mbaa = ອາ^ລຳ^ໂຊ^ບາ -->
-<a b="41 61 6c 61 6d 53 6f 5e 6d 62 61 61"
+<!-- Aalam So^mbaa = ອາ^ລຳ^ໂຊ^ບາ -->
+<a b="41 61 6c 61 6d 20 53 6f 5e 6d 62 61 61"
    u="0ead 0eb2 005e 0ea5 0eb3 005e 0ec2 0e8a 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Aa^li^maa^tie = ອາ^ລິ^ມາ^ເທຍ -->
 <a b="41 61 5e 6c 69 5e 6d 61 61 5e 74 69 65"
@@ -617,8 +821,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Mbaa^an^Mbelitv = ບາ^ອັນ^ເບ^ລີ້ດ -->
 <a b="4d 62 61 61 5e 61 6e 5e 4d 62 65 6c 69 74 76"
    u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0ec0 0e9a 005e 0ea5 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaa^anQaa^li^qaa = ບາ^ອັນ^ທຈາ^ລິ^ທຈາ -->
-<a b="4d 62 61 61 5e 61 6e 51 61 61 5e 6c 69 5e 71 61 61"
+<!-- Mbaa^an Qaa^li^qaa = ບາ^ອັນ^ທຈາ^ລິ^ທຈາ -->
+<a b="4d 62 61 61 5e 61 6e 20 51 61 61 5e 6c 69 5e 71 61 61"
    u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0e97 0e88 0eb2 005e 0ea5 0eb4 005e 0e97 0e88 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Mbaa^an^se^mbupc = ບາ^ອັນ^ເຊ^ບູບ -->
 <a b="4d 62 61 61 5e 61 6e 5e 73 65 5e 6d 62 75 70 63"
@@ -977,9 +1181,9 @@ They will be stripped out later during the vowel & tone reordering
 <!-- I^taa^maa = ອິ^ທາ^ມາ -->
 <a b="49 5e 74 61 61 5e 6d 61 61"
    u="0ead 0eb4 005e 0e97 0eb2 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^tai = ອິ^ໄທi-Ti-en>ອິ^ທີ^ເອນ -->
+<!-- I^tai = ອິ^ໄທ -->
 <a b="49 5e 74 61 69"
-   u="0ead 0eb4 005e 0ec4 0e97 0069 002d 0054 0069 002d 0065 006e 003e 0ead 0eb4 005e 0e97 0eb5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+   u="0ead 0eb4 005e 0ec4 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- I^tu^lie = ອິ^ທູ^ເລຍ -->
 <a b="49 5e 74 75 5e 6c 69 65"
    u="0ead 0eb4 005e 0e97 0eb9 005e 0ec0 0ea5 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
@@ -1136,20 +1340,20 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Ki^li^yaatvAan^mbaa = ຄີ^ລິ^ຢາດ^ອານ^ບາ -->
 <a b="4b 69 5e 6c 69 5e 79 61 61 74 76 41 61 6e 5e 6d 62 61 61"
    u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ead 0eb2 0e99 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvMbaa^an = ຄີ^ລິ^ຢາດ^ບາ^ອັນ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 4d 62 61 61 5e 61 6e"
+<!-- Ki^li^yaatv Mbaa^an = ຄີ^ລິ^ຢາດ^ບາ^ອັນ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 20 4d 62 61 61 5e 61 6e"
    u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0e9a 0eb2 005e 0ead 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Ki^li^yaatv^hu^sotv = ຄີ^ລິ^ຢາດ^ຫຸ^ໂຊດ -->
 <a b="4b 69 5e 6c 69 5e 79 61 61 74 76 5e 68 75 5e 73 6f 74 76"
    u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0eab 0eb8 005e 0ec2 0e8a 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvSanx^naa = ຄີ^ລິ^ຢາດ^ສັນ^ນາ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 53 61 6e 78 5e 6e 61 61"
+<!-- Ki^li^yaatv Sanx^naa = ຄີ^ລິ^ຢາດ^ສັນ^ນາ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 20 53 61 6e 78 5e 6e 61 61"
    u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0eaa 0eb1 0e99 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvSefe = ຄີ^ລິ^ຢາດ^ເສ^ເຟ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 53 65 66 65"
+<!-- Ki^li^yaatv Sefe = ຄີ^ລິ^ຢາດ^ເສ^ເຟ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 20 53 65 66 65"
    u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ec0 0eaa 005e 0ec0 0e9f" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvYe^aa^lim = ຄີ^ລິ^ຢາດ^ເຢ^ອາ^ລິມ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 59 65 5e 61 61 5e 6c 69 6d"
+<!-- Ki^li^yaatv Ye^aa^lim = ຄີ^ລິ^ຢາດ^ເຢ^ອາ^ລິມ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 20 59 65 5e 61 61 5e 6c 69 6d"
    u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ec0 0ea2 005e 0ead 0eb2 005e 0ea5 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Gilon = ກິ^ໂລນ -->
 <a b="47 69 6c 6f 6e"
@@ -1157,8 +1361,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Ki^si^on = ຄີ^ຊີ^ໂອນ -->
 <a b="4b 69 5e 73 69 5e 6f 6e"
    u="0e84 0eb5 005e 0e8a 0eb5 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- KinHaa^le^setv = ຄີນ^ຫະ^ເລ^ເຊດ -->
-<a b="4b 69 6e 48 61 61 5e 6c 65 5e 73 65 74 76"
+<!-- Kin Haa^le^setv = ຄີນ^ຫະ^ເລ^ເຊດ -->
+<a b="4b 69 6e 20 48 61 61 5e 6c 65 5e 73 65 74 76"
    u="0e84 0eb5 0e99 005e 0eab 0eb0 005e 0ec0 0ea5 005e 0ec0 0e8a 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Kitv = ຄີດ -->
 <a b="4b 69 74 76"
@@ -1187,8 +1391,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Gu^ni = ກຸ^ນີ -->
 <a b="47 75 5e 6e 69"
    u="0e81 0eb8 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- KuqanLi^taa^im = ຄູ^ທຈັນ^ລິ^ທາ^ອິມ -->
-<a b="4b 75 71 61 6e 4c 69 5e 74 61 61 5e 69 6d"
+<!-- Kuqan Li^taa^im = ຄູ^ທຈັນ^ລິ^ທາ^ອິມ -->
+<a b="4b 75 71 61 6e 20 4c 69 5e 74 61 61 5e 69 6d"
    u="0e84 0eb9 005e 0e97 0e88 0eb1 0e99 005e 0ea5 0eb4 005e 0e97 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Kumlaan = ຄູມ^ລານ -->
 <a b="4b 75 6d 6c 61 61 6e"
@@ -1208,8 +1412,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Laakitv = ລາ^ຄີ້ດ -->
 <a b="4c 61 61 6b 69 74 76"
    u="0ea5 0eb2 005e 0e84 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- LaamotvGi^le^aatc = ລາ^ໂມດ^ກິ^ເລ^ອາດ -->
-<a b="4c 61 61 6d 6f 74 76 47 69 5e 6c 65 5e 61 61 74 63"
+<!-- Laamotv Gi^le^aatc = ລາ^ໂມດ^ກິ^ເລ^ອາດ -->
+<a b="4c 61 61 6d 6f 74 76 20 47 69 5e 6c 65 5e 61 61 74 63"
    u="0ea5 0eb2 005e 0ec2 0ea1 0e94 005e 0e81 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Lakv^kum = ລັກ^ຄູມ -->
 <a b="4c 61 6b 76 5e 6b 75 6d"
@@ -1298,8 +1502,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Maa^haa^naa^im = ມາ^ຫະ^ນາ^ອິມ -->
 <a b="4d 61 61 5e 68 61 61 5e 6e 61 61 5e 69 6d"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0e99 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^neNdaan = ມາ^ຫະ^ເນ^ດານ -->
-<a b="4d 61 61 5e 68 61 61 5e 6e 65 4e 64 61 61 6e"
+<!-- Maa^haa^ne Ndaan = ມາ^ຫະ^ເນ^ດານ -->
+<a b="4d 61 61 5e 68 61 61 5e 6e 65 20 4e 64 61 61 6e"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ec0 0e99 005e 0e94 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Maa^haa^si^otc = ມາ^ຫະ^ຊິ^ໂອດ -->
 <a b="4d 61 61 5e 68 61 61 5e 73 69 5e 6f 74 63"
@@ -1388,11 +1592,11 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Mi^yaa^min = ມິ^ຢາ^ມິນ -->
 <a b="4d 69 5e 79 61 61 5e 6d 69 6e"
    u="0ea1 0eb4 005e 0ea2 0eb2 005e 0ea1 0eb4 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^ndanGaatc = ມິກ^ຕັນ^ກາດ -->
-<a b="4d 69 6b 76 5e 6e 64 61 6e 47 61 61 74 63"
+<!-- Mikv^ndan Gaatc = ມິກ^ຕັນ^ກາດ -->
+<a b="4d 69 6b 76 5e 6e 64 61 6e 20 47 61 61 74 63"
    u="0ea1 0eb4 0e81 005e 0e95 0eb1 0e99 005e 0e81 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^ndanEn = ມິກ^ດັນ^ເອນ -->
-<a b="4d 69 6b 76 5e 6e 64 61 6e 45 6e"
+<!-- Mikv^ndan En = ມິກ^ດັນ^ເອນ -->
+<a b="4d 69 6b 76 5e 6e 64 61 6e 20 45 6e"
    u="0ea1 0eb4 0e81 005e 0e94 0eb1 0e99 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Mikv^ndon = ມິກ^ໂດນ -->
 <a b="4d 69 6b 76 5e 6e 64 6f 6e"
@@ -1727,8 +1931,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Si^hox = ຊິ^ໂຫ -->
 <a b="53 69 5e 68 6f 78"
    u="0e8a 0eb4 005e 0ec2 0eab" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- SihoxLipv^naatv = ຊິ^ໂຫ^ລິບ^ນາດ -->
-<a b="53 69 68 6f 78 4c 69 70 76 5e 6e 61 61 74 76"
+<!-- Sihox Lipv^naatv = ຊິ^ໂຫ^ລິບ^ນາດ -->
+<a b="53 69 68 6f 78 20 4c 69 70 76 5e 6e 61 61 74 76"
    u="0e8a 0eb4 005e 0ec2 0eab 005e 0ea5 0eb4 0e9a 005e 0e99 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Si^honx = ສິ^ໂຫນ -->
 <a b="53 69 5e 68 6f 6e 78"
@@ -1844,8 +2048,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Supc = ສູບ -->
 <a b="53 75 70 63"
    u="0eaa 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Taa^aa^natvSilo = ທາ^ອາ^ນັດ^ຊິ^ໂລ -->
-<a b="54 61 61 5e 61 61 5e 6e 61 74 76 53 69 6c 6f"
+<!-- Taa^aa^natv Silo = ທາ^ອາ^ນັດ^ຊິ^ໂລ -->
+<a b="54 61 61 5e 61 61 5e 6e 61 74 76 20 53 69 6c 6f"
    u="0e97 0eb2 005e 0ead 0eb2 005e 0e99 0eb1 0e94 005e 0e8a 0eb4 005e 0ec2 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Taa^mbi^taa = ທາ^ບິ^ທາ -->
 <a b="54 61 61 5e 6d 62 69 5e 74 61 61"
@@ -1985,8 +2189,8 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Yaa^aa^su = ຢາ^ອາ^ສຸ -->
 <a b="59 61 61 5e 61 61 5e 73 75"
    u="0ea2 0eb2 005e 0ead 0eb2 005e 0eaa 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaa^mbetcGi^le^aatc = ຢາ^ເບດ^ກິ^ເລ^ອາດ -->
-<a b="59 61 61 5e 6d 62 65 74 63 47 69 5e 6c 65 5e 61 61 74 63"
+<!-- Yaa^mbetc Gi^le^aatc = ຢາ^ເບດ^ກິ^ເລ^ອາດ -->
+<a b="59 61 61 5e 6d 62 65 74 63 20 47 69 5e 6c 65 5e 61 61 74 63"
    u="0ea2 0eb2 005e 0ec0 0e9a 0e94 005e 0e81 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Yaakin = ຢາ^ຄີນ -->
 <a b="59 61 61 6b 69 6e"
@@ -2086,7 +2290,7 @@ They will be stripped out later during the vowel & tone reordering
     <ordering side="unicode">
         <order b="reorder-uo-b" u="reorder-uo-u"/>
         <order b="reorder-vowel-b" u="reorder-vowel-u"/>
-        <order b="reorder-nocons-b" u="reorder-nocons-u"/>
+        <!--<order b="reorder-nocons-b" u="reorder-nocons-u"/>-->
         <!--<order b="strip-b" u="strip-u"/>
         <order b="caret-b" u="caret-u"/>-->
     </ordering>
@@ -2562,9 +2766,19 @@ They will be stripped out later during the vowel & tone reordering
     
     <!-- this assumes no final if no inital cons is that correct? -->
     <group id="middle-no-cons-any-b">
-    <context-ref name="word-sep-b" id="n" min="1"/>
+    <context-ref name="no-cons-b" id="n" min="1"/>
     <context-ref name="vowel-b" id="v" min="1"/>
     <context-ref name="final-or-q-b" id="f" min="0"/>
+    </group>
+    
+    <group id="middle-no-cons-final-b">
+    <context-ref name="no-cons-b" id="n" min="1"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
+    <context-ref name="final-or-q-b" id="f" min="1"/>
+    </group>
+    <group id="middle-no-cons-nof-b">
+    <context-ref name="no-cons-b" id="n" min="1"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
     </group>
     
     <group id="middle-cons-any-b">
@@ -2674,6 +2888,13 @@ They will be stripped out later during the vowel & tone reordering
       <class-ref name="carret-b"/>
     </group>
     
+    <group id="no-cons-b" alt="1">
+      <eos/>
+      <class-ref name="whitespace-b"/>
+      <class-ref name="carret-b"/>
+      <class-ref name="appos-b"/>
+    </group>
+    
     <!-- a e i o u-->
     <class name="single-vowel-b" size="bytes">
         61 65 69 6f 75
@@ -2685,7 +2906,15 @@ They will be stripped out later during the vowel & tone reordering
           <class-ref name="let-e-b"/>
           <class-ref name="let-i-b"/>
       </group>
+      <group id="v-o-b">
+          <class-ref name="let-o-b"/>
+          <class-ref name="let-u-b" neg="1"/>
+      </group>
       <class-ref name="let-a-b"/>
+    </group>
+    
+    <group id="not-i-b">
+      <class-ref name="let-i-b" neg="1"/>
     </group>
     
     <group id="semi-vowel-b" alt="1">
@@ -3070,7 +3299,7 @@ They will be stripped out later during the vowel & tone reordering
     
     <class name="caret-b" size="bytes">5e</class>
 
-    <class name="whitespace-b">20 2c 2e 2d 0b</class>
+    <class name="whitespace-b" size="bytes">20 2c 2e 2d 0b 21 28 29</class>
         
     <!-- Vowels that need to be moved before the consonant -->
     <class name="vowels-before-u">0ec0 0ec1 0ec2 0ec4 </class>
@@ -3336,8 +3565,7 @@ They will be stripped out later during the vowel & tone reordering
     <class name="carret-b" size="bytes">5e</class>
     <class name="zwsp-u">200b</class>
     <class name="invisible-cons-u">0ead</class>
-    <class name="whitespace-u">0020 002c 002e 002d 000b</class>
-    <class name="whitespace-b" size="bytes">20 2c 2e 2d 0b</class>
+    <class name="whitespace-u">0020 002c 002e 002d 000b 0021 0028 0029</class>
     
 </contexts>
 

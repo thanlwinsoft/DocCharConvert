@@ -111,4 +111,8 @@ public class TeXParser extends TextParser
             convertedLine.append(currentCommand);
         }
     }
+    public String getStatusDesc()
+    {
+      return new String("");
+    }
 }

@@ -18,6 +18,7 @@ public interface CharConverter
     public String convert(String oldText) 
         throws FatalException, RecoverableException;
     
+    public boolean isInitialized();
     public TextStyle getOldStyle();
     public TextStyle getNewStyle();
     /**

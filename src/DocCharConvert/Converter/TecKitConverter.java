@@ -62,6 +62,8 @@ public class TecKitConverter extends ReversibleConverter
     
     public void initialize() throws CharConverter.FatalException
     {
+        if (initOk) return;
+        System.out.println(this + "initialize");
         if (!TecKitJni.isLibraryLoaded())
         {
             throw new CharConverter.FatalException(
@@ -155,8 +157,10 @@ public class TecKitConverter extends ReversibleConverter
     public void destroy()
     {
         jni.destroyConverter();
+        initOk = false;
     }
     
     public String getName() { return name; }
     public void setName(String aName) { this.name =aName; }
+    public boolean isInitialized() { return initOk; }
 }

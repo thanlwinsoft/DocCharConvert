@@ -20,6 +20,7 @@ public interface DocInterface
     void parse(File input, File output, java.util.Map converters) 
         throws CharConverter.FatalException, InterfaceException,
         WarningException;
+    String getStatusDesc();
     public class InterfaceException extends Exception
     {
         public InterfaceException(String msg)

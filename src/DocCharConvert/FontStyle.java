@@ -22,9 +22,12 @@ public class FontStyle implements TextStyle
     
     public boolean equals(Object obj)
     {
+        //System.out.println(this.getFontName() + obj.toString());
         if (obj instanceof TextStyle)
         {
-            return fontName.equals(((TextStyle)obj).getFontName());
+            if (fontName.equals(((TextStyle)obj).getFontName())) 
+              return true;
+            return false;
         }
         return fontName.equals(obj.toString());
     }

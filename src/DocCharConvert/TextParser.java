@@ -123,4 +123,8 @@ public class TextParser implements DocCharConvert.DocInterface
         }
         return convertedLine;
     }
+    public String getStatusDesc()
+    {
+      return new String("");
+    }
 }

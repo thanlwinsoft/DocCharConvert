@@ -53,6 +53,7 @@ public class ChildConverter implements CharConverter
     
     public void initialize() throws CharConverter.FatalException
     {
+      if (!parent.isInitialized())
         parent.initialize();
     }
     public String getName()
@@ -66,5 +67,13 @@ public class ChildConverter implements CharConverter
     public String toString()
     {
         return getName();
+    }
+    public boolean isInitialized()
+    {
+      return parent.isInitialized();
+    }
+    public CharConverter getParent()
+    {
+      return parent;
     }
 }

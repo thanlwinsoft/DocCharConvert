@@ -53,8 +53,17 @@ public class Config
             int jJar = classSrcPath.indexOf("!");
             if (iJar > -1) 
             {
-               classSrcPath = classSrcPath.substring(iJar + 5,jJar);
+               // check to see if it contains a drive letter
+               if (classSrcPath.substring(iJar + 7, iJar + 8).equals(":"))
+               {
+                 classSrcPath = classSrcPath.substring(iJar + 6,jJar);
+                 // only deal with space for moment
+                 classSrcPath = classSrcPath.replace("%20"," ");
+               }
+               else
+                 classSrcPath = classSrcPath.substring(iJar + 5,jJar);
             }
+            System.out.println("ThisJar: " + classSrcPath);
             thisClassFile = new File(classSrcPath);
             if (thisClassFile != null)
             {
@@ -168,6 +177,11 @@ public class Config
         {
             StringBuffer ooPaths = new StringBuffer();
             File classDir = new File(new File(ooPath).getParent(),"classes");
+            if (!classDir.exists()) 
+            {
+              System.out.println(classDir.toString() + " doesn't exist");
+              return null;
+            }
             java.io.FilenameFilter jarFilter = new java.io.FilenameFilter() {
                 public boolean accept(File parent, String name)
                 {
@@ -175,7 +189,9 @@ public class Config
                     return false;
                 }
             };
+            if (classDir == null) return null;
             File [] jarFiles = classDir.listFiles(jarFilter);
+            if (jarFiles == null) return null;
             URL [] urls = new URL[jarFiles.length + 1];
             urls[0] = basePath.toURL();
             for (int i = 0; i<jarFiles.length; i++)
