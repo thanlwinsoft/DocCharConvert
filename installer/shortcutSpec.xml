@@ -1,0 +1,5 @@
+    <shortcuts>
+        <programGroup location="applications" defaultName="Doc Char Converter" location="applications/startMenu"/>
+        <shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="DocCharConvert" description="Converts between different character encodings." workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.bat" programGroup="yes" desktop="yes"/>
+        <shortcut iconFile="$INSTALL_PATH\UninstallDCC16.ico" name="Uninstall Language Test" description="Remove the Language Test program" workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\Uninstaller\uninstaller.jar" programGroup="yes" desktop="no"/>
+    </shortcuts>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<installation version="1.0">
+    <info>
+        <appname>Language Test</appname>
+        <appversion>0.1.0</appversion>
+        <authors>
+            <author name="Keith Stribley" email="keith@snc.co.uk"/>
+        </authors>
+        <url>mailto:keith@snc.co.uk</url>
+    </info>
+    <guiprefs height="550" resizable="yes" width="790"/>
+    <locale>
+        <langpack iso3="eng"/>
+    </locale>
+    <native name="ShellLink.dll" type="izpack"/>
+    <resources>
+        <res src="../src/DocCharConvert/icons/DocCharConvert16.png" id="Installer.image"/>
+        <res src="../license.txt" id="LicencePanel.licence"/>
+        <!--<res src="/home/keith/projects/LanguageTest/useNativeLAF" id="useNativeLAF"/>-->
+        <res src="TargetPanel.dir.windows" id="TargetPanel.dir.windows"/>
+        <res src="TargetPanel.dir.unix" id="TargetPanel.dir.unix"/>
+        <res src="shortcutSpec.xml" id="shortcutSpec.xml"/>
+        <res src="userInputSpec.xml" id="userInputSpec.xml"/>
+    </resources>
+
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="UserInputPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="ShortcutPanel"/>
+    </panels>
+    <packs>
+        <pack name="DocCharConverter" preselected="yes" required="yes">
+            <description>Core files and example converters</description>
+            <file targetdir="$INSTALL_PATH" src="../dist/DocCharConvert.jar" override="true"/>
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert16.ico" override="true"/>
+            <file targetdir="$INSTALL_PATH" src="UninstallDCC16.ico" override="true"/>
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert.bat" override="true" />
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert.sh" override="true" />
+            <parsable targetfile="$INSTALL_PATH/DocCharConvert.bat" type="plain"/>
+            <parsable targetfile="$INSTALL_PATH/DocCharConvert.sh" type="shell"/>
+            <fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
+              <include name="*.xml" />
+              <include name="*.tec" />
+              <include name="*.dccx" />
+              <include name="*.pl" />
+              <include name="*.so" />
+              <include name="*.dll" />
+            </fileset>
+            <executable targetfile="$INSTALL_PATH/DocCharConvert.sh" stage="never"/>
+        </pack>
+        <pack name="Developer Files" preselected="no" required="no">
+            <description>Source Code - You only need this if you want to edit the software yourself.</description>
+            <file targetdir="$INSTALL_PATH" src="../DocCharConvert.zip"  override="true"/>
+        </pack>
+    </packs>
+</installation>
