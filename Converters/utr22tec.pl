@@ -1,3 +1,4 @@
+#!/usr/bin/perl
 use Encode::UTR22;
 use Getopt::Std;
 use IO::File;

@@ -146,6 +146,14 @@
     <a b="67" u="102C" ubctxt="tall-a"/><!-- g -->
     <a b="68" u="1037"/><!-- h -->
     <a b="69" u="1004"/><!-- i -->
+    <a b="69 53" u="1004 200D 1039 101F"/><!-- i -->
+    <a b="69 73" u="1004 200D 1039 101A"/><!-- i -->
+    <a b="69 47" u="1004 200D 1039 101D"/><!-- i -->
+    <a b="69 5D" u="1004 200D 1039 101B" /><!-- ]i has been reordered before the substitution -->
+    <a b="69 a1" u="1004 200D 1039 101A 1039 101D" />
+    <a b="69 c2" u="1004 200D 1039 101B 1039 101D" /><!-- has been reordered before the substitution -->
+    <a b="69 cf" u="1004 200D 1039 101D 1039 101F" />
+    <a b="69 da" u="1004 200D 1039 101B 102F" /><!-- has been reordered before the substitution -->
     <a b="6A" u="1039 101B"/><!-- j -->
     <a b="6B" u="102F" ubctxt="short-uu"/><!-- k -->
     <a b="6C" u="1030" ubctxt="short-uu"/><!-- l -->
@@ -265,9 +273,9 @@
     <a b="FE" u="005C"/><!--  -->
     <a b="FF" u="1039 1016"/><!--  -->
 
-    <ordering side="unicode">
+    <ordering side="unicode"><!---->
         <order b="reorder-nunga-b" u="reorder-nunga-u"/>
-        <order b="reorder-unga-b" u="reorder-unga-u"/>
+        <!--<order b="reorder-unga-b" u="reorder-unga-u"/>-->
         <order b="reorder-u-b" u="reorder-u-u"/>
     </ordering>
     <ordering side="bytes">
@@ -378,7 +386,7 @@
     </group>
 
 <!-- unicode side re-ordering contexts -->
-    <group id="reorder-nunga-u">
+    <group id="reorder-nunga-u"><!-- cons (stackedCons)? yrwh  -->
         <group id="c">
             <group min="0">
                 <class-ref name="consf"/><!-- all cons except nga, YRWH -->
@@ -393,7 +401,7 @@
             <class-ref name="zwj"/>
         </group>
     </group>
-
+<!-- NOT NEEDED nga reordering is done on byteside doing it again here causes problems -->
     <group id="reorder-unga-u">
         <group id="nga">
             <class-ref name="nga"/>
@@ -404,11 +412,12 @@
                 <class-ref name="consf"/><!-- all cons except nga, YRWH -->
                 <class-ref name="virama"/>
             </group>
-            <class-ref name="consi"/>
+            <class-ref name="consi"/><!-- all cons except YRWH -->
         </group>        
         <context-ref name="reorder-u-us" id="s"/>
     </group>
-
+    
+    
     <group id="reorder-u-u">
         <group id="c" alt="1">
             <group>
@@ -423,27 +432,31 @@
 
     <group id="reorder-u-us">
         <group id="y" min="0">
+            <class-ref name="zwj" id="zwj" min="0"/>
             <class-ref name="virama"/>
             <class-ref name="y"/>
         </group>
         <group id="r" min="0">
+            <class-ref name="zwj" id="zwj" min="0"/>
             <class-ref name="virama"/>
             <class-ref name="r"/>
         </group>
         <group id="w" min="0">
+            <class-ref name="zwj" id="zwj" min="0"/>
             <class-ref name="virama"/>
             <class-ref name="w"/>
         </group>
         <group id="h" min="0">
+            <class-ref name="zwj" id="zwj" min="0"/>
             <class-ref name="virama"/>
             <class-ref name="h"/>
         </group>
-        <class-ref name="e" id="e" min="0"/>
+        <!--<class-ref name="e" id="e" min="0"/>-->
         <class-ref name="vowel-dn" id="vd" min="0"/>
     </group>
 
     <group id="reorder-nunga-b">
-        <context-ref name="reorder-nunga-u/s/e"/>
+        <!--<context-ref name="reorder-nunga-u/s/e"/>-->
         <context-ref name="reorder-nunga-u/c"/>
         <context-ref name="reorder-nunga-u/s/y"/>
         <context-ref name="reorder-nunga-u/s/r"/>
@@ -454,7 +467,7 @@
     </group>
 
     <group id="reorder-unga-b">
-        <context-ref name="reorder-unga-u/s/e"/>
+        <!--<context-ref name="reorder-unga-u/s/e"/>-->
         <context-ref name="reorder-unga-u/c"/>
         <context-ref name="reorder-unga-u/s/y"/>
         <context-ref name="reorder-unga-u/s/r"/>
@@ -465,7 +478,7 @@
     </group>
 
     <group id="reorder-u-b">
-        <context-ref name="reorder-u-u/s/e"/>
+        <!--<context-ref name="reorder-u-u/s/e"/>-->
         <context-ref name="reorder-u-u/c"/>
         <context-ref name="reorder-u-u/s/y"/>
         <context-ref name="reorder-u-u/s/r"/>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="utr_display.xsl"?>
 <!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
- 
+<!--
+
+--> 
 <characterMapping
     id="Mien-NRM2Lao" 
     version="01"
@@ -16,6 +18,9 @@
 <history>
     <modified version="1" date="2004-11-16">
         Original. 
+    </modified>
+    <modified version="2" date="2005-02-05">
+        Still lots of problems to fix.
     </modified>
 </history>
 
@@ -65,7 +70,7 @@ They will be stripped out later during the vowel & tone reordering
     <a b="3f" u="003f"/><!-- ? -->
     <a b="40" u="0040"/><!-- @ -->
     <fbu b="41" u="0eb0"/><!-- A vowel -->
-    <fbu b="41" u="0eb3" bactxt="final-m-b" /><!-- A vowel -->
+    <fbu b="41 6d" u="0eb3"/><!-- A vowel + m final-->
     <fbu b="41" u="0eb1" bactxt="final-kptnng-b" /><!-- A vowel-->
     <fbu b="41 61" u="0eb2"/><!-- Aa vowel-->
     <fbu b="41 69" u="0ec4"/><!-- Ai vowel-->
@@ -171,9 +176,9 @@ They will be stripped out later during the vowel & tone reordering
     <a b="5e" u="005e"/><!-- ^ -->
     <a b="5f" u="005f"/><!-- _ -->
     <a b="60" u="0060"/><!-- ` -->
-    <a b="61" u="0eb3" bactxt="final-m-b" /><!-- a vowel-->
     <a b="61" u="0eb1" bactxt="final-kptnng-b" /><!-- a vowel-->
     <a b="61" u="0eb0" /><!-- a vowel -->
+    <a b="61 6d" u="0eb3" /><!-- a vowel + m final -->
     <a b="61 61" u="0eb2"/><!-- aa vowel-->
     <a b="61 69" u="0ec4"/><!-- ai vowel-->
     <a b="61 61 69" u="0eb2 0e8d"/><!-- aai vowel-->
@@ -183,7 +188,6 @@ They will be stripped out later during the vowel & tone reordering
     <a b="61 65" u="0ec1 0eb0" bactxt="q-final-b"/><!-- ae short vowel-->
     
     <a b="62" u="200c 0e9b 200d"/><!-- b-->
-    <a b="63" u="200c 0e97 0eaa 200d"/><!-- c low -->
     <a b="63" u="200c 0e96 0eaa 200d" bactxt="high-vowel-tone-b"/><!-- c high -->
     <!-- c as tone mark on high class final stop or glottal -->
     <fbu b="63" u="200b" bbctxt="high-cons-final-b" />
@@ -191,7 +195,9 @@ They will be stripped out later during the vowel & tone reordering
     <a b="63" u="0ec8" bbctxt="high-cons-nof-b" />
     <fbu b="63" u="0ec8" bbctxt="middle-cons-nof-b" />
     <!-- c as tone mark on middle class final stop or glottal -->
-    <fbu b="63" u="" bbctxt="middle-cons-final-b" />
+    <fbu b="63" u="200b" bbctxt="middle-cons-final-b" />
+    <a b="63" u="0ec8 0ead" bbctxt="middle-no-cons-any-b"/><!-- c as tone mark with invisible middle cons -->
+    <a b="63" u="200c 0e97 0eaa 200d"/><!-- c low -->
     <a b="64" u="200c 0e95 200d"/><!-- d-->
     <a b="65" u="0ec0"/><!-- long e vowel-->
     <a b="65" u="0ec0 0eb0" bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short e vowel with final q-->
@@ -220,6 +226,7 @@ They will be stripped out later during the vowel & tone reordering
     <a b="68 69" u="200c 0eae 0ea2 200d"/><!-- hi-->
     <a b="68 69" u="200c 0eab 0eae 0ea2 200d" bactxt="high-vowel-tone-b"/><!-- hi high-->
     <fbu b="68" u="0ec9" bbctxt="middle-cons-any-b"/><!-- h as tone on middle class -->
+    <fbu b="68" u="0ec9 0ead" bbctxt="middle-no-cons-any-b"/>
     <fbu b="68" u="0ec8" bbctxt="low-cons-any-b"/><!-- h as tone on low class -->
     <a b="69" u="0eb5"/><!-- long i vowel -->
     <a b="69" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short i vowel with q,k,t,p,n,m finals -->
@@ -265,6 +272,7 @@ They will be stripped out later during the vowel & tone reordering
     <a b="70" u="0e9a"  bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- p final-->
     <a b="71" u="200c 0e97 0e88 200d"/><!-- q low -->
     <a b="71" u="200c 0e96 0e88 200d"  bactxt="high-vowel-tone-b"/><!-- q high -->
+    <a b="71" u="200b" bbctxt="vowel-final-b"/><!-- q final -->
     <fbu b="72" u="2612"/><!-- r does not occur outside a vowel -->
     <a b="73" u="200c 0e8a 200d"/><!-- s low-->
     <a b="73" u="200c 0eaa 200d" bactxt="high-vowel-tone-b" /><!-- s high-->
@@ -278,13 +286,13 @@ They will be stripped out later during the vowel & tone reordering
     <a b="75 65" u="0eb7"/><!-- long ue vowel -->
     <a b="75 65" u="0eb6" bactxt="q-final-b" /><!-- short ue vowel -->
     <a b="75 65 69" u="0ec0 0ea7 0eb5 0e8d"/><!--  u ei vowel -->
-    <a b="75 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/><!--  u ei vowel in fu'juei-->
+    <!--<a b="75 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/>  u ei vowel in fu'juei-->
     <a b="75 65 61" u="0ec0 0eb7 0ead" /><!-- uea vowel -->
     <a b="75 65 61" u="0ec0 0eb6" bactxt="q-final-b"/><!-- uea vowel -->
     <a b="75 6f" u="0ebb 0ea7"/><!-- long uo vowel -->
     <a b="75 6f" u="0ebb 0ea7 0eb0" bactxt="q-final-b"/><!-- short uo vowel -->
     <a b="75 6f" u="0ea7" bactxt="final-cons-b" uactxt="final-u"/><!-- vowel uo with final cons-->
-    <fbu b="76" u="2612"/><!-- v error if not in explicit context below -->
+    <fbu b="76" u="0eca 0ead" bbctxt="middle-no-cons-any-b"/><!-- v error if not in explicit context below -->
     <!-- v as tone mark on middle class with or without final -->
     <a b="76" u="0eca" bbctxt="middle-cons-any-b" />
     <!-- v as tone mark on low class final stop or glottal -->
@@ -294,23 +302,28 @@ They will be stripped out later during the vowel & tone reordering
     <a b="77" u="200c 0ea7 200d"/><!-- low w-->
     <a b="77" u="200c 0eab 0ea7 200d" bactxt="high-vowel-tone-b" /><!-- high w-->
     <a b="78" u="0ecb" bbctxt="middle-cons-any-b"/><!-- x tone on mid class -->
-    <fbu b="78" u="2612"/><!-- x error if not in tone position -->
+    <fbu b="78" u="0ecb 0ead" bbctxt="middle-no-cons-any-b"/><!-- x if no cons, then must be invisible mid - add it after and rearrange later -->
     <fbu b="78" u="200b" bbctxt="high-cons-any-b"/><!-- x tone on low class -->
     <a b="79" u="200c 0ea2 200d"/><!-- y mid -->
     <a b="7a" u="200c 0e95 0eaa 200d"/><!-- z mid -->
     <a b="7a" u="0ecc" bbctxt="low-cons-any-b"/>
     <fbu b="7a" u="0ecc" bbctxt="middle-cons-any-b"/>
-    <!--<a b="7a" u="0ecc" bbctxt="mid-low-cons-b"/>--><!-- z tone on middle or low class -->
+    <fbu b="7a" u="0ecc 0ead" bbctxt="middle-no-cons-any-b"/><!-- z if no cons, then must be invisible mid - add it after and rearrange later -->
     <a b="7b" u="007b"/><!-- {-->
     <a b="7c" u="007c"/><!-- |-->
     <a b="7d" u="007d"/><!-- }-->
     <a b="7e" u="007e"/><!-- ~-->
     <a b="7f" u="007f"/><!-- DELETE key -->
     
+    <!-- Specific words -->
+    <a b="66 75 27 6a 75 65 69 76" u="0e9d 0eb8 0e88 0ea7 0eca 0e8d"/><!-- fu'jueiv -->
+    <fbu b="46 75 27 6a 75 65 69 76" u="0e9d 0eb8 0e88 0ea7 0eca 0e8d "/><!-- Fu'jueiv -->
+    
     <range bFirst="80" bLast="FF" uFirst="0080" uLast="00FF"/>
     
     <ordering side="unicode">
         <order b="reorder-vowel-b" u="reorder-vowel-u"/>
+        <order b="reorder-nocons-b" u="reorder-nocons-u"/>
         <order b="strip-b" u="strip-u"/>
         <!--<order b="reorder-tone-b" u="reorder-tone-u"/>-->
     </ordering>
@@ -393,6 +406,40 @@ They will be stripped out later during the vowel & tone reordering
         <context-ref name="reorder-vowel-b/v-after/va9"/>
         <context-ref name="reorder-vowel-b/final"/>
     </group>
+    
+    <group id="reorder-nocons-b">
+        <context-ref name="word-sep-u" id="no-cons" min="1"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <context-ref name="vowels-after-u" id="v-after" min="0"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="invisible-cons-u" id="hidden-cons" min="1"/>
+    </group>
+    
+    <group id="reorder-nocons-u">
+        <context-ref name="reorder-nocons-b/no-cons"/>
+        <context-ref name="reorder-nocons-b/v-before"/>
+        <context-ref name="reorder-nocons-b/hidden-cons"/>
+        <context-ref name="reorder-nocons-b/semi-vowel"/>
+        <context-ref name="reorder-nocons-b/v-above"/>
+        <context-ref name="reorder-nocons-b/v-below"/>
+        <context-ref name="reorder-nocons-b/tone"/>
+        <context-ref name="reorder-nocons-b/v-after/va1"/>
+        <context-ref name="reorder-nocons-b/v-after/va2"/>
+        <context-ref name="reorder-nocons-b/v-after/va3"/>
+        <context-ref name="reorder-nocons-b/v-after/va4"/>
+        <context-ref name="reorder-nocons-b/v-after/va5/v1"/>
+        <context-ref name="reorder-nocons-b/v-after/va5/v2"/>
+        <context-ref name="reorder-nocons-b/v-after/va6"/>
+        <context-ref name="reorder-nocons-b/v-after/va7"/>
+        <context-ref name="reorder-nocons-b/v-after/va8"/>
+        <context-ref name="reorder-nocons-b/v-after/va9"/>
+        <context-ref name="reorder-nocons-b/final"/>
+    </group>
+    
     <group id="test">
     <class name="test">2612</class>
     </group>
@@ -537,7 +584,7 @@ They will be stripped out later during the vowel & tone reordering
     <group id="high-cons-final-b">
     <context-ref name="high-cons-b" id="hc" min="1"/>
     <class-ref name="let-u-b" id="semi" min="0"/>
-    <context-ref name="vowel-b" id="sv" min="1"/>
+    <context-ref name="vowel-b" id="sv" min="0"/>
     <context-ref name="qktp-final-b" id="f" min="1"/>
     </group>
     
@@ -559,7 +606,7 @@ They will be stripped out later during the vowel & tone reordering
     <group id="middle-cons-final-b">
     <context-ref name="mid-cons-b" id="hc" min="1"/>
     <class-ref name="let-u-b" id="semi" min="0"/>
-    <context-ref name="vowel-b" id="sv" min="1"/>
+    <context-ref name="vowel-b" id="sv" min="0"/>
     <context-ref name="qktp-final-b" id="f" min="1"/>
     </group>
     
@@ -568,6 +615,12 @@ They will be stripped out later during the vowel & tone reordering
     <class-ref name="let-u-b" id="semi" min="0"/>
     <context-ref name="vowel-b" id="v" min="1"/>
     <context-ref name="mnng-final-b" id="f" min="0"/>
+    </group>
+    
+    <!-- this assumes no final if no inital cons is that correct? -->
+    <group id="middle-no-cons-any-b">
+    <context-ref name="word-sep-b" id="n" min="1"/>
+    <context-ref name="vowel-b" id="v" min="1"/>
     </group>
     
     <group id="middle-cons-any-b">
@@ -666,6 +719,15 @@ They will be stripped out later during the vowel & tone reordering
         <class-ref name="low-single-cons-b"/>
     </group>
 
+    <group id="word-sep-u" alt="1">
+      <eos/>
+      <class-ref name="whitespace-u"/>
+    </group>
+    
+    <group id="word-sep-b" alt="1">
+      <eos/>
+      <class-ref name="whitespace-u"/>
+    </group>
     
     <!-- a e i o u-->
     <class name="single-vowel-b" size="bytes">
@@ -1048,6 +1110,7 @@ They will be stripped out later during the vowel & tone reordering
     
     <class name="caret-b" size="bytes">5e</class>
 
+    <class name="whitespace-b">20 2c 2e 2d 0b</class>
         
     <!-- Vowels that need to be moved before the consonant -->
     <class name="vowels-before-u">0ec0 0ec1 0ec2 0ec4 </class>
@@ -1274,8 +1337,8 @@ They will be stripped out later during the vowel & tone reordering
         <class-ref name="e8d-u"/>
     </group>
     <group id="ead-e8d-u">
-        <class-ref name="ead-u"/>
-        <class-ref name="e8d-u"/>
+        <class-ref name="ead-u" id="v1"/>
+        <class-ref name="e8d-u" id="v2"/>
     </group>
     <group id="ebd-ea7-u">
         <class-ref name="ebd-u"/>
@@ -1309,6 +1372,9 @@ They will be stripped out later during the vowel & tone reordering
     <class name="appos-u">0027</class>
     <class name="carret-u">005e</class>
     <class name="zwsp-u">200b</class>
+    <class name="invisible-cons-u">0ead</class>
+    <class name="whitespace-u">0020 002c 002e 002d 000b</class>
+    
 </contexts>
 
 </characterMapping>
