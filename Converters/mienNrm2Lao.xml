@@ -106,15 +106,15 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="48 6e" u="200c 0eab 0eae 0e99 200d" bactxt="high-vowel-tone-b"/><!-- Hn high-->
     <fbu b="48 6c" u="200c 0eae 0ea5 200d"/><!-- Hl-->
     <fbu b="48 6c" u="200c 0eab 0eae 0ea5 200d" bactxt="high-vowel-tone-b"/><!-- Hl high-->
-    <fbu b="48 75" u="200c 0eae 0ea7 200d"/><!-- Hu -->
-    <fbu b="48 75" u="200c 0eab 0eae 0ea7 200d" bactxt="high-vowel-tone-b"/><!-- Hu high-->
-    <fbu b="48 69" u="200c 0eae 0ea2 200d"/><!-- Hi-->
-    <fbu b="48 69" u="200c 0eab 0eae 0ea2 200d" bactxt="high-vowel-tone-b"/><!-- Hi high-->
+    <fbu b="48 75" u="200c 0eae 0ea7 200d" bactxt="hu-low-b"/><!-- Hu -->
+    <fbu b="48 75" u="200c 0eab 0eae 0ea7 200d" bactxt="hu-high-b"/><!-- Hu high-->
+    <fbu b="48 69" u="200c 0eab 0eae 0ea2 200d" bactxt="hi-high-b"/><!-- Hi high-->
+    <fbu b="48 69" u="200c 0eae 0ea2 200d" bactxt="hi-low-b"/><!-- Hi-->
     <fbu b="49" u="0eb5"/><!-- long I vowel -->
     <fbu b="49" u="0eb5" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
     <fbu b="49" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
     <fbu b="49 6f 75" u="0ebd 0ea7"/><!-- Iou vowel-->
-    <fbu b="49 75" u="0eb5 0ea7"/><!-- Iu-->
+    <fbu b="49 75" u="0eb4 0ea7"/><!-- Iu-->
     <fbu b="49 65" u="0ec0 0e8d"/><!-- Ie-->
     <fbu b="49 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
     <fbu b="49 65" u="0ebd" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
@@ -144,6 +144,7 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="4f 72" u="0ecd"/><!-- long Or vowel-->
     <fbu b="4f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short Or vowel with q final-->
     <fbu b="4f 72" u="0ead" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
+    <fbu b="4f 72" u="0ead 0ead" bbctxt="word-sep-b" bactxt="final-cons-b"/><!-- or vowel with final cons -->
     <fbu b="50" u="200c 0e9e 200d"/><!-- P low -->
     <fbu b="50" u="200c 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
     <fbu b="51" u="200c 0e97 0e88 200d"/><!-- Q low -->
@@ -223,10 +224,10 @@ They will be stripped out later during the vowel & tone reordering
     <a b="68 6e" u="200c 0eab 0eae 0e99 200d" bactxt="high-vowel-tone-b"/><!-- hn high-->
     <a b="68 6c" u="200c 0eae 0ea5 200d"/><!-- hl-->
     <a b="68 6c" u="200c 0eab 0eae 0ea5 200d" bactxt="high-vowel-tone-b"/><!-- hl high-->
-    <a b="68 75" u="200c 0eae 0ea7 200d"/><!-- hu -->
-    <a b="68 75" u="200c 0eab 0eae 0ea7 200d" bactxt="high-vowel-tone-b"/><!-- hu high-->
-    <a b="68 69" u="200c 0eae 0ea2 200d"/><!-- hi-->
-    <a b="68 69" u="200c 0eab 0eae 0ea2 200d" bactxt="high-vowel-tone-b"/><!-- hi high-->
+    <a b="68 75" u="200c 0eae 0ea7 200d" bactxt="hu-low-b"/><!-- hu -->
+    <a b="68 75" u="200c 0eab 0eae 0ea7 200d" bactxt="hu-high-b"/><!-- hu high-->
+    <a b="68 69" u="200c 0eab 0eae 0ea2 200d" bactxt="hi-high-b"/><!-- hi high-->
+    <a b="68 69" u="200c 0eae 0ea2 200d" bactxt="hi-low-b"/><!-- hi-->
     <fbu b="68" u="0ec9" bbctxt="middle-cons-any-b"/><!-- h as tone on middle class -->
     <fbu b="68" u="0ec9 0ead" bbctxt="middle-no-cons-any-b"/>
     <fbu b="68" u="0ec8" bbctxt="low-cons-any-b"/><!-- h as tone on low class -->
@@ -234,7 +235,7 @@ They will be stripped out later during the vowel & tone reordering
     <fbu b="69" u="0eb5" bactxt="ng-final-tone-b"/><!-- long i with ng -->
     <a b="69" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short i vowel with q,k,t,p,n,m finals -->
     <a b="69 6f 75" u="0ebd 0ea7"/><!-- iou vowel-->
-    <a b="69 75" u="0eb5 0ea7"/><!-- iu-->
+    <a b="69 75" u="0eb4 0ea7"/><!-- iu-->
     <a b="69 65" u="0ec0 0e8d"/><!-- ie-->
     <a b="69 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short ie vowel with q final -->
     <a b="69 65" u="0ebd" bactxt="final-cons-b" uactxt="final-u"/><!-- ie vowel with final cons -->
@@ -270,6 +271,7 @@ They will be stripped out later during the vowel & tone reordering
     <a b="6f 72" u="0ecd"/><!-- long or vowel-->
     <a b="6f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short or vowel with q final-->
     <a b="6f 72" u="0ead" bactxt="final-cons-b"/><!-- or vowel with final cons -->
+    <a b="6f 72" u="0ead 0ead" bbctxt="word-sep-b" bactxt="final-cons-b"/><!-- or vowel with final cons -->
     <a b="70" u="200c 0e9e 200d"/><!-- p low-->
     <a b="70" u="200c 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
     <a b="70" u="0e9a"  bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- p final-->
@@ -326,6 +328,10 @@ They will be stripped out later during the vowel & tone reordering
     <a b="5a 61 61 6e 67 63" u="0e95 0eaa 0eb1 0ec8 0e87"/><!-- Zaangc -->
     <a b="6e 7a 61 61 6e 67 63" u="0e94 0eaa 0eb1 0ec8 0e87"/><!-- nzaangc -->
     <a b="4e 7a 61 61 6e 67 63" u="0e94 0eaa 0eb1 0ec8 0e87"/><!-- Nzaangc -->
+    <a b="48 69 75 76" u="0eae 0eb4 0ec9 0ea7"/><!-- Hiuv -->
+    <fbu b="68 69 75 76" u="0eae 0eb4 0ec9 0ea7"/><!-- hiuv -->
+    <a b="6d 76 20 62 61 61 63" u="0ea1 0e9b 0ec8 0eb2"/><!-- mv baac-->
+    <a b="4d 76 20 62 61 61 63" u="0ea1 0e9b 0ec8 0eb2"/><!-- Mv baac-->
     
 <!-- a'vung = ອະຫງຸ່ນ -->
 <a b="61 27 76 75 6e 67"
@@ -2146,6 +2152,8 @@ They will be stripped out later during the vowel & tone reordering
         <class-ref name="finals-u" id="final" min="0"/>
         <class-ref name="zwsp-u" id="glottal" min="0"/>
         <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="zwsp-u" id="unmarked-tone" min="0"/>
+        <class-ref name="appos-u"  min="0"/>
     </group>
     
     <group id="reorder-vowel-u">
@@ -2200,7 +2208,6 @@ They will be stripped out later during the vowel & tone reordering
         <context-ref name="reorder-vowel-b/v-after/va8/v2"/>
         <context-ref name="reorder-vowel-b/v-after/va9"/>
         <context-ref name="reorder-vowel-b/final"/>
-        <context-ref name="reorder-vowel-b/glottal"/>
     </group>
     
     <group id="reorder-nocons-b">
@@ -2240,7 +2247,6 @@ They will be stripped out later during the vowel & tone reordering
         <context-ref name="reorder-nocons-b/v-after/va8/v2"/>
         <context-ref name="reorder-nocons-b/v-after/va9"/>
         <context-ref name="reorder-nocons-b/final"/>
-        <context-ref name="reorder-nocons-b/glottal"/>
     </group>
     
     <group id="test">
@@ -2363,8 +2369,95 @@ They will be stripped out later during the vowel & tone reordering
     <group id="high-vowel-tone-b">
         <class-ref name="let-u-b" id="semi" min="0"/>
         <context-ref name="vowel-b" id="sv" min="1"/><!-- need at least one otherwise final also matches -->
+        <context-ref name="final-or-q-b" id="f" min="0"/>
+        <class-ref name="high-tones-b" id="t" min="1"/>
+    </group>
+    <!-- hu can be treated as either hu consonant or h + u semi-vowel
+         hence the need for these specific regular expressions to differentiate 
+         hu+a, hu+aa, hu+i can occur with either high or low cons
+         hu+o only occurs with low consonants
+         -->
+    <group id="hu-high-b">
+        <context-ref name="hu-vowels-b" id="v" min="1"/>
         <context-ref name="final-b" id="f" min="0"/>
         <class-ref name="high-tones-b" id="t" min="1"/>
+    </group>
+    
+    <group id="hu-low-b" alt="1">
+        <context-ref name="hu-vowels-b" id="v"/>
+        <group id="on">
+          <class-ref name="let-o-b"/>
+          <class-ref name="let-n-b"/>
+        </group>
+        <group id="on">
+          <class-ref name="let-o-b"/>
+          <class-ref name="let-n-b"/>
+          <class-ref name="let-h-b"/>
+        </group>
+        <group id="otv">
+          <class-ref name="let-o-b"/>
+          <class-ref name="let-t-b"/>
+          <class-ref name="let-v-b"/>
+        </group>
+        <group id="ov">
+          <class-ref name="let-o-b"/>
+          <class-ref name="let-v-b"/>
+        </group>
+    </group>
+    
+    <group id="hu-vowels-b" alt="1">
+      <group>
+        <class-ref name="let-a-b"/>
+        <class-ref name="let-a-b"/>
+      </group>
+      <class-ref name="let-a-b"/>
+      <class-ref name="let-i-b"/>
+    </group>
+    
+    <group id="hi-high-b">
+        <context-ref name="hi-vowels-b" id="v" min="1"/>
+        <context-ref name="final-b" id="f" min="0"/>
+        <class-ref name="high-tones-b" id="t" min="1"/>
+    </group>
+    
+    <group id="hi-vowels-b" alt="1">
+      <group>
+        <class-ref name="let-a-b"/>
+        <class-ref name="let-a-b"/>
+      </group>
+      <class-ref name="let-e-b"/>
+    </group>
+    
+    <group id="hi-low-b" alt="1">
+        <context-ref name="hu-vowels-b" id="v"/>
+        <group id="on">
+          <class-ref name="let-a-b"/>
+          <class-ref name="let-a-b"/>
+          <class-ref name="let-n-b"/>
+          <class-ref name="let-g-b"/>
+        </group>
+        <group id="on">
+          <class-ref name="let-e-b"/>
+          <class-ref name="let-h-b"/>
+        </group>
+        <group id="env">
+          <class-ref name="let-e-b"/>
+          <class-ref name="let-n-b"/>
+          <class-ref name="let-v-b"/>
+        </group>
+        <group id="etv">
+          <class-ref name="let-e-b"/>
+          <class-ref name="let-t-b"/>
+          <class-ref name="let-v-b"/>
+        </group>
+        <group id="ou">
+          <class-ref name="let-o-b"/>
+          <class-ref name="let-u-b"/>
+        </group>
+        <group id="ua">
+          <class-ref name="let-u-b"/>
+          <class-ref name="let-a-b"/>
+        </group>
     </group>
     
     <group id="a-vowel-b">
@@ -2550,6 +2643,7 @@ They will be stripped out later during the vowel & tone reordering
         61 65 69 6f 75
         41 45 49 4f 55
     </class>
+    
     <!-- vowel groups  ignore uei since it includes prevowel -->
     <group id="vowel-b" alt="1">
         <group id="v-aai-b">
@@ -2714,6 +2808,7 @@ They will be stripped out later during the vowel & tone reordering
         </group>
         <class-ref name="single-vowel-b"/>
     </group>
+    
     <!-- a e i o u q r - ->
     <class name="second-vowel-let-b" size="bytes">
     61 65 69 6f 75 71 72
