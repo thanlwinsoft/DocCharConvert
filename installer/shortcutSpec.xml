@@ -1,17 +1,17 @@
 <shortcuts>
     <programGroup defaultName="Doc Char Converter" location="applications/startMenu"/>
-    <shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="DocCharConvert" 
+    <shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="Doc Char Convert" 
               description="Converts between different character encodings." 
               initialState="noShow"
               workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.bat" 
               programGroup="yes" desktop="yes"/>
-    <shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="DocCharConvert" 
+    <!--<shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="Doc Char Convert" 
               description="Converts between different character encodings." 
               initialState="noShow"
               workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.sh" 
-              programGroup="yes" desktop="yes"/>
+              programGroup="yes" desktop="yes"/>-->
     <shortcut iconFile="$INSTALL_PATH\UninstallDCC16.ico" name="Uninstall Language Test" 
-              description="Remove the Language Test program" 
+              description="Uninstall DocCharConvert" 
               workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\Uninstaller\uninstaller.jar" 
               programGroup="yes" desktop="no"/>
 </shortcuts>

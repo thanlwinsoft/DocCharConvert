@@ -118,7 +118,14 @@ public class Config
         }
         if (!inputPath.isDirectory()) inputPath = null;
         if (!outputPath.isDirectory()) outputPath = null;
-        i18nResource = ResourceBundle.getBundle("DocCharConvert/Messages");
+        try
+        {
+            i18nResource = ResourceBundle.getBundle("DocCharConvert/Messages");
+        }
+        catch (java.util.MissingResourceException mre)
+        {
+             System.out.println(mre.getMessage());
+        }
     }
     private File getBasePath()
     {
@@ -217,8 +224,11 @@ public class Config
             for (int i = 0; i<jarFiles.length; i++)
             {
                 urls[i + 1] = jarFiles[i].toURL();
-                ooPaths.append(jarFiles[i].getCanonicalPath());
-                ooPaths.append(' ');
+                ooPaths.append('"');
+                String tempPath = jarFiles[i].getCanonicalPath();
+                //ooPaths.append(tempPath.replaceAll("\\\\","/"));
+                ooPaths.append(tempPath);
+                ooPaths.append("\" ");
                 //System.out.println(urls[i+1].toString());
             }
             ooClassPath = ooPaths.toString();
@@ -239,17 +249,18 @@ public class Config
     public void setOOPath(String path)
     {
         this.ooPath = path;
-        File testFile = new File(path);
-        if (testFile.isDirectory())
+        File testFile = null;
+        File testDir = new File(path);
+        if (testDir.isDirectory())
         {
-            testFile = new File(testFile, "program");
-            if (testFile.isDirectory())
+            testDir = new File(testDir, "program");
+            if (testDir.isDirectory())
             {
-                testFile = new File(testFile, "soffice");
+                testFile = new File(testDir, "soffice");
                 if (testFile.isFile()) this.ooPath = testFile.getAbsolutePath();
                 else 
                 {
-                    testFile = new File(testFile, "soffice.exe");
+                    testFile = new File(testDir, "soffice.exe");
                     if (testFile.isFile()) this.ooPath = testFile.getAbsolutePath();
                     else 
                     {
@@ -262,7 +273,7 @@ public class Config
         }
         else
         {
-            if (!testFile.isFile()) 
+            if (!testDir.isFile()) 
             {
                 // doesn't seem valid
                 System.out.println(OO_INVALID_PATH + path + OO_PATH_FAIL);

@@ -42,8 +42,8 @@
             <file targetdir="$INSTALL_PATH" src="../dist/DocCharConvert.jar" override="true"/>
             <file targetdir="$INSTALL_PATH" src="DocCharConvert16.ico" override="true"/>
             <file targetdir="$INSTALL_PATH" src="UninstallDCC16.ico" override="true"/>
-            <file targetdir="$INSTALL_PATH" src="DocCharConvert.bat" override="true" os="windows" />
-            <file targetdir="$INSTALL_PATH" src="DocCharConvert.sh" override="true" os="unix"/>
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert.bat" override="true" />
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert.sh" override="true"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.bat" type="plain"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.sh" type="shell"/>
             <fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
