@@ -360,8 +360,7 @@ They will be stripped out later during the vowel & tone reordering
 <a b="77 75 6f 6d"
    u="0ea7 0ea7 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- wuov = ອັ້ວ -->
-<!--
-<a b="77 75 6f 76"
+<!--<a b="77 75 6f 76"
    u="0ead 0eb1 0ec9 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>-->
 <!-- nernh = ເນິ່ນ -->
 <a b="6e 65 72 6e 68"
@@ -390,1695 +389,1695 @@ They will be stripped out later during the vowel & tone reordering
 <!-- orqv = ເອ້າະ -->
 <a b="6f 72 71 76"
    u="0ec0 0ead 0ec9 0eb2 0eb0" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- m'nqorngv = ກ໊ອງ -->
+<!-- m'nqorngv = ມອກ໊ອງ -->
 <a b="6d 27 6e 71 6f 72 6e 67 76"
-   u="0e81 0eca 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- segorngv = ປ໌ອງ -->
-<a b="73 65 67 6f 72 6e 67 76"
-   u="0e9b 0ecc 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- fu'jueiv = ຕ້ອງ -->
-<!-- <a b="66 75 27 6a 75 65 69 76"
-   u="0e95 0ec9 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>-->
-<!-- wuoqc = ຊອງ -->
-<a b="77 75 6f 71 63"
-   u="0e8a 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- mbu'ziex = ດສອງ -->
-<a b="6d 62 75 27 7a 69 65 78"
-   u="0e94 0eaa 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- laeqh = ຮ່ອງ -->
-<a b="6c 61 65 71 68"
-   u="0eae 0ec8 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- niaa = ຫ່ອງ -->
-<a b="6e 69 61 61"
-   u="0eab 0ec8 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- weqv = ຮ໌່ອງ -->
-<a b="77 65 71 76"
-   u="0eae 0ecc 0ec8 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- mienc = ຕອງ -->
-<a b="6d 69 65 6e 63"
-   u="0e95 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lewi = ຕ໋ອງ -->
-<a b="4c 65 77 69"
-   u="0e95 0ecb 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^mbenMbetcMaa^aa^kaa = ຕສອງ -->
-<a b="41 61 5e 6d 62 65 6e 4d 62 65 74 63 4d 61 61 5e 61 61 5e 6b 61 61"
-   u="0e95 0eaa 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^mbi^hutv = ຕສ້ອງ -->
-<a b="41 61 5e 6d 62 69 5e 68 75 74 76"
-   u="0e95 0eaa 0ec9 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^mbi^tupv = ບຢ໌ອງ -->
-<a b="41 61 5e 6d 62 69 5e 74 75 70 76"
-   u="0e9a 0ea2 0ecc 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^mbipc = ມອກ໊ອງ -->
-<a b="41 61 5e 6d 62 69 70 63"
    u="0ea1 0ead 0e81 0eca 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^ndin = ເຊກ໊ອງ -->
-<a b="41 61 5e 6e 64 69 6e"
+<!-- segorngv = ເຊກ໊ອງ -->
+<a b="73 65 67 6f 72 6e 67 76"
    u="0ec0 0e8a 0e81 0eca 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^haa^laa = ນອມ -->
-<a b="41 61 5e 68 61 61 5e 6c 61 61"
-   u="0e99 0ead 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^haa^su^e^latv = ວົວະ -->
-<a b="41 61 5e 68 61 61 5e 73 75 5e 65 5e 6c 61 74 76"
+<!-- fu'jueiv = ຝຸຈ໊ວຍ -->
+<!--<a b="66 75 27 6a 75 65 69 76"
+   u="0e9d 0eb8 0e88 0eca 0ea7 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>-->
+<!-- wuoqc = ວົວະ -->
+<a b="77 75 6f 71 63"
    u="0ea7 0ebb 0ea7 0eb0" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^haa^waa = ບົວະເຕສຍ -->
-<a b="41 61 5e 68 61 61 5e 77 61 61"
+<!-- mbu'ziex = ບົວະເຕສຍ -->
+<a b="6d 62 75 27 7a 69 65 78"
    u="0e9a 0ebb 0ea7 0eb0 0ec0 0e95 0eaa 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi = ແລ່ະ -->
-<a b="41 61 5e 68 69"
+<!-- laeqh = ແລ່ະ -->
+<a b="6c 61 65 71 68"
    u="0ec1 0ea5 0ec8 0eb0" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^aa = ນີອາ -->
-<a b="41 61 5e 68 69 5e 61 61"
+<!-- niaa = ນີອາ -->
+<a b="6e 69 61 61"
    u="0e99 0eb5 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^hutv = ເວ່ະ -->
-<a b="41 61 5e 68 69 5e 68 75 74 76"
+<!-- weqv = ເວ່ະ -->
+<a b="77 65 71 76"
    u="0ec0 0ea7 0ec8 0eb0" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^kam = ມຢ່ຽນ -->
-<a b="41 61 5e 68 69 5e 6b 61 6d"
+<!-- mienc = ມຢ່ຽນ -->
+<a b="6d 69 65 6e 63"
    u="0ea1 0ea2 0ec8 0ebd 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^laa = ເລ^ວີ -->
-<a b="41 61 5e 68 69 5e 6c 61 61"
-   u="0ec0 0ea5 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^lam = ອາ^ເບນ^ເບດ^ມາ^ອະ^ຄາ -->
-<a b="41 61 5e 68 69 5e 6c 61 6d"
-   u="0ead 0eb2 005e 0ec0 0e9a 0e99 005e 0ec0 0e9a 0e94 005e 0ea1 0eb2 005e 0ead 0eb0 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^lutv = ອາ^ບີ^ຮູດ -->
-<a b="41 61 5e 68 69 5e 6c 75 74 76"
-   u="0ead 0eb2 005e 0e9a 0eb5 005e 0eae 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^maa^atc = ອາ^ບີ^ທູບ -->
-<a b="41 61 5e 68 69 5e 6d 61 61 5e 61 74 63"
-   u="0ead 0eb2 005e 0e9a 0eb5 005e 0e97 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^maan = ອາ^ບີບ -->
-<a b="41 61 5e 68 69 5e 6d 61 61 6e"
-   u="0ead 0eb2 005e 0e9a 0eb5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^me^lekv = ອາ^ດີນ -->
-<a b="41 61 5e 68 69 5e 6d 65 5e 6c 65 6b 76"
-   u="0ead 0eb2 005e 0e94 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^motv = ອາ^ຫະ^ລາ -->
-<a b="41 61 5e 68 69 5e 6d 6f 74 76"
-   u="0ead 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^naa^ndapc = ອາ^ຫະ^ສຸ^ເອ^ລັດ -->
-<a b="41 61 5e 68 69 5e 6e 61 61 5e 6e 64 61 70 63"
-   u="0ead 0eb2 005e 0eab 0eb0 005e 0eaa 0eb8 005e 0ec0 0ead 005e 0ea5 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^no^am = ອາ^ຫະ^ວາ -->
-<a b="41 61 5e 68 69 5e 6e 6f 5e 61 6d"
-   u="0ead 0eb2 005e 0eab 0eb0 005e 0ea7 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^qaa = ອາ^ຫິ -->
-<a b="41 61 5e 68 69 5e 71 61 61"
-   u="0ead 0eb2 005e 0eab 0eb4" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^qaa^haa = ອາ^ຫິ^ອາ -->
-<a b="41 61 5e 68 69 5e 71 61 61 5e 68 61 61"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^saa^makv = ອາ^ຫິ^ຮູດ -->
-<a b="41 61 5e 68 69 5e 73 61 61 5e 6d 61 6b 76"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0eae 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^to^fen = ອາ^ຫິ^ຄຳ -->
-<a b="41 61 5e 68 69 5e 74 6f 5e 66 65 6e"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0e84 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^tupv = ອາ^ຫິ^ລາ -->
-<a b="41 61 5e 68 69 5e 74 75 70 76"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^yaa = ອາ^ຫິ^ລຳ -->
-<a b="41 61 5e 68 69 5e 79 61 61"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea5 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^yam = ອາ^ຫິ^ລູດ -->
-<a b="41 61 5e 68 69 5e 79 61 6d"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea5 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^yan = ອາ^ຫິ^ມາ^ອັດ -->
-<a b="41 61 5e 68 69 5e 79 61 6e"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea1 0eb2 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^ye^se = ອາ^ຫິ^ມານ -->
-<a b="41 61 5e 68 69 5e 79 65 5e 73 65"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea1 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hi^yo = ອາ^ຫິ^ເມ^ເລກ -->
-<a b="41 61 5e 68 69 5e 79 6f"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec0 0ea1 005e 0ec0 0ea5 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^hu^mai = ອາ^ຫິ^ໂມດ -->
-<a b="41 61 5e 68 75 5e 6d 61 69"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0ea1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^laa^mbie = ອາ^ຫິ^ນາ^ດັບ -->
-<a b="41 61 5e 6c 61 61 5e 6d 62 69 65"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0e99 0eb2 005e 0e94 0eb1 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^laa^maa^getc^ndon = ອາ^ຫິ^ໂນ^ອຳ -->
-<a b="41 61 5e 6c 61 61 5e 6d 61 61 5e 67 65 74 63 5e 6e 64 6f 6e"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0e99 005e 0ead 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^lam^maa^aa^kaa = ອາ^ຫິ^ທຈາ -->
-<a b="41 61 5e 6c 61 6d 5e 6d 61 61 5e 61 61 5e 6b 61 61"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0e97 0e88 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- aa^lam^naa^haa^laa^im = ອາ^ຫິ^ທຈາ^ຮາ -->
-<a b="61 61 5e 6c 61 6d 5e 6e 61 61 5e 68 61 61 5e 6c 61 61 5e 69 6d"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0e97 0e88 0eb2 005e 0eae 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- AalamSo^mbaa = ອາ^ຫິ^ສະ^ມັກ -->
-<a b="41 61 6c 61 6d 53 6f 5e 6d 62 61 61"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0eaa 0eb0 005e 0ea1 0eb1 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^li^maa^tie = ອາ^ຫິ^ໂທ^ເຟນ -->
-<a b="41 61 5e 6c 69 5e 6d 61 61 5e 74 69 65"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0e97 005e 0ec0 0e9f 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^lon^mbaa^kutv = ອາ^ຫິ^ທູບ -->
-<a b="41 61 5e 6c 6f 6e 5e 6d 62 61 61 5e 6b 75 74 76"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0e97 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aalutv = ອາ^ຫິ^ຢາ -->
-<a b="41 61 6c 75 74 76"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^maa^li^yaa = ອາ^ຫິ^ຢຳ -->
-<a b="41 61 5e 6d 61 61 5e 6c 69 5e 79 61 61"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea2 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^maa^si^yaa = ອາ^ຫິ^ຢັນ -->
-<a b="41 61 5e 6d 61 61 5e 73 69 5e 79 61 61"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea2 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^naa^haa^laatv = ອາ^ຫິ^ເຢ^ເຊ -->
-<a b="41 61 5e 6e 61 61 5e 68 61 61 5e 6c 61 61 74 76"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec0 0ea2 005e 0ec0 0e8a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^nupv = ອາ^ຫິ^ໂຢ -->
-<a b="41 61 5e 6e 75 70 76"
-   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0ea2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^bor^li^yon = ອາ^ຫຸ^ໄມ -->
-<a b="41 61 5e 62 6f 72 5e 6c 69 5e 79 6f 6e"
-   u="0ead 0eb2 005e 0eab 0eb8 005e 0ec4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^saa^li^yaa = ອາ^ລະ^ເບຍ -->
-<a b="41 61 5e 73 61 61 5e 6c 69 5e 79 61 61"
-   u="0ead 0eb2 005e 0ea5 0eb0 005e 0ec0 0e9a 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^saa^si^yaa = ອາ^ລະ^ມາ^ເກດ^ໂດນ -->
-<a b="41 61 5e 73 61 61 5e 73 69 5e 79 61 61"
-   u="0ead 0eb2 005e 0ea5 0eb0 005e 0ea1 0eb2 005e 0ec0 0e81 0e94 005e 0ec2 0e94 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^si^en = ອາ^ລຳ^ມາ^ອະ^ຄາ -->
-<a b="41 61 5e 73 69 5e 65 6e"
-   u="0ead 0eb2 005e 0ea5 0eb3 005e 0ea1 0eb2 005e 0ead 0eb0 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^si^maa = ອາ^ລຳ^ນາ^ຫະ^ລາ^ອິມ -->
-<a b="41 61 5e 73 69 5e 6d 61 61"
-   u="0ead 0eb2 005e 0ea5 0eb3 005e 0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^su^mbaa = ອາ^ລຳ^ໂຊ^ບາ -->
-<a b="41 61 5e 73 75 5e 6d 62 61 61"
-   u="0ead 0eb2 005e 0ea5 0eb3 005e 0ec2 0e8a 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^taa^li^yaa = ອາ^ລິ^ມາ^ເທຍ -->
-<a b="41 61 5e 74 61 61 5e 6c 69 5e 79 61 61"
-   u="0ead 0eb2 005e 0ea5 0eb4 005e 0ea1 0eb2 005e 0ec0 0e97 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aaten = ອາ^ໂລນ^ບາ^ຄູດ -->
-<a b="41 61 74 65 6e"
-   u="0ead 0eb2 005e 0ec2 0ea5 0e99 005e 0e9a 0eb2 005e 0e84 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aawitv = ອາ^ລູດ -->
-<a b="41 61 77 69 74 76"
-   u="0ead 0eb2 005e 0ea5 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aan^taa^se^sitv = ອາ^ມາ^ລິ^ຢາ -->
-<a b="41 61 6e 5e 74 61 61 5e 73 65 5e 73 69 74 76"
-   u="0ead 0eb2 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Akc^kupc = ອາ^ມາ^ຊິ^ຢາ -->
-<a b="41 6b 63 5e 6b 75 70 63"
-   u="0ead 0eb2 005e 0ea1 0eb2 005e 0e8a 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Akc^sipv = ອາ^ນາ^ຫະ^ລາດ -->
-<a b="41 6b 63 5e 73 69 70 76"
-   u="0ead 0eb2 005e 0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Am^fi^mbu^li = ອາ^ນູບ -->
-<a b="41 6d 5e 66 69 5e 6d 62 75 5e 6c 69"
-   u="0ead 0eb2 005e 0e99 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Am^mi^hutv = ອາ^ປໍ^ລິ^ໂຢນ -->
-<a b="41 6d 5e 6d 69 5e 68 75 74 76"
-   u="0ead 0eb2 005e 0e9b 0ecd 005e 0ea5 0eb4 005e 0ec2 0ea2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Am^mi^saa^mbaatc = ອາ^ຊາ^ລິ^ຢາ -->
-<a b="41 6d 5e 6d 69 5e 73 61 61 5e 6d 62 61 61 74 63"
-   u="0ead 0eb2 005e 0e8a 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Am^paa^li^aa^tatv = ອາ^ຊາ^ຊິ^ຢາ -->
-<a b="41 6d 5e 70 61 61 5e 6c 69 5e 61 61 5e 74 61 74 76"
-   u="0ead 0eb2 005e 0e8a 0eb2 005e 0e8a 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- An^ndo^ni^katv = ອາ^ສິ^ເອນ -->
-<a b="41 6e 5e 6e 64 6f 5e 6e 69 5e 6b 61 74 76"
-   u="0ead 0eb2 005e 0eaa 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- An^ti^baa^di = ອາ^ຊິ^ມາ -->
-<a b="41 6e 5e 74 69 5e 62 61 61 5e 64 69"
-   u="0ead 0eb2 005e 0e8a 0eb4 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- An^ti^baatc = ອາ^ຊຸ^ບາ -->
-<a b="41 6e 5e 74 69 5e 62 61 61 74 63"
-   u="0ead 0eb2 005e 0e8a 0eb8 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Atc^laa^mitv^ti^yum = ອາ^ທາ^ລິ^ຢາ -->
-<a b="41 74 63 5e 6c 61 61 5e 6d 69 74 76 5e 74 69 5e 79 75 6d"
-   u="0ead 0eb2 005e 0e97 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Atc^taa^li^yaa = ອະ^ເທນ -->
-<a b="41 74 63 5e 74 61 61 5e 6c 69 5e 79 61 61"
-   u="0ead 0eb0 005e 0ec0 0e97 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaa^an^Mbelitv = ອາ^ວີດ -->
-<a b="4d 62 61 61 5e 61 6e 5e 4d 62 65 6c 69 74 76"
-   u="0ead 0eb2 005e 0ea7 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaa^anQaa^li^qaa = ອານ^ທາ^ເຊ^ຊີດ -->
-<a b="4d 62 61 61 5e 61 6e 51 61 61 5e 6c 69 5e 71 61 61"
-   u="0ead 0eb2 0e99 005e 0e97 0eb2 005e 0ec0 0e8a 005e 0e8a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaa^an^se^mbupc = ອັກ^ຂູບ -->
-<a b="4d 62 61 61 5e 61 6e 5e 73 65 5e 6d 62 75 70 63"
-   u="0ead 0eb1 0e81 005e 0e82 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaa^laa^ki^yaa = ອັກ^ຊີບ -->
-<a b="4d 62 61 61 5e 6c 61 61 5e 6b 69 5e 79 61 61"
-   u="0ead 0eb1 0e81 005e 0e8a 0eb5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaa^laa^saa^tatv = ອຳ^ຟີ^ບຸ^ລີ -->
-<a b="4d 62 61 61 5e 6c 61 61 5e 73 61 61 5e 74 61 74 76"
-   u="0ead 0eb3 005e 0e9f 0eb5 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaalukv = ອຳ^ມີ^ຮູັດ -->
-<a b="4d 62 61 61 6c 75 6b 76"
-   u="0ead 0eb3 005e 0ea1 0eb5 005e 0eae 0eb9 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbaa^ti^me^atc = ອຳ^ມີ^ຊະ^ບາດ -->
-<a b="4d 62 61 61 5e 74 69 5e 6d 65 5e 61 74 63"
-   u="0ead 0eb3 005e 0ea1 0eb5 005e 0e8a 0eb0 005e 0e9a 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbakc^mbu^ki^yaa = ອຳ^ຜະ^ລີ^ອາ^ທັດ -->
-<a b="4d 62 61 6b 63 5e 6d 62 75 5e 6b 69 5e 79 61 61"
-   u="0ead 0eb3 005e 0e9c 0eb0 005e 0ea5 0eb5 005e 0ead 0eb2 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbatc^litv = ອັນ^ໂດ^ນິ^ຄັດ -->
-<a b="4d 62 61 74 63 5e 6c 69 74 76"
-   u="0ead 0eb1 0e99 005e 0ec2 0e94 005e 0e99 0eb4 005e 0e84 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbatc^lutv = ອັນ^ທິ^ປາ^ຕີ -->
-<a b="4d 62 61 74 63 5e 6c 75 74 76"
-   u="0ead 0eb1 0e99 005e 0e97 0eb4 005e 0e9b 0eb2 005e 0e95 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbe^en^se^mbun = ອັນ^ທິ^ປາດ -->
-<a b="4d 62 65 5e 65 6e 5e 73 65 5e 6d 62 75 6e"
-   u="0ead 0eb1 0e99 005e 0e97 0eb4 005e 0e9b 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbe^le^ki^yaa = ອັດ^ລາ^ມິດ^ທິ^ຢຸມ -->
-<a b="4d 62 65 5e 6c 65 5e 6b 69 5e 79 61 61"
-   u="0ead 0eb1 0e94 005e 0ea5 0eb2 005e 0ea1 0eb4 0e94 005e 0e97 0eb4 005e 0ea2 0eb8 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbe^neYaa^aa^kan = ອັດ^ທາ^ລິ^ຢາ -->
-<a b="4d 62 65 5e 6e 65 59 61 61 5e 61 61 5e 6b 61 6e"
-   u="0ead 0eb1 0e94 005e 0e97 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbe^ni^nu = ບາ^ອັນ^ເບ^ລີ້ດ -->
-<a b="4d 62 65 5e 6e 69 5e 6e 75"
-   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0ec0 0e9a 005e 0ea5 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- MbetcYe^si^motv = ບາ^ອັນ^ທຈາ^ລິ^ທຈາ -->
-<a b="4d 62 65 74 63 59 65 5e 73 69 5e 6d 6f 74 76"
-   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0e97 0e88 0eb2 005e 0ea5 0eb4 005e 0e97 0e88 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbi^le^am = ບາ^ອັນ^ເຊ^ບູບ -->
-<a b="4d 62 69 5e 6c 65 5e 61 6d"
-   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0ec0 0e8a 005e 0e9a 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbi^ne^aa = ບາ^ລາ^ຄິ^ຢາ -->
-<a b="4d 62 69 5e 6e 65 5e 61 61"
-   u="0e9a 0eb2 005e 0ea5 0eb2 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbi^si^o^ti^yaa = ບາ^ລະ^ສະ^ທັດ -->
-<a b="4d 62 69 5e 73 69 5e 6f 5e 74 69 5e 79 61 61"
-   u="0e9a 0eb2 005e 0ea5 0eb0 005e 0eaa 0eb0 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbi^ti^nie = ບາ^ລຸກ -->
-<a b="4d 62 69 5e 74 69 5e 6e 69 65"
-   u="0e9a 0eb2 005e 0ea5 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbi^ti^yaa = ບາ^ທິ^ເມ^ອັດ -->
-<a b="4d 62 69 5e 74 69 5e 79 61 61"
-   u="0e9a 0eb2 005e 0e97 0eb4 005e 0ec0 0ea1 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbikc^taa = ບັກ^ບູ^ຄິ^ຢາ -->
-<a b="4d 62 69 6b 63 5e 74 61 61"
-   u="0e9a 0eb1 0e81 005e 0e9a 0eb9 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbikc^taa^naa = ບັດ^ລີດ -->
-<a b="4d 62 69 6b 63 5e 74 61 61 5e 6e 61 61"
-   u="0e9a 0eb1 0e94 005e 0ea5 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbikc^taan = ບັດ^ລູດ -->
-<a b="4d 62 69 6b 63 5e 74 61 61 6e"
-   u="0e9a 0eb1 0e94 005e 0ea5 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbikc^wai = ເບ^ເອນ^ເຊ^ບູນ -->
-<a b="4d 62 69 6b 63 5e 77 61 69"
-   u="0ec0 0e9a 005e 0ec0 0ead 0e99 005e 0ec0 0e8a 005e 0e9a 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbu^naa = ເບ^ເລ^ຄິ^ຢາ -->
-<a b="4d 62 75 5e 6e 61 61"
-   u="0ec0 0e9a 005e 0ec0 0ea5 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbusi = ເບ^ເນ^ຢາ^ອະ^ຄັນ -->
-<a b="4d 62 75 73 69"
-   u="0ec0 0e9a 005e 0ec0 0e99 005e 0ea2 0eb2 005e 0ead 0eb0 005e 0e84 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbukc^ki = ເບ^ນິ^ນູ -->
-<a b="4d 62 75 6b 63 5e 6b 69"
-   u="0ec0 0e9a 005e 0e99 0eb4 005e 0e99 0eb9" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mbukc^ki^yaa = ເບດ^ເຢ^ຊິ^ໂມດ -->
-<a b="4d 62 75 6b 63 5e 6b 69 5e 79 61 61"
-   u="0ec0 0e9a 0e94 005e 0ec0 0ea2 005e 0e8a 0eb4 005e 0ec2 0ea1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ndaa^li^atc = ບິ^ເລ^ອຳ -->
-<a b="4e 64 61 61 5e 6c 69 5e 61 74 63"
-   u="0e9a 0eb4 005e 0ec0 0ea5 005e 0ead 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Nde^li^laa = ບິ^ເນ^ອາ -->
-<a b="4e 64 65 5e 6c 69 5e 6c 61 61"
-   u="0e9a 0eb4 005e 0ec0 0e99 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Nde^metv^li^atc = ບິ^ຊິ^ໂອ^ທິ^ຢາ -->
-<a b="4e 64 65 5e 6d 65 74 76 5e 6c 69 5e 61 74 63"
-   u="0e9a 0eb4 005e 0e8a 0eb4 005e 0ec2 0ead 005e 0e97 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ndi^le^an = ບິ^ທີ^ເນຍ -->
-<a b="4e 64 69 5e 6c 65 5e 61 6e"
-   u="0e9a 0eb4 005e 0e97 0eb5 005e 0ec0 0e99 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ndi^o^ni^si^atc = ບິ^ທິ^ຢາ -->
-<a b="4e 64 69 5e 6f 5e 6e 69 5e 73 69 5e 61 74 63"
-   u="0e9a 0eb4 005e 0e97 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ndikc^laa = ບິກ^ທາ -->
-<a b="4e 64 69 6b 63 5e 6c 61 61"
-   u="0e9a 0eb4 0e81 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ndo^ndaa^waa^hu = ບິກ^ທາ^ນາ -->
-<a b="4e 64 6f 5e 6e 64 61 61 5e 77 61 61 5e 68 75"
-   u="0e9a 0eb4 0e81 005e 0e97 0eb2 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ndo^faa^kaa = ບິກ^ທານ -->
-<a b="4e 64 6f 5e 66 61 61 5e 6b 61 61"
-   u="0e9a 0eb4 0e81 005e 0e97 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^hutv = ບິກ^ໄວ -->
-<a b="45 5e 68 75 74 76"
-   u="0e9a 0eb4 0e81 005e 0ec4 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^li^fe^le^hu = ບຸ^ນາ -->
-<a b="45 5e 6c 69 5e 66 65 5e 6c 65 5e 68 75"
-   u="0e9a 0eb8 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^li^utc = ບຸ^ຊີ -->
-<a b="45 5e 6c 69 5e 75 74 63"
-   u="0e9a 0eb8 005e 0e8a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^li^yaa^sipv = ບຸກ^ຄີ -->
-<a b="45 5e 6c 69 5e 79 61 61 5e 73 69 70 76"
-   u="0e9a 0eb8 0e81 005e 0e84 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Elun = ບຸກ^ຄີ^ຢາ -->
-<a b="45 6c 75 6e"
-   u="0e9a 0eb8 0e81 005e 0e84 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^mekvKesitv = ດາ^ລິ^ອັດ -->
-<a b="45 5e 6d 65 6b 76 4b 65 73 69 74 76"
-   u="0e94 0eb2 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^baa^fo^ndi^tatv = ເດ^ລິ^ລາ -->
-<a b="45 5e 62 61 61 5e 66 6f 5e 6e 64 69 5e 74 61 74 76"
-   u="0ec0 0e94 005e 0ea5 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^bi^ku^lien = ເດ^ເມັດ^ລິ^ອັດ -->
-<a b="45 5e 62 69 5e 6b 75 5e 6c 69 65 6e"
-   u="0ec0 0e94 005e 0ec0 0ea1 0eb1 0e94 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^saa^laa = ດິ^ເລ^ອັນ -->
-<a b="45 5e 73 61 61 5e 6c 61 61"
-   u="0e94 0eb4 005e 0ec0 0ea5 005e 0ead 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^saa^li = ດີ^ໂອ^ນິ^ສິ^ອັດ -->
-<a b="45 5e 73 61 61 5e 6c 69"
-   u="0e94 0eb5 005e 0ec2 0ead 005e 0e99 0eb4 005e 0eaa 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- E^wi = ດິກ^ລາ -->
-<a b="45 5e 77 69"
-   u="0e94 0eb4 0e81 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Em^maa^utc = ໂດ^ດາ^ວາ^ຫຸ -->
-<a b="45 6d 5e 6d 61 61 5e 75 74 63"
-   u="0ec2 0e94 005e 0e94 0eb2 005e 0ea7 0eb2 005e 0eab 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- En^Mbelitv = ໂດ^ຟະ^ຂາ -->
-<a b="45 6e 5e 4d 62 65 6c 69 74 76"
-   u="0ec2 0e94 005e 0e9f 0eb0 005e 0e82 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Faa^le^gon = ເອ^ຮູດ -->
-<a b="46 61 61 5e 6c 65 5e 67 6f 6e"
-   u="0ec0 0ead 005e 0eae 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Faa^li^si = ເອ^ລີ^ຟາ^ເລ^ຫຸ -->
-<a b="46 61 61 5e 6c 69 5e 73 69"
-   u="0ec0 0ead 005e 0ea5 0eb5 005e 0e9f 0eb2 005e 0ec0 0ea5 005e 0eab 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Felikv = ເອ^ລີ^ອູ -->
-<a b="46 65 6c 69 6b 76"
-   u="0ec0 0ead 005e 0ea5 0eb5 005e 0ead 0eb9" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Fe^saa^tatv = ເອ^ລີ^ຢາ^ຊີ້ບ -->
-<a b="46 65 5e 73 61 61 5e 74 61 74 76"
-   u="0ec0 0ead 005e 0ea5 0eb5 005e 0ea2 0eb2 005e 0e8a 0eb5 0ec9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Fi^li^saa^die = ເອ^ລູນ -->
-<a b="46 69 5e 6c 69 5e 73 61 61 5e 64 69 65"
-   u="0ec0 0ead 005e 0ea5 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Fi^nikv = ເອ^ເມັກ^ເຄ^ຊີດ -->
-<a b="46 69 5e 6e 69 6b 76"
-   u="0ec0 0ead 005e 0ec0 0ea1 0eb1 0e81 005e 0ec0 0e84 005e 0e8a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Fu'jueiv = ເອ^ປາ^ໂຟ^ດິ^ທັດ -->
-<a b="46 75 27 6a 75 65 69 76"
-   u="0ec0 0ead 005e 0e9b 0eb2 005e 0ec2 0e9f 005e 0e94 0eb4 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^mbaa^gukc = ເອ^ປິ^ຄູ^ລຽນ -->
-<a b="48 61 61 5e 6d 62 61 61 5e 67 75 6b 63"
-   u="0ec0 0ead 005e 0e9b 0eb4 005e 0e84 0eb9 005e 0ea5 0ebd 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^e^lepv = ເອ^ສະ^ລາ -->
-<a b="48 61 61 5e 65 5e 6c 65 70 76"
-   u="0ec0 0ead 005e 0eaa 0eb0 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^hi^lotv = ເອ^ສະ^ລີ -->
-<a b="48 61 61 5e 68 69 5e 6c 6f 74 76"
-   u="0ec0 0ead 005e 0eaa 0eb0 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^kaa^li^yaa = ເອ^ວີ -->
-<a b="48 61 61 5e 6b 61 61 5e 6c 69 5e 79 61 61"
-   u="0ec0 0ead 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^lu^mapv = ເອມ^ມາ^ອູດ -->
-<a b="48 61 61 5e 6c 75 5e 6d 61 70 76"
-   u="0ec0 0ead 0ea1 005e 0ea1 0eb2 005e 0ead 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haalum = ເອນ^ເບ^ລີດ -->
-<a b="48 61 61 6c 75 6d"
-   u="0ec0 0ead 0e99 005e 0ec0 0e9a 005e 0ea5 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haalupv = ຟະ^ເລ^ໂກນ -->
-<a b="48 61 61 6c 75 70 76"
-   u="0e9f 0eb0 005e 0ec0 0ea5 005e 0ec2 0e81 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^mu^taan = ຟາ^ລິ^ສີ -->
-<a b="48 61 61 5e 6d 75 5e 74 61 61 6e"
-   u="0e9f 0eb2 005e 0ea5 0eb4 005e 0eaa 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^mun = ເຟ^ລິກ -->
-<a b="48 61 61 5e 6d 75 6e"
-   u="0ec0 0e9f 005e 0ea5 0eb4 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haanun = ເຟ^ສະ^ທັດ -->
-<a b="48 61 61 6e 75 6e"
-   u="0ec0 0e9f 005e 0eaa 0eb0 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^saa^bi^yaa = ຟິ^ລິ^ສະ^ເຕຍ -->
-<a b="48 61 61 5e 73 61 61 5e 62 69 5e 79 61 61"
-   u="0e9f 0eb4 005e 0ea5 0eb4 005e 0eaa 0eb0 005e 0ec0 0e95 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^saax^ndi^yaa = ຟິ^ນິກ -->
-<a b="48 61 61 5e 73 61 61 78 5e 6e 64 69 5e 79 61 61"
-   u="0e9f 0eb4 005e 0e99 0eb4 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- HaaseHatv^ti^kon = ຝຸຈວ໊ຍ -->
-<a b="48 61 61 73 65 48 61 74 76 5e 74 69 5e 6b 6f 6e"
-   u="0e9d 0eb8 0e88 0ea7 0eca 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haasum = ຮາ^ບາ^ກຸກ -->
-<a b="48 61 61 73 75 6d"
-   u="0eae 0eb2 005e 0e9a 0eb2 005e 0e81 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^ti^faa = ຫະ^ເອ^ເລບ -->
-<a b="48 61 61 5e 74 69 5e 66 61 61"
-   u="0eab 0eb0 005e 0ec0 0ead 005e 0ec0 0ea5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^ti^taa = ຫະ^ຫິ^ໂລດ -->
-<a b="48 61 61 5e 74 69 5e 74 61 61"
-   u="0eab 0eb0 005e 0eab 0eb4 005e 0ec2 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^wi^laa = ຮາ^ຄາ^ລິ^ຢາ -->
-<a b="48 61 61 5e 77 69 5e 6c 61 61"
-   u="0eae 0eb2 005e 0e84 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Haa^yaa^ni^yaa = ຮາ^ລຸ^ມັບ -->
-<a b="48 61 61 5e 79 61 61 5e 6e 69 5e 79 61 61"
-   u="0eae 0eb2 005e 0ea5 0eb8 005e 0ea1 0eb1 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hakv^gitc = ຮາ^ລູມ -->
-<a b="48 61 6b 76 5e 67 69 74 63"
-   u="0eae 0eb2 005e 0ea5 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Han^hun = ຮາ^ລູບ -->
-<a b="48 61 6e 5e 68 75 6e"
-   u="0eae 0eb2 005e 0ea5 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hatc^supv = ຮາ^ມຸ^ທານ -->
-<a b="48 61 74 63 5e 73 75 70 76"
-   u="0eae 0eb2 005e 0ea1 0eb8 005e 0e97 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- He^li^o^mbu^li = ຮາ^ມູນ -->
-<a b="48 65 5e 6c 69 5e 6f 5e 6d 62 75 5e 6c 69"
-   u="0eae 0eb2 005e 0ea1 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- He^lo^ndi^on = ຮາ^ນູນ -->
-<a b="48 65 5e 6c 6f 5e 6e 64 69 5e 6f 6e"
-   u="0eae 0eb2 005e 0e99 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hi^e^laa^mbu^li = ຮາ^ຊາ^ປິ^ຢາ -->
-<a b="48 69 5e 65 5e 6c 61 61 5e 6d 62 75 5e 6c 69"
-   u="0eae 0eb2 005e 0e8a 0eb2 005e 0e9b 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ho^ndaa^wi^yaa = ຮາ^ສາ^ດິ^ຢາ -->
-<a b="48 6f 5e 6e 64 61 61 5e 77 69 5e 79 61 61"
-   u="0eae 0eb2 005e 0eaa 0eb2 005e 0e94 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- HoHakv^gitc^gaatc = ຮາ^ເຊ^ຮັດ^ທິ^ໂຄນ -->
-<a b="48 6f 48 61 6b 76 5e 67 69 74 63 5e 67 61 61 74 63"
-   u="0eae 0eb2 005e 0ec0 0e8a 005e 0eae 0eb1 0e94 005e 0e97 0eb4 005e 0ec2 0e84 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hotv = ຮາ^ຊູມ -->
-<a b="48 6f 74 76"
-   u="0eae 0eb2 005e 0e8a 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hufaam = ຮາ^ທິ^ຟາ -->
-<a b="48 75 66 61 61 6d"
-   u="0eae 0eb2 005e 0e97 0eb4 005e 0e9f 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hugorkc = ຮາ^ທິ^ທາ -->
-<a b="48 75 67 6f 72 6b 63"
-   u="0eae 0eb2 005e 0e97 0eb4 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hu^laa^maa^mbi = ຮາ^ວິ^ລາ -->
-<a b="48 75 5e 6c 61 61 5e 6d 61 61 5e 6d 62 69"
-   u="0eae 0eb2 005e 0ea7 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hulaam = ຫະ^ຢາ^ນິ^ຢາ -->
-<a b="48 75 6c 61 61 6d"
-   u="0eab 0eb0 005e 0ea2 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hulai = ຮັກ^ກີດ -->
-<a b="48 75 6c 61 69"
-   u="0eae 0eb1 0e81 005e 0e81 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Huli = ຮັນ^ຮູນ -->
-<a b="48 75 6c 69"
-   u="0eae 0eb1 0e99 005e 0eae 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Husaa = ຫັດ^ຊູບ -->
-<a b="48 75 73 61 61"
-   u="0eab 0eb1 0e94 005e 0e8a 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Husaam = ເຮ^ລີ^ໂອ^ບຸ^ລີ -->
-<a b="48 75 73 61 61 6d"
-   u="0ec0 0eae 005e 0ea5 0eb5 005e 0ec2 0ead 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Husai = ເຮ^ໂລ^ດິ^ໂອນ -->
-<a b="48 75 73 61 69"
-   u="0ec0 0eae 005e 0ec2 0ea5 005e 0e94 0eb4 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Husim = ຮີ^ເອ^ລາ^ບຸ^ລີ -->
-<a b="48 75 73 69 6d"
-   u="0eae 0eb5 005e 0ec0 0ead 005e 0ea5 0eb2 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Husopc = ໂຮ^ດາ^ວິ^ຢາ -->
-<a b="48 75 73 6f 70 63"
-   u="0ec2 0eae 005e 0e94 0eb2 005e 0ea7 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hukc^gorkc = ໂຮ^ຮັກ^ກີດ^ກາດ -->
-<a b="48 75 6b 63 5e 67 6f 72 6b 63"
-   u="0ec2 0eae 005e 0eae 0eb1 0e81 005e 0e81 0eb5 0e94 005e 0e81 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Hun = ໂຮດ -->
-<a b="48 75 6e"
-   u="0ec2 0eae 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^ndaa^laa = ຫຸ^ຟາມ -->
-<a b="49 5e 6e 64 61 61 5e 6c 61 61"
-   u="0eab 0eb8 005e 0e9f 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^ndu^me^aa = ຫຸ^ກອກ -->
-<a b="49 5e 6e 64 75 5e 6d 65 5e 61 61"
-   u="0eab 0eb8 005e 0e81 0ead 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Igaan = ຫຸ^ລາ^ມາ^ບີ -->
-<a b="49 67 61 61 6e"
-   u="0eab 0eb8 005e 0ea5 0eb2 005e 0ea1 0eb2 005e 0e9a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^ko^ni^yum = ຫຸ^ລາມ -->
-<a b="49 5e 6b 6f 5e 6e 69 5e 79 75 6d"
-   u="0eab 0eb8 005e 0ea5 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ilaa = ຫຸ^ໄລ -->
-<a b="49 6c 61 61"
-   u="0eab 0eb8 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^laa^aa = ຫ^ລີ -->
-<a b="49 5e 6c 61 61 5e 61 61"
-   u="0eab 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- IlaaNaahaatc = ຫຸ^ຊາ -->
-<a b="49 6c 61 61 4e 61 61 68 61 61 74 63"
-   u="0eab 0eb8 005e 0e8a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ilaam = ຫຸ^ຊາມ -->
-<a b="49 6c 61 61 6d"
-   u="0eab 0eb8 005e 0e8a 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ilaatv = ຫຸ^ໄຊ -->
-<a b="49 6c 61 61 74 76"
-   u="0eab 0eb8 005e 0ec4 0e8a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ilai = ຫຸ^ຊິມ -->
-<a b="49 6c 61 69"
-   u="0eab 0eb8 005e 0e8a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ili = ຫຸ^ໂສບ -->
-<a b="49 6c 69"
-   u="0eab 0eb8 005e 0ec2 0eaa 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^li^yaa = ຫຸກ^ກອກ -->
-<a b="49 5e 6c 69 5e 79 61 61"
-   u="0eab 0eb8 0e81 005e 0e81 0ead 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ilu = ຮູນ -->
-<a b="49 6c 75"
-   u="0eae 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- In^li^kum = ອິ^ດາ^ລາ -->
-<a b="49 6e 5e 6c 69 5e 6b 75 6d"
-   u="0ead 0eb4 005e 0e94 0eb2 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^opc = ອິ^ດູ^ເມ^ອາ -->
-<a b="49 5e 6f 70 63"
-   u="0ead 0eb4 005e 0e94 0eb9 005e 0ec0 0ea1 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^kaa^li^otc = ອິ^ການ -->
-<a b="49 5e 73 61 61 5e 6b 61 61 5e 6c 69 5e 6f 74 63"
-   u="0ead 0eb4 005e 0e81 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^laa = ອີ^ໂຄ^ນີ^ຢູມ -->
-<a b="49 5e 73 61 61 5e 6c 61 61"
-   u="0ead 0eb5 005e 0ec2 0e84 005e 0e99 0eb5 005e 0ea2 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^laa^en = ອິ^ລະ -->
-<a b="49 5e 73 61 61 5e 6c 61 61 5e 65 6e"
-   u="0ead 0eb4 005e 0ea5 0eb0" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^laa^hi^yaa = ອິ^ລາ^ອາ -->
-<a b="49 5e 73 61 61 5e 6c 61 61 5e 68 69 5e 79 61 61"
-   u="0ead 0eb4 005e 0ea5 0eb2 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^li = ອິ^ລະ^ນາ^ຫາດ -->
-<a b="49 5e 73 61 61 5e 6c 69"
-   u="0ead 0eb4 005e 0ea5 0eb0 005e 0e99 0eb2 005e 0eab 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^li^yaa = ອິ^ລາມ -->
-<a b="49 5e 73 61 61 5e 6c 69 5e 79 61 61"
-   u="0ead 0eb4 005e 0ea5 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^maa^en = ອິ^ລາດ -->
-<a b="49 5e 73 61 61 5e 6d 61 61 5e 65 6e"
-   u="0ead 0eb4 005e 0ea5 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^saa^yaa = ອິ^ໄລ -->
-<a b="49 5e 73 61 61 5e 79 61 61"
-   u="0ead 0eb4 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^daa^li = ອິ^ລີ -->
-<a b="49 5e 64 61 61 5e 6c 69"
-   u="0ead 0eb4 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^taa^maa = ອິ^ລີ^ຢາ -->
-<a b="49 5e 74 61 61 5e 6d 61 61"
-   u="0ead 0eb4 005e 0ea5 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^tai = ອິ^ລູ -->
-<a b="49 5e 74 61 69"
-   u="0ead 0eb4 005e 0ea5 0eb9" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^tu^lie = ອິນ^ລິ^ຄຸມ -->
-<a b="49 5e 74 75 5e 6c 69 65"
-   u="0ead 0eb4 0e99 005e 0ea5 0eb4 005e 0e84 0eb8 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^ye^aa^laa^mbim = ອິ^ໂອບ -->
-<a b="49 5e 79 65 5e 61 61 5e 6c 61 61 5e 6d 62 69 6d"
-   u="0ead 0eb4 005e 0ec2 0ead 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- I^yim = ອິ^ສະ^ຄາ^ລິ^ໂອດ -->
-<a b="49 5e 79 69 6d"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0e84 0eb2 005e 0ea5 0eb4 005e 0ec2 0ead 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ikc^ndaa^li^yaa = ອິ^ສະ^ລາ -->
-<a b="49 6b 63 5e 6e 64 61 61 5e 6c 69 5e 79 61 61"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ikc^ketc = ອິ^ສະ^ລາ^ເອນ -->
-<a b="49 6b 63 5e 6b 65 74 63"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb2 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- In^li^kum = ອິ^ສະ^ລາ^ຫິ^ຢາ -->
-<a b="49 6e 5e 6c 69 5e 6b 75 6d"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb2 005e 0eab 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Itc^saa^maa^ki^yaa = ອິ^ສະ^ລີ -->
-<a b="49 74 63 5e 73 61 61 5e 6d 61 61 5e 6b 69 5e 79 61 61"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Itc^wi = ອິ^ສະ^ລິ^ຢາ -->
-<a b="49 74 63 5e 77 69"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Jor^laa^kev = ອິ^ສະ^ມາ^ເອນ -->
-<a b="4a 6f 72 5e 6c 61 61 5e 6b 65 76"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea1 0eb2 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kaa^laau^ndi^atc = ອິ^ສະ^ຢາ -->
-<a b="4b 61 61 5e 6c 61 61 75 5e 6e 64 69 5e 61 74 63"
-   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gaa^li^li = ອິ^ຕາ^ລີ -->
-<a b="47 61 61 5e 6c 69 5e 6c 69"
-   u="0ead 0eb4 005e 0e95 0eb2 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kaa^litv^batc = ອິ^ທາ^ມາ -->
-<a b="4b 61 61 5e 6c 69 74 76 5e 62 61 74 63"
-   u="0ead 0eb4 005e 0e97 0eb2 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kaa^lo^e = ອິ^ໄທ -->
-<a b="4b 61 61 5e 6c 6f 5e 65"
-   u="0ead 0eb4 005e 0ec4 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gaa^maa^li^en = ອິ^ທີ^ເອນ -->
-<a b="47 61 61 5e 6d 61 61 5e 6c 69 5e 65 6e"
-   u="0ead 0eb4 005e 0e97 0eb5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kaa^si^fie = ອິ^ທູ^ເລຍ -->
-<a b="4b 61 61 5e 73 69 5e 66 69 65"
-   u="0ead 0eb4 005e 0e97 0eb9 005e 0ec0 0ea5 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gan^li^o = ອິ^ເຢ^ອາ^ລາ^ບິມ -->
-<a b="47 61 6e 5e 6c 69 5e 6f"
-   u="0ead 0eb4 005e 0ec0 0ea2 005e 0ead 0eb2 005e 0ea5 0eb2 005e 0e9a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ge^ndaa^li^yaa = ອິ^ຢິມ -->
-<a b="47 65 5e 6e 64 61 61 5e 6c 69 5e 79 61 61"
-   u="0ead 0eb4 005e 0ea2 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- GeHaa^laa^sim = ອິ^ໂຢນ -->
-<a b="47 65 48 61 61 5e 6c 61 61 5e 73 69 6d"
-   u="0ead 0eb4 005e 0ec2 0ea2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ge^haa^si = ອິກ^ດາ^ລິ^ຢາ -->
-<a b="47 65 5e 68 61 61 5e 73 69"
-   u="0ead 0eb4 0e81 005e 0e94 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^len^hapc^bukc = ອິກ^ເຂດ -->
-<a b="4b 65 5e 6c 65 6e 5e 68 61 70 63 5e 62 75 6b 63"
-   u="0ead 0eb4 0e81 005e 0ec0 0e82 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^li^otc = ອິນ^ລິ^ຄຸມ -->
-<a b="4b 65 5e 6c 69 5e 6f 74 63"
-   u="0ead 0eb4 0e99 005e 0ea5 0eb4 005e 0e84 0eb8 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^li^otcHetv^lon = ອິດ^ສະ^ມາ^ຄິ^ຢາ -->
-<a b="4b 65 5e 6c 69 5e 6f 74 63 48 65 74 76 5e 6c 6f 6e"
-   u="0ead 0eb4 0e94 005e 0eaa 0eb0 005e 0ea1 0eb2 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ge^li^sim = ອິດ^ວີ -->
-<a b="47 65 5e 6c 69 5e 73 69 6d"
-   u="0ead 0eb4 0e94 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^li^taa = ຈໍລະເຂັ -->
-<a b="4b 65 5e 6c 69 5e 74 61 61"
-   u="0e88 0ecd 0ea5 0eb0 0ec0 0e82 0eb1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^litv = ຄາ^ລາວ^ດີ^ອັດ -->
-<a b="4b 65 5e 6c 69 74 76"
-   u="0e84 0eb2 005e 0ea5 0eb2 0ea7 005e 0e94 0eb5 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^litv^taa = ກາ^ລິ^ລີ -->
-<a b="4b 65 5e 6c 69 74 76 5e 74 61 61"
-   u="0e81 0eb2 005e 0ea5 0eb4 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^lu^mbai = ຄະ^ລິດ^ປັດ -->
-<a b="4b 65 5e 6c 75 5e 6d 62 61 69"
-   u="0e84 0eb0 005e 0ea5 0eb4 0e94 005e 0e9b 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^lu^hi = ຄະ^ໂລ^ເອ -->
-<a b="4b 65 5e 6c 75 5e 68 69"
-   u="0e84 0eb0 005e 0ec2 0ea5 005e 0ec0 0ead" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kelupv = ກາ^ມາ^ລິ^ເອນ -->
-<a b="4b 65 6c 75 70 76"
-   u="0e81 0eb2 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ge^lutv^kim^ham = ຄາ^ສິ^ເຟຍ -->
-<a b="47 65 5e 6c 75 74 76 5e 6b 69 6d 5e 68 61 6d"
-   u="0e84 0eb2 005e 0eaa 0eb4 005e 0ec0 0e9f 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ge^maa^li^yaa = ກັນ^ລິ^ໂອ -->
-<a b="47 65 5e 6d 61 61 5e 6c 69 5e 79 61 61"
-   u="0e81 0eb1 0e99 005e 0ea5 0eb4 005e 0ec2 0ead" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^naa^aa^naa = ເກ^ດາ^ລິ^ຢາ -->
-<a b="4b 65 5e 6e 61 61 5e 61 61 5e 6e 61 61"
-   u="0ec0 0e81 005e 0e94 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^saa^lon = ເກ^ຫະ^ລາ^ຊິມ -->
-<a b="4b 65 5e 73 61 61 5e 6c 6f 6e"
-   u="0ec0 0e81 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0e8a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ke^si^yaa = ເກ^ຫະ^ຊີ -->
-<a b="4b 65 5e 73 69 5e 79 61 61"
-   u="0ec0 0e81 005e 0eab 0eb0 005e 0e8a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kesipv = ເຄ^ເລນ^ຫັບ^ປຸກ -->
-<a b="4b 65 73 69 70 76"
-   u="0ec0 0e84 005e 0ec0 0ea5 0e99 005e 0eab 0eb1 0e9a 005e 0e9b 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^mbe^aa = ເຄ^ລິ^ໂອດ -->
-<a b="47 69 5e 6d 62 65 5e 61 61"
-   u="0ec0 0e84 005e 0ea5 0eb4 005e 0ec2 0ead 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^mbe^atc^e^lo^him = ເຄ^ລິ^ໂອດ^ເຮດ^ໂລນ -->
-<a b="47 69 5e 6d 62 65 5e 61 74 63 5e 65 5e 6c 6f 5e 68 69 6d"
-   u="0ec0 0e84 005e 0ea5 0eb4 005e 0ec2 0ead 0e94 005e 0ec0 0eae 0e94 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^mbe^atcHaa^laa^lotv = ເກ^ລິ^ຊິມ -->
-<a b="47 69 5e 6d 62 65 5e 61 74 63 48 61 61 5e 6c 61 61 5e 6c 6f 74 76"
-   u="0ec0 0e81 005e 0ea5 0eb4 005e 0e8a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^mbe^on = ເຄ^ລິ^ທາ -->
-<a b="47 69 5e 6d 62 65 5e 6f 6e"
-   u="0ec0 0e84 005e 0ea5 0eb4 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^nde^o^ni = ເຄ^ລີ້ດ -->
-<a b="47 69 5e 6e 64 65 5e 6f 5e 6e 69"
-   u="0ec0 0e84 005e 0ea5 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^nde^on = ເຄ^ລີ້ດ^ທາ -->
-<a b="47 69 5e 6e 64 65 5e 6f 6e"
-   u="0ec0 0e84 005e 0ea5 0eb5 0ec9 0e94 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^ndom = ເຄ^ລູ^ເປຍ -->
-<a b="47 69 5e 6e 64 6f 6d"
-   u="0ec0 0e84 005e 0ea5 0eb9 005e 0ec0 0e9b 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^ndon = ເຄ^ລຸ^ຮ -->
-<a b="4b 69 5e 6e 64 6f 6e"
-   u="0ec0 0e84 005e 0ea5 0eb8 005e 0eae" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^laa^lai = ເຄ^ລູບ -->
-<a b="47 69 5e 6c 61 61 5e 6c 61 69"
-   u="0ec0 0e84 005e 0ea5 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^le^aapc = ເກ^ລູດ^ຄິມ^ຮຳ -->
-<a b="4b 69 5e 6c 65 5e 61 61 70 63"
-   u="0ec0 0e81 005e 0ea5 0eb9 0e94 005e 0e84 0eb4 0ea1 005e 0eae 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gi^le^aatc = ເກ^ມາ^ລິ^ຢາ -->
-<a b="47 69 5e 6c 65 5e 61 61 74 63"
-   u="0ec0 0e81 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^ni^atc = ເຄ^ນາ^ອະ^ນາ -->
-<a b="4b 69 5e 6c 69 5e 6e 69 5e 61 74 63"
-   u="0ec0 0e84 005e 0e99 0eb2 005e 0ead 0eb0 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^on = ເຄ^ສະ^ໂລນ -->
-<a b="4b 69 5e 6c 69 5e 6f 6e"
-   u="0ec0 0e84 005e 0eaa 0eb0 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaa^taa^im = ເຄ^ສິ^ຢາ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 5e 74 61 61 5e 69 6d"
-   u="0ec0 0e84 005e 0eaa 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatv = ເຄ^ຊີບ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76"
-   u="0ec0 0e84 005e 0e8a 0eb5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvAalim = ກິ^ເບ^ອາ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 41 61 6c 69 6d"
-   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvAan^mbaa = ກິ^ເບ^ອັດ^ເອ^ໂລ^ຮິມ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 41 61 6e 5e 6d 62 61 61"
-   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ead 0eb1 0e94 005e 0ec0 0ead 005e 0ec2 0ea5 005e 0eae 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvMbaa^an = ກິ^ເບ^ອັດ^ຮາ^ລາ^ໂລດ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 4d 62 61 61 5e 61 6e"
-   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ead 0eb1 0e94 005e 0eae 0eb2 005e 0ea5 0eb2 005e 0ec2 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatv^hu^sotv = ກິ^ເບ^ໂອນ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 5e 68 75 5e 73 6f 74 76"
-   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvSanx^naa = ກິ^ເດ^ໂອ^ນີ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 53 61 6e 78 5e 6e 61 61"
-   u="0e81 0eb4 005e 0ec0 0e94 005e 0ec2 0ead 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvSefe = ກິ^ເດ^ໂອນ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 53 65 66 65"
-   u="0e81 0eb4 005e 0ec0 0e94 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^li^yaatvYe^aa^lim = ກິ^ໂດມ -->
-<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 59 65 5e 61 61 5e 6c 69 6d"
-   u="0e81 0eb4 005e 0ec2 0e94 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gilon = ຄິ^ໂດນ -->
-<a b="47 69 6c 6f 6e"
-   u="0e84 0eb4 005e 0ec2 0e94 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ki^si^on = ກິ^ລາ^ໄລ -->
-<a b="4b 69 5e 73 69 5e 6f 6e"
-   u="0e81 0eb4 005e 0ea5 0eb2 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- KinHaa^le^setv = ຄິ^ເລ^ອາບ -->
-<a b="4b 69 6e 48 61 61 5e 6c 65 5e 73 65 74 76"
-   u="0e84 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kitv = ກິ^ເລ^ອາດ -->
-<a b="4b 69 74 76"
-   u="0e81 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Go^li^atc = ຄີ^ລິ^ນິ^ອັດ -->
-<a b="47 6f 5e 6c 69 5e 61 74 63"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0e99 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ko^naa^ni^yaa = ຄິ^ລິ^ໂອນ -->
-<a b="4b 6f 5e 6e 61 61 5e 6e 69 5e 79 61 61"
-   u="0e84 0eb4 005e 0ea5 0eb4 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ko^ne^li^atc = ຄິ^ລິ^ຢາ^ທາ^ອິມ -->
-<a b="4b 6f 5e 6e 65 5e 6c 69 5e 61 74 63"
-   u="0e84 0eb4 005e 0ea5 0eb4 005e 0ea2 0eb2 005e 0e97 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ko^ni^yaa = ຄີ^ລິ^ຢາດ -->
-<a b="4b 6f 5e 6e 69 5e 79 61 61"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gokc = ຄີ^ລິ^ຢາດ^ອາ^ລິມ -->
-<a b="47 6f 6b 63"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ead 0eb2 005e 0ea5 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gopc = ຄີ^ລິ^ຢາດ^ອານ^ບາ -->
-<a b="47 6f 70 63"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ead 0eb2 0e99 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kotc = ຄີ^ລິ^ຢາດ^ບາ^ອັນ -->
-<a b="4b 6f 74 63"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0e9a 0eb2 005e 0ead 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Gu^ni = ຄີ^ລິ^ຢາດ^ຫຸ^ໂຊດ -->
-<a b="47 75 5e 6e 69"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0eab 0eb8 005e 0ec2 0e8a 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- KuqanLi^taa^im = ຄີ^ລິ^ຢາດ^ສັນ^ນາ -->
-<a b="4b 75 71 61 6e 4c 69 5e 74 61 61 5e 69 6d"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0eaa 0eb1 0e99 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kumlaan = ຄີ^ລິ^ຢາດ^ເສ^ເຟ -->
-<a b="4b 75 6d 6c 61 61 6e"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ec0 0eaa 005e 0ec0 0e9f" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kun = ຄີ^ລິ^ຢາດ^ເຢ^ອາ^ລິມ -->
-<a b="4b 75 6e"
-   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ec0 0ea2 005e 0ead 0eb2 005e 0ea5 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kutv = ກິ^ໂລນ -->
-<a b="4b 75 74 76"
-   u="0e81 0eb4 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Kutv^aa = ຄີ^ຊີ^ໂອນ -->
-<a b="4b 75 74 76 5e 61 61"
-   u="0e84 0eb5 005e 0e8a 0eb5 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Laa^aa^mi^yaa = ຄີນ^ຫະ^ເລ^ເຊດ -->
-<a b="4c 61 61 5e 61 61 5e 6d 69 5e 79 61 61"
-   u="0e84 0eb5 0e99 005e 0eab 0eb0 005e 0ec0 0ea5 005e 0ec0 0e8a 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Laakitv = ຄີດ -->
-<a b="4c 61 61 6b 69 74 76"
-   u="0e84 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- LaamotvGi^le^aatc = ໂກ^ລິ^ອັດ -->
-<a b="4c 61 61 6d 6f 74 76 47 69 5e 6c 65 5e 61 61 74 63"
-   u="0ec2 0e81 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lakv^kum = ໂຄ^ນາ^ນິ^ຢາ -->
-<a b="4c 61 6b 76 5e 6b 75 6d"
-   u="0ec2 0e84 005e 0e99 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lapv^mbitc = ໂຄ^ເນ^ລິ^ອັດ -->
-<a b="4c 61 70 76 5e 6d 62 69 74 63"
-   u="0ec2 0e84 005e 0ec0 0e99 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lapv^bi^ndotc = ໂຄ^ນິ^ຢາ -->
-<a b="4c 61 70 76 5e 62 69 5e 6e 64 6f 74 63"
-   u="0ec2 0e84 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lapv^saax^litv = ໂກກ -->
-<a b="4c 61 70 76 5e 73 61 61 78 5e 6c 69 74 76"
-   u="0ec2 0e81 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Le^haa^mbim = ໂກບ -->
-<a b="4c 65 5e 68 61 61 5e 6d 62 69 6d"
-   u="0ec2 0e81 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Le^hum = ໂຂດ -->
-<a b="4c 65 5e 68 75 6d"
-   u="0ec2 0e82 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Le^maa^li^yaa = ກຸ^ນີ -->
-<a b="4c 65 5e 6d 61 61 5e 6c 69 5e 79 61 61"
-   u="0e81 0eb8 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lewi = ຄູ^ທຈັນ^ລິ^ທາ^ອິມ -->
+<!-- Lewi = ເລ^ວີ -->
 <a b="4c 65 77 69"
-   u="0e84 0eb9 005e 0e97 0e88 0eb1 0e99 005e 0ea5 0eb4 005e 0e97 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Le^wi^aa^taan = ຄູມ^ລານ -->
-<a b="4c 65 5e 77 69 5e 61 61 5e 74 61 61 6e"
-   u="0e84 0eb9 0ea1 005e 0ea5 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Le^yi^um = ຄູນ -->
-<a b="4c 65 5e 79 69 5e 75 6d"
-   u="0e84 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Li^mbe^tin = ຄູດ -->
-<a b="4c 69 5e 6d 62 65 5e 74 69 6e"
-   u="0e84 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Li^mbie = ຄູດ^ອາ -->
-<a b="4c 69 5e 6d 62 69 65"
-   u="0e84 0eb9 0e94 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Li^ndie = ລາ^ອາ^ມິ^ຢາ -->
-<a b="4c 69 5e 6e 64 69 65"
-   u="0ea5 0eb2 005e 0ead 0eb2 005e 0ea1 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Li^kaa^o^nie = ລາ^ຄີ້ດ -->
-<a b="4c 69 5e 6b 61 61 5e 6f 5e 6e 69 65"
-   u="0ea5 0eb2 005e 0e84 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Li^saa^daa = ລາ^ໂມດ^ກິ^ເລ^ອາດ -->
-<a b="4c 69 5e 73 61 61 5e 64 61 61"
-   u="0ea5 0eb2 005e 0ec2 0ea1 0e94 005e 0e81 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Likv^hi = ລັກ^ຄູມ -->
-<a b="4c 69 6b 76 5e 68 69"
-   u="0ea5 0eb1 0e81 005e 0e84 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lo^lu^haa^maa = ລັບ^ບີດ -->
-<a b="4c 6f 5e 6c 75 5e 68 61 61 5e 6d 61 61"
-   u="0ea5 0eb1 0e9a 005e 0e9a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lotv = ລັບ^ປິ^ໂດດ -->
-<a b="4c 6f 74 76"
-   u="0ea5 0eb1 0e9a 005e 0e9b 0eb4 005e 0ec2 0e94 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lu^hitv = ລັບ^ສາ^ລີດ -->
-<a b="4c 75 5e 68 69 74 76"
-   u="0ea5 0eb1 0e9a 005e 0eaa 0eb2 005e 0ea5 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lu^si^atc = ເລ^ຫະ^ບິມ -->
-<a b="4c 75 5e 73 69 5e 61 74 63"
-   u="0ec0 0ea5 005e 0eab 0eb0 005e 0e9a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Lutv = ເລ^ຮູມ -->
-<a b="4c 75 74 76"
-   u="0ec0 0ea5 005e 0eae 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^aa^saix = ເລ^ມາ^ລິ^ຢາ -->
-<a b="4d 61 61 5e 61 61 5e 73 61 69 78"
-   u="0ec0 0ea5 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^aa^si^yaa = ເລ^ວີ -->
-<a b="4d 61 61 5e 61 61 5e 73 69 5e 79 61 61"
    u="0ec0 0ea5 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^laa^le^en = ເລ^ວີ^ອາ^ທານ -->
-<a b="4d 61 61 5e 68 61 61 5e 6c 61 61 5e 6c 65 5e 65 6e"
+<!-- Aa^mbenMbetcMaa^aa^kaa = ອາ^ເບນ^ເບດ^ມາ^ອະ^ຄາ -->
+<a b="41 61 5e 6d 62 65 6e 4d 62 65 74 63 4d 61 61 5e 61 61 5e 6b 61 61"
+   u="0ead 0eb2 005e 0ec0 0e9a 0e99 005e 0ec0 0e9a 0e94 005e 0ea1 0eb2 005e 0ead 0eb0 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^mbi^hutv = ອາ^ບີ^ຮູດ -->
+<a b="41 61 5e 6d 62 69 5e 68 75 74 76"
+   u="0ead 0eb2 005e 0e9a 0eb5 005e 0eae 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^mbi^tupv = ອາ^ບີ^ທູບ -->
+<a b="41 61 5e 6d 62 69 5e 74 75 70 76"
+   u="0ead 0eb2 005e 0e9a 0eb5 005e 0e97 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^mbipc = ອາ^ບີບ -->
+<a b="41 61 5e 6d 62 69 70 63"
+   u="0ead 0eb2 005e 0e9a 0eb5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^ndin = ອາ^ດີນ -->
+<a b="41 61 5e 6e 64 69 6e"
+   u="0ead 0eb2 005e 0e94 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^haa^laa = ອາ^ຫະ^ລາ -->
+<a b="41 61 5e 68 61 61 5e 6c 61 61"
+   u="0ead 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^haa^su^e^latv = ອາ^ຫະ^ສຸ^ເອ^ລັດ -->
+<a b="41 61 5e 68 61 61 5e 73 75 5e 65 5e 6c 61 74 76"
+   u="0ead 0eb2 005e 0eab 0eb0 005e 0eaa 0eb8 005e 0ec0 0ead 005e 0ea5 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^haa^waa = ອາ^ຫະ^ວາ -->
+<a b="41 61 5e 68 61 61 5e 77 61 61"
+   u="0ead 0eb2 005e 0eab 0eb0 005e 0ea7 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi = ອາ^ຫິ -->
+<a b="41 61 5e 68 69"
+   u="0ead 0eb2 005e 0eab 0eb4" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^aa = ອາ^ຫິ^ອາ -->
+<a b="41 61 5e 68 69 5e 61 61"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^hutv = ອາ^ຫິ^ຮູດ -->
+<a b="41 61 5e 68 69 5e 68 75 74 76"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0eae 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^kam = ອາ^ຫິ^ຄຳ -->
+<a b="41 61 5e 68 69 5e 6b 61 6d"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0e84 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^laa = ອາ^ຫິ^ລາ -->
+<a b="41 61 5e 68 69 5e 6c 61 61"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^lam = ອາ^ຫິ^ລຳ -->
+<a b="41 61 5e 68 69 5e 6c 61 6d"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea5 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^lutv = ອາ^ຫິ^ລູດ -->
+<a b="41 61 5e 68 69 5e 6c 75 74 76"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea5 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^maa^atc = ອາ^ຫິ^ມາ^ອັດ -->
+<a b="41 61 5e 68 69 5e 6d 61 61 5e 61 74 63"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea1 0eb2 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^maan = ອາ^ຫິ^ມານ -->
+<a b="41 61 5e 68 69 5e 6d 61 61 6e"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea1 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^me^lekv = ອາ^ຫິ^ເມ^ເລກ -->
+<a b="41 61 5e 68 69 5e 6d 65 5e 6c 65 6b 76"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec0 0ea1 005e 0ec0 0ea5 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^motv = ອາ^ຫິ^ໂມດ -->
+<a b="41 61 5e 68 69 5e 6d 6f 74 76"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0ea1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^naa^ndapc = ອາ^ຫິ^ນາ^ດັບ -->
+<a b="41 61 5e 68 69 5e 6e 61 61 5e 6e 64 61 70 63"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0e99 0eb2 005e 0e94 0eb1 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^no^am = ອາ^ຫິ^ໂນ^ອຳ -->
+<a b="41 61 5e 68 69 5e 6e 6f 5e 61 6d"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0e99 005e 0ead 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^qaa = ອາ^ຫິ^ທຈາ -->
+<a b="41 61 5e 68 69 5e 71 61 61"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0e97 0e88 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^qaa^haa = ອາ^ຫິ^ທຈາ^ຮາ -->
+<a b="41 61 5e 68 69 5e 71 61 61 5e 68 61 61"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0e97 0e88 0eb2 005e 0eae 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^saa^makv = ອາ^ຫິ^ສະ^ມັກ -->
+<a b="41 61 5e 68 69 5e 73 61 61 5e 6d 61 6b 76"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0eaa 0eb0 005e 0ea1 0eb1 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^to^fen = ອາ^ຫິ^ໂທ^ເຟນ -->
+<a b="41 61 5e 68 69 5e 74 6f 5e 66 65 6e"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0e97 005e 0ec0 0e9f 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^tupv = ອາ^ຫິ^ທູບ -->
+<a b="41 61 5e 68 69 5e 74 75 70 76"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0e97 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^yaa = ອາ^ຫິ^ຢາ -->
+<a b="41 61 5e 68 69 5e 79 61 61"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^yam = ອາ^ຫິ^ຢຳ -->
+<a b="41 61 5e 68 69 5e 79 61 6d"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea2 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^yan = ອາ^ຫິ^ຢັນ -->
+<a b="41 61 5e 68 69 5e 79 61 6e"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ea2 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^ye^se = ອາ^ຫິ^ເຢ^ເຊ -->
+<a b="41 61 5e 68 69 5e 79 65 5e 73 65"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec0 0ea2 005e 0ec0 0e8a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hi^yo = ອາ^ຫິ^ໂຢ -->
+<a b="41 61 5e 68 69 5e 79 6f"
+   u="0ead 0eb2 005e 0eab 0eb4 005e 0ec2 0ea2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^hu^mai = ອາ^ຫຸ^ໄມ -->
+<a b="41 61 5e 68 75 5e 6d 61 69"
+   u="0ead 0eb2 005e 0eab 0eb8 005e 0ec4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^laa^mbie = ອາ^ລະ^ເບຍ -->
+<a b="41 61 5e 6c 61 61 5e 6d 62 69 65"
+   u="0ead 0eb2 005e 0ea5 0eb0 005e 0ec0 0e9a 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^laa^maa^getc^ndon = ອາ^ລະ^ມາ^ເກດ^ໂດນ -->
+<a b="41 61 5e 6c 61 61 5e 6d 61 61 5e 67 65 74 63 5e 6e 64 6f 6e"
+   u="0ead 0eb2 005e 0ea5 0eb0 005e 0ea1 0eb2 005e 0ec0 0e81 0e94 005e 0ec2 0e94 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^lam^maa^aa^kaa = ອາ^ລຳ^ມາ^ອະ^ຄາ -->
+<a b="41 61 5e 6c 61 6d 5e 6d 61 61 5e 61 61 5e 6b 61 61"
+   u="0ead 0eb2 005e 0ea5 0eb3 005e 0ea1 0eb2 005e 0ead 0eb0 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- aa^lam^naa^haa^laa^im = ອາ^ລຳ^ນາ^ຫະ^ລາ^ອິມ -->
+<a b="61 61 5e 6c 61 6d 5e 6e 61 61 5e 68 61 61 5e 6c 61 61 5e 69 6d"
+   u="0ead 0eb2 005e 0ea5 0eb3 005e 0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- AalamSo^mbaa = ອາ^ລຳ^ໂຊ^ບາ -->
+<a b="41 61 6c 61 6d 53 6f 5e 6d 62 61 61"
+   u="0ead 0eb2 005e 0ea5 0eb3 005e 0ec2 0e8a 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^li^maa^tie = ອາ^ລິ^ມາ^ເທຍ -->
+<a b="41 61 5e 6c 69 5e 6d 61 61 5e 74 69 65"
+   u="0ead 0eb2 005e 0ea5 0eb4 005e 0ea1 0eb2 005e 0ec0 0e97 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^lon^mbaa^kutv = ອາ^ໂລນ^ບາ^ຄູດ -->
+<a b="41 61 5e 6c 6f 6e 5e 6d 62 61 61 5e 6b 75 74 76"
+   u="0ead 0eb2 005e 0ec2 0ea5 0e99 005e 0e9a 0eb2 005e 0e84 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aalutv = ອາ^ລູດ -->
+<a b="41 61 6c 75 74 76"
+   u="0ead 0eb2 005e 0ea5 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^maa^li^yaa = ອາ^ມາ^ລິ^ຢາ -->
+<a b="41 61 5e 6d 61 61 5e 6c 69 5e 79 61 61"
+   u="0ead 0eb2 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^maa^si^yaa = ອາ^ມາ^ຊິ^ຢາ -->
+<a b="41 61 5e 6d 61 61 5e 73 69 5e 79 61 61"
+   u="0ead 0eb2 005e 0ea1 0eb2 005e 0e8a 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^naa^haa^laatv = ອາ^ນາ^ຫະ^ລາດ -->
+<a b="41 61 5e 6e 61 61 5e 68 61 61 5e 6c 61 61 74 76"
+   u="0ead 0eb2 005e 0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^nupv = ອາ^ນູບ -->
+<a b="41 61 5e 6e 75 70 76"
+   u="0ead 0eb2 005e 0e99 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^bor^li^yon = ອາ^ປໍ^ລິ^ໂຢນ -->
+<a b="41 61 5e 62 6f 72 5e 6c 69 5e 79 6f 6e"
+   u="0ead 0eb2 005e 0e9b 0ecd 005e 0ea5 0eb4 005e 0ec2 0ea2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^saa^li^yaa = ອາ^ຊາ^ລິ^ຢາ -->
+<a b="41 61 5e 73 61 61 5e 6c 69 5e 79 61 61"
+   u="0ead 0eb2 005e 0e8a 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^saa^si^yaa = ອາ^ຊາ^ຊິ^ຢາ -->
+<a b="41 61 5e 73 61 61 5e 73 69 5e 79 61 61"
+   u="0ead 0eb2 005e 0e8a 0eb2 005e 0e8a 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^si^en = ອາ^ສິ^ເອນ -->
+<a b="41 61 5e 73 69 5e 65 6e"
+   u="0ead 0eb2 005e 0eaa 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^si^maa = ອາ^ຊິ^ມາ -->
+<a b="41 61 5e 73 69 5e 6d 61 61"
+   u="0ead 0eb2 005e 0e8a 0eb4 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^su^mbaa = ອາ^ຊຸ^ບາ -->
+<a b="41 61 5e 73 75 5e 6d 62 61 61"
+   u="0ead 0eb2 005e 0e8a 0eb8 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aa^taa^li^yaa = ອາ^ທາ^ລິ^ຢາ -->
+<a b="41 61 5e 74 61 61 5e 6c 69 5e 79 61 61"
+   u="0ead 0eb2 005e 0e97 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aaten = ອະ^ເທນ -->
+<a b="41 61 74 65 6e"
+   u="0ead 0eb0 005e 0ec0 0e97 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aawitv = ອາ^ວີດ -->
+<a b="41 61 77 69 74 76"
+   u="0ead 0eb2 005e 0ea7 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aan^taa^se^sitv = ອານ^ທາ^ເຊ^ຊີດ -->
+<a b="41 61 6e 5e 74 61 61 5e 73 65 5e 73 69 74 76"
+   u="0ead 0eb2 0e99 005e 0e97 0eb2 005e 0ec0 0e8a 005e 0e8a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Akc^kupc = ອັກ^ຂູບ -->
+<a b="41 6b 63 5e 6b 75 70 63"
+   u="0ead 0eb1 0e81 005e 0e82 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Akc^sipv = ອັກ^ຊີບ -->
+<a b="41 6b 63 5e 73 69 70 76"
+   u="0ead 0eb1 0e81 005e 0e8a 0eb5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Am^fi^mbu^li = ອຳ^ຟີ^ບຸ^ລີ -->
+<a b="41 6d 5e 66 69 5e 6d 62 75 5e 6c 69"
+   u="0ead 0eb3 005e 0e9f 0eb5 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Am^mi^hutv = ອຳ^ມີ^ຮູັດ -->
+<a b="41 6d 5e 6d 69 5e 68 75 74 76"
+   u="0ead 0eb3 005e 0ea1 0eb5 005e 0eae 0eb9 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Am^mi^saa^mbaatc = ອຳ^ມີ^ຊະ^ບາດ -->
+<a b="41 6d 5e 6d 69 5e 73 61 61 5e 6d 62 61 61 74 63"
+   u="0ead 0eb3 005e 0ea1 0eb5 005e 0e8a 0eb0 005e 0e9a 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Am^paa^li^aa^tatv = ອຳ^ຜະ^ລີ^ອາ^ທັດ -->
+<a b="41 6d 5e 70 61 61 5e 6c 69 5e 61 61 5e 74 61 74 76"
+   u="0ead 0eb3 005e 0e9c 0eb0 005e 0ea5 0eb5 005e 0ead 0eb2 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- An^ndo^ni^katv = ອັນ^ໂດ^ນິ^ຄັດ -->
+<a b="41 6e 5e 6e 64 6f 5e 6e 69 5e 6b 61 74 76"
+   u="0ead 0eb1 0e99 005e 0ec2 0e94 005e 0e99 0eb4 005e 0e84 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- An^ti^baa^di = ອັນ^ທິ^ປາ^ຕີ -->
+<a b="41 6e 5e 74 69 5e 62 61 61 5e 64 69"
+   u="0ead 0eb1 0e99 005e 0e97 0eb4 005e 0e9b 0eb2 005e 0e95 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- An^ti^baatc = ອັນ^ທິ^ປາດ -->
+<a b="41 6e 5e 74 69 5e 62 61 61 74 63"
+   u="0ead 0eb1 0e99 005e 0e97 0eb4 005e 0e9b 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Atc^laa^mitv^ti^yum = ອັດ^ລາ^ມິດ^ທິ^ຢຸມ -->
+<a b="41 74 63 5e 6c 61 61 5e 6d 69 74 76 5e 74 69 5e 79 75 6d"
+   u="0ead 0eb1 0e94 005e 0ea5 0eb2 005e 0ea1 0eb4 0e94 005e 0e97 0eb4 005e 0ea2 0eb8 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Atc^taa^li^yaa = ອັດ^ທາ^ລິ^ຢາ -->
+<a b="41 74 63 5e 74 61 61 5e 6c 69 5e 79 61 61"
+   u="0ead 0eb1 0e94 005e 0e97 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^an^Mbelitv = ບາ^ອັນ^ເບ^ລີ້ດ -->
+<a b="4d 62 61 61 5e 61 6e 5e 4d 62 65 6c 69 74 76"
+   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0ec0 0e9a 005e 0ea5 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^anQaa^li^qaa = ບາ^ອັນ^ທຈາ^ລິ^ທຈາ -->
+<a b="4d 62 61 61 5e 61 6e 51 61 61 5e 6c 69 5e 71 61 61"
+   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0e97 0e88 0eb2 005e 0ea5 0eb4 005e 0e97 0e88 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^an^se^mbupc = ບາ^ອັນ^ເຊ^ບູບ -->
+<a b="4d 62 61 61 5e 61 6e 5e 73 65 5e 6d 62 75 70 63"
+   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0ec0 0e8a 005e 0e9a 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^laa^ki^yaa = ບາ^ລາ^ຄິ^ຢາ -->
+<a b="4d 62 61 61 5e 6c 61 61 5e 6b 69 5e 79 61 61"
+   u="0e9a 0eb2 005e 0ea5 0eb2 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^laa^saa^tatv = ບາ^ລະ^ສະ^ທັດ -->
+<a b="4d 62 61 61 5e 6c 61 61 5e 73 61 61 5e 74 61 74 76"
+   u="0e9a 0eb2 005e 0ea5 0eb0 005e 0eaa 0eb0 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaalukv = ບາ^ລຸກ -->
+<a b="4d 62 61 61 6c 75 6b 76"
+   u="0e9a 0eb2 005e 0ea5 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^ti^me^atc = ບາ^ທິ^ເມ^ອັດ -->
+<a b="4d 62 61 61 5e 74 69 5e 6d 65 5e 61 74 63"
+   u="0e9a 0eb2 005e 0e97 0eb4 005e 0ec0 0ea1 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbakc^mbu^ki^yaa = ບັກ^ບູ^ຄິ^ຢາ -->
+<a b="4d 62 61 6b 63 5e 6d 62 75 5e 6b 69 5e 79 61 61"
+   u="0e9a 0eb1 0e81 005e 0e9a 0eb9 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbatc^litv = ບັດ^ລີດ -->
+<a b="4d 62 61 74 63 5e 6c 69 74 76"
+   u="0e9a 0eb1 0e94 005e 0ea5 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbatc^lutv = ບັດ^ລູດ -->
+<a b="4d 62 61 74 63 5e 6c 75 74 76"
+   u="0e9a 0eb1 0e94 005e 0ea5 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbe^en^se^mbun = ເບ^ເອນ^ເຊ^ບູນ -->
+<a b="4d 62 65 5e 65 6e 5e 73 65 5e 6d 62 75 6e"
+   u="0ec0 0e9a 005e 0ec0 0ead 0e99 005e 0ec0 0e8a 005e 0e9a 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbe^le^ki^yaa = ເບ^ເລ^ຄິ^ຢາ -->
+<a b="4d 62 65 5e 6c 65 5e 6b 69 5e 79 61 61"
+   u="0ec0 0e9a 005e 0ec0 0ea5 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbe^neYaa^aa^kan = ເບ^ເນ^ຢາ^ອະ^ຄັນ -->
+<a b="4d 62 65 5e 6e 65 59 61 61 5e 61 61 5e 6b 61 6e"
+   u="0ec0 0e9a 005e 0ec0 0e99 005e 0ea2 0eb2 005e 0ead 0eb0 005e 0e84 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbe^ni^nu = ເບ^ນິ^ນູ -->
+<a b="4d 62 65 5e 6e 69 5e 6e 75"
+   u="0ec0 0e9a 005e 0e99 0eb4 005e 0e99 0eb9" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- MbetcYe^si^motv = ເບດ^ເຢ^ຊິ^ໂມດ -->
+<a b="4d 62 65 74 63 59 65 5e 73 69 5e 6d 6f 74 76"
+   u="0ec0 0e9a 0e94 005e 0ec0 0ea2 005e 0e8a 0eb4 005e 0ec2 0ea1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbi^le^am = ບິ^ເລ^ອຳ -->
+<a b="4d 62 69 5e 6c 65 5e 61 6d"
+   u="0e9a 0eb4 005e 0ec0 0ea5 005e 0ead 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbi^ne^aa = ບິ^ເນ^ອາ -->
+<a b="4d 62 69 5e 6e 65 5e 61 61"
+   u="0e9a 0eb4 005e 0ec0 0e99 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbi^si^o^ti^yaa = ບິ^ຊິ^ໂອ^ທິ^ຢາ -->
+<a b="4d 62 69 5e 73 69 5e 6f 5e 74 69 5e 79 61 61"
+   u="0e9a 0eb4 005e 0e8a 0eb4 005e 0ec2 0ead 005e 0e97 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbi^ti^nie = ບິ^ທີ^ເນຍ -->
+<a b="4d 62 69 5e 74 69 5e 6e 69 65"
+   u="0e9a 0eb4 005e 0e97 0eb5 005e 0ec0 0e99 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbi^ti^yaa = ບິ^ທິ^ຢາ -->
+<a b="4d 62 69 5e 74 69 5e 79 61 61"
+   u="0e9a 0eb4 005e 0e97 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbikc^taa = ບິກ^ທາ -->
+<a b="4d 62 69 6b 63 5e 74 61 61"
+   u="0e9a 0eb4 0e81 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbikc^taa^naa = ບິກ^ທາ^ນາ -->
+<a b="4d 62 69 6b 63 5e 74 61 61 5e 6e 61 61"
+   u="0e9a 0eb4 0e81 005e 0e97 0eb2 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbikc^taan = ບິກ^ທານ -->
+<a b="4d 62 69 6b 63 5e 74 61 61 6e"
+   u="0e9a 0eb4 0e81 005e 0e97 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbikc^wai = ບິກ^ໄວ -->
+<a b="4d 62 69 6b 63 5e 77 61 69"
+   u="0e9a 0eb4 0e81 005e 0ec4 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbu^naa = ບຸ^ນາ -->
+<a b="4d 62 75 5e 6e 61 61"
+   u="0e9a 0eb8 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbusi = ບຸ^ຊີ -->
+<a b="4d 62 75 73 69"
+   u="0e9a 0eb8 005e 0e8a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbukc^ki = ບຸກ^ຄີ -->
+<a b="4d 62 75 6b 63 5e 6b 69"
+   u="0e9a 0eb8 0e81 005e 0e84 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbukc^ki^yaa = ບຸກ^ຄີ^ຢາ -->
+<a b="4d 62 75 6b 63 5e 6b 69 5e 79 61 61"
+   u="0e9a 0eb8 0e81 005e 0e84 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ndaa^li^atc = ດາ^ລິ^ອັດ -->
+<a b="4e 64 61 61 5e 6c 69 5e 61 74 63"
+   u="0e94 0eb2 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Nde^li^laa = ເດ^ລິ^ລາ -->
+<a b="4e 64 65 5e 6c 69 5e 6c 61 61"
+   u="0ec0 0e94 005e 0ea5 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Nde^metv^li^atc = ເດ^ເມັດ^ລິ^ອັດ -->
+<a b="4e 64 65 5e 6d 65 74 76 5e 6c 69 5e 61 74 63"
+   u="0ec0 0e94 005e 0ec0 0ea1 0eb1 0e94 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ndi^le^an = ດິ^ເລ^ອັນ -->
+<a b="4e 64 69 5e 6c 65 5e 61 6e"
+   u="0e94 0eb4 005e 0ec0 0ea5 005e 0ead 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ndi^o^ni^si^atc = ດີ^ໂອ^ນິ^ສິ^ອັດ -->
+<a b="4e 64 69 5e 6f 5e 6e 69 5e 73 69 5e 61 74 63"
+   u="0e94 0eb5 005e 0ec2 0ead 005e 0e99 0eb4 005e 0eaa 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ndikc^laa = ດິກ^ລາ -->
+<a b="4e 64 69 6b 63 5e 6c 61 61"
+   u="0e94 0eb4 0e81 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ndo^ndaa^waa^hu = ໂດ^ດາ^ວາ^ຫຸ -->
+<a b="4e 64 6f 5e 6e 64 61 61 5e 77 61 61 5e 68 75"
+   u="0ec2 0e94 005e 0e94 0eb2 005e 0ea7 0eb2 005e 0eab 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ndo^faa^kaa = ໂດ^ຟະ^ຂາ -->
+<a b="4e 64 6f 5e 66 61 61 5e 6b 61 61"
+   u="0ec2 0e94 005e 0e9f 0eb0 005e 0e82 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^hutv = ເອ^ຮູດ -->
+<a b="45 5e 68 75 74 76"
+   u="0ec0 0ead 005e 0eae 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^li^fe^le^hu = ເອ^ລີ^ຟາ^ເລ^ຫຸ -->
+<a b="45 5e 6c 69 5e 66 65 5e 6c 65 5e 68 75"
+   u="0ec0 0ead 005e 0ea5 0eb5 005e 0e9f 0eb2 005e 0ec0 0ea5 005e 0eab 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^li^utc = ເອ^ລີ^ອູດ -->
+<a b="45 5e 6c 69 5e 75 74 63"
+   u="0ec0 0ead 005e 0ea5 0eb5 005e 0ead 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^li^yaa^sipv = ເອ^ລີ^ຢາ^ຊີ້ບ -->
+<a b="45 5e 6c 69 5e 79 61 61 5e 73 69 70 76"
+   u="0ec0 0ead 005e 0ea5 0eb5 005e 0ea2 0eb2 005e 0e8a 0eb5 0ec9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Elun = ເອ^ລູນ -->
+<a b="45 6c 75 6e"
+   u="0ec0 0ead 005e 0ea5 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^mekvKesitv = ເອ^ເມັກ^ເຄ^ຊີດ -->
+<a b="45 5e 6d 65 6b 76 4b 65 73 69 74 76"
+   u="0ec0 0ead 005e 0ec0 0ea1 0eb1 0e81 005e 0ec0 0e84 005e 0e8a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^baa^fo^ndi^tatv = ເອ^ປາ^ໂຟ^ດິ^ທັດ -->
+<a b="45 5e 62 61 61 5e 66 6f 5e 6e 64 69 5e 74 61 74 76"
+   u="0ec0 0ead 005e 0e9b 0eb2 005e 0ec2 0e9f 005e 0e94 0eb4 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^bi^ku^lien = ເອ^ປິ^ຄູ^ລຽນ -->
+<a b="45 5e 62 69 5e 6b 75 5e 6c 69 65 6e"
+   u="0ec0 0ead 005e 0e9b 0eb4 005e 0e84 0eb9 005e 0ea5 0ebd 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^saa^laa = ເອ^ສະ^ລາ -->
+<a b="45 5e 73 61 61 5e 6c 61 61"
+   u="0ec0 0ead 005e 0eaa 0eb0 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^saa^li = ເອ^ສະ^ລີ -->
+<a b="45 5e 73 61 61 5e 6c 69"
+   u="0ec0 0ead 005e 0eaa 0eb0 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- E^wi = ເອ^ວີ -->
+<a b="45 5e 77 69"
+   u="0ec0 0ead 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Em^maa^utc = ເອມ^ມາ^ອູດ -->
+<a b="45 6d 5e 6d 61 61 5e 75 74 63"
+   u="0ec0 0ead 0ea1 005e 0ea1 0eb2 005e 0ead 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- En^Mbelitv = ເອນ^ເບ^ລີດ -->
+<a b="45 6e 5e 4d 62 65 6c 69 74 76"
+   u="0ec0 0ead 0e99 005e 0ec0 0e9a 005e 0ea5 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Faa^le^gon = ຟະ^ເລ^ໂກນ -->
+<a b="46 61 61 5e 6c 65 5e 67 6f 6e"
+   u="0e9f 0eb0 005e 0ec0 0ea5 005e 0ec2 0e81 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Faa^li^si = ຟາ^ລິ^ສີ -->
+<a b="46 61 61 5e 6c 69 5e 73 69"
+   u="0e9f 0eb2 005e 0ea5 0eb4 005e 0eaa 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Felikv = ເຟ^ລິກ -->
+<a b="46 65 6c 69 6b 76"
+   u="0ec0 0e9f 005e 0ea5 0eb4 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Fe^saa^tatv = ເຟ^ສະ^ທັດ -->
+<a b="46 65 5e 73 61 61 5e 74 61 74 76"
+   u="0ec0 0e9f 005e 0eaa 0eb0 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Fi^li^saa^die = ຟິ^ລິ^ສະ^ເຕຍ -->
+<a b="46 69 5e 6c 69 5e 73 61 61 5e 64 69 65"
+   u="0e9f 0eb4 005e 0ea5 0eb4 005e 0eaa 0eb0 005e 0ec0 0e95 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Fi^nikv = ຟິ^ນິກ -->
+<a b="46 69 5e 6e 69 6b 76"
+   u="0e9f 0eb4 005e 0e99 0eb4 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Fu'jueiv = ຝຸຈວ໊ຍ -->
+<a b="46 75 27 6a 75 65 69 76"
+   u="0e9d 0eb8 0e88 0ea7 0eca 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^mbaa^gukc = ຮາ^ບາ^ກຸກ -->
+<a b="48 61 61 5e 6d 62 61 61 5e 67 75 6b 63"
+   u="0eae 0eb2 005e 0e9a 0eb2 005e 0e81 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^e^lepv = ຫະ^ເອ^ເລບ -->
+<a b="48 61 61 5e 65 5e 6c 65 70 76"
+   u="0eab 0eb0 005e 0ec0 0ead 005e 0ec0 0ea5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^hi^lotv = ຫະ^ຫິ^ໂລດ -->
+<a b="48 61 61 5e 68 69 5e 6c 6f 74 76"
+   u="0eab 0eb0 005e 0eab 0eb4 005e 0ec2 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^kaa^li^yaa = ຮາ^ຄາ^ລິ^ຢາ -->
+<a b="48 61 61 5e 6b 61 61 5e 6c 69 5e 79 61 61"
+   u="0eae 0eb2 005e 0e84 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^lu^mapv = ຮາ^ລຸ^ມັບ -->
+<a b="48 61 61 5e 6c 75 5e 6d 61 70 76"
+   u="0eae 0eb2 005e 0ea5 0eb8 005e 0ea1 0eb1 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haalum = ຮາ^ລູມ -->
+<a b="48 61 61 6c 75 6d"
+   u="0eae 0eb2 005e 0ea5 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haalupv = ຮາ^ລູບ -->
+<a b="48 61 61 6c 75 70 76"
+   u="0eae 0eb2 005e 0ea5 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^mu^taan = ຮາ^ມຸ^ທານ -->
+<a b="48 61 61 5e 6d 75 5e 74 61 61 6e"
+   u="0eae 0eb2 005e 0ea1 0eb8 005e 0e97 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^mun = ຮາ^ມູນ -->
+<a b="48 61 61 5e 6d 75 6e"
+   u="0eae 0eb2 005e 0ea1 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haanun = ຮາ^ນູນ -->
+<a b="48 61 61 6e 75 6e"
+   u="0eae 0eb2 005e 0e99 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^saa^bi^yaa = ຮາ^ຊາ^ປິ^ຢາ -->
+<a b="48 61 61 5e 73 61 61 5e 62 69 5e 79 61 61"
+   u="0eae 0eb2 005e 0e8a 0eb2 005e 0e9b 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^saax^ndi^yaa = ຮາ^ສາ^ດິ^ຢາ -->
+<a b="48 61 61 5e 73 61 61 78 5e 6e 64 69 5e 79 61 61"
+   u="0eae 0eb2 005e 0eaa 0eb2 005e 0e94 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- HaaseHatv^ti^kon = ຮາ^ເຊ^ຮັດ^ທິ^ໂຄນ -->
+<a b="48 61 61 73 65 48 61 74 76 5e 74 69 5e 6b 6f 6e"
+   u="0eae 0eb2 005e 0ec0 0e8a 005e 0eae 0eb1 0e94 005e 0e97 0eb4 005e 0ec2 0e84 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haasum = ຮາ^ຊູມ -->
+<a b="48 61 61 73 75 6d"
+   u="0eae 0eb2 005e 0e8a 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^ti^faa = ຮາ^ທິ^ຟາ -->
+<a b="48 61 61 5e 74 69 5e 66 61 61"
+   u="0eae 0eb2 005e 0e97 0eb4 005e 0e9f 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^ti^taa = ຮາ^ທິ^ທາ -->
+<a b="48 61 61 5e 74 69 5e 74 61 61"
+   u="0eae 0eb2 005e 0e97 0eb4 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^wi^laa = ຮາ^ວິ^ລາ -->
+<a b="48 61 61 5e 77 69 5e 6c 61 61"
+   u="0eae 0eb2 005e 0ea7 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haa^yaa^ni^yaa = ຫະ^ຢາ^ນິ^ຢາ -->
+<a b="48 61 61 5e 79 61 61 5e 6e 69 5e 79 61 61"
+   u="0eab 0eb0 005e 0ea2 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hakv^gitc = ຮັກ^ກີດ -->
+<a b="48 61 6b 76 5e 67 69 74 63"
+   u="0eae 0eb1 0e81 005e 0e81 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Han^hun = ຮັນ^ຮູນ -->
+<a b="48 61 6e 5e 68 75 6e"
+   u="0eae 0eb1 0e99 005e 0eae 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hatc^supv = ຫັດ^ຊູບ -->
+<a b="48 61 74 63 5e 73 75 70 76"
+   u="0eab 0eb1 0e94 005e 0e8a 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- He^li^o^mbu^li = ເຮ^ລີ^ໂອ^ບຸ^ລີ -->
+<a b="48 65 5e 6c 69 5e 6f 5e 6d 62 75 5e 6c 69"
+   u="0ec0 0eae 005e 0ea5 0eb5 005e 0ec2 0ead 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- He^lo^ndi^on = ເຮ^ໂລ^ດິ^ໂອນ -->
+<a b="48 65 5e 6c 6f 5e 6e 64 69 5e 6f 6e"
+   u="0ec0 0eae 005e 0ec2 0ea5 005e 0e94 0eb4 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hi^e^laa^mbu^li = ຮີ^ເອ^ລາ^ບຸ^ລີ -->
+<a b="48 69 5e 65 5e 6c 61 61 5e 6d 62 75 5e 6c 69"
+   u="0eae 0eb5 005e 0ec0 0ead 005e 0ea5 0eb2 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ho^ndaa^wi^yaa = ໂຮ^ດາ^ວິ^ຢາ -->
+<a b="48 6f 5e 6e 64 61 61 5e 77 69 5e 79 61 61"
+   u="0ec2 0eae 005e 0e94 0eb2 005e 0ea7 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- HoHakv^gitc^gaatc = ໂຮ^ຮັກ^ກີດ^ກາດ -->
+<a b="48 6f 48 61 6b 76 5e 67 69 74 63 5e 67 61 61 74 63"
+   u="0ec2 0eae 005e 0eae 0eb1 0e81 005e 0e81 0eb5 0e94 005e 0e81 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hotv = ໂຮດ -->
+<a b="48 6f 74 76"
+   u="0ec2 0eae 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hufaam = ຫຸ^ຟາມ -->
+<a b="48 75 66 61 61 6d"
+   u="0eab 0eb8 005e 0e9f 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hugorkc = ຫຸ^ກອກ -->
+<a b="48 75 67 6f 72 6b 63"
+   u="0eab 0eb8 005e 0e81 0ead 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hu^laa^maa^mbi = ຫຸ^ລາ^ມາ^ບີ -->
+<a b="48 75 5e 6c 61 61 5e 6d 61 61 5e 6d 62 69"
+   u="0eab 0eb8 005e 0ea5 0eb2 005e 0ea1 0eb2 005e 0e9a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hulaam = ຫຸ^ລາມ -->
+<a b="48 75 6c 61 61 6d"
+   u="0eab 0eb8 005e 0ea5 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hulai = ຫຸ^ໄລ -->
+<a b="48 75 6c 61 69"
+   u="0eab 0eb8 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Huli = ຫ^ລີ -->
+<a b="48 75 6c 69"
+   u="0eab 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Husaa = ຫຸ^ຊາ -->
+<a b="48 75 73 61 61"
+   u="0eab 0eb8 005e 0e8a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Husaam = ຫຸ^ຊາມ -->
+<a b="48 75 73 61 61 6d"
+   u="0eab 0eb8 005e 0e8a 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Husai = ຫຸ^ໄຊ -->
+<a b="48 75 73 61 69"
+   u="0eab 0eb8 005e 0ec4 0e8a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Husim = ຫຸ^ຊິມ -->
+<a b="48 75 73 69 6d"
+   u="0eab 0eb8 005e 0e8a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Husopc = ຫຸ^ໂສບ -->
+<a b="48 75 73 6f 70 63"
+   u="0eab 0eb8 005e 0ec2 0eaa 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hukc^gorkc = ຫຸກ^ກອກ -->
+<a b="48 75 6b 63 5e 67 6f 72 6b 63"
+   u="0eab 0eb8 0e81 005e 0e81 0ead 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Hun = ຮູນ -->
+<a b="48 75 6e"
+   u="0eae 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^ndaa^laa = ອິ^ດາ^ລາ -->
+<a b="49 5e 6e 64 61 61 5e 6c 61 61"
+   u="0ead 0eb4 005e 0e94 0eb2 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^ndu^me^aa = ອິ^ດູ^ເມ^ອາ -->
+<a b="49 5e 6e 64 75 5e 6d 65 5e 61 61"
+   u="0ead 0eb4 005e 0e94 0eb9 005e 0ec0 0ea1 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Igaan = ອິ^ການ -->
+<a b="49 67 61 61 6e"
+   u="0ead 0eb4 005e 0e81 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^ko^ni^yum = ອີ^ໂຄ^ນີ^ຢູມ -->
+<a b="49 5e 6b 6f 5e 6e 69 5e 79 75 6d"
+   u="0ead 0eb5 005e 0ec2 0e84 005e 0e99 0eb5 005e 0ea2 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ilaa = ອິ^ລະ -->
+<a b="49 6c 61 61"
+   u="0ead 0eb4 005e 0ea5 0eb0" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^laa^aa = ອິ^ລາ^ອາ -->
+<a b="49 5e 6c 61 61 5e 61 61"
+   u="0ead 0eb4 005e 0ea5 0eb2 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- IlaaNaahaatc = ອິ^ລະ^ນາ^ຫາດ -->
+<a b="49 6c 61 61 4e 61 61 68 61 61 74 63"
+   u="0ead 0eb4 005e 0ea5 0eb0 005e 0e99 0eb2 005e 0eab 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ilaam = ອິ^ລາມ -->
+<a b="49 6c 61 61 6d"
+   u="0ead 0eb4 005e 0ea5 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ilaatv = ອິ^ລາດ -->
+<a b="49 6c 61 61 74 76"
+   u="0ead 0eb4 005e 0ea5 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ilai = ອິ^ໄລ -->
+<a b="49 6c 61 69"
+   u="0ead 0eb4 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ili = ອິ^ລີ -->
+<a b="49 6c 69"
+   u="0ead 0eb4 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^li^yaa = ອິ^ລີ^ຢາ -->
+<a b="49 5e 6c 69 5e 79 61 61"
+   u="0ead 0eb4 005e 0ea5 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ilu = ອິ^ລູ -->
+<a b="49 6c 75"
+   u="0ead 0eb4 005e 0ea5 0eb9" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- In^li^kum = ອິນ^ລິ^ຄຸມ -->
+<a b="49 6e 5e 6c 69 5e 6b 75 6d"
+   u="0ead 0eb4 0e99 005e 0ea5 0eb4 005e 0e84 0eb8 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^opc = ອິ^ໂອບ -->
+<a b="49 5e 6f 70 63"
+   u="0ead 0eb4 005e 0ec2 0ead 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^kaa^li^otc = ອິ^ສະ^ຄາ^ລິ^ໂອດ -->
+<a b="49 5e 73 61 61 5e 6b 61 61 5e 6c 69 5e 6f 74 63"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0e84 0eb2 005e 0ea5 0eb4 005e 0ec2 0ead 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^laa = ອິ^ສະ^ລາ -->
+<a b="49 5e 73 61 61 5e 6c 61 61"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^laa^en = ອິ^ສະ^ລາ^ເອນ -->
+<a b="49 5e 73 61 61 5e 6c 61 61 5e 65 6e"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb2 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^laa^hi^yaa = ອິ^ສະ^ລາ^ຫິ^ຢາ -->
+<a b="49 5e 73 61 61 5e 6c 61 61 5e 68 69 5e 79 61 61"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb2 005e 0eab 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^li = ອິ^ສະ^ລີ -->
+<a b="49 5e 73 61 61 5e 6c 69"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^li^yaa = ອິ^ສະ^ລິ^ຢາ -->
+<a b="49 5e 73 61 61 5e 6c 69 5e 79 61 61"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^maa^en = ອິ^ສະ^ມາ^ເອນ -->
+<a b="49 5e 73 61 61 5e 6d 61 61 5e 65 6e"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea1 0eb2 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^saa^yaa = ອິ^ສະ^ຢາ -->
+<a b="49 5e 73 61 61 5e 79 61 61"
+   u="0ead 0eb4 005e 0eaa 0eb0 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^daa^li = ອິ^ຕາ^ລີ -->
+<a b="49 5e 64 61 61 5e 6c 69"
+   u="0ead 0eb4 005e 0e95 0eb2 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^taa^maa = ອິ^ທາ^ມາ -->
+<a b="49 5e 74 61 61 5e 6d 61 61"
+   u="0ead 0eb4 005e 0e97 0eb2 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^tai = ອິ^ໄທi-Ti-en>ອິ^ທີ^ເອນ -->
+<a b="49 5e 74 61 69"
+   u="0ead 0eb4 005e 0ec4 0e97 0069 002d 0054 0069 002d 0065 006e 003e 0ead 0eb4 005e 0e97 0eb5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^tu^lie = ອິ^ທູ^ເລຍ -->
+<a b="49 5e 74 75 5e 6c 69 65"
+   u="0ead 0eb4 005e 0e97 0eb9 005e 0ec0 0ea5 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^ye^aa^laa^mbim = ອິ^ເຢ^ອາ^ລາ^ບິມ -->
+<a b="49 5e 79 65 5e 61 61 5e 6c 61 61 5e 6d 62 69 6d"
+   u="0ead 0eb4 005e 0ec0 0ea2 005e 0ead 0eb2 005e 0ea5 0eb2 005e 0e9a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- I^yim = ອິ^ຢິມi-yon>ອິ^ໂຢນ -->
+<a b="49 5e 79 69 6d"
+   u="0ead 0eb4 005e 0ea2 0eb4 0ea1 0069 002d 0079 006f 006e 003e 0ead 0eb4 005e 0ec2 0ea2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ikc^ndaa^li^yaa = ອິກ^ດາ^ລິ^ຢາ -->
+<a b="49 6b 63 5e 6e 64 61 61 5e 6c 69 5e 79 61 61"
+   u="0ead 0eb4 0e81 005e 0e94 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ikc^ketc = ອິກ^ເຂດ -->
+<a b="49 6b 63 5e 6b 65 74 63"
+   u="0ead 0eb4 0e81 005e 0ec0 0e82 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- In^li^kum = ອິນ^ລິ^ຄຸມ -->
+<a b="49 6e 5e 6c 69 5e 6b 75 6d"
+   u="0ead 0eb4 0e99 005e 0ea5 0eb4 005e 0e84 0eb8 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Itc^saa^maa^ki^yaa = ອິດ^ສະ^ມາ^ຄິ^ຢາ -->
+<a b="49 74 63 5e 73 61 61 5e 6d 61 61 5e 6b 69 5e 79 61 61"
+   u="0ead 0eb4 0e94 005e 0eaa 0eb0 005e 0ea1 0eb2 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Itc^wi = ອິດ^ວີ -->
+<a b="49 74 63 5e 77 69"
+   u="0ead 0eb4 0e94 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Jor^laa^kev = ຈໍລະເຂັ -->
+<a b="4a 6f 72 5e 6c 61 61 5e 6b 65 76"
+   u="0e88 0ecd 0ea5 0eb0 0ec0 0e82 0eb1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kaa^laau^ndi^atc = ຄາ^ລາວ^ດີ^ອັດ -->
+<a b="4b 61 61 5e 6c 61 61 75 5e 6e 64 69 5e 61 74 63"
+   u="0e84 0eb2 005e 0ea5 0eb2 0ea7 005e 0e94 0eb5 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gaa^li^li = ກາ^ລິ^ລີ -->
+<a b="47 61 61 5e 6c 69 5e 6c 69"
+   u="0e81 0eb2 005e 0ea5 0eb4 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kaa^litv^batc = ຄະ^ລິດ^ປັດ -->
+<a b="4b 61 61 5e 6c 69 74 76 5e 62 61 74 63"
+   u="0e84 0eb0 005e 0ea5 0eb4 0e94 005e 0e9b 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kaa^lo^e = ຄະ^ໂລ^ເອ -->
+<a b="4b 61 61 5e 6c 6f 5e 65"
+   u="0e84 0eb0 005e 0ec2 0ea5 005e 0ec0 0ead" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gaa^maa^li^en = ກາ^ມາ^ລິ^ເອນ -->
+<a b="47 61 61 5e 6d 61 61 5e 6c 69 5e 65 6e"
+   u="0e81 0eb2 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kaa^si^fie = ຄາ^ສິ^ເຟຍ -->
+<a b="4b 61 61 5e 73 69 5e 66 69 65"
+   u="0e84 0eb2 005e 0eaa 0eb4 005e 0ec0 0e9f 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gan^li^o = ກັນ^ລິ^ໂອ -->
+<a b="47 61 6e 5e 6c 69 5e 6f"
+   u="0e81 0eb1 0e99 005e 0ea5 0eb4 005e 0ec2 0ead" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ge^ndaa^li^yaa = ເກ^ດາ^ລິ^ຢາ -->
+<a b="47 65 5e 6e 64 61 61 5e 6c 69 5e 79 61 61"
+   u="0ec0 0e81 005e 0e94 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- GeHaa^laa^sim = ເກ^ຫະ^ລາ^ຊິມ -->
+<a b="47 65 48 61 61 5e 6c 61 61 5e 73 69 6d"
+   u="0ec0 0e81 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0e8a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ge^haa^si = ເກ^ຫະ^ຊີ -->
+<a b="47 65 5e 68 61 61 5e 73 69"
+   u="0ec0 0e81 005e 0eab 0eb0 005e 0e8a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^len^hapc^bukc = ເຄ^ເລນ^ຫັບ^ປຸກ -->
+<a b="4b 65 5e 6c 65 6e 5e 68 61 70 63 5e 62 75 6b 63"
+   u="0ec0 0e84 005e 0ec0 0ea5 0e99 005e 0eab 0eb1 0e9a 005e 0e9b 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^li^otc = ເຄ^ລິ^ໂອດ -->
+<a b="4b 65 5e 6c 69 5e 6f 74 63"
+   u="0ec0 0e84 005e 0ea5 0eb4 005e 0ec2 0ead 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^li^otcHetv^lon = ເຄ^ລິ^ໂອດ^ເຮດ^ໂລນ -->
+<a b="4b 65 5e 6c 69 5e 6f 74 63 48 65 74 76 5e 6c 6f 6e"
+   u="0ec0 0e84 005e 0ea5 0eb4 005e 0ec2 0ead 0e94 005e 0ec0 0eae 0e94 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ge^li^sim = ເກ^ລິ^ຊິມ -->
+<a b="47 65 5e 6c 69 5e 73 69 6d"
+   u="0ec0 0e81 005e 0ea5 0eb4 005e 0e8a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^li^taa = ເຄ^ລິ^ທາ -->
+<a b="4b 65 5e 6c 69 5e 74 61 61"
+   u="0ec0 0e84 005e 0ea5 0eb4 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^litv = ເຄ^ລີ້ດ -->
+<a b="4b 65 5e 6c 69 74 76"
+   u="0ec0 0e84 005e 0ea5 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^litv^taa = ເຄ^ລີ້ດ^ທາ -->
+<a b="4b 65 5e 6c 69 74 76 5e 74 61 61"
+   u="0ec0 0e84 005e 0ea5 0eb5 0ec9 0e94 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^lu^mbai = ເຄ^ລູ^ເປຍ -->
+<a b="4b 65 5e 6c 75 5e 6d 62 61 69"
+   u="0ec0 0e84 005e 0ea5 0eb9 005e 0ec0 0e9b 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^lu^hi = ເຄ^ລຸ^ຮ -->
+<a b="4b 65 5e 6c 75 5e 68 69"
+   u="0ec0 0e84 005e 0ea5 0eb8 005e 0eae" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kelupv = ເຄ^ລູບ -->
+<a b="4b 65 6c 75 70 76"
+   u="0ec0 0e84 005e 0ea5 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ge^lutv^kim^ham = ເກ^ລູດ^ຄິມ^ຮຳ -->
+<a b="47 65 5e 6c 75 74 76 5e 6b 69 6d 5e 68 61 6d"
+   u="0ec0 0e81 005e 0ea5 0eb9 0e94 005e 0e84 0eb4 0ea1 005e 0eae 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ge^maa^li^yaa = ເກ^ມາ^ລິ^ຢາ -->
+<a b="47 65 5e 6d 61 61 5e 6c 69 5e 79 61 61"
+   u="0ec0 0e81 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^naa^aa^naa = ເຄ^ນາ^ອະ^ນາ -->
+<a b="4b 65 5e 6e 61 61 5e 61 61 5e 6e 61 61"
+   u="0ec0 0e84 005e 0e99 0eb2 005e 0ead 0eb0 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^saa^lon = ເຄ^ສະ^ໂລນ -->
+<a b="4b 65 5e 73 61 61 5e 6c 6f 6e"
+   u="0ec0 0e84 005e 0eaa 0eb0 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ke^si^yaa = ເຄ^ສິ^ຢາ -->
+<a b="4b 65 5e 73 69 5e 79 61 61"
+   u="0ec0 0e84 005e 0eaa 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kesipv = ເຄ^ຊີບ -->
+<a b="4b 65 73 69 70 76"
+   u="0ec0 0e84 005e 0e8a 0eb5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^mbe^aa = ກິ^ເບ^ອາ -->
+<a b="47 69 5e 6d 62 65 5e 61 61"
+   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^mbe^atc^e^lo^him = ກິ^ເບ^ອັດ^ເອ^ໂລ^ຮິມ -->
+<a b="47 69 5e 6d 62 65 5e 61 74 63 5e 65 5e 6c 6f 5e 68 69 6d"
+   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ead 0eb1 0e94 005e 0ec0 0ead 005e 0ec2 0ea5 005e 0eae 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^mbe^atcHaa^laa^lotv = ກິ^ເບ^ອັດ^ຮາ^ລາ^ໂລດ -->
+<a b="47 69 5e 6d 62 65 5e 61 74 63 48 61 61 5e 6c 61 61 5e 6c 6f 74 76"
+   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ead 0eb1 0e94 005e 0eae 0eb2 005e 0ea5 0eb2 005e 0ec2 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^mbe^on = ກິ^ເບ^ໂອນ -->
+<a b="47 69 5e 6d 62 65 5e 6f 6e"
+   u="0e81 0eb4 005e 0ec0 0e9a 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^nde^o^ni = ກິ^ເດ^ໂອ^ນີ -->
+<a b="47 69 5e 6e 64 65 5e 6f 5e 6e 69"
+   u="0e81 0eb4 005e 0ec0 0e94 005e 0ec2 0ead 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^nde^on = ກິ^ເດ^ໂອນ -->
+<a b="47 69 5e 6e 64 65 5e 6f 6e"
+   u="0e81 0eb4 005e 0ec0 0e94 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^ndom = ກິ^ໂດມ -->
+<a b="47 69 5e 6e 64 6f 6d"
+   u="0e81 0eb4 005e 0ec2 0e94 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^ndon = ຄິ^ໂດນ -->
+<a b="4b 69 5e 6e 64 6f 6e"
+   u="0e84 0eb4 005e 0ec2 0e94 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^laa^lai = ກິ^ລາ^ໄລ -->
+<a b="47 69 5e 6c 61 61 5e 6c 61 69"
+   u="0e81 0eb4 005e 0ea5 0eb2 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^le^aapc = ຄິ^ເລ^ອາບ -->
+<a b="4b 69 5e 6c 65 5e 61 61 70 63"
+   u="0e84 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gi^le^aatc = ກິ^ເລ^ອາດ -->
+<a b="47 69 5e 6c 65 5e 61 61 74 63"
+   u="0e81 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^ni^atc = ຄີ^ລິ^ນິ^ອັດ -->
+<a b="4b 69 5e 6c 69 5e 6e 69 5e 61 74 63"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0e99 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^on = ຄິ^ລິ^ໂອນ -->
+<a b="4b 69 5e 6c 69 5e 6f 6e"
+   u="0e84 0eb4 005e 0ea5 0eb4 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaa^taa^im = ຄິ^ລິ^ຢາ^ທາ^ອິມ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 5e 74 61 61 5e 69 6d"
+   u="0e84 0eb4 005e 0ea5 0eb4 005e 0ea2 0eb2 005e 0e97 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatv = ຄີ^ລິ^ຢາດ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatvAalim = ຄີ^ລິ^ຢາດ^ອາ^ລິມ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 41 61 6c 69 6d"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ead 0eb2 005e 0ea5 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatvAan^mbaa = ຄີ^ລິ^ຢາດ^ອານ^ບາ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 41 61 6e 5e 6d 62 61 61"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ead 0eb2 0e99 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatvMbaa^an = ຄີ^ລິ^ຢາດ^ບາ^ອັນ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 4d 62 61 61 5e 61 6e"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0e9a 0eb2 005e 0ead 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatv^hu^sotv = ຄີ^ລິ^ຢາດ^ຫຸ^ໂຊດ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 5e 68 75 5e 73 6f 74 76"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0eab 0eb8 005e 0ec2 0e8a 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatvSanx^naa = ຄີ^ລິ^ຢາດ^ສັນ^ນາ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 53 61 6e 78 5e 6e 61 61"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0eaa 0eb1 0e99 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatvSefe = ຄີ^ລິ^ຢາດ^ເສ^ເຟ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 53 65 66 65"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ec0 0eaa 005e 0ec0 0e9f" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^li^yaatvYe^aa^lim = ຄີ^ລິ^ຢາດ^ເຢ^ອາ^ລິມ -->
+<a b="4b 69 5e 6c 69 5e 79 61 61 74 76 59 65 5e 61 61 5e 6c 69 6d"
+   u="0e84 0eb5 005e 0ea5 0eb4 005e 0ea2 0eb2 0e94 005e 0ec0 0ea2 005e 0ead 0eb2 005e 0ea5 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gilon = ກິ^ໂລນ -->
+<a b="47 69 6c 6f 6e"
+   u="0e81 0eb4 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ki^si^on = ຄີ^ຊີ^ໂອນ -->
+<a b="4b 69 5e 73 69 5e 6f 6e"
+   u="0e84 0eb5 005e 0e8a 0eb5 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- KinHaa^le^setv = ຄີນ^ຫະ^ເລ^ເຊດ -->
+<a b="4b 69 6e 48 61 61 5e 6c 65 5e 73 65 74 76"
+   u="0e84 0eb5 0e99 005e 0eab 0eb0 005e 0ec0 0ea5 005e 0ec0 0e8a 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kitv = ຄີດ -->
+<a b="4b 69 74 76"
+   u="0e84 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Go^li^atc = ໂກ^ລິ^ອັດ -->
+<a b="47 6f 5e 6c 69 5e 61 74 63"
+   u="0ec2 0e81 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ko^naa^ni^yaa = ໂຄ^ນາ^ນິ^ຢາ -->
+<a b="4b 6f 5e 6e 61 61 5e 6e 69 5e 79 61 61"
+   u="0ec2 0e84 005e 0e99 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ko^ne^li^atc = ໂຄ^ເນ^ລິ^ອັດ -->
+<a b="4b 6f 5e 6e 65 5e 6c 69 5e 61 74 63"
+   u="0ec2 0e84 005e 0ec0 0e99 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ko^ni^yaa = ໂຄ^ນິ^ຢາ -->
+<a b="4b 6f 5e 6e 69 5e 79 61 61"
+   u="0ec2 0e84 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gokc = ໂກກ -->
+<a b="47 6f 6b 63"
+   u="0ec2 0e81 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gopc = ໂກບ -->
+<a b="47 6f 70 63"
+   u="0ec2 0e81 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kotc = ໂຂດ -->
+<a b="4b 6f 74 63"
+   u="0ec2 0e82 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Gu^ni = ກຸ^ນີ -->
+<a b="47 75 5e 6e 69"
+   u="0e81 0eb8 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- KuqanLi^taa^im = ຄູ^ທຈັນ^ລິ^ທາ^ອິມ -->
+<a b="4b 75 71 61 6e 4c 69 5e 74 61 61 5e 69 6d"
+   u="0e84 0eb9 005e 0e97 0e88 0eb1 0e99 005e 0ea5 0eb4 005e 0e97 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kumlaan = ຄູມ^ລານ -->
+<a b="4b 75 6d 6c 61 61 6e"
+   u="0e84 0eb9 0ea1 005e 0ea5 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kun = ຄູນ -->
+<a b="4b 75 6e"
+   u="0e84 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kutv = ຄູດ -->
+<a b="4b 75 74 76"
+   u="0e84 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Kutv^aa = ຄູດ^ອາ -->
+<a b="4b 75 74 76 5e 61 61"
+   u="0e84 0eb9 0e94 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Laa^aa^mi^yaa = ລາ^ອາ^ມິ^ຢາ -->
+<a b="4c 61 61 5e 61 61 5e 6d 69 5e 79 61 61"
+   u="0ea5 0eb2 005e 0ead 0eb2 005e 0ea1 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Laakitv = ລາ^ຄີ້ດ -->
+<a b="4c 61 61 6b 69 74 76"
+   u="0ea5 0eb2 005e 0e84 0eb5 0ec9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- LaamotvGi^le^aatc = ລາ^ໂມດ^ກິ^ເລ^ອາດ -->
+<a b="4c 61 61 6d 6f 74 76 47 69 5e 6c 65 5e 61 61 74 63"
+   u="0ea5 0eb2 005e 0ec2 0ea1 0e94 005e 0e81 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Lakv^kum = ລັກ^ຄູມ -->
+<a b="4c 61 6b 76 5e 6b 75 6d"
+   u="0ea5 0eb1 0e81 005e 0e84 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Lapv^mbitc = ລັບ^ບີດ -->
+<a b="4c 61 70 76 5e 6d 62 69 74 63"
+   u="0ea5 0eb1 0e9a 005e 0e9a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Lapv^bi^ndotc = ລັບ^ປິ^ໂດດ -->
+<a b="4c 61 70 76 5e 62 69 5e 6e 64 6f 74 63"
+   u="0ea5 0eb1 0e9a 005e 0e9b 0eb4 005e 0ec2 0e94 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Lapv^saax^litv = ລັບ^ສາ^ລີດ -->
+<a b="4c 61 70 76 5e 73 61 61 78 5e 6c 69 74 76"
+   u="0ea5 0eb1 0e9a 005e 0eaa 0eb2 005e 0ea5 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Le^haa^mbim = ເລ^ຫະ^ບິມ -->
+<a b="4c 65 5e 68 61 61 5e 6d 62 69 6d"
+   u="0ec0 0ea5 005e 0eab 0eb0 005e 0e9a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Le^hum = ເລ^ຮູມ -->
+<a b="4c 65 5e 68 75 6d"
+   u="0ec0 0ea5 005e 0eae 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Le^maa^li^yaa = ເລ^ມາ^ລິ^ຢາ -->
+<a b="4c 65 5e 6d 61 61 5e 6c 69 5e 79 61 61"
+   u="0ec0 0ea5 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Lewi = ເລ^ວີ -->
+<a b="4c 65 77 69"
+   u="0ec0 0ea5 005e 0ea7 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Le^wi^aa^taan = ເລ^ວີ^ອາ^ທານ -->
+<a b="4c 65 5e 77 69 5e 61 61 5e 74 61 61 6e"
    u="0ec0 0ea5 005e 0ea7 0eb5 005e 0ead 0eb2 005e 0e97 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^laa^len = ເລ^ຢີ^ອູມ -->
-<a b="4d 61 61 5e 68 61 61 5e 6c 61 61 5e 6c 65 6e"
+<!-- Le^yi^um = ເລ^ຢີ^ອູມ -->
+<a b="4c 65 5e 79 69 5e 75 6d"
    u="0ec0 0ea5 005e 0ea2 0eb5 005e 0ead 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^laapv = ລີ^ເບ^ທີນ -->
-<a b="4d 61 61 5e 68 61 61 5e 6c 61 61 70 76"
+<!-- Li^mbe^tin = ລີ^ເບ^ທີນ -->
+<a b="4c 69 5e 6d 62 65 5e 74 69 6e"
    u="0ea5 0eb5 005e 0ec0 0e9a 005e 0e97 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^lai = ລິ^ເບຍ -->
-<a b="4d 61 61 5e 68 61 61 5e 6c 61 69"
+<!-- Li^mbie = ລິ^ເບຍ -->
+<a b="4c 69 5e 6d 62 69 65"
    u="0ea5 0eb4 005e 0ec0 0e9a 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^latv = ລິ^ເດຍ -->
-<a b="4d 61 61 5e 68 61 61 5e 6c 61 74 76"
+<!-- Li^ndie = ລິ^ເດຍ -->
+<a b="4c 69 5e 6e 64 69 65"
    u="0ea5 0eb4 005e 0ec0 0e94 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^naa^im = ລີ^ຄາ^ໂອ^ເນຍ -->
-<a b="4d 61 61 5e 68 61 61 5e 6e 61 61 5e 69 6d"
+<!-- Li^kaa^o^nie = ລີ^ຄາ^ໂອ^ເນຍ -->
+<a b="4c 69 5e 6b 61 61 5e 6f 5e 6e 69 65"
    u="0ea5 0eb5 005e 0e84 0eb2 005e 0ec2 0ead 005e 0ec0 0e99 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^neNdaan = ລິ^ສະ^ຕາ -->
-<a b="4d 61 61 5e 68 61 61 5e 6e 65 4e 64 61 61 6e"
+<!-- Li^saa^daa = ລິ^ສະ^ຕາ -->
+<a b="4c 69 5e 73 61 61 5e 64 61 61"
    u="0ea5 0eb4 005e 0eaa 0eb0 005e 0e95 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^si^otc = ລິກ^ຮີ -->
-<a b="4d 61 61 5e 68 61 61 5e 73 69 5e 6f 74 63"
+<!-- Likv^hi = ລິກ^ຮີ -->
+<a b="4c 69 6b 76 5e 68 69"
    u="0ea5 0eb4 0e81 005e 0eae 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^haa^wai = ໂລ^ລຸ^ຫະ^ມາ -->
-<a b="4d 61 61 5e 68 61 61 5e 77 61 69"
+<!-- Lo^lu^haa^maa = ໂລ^ລຸ^ຫະ^ມາ -->
+<a b="4c 6f 5e 6c 75 5e 68 61 61 5e 6d 61 61"
    u="0ec2 0ea5 005e 0ea5 0eb8 005e 0eab 0eb0 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^naa^sanx = ໂລດ -->
-<a b="4d 61 61 5e 6e 61 61 5e 73 61 6e 78"
+<!-- Lotv = ໂລດ -->
+<a b="4c 6f 74 76"
    u="0ec2 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Maa^natv^se = ລູ^ຮີດ -->
-<a b="4d 61 61 5e 6e 61 74 76 5e 73 65"
+<!-- Lu^hitv = ລູ^ຮີດ -->
+<a b="4c 75 5e 68 69 74 76"
    u="0ea5 0eb9 005e 0eae 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Makv^mbitc = ລູ^ສິ^ອັດ -->
-<a b="4d 61 6b 76 5e 6d 62 69 74 63"
+<!-- Lu^si^atc = ລູ^ສິ^ອັດ -->
+<a b="4c 75 5e 73 69 5e 61 74 63"
    u="0ea5 0eb9 005e 0eaa 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Man^ki^yaa = ລູດ -->
-<a b="4d 61 6e 5e 6b 69 5e 79 61 61"
+<!-- Lutv = ລູດ -->
+<a b="4c 75 74 76"
    u="0ea5 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Manlukv = ມະ^ອາ^ໄສ -->
-<a b="4d 61 6e 6c 75 6b 76"
+<!-- Maa^aa^saix = ມະ^ອາ^ໄສ -->
+<a b="4d 61 61 5e 61 61 5e 73 61 69 78"
    u="0ea1 0eb0 005e 0ead 0eb2 005e 0ec4 0eaa" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Matv^taa^ni^yaa = ມາ^ອາ^ຊິ^ຢາ -->
-<a b="4d 61 74 76 5e 74 61 61 5e 6e 69 5e 79 61 61"
+<!-- Maa^aa^si^yaa = ມາ^ອາ^ຊິ^ຢາ -->
+<a b="4d 61 61 5e 61 61 5e 73 69 5e 79 61 61"
    u="0ea1 0eb2 005e 0ead 0eb2 005e 0e8a 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Matv^daa^taa = ມາ^ຫະ^ລາ^ເລ^ເອນ -->
-<a b="4d 61 74 76 5e 64 61 61 5e 74 61 61"
+<!-- Maa^haa^laa^le^en = ມາ^ຫະ^ລາ^ເລ^ເອນ -->
+<a b="4d 61 61 5e 68 61 61 5e 6c 61 61 5e 6c 65 5e 65 6e"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0ec0 0ea5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Matv^ti^ti^yaa = ມາ^ຫະ^ລາ^ເລນ -->
-<a b="4d 61 74 76 5e 74 69 5e 74 69 5e 79 61 61"
+<!-- Maa^haa^laa^len = ມາ^ຫະ^ລາ^ເລນ -->
+<a b="4d 61 61 5e 68 61 61 5e 6c 61 61 5e 6c 65 6e"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0ec0 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Me^ndi^de^le^nien = ມາ^ຫະ^ລາບ -->
-<a b="4d 65 5e 6e 64 69 5e 64 65 5e 6c 65 5e 6e 69 65 6e"
+<!-- Maa^haa^laapv = ມາ^ຫະ^ລາບ -->
+<a b="4d 61 61 5e 68 61 61 5e 6c 61 61 70 76"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Me^hi = ມາ^ຫະ^ໄລ -->
-<a b="4d 65 5e 68 69"
+<!-- Maa^haa^lai = ມາ^ຫະ^ໄລ -->
+<a b="4d 61 61 5e 68 61 61 5e 6c 61 69"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- ï¿½e^hi^ndaa = ມາ^ຫະ^ລັດ -->
-<a b="ef bf bd 65 5e 68 69 5e 6e 64 61 61"
+<!-- Maa^haa^latv = ມາ^ຫະ^ລັດ -->
+<a b="4d 61 61 5e 68 61 61 5e 6c 61 74 76"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ea5 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Me^hu^maan = ມາ^ຫະ^ນາ^ອິມ -->
-<a b="4d 65 5e 68 75 5e 6d 61 61 6e"
+<!-- Maa^haa^naa^im = ມາ^ຫະ^ນາ^ອິມ -->
+<a b="4d 61 61 5e 68 61 61 5e 6e 61 61 5e 69 6d"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0e99 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Me^li^mbatc^kaa^ndetc = ມາ^ຫະ^ເນ^ດານ -->
-<a b="4d 65 5e 6c 69 5e 6d 62 61 74 63 5e 6b 61 61 5e 6e 64 65 74 63"
+<!-- Maa^haa^neNdaan = ມາ^ຫະ^ເນ^ດານ -->
+<a b="4d 61 61 5e 68 61 61 5e 6e 65 4e 64 61 61 6e"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ec0 0e99 005e 0e94 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Me^li^taa = ມາ^ຫະ^ຊິ^ໂອດ -->
-<a b="4d 65 5e 6c 69 5e 74 61 61"
+<!-- Maa^haa^si^otc = ມາ^ຫະ^ຊິ^ໂອດ -->
+<a b="4d 61 61 5e 68 61 61 5e 73 69 5e 6f 74 63"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0e8a 0eb4 005e 0ec2 0ead 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Me^se^le^mi^yaa = ມາ^ຫະ^ໄວ -->
-<a b="4d 65 5e 73 65 5e 6c 65 5e 6d 69 5e 79 61 61"
+<!-- Maa^haa^wai = ມາ^ຫະ^ໄວ -->
+<a b="4d 61 61 5e 68 61 61 5e 77 61 69"
    u="0ea1 0eb2 005e 0eab 0eb0 005e 0ec4 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Me^si^yaa = ມະ^ນາ^ສັນ -->
-<a b="4d 65 5e 73 69 5e 79 61 61"
+<!-- Maa^naa^sanx = ມະ^ນາ^ສັນ -->
+<a b="4d 61 61 5e 6e 61 61 5e 73 61 6e 78"
    u="0ea1 0eb0 005e 0e99 0eb2 005e 0eaa 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Migon = ມະ^ນັດ^ເສ -->
-<a b="4d 69 67 6f 6e"
+<!-- Maa^natv^se = ມະ^ນັດ^ເສ -->
+<a b="4d 61 61 5e 6e 61 74 76 5e 73 65"
    u="0ea1 0eb0 005e 0e99 0eb1 0e94 005e 0ec0 0eaa" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Milaa = ມັກ^ບີດ -->
-<a b="4d 69 6c 61 61"
+<!-- Makv^mbitc = ມັກ^ບີດ -->
+<a b="4d 61 6b 76 5e 6d 62 69 74 63"
    u="0ea1 0eb1 0e81 005e 0e9a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mi^laa^lai = ມັນ^ຄິ^ຢາ -->
-<a b="4d 69 5e 6c 61 61 5e 6c 61 69"
+<!-- Man^ki^yaa = ມັນ^ຄິ^ຢາ -->
+<a b="4d 61 6e 5e 6b 69 5e 79 61 61"
    u="0ea1 0eb1 0e99 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mi^le^tatv = ມັນ^ລຸກ -->
-<a b="4d 69 5e 6c 65 5e 74 61 74 76"
+<!-- Manlukv = ມັນ^ລຸກ -->
+<a b="4d 61 6e 6c 75 6b 76"
    u="0ea1 0eb1 0e99 005e 0ea5 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Miliem = ມັດ^ທາ^ນີ^ຢາ -->
-<a b="4d 69 6c 69 65 6d"
+<!-- Matv^taa^ni^yaa = ມັດ^ທາ^ນີ^ຢາ -->
+<a b="4d 61 74 76 5e 74 61 61 5e 6e 69 5e 79 61 61"
    u="0ea1 0eb1 0e94 005e 0e97 0eb2 005e 0e99 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Misaa = ມັດ^ຕະ^ທາ -->
-<a b="4d 69 73 61 61"
+<!-- Matv^daa^taa = ມັດ^ຕະ^ທາ -->
+<a b="4d 61 74 76 5e 64 61 61 5e 74 61 61"
    u="0ea1 0eb1 0e94 005e 0e95 0eb0 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mi^saa^en = ມັດ^ທີ^ທິ^ຢາ -->
-<a b="4d 69 5e 73 61 61 5e 65 6e"
+<!-- Matv^ti^ti^yaa = ມັດ^ທີ^ທິ^ຢາ -->
+<a b="4d 61 74 76 5e 74 69 5e 74 69 5e 79 61 61"
    u="0ea1 0eb1 0e94 005e 0e97 0eb5 005e 0e97 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Misaan = ເມ^ດີ^ເຕ^ເລ^ນຽນ -->
-<a b="4d 69 73 61 61 6e"
+<!-- Me^ndi^de^le^nien = ເມ^ດີ^ເຕ^ເລ^ນຽນ -->
+<a b="4d 65 5e 6e 64 69 5e 64 65 5e 6c 65 5e 6e 69 65 6e"
    u="0ec0 0ea1 005e 0e94 0eb5 005e 0ec0 0e95 005e 0ec0 0ea5 005e 0e99 0ebd 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Misie = ເມ^ຫ -->
-<a b="4d 69 73 69 65"
+<!-- Me^hi = ເມ^ຫ -->
+<a b="4d 65 5e 68 69"
    u="0ec0 0ea1 005e 0eab" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mi^ti^le^ni = ິເມ^ຫິ^ດາ -->
-<a b="4d 69 5e 74 69 5e 6c 65 5e 6e 69"
-   u="0eb4 0ec0 0ea1 005e 0eab 0eb4 005e 0e94 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mi^yaa^min = ເມ^ຫຸ^ມານ -->
-<a b="4d 69 5e 79 61 61 5e 6d 69 6e"
+<!-- ï¿½e^hi^ndaa = ິme-hi-Daa>ເມ^ຫິ^ດາ -->
+<a b="ef bf bd 65 5e 68 69 5e 6e 64 61 61"
+   u="0eb4 006d 0065 002d 0068 0069 002d 0044 0061 0061 003e 0ec0 0ea1 005e 0eab 0eb4 005e 0e94 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Me^hu^maan = ເມ^ຫຸ^ມານ -->
+<a b="4d 65 5e 68 75 5e 6d 61 61 6e"
    u="0ec0 0ea1 005e 0eab 0eb8 005e 0ea1 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^ndanGaatc = ເມ^ລິ^ບັດ^ດາ^ເດດ -->
-<a b="4d 69 6b 76 5e 6e 64 61 6e 47 61 61 74 63"
+<!-- Me^li^mbatc^kaa^ndetc = ເມ^ລິ^ບັດ^ດາ^ເດດ -->
+<a b="4d 65 5e 6c 69 5e 6d 62 61 74 63 5e 6b 61 61 5e 6e 64 65 74 63"
    u="0ec0 0ea1 005e 0ea5 0eb4 005e 0e9a 0eb1 0e94 005e 0e94 0eb2 005e 0ec0 0e94 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^ndanEn = ເມ^ລິ^ທາ -->
-<a b="4d 69 6b 76 5e 6e 64 61 6e 45 6e"
+<!-- Me^li^taa = ເມ^ລິ^ທາ -->
+<a b="4d 65 5e 6c 69 5e 74 61 61"
    u="0ec0 0ea1 005e 0ea5 0eb4 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^ndon = ເມ^ເຊ^ເລ^ມິ^ຢາ -->
-<a b="4d 69 6b 76 5e 6e 64 6f 6e"
+<!-- Me^se^le^mi^yaa = ເມ^ເຊ^ເລ^ມິ^ຢາ -->
+<a b="4d 65 5e 73 65 5e 6c 65 5e 6d 69 5e 79 61 61"
    u="0ec0 0ea1 005e 0ec0 0e8a 005e 0ec0 0ea5 005e 0ea1 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^li = ເມ^ສິ^ຢາ -->
-<a b="4d 69 6b 76 5e 6c 69"
+<!-- Me^si^yaa = ເມ^ສິ^ຢາ -->
+<a b="4d 65 5e 73 69 5e 79 61 61"
    u="0ec0 0ea1 005e 0eaa 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^lotv = ມິ^ໂກນ -->
-<a b="4d 69 6b 76 5e 6c 6f 74 76"
+<!-- Migon = ມິ^ໂກນ -->
+<a b="4d 69 67 6f 6e"
    u="0ea1 0eb4 005e 0ec2 0e81 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^maatv = ມິ^ລາ -->
-<a b="4d 69 6b 76 5e 6d 61 61 74 76"
+<!-- Milaa = ມິ^ລາ -->
+<a b="4d 69 6c 61 61"
    u="0ea1 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^me^tatv = ມິ^ລາ^ໄລ -->
-<a b="4d 69 6b 76 5e 6d 65 5e 74 61 74 76"
+<!-- Mi^laa^lai = ມິ^ລາ^ໄລ -->
+<a b="4d 69 5e 6c 61 61 5e 6c 61 69"
    u="0ea1 0eb4 005e 0ea5 0eb2 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mikv^ne^yaa = ມິ^ເລ^ທັດ -->
-<a b="4d 69 6b 76 5e 6e 65 5e 79 61 61"
+<!-- Mi^le^tatv = ມິ^ເລ^ທັດ -->
+<a b="4d 69 5e 6c 65 5e 74 61 74 76"
    u="0ea1 0eb4 005e 0ec0 0ea5 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mitv^ndin = ມິ^ລຽມ -->
-<a b="4d 69 74 76 5e 6e 64 69 6e"
+<!-- Miliem = ມິ^ລຽມ -->
+<a b="4d 69 6c 69 65 6d"
    u="0ea1 0eb4 005e 0ea5 0ebd 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Mo^li^yaa = ມິ^ຊາ -->
-<a b="4d 6f 5e 6c 69 5e 79 61 61"
+<!-- Misaa = ມິ^ຊາ -->
+<a b="4d 69 73 61 61"
    u="0ea1 0eb4 005e 0e8a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- mukv = ມິ^ຊາ^ເອນ -->
-<a b="6d 75 6b 76"
+<!-- Mi^saa^en = ມິ^ຊາ^ເອນ -->
+<a b="4d 69 5e 73 61 61 5e 65 6e"
    u="0ea1 0eb4 005e 0e8a 0eb2 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Naa^haa^laan = ມິ^ຊານ -->
-<a b="4e 61 61 5e 68 61 61 5e 6c 61 61 6e"
+<!-- Misaan = ມິ^ຊານ -->
+<a b="4d 69 73 61 61 6e"
    u="0ea1 0eb4 005e 0e8a 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Naa^haa^lai = ມິ^ເຊຍ -->
-<a b="4e 61 61 5e 68 61 61 5e 6c 61 69"
+<!-- Misie = ມິ^ເຊຍ -->
+<a b="4d 69 73 69 65"
    u="0ea1 0eb4 005e 0ec0 0e8a 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Naa^haa^li^en = ມິ^ທິ^ເລ^ນີ -->
-<a b="4e 61 61 5e 68 61 61 5e 6c 69 5e 65 6e"
+<!-- Mi^ti^le^ni = ມິ^ທິ^ເລ^ນີ -->
+<a b="4d 69 5e 74 69 5e 6c 65 5e 6e 69"
    u="0ea1 0eb4 005e 0e97 0eb4 005e 0ec0 0ea5 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Naa^haa^lon = ມິ^ຢາ^ມິນ -->
-<a b="4e 61 61 5e 68 61 61 5e 6c 6f 6e"
+<!-- Mi^yaa^min = ມິ^ຢາ^ມິນ -->
+<a b="4d 69 5e 79 61 61 5e 6d 69 6e"
    u="0ea1 0eb4 005e 0ea2 0eb2 005e 0ea1 0eb4 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Naa^haa^maa^ni = ມິກ^ຕັນ^ກາດ -->
-<a b="4e 61 61 5e 68 61 61 5e 6d 61 61 5e 6e 69"
+<!-- Mikv^ndanGaatc = ມິກ^ຕັນ^ກາດ -->
+<a b="4d 69 6b 76 5e 6e 64 61 6e 47 61 61 74 63"
    u="0ea1 0eb4 0e81 005e 0e95 0eb1 0e99 005e 0e81 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Naa^hum = ມິກ^ດັນ^ເອນ -->
-<a b="4e 61 61 5e 68 75 6d"
+<!-- Mikv^ndanEn = ມິກ^ດັນ^ເອນ -->
+<a b="4d 69 6b 76 5e 6e 64 61 6e 45 6e"
    u="0ea1 0eb4 0e81 005e 0e94 0eb1 0e99 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^aa^mbu^li = ມິກ^ໂດນ -->
-<a b="4e 65 5e 61 61 5e 6d 62 75 5e 6c 69"
+<!-- Mikv^ndon = ມິກ^ໂດນ -->
+<a b="4d 69 6b 76 5e 6e 64 6f 6e"
    u="0ea1 0eb4 0e81 005e 0ec2 0e94 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^mbu^saa^laa^ndaan = ມິກ^ລີ -->
-<a b="4e 65 5e 6d 62 75 5e 73 61 61 5e 6c 61 61 5e 6e 64 61 61 6e"
+<!-- Mikv^li = ມິກ^ລີ -->
+<a b="4d 69 6b 76 5e 6c 69"
    u="0ea1 0eb4 0e81 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^fi^simx = ມິກ^ໂລດ -->
-<a b="4e 65 5e 66 69 5e 73 69 6d 78"
+<!-- Mikv^lotv = ມິກ^ໂລດ -->
+<a b="4d 69 6b 76 5e 6c 6f 74 76"
    u="0ea1 0eb4 0e81 005e 0ec2 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^haa^mi = ມິກ^ມາດ -->
-<a b="4e 65 5e 68 61 61 5e 6d 69"
+<!-- Mikv^maatv = ມິກ^ມາດ -->
+<a b="4d 69 6b 76 5e 6d 61 61 74 76"
    u="0ea1 0eb4 0e81 005e 0ea1 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^hum = ມິກ^ເມ^ທັດ -->
-<a b="4e 65 5e 68 75 6d"
+<!-- Mikv^me^tatv = ມິກ^ເມ^ທັດ -->
+<a b="4d 69 6b 76 5e 6d 65 5e 74 61 74 76"
    u="0ea1 0eb4 0e81 005e 0ec0 0ea1 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^li^yaa = ມິກ^ເນ^ຢາ -->
-<a b="4e 65 5e 6c 69 5e 79 61 61"
+<!-- Mikv^ne^yaa = ມິກ^ເນ^ຢາ -->
+<a b="4d 69 6b 76 5e 6e 65 5e 79 61 61"
    u="0ea1 0eb4 0e81 005e 0ec0 0e99 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^si^yaa = ມິດ^ດີນ -->
-<a b="4e 65 5e 73 69 5e 79 61 61"
+<!-- Mitv^ndin = ມິດ^ດີນ -->
+<a b="4d 69 74 76 5e 6e 64 69 6e"
    u="0ea1 0eb4 0e94 005e 0e94 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Nesipv = ໂມ^ລິ^ຢາ -->
-<a b="4e 65 73 69 70 76"
+<!-- Mo^li^yaa = ໂມ^ລິ^ຢາ -->
+<a b="4d 6f 5e 6c 69 5e 79 61 61"
    u="0ec2 0ea1 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ne^taa^ni^yaa = ມຸກ -->
-<a b="4e 65 5e 74 61 61 5e 6e 69 5e 79 61 61"
+<!-- mukv = ມຸກ -->
+<a b="6d 75 6b 76"
    u="0ea1 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ni^kaa^no = ນາ^ຫະ^ລານ -->
-<a b="4e 69 5e 6b 61 61 5e 6e 6f"
+<!-- Naa^haa^laan = ນາ^ຫະ^ລານ -->
+<a b="4e 61 61 5e 68 61 61 5e 6c 61 61 6e"
    u="0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ni^ko^mbu^li = ນາ^ຫະ^ໄລ -->
-<a b="4e 69 5e 6b 6f 5e 6d 62 75 5e 6c 69"
+<!-- Naa^haa^lai = ນາ^ຫະ^ໄລ -->
+<a b="4e 61 61 5e 68 61 61 5e 6c 61 69"
    u="0e99 0eb2 005e 0eab 0eb0 005e 0ec4 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ni^ko^lau^ni^yom = ນາ^ຫະ^ລີ^ເອນ -->
-<a b="4e 69 5e 6b 6f 5e 6c 61 75 5e 6e 69 5e 79 6f 6d"
+<!-- Naa^haa^li^en = ນາ^ຫະ^ລີ^ເອນ -->
+<a b="4e 61 61 5e 68 61 61 5e 6c 69 5e 65 6e"
    u="0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ni^naa^we = ນາ^ຫະ^ໂລນ -->
-<a b="4e 69 5e 6e 61 61 5e 77 65"
+<!-- Naa^haa^lon = ນາ^ຫະ^ໂລນ -->
+<a b="4e 61 61 5e 68 61 61 5e 6c 6f 6e"
    u="0e99 0eb2 005e 0eab 0eb0 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Nisaanx = ນາ^ຫະ^ມາ^ນີ -->
-<a b="4e 69 73 61 61 6e 78"
+<!-- Naa^haa^maa^ni = ນາ^ຫະ^ມາ^ນີ -->
+<a b="4e 61 61 5e 68 61 61 5e 6d 61 61 5e 6e 69"
    u="0e99 0eb2 005e 0eab 0eb0 005e 0ea1 0eb2 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Nitv^lotv = ນາ^ຮູມ -->
-<a b="4e 69 74 76 5e 6c 6f 74 76"
+<!-- Naa^hum = ນາ^ຮູມ -->
+<a b="4e 61 61 5e 68 75 6d"
    u="0e99 0eb2 005e 0eae 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Nopv = ເນ^ອາ^ບຸ^ລີ -->
-<a b="4e 6f 70 76"
+<!-- Ne^aa^mbu^li = ເນ^ອາ^ບຸ^ລີ -->
+<a b="4e 65 5e 61 61 5e 6d 62 75 5e 6c 69"
    u="0ec0 0e99 005e 0ead 0eb2 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Notv = ເນ^ບູ^ຊາ^ລະ^ດານ -->
-<a b="4e 6f 74 76"
+<!-- Ne^mbu^saa^laa^ndaan = ເນ^ບູ^ຊາ^ລະ^ດານ -->
+<a b="4e 65 5e 6d 62 75 5e 73 61 61 5e 6c 61 61 5e 6e 64 61 61 6e"
    u="0ec0 0e99 005e 0e9a 0eb9 005e 0e8a 0eb2 005e 0ea5 0eb0 005e 0e94 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- O^ne^si^fo^latv = ເນ^ຟິ^ສິມ -->
-<a b="4f 5e 6e 65 5e 73 69 5e 66 6f 5e 6c 61 74 76"
+<!-- Ne^fi^simx = ເນ^ຟິ^ສິມ -->
+<a b="4e 65 5e 66 69 5e 73 69 6d 78"
    u="0ec0 0e99 005e 0e9f 0eb4 005e 0eaa 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- O^ne^si^matv = ເນ^ຫະ^ມີ -->
-<a b="4f 5e 6e 65 5e 73 69 5e 6d 61 74 76"
+<!-- Ne^haa^mi = ເນ^ຫະ^ມີ -->
+<a b="4e 65 5e 68 61 61 5e 6d 69"
    u="0ec0 0e99 005e 0eab 0eb0 005e 0ea1 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Okc = ເນ^ຮູມ -->
-<a b="4f 6b 63"
+<!-- Ne^hum = ເນ^ຮູມ -->
+<a b="4e 65 5e 68 75 6d"
    u="0ec0 0e99 005e 0eae 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Baa^laa^di^yaa = ເນ^ລິ^ຢາ -->
-<a b="42 61 61 5e 6c 61 61 5e 64 69 5e 79 61 61"
+<!-- Ne^li^yaa = ເນ^ລິ^ຢາ -->
+<a b="4e 65 5e 6c 69 5e 79 61 61"
    u="0ec0 0e99 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Batc^lu^simx = ເນ^ຊິ^ຢາ -->
-<a b="42 61 74 63 5e 6c 75 5e 73 69 6d 78"
+<!-- Ne^si^yaa = ເນ^ຊິ^ຢາ -->
+<a b="4e 65 5e 73 69 5e 79 61 61"
    u="0ec0 0e99 005e 0e8a 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Be^kaa^hi^yaa = ເນ^ຊີ້ບ -->
-<a b="42 65 5e 6b 61 61 5e 68 69 5e 79 61 61"
+<!-- Nesipv = ເນ^ຊີ້ບ -->
+<a b="4e 65 73 69 70 76"
    u="0ec0 0e99 005e 0e8a 0eb5 0ec9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Be^laa^li^yaa = ເນ^ທາ^ນິ^ຢາ -->
-<a b="42 65 5e 6c 61 61 5e 6c 69 5e 79 61 61"
+<!-- Ne^taa^ni^yaa = ເນ^ທາ^ນິ^ຢາ -->
+<a b="4e 65 5e 74 61 61 5e 6e 69 5e 79 61 61"
    u="0ec0 0e99 005e 0e97 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Be^lu^ndaa = ນິ^ຄາ^ໂນ -->
-<a b="42 65 5e 6c 75 5e 6e 64 61 61"
+<!-- Ni^kaa^no = ນິ^ຄາ^ໂນ -->
+<a b="4e 69 5e 6b 61 61 5e 6e 6f"
    u="0e99 0eb4 005e 0e84 0eb2 005e 0ec2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Be^taa^hi^yaa = ນິ^ໂຄ^ບຸ^ລີ -->
-<a b="42 65 5e 74 61 61 5e 68 69 5e 79 61 61"
+<!-- Ni^ko^mbu^li = ນິ^ໂຄ^ບຸ^ລີ -->
+<a b="4e 69 5e 6b 6f 5e 6d 62 75 5e 6c 69"
    u="0e99 0eb4 005e 0ec2 0e84 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Be^tu^en = ນິ^ໂຄ^ເລົາ^ນິ^ໂຢມ -->
-<a b="42 65 5e 74 75 5e 65 6e"
+<!-- Ni^ko^lau^ni^yom = ນິ^ໂຄ^ເລົາ^ນິ^ໂຢມ -->
+<a b="4e 69 5e 6b 6f 5e 6c 61 75 5e 6e 69 5e 79 6f 6d"
    u="0e99 0eb4 005e 0ec2 0e84 005e 0ec0 0ea5 0ebb 0eb2 005e 0e99 0eb4 005e 0ec2 0ea2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bi^haa^hi^lotv = ນິ^ນະ^ເວ -->
-<a b="42 69 5e 68 61 61 5e 68 69 5e 6c 6f 74 76"
+<!-- Ni^naa^we = ນິ^ນະ^ເວ -->
+<a b="4e 69 5e 6e 61 61 5e 77 65"
    u="0e99 0eb4 005e 0e99 0eb0 005e 0ec0 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bi^laa^ton = ນິ^ສານ -->
-<a b="42 69 5e 6c 61 61 5e 74 6f 6e"
+<!-- Nisaanx = ນິ^ສານ -->
+<a b="4e 69 73 61 61 6e 78"
    u="0e99 0eb4 005e 0eaa 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bilatv = ນິດ^ໂລກ -->
-<a b="42 69 6c 61 74 76"
+<!-- Nitv^lotv = ນິດ^ໂລກ -->
+<a b="4e 69 74 76 5e 6c 6f 74 76"
    u="0e99 0eb4 0e94 005e 0ec2 0ea5 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bilatv = ໂນບ -->
-<a b="42 69 6c 61 74 76"
+<!-- Nopv = ໂນບ -->
+<a b="4e 6f 70 76"
    u="0ec2 0e99 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bi^si^ndie = ໂນດ -->
-<a b="42 69 5e 73 69 5e 6e 64 69 65"
+<!-- Notv = ໂນດ -->
+<a b="4e 6f 74 76"
    u="0ec2 0e99 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bi^tom = ໂອ^ເນ^ສີ^ໂຟ^ລັດ -->
-<a b="42 69 5e 74 6f 6d"
+<!-- O^ne^si^fo^latv = ໂອ^ເນ^ສີ^ໂຟ^ລັດ -->
+<a b="4f 5e 6e 65 5e 73 69 5e 66 6f 5e 6c 61 74 76"
    u="0ec2 0ead 005e 0ec0 0e99 005e 0eaa 0eb5 005e 0ec2 0e9f 005e 0ea5 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bi^ton = ໂອ^ເນ^ສີ^ມັດ -->
-<a b="42 69 5e 74 6f 6e"
+<!-- O^ne^si^matv = ໂອ^ເນ^ສີ^ມັດ -->
+<a b="4f 5e 6e 65 5e 73 69 5e 6d 61 74 76"
    u="0ec2 0ead 005e 0ec0 0e99 005e 0eaa 0eb5 005e 0ea1 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bo^ti^faa = ໂອກ -->
-<a b="42 6f 5e 74 69 5e 66 61 61"
+<!-- Okc = ໂອກ -->
+<a b="4f 6b 63"
    u="0ec2 0ead 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bo^ti^fe^laa = ປາ^ລາ^ຕິ^ຢາ -->
-<a b="42 6f 5e 74 69 5e 66 65 5e 6c 61 61"
+<!-- Baa^laa^di^yaa = ປາ^ລາ^ຕິ^ຢາ -->
+<a b="42 61 61 5e 6c 61 61 5e 64 69 5e 79 61 61"
    u="0e9b 0eb2 005e 0ea5 0eb2 005e 0e95 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bu^tai = ປັດ^ລຸ^ສິມ -->
-<a b="42 75 5e 74 61 69"
+<!-- Batc^lu^simx = ປັດ^ລຸ^ສິມ -->
+<a b="42 61 74 63 5e 6c 75 5e 73 69 6d 78"
    u="0e9b 0eb1 0e94 005e 0ea5 0eb8 005e 0eaa 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bu^ti^en = ເປ^ຄາ^ຫິ^ຢາ -->
-<a b="42 75 5e 74 69 5e 65 6e"
+<!-- Be^kaa^hi^yaa = ເປ^ຄາ^ຫິ^ຢາ -->
+<a b="42 65 5e 6b 61 61 5e 68 69 5e 79 61 61"
    u="0ec0 0e9b 005e 0e84 0eb2 005e 0eab 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bupc^li^atc = ເປ^ລາ^ລິ^ຢາ -->
-<a b="42 75 70 63 5e 6c 69 5e 61 74 63"
+<!-- Be^laa^li^yaa = ເປ^ລາ^ລິ^ຢາ -->
+<a b="42 65 5e 6c 61 61 5e 6c 69 5e 79 61 61"
    u="0ec0 0e9b 005e 0ea5 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Putv = ເປ^ລຸ^ດາ -->
-<a b="50 75 74 76"
+<!-- Be^lu^ndaa = ເປ^ລຸ^ດາ -->
+<a b="42 65 5e 6c 75 5e 6e 64 61 61"
    u="0ec0 0e9b 005e 0ea5 0eb8 005e 0e94 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Bor^si^atc = ເປ^ທາ^ຫິ^ຢາ -->
-<a b="42 6f 72 5e 73 69 5e 61 74 63"
+<!-- Be^taa^hi^yaa = ເປ^ທາ^ຫິ^ຢາ -->
+<a b="42 65 5e 74 61 61 5e 68 69 5e 79 61 61"
    u="0ec0 0e9b 005e 0e97 0eb2 005e 0eab 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Born^ti^atc = ເປ^ທຸ^ເອນ -->
-<a b="42 6f 72 6e 5e 74 69 5e 61 74 63"
+<!-- Be^tu^en = ເປ^ທຸ^ເອນ -->
+<a b="42 65 5e 74 75 5e 65 6e"
    u="0ec0 0e9b 005e 0e97 0eb8 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^mbakc^taa^ni = ປິ^ຫະ^ຫິ^ໂລດ -->
-<a b="53 61 61 5e 6d 62 61 6b 63 5e 74 61 61 5e 6e 69"
+<!-- Bi^haa^hi^lotv = ປິ^ຫະ^ຫິ^ໂລດ -->
+<a b="42 69 5e 68 61 61 5e 68 69 5e 6c 6f 74 76"
    u="0e9b 0eb4 005e 0eab 0eb0 005e 0eab 0eb4 005e 0ec2 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^ndu^si = ປິ^ລາ^ໂທນ -->
-<a b="53 61 61 5e 6e 64 75 5e 73 69"
+<!-- Bi^laa^ton = ປິ^ລາ^ໂທນ -->
+<a b="42 69 5e 6c 61 61 5e 74 6f 6e"
    u="0e9b 0eb4 005e 0ea5 0eb2 005e 0ec2 0e97 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^haa^laa^im = ປິ^ລັດ -->
-<a b="41 61 5e 68 61 61 5e 6c 61 61 5e 69 6d"
+<!-- Bilatv = ປິ^ລັດ -->
+<a b="42 69 6c 61 74 76"
    u="0e9b 0eb4 005e 0ea5 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^haa^su^maa = ປິ^ລາດ -->
-<a b="41 61 5e 68 61 61 5e 73 75 5e 6d 61 61"
+<!-- Bilatv = ປິ^ລາດ -->
+<a b="42 69 6c 61 74 76"
    u="0e9b 0eb4 005e 0ea5 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^li^saa = ປິ^ສິ^ເດຍ -->
-<a b="41 61 5e 6c 69 5e 73 61 61"
+<!-- Bi^si^ndie = ປິ^ສິ^ເດຍ -->
+<a b="42 69 5e 73 69 5e 6e 64 69 65"
    u="0e9b 0eb4 005e 0eaa 0eb4 005e 0ec0 0e94 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Aa^lo^me = ປິ^ໂທມ -->
-<a b="41 61 5e 6c 6f 5e 6d 65"
+<!-- Bi^tom = ປິ^ໂທມ -->
+<a b="42 69 5e 74 6f 6d"
    u="0e9b 0eb4 005e 0ec2 0e97 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^lu^hen = ປິ^ໂທນ -->
-<a b="53 61 61 5e 6c 75 5e 68 65 6e"
+<!-- Bi^ton = ປິ^ໂທນ -->
+<a b="42 69 5e 74 6f 6e"
    u="0e9b 0eb4 005e 0ec2 0e97 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^maa^lie = ໂປ^ທິ^ຟາ -->
-<a b="53 61 61 5e 6d 61 61 5e 6c 69 65"
+<!-- Bo^ti^faa = ໂປ^ທິ^ຟາ -->
+<a b="42 6f 5e 74 69 5e 66 61 61"
    u="0ec2 0e9b 005e 0e97 0eb4 005e 0e9f 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^me^naa = ໂປ^ທິ^ເຟ^ລາ -->
-<a b="53 61 61 5e 6d 65 5e 6e 61 61"
+<!-- Bo^ti^fe^laa = ໂປ^ທິ^ເຟ^ລາ -->
+<a b="42 6f 5e 74 69 5e 66 65 5e 6c 61 61"
    u="0ec2 0e9b 005e 0e97 0eb4 005e 0ec0 0e9f 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saaben = ປຸ^ໄທ -->
-<a b="53 61 61 62 65 6e"
+<!-- Bu^tai = ປຸ^ໄທ -->
+<a b="42 75 5e 74 61 69"
    u="0e9b 0eb8 005e 0ec4 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^taa^kitv = ປູ^ທິ^ເອນ -->
-<a b="53 61 61 5e 74 61 61 5e 6b 69 74 76"
+<!-- Bu^ti^en = ປູ^ທິ^ເອນ -->
+<a b="42 75 5e 74 69 5e 65 6e"
    u="0e9b 0eb9 005e 0e97 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^te^faa^natv = ປຸບ^ລິ^ອັດ -->
-<a b="53 61 61 5e 74 65 5e 66 61 61 5e 6e 61 74 76"
+<!-- Bupc^li^atc = ປຸບ^ລິ^ອັດ -->
+<a b="42 75 70 63 5e 6c 69 5e 61 74 63"
    u="0e9b 0eb8 0e9a 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^te^fen = ພູດ -->
-<a b="53 61 61 5e 74 65 5e 66 65 6e"
+<!-- Putv = ພູດ -->
+<a b="50 75 74 76"
    u="0e9e 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^do^ikc = ປໍ^ສິ^ອັດ -->
-<a b="53 61 61 5e 64 6f 5e 69 6b 63"
+<!-- Bor^si^atc = ປໍ^ສິ^ອັດ -->
+<a b="42 6f 72 5e 73 69 5e 61 74 63"
    u="0e9b 0ecd 005e 0eaa 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Saa^waa^saa = ປອນ^ທິ^ອັດ -->
-<a b="53 61 61 5e 77 61 61 5e 73 61 61"
+<!-- Born^ti^atc = ປອນ^ທິ^ອັດ -->
+<a b="42 6f 72 6e 5e 74 69 5e 61 74 63"
    u="0e9b 0ead 0e99 005e 0e97 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sailin = ສະ^ປັກ^ທາ^ນີ -->
-<a b="53 61 69 6c 69 6e"
+<!-- Saa^mbakc^taa^ni = ສະ^ປັກ^ທາ^ນີ -->
+<a b="53 61 61 5e 6d 62 61 6b 63 5e 74 61 61 5e 6e 69"
    u="0eaa 0eb0 005e 0e9b 0eb1 0e81 005e 0e97 0eb2 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sakc^kaa^li^yaa = ສະ^ດູ^ສີs -->
-<a b="53 61 6b 63 5e 6b 61 61 5e 6c 69 5e 79 61 61"
+<!-- Saa^ndu^si = ສະ^ດູ^ສີs -->
+<a b="53 61 61 5e 6e 64 75 5e 73 69"
    u="0eaa 0eb0 005e 0e94 0eb9 005e 0eaa 0eb5 0073" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sam^mu^waa = ຊາ^ຫະ^ລາ^ອິມs -->
-<a b="53 61 6d 5e 6d 75 5e 77 61 61"
+<!-- Aa^haa^laa^im = ຊາ^ຫະ^ລາ^ອິມs -->
+<a b="41 61 5e 68 61 61 5e 6c 61 61 5e 69 6d"
    u="0e8a 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0ead 0eb4 0ea1 0073" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sanlum = ຊາ^ຫະ^ຊຸ^ມາs -->
-<a b="53 61 6e 6c 75 6d"
+<!-- Aa^haa^su^maa = ຊາ^ຫະ^ຊຸ^ມາs -->
+<a b="41 61 5e 68 61 61 5e 73 75 5e 6d 61 61"
    u="0e8a 0eb2 005e 0eab 0eb0 005e 0e8a 0eb8 005e 0ea1 0eb2 0073" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^aa^li^yaa = ຊາ^ລິ^ຊາs -->
-<a b="53 65 5e 61 61 5e 6c 69 5e 79 61 61"
+<!-- Aa^li^saa = ຊາ^ລິ^ຊາs -->
+<a b="41 61 5e 6c 69 5e 73 61 61"
    u="0e8a 0eb2 005e 0ea5 0eb4 005e 0e8a 0eb2 0073" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^aan^Yaasupv = ສະ^ໂລ^ເມ -->
-<a b="53 65 5e 61 61 6e 5e 59 61 61 73 75 70 76"
+<!-- Aa^lo^me = ສະ^ໂລ^ເມ -->
+<a b="41 61 5e 6c 6f 5e 6d 65"
    u="0eaa 0eb0 005e 0ec2 0ea5 005e 0ec0 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^an^ti^en = ຊາ^ລຸ^ເຮນ -->
-<a b="53 65 5e 61 6e 5e 74 69 5e 65 6e"
+<!-- Saa^lu^hen = ຊາ^ລຸ^ເຮນ -->
+<a b="53 61 61 5e 6c 75 5e 68 65 6e"
    u="0e8a 0eb2 005e 0ea5 0eb8 005e 0ec0 0eae 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mbaa^ni^yaa = ສະ^ມາ^ເລຍ -->
-<a b="53 65 5e 6d 62 61 61 5e 6e 69 5e 79 61 61"
+<!-- Saa^maa^lie = ສະ^ມາ^ເລຍ -->
+<a b="53 61 61 5e 6d 61 61 5e 6c 69 65"
    u="0eaa 0eb0 005e 0ea1 0eb2 005e 0ec0 0ea5 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^faa^ti^yaa = ສະ^ເມ^ນາ -->
-<a b="53 65 5e 66 61 61 5e 74 69 5e 79 61 61"
+<!-- Saa^me^naa = ສະ^ເມ^ນາ -->
+<a b="53 61 61 5e 6d 65 5e 6e 61 61"
    u="0eaa 0eb0 005e 0ec0 0ea1 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^haa^li^yaa = ສະ^ເປນ -->
-<a b="53 65 5e 68 61 61 5e 6c 69 5e 79 61 61"
+<!-- Saaben = ສະ^ເປນ -->
+<a b="53 61 61 62 65 6e"
    u="0eaa 0eb0 005e 0ec0 0e9b 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^kaa^ni^yaa = ສະ^ທາ^ຄິດ -->
-<a b="53 65 5e 6b 61 61 5e 6e 69 5e 79 61 61"
+<!-- Saa^taa^kitv = ສະ^ທາ^ຄິດ -->
+<a b="53 61 61 5e 74 61 61 5e 6b 69 74 76"
    u="0eaa 0eb0 005e 0e97 0eb2 005e 0e84 0eb4 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^le^mi^yaa = ສະ^ເທ^ຟາ^ນັດ -->
-<a b="53 65 5e 6c 65 5e 6d 69 5e 79 61 61"
+<!-- Saa^te^faa^natv = ສະ^ເທ^ຟາ^ນັດ -->
+<a b="53 61 61 5e 74 65 5e 66 61 61 5e 6e 61 74 76"
    u="0eaa 0eb0 005e 0ec0 0e97 005e 0e9f 0eb2 005e 0e99 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^lu^mi^en = ສະ^ເທ^ເຟນ -->
-<a b="53 65 5e 6c 75 5e 6d 69 5e 65 6e"
+<!-- Saa^te^fen = ສະ^ເທ^ເຟນ -->
+<a b="53 61 61 5e 74 65 5e 66 65 6e"
    u="0eaa 0eb0 005e 0ec0 0e97 005e 0ec0 0e9f 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^maa^li^yaa = ສະ^ໂຕ^ອິກ -->
-<a b="53 65 5e 6d 61 61 5e 6c 69 5e 79 61 61"
+<!-- Saa^do^ikc = ສະ^ໂຕ^ອິກ -->
+<a b="53 61 61 5e 64 6f 5e 69 6b 63"
    u="0eaa 0eb0 005e 0ec2 0e95 005e 0ead 0eb4 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mi^ndaa = ຊາ^ວະ^ຊາ -->
-<a b="53 65 5e 6d 69 5e 6e 64 61 61"
+<!-- Saa^waa^saa = ຊາ^ວະ^ຊາ -->
+<a b="53 61 61 5e 77 61 61 5e 73 61 61"
    u="0e8a 0eb2 005e 0ea7 0eb0 005e 0e8a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mi^laa^motv = ໄຊ^ລີນ -->
-<a b="53 65 5e 6d 69 5e 6c 61 61 5e 6d 6f 74 76"
+<!-- Sailin = ໄຊ^ລີນ -->
+<a b="53 61 69 6c 69 6e"
    u="0ec4 0e8a 005e 0ea5 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mi^nitv = ສະ^ຄາ^ລິ^ຢາ -->
-<a b="53 65 5e 6d 69 5e 6e 69 74 76"
+<!-- Sakc^kaa^li^yaa = ສະ^ຄາ^ລິ^ຢາ -->
+<a b="53 61 6b 63 5e 6b 61 61 5e 6c 69 5e 79 61 61"
    u="0eaa 0eb0 005e 0e84 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mbaa^ndi^yaa = ຊຳ^ມຸ^ວາ -->
-<a b="53 65 5e 6d 62 61 61 5e 6e 64 69 5e 79 61 61"
+<!-- Sam^mu^waa = ຊຳ^ມຸ^ວາ -->
+<a b="53 61 6d 5e 6d 75 5e 77 61 61"
    u="0e8a 0eb3 005e 0ea1 0eb8 005e 0ea7 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mbi^ndaa = ຊັນ^ລູມ -->
-<a b="53 65 5e 6d 62 69 5e 6e 64 61 61"
+<!-- Sanlum = ຊັນ^ລູມ -->
+<a b="53 61 6e 6c 75 6d"
    u="0e8a 0eb1 0e99 005e 0ea5 0eb9 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mbi^naa = ເຊ^ອາ^ລິ^ຢາ -->
-<a b="53 65 5e 6d 62 69 5e 6e 61 61"
+<!-- Se^aa^li^yaa = ເຊ^ອາ^ລິ^ຢາ -->
+<a b="53 65 5e 61 61 5e 6c 69 5e 79 61 61"
    u="0ec0 0e8a 005e 0ead 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^kaa^kaa = ເຊ^ອານ^ຢາ^ຊູບ -->
-<a b="53 65 5e 6b 61 61 5e 6b 61 61"
+<!-- Se^aan^Yaasupv = ເຊ^ອານ^ຢາ^ຊູບ -->
+<a b="53 65 5e 61 61 6e 5e 59 61 61 73 75 70 76"
    u="0ec0 0e8a 005e 0ead 0eb2 0e99 005e 0ea2 0eb2 005e 0e8a 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^kaa^li^yaa = ເຊ^ອັນ^ທິ^ເອນ -->
-<a b="53 65 5e 6b 61 61 5e 6c 69 5e 79 61 61"
+<!-- Se^an^ti^en = ເຊ^ອັນ^ທິ^ເອນ -->
+<a b="53 65 5e 61 6e 5e 74 69 5e 65 6e"
    u="0ec0 0e8a 005e 0ead 0eb1 0e99 005e 0e97 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^laa^hi^yaa = ເຊ^ບາ^ນິ^ຢາ -->
-<a b="53 65 5e 6c 61 61 5e 68 69 5e 79 61 61"
+<!-- Se^mbaa^ni^yaa = ເຊ^ບາ^ນິ^ຢາ -->
+<a b="53 65 5e 6d 62 61 61 5e 6e 69 5e 79 61 61"
    u="0ec0 0e8a 005e 0e9a 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^lu^waa = ເຊ^ຟາ^ທິ^ຢາ -->
-<a b="53 65 5e 6c 75 5e 77 61 61"
+<!-- Se^faa^ti^yaa = ເຊ^ຟາ^ທິ^ຢາ -->
+<a b="53 65 5e 66 61 61 5e 74 69 5e 79 61 61"
    u="0ec0 0e8a 005e 0e9f 0eb2 005e 0e97 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^lu^yaa = ເຊ^ຫະ^ລິ^ຢາ -->
-<a b="53 65 5e 6c 75 5e 79 61 61"
+<!-- Se^haa^li^yaa = ເຊ^ຫະ^ລິ^ຢາ -->
+<a b="53 65 5e 68 61 61 5e 6c 69 5e 79 61 61"
    u="0ec0 0e8a 005e 0eab 0eb0 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Selukv = ເຊ^ຄາ^ນິ^ຢາ -->
-<a b="53 65 6c 75 6b 76"
+<!-- Se^kaa^ni^yaa = ເຊ^ຄາ^ນິ^ຢາ -->
+<a b="53 65 5e 6b 61 61 5e 6e 69 5e 79 61 61"
    u="0ec0 0e8a 005e 0e84 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^maa^ki^yaa = ເຊ^ເລ^ມິ^ຢາ -->
-<a b="53 65 5e 6d 61 61 5e 6b 69 5e 79 61 61"
+<!-- Se^le^mi^yaa = ເຊ^ເລ^ມິ^ຢາ -->
+<a b="53 65 5e 6c 65 5e 6d 69 5e 79 61 61"
    u="0ec0 0e8a 005e 0ec0 0ea5 005e 0ea1 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Se^mi^laa = ເຊ^ລູ^ມິ^ເອນ -->
-<a b="53 65 5e 6d 69 5e 6c 61 61"
+<!-- Se^lu^mi^en = ເຊ^ລູ^ມິ^ເອນ -->
+<a b="53 65 5e 6c 75 5e 6d 69 5e 65 6e"
    u="0ec0 0e8a 005e 0ea5 0eb9 005e 0ea1 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Siaa = ເຊ^ມາ^ລິ^ຢາ -->
-<a b="53 69 61 61"
+<!-- Se^maa^li^yaa = ເຊ^ມາ^ລິ^ຢາ -->
+<a b="53 65 5e 6d 61 61 5e 6c 69 5e 79 61 61"
    u="0ec0 0e8a 005e 0ea1 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^mbaa = ເຊ^ມິ^ດາ -->
-<a b="53 69 5e 6d 62 61 61"
+<!-- Se^mi^ndaa = ເຊ^ມິ^ດາ -->
+<a b="53 65 5e 6d 69 5e 6e 64 61 61"
    u="0ec0 0e8a 005e 0ea1 0eb4 005e 0e94 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^mbe^on = ເຊ^ມິ^ລາ^ໂມດ -->
-<a b="53 69 5e 6d 62 65 5e 6f 6e"
+<!-- Se^mi^laa^motv = ເຊ^ມິ^ລາ^ໂມດ -->
+<a b="53 65 5e 6d 69 5e 6c 61 61 5e 6d 6f 74 76"
    u="0ec0 0e8a 005e 0ea1 0eb4 005e 0ea5 0eb2 005e 0ec2 0ea1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^mbi^yaa = ເຊ^ມິ^ນິດ -->
-<a b="53 69 5e 6d 62 69 5e 79 61 61"
+<!-- Se^mi^nitv = ເຊ^ມິ^ນິດ -->
+<a b="53 65 5e 6d 69 5e 6e 69 74 76"
    u="0ec0 0e8a 005e 0ea1 0eb4 005e 0e99 0eb4 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^mbie = ເສ^ບາ^ດິ^ຢາ -->
-<a b="53 69 5e 6d 62 69 65"
+<!-- Se^mbaa^ndi^yaa = ເສ^ບາ^ດິ^ຢາ -->
+<a b="53 65 5e 6d 62 61 61 5e 6e 64 69 5e 79 61 61"
    u="0ec0 0eaa 005e 0e9a 0eb2 005e 0e94 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^e^ne = ເສ^ບີ^ດາ -->
-<a b="53 69 5e 65 5e 6e 65"
+<!-- Se^mbi^ndaa = ເສ^ບີ^ດາ -->
+<a b="53 65 5e 6d 62 69 5e 6e 64 61 61"
    u="0ec0 0eaa 005e 0e9a 0eb5 005e 0e94 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sifaa = ເສ^ບິ^ນາ -->
-<a b="53 69 66 61 61"
+<!-- Se^mbi^naa = ເສ^ບິ^ນາ -->
+<a b="53 65 5e 6d 62 69 5e 6e 61 61"
    u="0ec0 0eaa 005e 0e9a 0eb4 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sifi = ເສ^ຄະ^ຄາ -->
-<a b="53 69 66 69"
+<!-- Se^kaa^kaa = ເສ^ຄະ^ຄາ -->
+<a b="53 65 5e 6b 61 61 5e 6b 61 61"
    u="0ec0 0eaa 005e 0e84 0eb0 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^fi^yon = ເສ^ຄາ^ລິ^ຢາ -->
-<a b="53 69 5e 66 69 5e 79 6f 6e"
+<!-- Se^kaa^li^yaa = ເສ^ຄາ^ລິ^ຢາ -->
+<a b="53 65 5e 6b 61 61 5e 6c 69 5e 79 61 61"
    u="0ec0 0eaa 005e 0e84 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sifon = ເສ^ລາ^ຫິ^ຢາ -->
-<a b="53 69 66 6f 6e"
+<!-- Se^laa^hi^yaa = ເສ^ລາ^ຫິ^ຢາ -->
+<a b="53 65 5e 6c 61 61 5e 68 69 5e 79 61 61"
    u="0ec0 0eaa 005e 0ea5 0eb2 005e 0eab 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^hox = ເສ^ລຸ^ວາ -->
-<a b="53 69 5e 68 6f 78"
+<!-- Se^lu^waa = ເສ^ລຸ^ວາ -->
+<a b="53 65 5e 6c 75 5e 77 61 61"
    u="0ec0 0eaa 005e 0ea5 0eb8 005e 0ea7 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- SihoxLipv^naatv = ເສ^ລຸ^ຢາ -->
-<a b="53 69 68 6f 78 4c 69 70 76 5e 6e 61 61 74 76"
+<!-- Se^lu^yaa = ເສ^ລຸ^ຢາ -->
+<a b="53 65 5e 6c 75 5e 79 61 61"
    u="0ec0 0eaa 005e 0ea5 0eb8 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^honx = ເສ^ລຸກ -->
-<a b="53 69 5e 68 6f 6e 78"
+<!-- Selukv = ເສ^ລຸກ -->
+<a b="53 65 6c 75 6b 76"
    u="0ec0 0eaa 005e 0ea5 0eb8 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sikaa = ເສ^ມາ^ຄິ^ຢາ -->
-<a b="53 69 6b 61 61"
+<!-- Se^maa^ki^yaa = ເສ^ມາ^ຄິ^ຢາ -->
+<a b="53 65 5e 6d 61 61 5e 6b 69 5e 79 61 61"
    u="0ec0 0eaa 005e 0ea1 0eb2 005e 0e84 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^gi^o^notv = ເສ^ມິ^ລາ -->
-<a b="53 69 5e 67 69 5e 6f 5e 6e 6f 74 76"
+<!-- Se^mi^laa = ເສ^ມິ^ລາ -->
+<a b="53 65 5e 6d 69 5e 6c 61 61"
    u="0ec0 0eaa 005e 0ea1 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^lie^fi^ni^sie = ສິ^ອາ -->
-<a b="53 69 5e 6c 69 65 5e 66 69 5e 6e 69 5e 73 69 65"
+<!-- Siaa = ສິ^ອາ -->
+<a b="53 69 61 61"
    u="0eaa 0eb4 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^me^aa = ຊິ^ບາ -->
-<a b="53 69 5e 6d 65 5e 61 61"
+<!-- Si^mbaa = ຊິ^ບາ -->
+<a b="53 69 5e 6d 62 61 61"
    u="0e8a 0eb4 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^me^am = ສິ^ເບ^ໂອນ -->
-<a b="53 69 5e 6d 65 5e 61 6d"
+<!-- Si^mbe^on = ສິ^ເບ^ໂອນ -->
+<a b="53 69 5e 6d 62 65 5e 6f 6e"
    u="0eaa 0eb4 005e 0ec0 0e9a 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^me^atc = ສິ^ບີ^ຢາ -->
-<a b="53 69 5e 6d 65 5e 61 74 63"
+<!-- Si^mbi^yaa = ສິ^ບີ^ຢາ -->
+<a b="53 69 5e 6d 62 69 5e 79 61 61"
    u="0eaa 0eb4 005e 0e9a 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^me^Iaa = ສິ^ເບຍ -->
-<a b="53 69 5e 6d 65 5e 49 61 61"
+<!-- Si^mbie = ສິ^ເບຍ -->
+<a b="53 69 5e 6d 62 69 65"
    u="0eaa 0eb4 005e 0ec0 0e9a 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^me^on = ສິ^ເອ^ເນ -->
-<a b="53 69 5e 6d 65 5e 6f 6e"
+<!-- Si^e^ne = ສິ^ເອ^ເນ -->
+<a b="53 69 5e 65 5e 6e 65"
    u="0eaa 0eb4 005e 0ec0 0ead 005e 0ec0 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^on = ສິ^ຟາ -->
-<a b="53 69 5e 6f 6e"
+<!-- Sifaa = ສິ^ຟາ -->
+<a b="53 69 66 61 61"
    u="0eaa 0eb4 005e 0e9f 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^saa^aa = ຊິ^ຟີ -->
-<a b="53 69 5e 73 61 61 5e 61 61"
+<!-- Sifi = ຊິ^ຟີ -->
+<a b="53 69 66 69"
    u="0e8a 0eb4 005e 0e9f 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^saa^mai = ສິ^ຟິ^ໂຢນ -->
-<a b="53 69 5e 73 61 61 5e 6d 61 69"
+<!-- Si^fi^yon = ສິ^ຟິ^ໂຢນ -->
+<a b="53 69 5e 66 69 5e 79 6f 6e"
    u="0eaa 0eb4 005e 0e9f 0eb4 005e 0ec2 0ea2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sisakv = ສິ^ໂຟນ -->
-<a b="53 69 73 61 6b 76"
+<!-- Sifon = ສິ^ໂຟນ -->
+<a b="53 69 66 6f 6e"
    u="0eaa 0eb4 005e 0ec2 0e9f 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^se^laa = ຊິ^ໂຫ -->
-<a b="53 69 5e 73 65 5e 6c 61 61"
+<!-- Si^hox = ຊິ^ໂຫ -->
+<a b="53 69 5e 68 6f 78"
    u="0e8a 0eb4 005e 0ec2 0eab" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Si^si^li = ຊິ^ໂຫ^ລິບ^ນາດ -->
-<a b="53 69 5e 73 69 5e 6c 69"
+<!-- SihoxLipv^naatv = ຊິ^ໂຫ^ລິບ^ນາດ -->
+<a b="53 69 68 6f 78 4c 69 70 76 5e 6e 61 61 74 76"
    u="0e8a 0eb4 005e 0ec2 0eab 005e 0ea5 0eb4 0e9a 005e 0e99 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sitie = ສິ^ໂຫນ -->
-<a b="53 69 74 69 65"
+<!-- Si^honx = ສິ^ໂຫນ -->
+<a b="53 69 5e 68 6f 6e 78"
    u="0eaa 0eb4 005e 0ec2 0eab 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Siwan = ສິ^ຄາ -->
-<a b="53 69 77 61 6e"
+<!-- Sikaa = ສິ^ຄາ -->
+<a b="53 69 6b 61 61"
    u="0eaa 0eb4 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Siyo = ຊິ^ກິ^ໂອ^ໂນດ -->
-<a b="53 69 79 6f"
+<!-- Si^gi^o^notv = ຊິ^ກິ^ໂອ^ໂນດ -->
+<a b="53 69 5e 67 69 5e 6f 5e 6e 6f 74 76"
    u="0e8a 0eb4 005e 0e81 0eb4 005e 0ec2 0ead 005e 0ec2 0e99 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sikc^laakv = ຊີ^ເລຍ^ຟີ^ນິ^ເຊຍ -->
-<a b="53 69 6b 63 5e 6c 61 61 6b 76"
+<!-- Si^lie^fi^ni^sie = ຊີ^ເລຍ^ຟີ^ນິ^ເຊຍ -->
+<a b="53 69 5e 6c 69 65 5e 66 69 5e 6e 69 5e 73 69 65"
    u="0e8a 0eb5 005e 0ec0 0ea5 0e8d 005e 0e9f 0eb5 005e 0e99 0eb4 005e 0ec0 0e8a 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sikc^li = ຊິ^ເມ^ອາ -->
-<a b="53 69 6b 63 5e 6c 69"
+<!-- Si^me^aa = ຊິ^ເມ^ອາ -->
+<a b="53 69 5e 6d 65 5e 61 61"
    u="0e8a 0eb4 005e 0ec0 0ea1 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sikv^gaa^yon = ຊິ^ເມ^ອຳ -->
-<a b="53 69 6b 76 5e 67 61 61 5e 79 6f 6e"
+<!-- Si^me^am = ຊິ^ເມ^ອຳ -->
+<a b="53 69 5e 6d 65 5e 61 6d"
    u="0e8a 0eb4 005e 0ec0 0ea1 005e 0ead 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sikv^ke^lon = ຊິ^ເມ^ອັດ -->
-<a b="53 69 6b 76 5e 6b 65 5e 6c 6f 6e"
+<!-- Si^me^atc = ຊິ^ເມ^ອັດ -->
+<a b="53 69 5e 6d 65 5e 61 74 63"
    u="0e8a 0eb4 005e 0ec0 0ea1 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sin^hi = ຊິ^ເມ^ລາ -->
-<a b="53 69 6e 5e 68 69"
+<!-- Si^me^Iaa = ຊິ^ເມ^ລາ -->
+<a b="53 69 5e 6d 65 5e 49 61 61"
    u="0e8a 0eb4 005e 0ec0 0ea1 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sinx^ti^ke = ສິ^ເມ^ໂອນ -->
-<a b="53 69 6e 78 5e 74 69 5e 6b 65"
+<!-- Si^me^on = ສິ^ເມ^ໂອນ -->
+<a b="53 69 5e 6d 65 5e 6f 6e"
    u="0eaa 0eb4 005e 0ec0 0ea1 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- So^saa^te^netv = ສິ^ໂອນ -->
-<a b="53 6f 5e 73 61 61 5e 74 65 5e 6e 65 74 76"
+<!-- Si^on = ສິ^ໂອນ -->
+<a b="53 69 5e 6f 6e"
    u="0eaa 0eb4 005e 0ec2 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- So^si^baa^te = ສິ^ຊາ^ອາ -->
-<a b="53 6f 5e 73 69 5e 62 61 61 5e 74 65"
+<!-- Si^saa^aa = ສິ^ຊາ^ອາ -->
+<a b="53 69 5e 73 61 61 5e 61 61"
    u="0eaa 0eb4 005e 0e8a 0eb2 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Su^aa = ສິ^ສະ^ໄມ -->
-<a b="53 75 5e 61 61"
+<!-- Si^saa^mai = ສິ^ສະ^ໄມ -->
+<a b="53 69 5e 73 61 61 5e 6d 61 69"
    u="0eaa 0eb4 005e 0eaa 0eb0 005e 0ec4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sufaa = ຊິ^ຊັກ -->
-<a b="53 75 66 61 61"
+<!-- Sisakv = ຊິ^ຊັກ -->
+<a b="53 69 73 61 6b 76"
    u="0e8a 0eb4 005e 0e8a 0eb1 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sukaa = ສິ^ເສ^ລາ -->
-<a b="53 75 6b 61 61"
+<!-- Si^se^laa = ສິ^ເສ^ລາ -->
+<a b="53 69 5e 73 65 5e 6c 61 61"
    u="0eaa 0eb4 005e 0ec0 0eaa 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Su^ki^im = ຊີ^ຊິ^ລີ -->
-<a b="53 75 5e 6b 69 5e 69 6d"
+<!-- Si^si^li = ຊີ^ຊິ^ລີ -->
+<a b="53 69 5e 73 69 5e 6c 69"
    u="0e8a 0eb5 005e 0e8a 0eb4 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Susaax = ສິ^ເທຍ -->
-<a b="53 75 73 61 61 78"
+<!-- Sitie = ສິ^ເທຍ -->
+<a b="53 69 74 69 65"
    u="0eaa 0eb4 005e 0ec0 0e97 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Su^sanx^naa = ສິ^ວັນ -->
-<a b="53 75 5e 73 61 6e 78 5e 6e 61 61"
+<!-- Siwan = ສິ^ວັນ -->
+<a b="53 69 77 61 6e"
    u="0eaa 0eb4 005e 0ea7 0eb1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Susi = ສິ^ໂຢ -->
-<a b="53 75 73 69"
+<!-- Siyo = ສິ^ໂຢ -->
+<a b="53 69 79 6f"
    u="0eaa 0eb4 005e 0ec2 0ea2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sux^li^en = ສິກ^ລາກ -->
-<a b="53 75 78 5e 6c 69 5e 65 6e"
+<!-- Sikc^laakv = ສິກ^ລາກ -->
+<a b="53 69 6b 63 5e 6c 61 61 6b 76"
    u="0eaa 0eb4 0e81 005e 0ea5 0eb2 0e81" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sux^li^satv^ndai = ສິກ^ລີ -->
-<a b="53 75 78 5e 6c 69 5e 73 61 74 76 5e 6e 64 61 69"
+<!-- Sikc^li = ສິກ^ລີ -->
+<a b="53 69 6b 63 5e 6c 69"
    u="0eaa 0eb4 0e81 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sukc^kotv = ຊິກ^ກາ^ໂຢນ -->
-<a b="53 75 6b 63 5e 6b 6f 74 76"
+<!-- Sikv^gaa^yon = ຊິກ^ກາ^ໂຢນ -->
+<a b="53 69 6b 76 5e 67 61 61 5e 79 6f 6e"
    u="0e8a 0eb4 0e81 005e 0e81 0eb2 005e 0ec2 0ea2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Sukc^kotv^mbe^notv = ຊິກ^ເຄ^ໂລນ -->
-<a b="53 75 6b 63 5e 6b 6f 74 76 5e 6d 62 65 5e 6e 6f 74 76"
+<!-- Sikv^ke^lon = ຊິກ^ເຄ^ໂລນ -->
+<a b="53 69 6b 76 5e 6b 65 5e 6c 6f 6e"
    u="0e8a 0eb4 0e81 005e 0ec0 0e84 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Supc = ຊິນ^ຫິ -->
-<a b="53 75 70 63"
+<!-- Sin^hi = ຊິນ^ຫິ -->
+<a b="53 69 6e 5e 68 69"
    u="0e8a 0eb4 0e99 005e 0eab 0eb4" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Taa^aa^natvSilo = ສິນ^ທິ^ເຄ -->
-<a b="54 61 61 5e 61 61 5e 6e 61 74 76 53 69 6c 6f"
+<!-- Sinx^ti^ke = ສິນ^ທິ^ເຄ -->
+<a b="53 69 6e 78 5e 74 69 5e 6b 65"
    u="0eaa 0eb4 0e99 005e 0e97 0eb4 005e 0ec0 0e84" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Taa^mbi^taa = ໂສ^ສະ^ເທ^ເນດ -->
-<a b="54 61 61 5e 6d 62 69 5e 74 61 61"
+<!-- So^saa^te^netv = ໂສ^ສະ^ເທ^ເນດ -->
+<a b="53 6f 5e 73 61 61 5e 74 65 5e 6e 65 74 76"
    u="0ec2 0eaa 005e 0eaa 0eb0 005e 0ec0 0e97 005e 0ec0 0e99 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Daa^ko^ni^ditc = ໂສ^ສິ^ປາ^ເທ -->
-<a b="44 61 61 5e 6b 6f 5e 6e 69 5e 64 69 74 63"
+<!-- So^si^baa^te = ໂສ^ສິ^ປາ^ເທ -->
+<a b="53 6f 5e 73 69 5e 62 61 61 5e 74 65"
    u="0ec2 0eaa 005e 0eaa 0eb4 005e 0e9b 0eb2 005e 0ec0 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Taa^laa^laa = ສຸ^ອາ -->
-<a b="54 61 61 5e 6c 61 61 5e 6c 61 61"
+<!-- Su^aa = ສຸ^ອາ -->
+<a b="53 75 5e 61 61"
    u="0eaa 0eb8 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Taa^li^taa^ku^mi = ສຸ^ຟາ -->
-<a b="54 61 61 5e 6c 69 5e 74 61 61 5e 6b 75 5e 6d 69"
+<!-- Sufaa = ສຸ^ຟາ -->
+<a b="53 75 66 61 61"
    u="0eaa 0eb8 005e 0e9f 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tailaqv = ສຸ^ຄາ -->
-<a b="54 61 69 6c 61 71 76"
+<!-- Sukaa = ສຸ^ຄາ -->
+<a b="53 75 6b 61 61"
    u="0eaa 0eb8 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tan^hu^metv = ສຸ^ຄີ^ອິມ -->
-<a b="54 61 6e 5e 68 75 5e 6d 65 74 76"
+<!-- Su^ki^im = ສຸ^ຄີ^ອິມ -->
+<a b="53 75 5e 6b 69 5e 69 6d"
    u="0eaa 0eb8 005e 0e84 0eb5 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Te^mbaa^li^yaa = ສຸ^ສາ -->
-<a b="54 65 5e 6d 62 61 61 5e 6c 69 5e 79 61 61"
+<!-- Susaax = ສຸ^ສາ -->
+<a b="53 75 73 61 61 78"
    u="0eaa 0eb8 005e 0eaa 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Te^saa^lo^ni^gaa = ສຸ^ສັນ^ນາ -->
-<a b="54 65 5e 73 61 61 5e 6c 6f 5e 6e 69 5e 67 61 61"
+<!-- Su^sanx^naa = ສຸ^ສັນ^ນາ -->
+<a b="53 75 5e 73 61 6e 78 5e 6e 61 61"
    u="0eaa 0eb8 005e 0eaa 0eb1 0e99 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Te^ti^atc = ສຸ^ສີ -->
-<a b="54 65 5e 74 69 5e 61 74 63"
+<!-- Susi = ສຸ^ສີ -->
+<a b="53 75 73 69"
    u="0eaa 0eb8 005e 0eaa 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^mbe^li^atc = ສູ^ລິ^ເອນ -->
-<a b="54 69 5e 6d 62 65 5e 6c 69 5e 61 74 63"
+<!-- Sux^li^en = ສູ^ລິ^ເອນ -->
+<a b="53 75 78 5e 6c 69 5e 65 6e"
    u="0eaa 0eb9 005e 0ea5 0eb4 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^mbe^lietv = ສູ^ລິ^ຊັດ^ໄດ -->
-<a b="54 69 5e 6d 62 65 5e 6c 69 65 74 76"
+<!-- Sux^li^satv^ndai = ສູ^ລິ^ຊັດ^ໄດ -->
+<a b="53 75 78 5e 6c 69 5e 73 61 74 76 5e 6e 64 61 69"
    u="0eaa 0eb9 005e 0ea5 0eb4 005e 0e8a 0eb1 0e94 005e 0ec4 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^ndaan = ສຸກ^ໂຄດ -->
-<a b="54 69 5e 6e 64 61 61 6e"
+<!-- Sukc^kotv = ສຸກ^ໂຄດ -->
+<a b="53 75 6b 63 5e 6b 6f 74 76"
    u="0eaa 0eb8 0e81 005e 0ec2 0e84 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^ki^gatc = ສຸກ^ໂຄດ^ເບ^ໂນດ -->
-<a b="54 69 5e 6b 69 5e 67 61 74 63"
+<!-- Sukc^kotv^mbe^notv = ສຸກ^ໂຄດ^ເບ^ໂນດ -->
+<a b="53 75 6b 63 5e 6b 6f 74 76 5e 6d 62 65 5e 6e 6f 74 76"
    u="0eaa 0eb8 0e81 005e 0ec2 0e84 0e94 005e 0ec0 0e9a 005e 0ec2 0e99 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^laa^haa^kaa = ສູບ -->
-<a b="54 69 5e 6c 61 61 5e 68 61 61 5e 6b 61 61"
+<!-- Supc = ສູບ -->
+<a b="53 75 70 63"
    u="0eaa 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^laa^haa^naa = ທາ^ອາ^ນັດ^ຊິ^ໂລ -->
-<a b="54 69 5e 6c 61 61 5e 68 61 61 5e 6e 61 61"
+<!-- Taa^aa^natvSilo = ທາ^ອາ^ນັດ^ຊິ^ໂລ -->
+<a b="54 61 61 5e 61 61 5e 6e 61 74 76 53 69 6c 6f"
    u="0e97 0eb2 005e 0ead 0eb2 005e 0e99 0eb1 0e94 005e 0e8a 0eb4 005e 0ec2 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^laa^saa = ທາ^ບິ^ທາ -->
-<a b="54 69 5e 6c 61 61 5e 73 61 61"
+<!-- Taa^mbi^taa = ທາ^ບິ^ທາ -->
+<a b="54 61 61 5e 6d 62 69 5e 74 61 61"
    u="0e97 0eb2 005e 0e9a 0eb4 005e 0e97 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^laa^tai = ຕາ^ໂຄ^ນິ^ຕິດ -->
-<a b="54 69 5e 6c 61 61 5e 74 61 69"
+<!-- Daa^ko^ni^ditc = ຕາ^ໂຄ^ນິ^ຕິດ -->
+<a b="44 61 61 5e 6b 6f 5e 6e 69 5e 64 69 74 63"
    u="0e95 0eb2 005e 0ec2 0e84 005e 0e99 0eb4 005e 0e95 0eb4 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tilaatv = ທາ^ລະ^ລາ -->
-<a b="54 69 6c 61 61 74 76"
+<!-- Taa^laa^laa = ທາ^ລະ^ລາ -->
+<a b="54 61 61 5e 6c 61 61 5e 6c 61 61"
    u="0e97 0eb2 005e 0ea5 0eb0 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^li^yaa = ທາ^ລິ^ທາ^ຄູ^ມິ -->
-<a b="54 69 5e 6c 69 5e 79 61 61"
+<!-- Taa^li^taa^ku^mi = ທາ^ລິ^ທາ^ຄູ^ມິ -->
+<a b="54 61 61 5e 6c 69 5e 74 61 61 5e 6b 75 5e 6d 69"
    u="0e97 0eb2 005e 0ea5 0eb4 005e 0e97 0eb2 005e 0e84 0eb9 005e 0ea1 0eb4" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tilon = ໄທ^ລະ -->
-<a b="54 69 6c 6f 6e"
+<!-- Tailaqv = ໄທ^ລະ -->
+<a b="54 61 69 6c 61 71 76"
    u="0ec4 0e97 005e 0ea5 0eb0" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^me^atc = ທັນ^ຫຸ^ເມດ -->
-<a b="54 69 5e 6d 65 5e 61 74 63"
+<!-- Tan^hu^metv = ທັນ^ຫຸ^ເມດ -->
+<a b="54 61 6e 5e 68 75 5e 6d 65 74 76"
    u="0e97 0eb1 0e99 005e 0eab 0eb8 005e 0ec0 0ea1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^mo^tai = ເທ^ບາ^ລິ^ຢາ -->
-<a b="54 69 5e 6d 6f 5e 74 61 69"
+<!-- Te^mbaa^li^yaa = ເທ^ບາ^ລິ^ຢາ -->
+<a b="54 65 5e 6d 62 61 61 5e 6c 69 5e 79 61 61"
    u="0ec0 0e97 005e 0e9a 0eb2 005e 0ea5 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Timon = ເທ^ສະ^ໂລ^ນິ^ກາ -->
-<a b="54 69 6d 6f 6e"
+<!-- Te^saa^lo^ni^gaa = ເທ^ສະ^ໂລ^ນິ^ກາ -->
+<a b="54 65 5e 73 61 61 5e 6c 6f 5e 6e 69 5e 67 61 61"
    u="0ec0 0e97 005e 0eaa 0eb0 005e 0ec2 0ea5 005e 0e99 0eb4 005e 0e81 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tisai = ເທ^ທິ^ອັດ -->
-<a b="54 69 73 61 69"
+<!-- Te^ti^atc = ເທ^ທິ^ອັດ -->
+<a b="54 65 5e 74 69 5e 61 74 63"
    u="0ec0 0e97 005e 0e97 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tidatc = ທິ^ເບ^ລິ^ອັດ -->
-<a b="54 69 64 61 74 63"
+<!-- Ti^mbe^li^atc = ທິ^ເບ^ລິ^ອັດ -->
+<a b="54 69 5e 6d 62 65 5e 6c 69 5e 61 74 63"
    u="0e97 0eb4 005e 0ec0 0e9a 005e 0ea5 0eb4 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^datc^yu^saa^tatv = ທິ^ເບ^ລຽດ -->
-<a b="54 69 5e 64 61 74 63 5e 79 75 5e 73 61 61 5e 74 61 74 76"
+<!-- Ti^mbe^lietv = ທິ^ເບ^ລຽດ -->
+<a b="54 69 5e 6d 62 65 5e 6c 69 65 74 76"
    u="0e97 0eb4 005e 0ec0 0e9a 005e 0ea5 0ebd 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ti^yaa^ti^laa = ທິ^ດານ -->
-<a b="54 69 5e 79 61 61 5e 74 69 5e 6c 61 61"
+<!-- Ti^ndaan = ທິ^ດານ -->
+<a b="54 69 5e 6e 64 61 61 6e"
    u="0e97 0eb4 005e 0e94 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tikc^waa = ທີ^ຄິ^ກັດ -->
-<a b="54 69 6b 63 5e 77 61 61"
+<!-- Ti^ki^gatc = ທີ^ຄິ^ກັດ -->
+<a b="54 69 5e 6b 69 5e 67 61 74 63"
    u="0e97 0eb5 005e 0e84 0eb4 005e 0e81 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tikv^latv^Bi^le^se = ທີ^ລະ^ຫະ^ຄາ -->
-<a b="54 69 6b 76 5e 6c 61 74 76 5e 42 69 5e 6c 65 5e 73 65"
+<!-- Ti^laa^haa^kaa = ທີ^ລະ^ຫະ^ຄາ -->
+<a b="54 69 5e 6c 61 61 5e 68 61 61 5e 6b 61 61"
    u="0e97 0eb5 005e 0ea5 0eb0 005e 0eab 0eb0 005e 0e84 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tohu = ທີ^ລະ^ຫະ^ນາ -->
-<a b="54 6f 68 75"
+<!-- Ti^laa^haa^naa = ທີ^ລະ^ຫະ^ນາ -->
+<a b="54 69 5e 6c 61 61 5e 68 61 61 5e 6e 61 61"
    u="0e97 0eb5 005e 0ea5 0eb0 005e 0eab 0eb0 005e 0e99 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Topv^Aa^ndo^ni^yaa = ທີ^ລະ^ຊາ -->
-<a b="54 6f 70 76 5e 41 61 5e 6e 64 6f 5e 6e 69 5e 79 61 61"
+<!-- Ti^laa^saa = ທີ^ລະ^ຊາ -->
+<a b="54 69 5e 6c 61 61 5e 73 61 61"
    u="0e97 0eb5 005e 0ea5 0eb0 005e 0e8a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Totv^mbu^li = ທິ^ລາ^ໄທ -->
-<a b="54 6f 74 76 5e 6d 62 75 5e 6c 69"
+<!-- Ti^laa^tai = ທິ^ລາ^ໄທ -->
+<a b="54 69 5e 6c 61 61 5e 74 61 69"
    u="0e97 0eb4 005e 0ea5 0eb2 005e 0ec4 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Tu^ndaatc = ທິ^ລາດ -->
-<a b="54 75 5e 6e 64 61 61 74 63"
+<!-- Tilaatv = ທິ^ລາດ -->
+<a b="54 69 6c 61 61 74 76"
    u="0e97 0eb4 005e 0ea5 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ufaatv = ທິ^ລີ^ຢາ -->
-<a b="55 66 61 61 74 76"
+<!-- Ti^li^yaa = ທິ^ລີ^ຢາ -->
+<a b="54 69 5e 6c 69 5e 79 61 61"
    u="0e97 0eb4 005e 0ea5 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ulaam = ທິ^ໂລນ -->
-<a b="55 6c 61 61 6d"
+<!-- Tilon = ທິ^ໂລນ -->
+<a b="54 69 6c 6f 6e"
    u="0e97 0eb4 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Uli = ທິ^ເມ^ອັດ -->
-<a b="55 6c 69"
+<!-- Ti^me^atc = ທິ^ເມ^ອັດ -->
+<a b="54 69 5e 6d 65 5e 61 74 63"
    u="0e97 0eb4 005e 0ec0 0ea1 005e 0ead 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- U^li^aa = ທິ^ໂມ^ໄທ -->
-<a b="55 5e 6c 69 5e 61 61"
+<!-- Ti^mo^tai = ທິ^ໂມ^ໄທ -->
+<a b="54 69 5e 6d 6f 5e 74 61 69"
    u="0e97 0eb4 005e 0ec2 0ea1 005e 0ec4 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- U^li^en = ທິ^ໂມນ -->
-<a b="55 5e 6c 69 5e 65 6e"
+<!-- Timon = ທິ^ໂມນ -->
+<a b="54 69 6d 6f 6e"
    u="0e97 0eb4 005e 0ec2 0ea1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- U^li^yaa = ທິ^ໄຊ -->
-<a b="55 5e 6c 69 5e 79 61 61"
+<!-- Tisai = ທິ^ໄຊ -->
+<a b="54 69 73 61 69"
    u="0e97 0eb4 005e 0ec4 0e8a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ulim = ທິ^ຕັດ -->
-<a b="55 6c 69 6d"
+<!-- Tidatc = ທິ^ຕັດ -->
+<a b="54 69 64 61 74 63"
    u="0e97 0eb4 005e 0e95 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Usaan = ທິ^ຕັດ^ຢຸ^ສະ^ທັດ -->
-<a b="55 73 61 61 6e"
+<!-- Ti^datc^yu^saa^tatv = ທິ^ຕັດ^ຢຸ^ສະ^ທັດ -->
+<a b="54 69 5e 64 61 74 63 5e 79 75 5e 73 61 61 5e 74 61 74 76"
    u="0e97 0eb4 005e 0e95 0eb1 0e94 005e 0ea2 0eb8 005e 0eaa 0eb0 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Usai = ທິ^ຢາ^ທິ^ລາ -->
-<a b="55 73 61 69"
+<!-- Ti^yaa^ti^laa = ທິ^ຢາ^ທິ^ລາ -->
+<a b="54 69 5e 79 61 61 5e 74 69 5e 6c 61 61"
    u="0e97 0eb4 005e 0ea2 0eb2 005e 0e97 0eb4 005e 0ea5 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Utai = ທິກ^ວາ -->
-<a b="55 74 61 69"
+<!-- Tikc^waa = ທິກ^ວາ -->
+<a b="54 69 6b 63 5e 77 61 61"
    u="0e97 0eb4 0e81 005e 0ea7 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Utc = ທິກ^ລັດ^ປິ^ເລ^ເສ -->
-<a b="55 74 63"
+<!-- Tikv^latv^Bi^le^se = ທິກ^ລັດ^ປິ^ເລ^ເສ -->
+<a b="54 69 6b 76 5e 6c 61 74 76 5e 42 69 5e 6c 65 5e 73 65"
    u="0e97 0eb4 0e81 005e 0ea5 0eb1 0e94 005e 0e9b 0eb4 005e 0ec0 0ea5 005e 0ec0 0eaa" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Waa^ni^yaa = ໂທ^ຫຸ -->
-<a b="57 61 61 5e 6e 69 5e 79 61 61"
+<!-- Tohu = ໂທ^ຫຸ -->
+<a b="54 6f 68 75"
    u="0ec2 0e97 005e 0eab 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaa^aa^su = ໂທບ^ອາ^ໂດ^ນິ^ຢາ -->
-<a b="59 61 61 5e 61 61 5e 73 75"
+<!-- Topv^Aa^ndo^ni^yaa = ໂທບ^ອາ^ໂດ^ນິ^ຢາ -->
+<a b="54 6f 70 76 5e 41 61 5e 6e 64 6f 5e 6e 69 5e 79 61 61"
    u="0ec2 0e97 0e9a 005e 0ead 0eb2 005e 0ec2 0e94 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaa^mbetcGi^le^aatc = ໂທັດ^ບຸ^ລີ -->
-<a b="59 61 61 5e 6d 62 65 74 63 47 69 5e 6c 65 5e 61 61 74 63"
+<!-- Totv^mbu^li = ໂທັດ^ບຸ^ລີ -->
+<a b="54 6f 74 76 5e 6d 62 75 5e 6c 69"
    u="0ec2 0e97 0eb1 0e94 005e 0e9a 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaakin = ທຸ^ດາດ -->
-<a b="59 61 61 6b 69 6e"
+<!-- Tu^ndaatc = ທຸ^ດາດ -->
+<a b="54 75 5e 6e 64 61 61 74 63"
    u="0e97 0eb8 005e 0e94 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaagun = ອຸ^ຟັາດ -->
-<a b="59 61 61 67 75 6e"
+<!-- Ufaatv = ອຸ^ຟັາດ -->
+<a b="55 66 61 61 74 76"
    u="0ead 0eb8 005e 0e9f 0eb1 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaa^laa^haa = ອຸ^ລາມ -->
-<a b="59 61 61 5e 6c 61 61 5e 68 61 61"
+<!-- Ulaam = ອຸ^ລາມ -->
+<a b="55 6c 61 61 6d"
    u="0ead 0eb8 005e 0ea5 0eb2 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaalipv = ອຸ^ລີ -->
-<a b="59 61 61 6c 69 70 76"
+<!-- Uli = ອຸ^ລີ -->
+<a b="55 6c 69"
    u="0ead 0eb8 005e 0ea5 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaa^min = ອຸ^ລີ^ອາ -->
-<a b="59 61 61 5e 6d 69 6e"
+<!-- U^li^aa = ອຸ^ລີ^ອາ -->
+<a b="55 5e 6c 69 5e 61 61"
    u="0ead 0eb8 005e 0ea5 0eb5 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaasitv = ອຸ^ລີ^ເອນ -->
-<a b="59 61 61 73 69 74 76"
+<!-- U^li^en = ອຸ^ລີ^ເອນ -->
+<a b="55 5e 6c 69 5e 65 6e"
    u="0ead 0eb8 005e 0ea5 0eb5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaasupv = ອຸ^ລີ^ຢາ -->
-<a b="59 61 61 73 75 70 76"
+<!-- U^li^yaa = ອຸ^ລີ^ຢາ -->
+<a b="55 5e 6c 69 5e 79 61 61"
    u="0ead 0eb8 005e 0ea5 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yaanmutv = ອຸ^ລີມ -->
-<a b="59 61 61 6e 6d 75 74 76"
+<!-- Ulim = ອຸ^ລີມ -->
+<a b="55 6c 69 6d"
    u="0ead 0eb8 005e 0ea5 0eb5 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^ndi^ndi^yaa = ອຸ^ຊານ -->
-<a b="59 65 5e 6e 64 69 5e 6e 64 69 5e 79 61 61"
+<!-- Usaan = ອຸ^ຊານ -->
+<a b="55 73 61 61 6e"
    u="0ead 0eb8 005e 0e8a 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^ndu^tun = ອຸ^ໄຊ -->
-<a b="59 65 5e 6e 64 75 5e 74 75 6e"
+<!-- Usai = ອຸ^ໄຊ -->
+<a b="55 73 61 69"
    u="0ead 0eb8 005e 0ec4 0e8a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^ho^waa^yi^le = ອຸ^ໄທ -->
-<a b="59 65 5e 68 6f 5e 77 61 61 5e 79 69 5e 6c 65"
+<!-- Utai = ອຸ^ໄທ -->
+<a b="55 74 61 69"
    u="0ead 0eb8 005e 0ec4 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^ho^yaa^kin = ອູດ -->
-<a b="59 65 5e 68 6f 5e 79 61 61 5e 6b 69 6e"
+<!-- Utc = ອູດ -->
+<a b="55 74 63"
    u="0ead 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^hutv = ວາ^ນິ^ຢາ -->
-<a b="59 65 5e 68 75 74 76"
+<!-- Waa^ni^yaa = ວາ^ນິ^ຢາ -->
+<a b="57 61 61 5e 6e 69 5e 79 61 61"
    u="0ea7 0eb2 005e 0e99 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^kaa^mi^yaa = ຢາ^ອາ^ສຸ -->
-<a b="59 65 5e 6b 61 61 5e 6d 69 5e 79 61 61"
+<!-- Yaa^aa^su = ຢາ^ອາ^ສຸ -->
+<a b="59 61 61 5e 61 61 5e 73 75"
    u="0ea2 0eb2 005e 0ead 0eb2 005e 0eaa 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^si^mi^en = ຢາ^ເບດ^ກິ^ເລ^ອາດ -->
-<a b="59 65 5e 73 69 5e 6d 69 5e 65 6e"
+<!-- Yaa^mbetcGi^le^aatc = ຢາ^ເບດ^ກິ^ເລ^ອາດ -->
+<a b="59 61 61 5e 6d 62 65 74 63 47 69 5e 6c 65 5e 61 61 74 63"
    u="0ea2 0eb2 005e 0ec0 0e9a 0e94 005e 0e81 0eb4 005e 0ec0 0ea5 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^si^mon = ຢາ^ຄີນ -->
-<a b="59 65 5e 73 69 5e 6d 6f 6e"
+<!-- Yaakin = ຢາ^ຄີນ -->
+<a b="59 61 61 6b 69 6e"
    u="0ea2 0eb2 005e 0e84 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^si^sai = ຢາ^ກູນ -->
-<a b="59 65 5e 73 69 5e 73 61 69"
+<!-- Yaagun = ຢາ^ກູນ -->
+<a b="59 61 61 67 75 6e"
    u="0ea2 0eb2 005e 0e81 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Ye^utc = ຢາ^ລະ^ຮາ -->
-<a b="59 65 5e 75 74 63"
+<!-- Yaa^laa^haa = ຢາ^ລະ^ຮາ -->
+<a b="59 61 61 5e 6c 61 61 5e 68 61 61"
    u="0ea2 0eb2 005e 0ea5 0eb0 005e 0eae 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yen^ne^saa^letv = ຢາ^ລີບ -->
-<a b="59 65 6e 5e 6e 65 5e 73 61 61 5e 6c 65 74 76"
+<!-- Yaalipv = ຢາ^ລີບ -->
+<a b="59 61 61 6c 69 70 76"
    u="0ea2 0eb2 005e 0ea5 0eb5 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yilon = ຢາ^ມີນ -->
-<a b="59 69 6c 6f 6e"
+<!-- Yaa^min = ຢາ^ມີນ -->
+<a b="59 61 61 5e 6d 69 6e"
    u="0ea2 0eb2 005e 0ea1 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yitv^le^en = ຢາ^ຊີດ -->
-<a b="59 69 74 76 5e 6c 65 5e 65 6e"
+<!-- Yaasitv = ຢາ^ຊີດ -->
+<a b="59 61 61 73 69 74 76"
    u="0ea2 0eb2 005e 0e8a 0eb5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yitv^saa^laa^yaa = ຢາ^ຊູບ -->
-<a b="59 69 74 76 5e 73 61 61 5e 6c 61 61 5e 79 61 61"
+<!-- Yaasupv = ຢາ^ຊູບ -->
+<a b="59 61 61 73 75 70 76"
    u="0ea2 0eb2 005e 0e8a 0eb9 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yo^laa^ke^am = ຢານ^ມູດ -->
-<a b="59 6f 5e 6c 61 61 5e 6b 65 5e 61 6d"
+<!-- Yaanmutv = ຢານ^ມູດ -->
+<a b="59 61 61 6e 6d 75 74 76"
    u="0ea2 0eb2 0e99 005e 0ea1 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yo^saa^wi^yaa = ເຢ^ດີ^ດິ^ຢາ -->
-<a b="59 6f 5e 73 61 61 5e 77 69 5e 79 61 61"
+<!-- Ye^ndi^ndi^yaa = ເຢ^ດີ^ດິ^ຢາ -->
+<a b="59 65 5e 6e 64 69 5e 6e 64 69 5e 79 61 61"
    u="0ec0 0ea2 005e 0e94 0eb5 005e 0e94 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yo^si^mbi^yaa = ເຢ^ດູ^ທູນ -->
-<a b="59 6f 5e 73 69 5e 6d 62 69 5e 79 61 61"
+<!-- Ye^ndu^tun = ເຢ^ດູ^ທູນ -->
+<a b="59 65 5e 6e 64 75 5e 74 75 6e"
    u="0ec0 0ea2 005e 0e94 0eb9 005e 0e97 0eb9 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yo^si^fi^yaa = ເຢ^ໂຮ^ວາ^ຢິ^ເລ -->
-<a b="59 6f 5e 73 69 5e 66 69 5e 79 61 61"
+<!-- Ye^ho^waa^yi^le = ເຢ^ໂຮ^ວາ^ຢິ^ເລ -->
+<a b="59 65 5e 68 6f 5e 77 61 61 5e 79 69 5e 6c 65"
    u="0ec0 0ea2 005e 0ec2 0eae 005e 0ea7 0eb2 005e 0ea2 0eb4 005e 0ec0 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yo^si^yaa = ເຢ^ໂຮ^ຢາ^ຄີນ -->
-<a b="59 6f 5e 73 69 5e 79 61 61"
+<!-- Ye^ho^yaa^kin = ເຢ^ໂຮ^ຢາ^ຄີນ -->
+<a b="59 65 5e 68 6f 5e 79 61 61 5e 6b 69 6e"
    u="0ec0 0ea2 005e 0ec2 0eae 005e 0ea2 0eb2 005e 0e84 0eb5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yopv = ເຢ^ຮູດ -->
-<a b="59 6f 70 76"
+<!-- Ye^hutv = ເຢ^ຮູດ -->
+<a b="59 65 5e 68 75 74 76"
    u="0ec0 0ea2 005e 0eae 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yu^saa^tatv = ເຢ^ຄາ^ມິ^ຢາ -->
-<a b="59 75 5e 73 61 61 5e 74 61 74 76"
+<!-- Ye^kaa^mi^yaa = ເຢ^ຄາ^ມິ^ຢາ -->
+<a b="59 65 5e 6b 61 61 5e 6d 69 5e 79 61 61"
    u="0ec0 0ea2 005e 0e84 0eb2 005e 0ea1 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- Yu^ti^gatc = ເຢ^ສິ^ມີ^ເອນ -->
-<a b="59 75 5e 74 69 5e 67 61 74 63"
+<!-- Ye^si^mi^en = ເຢ^ສິ^ມີ^ເອນ -->
+<a b="59 65 5e 73 69 5e 6d 69 5e 65 6e"
    u="0ec0 0ea2 005e 0eaa 0eb4 005e 0ea1 0eb5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ye^si^mon = ເຢ^ຊິ^ໂມນ -->
+<a b="59 65 5e 73 69 5e 6d 6f 6e"
+   u="0ec0 0ea2 005e 0e8a 0eb4 005e 0ec2 0ea1 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ye^si^sai = ເຢ^ຊິ^ໄຊ -->
+<a b="59 65 5e 73 69 5e 73 61 69"
+   u="0ec0 0ea2 005e 0e8a 0eb4 005e 0ec4 0e8a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ye^utc = ເຢ^ອູດ -->
+<a b="59 65 5e 75 74 63"
+   u="0ec0 0ea2 005e 0ead 0eb9 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yen^ne^saa^letv = ເຢນ^ເນ^ຊາ^ເລດ -->
+<a b="59 65 6e 5e 6e 65 5e 73 61 61 5e 6c 65 74 76"
+   u="0ec0 0ea2 0e99 005e 0ec0 0e99 005e 0e8a 0eb2 005e 0ec0 0ea5 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yilon = ຢິ^ໂລນ -->
+<a b="59 69 6c 6f 6e"
+   u="0ea2 0eb4 005e 0ec2 0ea5 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yitv^le^en = ຢິດ^ເລ^ເອນ -->
+<a b="59 69 74 76 5e 6c 65 5e 65 6e"
+   u="0ea2 0eb4 0e94 005e 0ec0 0ea5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yitv^saa^laa^yaa = ຢິດ^ສະ^ລາ^ຢາ -->
+<a b="59 69 74 76 5e 73 61 61 5e 6c 61 61 5e 79 61 61"
+   u="0ea2 0eb4 0e94 005e 0eaa 0eb0 005e 0ea5 0eb2 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yo^laa^ke^am = ໂຢ^ລະ^ເຄ^ອຳ -->
+<a b="59 6f 5e 6c 61 61 5e 6b 65 5e 61 6d"
+   u="0ec2 0ea2 005e 0ea5 0eb0 005e 0ec0 0e84 005e 0ead 0eb3" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yo^saa^wi^yaa = ໂຢ^ຊາ^ວິ^ຢາ -->
+<a b="59 6f 5e 73 61 61 5e 77 69 5e 79 61 61"
+   u="0ec2 0ea2 005e 0e8a 0eb2 005e 0ea7 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yo^si^mbi^yaa = ໂຢ^ຊິ^ບີ^ຢາ -->
+<a b="59 6f 5e 73 69 5e 6d 62 69 5e 79 61 61"
+   u="0ec2 0ea2 005e 0e8a 0eb4 005e 0e9a 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yo^si^fi^yaa = ໂຢ^ສິ^ຟີ^ຢາ -->
+<a b="59 6f 5e 73 69 5e 66 69 5e 79 61 61"
+   u="0ec2 0ea2 005e 0eaa 0eb4 005e 0e9f 0eb5 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yo^si^yaa = ໂຢ^ສິ^ຢາ -->
+<a b="59 6f 5e 73 69 5e 79 61 61"
+   u="0ec2 0ea2 005e 0eaa 0eb4 005e 0ea2 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yopv = ໂຢບ -->
+<a b="59 6f 70 76"
+   u="0ec2 0ea2 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yu^saa^tatv = ຢຸ^ສະ^ທັດ -->
+<a b="59 75 5e 73 61 61 5e 74 61 74 76"
+   u="0ea2 0eb8 005e 0eaa 0eb0 005e 0e97 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yu^ti^gatc = ຢຸ^ທິ^ກັດ -->
+<a b="59 75 5e 74 69 5e 67 61 74 63"
+   u="0ea2 0eb8 005e 0e97 0eb4 005e 0e81 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
   
     <!-- EXCEOTION LIST END -->
     
