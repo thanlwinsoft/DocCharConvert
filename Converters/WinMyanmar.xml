@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="utr_display.xsl"?>
+<!--<?xml-stylesheet type="text/xsl" href="utr_display.xsl"?>-->
 <!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
  
 <characterMapping
@@ -51,6 +51,8 @@
     <a b="31" u="1041"/><!-- 1 -->
     <a b="32" u="1042"/><!-- 2 -->
     <a b="33" u="1043"/><!-- 3 -->
+    <!-- it is common to be lazy and type aforementioned like this -->
+    <fbu b="34 69 66 3b" u="104e"/>
     <a b="34" u="1044"/><!-- 4 -->
     <a b="35" u="1045"/><!-- 5 -->
     <a b="36" u="1046"/><!-- 6 -->
@@ -242,6 +244,7 @@
     <ordering side="unicode"><!---->
         <order b="reorder-nunga-b" u="reorder-nunga-u"/>
         <!--<order b="reorder-unga-b" u="reorder-unga-u"/>-->
+        <order b="reorder-kinsi-b" u="reorder-kinsi-u"/>
         <order b="reorder-u-b" u="reorder-u-u"/>
     </ordering>
     <ordering side="bytes">
@@ -404,6 +407,21 @@
         </group>
         <context-ref name="reorder-u-us" id="s"/>
     </group>
+    
+    <group id="reorder-kinsi-u">
+        <group id="nga">
+            <class-ref name="nga"/>
+            <class-ref name="virama"/>
+        </group>
+        <group id="c">
+            <class-ref name="cons"/><!-- all cons except nga, YRWH -->
+        </group>        
+        <context-ref name="reorder-u-us" id="s"/>
+        <group id="uvowel" alt="1">
+            <class-ref name="uvowel"/>
+            <class-ref name="udot"/>
+        </group>
+    </group>
 
     <group id="reorder-u-us">
         <group id="y" min="0">
@@ -461,7 +479,16 @@
         <context-ref name="reorder-u-u/s/h"/>
         <context-ref name="reorder-u-u/s/vd"/>
     </group>
-    
+    <group id="reorder-kinsi-b">
+        <context-ref name="reorder-kinsi-u/nga"/>  
+        <context-ref name="reorder-kinsi-u/uvowel"/> 
+        <context-ref name="reorder-kinsi-u/c"/>
+        <context-ref name="reorder-kinsi-u/s/y"/>
+        <context-ref name="reorder-kinsi-u/s/r"/>
+        <context-ref name="reorder-kinsi-u/s/w"/>
+        <context-ref name="reorder-kinsi-u/s/h"/>
+        <context-ref name="reorder-kinsi-u/s/vd"/> 
+    </group>
 <!-- constraint contexts: unicode -->
 
 <!-- tall-a cons base-narrow short-u bdia vup vdown slant-h short-r ldot rdot nga-cons -->
@@ -737,8 +764,10 @@
 <!-- byte classes -->
     <!-- kinzi, kinzi+102e, kinzi+102d, kinzi+1036-->
     <class name="nga-b" size="bytes">46 d0 d8 f8</class>
+    <!-- 0 is included as a consonant, because it is often wa-->
     <class name="cons-b" size="bytes">
-        21 22 23 26 27 2a 2c 41 43 45 4f 50 56 58 5a 5b 62 63 65 69 6e 6f
+        21 22 23 26 27 2a 2c 30
+        41 43 45 4f 50 56 58 5a 5b 62 63 65 69 6e 6f
         70 71 72 74 75 76 77 78 79 7a 7b a1 bd cd d3 da f1 
     </class>
     <class name="consm-b" size="bytes">

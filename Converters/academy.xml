@@ -82,12 +82,18 @@
     <a b="2D" u="002D"/><!-- - -->
     <a b="2E" u="002E"/><!-- . -->
     <a b="2F" u="002F"/><!-- / -->
-
-    <a b="30" u="1040"/><!-- 0 -->
+<!-- academy has a separate wa, but it probably was not always used -->
+    <fbu b="30" u="101d"/><!-- wa --> 
+    <fub b="30" u="1040"/><!-- wa -->       
+    <fbu b="30" u="1040" bbctxt="numbers"/><!-- 0 -->
+    <fbu b="30" u="1040" bactxt="numbers"/><!-- 0 -->
+    <fbu b="30" u="1040" bbctxt="space" /><!-- 0 -->
+    <fbu b="30" u="1040" bactxt="space"/><!-- 0 -->
     <a b="31" u="1041"/><!-- 1 -->
     <a b="32" u="1042"/><!-- 2 -->
     <a b="33" u="1043"/><!-- 3 -->
     <a b="34" u="1044"/><!-- 4 -->
+    <fbu b="34 69 66 3a" u="104e"/>
     <a b="35" u="1045"/><!-- 5 -->
     <a b="36" u="1046"/><!-- 6 -->
     <a b="37" u="1047"/><!-- 7 -->
@@ -154,6 +160,9 @@
     <a b="69 c2" u="1004 200D 1039 101B 1039 101D" /><!-- has been reordered before the substitution -->
     <a b="69 cf" u="1004 200D 1039 101D 1039 101F" />
     <a b="69 da" u="1004 200D 1039 101B 102F" /><!-- has been reordered before the substitution -->
+    <a b="69 EF" u="1004 200D 1039 101A 1039 101D"/>
+    <a b="69 FA" u="1004 200D 1039 101B"/><!-- has been reordered before the substitution -->
+    <a b="69 FB" u="1004 200D 1039 101A 1039 101F"/>
     <a b="6A" u="1039 101B"/><!-- j -->
     <a b="6B" u="102F" ubctxt="short-uu"/><!-- k -->
     <a b="6C" u="1030" ubctxt="short-uu"/><!-- l -->
@@ -379,10 +388,18 @@
         <class-ref name="ldot-b" id="ldot" min="0"/>
 -->
     </group>
-
+    
     <group id="fdia-b" alt="1">
         <class-ref name="kill-b" id="kill"/>
         <class-ref name="ldot-b" id="ldot"/>
+    </group>
+
+    <group id="numbers">
+      <class-ref name="numbers-b"/>
+    </group>
+    
+    <group id="space">
+      <class-ref name="space-b"/>
     </group>
 
 <!-- unicode side re-ordering contexts -->
@@ -818,7 +835,12 @@
     <class name="kill-b" size="bytes">66</class>
     <class name="ldot-b" size="bytes">68 D0 F0</class>
     <class name="colon-b" size="bytes">3A</class>
-
+    <class name="space-b" size="bytes">
+      20 28 29 2b 2c 2d 2e 2f 3d 3f 5e 5f f4
+    </class>
+    <class name="numbers-b" size="bytes">
+      30 31 32 33 34 35 36 37 38 39
+    </class>
 </contexts>
 
 </characterMapping>

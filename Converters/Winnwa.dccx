@@ -20,5 +20,13 @@
   <Font name="Win---Researcher" type="old" />
   <Font name="MyaZedi_Graphite" type="new" />
 </Style>
+<Style>
+  <Font name="WinMonotype" type="old" />
+  <Font name="MyaZedi_Graphite" type="new" />
+</Style>
+<Style>
+  <Font name="WinMonotypeNew" type="old" />
+  <Font name="MyaZedi_Graphite" type="new" />
+</Style>
 </Styles>
 </DocCharConverter>
