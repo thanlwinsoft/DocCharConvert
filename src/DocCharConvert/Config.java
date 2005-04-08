@@ -225,7 +225,7 @@ public class Config
             {
                 urls[i + 1] = jarFiles[i].toURL();
                 ooPaths.append('"');
-                String tempPath = jarFiles[i].getCanonicalPath();
+                String tempPath = jarFiles[i].toString();jarFiles[i].getCanonicalPath();
                 //ooPaths.append(tempPath.replaceAll("\\\\","/"));
                 ooPaths.append(tempPath);
                 ooPaths.append("\" ");

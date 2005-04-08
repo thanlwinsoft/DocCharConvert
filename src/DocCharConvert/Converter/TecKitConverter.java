@@ -80,13 +80,15 @@ public class TecKitConverter extends ReversibleConverter
             else initOk = true;
             if (isForwards())
             {
-                beforeCharset = Charset.forName("ISO-8859-1");
+                //beforeCharset = Charset.forName("ISO-8859-1");
+                beforeCharset = Charset.forName("windows-1252");
                 afterCharset = Charset.forName("UTF-8");
             }
             else
             {
                 beforeCharset = Charset.forName("UTF-8");
-                afterCharset = Charset.forName("ISO-8859-1");
+                //afterCharset = Charset.forName("ISO-8859-1");
+                afterCharset = Charset.forName("windows-1252");
             }
         }
         catch (Exception e)

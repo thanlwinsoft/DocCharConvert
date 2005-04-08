@@ -6,7 +6,7 @@ INCLUDES= $(all_includes)
 
 # the library version and shared libs so there are no run time undefined symbols
 libTecKitJni_la_LDFLAGS= -version-info 1 -lz 
-libTecKitJni_la_CC=g++
+#libTecKitJni_la_CC=g++
 
 bin_PROGRAMS= testTecKit
 testTecKit_SOURCES= teckitjniTest.cpp  
