@@ -42,6 +42,7 @@ public class OOMainInterface implements DocInterface
     private int MAX_SLEEP_COUNT = 3000; // wait 30 seconds
     private boolean onlyStylesInUse = false;
     private OODocParser parser = null;
+    private boolean abort = false;
     /** Creates a new instance of OOMainInterface */
     public OOMainInterface()
     {
@@ -98,7 +99,7 @@ public class OOMainInterface implements DocInterface
     protected void useConnection(File inputFile, File outputFile, Map<TextStyle,CharConverter> converters) 
         throws InterfaceException, WarningException
     {
-
+        synchronized (this) {  abort = false; }
         try {
             if (xRemoteServiceManager == null)
             {
@@ -409,5 +410,13 @@ public class OOMainInterface implements DocInterface
       if (parser == null)
         return new String("Initializing");
       else return parser.getStatusDesc();
+    }
+    public synchronized void abort()
+    {
+        abort = true;
+    }
+    public synchronized boolean doAbort()
+    {
+        return abort;
     }
 }

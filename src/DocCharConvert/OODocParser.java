@@ -132,6 +132,7 @@ public class OODocParser
     private static final int STAGE_PARAS = 1;
     private static final int STAGE_STYLES = 2;
     private int stage = STAGE_INIT;
+    private boolean abort = false;
     /** Creates a new instance of OODocParser */
     public OODocParser(OOMainInterface ooMain) 
         
@@ -249,6 +250,7 @@ public class OODocParser
                     }
                 }
                 paraCount++;
+                if (ooMain.doAbort()) return;
                 //System.out.print('.');
             }
             

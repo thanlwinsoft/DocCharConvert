@@ -457,6 +457,7 @@ public class BatchConversion implements Runnable
     public synchronized void stopConversion()
     {
         stop = true;
+        if (docInterface != null) docInterface.abort();
     }
     public void destroy()
     {

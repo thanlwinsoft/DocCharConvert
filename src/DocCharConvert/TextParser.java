@@ -28,6 +28,7 @@ public class TextParser implements DocCharConvert.DocInterface
     protected DocCharConvert.Converter.CharConverter converter;
     protected Charset inputCharset;
     protected Charset outputCharset;
+    protected boolean abort = false;
     /** Creates a new instance of TextParser */
     public TextParser()
     {
@@ -63,6 +64,7 @@ public class TextParser implements DocCharConvert.DocInterface
                throws DocInterface.WarningException,
                       CharConverter.FatalException
     {
+        synchronized (this) { abort = false;} 
         try
         {
             reader = new BufferedReader(new InputStreamReader(
@@ -126,5 +128,9 @@ public class TextParser implements DocCharConvert.DocInterface
     public String getStatusDesc()
     {
       return new String("");
+    }
+    public synchronized void abort()
+    {
+        abort = true;
     }
 }

@@ -18,6 +18,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.text.CharacterIterator;
+import java.text.StringCharacterIterator;
 
 /**
  *
@@ -34,6 +36,7 @@ public class TecKitConverter extends ReversibleConverter
     private Charset beforeCharset = null;
     private Charset afterCharset = null;
     private long converterInstance = 0;
+    private boolean debug = false;
     /** Creates a new instance of TecKitConverter */
     public TecKitConverter(File mapFile, TextStyle origFont, TextStyle targFont)
     {
@@ -152,6 +155,11 @@ public class TecKitConverter extends ReversibleConverter
                 if (line != null) ob.append(line);
             } while (line != null);
             bReader.close();
+            if (debug) 
+            {
+                printConversion(source);
+                printConversion(ob.toString());
+            }
         }
         catch (java.io.IOException e)
         {
@@ -173,4 +181,24 @@ public class TecKitConverter extends ReversibleConverter
     public String getName() { return name; }
     public void setName(String aName) { this.name =aName; }
     public boolean isInitialized() { return initOk; }
+    
+    protected void printConversion(String source)
+    {
+        CharacterIterator ci = new StringCharacterIterator(source);
+        char c = ci.first();
+        StringBuffer dump = new StringBuffer();
+        int i=0;
+        while (c != CharacterIterator.DONE)
+        {
+            
+            dump.append("0x");
+            dump.append(Integer.toHexString(c));
+            if ((++i) % 10 ==0)
+                dump.append('\n');
+            else 
+                dump.append('\t');
+            c = ci.next();
+        }
+        System.out.println(dump.toString());
+    }
 }

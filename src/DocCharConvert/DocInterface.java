@@ -38,4 +38,5 @@ public interface DocInterface
     ConversionMode getMode();
     public void setInputEncoding(Charset iEnc);
     public void setOutputEncoding(Charset oEnc);
+    public void abort();
 }
