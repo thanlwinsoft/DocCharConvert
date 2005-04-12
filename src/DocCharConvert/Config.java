@@ -31,8 +31,8 @@ public class Config
     private final String OOOPTIONS = "OOOptions";
     public static final String CONVERTER_CONFIG_PATH = "Converters";
     private String ooPath = "soffice";
-    public static final String OO_DEFAULT_UNO = "uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
-    public static final String OO_DEFAULT_OPTIONS = "-accept=socket,port=8100;urp;";
+    public static final String OO_DEFAULT_UNO = "uno:socket,host=localhost,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager";
+    public static final String OO_DEFAULT_OPTIONS = "-accept=socket,port=8100,tcpNoDelay=1;urp;";
     private String oouno = OO_DEFAULT_UNO;
     private String ooOptions = OO_DEFAULT_OPTIONS;
     private String ooClassPath = "";
@@ -224,11 +224,12 @@ public class Config
             for (int i = 0; i<jarFiles.length; i++)
             {
                 urls[i + 1] = jarFiles[i].toURL();
-                ooPaths.append('"');
-                String tempPath = jarFiles[i].toString();jarFiles[i].getCanonicalPath();
+                //ooPaths.append('"');
+                String tempPath = jarFiles[i].toString();//jarFiles[i].getCanonicalPath();
                 //ooPaths.append(tempPath.replaceAll("\\\\","/"));
                 ooPaths.append(tempPath);
-                ooPaths.append("\" ");
+                //ooPaths.append("\" ");
+                ooPaths.append(" ");
                 //System.out.println(urls[i+1].toString());
             }
             ooClassPath = ooPaths.toString();

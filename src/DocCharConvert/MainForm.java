@@ -863,15 +863,24 @@ public class MainForm extends javax.swing.JFrame
     
     private void close()
     {
+        boolean doShutdown = true;
         if (conversion.isRunning())
         {
-            JOptionPane.showConfirmDialog(this,
+            if (JOptionPane.showConfirmDialog(this,
                     msgResource.getString("confirmAbortConversion"),
                     msgResource.getString("conversionInProgress"),
                     JOptionPane.YES_NO_OPTION,
-                    JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.WARNING_MESSAGE) == JOptionPane.NO_OPTION)
+            {
+                doShutdown = false; 
+            }
+            else
+            {
+                conversion.stopConversion();    
+                doShutdown = false; // do we want to exit here or just stop?
+            }
         }
-        else
+        if (doShutdown)
         {
             conversion.destroy();
             Config.getCurrent().save();
