@@ -277,7 +277,9 @@
         <class-ref name="nga-b" id="ng1" min="0"/>
         <class-ref name="lvowel-dia-b" id="vul" min="0"/>
         <class-ref name="nga-b" id="ng2" min="0"/>
+        <class-ref name="kill-b" id="contract1" min="0"/><!---->
         <class-ref name="ymed-b" id="y" min="0"/>
+        <class-ref name="kill-b" id="contract2" min="0"/>
         <class-ref name="lvowel-tall-b" id="vl" min="0"/>
         <class-ref name="ldot-b" id="ldot1" min="0"/>
         <class-ref name="uvowel-b" id="vu" min="0"/>
@@ -294,6 +296,8 @@
         <context-ref name="reorder-bytes-b/ng2"/>
         <context-ref name="reorder-bytes-b/c"/>
         <context-ref name="reorder-bytes-b/cm"/>
+        <context-ref name="reorder-bytes-b/contract2"/>
+        <context-ref name="reorder-bytes-b/contract1"/>
         <context-ref name="reorder-bytes-b/r"/>
         <context-ref name="reorder-bytes-b/y"/>
         <context-ref name="reorder-bytes-b/h"/>
