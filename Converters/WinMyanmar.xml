@@ -154,6 +154,8 @@
     <fbu b="89" u="1042 002f 1045"/><!-- windows-1252 2030 -->
     <fbu b="8a" u="1043 002f 1045"/><!-- windows-1252 0160 -->
     <fbu b="8b" u="1044 002f 1045"/><!-- windows-1252 2039 -->
+    
+    <fbu b="92" u="1039 101c"/><!-- windows-1252 2019 -->
     <a b="A1" u="100e"/><!--  -->
     <a b="a2" u="1039 1003"/>
     <a b="a3" u="1023"/>
@@ -276,10 +278,10 @@
         <class-ref name="wmed-b" id="w2" min="0"/>
         <class-ref name="nga-b" id="ng1" min="0"/>
         <class-ref name="lvowel-dia-b" id="vul1" min="0"/>
-        <class-ref name="ymed-b" id="y" min="0"/>
+        <class-ref name="ymed-b" id="y1" min="0"/>
         <class-ref name="nga-b" id="ng2" min="0"/>
         <class-ref name="kill-b" id="contract1" min="0"/><!---->
-        <class-ref name="ymed-b" id="y" min="0"/>
+        <class-ref name="ymed-b" id="y2" min="0"/>
         <class-ref name="kill-b" id="contract2" min="0"/>
         <class-ref name="lvowel-tall-b" id="vl" min="0"/>
         <class-ref name="ldot-b" id="ldot1" min="0"/>
@@ -302,7 +304,8 @@
         <context-ref name="reorder-bytes-b/contract2"/>
         <context-ref name="reorder-bytes-b/contract1"/>
         <context-ref name="reorder-bytes-b/r"/>
-        <context-ref name="reorder-bytes-b/y"/>
+        <context-ref name="reorder-bytes-b/y1"/>
+        <context-ref name="reorder-bytes-b/y2"/>
         <context-ref name="reorder-bytes-b/h"/>
         <context-ref name="reorder-bytes-b/w1"/>
         <context-ref name="reorder-bytes-b/w2"/>

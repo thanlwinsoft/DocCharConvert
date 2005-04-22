@@ -49,7 +49,7 @@ public class BatchConversion implements Runnable
     private final static String [] OPTIONS = {"Yes","No","Yes to all","No to all"};
     private int promptMode = PROMPT_NO;
     boolean onlyStylesInUse = true;
-    boolean autoRetry = false;
+    boolean autoRetry = true; // because it is so common to loose the OO connection
     Component dialog = null;
     Charset iCharset = null;
     Charset oCharset = null;
