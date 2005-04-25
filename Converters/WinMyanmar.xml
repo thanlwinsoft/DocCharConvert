@@ -272,6 +272,8 @@
         <class-ref name="evowel-b" id="e" min="0"/>
         <class-ref name="rmed-b" id="r" min="0"/>
         <class-ref name="cons-b" id="c" />
+        <class-ref name="uvowel-b" id="vu1" min="0"/>
+        <class-ref name="udot-b" id="udot1" min="0"/>
         <class-ref name="consm-b" id="cm" min="0"/>
         <class-ref name="wmed-b" id="w1" min="0"/>
         <class-ref name="hmed-b" id="h" min="0"/>
@@ -284,14 +286,17 @@
         <class-ref name="ymed-b" id="y2" min="0"/>
         <class-ref name="kill-b" id="contract2" min="0"/>
         <class-ref name="lvowel-tall-b" id="vl" min="0"/>
+        <class-ref name="nga-b" id="ng3" min="0"/>
         <class-ref name="ldot-b" id="ldot1" min="0"/>
-        <class-ref name="uvowel-b" id="vu" min="0"/>
+        <class-ref name="uvowel-b" id="vu2" min="0"/>
         <class-ref name="lvowel-dia-b" id="vul2" min="0"/>
-        <class-ref name="udot-b" id="udot" min="0"/>
+        <class-ref name="udot-b" id="udot2" min="0"/>
         <class-ref name="lvowel-dia-b" id="vul3" min="0"/>
         <class-ref name="lvowel-tall-b" id="vlf" min="0"/>
         <class-ref name="avowel-b" id="a" min="0"/>
         <class-ref name="ldot-b" id="ldot2" min="0"/>
+        <class-ref name="colon-b" id="colon" min="0"/>
+        <!--<class-ref name="section-b" id="section" min="0"/>-->
         <class-ref name="kill-b" id="kill" min="0"/>
         <class-ref name="ldot-b" id="ldot3" min="0"/>
     </group>
@@ -299,6 +304,7 @@
     <group id="reorder-bytes-u">
         <context-ref name="reorder-bytes-b/ng1"/>
         <context-ref name="reorder-bytes-b/ng2"/>
+        <context-ref name="reorder-bytes-b/ng3"/>
         <context-ref name="reorder-bytes-b/c"/>
         <context-ref name="reorder-bytes-b/cm"/>
         <context-ref name="reorder-bytes-b/contract2"/>
@@ -315,13 +321,17 @@
         <context-ref name="reorder-bytes-b/vul3"/>
         <context-ref name="reorder-bytes-b/vl"/>
         <context-ref name="reorder-bytes-b/vlf"/>        
-        <context-ref name="reorder-bytes-b/vu"/>
+        <context-ref name="reorder-bytes-b/vu2"/>
+        <context-ref name="reorder-bytes-b/vu1"/>
         <context-ref name="reorder-bytes-b/a"/>
-        <context-ref name="reorder-bytes-b/udot"/>
+        <context-ref name="reorder-bytes-b/udot2"/>
+        <context-ref name="reorder-bytes-b/udot1"/>
         <context-ref name="reorder-bytes-b/kill"/>
         <context-ref name="reorder-bytes-b/ldot3"/>
         <context-ref name="reorder-bytes-b/ldot2"/>
-        <context-ref name="reorder-bytes-b/ldot1"/>    
+        <context-ref name="reorder-bytes-b/ldot1"/>  
+        <context-ref name="reorder-bytes-b/colon"/> 
+        <!--<context-ref name="reorder-bytes-b/section"/>    -->
     </group>
     
     <group id="numbers">
@@ -667,10 +677,10 @@
     </class>
     <class name="consm-b" size="bytes">
         a2 a6 a8 a9 ac ae b2 b3 b4 be c1 c5 c6 c7 c9 d1 d6 dc e4 e5 e6 e9 
-        f6 fa 
+        92 f6 fa 
     </class>
     <class name="rmed-b" size="bytes">3c 3e 42 4d 4e 60 6a 7e ea fb</class>
-    <class name="ymed-b" size="bytes">73 52 51 df </class>
+    <class name="ymed-b" size="bytes">73 52 57 51 df </class>
     <class name="ymed-tall-b" size="bytes">73</class>
     <!-- don't include ligatures with y or r in the w or h classes -->
     <class name="wmed-b" size="bytes">47 54 <!--52 57 3c 3e--></class>
@@ -686,6 +696,7 @@
     <class name="kill-b" size="bytes">66</class>
     <class name="ldot-b" size="bytes">55 59 68</class>
     <class name="colon-b" size="bytes">3b</class>
+    <class name="section-b" size="bytes">2F 3F</class>
     <class name="numbers-b" size="bytes">
       30 31 32 33 34 35 36 37 38 39
     </class>

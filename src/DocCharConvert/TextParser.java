@@ -85,6 +85,14 @@ public class TextParser implements DocCharConvert.DocInterface
             try
             {
                 String line = reader.readLine();
+                // remove byte order mark for now since it confuses
+                // converters 
+                if (line.charAt(0) == '\ufeff' &&
+                    inputCharset == Charset.forName("UTF-8") )
+                {
+                  System.out.println("Removing BOM");
+                  line = line.substring(1,line.length());
+                }
                 while (line != null)
                 {    
                     String convertedLine = parseLine(line);
