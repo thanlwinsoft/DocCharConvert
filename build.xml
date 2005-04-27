@@ -66,13 +66,16 @@
     nbproject/build-impl.xml file. 
 
     -->
-    <target name="post-compile" depends="compile">
-            <exec dir="bin" executable="javah">
-                <arg value="-cp"/>
+    <target name="-post-compile">
+        <copy todir="${work.dir}">
+            <fileset dir="${dist.dir}" excludes="**/*.h"/>
+        </copy>
+            <exec dir="${build.dir}" executable="javah">
+                <arg value="-classpath"/>
                 <arg file="${build.dir}/classes"/>
                 <arg value="-d"/>
                 <arg file="${dist.dir}"/>
-                <arg file="DocCharConvert.Converter.TecKitJni"/>
+                <arg value="DocCharConvert.Converter.TecKitJni"/>
             </exec>
     </target>
 </project>

@@ -89,9 +89,11 @@ public class TextParser implements DocCharConvert.DocInterface
                 // converters 
                 if (line.length() > 0 && line.charAt(0) == '\ufeff' &&
                     inputCharset == Charset.forName("UTF-8") )
-                {
-                  System.out.println("Removing BOM");
+                {                  
                   line = line.substring(1,line.length());
+                  if (outputCharset == Charset.forName("UTF-8"))
+                      writer.write('\ufeff');
+                  else System.out.println("Removing BOM");
                 }
                 while (line != null)
                 {    
