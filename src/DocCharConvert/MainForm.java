@@ -157,6 +157,7 @@ public class MainForm extends javax.swing.JFrame
         oFileButton = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         convertButton = new javax.swing.JButton();
+        testButton = new javax.swing.JButton();
         configButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
         progressPanel = new javax.swing.JPanel();
@@ -396,6 +397,7 @@ public class MainForm extends javax.swing.JFrame
         convertButton.setText("Convert");
         convertButton.setToolTipText("Start conversion");
         convertButton.setAlignmentX(0.5F);
+        convertButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         convertButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -406,8 +408,23 @@ public class MainForm extends javax.swing.JFrame
 
         jPanel8.add(convertButton);
 
+        testButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DocCharConvert/icons/ConvertTest.png")));
+        testButton.setText("Test");
+        testButton.setToolTipText("Testout the selected converter with your own string");
+        testButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        testButton.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                testButtonActionPerformed(evt);
+            }
+        });
+
+        jPanel8.add(testButton);
+
         configButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DocCharConvert/icons/Config.png")));
         configButton.setText("Config");
+        configButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         configButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -422,6 +439,7 @@ public class MainForm extends javax.swing.JFrame
         exitButton.setText("Exit");
         exitButton.setToolTipText("Exit Character Converter");
         exitButton.setAlignmentX(0.5F);
+        exitButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         exitButton.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -448,6 +466,67 @@ public class MainForm extends javax.swing.JFrame
         pack();
     }//GEN-END:initComponents
 
+    private void testButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_testButtonActionPerformed
+    {//GEN-HEADEREND:event_testButtonActionPerformed
+        if (sModel.size() > 0)
+        {
+            if (sModel.getElementAt(0) instanceof ChildConverter)
+            {
+                ChildConverter cc = (ChildConverter)sModel.getElementAt(0);
+                ChildConverter rcc = getReverseConverter(cc);
+                new TestDialog(this, true, cc, rcc).setVisible(true);
+            }
+            else System.out.println("unexpected converter type");
+        }
+        else
+        {
+            
+            JOptionPane.showMessageDialog(this,
+                msgResource.getString("selectConv"),
+                msgResource.getString("noConvSelected"),
+                JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+    }//GEN-LAST:event_testButtonActionPerformed
+
+    protected ChildConverter getReverseConverter(ChildConverter cc)
+    {
+        ChildConverter rcc = null;
+        if (cc.getParent() instanceof ReversibleConverter)
+        {
+            // try to find the reverse converter
+            ReversibleConverter ccParent = 
+                (ReversibleConverter)cc.getParent();
+            int i = 0;
+            while (rcc == null && i<availableConverters.size())
+            {
+                if (availableConverters.elementAt(i) != null)
+                {
+                    Object rco = availableConverters.elementAt(i);
+                    if (rco instanceof CharConverter)
+                    {
+                        ChildConverter tempCc = null;
+                        tempCc = (ChildConverter)rco;
+                        if (tempCc.getParent() instanceof ReversibleConverter)
+                        {
+                            ReversibleConverter tempParent = 
+                                (ReversibleConverter)tempCc.getParent();
+                            if (tempParent.getName().equals(ccParent.getName()) 
+                               && (tempParent.isForwards() != 
+                                   ccParent.isForwards()))
+                            {
+                                rcc = tempCc;
+                                break;
+                            }
+                        }
+                    }
+                }
+                i++;
+            }
+        }
+        return rcc;
+    }
+    
     private void saveFileListActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_saveFileListActionPerformed
     {//GEN-HEADEREND:event_saveFileListActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -1249,6 +1328,7 @@ public class MainForm extends javax.swing.JFrame
     private javax.swing.JButton saveFileList;
     private javax.swing.JList selectedCList;
     private javax.swing.JPanel selectedPanel;
+    private javax.swing.JButton testButton;
     // End of variables declaration//GEN-END:variables
     
 }

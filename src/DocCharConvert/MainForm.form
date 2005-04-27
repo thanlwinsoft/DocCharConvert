@@ -401,9 +401,23 @@
             <Property name="text" type="java.lang.String" value="Convert"/>
             <Property name="toolTipText" type="java.lang.String" value="Start conversion"/>
             <Property name="alignmentX" type="float" value="0.5"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="convertButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="testButton">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/DocCharConvert/icons/ConvertTest.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Test"/>
+            <Property name="toolTipText" type="java.lang.String" value="Testout the selected converter with your own string"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="testButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="configButton">
@@ -412,6 +426,7 @@
               <Image iconType="3" name="/DocCharConvert/icons/Config.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Config"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="configButtonActionPerformed"/>
@@ -425,6 +440,7 @@
             <Property name="text" type="java.lang.String" value="Exit"/>
             <Property name="toolTipText" type="java.lang.String" value="Exit Character Converter"/>
             <Property name="alignmentX" type="float" value="0.5"/>
+            <Property name="horizontalAlignment" type="int" value="2"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>

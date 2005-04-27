@@ -8,6 +8,7 @@ package DocCharConvert;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
+import javax.swing.SpinnerNumberModel;
 import java.io.File;
 /**
  *
@@ -32,6 +33,7 @@ public class ConfigDialog extends javax.swing.JDialog
         {
             System.out.println(e.getLocalizedMessage());
         }
+        testFontSpinner.setModel(new SpinnerNumberModel(Config.getCurrent().getTestFontSize(), 6, 128, 1));
     }
     
     /** This method is called from within the constructor to
@@ -60,8 +62,13 @@ public class ConfigDialog extends javax.swing.JDialog
         ooPadPanel = new javax.swing.JPanel();
         converterPanel = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         convLabel = new javax.swing.JLabel();
+        testFontSize = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
         converterPath = new javax.swing.JTextField();
+        testFontSpinner = new javax.swing.JSpinner();
+        jPanel9 = new javax.swing.JPanel();
         convPathButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -172,11 +179,20 @@ public class ConfigDialog extends javax.swing.JDialog
 
         converterPanel.setLayout(new java.awt.BorderLayout());
 
-        jPanel8.setLayout(new java.awt.BorderLayout());
+        jPanel8.setLayout(new javax.swing.BoxLayout(jPanel8, javax.swing.BoxLayout.X_AXIS));
 
         jPanel8.setAlignmentX(0.0F);
+        jPanel6.setLayout(new java.awt.GridLayout(2, 0));
+
         convLabel.setText("Converter Path: ");
-        jPanel8.add(convLabel, java.awt.BorderLayout.WEST);
+        jPanel6.add(convLabel);
+
+        testFontSize.setText("Test Font Size");
+        jPanel6.add(testFontSize);
+
+        jPanel8.add(jPanel6);
+
+        jPanel7.setLayout(new java.awt.GridLayout(2, 0));
 
         converterPath.setToolTipText("Path to OO Executable, or just the executable name if it is already in your PATH.");
         converterPath.setMaximumSize(new java.awt.Dimension(200, 15));
@@ -188,7 +204,13 @@ public class ConfigDialog extends javax.swing.JDialog
             }
         });
 
-        jPanel8.add(converterPath, java.awt.BorderLayout.CENTER);
+        jPanel7.add(converterPath);
+
+        jPanel7.add(testFontSpinner);
+
+        jPanel8.add(jPanel7);
+
+        jPanel9.setLayout(new java.awt.GridLayout(2, 0));
 
         convPathButton.setText("Browse...");
         convPathButton.addActionListener(new java.awt.event.ActionListener()
@@ -199,7 +221,9 @@ public class ConfigDialog extends javax.swing.JDialog
             }
         });
 
-        jPanel8.add(convPathButton, java.awt.BorderLayout.EAST);
+        jPanel9.add(convPathButton);
+
+        jPanel8.add(jPanel9);
 
         converterPanel.add(jPanel8, java.awt.BorderLayout.NORTH);
 
@@ -340,6 +364,8 @@ public class ConfigDialog extends javax.swing.JDialog
         Config.getCurrent().setOOOptions(ooOptionsField.getText());
         Config.getCurrent().setOOUNO(unoField.getText());
         Config.getCurrent().setConverterPath(new File(converterPath.getText()));
+        Number num = (Number)testFontSpinner.getValue();
+        Config.getCurrent().setTestFontSize(num.intValue());
         setVisible(false);
     }//GEN-LAST:event_okButtonActionPerformed
     
@@ -369,7 +395,10 @@ public class ConfigDialog extends javax.swing.JDialog
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton okButton;
     private javax.swing.JPanel ooButtonPanel;
@@ -384,6 +413,8 @@ public class ConfigDialog extends javax.swing.JDialog
     private javax.swing.JButton ooPathButton;
     private javax.swing.JLabel ooPathLabel;
     private javax.swing.JLabel optionsLabel;
+    private javax.swing.JLabel testFontSize;
+    private javax.swing.JSpinner testFontSpinner;
     private javax.swing.JTextField unoField;
     private javax.swing.JLabel unoLabel;
     // End of variables declaration//GEN-END:variables

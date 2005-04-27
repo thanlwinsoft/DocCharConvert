@@ -2,8 +2,7 @@
     <programGroup defaultName="Doc Char Converter" location="applications/startMenu"/>
     <shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="Doc Char Convert" 
               description="Converts between different character encodings." 
-              initialState="noShow"
-              workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.bat" 
+              workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.jar" 
               programGroup="yes" desktop="yes"/>
     <!--<shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="Doc Char Convert" 
               description="Converts between different character encodings." 

@@ -22,6 +22,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import org.w3c.dom.Attr;
 import org.w3c.dom.NodeList;
+import java.io.InputStream;
 import DocCharConvert.Converter.CharConverter;
 import DocCharConvert.Converter.ReversibleConverter;
 import DocCharConvert.Converter.ChildConverter;
@@ -45,13 +46,19 @@ public class ConverterXmlParser
     public final static String NEW = "new";
     public final static String EXT = ".dccx";
     File converterDir = null;
-    Vector<CharConverter> converters = null;
+    File currentXmlFile = null;
+    Vector<ChildConverter> converters = null;
     StringBuffer errorLog = null;
     /** Creates a new instance of ConverterXmlParser */
     public ConverterXmlParser(File converterDir)
     {
         this.converterDir = converterDir;
-        this.converters = new Vector<CharConverter>();
+        this.converters = new Vector<ChildConverter>();
+        this.errorLog = new StringBuffer();
+    }
+    public ConverterXmlParser()
+    {
+        this.converters = new Vector<ChildConverter>();
         this.errorLog = new StringBuffer();
     }
     public static File [] getConverterFiles(File converterDir)
@@ -96,13 +103,28 @@ public class ConverterXmlParser
     }
     public boolean parseFile(File xmlFile)
     {
-        
+        try
+        {
+            currentXmlFile = xmlFile;
+            return parseStream(xmlFile.toURL().openStream());
+        }
+        catch (IOException ioe)
+        {
+            System.out.println(ioe.getMessage());
+            errorLog.append(ioe.getLocalizedMessage());
+            errorLog.append('\n');
+            return false;
+        }   
+    }
+    
+    public boolean parseStream(InputStream fileStream)   
+    {
         org.w3c.dom.Document doc = null;
         try 
         {
             DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
-            InputSource inputSource = new InputSource(xmlFile.getAbsolutePath());
+            InputSource inputSource = new InputSource(fileStream);
             doc = docBuilder.parse(inputSource);            
         }
         catch (ParserConfigurationException pce)
@@ -125,8 +147,7 @@ public class ConverterXmlParser
         }
         if (doc == null)
         {
-            errorLog.append("Failed to parse ");
-            errorLog.append(xmlFile.getAbsolutePath());
+            errorLog.append("Failed to parse file");
             errorLog.append('\n');
             return false;
         }
@@ -137,18 +158,21 @@ public class ConverterXmlParser
             if (!topNode.getNodeName().equals(TOP_NODE) ||
                 topNode.getNodeType() != Node.ELEMENT_NODE) 
             {
-                errorLog.append(xmlFile.getAbsolutePath());
+                if (currentXmlFile != null) 
+                    errorLog.append(currentXmlFile.getAbsolutePath());
                 errorLog.append(": DocCharConverter Element is not first node in file.\n");
                 return false;
             }
             Element topElement = (Element)topNode;
             String converterName = topElement.getAttribute(NAME_ATTRIB);
-            if (converterName == null || converterName.length() == 0) 
-                converterName = xmlFile.getName();
+            if ((converterName == null || converterName.length() == 0) &&
+                currentXmlFile != null)
+                converterName = currentXmlFile.getName();
             NodeList classList = doc.getElementsByTagName(CLASS_NODE);
             if (classList.getLength() != 1)
             {
-                errorLog.append(xmlFile.getAbsolutePath());
+                if (currentXmlFile != null) 
+                    errorLog.append(currentXmlFile.getAbsolutePath());
                 errorLog.append(": You must have one ConverterClass Element per file\n");
                 return false;
             }
@@ -161,7 +185,7 @@ public class ConverterXmlParser
             for (int p = 0; p<parameters.getLength(); p++)
             {
                 Element parameter = (Element)parameters.item(p);
-                arguments[p] = createParameter(parameter, xmlFile);
+                arguments[p] = createParameter(parameter, currentXmlFile);
                 if (arguments[p] == null)
                 {
                     argumentTypes[p] = null;
@@ -206,7 +230,7 @@ public class ConverterXmlParser
                 String setterName = "set" +
                     fieldName.substring(0,1).toUpperCase() +
                     fieldName.substring(1);
-                Object value = createParameter(parameter, xmlFile);
+                Object value = createParameter(parameter, currentXmlFile);
                 if (value != null)
                 {
                     Class [] argClass = {getClassFromParameter(value)};
@@ -223,7 +247,8 @@ public class ConverterXmlParser
             NodeList styles = topElement.getElementsByTagName(STYLES_NODE);
             if (styles.getLength() != 1)
             {
-                errorLog.append(xmlFile.getAbsolutePath());
+                if (currentXmlFile != null) 
+                    errorLog.append(currentXmlFile.getAbsolutePath());
                 errorLog.append(": You must have one Style Element per file\n");
                 return false;
             }
@@ -292,7 +317,7 @@ public class ConverterXmlParser
                 errorLog.append('\n');
             }
         }
-        CharConverter cc = new ChildConverter(oldStyle, newStyle, master);
+        ChildConverter cc = new ChildConverter(oldStyle, newStyle, master);
         if (!(converters.add(cc))) 
             errorLog.append("Failed to add converter.");
         if (reverseMaster != null)
@@ -312,6 +337,7 @@ public class ConverterXmlParser
         }
         else if (type.equals("File"))
         {
+            if (xmlFile == null) return null;
             File testFile = 
                 new File(parameter.getAttribute(VALUE_ATTRIB));
             // if file does not exist, see if it is in the 

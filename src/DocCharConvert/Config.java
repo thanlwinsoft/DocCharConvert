@@ -36,6 +36,9 @@ public class Config
     private String oouno = OO_DEFAULT_UNO;
     private String ooOptions = OO_DEFAULT_OPTIONS;
     private String ooClassPath = "";
+    private int DEFAULT_FONT_SIZE = 20;
+    private String TEST_FONT_SIZE = "TestFontSize";
+    private int testFontSize = DEFAULT_FONT_SIZE;
     private final String OO_INVALID_PATH = "Invalid OpenOffice path: ";
     private final String OO_CLASSES_UNFOUND = "OpenOffice classes not found:";
     private final String OO_PATH_FAIL = 
@@ -99,6 +102,7 @@ public class Config
         ooPath = packagePref.get(OOPATH, OOMainInterface.OO_PATH);
         ooOptions = packagePref.get(OOOPTIONS, OOMainInterface.RUN_OO);
         oouno = packagePref.get(OOUNO, OOMainInterface.UNO_URL);
+        testFontSize = packagePref.getInt(TEST_FONT_SIZE, DEFAULT_FONT_SIZE);
         try
         {
             File defaultConvPath = converterPath;
@@ -224,13 +228,9 @@ public class Config
             for (int i = 0; i<jarFiles.length; i++)
             {
                 urls[i + 1] = jarFiles[i].toURL();
-                //ooPaths.append('"');
-                String tempPath = jarFiles[i].toString();//jarFiles[i].getCanonicalPath();
-                //ooPaths.append(tempPath.replaceAll("\\\\","/"));
+                String tempPath = jarFiles[i].toURI().toString();//jarFiles[i].getCanonicalPath();
                 ooPaths.append(tempPath);
-                //ooPaths.append("\" ");
                 ooPaths.append(" ");
-                //System.out.println(urls[i+1].toString());
             }
             ooClassPath = ooPaths.toString();
             System.out.println("OpenOffice class configuration successful!");
@@ -314,8 +314,14 @@ public class Config
         this.oouno = unoPath;
         packagePref.put(OOUNO, oouno);
     }
+    public void setTestFontSize(int size) 
+    { 
+        testFontSize = size; 
+        packagePref.putInt(TEST_FONT_SIZE, DEFAULT_FONT_SIZE);
+    }
     public String getOOPath() { return ooPath; }
     public String getOOOptions() { return ooOptions; }
     public String getOOUNO() { return oouno; }
     public ResourceBundle getMsgResource() { return i18nResource; }
+    public int getTestFontSize() { return testFontSize; }
 }
