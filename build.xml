@@ -67,15 +67,16 @@
 
     -->
     <target name="-post-compile">
-        <copy todir="${work.dir}">
-            <fileset dir="${dist.dir}" excludes="**/*.h"/>
-        </copy>
             <exec dir="${build.dir}" executable="javah">
                 <arg value="-classpath"/>
                 <arg file="${build.dir}/classes"/>
                 <arg value="-d"/>
                 <arg file="${dist.dir}"/>
-                <arg value="DocCharConvert.Converter.TecKitJni"/>
+                <arg value="org.sil.scripts.teckit.TecKitJni"/>
             </exec>
+           <mkdir dir="${dist.dir}"/>
+            <copy todir="${work.dir}">
+                <fileset dir="${dist.dir}" excludes="**/*.h"/>
+            </copy>
     </target>
 </project>

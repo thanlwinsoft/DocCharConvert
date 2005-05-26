@@ -8,5 +8,13 @@
 <Font name="Padauk Academy" type="old" />
 <Font name="MyaZedi_Graphite" type="new" />
 </Style>
+<Style>
+<Font name="Padauk Academy" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
+<Style>
+<Font name="Academy" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
 </Styles>
 </DocCharConverter>

@@ -216,7 +216,7 @@ They will be stripped out later during the vowel & tone reordering
     <a b="ef" u="00ef"/>
     <fbu b="f0" u="0ecd"/>
     <fbu b="f0 be" u="0eb3"/>
-    <fbu b="f1" u="0ebb"/>
+    <fbu b="f1" u="0eb1"/>
     <fbu b="f2" u="0eb4"/>
     <fbu b="f3" u="0eb5"/>
     <fbu b="f4" u="0eb6"/>
@@ -238,6 +238,7 @@ They will be stripped out later during the vowel & tone reordering
     
     <ordering side="bytes">
         <order b="reorder-bytes-b" u="reorder-bytes-u"/>
+        <order b="reorder-tones-b" u="reorder-tones-u"/>
     </ordering>
     
 </assignments>
@@ -245,19 +246,34 @@ They will be stripped out later during the vowel & tone reordering
 <contexts>
 <group id="reorder-bytes-b">
   <class-ref name="niggahita-b" id="circle-above"/>
-  <class-ref name="sign-above-b" id="sign-above"/>
+  <class-ref name="sign-above-b" id="sign-above" min="0"/>
+  <class-ref name="tone-b" id="tone1" min="0"/>
   <class-ref name="sign-aa-b" id="aa"/>
 </group>
 
 <group id="reorder-bytes-u">
   <context-ref name="reorder-bytes-b/sign-above"/>
+  <context-ref name="reorder-bytes-b/tone1"/>
   <context-ref name="reorder-bytes-b/circle-above"/>
   <context-ref name="reorder-bytes-b/aa"/>
 </group>
 
+<group id="reorder-tones-b">
+  <class-ref name="tone-b" id="tone1" min="0"/>
+  <class-ref name="sign-above-b" id="sign-above"/>
+  <class-ref name="tone-b" id="tone2" min="0"/>
+</group>
+
+<group id="reorder-tones-u">
+  <context-ref name="reorder-tones-b/sign-above"/>
+  <context-ref name="reorder-tones-b/tone2"/>
+  <context-ref name="reorder-tones-b/tone1"/>
+</group>
+
 <class name="niggahita-b" size="bytes">f0 d6</class>
-<class name="sign-above-b" size="bytes">c8 c9 ca cb cc d7 dc d8 d9 da db dc f1 f2 f3 f4 f5 f6 fe</class>
+<class name="sign-above-b" size="bytes">d7 dc d8 d9 da db dc f1 f2 f3 f4 f5 f6 fe</class>
 <class name="sign-aa-b" size="bytes">be</class>
+<class name="tone-b" size="bytes">c8 c9 ca cb cc</class>
     
 </contexts>
 

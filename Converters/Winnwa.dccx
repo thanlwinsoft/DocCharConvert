@@ -28,5 +28,29 @@
   <Font name="WinMonotypeNew" type="old" />
   <Font name="MyaZedi_Graphite" type="new" />
 </Style>
+<Style>
+<Font name="Winnwa" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
+<Style>
+  <Font name="WinResearcher" type="old" />
+  <Font name="Padauk" type="new" />
+</Style>
+<Style>
+  <Font name="-Win---Researcher" type="old" />
+  <Font name="Padauk" type="new" />
+</Style>
+<Style>
+  <Font name="Win---Researcher" type="old" />
+  <Font name="Padauk" type="new" />
+</Style>
+<Style>
+  <Font name="WinMonotype" type="old" />
+  <Font name="Padauk" type="new" />
+</Style>
+<Style>
+  <Font name="WinMonotypeNew" type="old" />
+  <Font name="Padauk" type="new" />
+</Style>
 </Styles>
 </DocCharConverter>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syllableConverter>
+<script side="left">
+<name>Mien NRM</name>
+<!-- Mien NRM -->
+<cluster side="left" id="syllable">
+  <component id="c" min="0">consonant</component>
+  <component id="sv" min="0">semi-vowel </component>
+  <component id="v" min="0">vowel</component>
+  <component id="f" min="0">final</component>
+  <component id="t" min="0">tone</component>
+</cluster>
+</script>
+
+<script side="right">
+<name>Mien Lao</name>
+<!-- Mien Lao -->
+<cluster side="right" id="syllable">
+  <component id="lvp" min="0"/><!--pre-vowel -->
+  <component id="lc" min="0"/><!--consonant -->
+  <component id="ls" min="0"/><!--semi-vowel -->
+  <component id="lvu" min="0"/><!--vowel-above -->
+  <component id="lvd" min="0"/><!--vowel-below -->
+  <component id="lt" min="0"/><!--tone -->
+  <component id="lva" min="0"/><!--vowel-after -->
+  <component id="lf" min="0"/><!--final -->
+</cluster>
+</script>
+
+<classes>
+
+<!-- classes must be the same size on both sides -->
+<class id="kptqFinal">
+  <component r="f">
+    <c>k</c><c>t</c><c>p</c><c>q</c>
+  </component>
+  <component r="lf">
+    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c/>
+  </component>
+</class>
+
+<class id="mnngFinal">
+<component r="f">
+  <c>m</c><c>n</c><c>ng</c><c/>
+</component>
+<component r="lf">
+    <c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/><c/>
+</component>
+</class>
+
+<class id="kptnngFinal">
+<component r="f">
+  <c>k</c> <c>t</c> <c>p</c> <c>n</c> <c>ng</c>
+</component>
+<component r="lf">
+    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c hex="0e99"/><c hex="0e87"/>
+</component>
+</class>
+
+<class id="kptmnngFinal">
+<component r="f">
+  <c>k</c><c>t</c><c>p</c><c>q</c>><c>m</c><c>n</c><c>ng</c>
+</component>
+<component r="lf">
+    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c/><c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/>
+</component>
+</class>
+
+<class id="anyFinal">
+<component r="f">
+  <c>k</c><c>t</c><c>p</c><c>q</c>><c>m</c><c>n</c><c>ng</c>
+</component>
+<component r="lf">
+    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c/><c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/>
+</component>
+</class>
+
+<class id="hzTone">
+<component r="t">
+  <c>h</c><c>z</c>
+</component>
+<component r="lt">
+    <c hex="0ec8"/><c hex="0ecc"/>
+</component>
+</class>
+
+<class id="hvxzMidTone">
+<component r="t">
+  <c>h</c><c>v</c><c>x</c><c>z</c>
+</component>
+<component r="lt">
+    <c hex="0ec9"/><c hex="0eca"/><c hex="0ecb"/><c hex="0ecc"/>
+</component>
+</class>
+
+<class id="lowCons">
+<component r="c">
+  <c>k</c> <c>ng</c> <c>q</c> <c>c</c> <c>hng</c>
+  <!--<c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>-->
+</component>
+<component r="lc">
+  <c hex="0e84"/><c hex="0e87"/><c hex="0e97 0e88"/><c hex="0e97 0eaa"/><c hex="0eae 0e87"/>
+  <!--<c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>-->
+</component>
+</class>
+
+<class id="highCons">
+<component r="c">
+  <c>k</c> <c>ng</c> <c>q</c> <c>c</c> <c>hng</c>
+  <!--<c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>-->
+</component>
+<component r="lc">
+  <c hex="0e82"/><c hex="0eab 0e87"/><c hex="0e96 0e88"/><c hex="0e96 0eaa"/><c hex="0eab 0eae 0e87"/>
+  <!--<c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>-->
+</component>
+</class>
+
+<class id="midCons">
+<component r="c">
+  <c>g</c> <c>j</c> <c>z</c> <c>nd</c> <c>d</c>
+  <!--<c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>
+  <c></c> <c></c> <c></c> <c></c> <c></c>-->
+</component>
+<component r="lc">
+  <c hex="0e81"/><c hex="0e88"/><c hex="0e95 0eaa"/><c hex="0e94"/><c hex="0e95"/>
+  <!--<c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
+  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>-->
+</component>
+</class>
+
+
+</classes>
+
+<mappingTable id="cons-tone">
+<columns>
+<component r="c"/>
+<component r="t"/>
+<component r="f"/>
+<component r="lc"/>
+<component r="lt"/>
+<component r="lf"/>
+</columns>
+<maps>
+<!-- template 
+<m><c r="c"></c> <c r="t"></c> <c r="l-c"></c> <c r="l-t"></c></m>
+<m>
+  <c r="c"></c> <c r="t"></c><c r="f"></c>
+  <c r="lc" hex=""/><c r="lt" hex=""/><c r="lf" hex=""/>
+</m>
+-->
+<!-- Low Consonants -->
+<m><!-- unmarked tone -->
+<c r="c" class="lowCons"/> <c r="t"/><c r="f" class="anyFinal"/> 
+<c r="lc" class="lowCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
+</m>
+<m><!-- v tone, stop,glottal -->
+<c r="c" class="lowCons"/> <c r="t">v</c><c r="f" class="kptqFinal"/> 
+<c r="lc" class="lowCons"/> <c r="lt"/><c r="lf" class="kptqFinal"/>
+</m>
+<m><!-- v tone, other -->
+<c r="c" class="lowCons"/> <c r="t">v</c><c r="f" class="mnngFinal"/> 
+<c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf" class="mnngFinal"/>
+</m>
+<m><!-- hz tone -->
+<c r="c" class="lowCons"/> <c r="t" class="hzTone"/><c r="f" class="anyFinal"/>
+<c r="lc" class="lowCons"/> <c r="lt" class="hzTone"/><c r="lf" class="anyFinal"/>
+</m>
+
+<!-- Mid Consonants -->
+<m><!-- unmarked tone -->
+<c r="c" class="midCons"/> <c r="t"/><c r="f" class="anyFinal"/> 
+<c r="lc" class="midCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
+</m>
+<m><!-- v tone, stop,glottal -->
+<c r="c" class="midCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
+<c r="lc" class="midCons"/> <c r="lt"/><c r="lf" class="kptqFinal"/>
+</m>
+<m><!-- v tone, other -->
+<c r="c" class="midCons"/> <c r="t">c</c><c r="f" class="mnngFinal"/> 
+<c r="lc" class="midCons"/> <c r="lt" hex="0ec8"/><c r="lf" class="mnngFinal"/>
+</m>
+<m><!-- hz tone -->
+<c r="c" class="midCons"/> <c r="t" class="hvxzMidTone"/><c r="f" class="anyFinal"/>
+<c r="lc" class="midCons"/> <c r="lt" class="hvxzMidTone"/><c r="lf" class="anyFinal"/>
+</m>
+
+<!-- High Consonants -->
+<m><!-- unmarked tone -->
+<c r="c" class="highCons"/> <c r="t">x</c><c r="f" class="anyFinal"/> 
+<c r="lc" class="highCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
+</m>
+<m><!-- v tone, stop,glottal -->
+<c r="c" class="highCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
+<c r="lc" class="highCons"/> <c r="lt"/><c r="lf" class="kptqFinal"/>
+</m>
+<m><!-- v tone, other -->
+<c r="c" class="highCons"/> <c r="t">c</c><c r="f" class="mnngFinal"/> 
+<c r="lc" class="highCons"/> <c r="lt" hex="0ec8"/><c r="lf" class="mnngFinal"/>
+</m>
+
+</maps>
+</mappingTable>
+
+<mappingTable id="vowel-final">
+<columns>
+<component r="v"/>
+<component r="f"/>
+<component r="lvp"/>
+<component r="lvu"/>
+<component r="lvd"/>
+<component r="lva"/>
+<component r="lf"/>
+</columns>
+<maps>
+<!--
+<m>
+<c r="v"></c> <c r="f"></c> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" hex=""/>
+</m>
+-->
+<m>
+<c r="v">a</c> <c r="f"/> 
+<c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb0"/><c r="lf"/>
+</m>
+<m>
+<c r="v">a</c> <c r="f">m</c> 
+<c r="lvp"/> <c r="lvu" hex="0eb3"/><c r="lvd"/> <c r="lva"/><c r="lf" hex="0ea1"/>
+</m>
+<m>
+<c r="v">a</c> <c r="f" class="kptnngFinal"/> 
+<c r="lvp"/> <c r="lvu" hex="0eb1"/><c r="lvd"/> <c r="lva"/><c r="lf" class="kptnngFinal"/>
+</m>
+<m>
+<c r="v">aa</c> <c r="f" class="anyFinal"/> 
+<c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex=""/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">ai</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex="0ec4"/> <c r="lvu"/><c r="lvd"/> <c r="lva"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v"></c> <c r="f"></c> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" hex=""/>
+</m>
+<m>
+<c r="v"></c> <c r="f"></c> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" hex=""/>
+</m>
+
+</maps>
+</mappingTable>
+
+<mappingTable id="vowel-final">
+<columns>
+<component r="sv"/>
+<component r="ls"/>
+</columns>
+<maps>
+<m><c r="sv">i</c><c r="ls" hex="0ea2"/></m>
+<m><c r="sv">u</c><c r="ls" hex="0ea7"/></m>
+</maps>
+</mappingTable>
+
+</syllableConverter>

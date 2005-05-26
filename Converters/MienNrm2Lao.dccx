@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DocCharConverter name="Mien NRM to Lao Unicode">
-<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
-<Argument value="mienNrm2Lao.tec" type="File" />
+<ConverterClass name="DocCharConvert.Converter.SyllableConverter">
+<Argument value="Mien/nrm2lao.xml" type="File" />
 </ConverterClass>
 <Styles>
 <Style>
 <Font name="Arial" type="old" />
-<Font name="Saysetta" type="new" />
+<Font name="Saysettha Unicode" type="new" />
 </Style>
 </Styles>
 </DocCharConverter>

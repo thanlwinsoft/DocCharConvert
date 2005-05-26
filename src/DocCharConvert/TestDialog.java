@@ -1,12 +1,33 @@
 /*
- * TestDialog.java
+ *  Copyright (C) 2005 Keith Stribley <doccharconvert@thanlwinsoft.org>
  *
- * Created on April 27, 2005, 11:54 AM
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * -----------------------------------------------------------------------
+ * $HeadURL: $
+ * $LastChangedBy: keith $
+ * $LastChangedDate: $
+ * $LastChangedRevision: $
+ * -----------------------------------------------------------------------
  */
 
 package DocCharConvert;
 import java.awt.Font;
+import java.awt.Dimension;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import DocCharConvert.Converter.*;
 /**
  *
@@ -171,11 +192,22 @@ public class TestDialog extends javax.swing.JDialog
         }
         catch (CharConverter.FatalException e)
         {              
-            JOptionPane.showMessageDialog(this, e.getMessage());
+          JTextArea area = new JTextArea(e.getMessage());
+          area.setLineWrap(true);
+          area.setWrapStyleWord(true);
+          JScrollPane msgPane = new JScrollPane(area);
+          msgPane.setPreferredSize(new Dimension(400,300));
+          JOptionPane.showMessageDialog(this, msgPane);
         }
         catch (CharConverter.RecoverableException e)
         {
-            JOptionPane.showMessageDialog(this, e.getMessage());
+          JTextArea area = new JTextArea(e.getMessage());
+          area.setLineWrap(true);
+          area.setWrapStyleWord(true);
+          JScrollPane msgPane = new JScrollPane(area);
+          msgPane.setPreferredSize(new Dimension(400,300));
+            JOptionPane.showMessageDialog(this, 
+              msgPane);
         }
         
     }//GEN-LAST:event_convertButtonActionPerformed
@@ -185,7 +217,12 @@ public class TestDialog extends javax.swing.JDialog
         for (int i = 0; i<text.length(); i++)
         {
             String hex = Integer.toHexString(text.charAt(i));
-            if (hex.length() == 2) buffer.append("  ");
+            if (hex.length() < 4) 
+            {
+              int j = 4 - hex.length();
+              while (j-- > 0)
+                buffer.append(' ');
+            }
             buffer.append(hex);
             buffer.append(" ");
         }

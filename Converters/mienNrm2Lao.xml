@@ -69,345 +69,343 @@ They will be stripped out later during the vowel & tone reordering
     <a b="3e" u="003e"/><!-- > -->
     <a b="3f" u="003f"/><!-- ? -->
     <a b="40" u="0040"/><!-- @ -->
-    <fbu b="41" u="005e 0ead 200d 0eb0" bbctxt="no-cons-b" /><!-- a vowel no cons -->
+    <fbu b="41" u="0ead 0eb0" bbctxt="no-cons-b" /><!-- a vowel no cons -->
     <fbu b="41" u="0eb0"/><!-- A vowel -->
-    <fbu b="41 6d" u="005e 0ead 200d 0eb3" bbctxt="no-cons-b" /><!-- a vowel + m final -->
+    <fbu b="41 6d" u="0ead 0eb3" bbctxt="no-cons-b" /><!-- a vowel + m final -->
     <fbu b="41 6d" u="0eb3"/><!-- A vowel + m final-->
-    <fbu b="41" u="005e 0ead 200d 0eb1" bbctxt="no-cons-b" bactxt="final-kptnng-b" /><!-- A vowel-->
+    <fbu b="41" u="0ead 0eb1" bbctxt="no-cons-b" bactxt="final-kptnng-b" /><!-- A vowel-->
     <fbu b="41" u="0eb1" bactxt="final-kptnng-b" /><!-- A vowel-->
-    <fbu b="41 61" u="005e 0ead 200d 0eb2" bbctxt="no-cons-b"/><!-- Aa vowel-->
+    <fbu b="41 61" u="0ead 0eb2" bbctxt="no-cons-b"/><!-- Aa vowel-->
     <fbu b="41 61" u="0eb2"/><!-- Aa vowel-->
-    <fbu b="41 69" u="005e 0ead 200d 0ec4" bbctxt="no-cons-b"/><!-- Ai vowel no cons-->
+    <fbu b="41 69" u="0ead 0ec4" bbctxt="no-cons-b"/><!-- Ai vowel no cons-->
     <fbu b="41 69" u="0ec4"/><!-- Ai vowel-->
-    <fbu b="41 61 69" u="005e 0ead 200d 0eb2 0e8d" bbctxt="no-cons-b"/><!-- Aai vowel-->
+    <fbu b="41 61 69" u="0ead 0eb2 0e8d" bbctxt="no-cons-b"/><!-- Aai vowel-->
     <fbu b="41 61 69" u="0eb2 0e8d"/><!-- Aai vowel-->
-    <fbu b="41 75" u="005e 0ead 200d 0ec0 0ebb 0eb2" bbctxt="no-cons-b"/><!-- Au vowel-->
+    <fbu b="41 75" u="0ead 0ec0 0ebb 0eb2" bbctxt="no-cons-b"/><!-- Au vowel-->
     <fbu b="41 75" u="0ec0 0ebb 0eb2"/><!-- Au vowel-->
-    <fbu b="41 61 75" u="005e 0ead 200d 0eb2 0ea7" bbctxt="no-cons-b"/><!-- Aau vowel-->
+    <fbu b="41 61 75" u="0ead 0eb2 0ea7" bbctxt="no-cons-b"/><!-- Aau vowel-->
     <fbu b="41 61 75" u="0eb2 0ea7"/><!-- Aau vowel-->
-    <fbu b="41 65" u="005e 0ead 200d 0ec1" bbctxt="no-cons-b"/><!-- Ae long  vowel-->
-    <fbu b="41 65" u="005e 0ead 200d 0ec1 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Ae short vowel-->
+    <fbu b="41 65" u="0ead 0ec1" bbctxt="no-cons-b"/><!-- Ae long  vowel-->
+    <fbu b="41 65" u="0ead 0ec1 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Ae short vowel-->
     <fbu b="41 65" u="0ec1"/><!-- Ae long  vowel-->
     <fbu b="41 65" u="0ec1 0eb0" bactxt="q-final-b"/><!-- Ae short vowel-->
-    <fbu b="42" u="005e 0e9b 200d"/><!-- B-->
-    <fbu b="43" u="005e 0e97 0eaa 200d"/><!-- C-->
-    <fbu b="43" u="005e 0e96 0eaa 200d" bactxt="high-vowel-tone-b"/><!-- C high -->
-    <fbu b="44" u="005e 0e95 200d"/><!-- D-->
+    <fbu b="42" u="0e9b"/><!-- B-->
+    <fbu b="43" u="0e97 0eaa"/><!-- C-->
+    <fbu b="43" u="0e96 0eaa" bactxt="high-vowel-tone-b"/><!-- C high -->
+    <fbu b="44" u="0e95"/><!-- D-->
     <fbu b="45" u="0ec0"/><!-- E vowel -->
     <!--<fbu b="45" u="0ec0 0ead" bbctxt="no-cons-b"/>--><!-- E vowel nocons -->
-    <fbu b="45" u="005e 0ead 200d 0ec0" bbctxt="no-cons-b"/><!-- E vowel nocons -->
+    <fbu b="45" u="0ead 0ec0" bbctxt="no-cons-b"/><!-- E vowel nocons -->
     <fbu b="45" u="0ec0 0eb0" bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short E vowel with final q-->
-    <fbu b="45 69" u="005e 0ead 200d 0ec0 0eb5 0e8d" bbctxt="no-cons-b"/><!-- Ei vowel-->
+    <fbu b="45 69" u="0ead 0ec0 0eb5 0e8d" bbctxt="no-cons-b"/><!-- Ei vowel-->
     <fbu b="45 69" u="0ec0 0eb5 0e8d"/><!-- Ei vowel-->
-    <fbu b="45 75" u="005e 0ead 200d 0ec0 0ea7" bbctxt="no-cons-b"/><!-- Eu vowel-->
+    <fbu b="45 75" u="0ead 0ec0 0ea7" bbctxt="no-cons-b"/><!-- Eu vowel-->
     <fbu b="45 75" u="0ec0 0ea7"/><!-- Eu vowel-->
-    <fbu b="45 72" u="005e 0ead 200d 0ec0 0eb5" bbctxt="no-cons-b"/><!-- long Er vowel-->
+    <fbu b="45 72" u="0ead 0ec0 0eb5" bbctxt="no-cons-b"/><!-- long Er vowel-->
     <fbu b="45 72" u="0ec0 0eb5"/><!-- long Er vowel-->
-    <fbu b="45 72" u="005e 0ead 200d 0ec0 0eb4" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Er vowel with final q -->
+    <fbu b="45 72" u="0ead 0ec0 0eb4" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Er vowel with final q -->
     <fbu b="45 72" u="0ec0 0eb4" bactxt="q-final-b"/><!-- short Er vowel with final q -->
-    <fbu b="46" u="005e 0e9f 200d"/><!-- F-->
-    <fbu b="46" u="005e 0e9d 200d" bactxt="high-vowel-tone-b" /><!-- F high-->
-    <fbu b="47" u="005e 0e81 200d"/><!-- G-->
-    <fbu b="48" u="005e 0eae 200d"/><!-- H-->
-    <fbu b="48" u="005e 0eab 200d" bactxt="high-vowel-tone-b"/><!-- H high-->
-    <fbu b="48 6e 67" u="005e 0eae 0e87 200d"/><!-- Hng low -->
-    <fbu b="48 6e 67" u="005e 0eab 0eae 0e87 200d" bactxt="high-vowel-tone-b"/><!-- Hng high-->
-    <fbu b="48 6e 79" u="005e 0eae 0e8d 200d"/><!-- Hny low-->
-    <fbu b="48 6e 79" u="005e 0eab 0eae 0e8d 200d" bactxt="high-vowel-tone-b"/><!-- Hny high-->
-    <fbu b="48 6d" u="005e 0eae 0ea1 200d"/><!-- Hm low -->
-    <fbu b="48 6d" u="005e 0eab 0eae 0ea1 200d" bactxt="high-vowel-tone-b"/><!-- Hm high-->
-    <fbu b="48 6e" u="005e 0eae 0e99 200d"/><!-- Hn low -->
-    <fbu b="48 6e" u="005e 0eab 0eae 0e99 200d" bactxt="high-vowel-tone-b"/><!-- Hn high-->
-    <fbu b="48 6c" u="005e 0eae 0ea5 200d"/><!-- Hl-->
-    <fbu b="48 6c" u="005e 0eab 0eae 0ea5 200d" bactxt="high-vowel-tone-b"/><!-- Hl high-->
-    <fbu b="48 75" u="005e 0eae 0ea7 200d" bactxt="hu-low-b"/><!-- Hu -->
-    <fbu b="48 75" u="005e 0eab 0eae 0ea7 200d" bactxt="hu-high-b"/><!-- Hu high-->
-    <fbu b="48 69" u="005e 0eab 0eae 0ea2 200d" bactxt="hi-high-b"/><!-- Hi high-->
-    <fbu b="48 69" u="005e 0eae 0ea2 200d" bactxt="hi-low-b"/><!-- Hi-->
+    <fbu b="46" u="0e9f"/><!-- F-->
+    <fbu b="46" u="0e9d" bactxt="high-vowel-tone-b" /><!-- F high-->
+    <fbu b="47" u="0e81"/><!-- G-->
+    <fbu b="48" u="0eae"/><!-- H-->
+    <fbu b="48" u="0eab" bactxt="high-vowel-tone-b"/><!-- H high-->
+    <fbu b="48 6e 67" u="0eae 0e87"/><!-- Hng low -->
+    <fbu b="48 6e 67" u="0eab 0eae 0e87" bactxt="high-vowel-tone-b"/><!-- Hng high-->
+    <fbu b="48 6e 79" u="0eae 0e8d"/><!-- Hny low-->
+    <fbu b="48 6e 79" u="0eab 0eae 0e8d" bactxt="high-vowel-tone-b"/><!-- Hny high-->
+    <fbu b="48 6d" u="0eae 0ea1"/><!-- Hm low -->
+    <fbu b="48 6d" u="0eab 0eae 0ea1" bactxt="high-vowel-tone-b"/><!-- Hm high-->
+    <fbu b="48 6e" u="0eae 0e99"/><!-- Hn low -->
+    <fbu b="48 6e" u="0eab 0eae 0e99" bactxt="high-vowel-tone-b"/><!-- Hn high-->
+    <fbu b="48 6c" u="0eae 0ea5"/><!-- Hl-->
+    <fbu b="48 6c" u="0eab 0eae 0ea5" bactxt="high-vowel-tone-b"/><!-- Hl high-->
+    <fbu b="48 75" u="0eae 0ea7" bactxt="hu-low-b"/><!-- Hu -->
+    <fbu b="48 75" u="0eab 0eae 0ea7" bactxt="hu-high-b"/><!-- Hu high-->
+    <fbu b="48 69" u="0eab 0eae 0ea2" bactxt="hi-high-b"/><!-- Hi high-->
+    <fbu b="48 69" u="0eae 0ea2" bactxt="hi-low-b"/><!-- Hi-->
     <fbu b="49" u="0ea2" bactxt="v-a-or-ei-b"/><!-- i semi-vowel -->
-    <fbu b="49" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b"/><!-- long I vowel -->
+    <fbu b="49" u="0ead 0eb5" bbctxt="no-cons-b"/><!-- long I vowel -->
     <fbu b="49" u="0eb5"/><!-- long I vowel -->
     <!--<fbu b="49" u="0ead 0eb5" bbctxt="no-cons-b"/>--><!-- long I vowel nocons-->
-    <fbu b="49" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
+    <fbu b="49" u="0ead 0eb5" bbctxt="no-cons-b" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
     <fbu b="49" u="0eb5" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
-    <fbu b="49" u="005e 0ead 200d 0eb4" bbctxt="no-cons-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
+    <fbu b="49" u="0ead 0eb4" bbctxt="no-cons-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
     <fbu b="49" u="0eb4" bbctxt="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
-    <fbu b="49 6f 75" u="005e 0ead 200d 0ebd 0ea7" bbctxt="no-cons-b"/><!-- Iou vowel-->
+    <fbu b="49 6f 75" u="0ead 0ebd 0ea7" bbctxt="no-cons-b"/><!-- Iou vowel-->
     <fbu b="49 6f 75" u="0ebd 0ea7"/><!-- Iou vowel-->
-    <fbu b="49 75" u="005e 0ead 200d 0eb4 0ea7" bbctxt="no-cons-b"/><!-- Iu-->
+    <fbu b="49 75" u="0ead 0eb4 0ea7" bbctxt="no-cons-b"/><!-- Iu-->
     <fbu b="49 75" u="0eb4 0ea7"/><!-- Iu-->
-    <fbu b="49 65" u="005e 0ead 200d 0ec0 0e8d" bbctxt="no-cons-b"/><!-- Ie-->
-    <fbu b="49 65" u="005e 0ead 200d 0ec0 0eb1 0e8d" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
+    <fbu b="49 65" u="0ead 0ec0 0e8d" bbctxt="no-cons-b"/><!-- Ie-->
+    <fbu b="49 65" u="0ead 0ec0 0eb1 0e8d" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
     <fbu b="49 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
-    <fbu b="49 65" u="005e 0ead 200d 0ebd" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
+    <fbu b="49 65" u="0ead 0ebd" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
     <fbu b="49 65" u="0ebd" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
     <fbu b="49 65" u="0ec0 0e8d" bactxt="not-i-b"/><!-- Ie-->
-    <fbu b="4a" u="005e 0e88 200d"/><!-- J-->
-    <fbu b="4b" u="005e 0e84 200d"/><!-- K-->
-    <fbu b="4b" u="005e 0e82 200d"  bactxt="high-vowel-tone-b"/><!-- K high-->
-    <fbu b="4c" u="005e 0ea5 200d"/><!-- L low -->
-    <fbu b="4c" u="005e 0eab 0ea5 200d" bactxt="high-vowel-tone-b" /><!-- L high-->
-    <fbu b="4d" u="005e 0ea1 200d"/><!-- M low -->
-    <fbu b="4d" u="005e 0edd 200d" bactxt="high-vowel-tone-b" /><!-- M high -->
-    <fbu b="4d 62" u="005e 0e9a 200d"/><!-- Mb mid -->
-    <fbu b="4e" u="005e 0e99 200d"/><!-- N-->
-    <fbu b="4e" u="005e 0edc 200d" bactxt="high-vowel-tone-b" /><!-- N high-->
-    <fbu b="4e 64" u="005e 0e94 200d"/><!-- Nd mid -->
-    <fbu b="4e 67" u="005e 0e87 200d"/><!-- Ng low -->
-    <fbu b="4e 67" u="005e 0eab 0e87 200d" bactxt="high-vowel-tone-b" /><!-- Ng high -->
-    <fbu b="4e 6a" u="005e 0ead 0e88 200d"/><!-- Nj mid -->
-    <fbu b="4e 71" u="005e 0ead 0e81 200d"/><!-- Nq mid -->
-    <fbu b="4e 79" u="005e 0e8d 200d"/><!-- Ny low -->
-    <fbu b="4e 79" u="005e 0eab 0e8d 200d" bactxt="high-vowel-tone-b" /><!-- Ny high-->
-    <fbu b="4e 7a" u="005e 0e94 0eaa 200d"/><!-- Nz mid -->
-    <fbu b="4f" u="005e 0ead 200d 0ec2" bbctxt="no-cons-b"/><!-- O vowel -->
+    <fbu b="4a" u="0e88"/><!-- J-->
+    <fbu b="4b" u="0e84"/><!-- K-->
+    <fbu b="4b" u="0e82"  bactxt="high-vowel-tone-b"/><!-- K high-->
+    <fbu b="4c" u="0ea5"/><!-- L low -->
+    <fbu b="4c" u="0eab 0ea5" bactxt="high-vowel-tone-b" /><!-- L high-->
+    <fbu b="4d" u="0ea1"/><!-- M low -->
+    <fbu b="4d" u="0edd" bactxt="high-vowel-tone-b" /><!-- M high -->
+    <fbu b="4d 62" u="0e9a"/><!-- Mb mid -->
+    <fbu b="4e" u="0e99"/><!-- N-->
+    <fbu b="4e" u="0edc" bactxt="high-vowel-tone-b" /><!-- N high-->
+    <fbu b="4e 64" u="0e94"/><!-- Nd mid -->
+    <fbu b="4e 67" u="0e87"/><!-- Ng low -->
+    <fbu b="4e 67" u="0eab 0e87" bactxt="high-vowel-tone-b" /><!-- Ng high -->
+    <fbu b="4e 6a" u="0ead 0e88"/><!-- Nj mid -->
+    <fbu b="4e 71" u="0ead 0e81"/><!-- Nq mid -->
+    <fbu b="4e 79" u="0e8d"/><!-- Ny low -->
+    <fbu b="4e 79" u="0eab 0e8d" bactxt="high-vowel-tone-b" /><!-- Ny high-->
+    <fbu b="4e 7a" u="0e94 0eaa"/><!-- Nz mid -->
+    <fbu b="4f" u="0ead 0ec2" bbctxt="no-cons-b"/><!-- O vowel -->
     <fbu b="4f" u="0ec2"/><!-- O vowel -->
-    <fbu b="4f" u="005e 0ead 200d 0ec2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
+    <fbu b="4f" u="0ead 0ec2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
     <fbu b="4f" u="0ec2 0eb0"  bbctxt="not-foreign-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
-    <fbu b="4f" u="005e 0ead 200d 0ebb"  bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- O vowel with final cons-->
+    <fbu b="4f" u="0ead 0ebb"  bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- O vowel with final cons-->
     <fbu b="4f" u="0ebb"  bactxt="final-cons-b"/><!-- O vowel with final cons-->
-    <fbu b="4f 69" u="005e 0ead 200d 0ead 0e8d" bbctxt="no-cons-b"/><!-- Oi vowel -->
+    <fbu b="4f 69" u="0ead 0ead 0e8d" bbctxt="no-cons-b"/><!-- Oi vowel -->
     <fbu b="4f 69" u="0ead 0e8d"/><!-- Oi vowel -->
     <!--<fbu b="4f 69" u="0ead 0ead 0e8d" bbctxt="no-cons-b"/>--><!-- no cons oi vowel -->
-    <fbu b="4f 75" u="005e 0ead 200d 0ec2 0ea7" bbctxt="no-cons-b"/><!-- Ou vowel-->
+    <fbu b="4f 75" u="0ead 0ec2 0ea7" bbctxt="no-cons-b"/><!-- Ou vowel-->
     <fbu b="4f 75" u="0ec2 0ea7"/><!-- Ou vowel-->
-    <fbu b="4f 72" u="005e 0ead 200d 0ecd" bbctxt="no-cons-b"/><!-- long Or vowel-->
+    <fbu b="4f 72" u="0ead 0ecd" bbctxt="no-cons-b"/><!-- long Or vowel-->
     <fbu b="4f 72" u="0ecd"/><!-- long Or vowel-->
-    <fbu b="4f 72" u="005e 0ead 200d 0ec0 0eb2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Or vowel with q final-->
+    <fbu b="4f 72" u="0ead 0ec0 0eb2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Or vowel with q final-->
     <fbu b="4f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short Or vowel with q final-->
-    <fbu b="4f 72" u="005e 0ead 200d 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
+    <fbu b="4f 72" u="0ead 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
     <fbu b="4f 72" u="0ead" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
     <!--<fbu b="4f 72" u="0ead 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/>--><!-- or vowel with final cons -->
-    <fbu b="50" u="005e 0e9e 200d"/><!-- P low -->
-    <fbu b="50" u="005e 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
-    <fbu b="51" u="005e 0e97 0e88 200d"/><!-- Q low -->
-    <fbu b="71" u="005e 0e96 0e88 200d"  bactxt="high-vowel-tone-b"/><!-- q high -->
+    <fbu b="50" u="0e9e"/><!-- P low -->
+    <fbu b="50" u="0e9c"  bactxt="high-vowel-tone-b" /><!-- p high-->
+    <fbu b="51" u="0e97 0e88"/><!-- Q low -->
+    <fbu b="71" u="0e96 0e88"  bactxt="high-vowel-tone-b"/><!-- q high -->
     <fbu b="52" u="2612"/><!-- R does not occur outside a vowel -->
-    <fbu b="53" u="005e 0e8a 200d"/><!-- S low -->
-    <fbu b="53" u="005e 0eaa 200d" bactxt="high-vowel-tone-b" /><!-- S high-->
-    <fbu b="54" u="005e 0e97 200d"/><!-- T low -->
-    <fbu b="54" u="005e 0e96 200d" bactxt="high-vowel-tone-b" /><!-- T high-->
+    <fbu b="53" u="0e8a"/><!-- S low -->
+    <fbu b="53" u="0eaa" bactxt="high-vowel-tone-b" /><!-- S high-->
+    <fbu b="54" u="0e97"/><!-- T low -->
+    <fbu b="54" u="0e96" bactxt="high-vowel-tone-b" /><!-- T high-->
     <fbu b="55" u="0ea7" bactxt="a-vowel-b"/><!-- U semi-vowel -->
-    <fbu b="55" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b"/><!-- long U vowel -->
+    <fbu b="55" u="0ead 0eb9" bbctxt="no-cons-b"/><!-- long U vowel -->
     <fbu b="55" u="0eb9"/><!-- long U vowel -->
-    <fbu b="55" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
+    <fbu b="55" u="0ead 0eb9" bbctxt="no-cons-b" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
     <fbu b="55" u="0eb9" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
-    <fbu b="55" u="005e 0ead 200d 0eb8" bbctxt="no-cons-b" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
+    <fbu b="55" u="0ead 0eb8" bbctxt="no-cons-b" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
     <fbu b="55" u="0eb8" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
-    <fbu b="55 69" u="005e 0ead 200d 0eb8 0e8d" bbctxt="no-cons-b"/><!-- Ui vowel -->
+    <fbu b="55 69" u="0ead 0eb8 0e8d" bbctxt="no-cons-b"/><!-- Ui vowel -->
     <fbu b="55 69" u="0eb8 0e8d"/><!-- Ui vowel -->
-    <fbu b="55 65" u="0005e 0ead 200d eb7" bbctxt="no-cons-b"/><!-- long ue vowel -->
+    <fbu b="55 65" u="00ead eb7" bbctxt="no-cons-b"/><!-- long ue vowel -->
     <fbu b="55 65" u="0eb7"/><!-- long ue vowel -->
-    <fbu b="55 65" u="005e 0ead 200d 0eb6" bbctxt="no-cons-b" bactxt="q-final-b" /><!-- short ue vowel -->
+    <fbu b="55 65" u="0ead 0eb6" bbctxt="no-cons-b" bactxt="q-final-b" /><!-- short ue vowel -->
     <fbu b="55 65" u="0eb6" bactxt="q-final-b" /><!-- short ue vowel -->
     <fbu b="55 65 69" u="0ec0 0ea7 0eb5 0e8d"/><!--  u ei vowel -->
     <fbu b="55 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/><!--  u ei vowel in fu'juei-->
-    <fbu b="55 65 61" u="005e 0ead 200d 0ec0 0eb7 0ead" bbctxt="no-cons-b" /><!-- Uea vowel -->
+    <fbu b="55 65 61" u="0ead 0ec0 0eb7 0ead" bbctxt="no-cons-b" /><!-- Uea vowel -->
     <fbu b="55 65 61" u="0ec0 0eb7 0ead" /><!-- Uea vowel -->
-    <fbu b="55 65 61" u="005e 0ead 200d 0ec0 0eb6" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Uea vowel -->
+    <fbu b="55 65 61" u="0ead 0ec0 0eb6" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Uea vowel -->
     <fbu b="55 65 61" u="0ec0 0eb6" bactxt="q-final-b"/><!-- Uea vowel -->
-    <fbu b="55 6f" u="005e 0ead 200d 0ebb 0ea7" bbctxt="no-cons-b"/><!-- long Uo vowel -->
+    <fbu b="55 6f" u="0ead 0ebb 0ea7" bbctxt="no-cons-b"/><!-- long Uo vowel -->
     <fbu b="55 6f" u="0ebb 0ea7"/><!-- long Uo vowel -->
-    <fbu b="55 6f" u="005e 0ead 200d 0ebb 0ea7 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Uo vowel -->
+    <fbu b="55 6f" u="0ead 0ebb 0ea7 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Uo vowel -->
     <fbu b="55 6f" u="0ebb 0ea7 0eb0" bactxt="q-final-b"/><!-- short Uo vowel -->
-    <fbu b="55 6f" u="005e 0ead 200d 0ea7" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
+    <fbu b="55 6f" u="0ead 0ea7" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
     <fbu b="55 6f" u="0ea7" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
     <fbu b="56" u="2612"/><!-- V does not occur as capital -->
-    <fbu b="57" u="005e 0ea7 200d"/><!-- W-->
-    <fbu b="57" u="005e 0eab 0ea7 200d" bactxt="high-vowel-tone-b" /><!-- high w-->
+    <fbu b="57" u="0ea7"/><!-- W-->
+    <fbu b="57" u="0eab 0ea7" bactxt="high-vowel-tone-b" /><!-- high w-->
     <fbu b="58" u="2612"/><!-- X does not occur as capital -->
-    <fbu b="59" u="005e 0ea2 200d"/><!-- Y-->
-    <fbu b="5a" u="005e 0e95 0eaa 200d"/><!-- Z mid -->
+    <fbu b="59" u="0ea2"/><!-- Y-->
+    <fbu b="5a" u="0e95 0eaa"/><!-- Z mid -->
     <a b="5b" u="005b"/><!-- [ -->
     <a b="5c" u="005c"/><!-- \ -->
     <a b="5d" u="005d"/><!-- ] -->
     <a b="5e" u="005e"/><!-- ^ -->
     <a b="5f" u="005f"/><!-- _ -->
     <a b="60" u="0060"/><!-- ` -->
-    <a b="61" u="005e 0ead 200d 0eb0" bbctxt="no-cons-b" /><!-- a vowel no cons -->
-    <a b="61" u="005e 0ead 200d 0eb1" bbctxt="no-cons-b" bactxt="final-kptnng-b" /><!-- a vowel-->
+    <a b="61" u="0ead 0eb0" bbctxt="no-cons-b" /><!-- a vowel no cons -->
+    <a b="61" u="0ead 0eb1" bbctxt="no-cons-b" bactxt="final-kptnng-b" /><!-- a vowel-->
     <a b="61" u="0eb1" bactxt="final-kptnng-b" /><!-- a vowel-->
     <a b="61" u="0eb0" /><!-- a vowel -->
-    <a b="61 6d" u="005e 0ead 200d 0eb3" bbctxt="no-cons-b" /><!-- a vowel + m final -->
+    <a b="61 6d" u="0ead 0eb3" bbctxt="no-cons-b" /><!-- a vowel + m final -->
     <a b="61 6d" u="0eb3" /><!-- a vowel + m final -->
-    <a b="61 61" u="005e 0ead 200d 0eb2" bbctxt="no-cons-b"/><!-- aa vowel no cons-->
+    <a b="61 61" u="0ead 0eb2" bbctxt="no-cons-b"/><!-- aa vowel no cons-->
     <a b="61 61" u="0eb2"/><!-- aa vowel-->
-    <a b="61 69" u="005e 0ead 200d 0ec4" bbctxt="no-cons-b"/><!-- Ai vowel no cons-->
+    <a b="61 69" u="0ead 0ec4" bbctxt="no-cons-b"/><!-- Ai vowel no cons-->
     <a b="61 69" u="0ec4"/><!-- ai vowel-->
-    <a b="61 61 69" u="005e 0ead 200d 0eb2 0e8d" bbctxt="no-cons-b"/><!-- Aai vowel-->
+    <a b="61 61 69" u="0ead 0eb2 0e8d" bbctxt="no-cons-b"/><!-- Aai vowel-->
     <a b="61 61 69" u="0eb2 0e8d"/><!-- aai vowel-->
-    <a b="61 75" u="005e 0ead 200d 0ec0 0ebb 0eb2" bbctxt="no-cons-b"/><!-- Au vowel-->
+    <a b="61 75" u="0ead 0ec0 0ebb 0eb2" bbctxt="no-cons-b"/><!-- Au vowel-->
     <a b="61 75" u="0ec0 0ebb 0eb2"/><!-- au vowel-->
-    <a b="61 61 75" u="005e 0ead 200d 0eb2 0ea7" bbctxt="no-cons-b"/><!-- Aau vowel-->
+    <a b="61 61 75" u="0ead 0eb2 0ea7" bbctxt="no-cons-b"/><!-- Aau vowel-->
     <a b="61 61 75" u="0eb2 0ea7"/><!-- aau vowel-->
-    <a b="61 65" u="005e 0ead 200d 0ec1" bbctxt="no-cons-b"/><!-- Ae long  vowel-->
-    <a b="61 65" u="005e 0ead 200d 0ec1 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Ae short vowel-->
+    <a b="61 65" u="0ead 0ec1" bbctxt="no-cons-b"/><!-- Ae long  vowel-->
+    <a b="61 65" u="0ead 0ec1 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Ae short vowel-->
     
     <a b="61 65" u="0ec1"/><!-- ae long  vowel-->
     <a b="61 65" u="0ec1 0eb0" bactxt="q-final-b"/><!-- ae short vowel-->
     
-    
-    <a b="62" u="005e 0e9b 200d"/><!-- b-->
-    <a b="63" u="005e 0e96 0eaa 200d" bactxt="high-vowel-tone-b"/><!-- c high -->
+    <a b="62" u="0e9b"/><!-- b-->
+    <a b="63" u="0e96 0eaa" bactxt="high-vowel-tone-b"/><!-- c high -->
     <!-- c as tone mark on high class final stop or glottal -->
-    <fbu b="63" u="200b" bbctxt="high-cons-final-b" />
+    <fbu b="63" u="" bbctxt="high-cons-final-b" />
     <!-- c as tone mark on high or middle class no final -->
     <a b="63" u="0ec8" bbctxt="high-cons-nof-b" />
-    <fbu b="63" u="0ec8" bbctxt="middle-cons-nof-b" />
+    <a b="63" u="0ec8" bbctxt="middle-cons-nof-b" ubctxt="middle-cons-any-u"/>
     <!-- c as tone mark on middle class final stop or glottal -->
-    <fbu b="63" u="200b" bbctxt="middle-cons-final-b" />
-    <fbu b="63" u="200b" bbctxt="middle-no-cons-final-b"/><!-- c as tone mark with invisible middle cons -->
-    <fbu b="63" u="200b" bbctxt="middle-no-cons-nof-b"/><!-- c as tone mark with invisible middle cons -->
-    <a b="63" u="005e 0e97 0eaa 200d"/><!-- c low -->
-    <a b="64" u="005e 0e95 200d"/><!-- d-->
+    <fbu b="63" u="" bbctxt="middle-cons-final-b" />
+    <fbu b="63" u="" bbctxt="middle-no-cons-final-b"/><!-- c as tone mark with invisible middle cons -->
+    <fbu b="63" u="0ec8" bbctxt="middle-no-cons-nof-b"/><!-- c as tone mark with invisible middle cons -->
+    <a b="63" u="0e97 0eaa"/><!-- c low -->
+    <a b="64" u="0e95"/><!-- d-->
     <a b="65" u="0ec0"/><!-- long e vowel-->
     <!--<a b="65" u="0ec0 0ead" bbctxt="no-cons-b"/>--><!-- e vowel nocons -->
-    <a b="65" u="005e 0ead 200d 0ec0" bbctxt="no-cons-b"/><!-- E vowel nocons -->
+    <a b="65" u="0ead 0ec0" bbctxt="no-cons-b"/><!-- E vowel nocons -->
     <a b="65" u="0ec0 0eb0" bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short e vowel with final q-->
     <a b="65 69" u="0ec0 0eb5 0e8d"/><!-- ei vowel-->
-    <a b="65 69" u="005e 0ead 200d 0ec0 0eb5 0e8d" bbctxt="no-cons-b"/><!-- Ei vowel-->
+    <a b="65 69" u="0ead 0ec0 0eb5 0e8d" bbctxt="no-cons-b"/><!-- Ei vowel-->
     <!--<a b="65 69" u="0ec0 0ead 0eb5 0e8d" bbctxt="no-cons-b" bactxt="no-cons-b"/>--><!-- ei vowel only -->
-    <a b="65 75" u="005e 0ead 200d 0ec0 0ea7" bbctxt="no-cons-b"/><!-- Eu vowel-->
+    <a b="65 75" u="0ead 0ec0 0ea7" bbctxt="no-cons-b"/><!-- Eu vowel-->
     <a b="65 75" u="0ec0 0ea7"/><!-- eu vowel-->
-    <a b="65 72" u="005e 0ead 200d 0ec0 0eb5" bbctxt="no-cons-b"/><!-- long Er vowel-->
+    <a b="65 72" u="0ead 0ec0 0eb5" bbctxt="no-cons-b"/><!-- long Er vowel-->
     <a b="65 72" u="0ec0 0eb5"/><!-- long er vowel-->
-    <a b="65 72" u="005e 0ead 200d 0ec0 0eb4" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Er vowel with final q -->
+    <a b="65 72" u="0ead 0ec0 0eb4" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Er vowel with final q -->
     <a b="65 72" u="0ec0 0eb4" bactxt="q-final-b"/><!-- short er vowel with final q -->
-    <a b="66" u="005e 0e9f 200d"/><!-- f low -->
-    <a b="66" u="005e 0e9d 200d" bactxt="high-vowel-tone-b" /><!-- f high-->
+    <a b="66" u="0e9f"/><!-- f low -->
+    <a b="66" u="0e9d" bactxt="high-vowel-tone-b" /><!-- f high-->
     <fbu b="67" u="2612"/><!-- g -->
-    <fbu b="67" u="005e 0e81 200d" bbctxt="not-n-b"/><!-- g-->
-    <a b="68" u="005e 0eae 200d"/><!-- h-->
-    <a b="68" u="005e 0eab 200d" bactxt="high-vowel-tone-b"/><!-- h high-->
-    <a b="68 6e 67" u="005e 0eae 0e87 200d"/><!-- hng low -->
-    <a b="68 6e 67" u="005e 0eab 0eae 0e87 200d" bactxt="high-vowel-tone-b"/><!-- hng high-->
-    <a b="68 6e 79" u="005e 0eae 0e8d 200d"/><!-- hny low-->
-    <a b="68 6e 79" u="005e 0eab 0eae 0e8d 200d" bactxt="high-vowel-tone-b"/><!-- hny high-->
-    <a b="68 6d" u="005e 0eae 0ea1 200d"/><!-- hm low -->
-    <a b="68 6d" u="005e 0eab 0eae 0ea1 200d" bactxt="high-vowel-tone-b"/><!-- hm high-->
-    <a b="68 6e" u="005e 0eae 0e99 200d"/><!-- hn low -->
-    <a b="68 6e" u="005e 0eab 0eae 0e99 200d" bactxt="high-vowel-tone-b"/><!-- hn high-->
-    <a b="68 6c" u="005e 0eae 0ea5 200d"/><!-- hl-->
-    <a b="68 6c" u="005e 0eab 0eae 0ea5 200d" bactxt="high-vowel-tone-b"/><!-- hl high-->
-    <a b="68 75" u="005e 0eae 0ea7 200d" bactxt="hu-low-b"/><!-- hu -->
-    <a b="68 75" u="005e 0eab 0eae 0ea7 200d" bactxt="hu-high-b"/><!-- hu high-->
-    <a b="68 69" u="005e 0eab 0eae 0ea2 200d" bactxt="hi-high-b"/><!-- hi high-->
-    <a b="68 69" u="005e 0eae 0ea2 200d" bactxt="hi-low-b"/><!-- hi-->
-    <fbu b="68" u="0ec9" bbctxt="middle-cons-any-b"/><!-- h as tone on middle class -->
+    <fbu b="67" u="0e81" bbctxt="not-n-b"/><!-- g-->
+    <a b="68" u="0eae"/><!-- h-->
+    <a b="68" u="0eab" bactxt="high-vowel-tone-b"/><!-- h high-->
+    <a b="68 6e 67" u="0eae 0e87"/><!-- hng low -->
+    <a b="68 6e 67" u="0eab 0eae 0e87" bactxt="high-vowel-tone-b"/><!-- hng high-->
+    <a b="68 6e 79" u="0eae 0e8d"/><!-- hny low-->
+    <a b="68 6e 79" u="0eab 0eae 0e8d" bactxt="high-vowel-tone-b"/><!-- hny high-->
+    <a b="68 6d" u="0eae 0ea1"/><!-- hm low -->
+    <a b="68 6d" u="0eab 0eae 0ea1" bactxt="high-vowel-tone-b"/><!-- hm high-->
+    <a b="68 6e" u="0eae 0e99"/><!-- hn low -->
+    <a b="68 6e" u="0eab 0eae 0e99" bactxt="high-vowel-tone-b"/><!-- hn high-->
+    <a b="68 6c" u="0eae 0ea5"/><!-- hl-->
+    <a b="68 6c" u="0eab 0eae 0ea5" bactxt="high-vowel-tone-b"/><!-- hl high-->
+    <a b="68 75" u="0eae 0ea7" bactxt="hu-low-b"/><!-- hu -->
+    <a b="68 75" u="0eab 0eae 0ea7" bactxt="hu-high-b"/><!-- hu high-->
+    <a b="68 69" u="0eab 0eae 0ea2" bactxt="hi-high-b"/><!-- hi high-->
+    <a b="68 69" u="0eae 0ea2" bactxt="hi-low-b"/><!-- hi-->
+    <a b="68" u="0ec9" bbctxt="middle-cons-any-b" ubctxt="middle-cons-any-u"/><!-- h as tone on middle class -->
     <fbu b="68" u="0ec9" bbctxt="middle-no-cons-any-b"/>
     <fbu b="68" u="0ec8" bbctxt="low-cons-any-b"/><!-- h as tone on low class -->
-    <a b="69" u="0ea2" bactxt="v-a-or-ei-b"/><!-- i semi-vowel -->
-    <a b="69" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b"/><!-- long I vowel -->
+    <a b="69" u="0ea2" bactxt="v-a-or-ei-b" ubctxt="cons-u"/><!-- i semi-vowel -->
+    <a b="69" u="0ead 0eb5" bbctxt="no-cons-b"/><!-- long I vowel -->
     <a b="69" u="0eb5"/><!-- long i vowel -->
     <!--<a b="69" u="0ead 0eb5" bbctxt="no-cons-b"/>--><!-- long i vowel nocons-->
-    <a b="69" u="005e 0ead 200d 0eb5" bbctxt="no-cons-b" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
+    <a b="69" u="0ead 0eb5" bbctxt="no-cons-b" bactxt="ng-final-tone-b"/><!-- long I vowel with ng-->
     <fbu b="69" u="0eb5" bactxt="ng-final-tone-b"/><!-- long i with ng -->
-    <a b="69" u="005e 0ead 200d 0eb4" bbctxt="no-cons-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
+    <a b="69" u="0ead 0eb4" bbctxt="no-cons-b" bactxt="qktpnm-final-b"/><!-- short I vowel with q,k,t,p,n,m finals -->
     <a b="69" u="0eb4" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short i vowel with q,k,t,p,n,m finals -->
-    <a b="69 6f 75" u="005e 0ead 200d 0ebd 0ea7" bbctxt="no-cons-b"/><!-- Iou vowel-->
+    <a b="69 6f 75" u="0ead 0ebd 0ea7" bbctxt="no-cons-b"/><!-- Iou vowel-->
     <a b="69 6f 75" u="0ebd 0ea7"/><!-- iou vowel-->
-    <a b="69 75" u="005e 0ead 200d 0eb4 0ea7" bbctxt="no-cons-b"/><!-- Iu-->
+    <a b="69 75" u="0ead 0eb4 0ea7" bbctxt="no-cons-b"/><!-- Iu-->
     <a b="69 75" u="0eb4 0ea7"/><!-- iu-->
-    <a b="69 65" u="005e 0ead 200d 0ec0 0e8d" bbctxt="no-cons-b"/><!-- Ie-->
-    <a b="69 65" u="005e 0ead 200d 0ec0 0eb1 0e8d" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
+    <a b="69 65" u="0ead 0ec0 0e8d" bbctxt="no-cons-b"/><!-- Ie-->
+    <a b="69 65" u="0ead 0ec0 0eb1 0e8d" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Ie vowel with q final -->
     <a b="69 65" u="0ec0 0eb1 0e8d" bactxt="q-final-b"/><!-- short ie vowel with q final -->
-    <a b="69 65" u="005e 0ead 200d 0ebd" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
+    <a b="69 65" u="0ead 0ebd" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Ie vowel with final cons -->
     <a b="69 65" u="0ebd" bactxt="final-cons-b" uactxt="final-u"/><!-- ie vowel with final cons -->
     <a b="69 65" u="0ec0 0e8d" bactxt="not-i-b"/><!-- ie-->
-    <a b="6a" u="005e 0e88 200d"/><!-- j-->
-    <a b="6b" u="005e 0e84 200d"/><!-- k low -->
-    <a b="6b" u="005e 0e82 200d"  bactxt="high-vowel-tone-b"/><!-- k high-->
+    <a b="6a" u="0e88"/><!-- j-->
+    <a b="6b" u="0e84"/><!-- k low -->
+    <a b="6b" u="0e82"  bactxt="high-vowel-tone-b"/><!-- k high-->
     <a b="6b" u="0e81"  bbctxt="vowel-final-b"/><!-- k final-->
-    <a b="6c" u="005e 0ea5 200d"/><!-- l low-->
-    <a b="6c" u="005e 0eab 0ea5 200d" bactxt="high-vowel-tone-b" /><!-- l high-->
-    <a b="6d" u="005e 0ea1 200d"/><!-- m low -->
-    <a b="6d" u="005e 0edd 200d" bactxt="high-vowel-tone-b" /><!-- m high -->
-    <a b="6d" u="0ea1" bbctxt="vowel-final-b"/><!-- m  final -->
-    <fub b="6d 62" u="0e9a"/><!-- mb mid -->
-    <a b="6d 62" u="005e 0e9a 200d"/><!-- mb mid -->
-    <fub b="6e 64" u="0e94"/><!-- nd mid -->
-    <a b="6e 64" u="005e 0e94 200d"/><!-- nd mid -->
-    <a b="6e 67" u="005e 0e87 200d"/><!-- ng low  -->
-    <a b="6e 67" u="0e87" bbctxt="vowel-final-b" /><!-- ng final -->
-    <a b="6e 67" u="005e 0eab 0e87 200d" bactxt="high-vowel-tone-b" /><!-- ng high -->
-    <a b="6e 6a" u="005e 0ead 0e88 200d"/><!-- nj mid -->
-    <a b="6e 71" u="005e 0ead 0e81 200d"/><!-- nq mid -->
-    <a b="6e 79" u="005e 0e8d 200d"/><!-- ny low -->
-    <a b="6e 79" u="005e 0eab 0e8d 200d" bactxt="high-vowel-tone-b" /><!-- ny high-->
-    <a b="6e 7a" u="005e 0e94 0eaa 200d"/><!-- nz mid -->
-    <a b="6e" u="005e 0edc 200d" bactxt="high-vowel-tone-b" /><!-- n high-->
-    <a b="6e" u="0e99" bbctxt="vowel-final-b"/><!-- n final -->
-    <a b="6e" u="005e 0e99 200d"/><!-- n low class -->
-    <a b="6f" u="005e 0ead 200d 0ec2" bbctxt="no-cons-b"/><!-- O vowel -->
+    <a b="6c" u="0ea5"/><!-- l low-->
+    <a b="6c" u="0eab 0ea5" bactxt="high-vowel-tone-b" /><!-- l high-->
+    <a b="6d" u="0ea1"/><!-- m low -->
+    <a b="6d" u="0edd" bactxt="high-vowel-tone-b" /><!-- m high -->
+    <fbu b="6d" u="0ea1" bbctxt="vowel-final-b"/><!-- m  final -->
+    <a b="6d 62" u="0e9a"/><!-- mb mid -->
+    <a b="6e 64" u="0e94"/><!-- nd mid -->
+    <a b="6e 67" u="0e87"/><!-- ng low  -->
+    <fbu b="6e 67" u="0e87" bbctxt="vowel-final-b" /><!-- ng final -->
+    <a b="6e 67" u="0eab 0e87" bactxt="high-vowel-tone-b" /><!-- ng high -->
+    <a b="6e 6a" u="0ead 0e88"/><!-- nj mid -->
+    <a b="6e 71" u="0ead 0e81"/><!-- nq mid -->
+    <a b="6e 79" u="0e8d"/><!-- ny low -->
+    <a b="6e 79" u="0eab 0e8d" bactxt="high-vowel-tone-b" /><!-- ny high-->
+    <a b="6e 7a" u="0e94 0eaa"/><!-- nz mid -->
+    <a b="6e" u="0edc" bactxt="high-vowel-tone-b" /><!-- n high-->
+    <fbu b="6e" u="0e99" bbctxt="vowel-final-b"/><!-- n final -->
+    <a b="6e" u="0e99"/><!-- n low class -->
+    <a b="6f" u="0ead 0ec2" bbctxt="no-cons-b"/><!-- O vowel -->
     <a b="6f" u="0ec2"/><!-- long o vowel -->
-    <a b="6f" u="005e 0ead 200d 0ec2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
+    <a b="6f" u="0ead 0ec2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short O vowel with q final-->
     <a b="6f" u="0ec2 0eb0"  bbctext="not-foreign-b" bactxt="q-final-b"/><!-- short o vowel with q final-->
-    <a b="6f" u="005e 0ead 200d 0ebb" bbctxt="no-cons-b"  bactxt="final-cons-b"/><!-- O vowel with final cons-->
+    <a b="6f" u="0ead 0ebb" bbctxt="no-cons-b"  bactxt="final-cons-b"/><!-- O vowel with final cons-->
     <a b="6f" u="0ebb"  bactxt="final-cons-b"/><!-- o vowel with final cons-->
-    <a b="6f 69" u="005e 0ead 200d 0ead 0e8d" bbctxt="no-cons-b"/><!-- Oi vowel -->
+    <a b="6f 69" u="0ead 0ead 0e8d" bbctxt="no-cons-b"/><!-- Oi vowel -->
     <a b="6f 69" u="0ead 0e8d"/><!-- oi vowel -->
-    <!--<a b="6f 69" u="005e 0ead 200d 0ead 0e8d" bbctxt="no-cons-b"/>--><!-- no cons oi vowel -->
-    <a b="6f 75" u="005e 0ead 200d 0ec2 0ea7" bbctxt="no-cons-b"/><!-- Ou vowel-->
+    <!--<a b="6f 69" u="0ead 0ead 0e8d" bbctxt="no-cons-b"/>--><!-- no cons oi vowel -->
+    <a b="6f 75" u="0ead 0ec2 0ea7" bbctxt="no-cons-b"/><!-- Ou vowel-->
     <a b="6f 75" u="0ec2 0ea7"/><!-- ou vowel-->
-    <a b="6f 72" u="005e 0ead 200d 0ecd" bbctxt="no-cons-b"/><!-- long Or vowel-->
+    <a b="6f 72" u="0ead 0ecd" bbctxt="no-cons-b"/><!-- long Or vowel-->
     <a b="6f 72" u="0ecd"/><!-- long or vowel-->
-    <a b="6f 72" u="005e 0ead 200d 0ec0 0eb2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Or vowel with q final-->
+    <a b="6f 72" u="0ead 0ec0 0eb2 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Or vowel with q final-->
     <a b="6f 72" u="0ec0 0eb2 0eb0" bactxt="q-final-b"/><!-- short or vowel with q final-->
-    <a b="6f 72" u="005e 0ead 200d 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
+    <a b="6f 72" u="0ead 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- Or vowel with final cons -->
     <a b="6f 72" u="0ead" bactxt="final-cons-b"/><!-- or vowel with final cons -->
     <!--<a b="6f 72" u="0ead 0ead" bbctxt="no-cons-b" bactxt="final-cons-b"/>--><!-- or vowel with final cons -->
-    <a b="70" u="005e 0e9e 200d"/><!-- p low-->
-    <a b="70" u="005e 0e9c 200d"  bactxt="high-vowel-tone-b" /><!-- p high-->
+    <a b="70" u="0e9e"/><!-- p low-->
+    <a b="70" u="0e9c"  bactxt="high-vowel-tone-b" /><!-- p high-->
     <a b="70" u="0e9a"  bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- p final-->
-    <a b="71" u="005e 0e97 0e88 200d"/><!-- q low -->
-    <a b="71" u="005e 0e96 0e88 200d"  bactxt="high-vowel-tone-b"/><!-- q high -->
-    <a b="71" u="200b" bbctxt="vowel-final-b"/><!-- q final -->
+    <a b="71" u="0e97 0e88"/><!-- q low -->
+    <a b="71" u="0e96 0e88"  bactxt="high-vowel-tone-b"/><!-- q high -->
+    <fbu b="71" u="" bbctxt="vowel-final-b"/><!-- q final -->
     <fbu b="72" u="2612"/><!-- r does not occur outside a vowel -->
-    <a b="73" u="005e 0e8a 200d"/><!-- s low-->
-    <a b="73" u="005e 0eaa 200d" bactxt="high-vowel-tone-b" /><!-- s high-->
-    <a b="74" u="005e 0e97 200d"/><!-- t low -->
-    <a b="74" u="005e 0e96 200d" bactxt="high-vowel-tone-b" /><!-- t high-->
+    <a b="73" u="0e8a"/><!-- s low-->
+    <a b="73" u="0eaa" bactxt="high-vowel-tone-b" /><!-- s high-->
+    <a b="74" u="0e97"/><!-- t low -->
+    <a b="74" u="0e96" bactxt="high-vowel-tone-b" /><!-- t high-->
     <a b="74" u="0e94" bbctxt="vowel-final-b" ubctxt="vowel-u"/><!-- t final-->
-    <a b="75" u="0ea7 200d" bbctxt="any-cons-b" bactxt="a-vowel-b"/><!-- u semi-vowel -->
-    <a b="75" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
+    <fbu b="75" u="0ea7" bbctxt="any-cons-b" bactxt="a-vowel-b"/><!-- u semi-vowel -->
+    <a b="75" u="0ead 0eb9" bbctxt="no-cons-b" bactxt="ng-final-tone-b" priority="1"/><!-- long with ng -->
     <fbu b="75" u="0eb9" bactxt="ng-final-tone-b" priority="1"/><!-- long u vowel with ng this rule must be before the next one -->
-    <a b="75" u="005e 0ead 200d 0eb8" bbctxt="no-cons-b" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
+    <a b="75 27" u="0eb8" uactxt="any-cons-b"/><!-- short u vowel presyllable -->
+    <a b="75" u="0ead 0eb8" bbctxt="no-cons-b" bbctext="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short U vowel-->
     <a b="75" u="0eb8" bbctxt="not-foreign-b" bactxt="qktpnm-final-b"/><!-- short u vowel-->
-    <a b="75" u="0ea7" bactxt="a-vowel-b"/><!-- U semi-vowel -->
-    <a b="75" u="005e 0ead 200d 0eb9" bbctxt="no-cons-b"/><!-- long U vowel -->
+    <a b="75" u="0ea7" bactxt="a-vowel-b" ubctxt="cons-u"/><!-- U semi-vowel -->
+    <a b="75" u="0ead 0eb9" bbctxt="no-cons-b"/><!-- long U vowel -->
     <a b="75" u="0eb9"/><!-- long u vowel-->
-    <a b="75 69" u="005e 0ead 200d 0eb8 0e8d" bbctxt="no-cons-b"/><!-- Ui vowel -->
+    <a b="75 69" u="0ead 0eb8 0e8d" bbctxt="no-cons-b"/><!-- Ui vowel -->
     <a b="75 69" u="0eb8 0e8d"/><!-- ui vowel -->
-    <a b="75 65" u="0005e 0ead 200d eb7" bbctxt="no-cons-b"/><!-- long ue vowel -->
+    <a b="75 65" u="0ead 0eb7" bbctxt="no-cons-b"/><!-- long ue vowel -->
     <a b="75 65" u="0eb7"/><!-- long ue vowel -->
-    <a b="75 65" u="005e 0ead 200d 0eb6" bbctxt="no-cons-b" bactxt="q-final-b" /><!-- short ue vowel -->
+    <a b="75 65" u="0ead 0eb6" bbctxt="no-cons-b" bactxt="q-final-b" /><!-- short ue vowel -->
     <a b="75 65" u="0eb6" bactxt="q-final-b" /><!-- short ue vowel -->
     <a b="75 65 69" u="0ec0 0ea7 0eb5 0e8d"/><!--  u ei vowel -->
     <!--<a b="75 65 69" u="0ea7 0e8d" bbctext="fu-juei-b"/>  u ei vowel in fu'juei-->
-    <a b="75 65 61" u="005e 0ead 200d 0ec0 0eb7 0ead" bbctxt="no-cons-b" /><!-- Uea vowel -->
+    <a b="75 65 61" u="0ead 0ec0 0eb7 0ead" bbctxt="no-cons-b" /><!-- Uea vowel -->
     <a b="75 65 61" u="0ec0 0eb7 0ead" /><!-- uea vowel -->
-    <a b="75 65 61" u="005e 0ead 200d 0ec0 0eb6" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Uea vowel -->
+    <a b="75 65 61" u="0ead 0ec0 0eb6" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- Uea vowel -->
     <a b="75 65 61" u="0ec0 0eb6" bactxt="q-final-b"/><!-- uea vowel -->
-    <a b="75 6f" u="005e 0ead 200d 0ebb 0ea7" bbctxt="no-cons-b"/><!-- long Uo vowel -->
+    <a b="75 6f" u="0ead 0ebb 0ea7" bbctxt="no-cons-b"/><!-- long Uo vowel -->
     <a b="75 6f" u="0ebb 0ea7"/><!-- long uo vowel -->
-    <a b="75 6f" u="005e 0ead 200d 0ebb 0ea7 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Uo vowel -->
+    <a b="75 6f" u="0ead 0ebb 0ea7 0eb0" bbctxt="no-cons-b" bactxt="q-final-b"/><!-- short Uo vowel -->
     <a b="75 6f" u="0ebb 0ea7 0eb0" bactxt="q-final-b"/><!-- short uo vowel -->
-    <a b="75 6f" u="005e 0ead 200d 0ea7" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
+    <a b="75 6f" u="0ead 0ea7" bbctxt="no-cons-b" bactxt="final-cons-b"/><!-- vowel Uo with final cons-->
     <a b="75 6f" u="0ea7" bactxt="final-cons-b" uactxt="final-u"/><!-- vowel uo with final cons-->
     <fbu b="76" u="0eca" bbctxt="middle-no-cons-any-b"/><!-- v error if not in explicit context below -->
     <!-- v as tone mark on low class final stop or glottal -->
-    <fbu b="76" u="200b" bbctxt="low-cons-final-b" />
+    <fbu b="76" u="" bbctxt="low-cons-final-b" />
     <!-- v as tone mark on middle class with or without final -->
     <a b="76" u="0eca" bbctxt="middle-cons-any-b" />
     <!-- v as tone mark on low class no final -->
     <a b="76" u="0ec9" bbctxt="low-cons-nof-b" />
-    <a b="77" u="005e 0ea7 200d"/><!-- low w-->
-    <a b="77" u="005e 0eab 0ea7 200d" bactxt="high-vowel-tone-b" /><!-- high w-->
+    <a b="77" u="0ea7"/><!-- low w-->
+    <a b="77" u="0eab 0ea7" bactxt="high-vowel-tone-b" /><!-- high w-->
     <a b="78" u="0ecb" bbctxt="middle-cons-any-b"/><!-- x tone on mid class -->
     <fbu b="78" u="0ecb" bbctxt="middle-no-cons-any-b"/><!-- x if no cons, then must be invisible mid-->
-    <fbu b="78" u="200b" bbctxt="high-cons-any-b"/><!-- x tone on low class -->
-    <a b="79" u="005e 0ea2 200d"/><!-- y mid -->
-    <a b="7a" u="005e 0e95 0eaa 200d"/><!-- z mid -->
+    <fbu b="78" u="" bbctxt="high-cons-any-b"/><!-- x tone on high class -->
+    <a b="79" u="0ea2"/><!-- y mid -->
+    <a b="7a" u="0e95 0eaa"/><!-- z mid -->
     <a b="7a" u="0ecc" bbctxt="low-cons-any-b"/>
     <fbu b="7a" u="0ecc" bbctxt="middle-cons-any-b"/>
     <fbu b="7a" u="0ecc" bbctxt="middle-no-cons-any-b"/><!-- z if no cons, then must be invisible mid -->
@@ -433,8 +431,8 @@ They will be stripped out later during the vowel & tone reordering
     <a b="6d 69 27 61 71 76" u="0edd 0eb5 0ec8 0020 0ead 0eca 0eb0" /><!-- mi'aqv -->
     <fbu b="4d 69 27 61 71 76" u="0edd 0eb5 0ec8 0020 0ead 0eca 0eb0" /><!-- mi'aqv -->
     <!-- Keith's exceptions -->
-    
-    <!-- Gin^mbo^aa = ກິນ^ໂບ^ອາ -->
+
+<!-- Gin^mbo^aa = ກິນ^ໂບ^ອາ -->
 <a b="47 69 6e 5e 6d 62 6f 5e 61 61"
    u="0e81 0eb4 0e99 005e 0ec2 0e9a 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- nyungc-nyungc = ຫຍູ່ງໆ -->
@@ -443,9 +441,6 @@ They will be stripped out later during the vowel & tone reordering
 <!-- Nyungc-nyungc = ຫຍູ່ງໆ -->
 <a b="4e 79 75 6e 67 63 2d 6e 79 75 6e 67 63"
    u="0eab 0e8d 0eb9 0ec8 0e87 0ec6" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- jatv = ຈ໊ຽດ -->
-<a b="6a 61 74 76"
-   u="0e88 0eca 0ebd 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Jetc^si = ຈຽດ^ຊີ -->
 <a b="4a 65 74 63 5e 73 69"
    u="0e88 0ebd 0e94 005e 0e8a 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
@@ -483,14 +478,14 @@ They will be stripped out later during the vowel & tone reordering
 <a b="4b 75 74 76"
    u="0e84 0eb8 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Se^mbaa = ເສ^ບາ -->
-<!--<a b="53 65 5e 6d 62 61 61"
-   u="0ec0 0eaa 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>-->
-<!-- Si^ni = ຊີ^ນີ -->
+<a b="53 65 5e 6d 62 61 61"
+   u="0ec0 0eaa 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Si^ni = ສີ^ນີ -->
 <a b="53 69 5e 6e 69"
-   u="0e8a 0eb5 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
-<!-- wuov = ອົ໊ວ -->
-<!--<a b="77 75 6f 76"
-   u="0ead 0ebb 0eca 0ea7" bbctxt="word-sep-b" bactxt="word-sep-b"/>-->
+   u="0eaa 0eb5 005e 0e99 0eb5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Se^me = ເຊ^ເມ -->
+<a b="53 65 5e 6d 65"
+   u="0ec0 0e8a 005e 0ec0 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
 <!-- Temaa = ເທ^ມາ -->
 <a b="54 65 6d 61 61"
    u="0ec0 0e97 005e 0ea1 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
@@ -548,6 +543,77 @@ They will be stripped out later during the vowel & tone reordering
 <!-- la'kuqv = ຫລະຄຸ -->
 <a b="6c 61 27 6b 75 71 76"
    u="0eab 0ea5 0eb0 0e84 0eb8" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yoaatc = ໂຢ^ອາດ -->
+<a b="59 6f 61 61 74 63"
+   u="0ec2 0ea2 005e 0ead 0eb2 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- da'hmz = ຕະຮມ໌ມ -->
+<a b="64 61 27 68 6d 7a"
+   u="0e95 0eb0 0eae 0ea1 0ecc 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- hmz = ຮມ໌ມ -->
+<a b="68 6d 7a"
+   u="0eae 0ea1 0ecc 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- se gorngv = ເຊ ກ໊ອງ -->
+<a b="73 65 20 67 6f 72 6e 67 76"
+   u="0ec0 0e8a 0020 0e81 0eca 0ead 0e87" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- hietc = ຫຮຢຽດ -->
+<a b="68 69 65 74 63"
+   u="0eab 0eae 0ea2 0ebd 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Se^mbu^lun = ເສ^ບູ^ລຸນ -->
+<a b="53 65 5e 6d 62 75 5e 6c 75 6e"
+   u="0ec0 0eaa 005e 0e9a 0eb9 005e 0ea5 0eb8 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- maaz-li = ມາ^ລ -->
+<a b="6d 61 61 7a 2d 6c 69"
+   u="0ea1 0eb2 005e 0ea5" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Haamatv = ຮາ^ມັດ -->
+<a b="48 61 61 6d 61 74 76"
+   u="0eae 0eb2 005e 0ea1 0eb1 0e94" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- zueiz = ເຕສວີ໌ຍ -->
+<a b="7a 75 65 69 7a"
+   u="0ec0 0e95 0eaa 0ea7 0eb5 0ecc 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Utc^saa = ອຸດ^ຊາ -->
+<a b="55 74 63 5e 73 61 61"
+   u="0ead 0eb8 0e94 005e 0e8a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Beletv Utc^saa = ເປ^ເລດ^ອຸດ^ຊາ -->
+<a b="42 65 6c 65 74 76 20 55 74 63 5e 73 61 61"
+   u="0ec0 0e9b 005e 0ec0 0ea5 0e94 005e 0ead 0eb8 0e94 005e 0e8a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- si^ndaa = ສີ^ດາ -->
+<a b="73 69 5e 6e 64 61 61"
+   u="0eaa 0eb5 005e 0e94 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mbaa^an Be^laa^sim = ບາ^ອັນ^ເປ^ລາ^ຊິມ -->
+<a b="4d 62 61 61 5e 61 6e 20 42 65 5e 6c 61 61 5e 73 69 6d"
+   u="0e9a 0eb2 005e 0ead 0eb1 0e99 005e 0ec0 0e9b 005e 0ea5 0eb2 005e 0e8a 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Utc^si^en = ອຸດ^ຊີ^ເອນ -->
+<a b="55 74 63 5e 73 69 5e 65 6e"
+   u="0ead 0eb8 0e94 005e 0e8a 0eb5 005e 0ec0 0ead 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Maa^aa^se^aa = ມາ^ອາ^ເສ^ອາ -->
+<a b="4d 61 61 5e 61 61 5e 73 65 5e 61 61"
+   u="0ea1 0eb2 005e 0ead 0eb2 005e 0ec0 0eaa 005e 0ead 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Mikaan = ມີ^ຄານ -->
+<a b="4d 69 6b 61 61 6e"
+   u="0ea1 0eb5 005e 0e84 0eb2 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Yaakopv = ຢາ^ຄົບ -->
+<a b="59 61 61 6b 6f 70 76"
+   u="0ea2 0eb2 005e 0e84 0ebb 0e9a" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Ko^lin^to = ໂຄ^ລິນ^ໂທ -->
+<a b="4b 6f 5e 6c 69 6e 5e 74 6f"
+   u="0ec2 0e84 005e 0ea5 0eb4 0e99 005e 0ec2 0e97" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Nernh = ເນິ່ນ -->
+<a b="4e 65 72 6e 68"
+   u="0ec0 0e99 0eb4 0ec8 0e99" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- So^mbaa = ໂສ^ບາ -->
+<a b="53 6f 5e 6d 62 61 61"
+   u="0ec2 0eaa 005e 0e9a 0eb2" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- uix = ຫວຸຍ -->
+<a b="75 69 78"
+   u="0eab 0ea7 0eb8 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Me^so^bo^de^mie = ເມ^ໂຊ^ໂປ^ເຕ^ເມຍ -->
+<a b="4d 65 5e 73 6f 5e 62 6f 5e 64 65 5e 6d 69 65"
+   u="0ec0 0ea1 005e 0ec2 0e8a 005e 0ec2 0e9b 005e 0ec0 0e95 005e 0ec0 0ea1 0e8d" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+<!-- Aalam Naa^haa^laa^im = ອາ^ລຳ^ນາ^ຫະ^ລາ^ອິມ -->
+<a b="41 61 6c 61 6d 20 4e 61 61 5e 68 61 61 5e 6c 61 61 5e 69 6d"
+   u="0ead 0eb2 005e 0ea5 0eb3 005e 0e99 0eb2 005e 0eab 0eb0 005e 0ea5 0eb2 005e 0ead 0eb4 0ea1" bbctxt="word-sep-b" bactxt="word-sep-b"/>
+    
+        
 
     
     <!-- EXCEOTION LIST START -->
@@ -2288,11 +2354,14 @@ They will be stripped out later during the vowel & tone reordering
     <range bFirst="80" bLast="FF" uFirst="0080" uLast="00FF"/>
     
     <ordering side="unicode">
-        <order b="reorder-uo-b" u="reorder-uo-u"/>
-        <order b="reorder-vowel-b" u="reorder-vowel-u"/>
-        <!--<order b="reorder-nocons-b" u="reorder-nocons-u"/>-->
-        <!--<order b="strip-b" u="strip-u"/>
-        <order b="caret-b" u="caret-u"/>-->
+    <!--
+        <order b="reorder-uc3v2-b" u="reorder-uc3v2-u"/>
+        <order b="reorder-uc3v1-b" u="reorder-uc3v1-u"/>
+       <order b="reorder-uc2v2-b" u="reorder-uc2v2-u"/>
+        <order b="reorder-uc2v1-b" u="reorder-uc2v1-u"/>-->
+        <order b="reorder-presyl-b" u="reorder-presyl-u"/>
+        <order b="reorder-uc1v1-b" u="reorder-uc1v1-u"/>
+       <!--<order b="reorder-uc1v2-b" u="reorder-uc1v2-u"/>-->
     </ordering>
     <!--
     <ordering side="bytes">
@@ -2314,169 +2383,225 @@ They will be stripped out later during the vowel & tone reordering
         
     </group>
     
-    <group id="reorder-uo-b">
-        <class-ref name="before-cons-u" id="before-cons" min="0"/>
-        <context-ref name="cons-u" id="consonant" min="1"/>
-        <class-ref name="after-cons-u" id="after-cons" min="1"/>
-        <class-ref name="ea7-u" id="uo" min="1"/>
-        <class-ref name="finals-u" id="final" min="1"/>
-        <class-ref name="tones-u" id="tone" min="0"/>
-        <class-ref name="zwsp-u" id="unmarked-tone" min="0"/>
-        <!-- we don't want to match before-cons-u if it follows appos-u 
-         we should therefore match at most one of the next 2 
-        -->
-        <class-ref name="before-cons-u" id="before-next-cons" min="0"/>
-        <class-ref name="appos-u"  min="0"/>
-    </group>
-    
-    <group id="reorder-uo-u">
-        <context-ref name="reorder-uo-b/consonant/hng-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hny-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hm-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/ng-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hn-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hl-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hu-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/hi-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/z-mid-u"/>
-        <context-ref name="reorder-uo-b/consonant/q-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/q-high-u"/>    
-        <context-ref name="reorder-uo-b/consonant/c-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/c-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hng-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/hny-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/ny-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hn-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/hm-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/hl-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/hu-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/hi-low-u"/>
-        <context-ref name="reorder-uo-b/consonant/nq-mid-u"/>
-        <context-ref name="reorder-uo-b/consonant/nj-mid-u"/>
-        <context-ref name="reorder-uo-b/consonant/nz-mid-u"/>
-        <context-ref name="reorder-uo-b/consonant/l-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/w-high-u"/>
-        <context-ref name="reorder-uo-b/consonant/c"/>
-        <context-ref name="reorder-uo-b/tone"/>   
-        <context-ref name="reorder-uo-b/uo"/>   
-        <context-ref name="reorder-uo-b/final"/>
-        <context-ref name="reorder-uo-b/before-next-cons"/>
-    </group>
-    
-    <group id="reorder-vowel-b">
-        <class-ref name="before-cons-u" id="before-cons" min="0"/>
-        <context-ref name="cons-u" id="consonant" min="1"/>
-        <class-ref name="after-cons-u" id="before-semi" min="1"/>
-        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
-        <class-ref name="after-cons-u" id="after-cons" min="0"/>
+    <group id="reorder-uc1v1-u">
         <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="single-cons-u" id="consonant1" min="1"/>
+        <class-ref name="double-cons2-u" id="consonant2" min="0"/>
+        <class-ref name="tripple-cons3-u" id="consonant3" min="0"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
         <class-ref name="vowels-above-u" id="v-above" min="0"/>
         <class-ref name="vowels-below-u" id="v-below" min="0"/>
-        <context-ref name="vowels-after-u" id="v-after" min="0"/>
-        <class-ref name="finals-u" id="final" min="0"/>
-        <class-ref name="zwsp-u" id="glottal" min="0"/>
         <class-ref name="tones-u" id="tone" min="0"/>
-        <class-ref name="zwsp-u" id="unmarked-tone" min="0"/>
-        <!-- we don't want to match before-cons-u if it follows appos-u 
-         we should therefore match at most one of the next 2 
-        -->
-        <class-ref name="before-cons-u" id="before-next-cons" min="0"/>
-        <class-ref name="appos-u"  min="0"/>
+        <class-ref name="vowels-after-u" id="v-after1" min="0"/>
+        <class-ref name="vowels-after2-u" id="v-after2" min="0"/>
+        <class-ref name="finals-u" id="final" min="0"/>
     </group>
     
-    <group id="reorder-vowel-u">
-        <context-ref name="reorder-vowel-b/v-before"/>
-                
-        <context-ref name="reorder-vowel-b/consonant/hng-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hny-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hm-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/ng-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hn-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hl-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hu-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hi-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/z-mid-u"/>
-        <context-ref name="reorder-vowel-b/consonant/q-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/q-high-u"/>    
-        <context-ref name="reorder-vowel-b/consonant/c-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/c-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hng-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hny-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/ny-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hn-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hm-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hl-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hu-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/hi-low-u"/>
-        <context-ref name="reorder-vowel-b/consonant/nq-mid-u"/>
-        <context-ref name="reorder-vowel-b/consonant/nj-mid-u"/>
-        <context-ref name="reorder-vowel-b/consonant/nz-mid-u"/>
-        <context-ref name="reorder-vowel-b/consonant/l-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/w-high-u"/>
-        <context-ref name="reorder-vowel-b/consonant/c"/>   
-        <context-ref name="reorder-vowel-b/semi-vowel"/>
-        <context-ref name="reorder-vowel-b/v-above"/>
-        <context-ref name="reorder-vowel-b/v-below"/>
-        <context-ref name="reorder-vowel-b/tone"/>
-        <context-ref name="reorder-vowel-b/v-after/va1/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va1/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va2/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va2/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va3/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va3/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va4/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va4/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va5/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va5/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va6/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va6/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va7/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va7/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va8/v1"/>
-        <context-ref name="reorder-vowel-b/v-after/va8/v2"/>
-        <context-ref name="reorder-vowel-b/v-after/va9"/>
-        <context-ref name="reorder-vowel-b/final"/>
-        <context-ref name="reorder-vowel-b/before-next-cons"/>
+    <group id="reorder-uc1v1-b">
+      <context-ref name="reorder-uc1v1-u/consonant1"/>
+      <context-ref name="reorder-uc1v1-u/consonant2"/>
+      <context-ref name="reorder-uc1v1-u/consonant3"/>
+      <context-ref name="reorder-uc1v1-u/semi-vowel"/>
+      <context-ref name="reorder-uc1v1-u/v-before"/>
+      <context-ref name="reorder-uc1v1-u/v-above"/>
+      <context-ref name="reorder-uc1v1-u/v-below"/>
+      <context-ref name="reorder-uc1v1-u/v-after1"/>
+      <context-ref name="reorder-uc1v1-u/v-after2"/>
+      <context-ref name="reorder-uc1v1-u/final"/>
+      <context-ref name="reorder-uc1v1-u/tone"/>
     </group>
     
-    <group id="reorder-nocons-b">
-        <class-ref name="invisible-cons-u" id="hidden-cons" min="1"/>
-        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+    <group id="reorder-uc1v2-u">
         <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="single-cons-u" id="consonant1" min="1"/>
+        <class-ref name="double-cons2-u" id="consonant2" min="0"/>
+        <class-ref name="tripple-cons3-u" id="consonant3" min="0"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
         <class-ref name="vowels-above-u" id="v-above" min="0"/>
         <class-ref name="vowels-below-u" id="v-below" min="0"/>
-        <context-ref name="vowels-after-u" id="v-after" min="0"/>
-        <class-ref name="finals-u" id="final" min="0"/>
-        <class-ref name="zwsp-u" id="glottal" min="0"/>
         <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="vowels-after1-u" id="v-after1" min="1"/>
+        <class-ref name="vowels-after2-u" id="v-after2" min="1"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+    </group>
+    
+    <group id="reorder-uc1v2-b">
+      <context-ref name="reorder-uc1v2-u/consonant1"/>
+      <context-ref name="reorder-uc1v2-u/consonant2"/>
+      <context-ref name="reorder-uc1v2-u/consonant3"/>
+      <context-ref name="reorder-uc1v2-u/semi-vowel"/>
+      <context-ref name="reorder-uc1v2-u/v-before"/>
+      <context-ref name="reorder-uc1v2-u/v-above"/>
+      <context-ref name="reorder-uc1v2-u/v-below"/>
+      <context-ref name="reorder-uc1v2-u/v-after1"/>
+      <context-ref name="reorder-uc1v2-u/v-after2"/>
+      <context-ref name="reorder-uc1v2-u/final"/>
+      <context-ref name="reorder-uc1v2-u/tone"/>
     </group>
     
     <group id="reorder-nocons-u">
-        <context-ref name="reorder-nocons-b/v-before"/>
-        <context-ref name="reorder-nocons-b/hidden-cons"/>
-        <context-ref name="reorder-nocons-b/semi-vowel"/>
-        <context-ref name="reorder-nocons-b/v-above"/>
-        <context-ref name="reorder-nocons-b/v-below"/>
-        <context-ref name="reorder-nocons-b/tone"/>
-        <context-ref name="reorder-nocons-b/v-after/va1/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va1/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va2/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va2/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va3/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va3/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va4/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va4/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va5/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va5/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va6/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va6/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va7/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va7/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va8/v1"/>
-        <context-ref name="reorder-nocons-b/v-after/va8/v2"/>
-        <context-ref name="reorder-nocons-b/v-after/va9"/>
-        <context-ref name="reorder-nocons-b/final"/>
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="invisible-cons-u" id="consonant1" min="1"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="vowels-after-u" id="v-after" min="0"/>
+        <class-ref name="finals-u" id="final" min="0"/>
     </group>
+    
+    <group id="reorder-nocons-b">
+      <context-ref name="reorder-nocons-u/consonant1"/>
+      <context-ref name="reorder-nocons-u/semi-vowel"/>
+      <context-ref name="reorder-nocons-u/v-before"/>
+      <context-ref name="reorder-nocons-u/v-above"/>
+      <context-ref name="reorder-nocons-u/v-below"/>
+      <context-ref name="reorder-nocons-u/v-after"/>
+      <context-ref name="reorder-nocons-u/final"/>
+      <context-ref name="reorder-nocons-u/tone"/>
+    </group>
+
+    <group id="reorder-presyl-u">
+        <class-ref name="single-cons-u" id="pre-consonant1" min="1"/>
+        <class-ref name="double-cons2-u" id="pre-consonant2" min="0"/>
+        <class-ref name="vowels-after-u" id="pre-v-after" min="1"/>        
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="single-cons-u" id="consonant1" min="1"/>
+        <class-ref name="double-cons2-u" id="consonant2" min="0"/>
+        <class-ref name="tripple-cons3-u" id="consonant3" min="0"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="vowels-after-u" id="v-after" min="0"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+    </group>
+    
+    <group id="reorder-presyl-b">
+      <context-ref name="reorder-presyl-u/pre-consonant1"/>
+      <context-ref name="reorder-presyl-u/pre-consonant2"/>
+      <context-ref name="reorder-presyl-u/pre-v-after"/>
+      <class-ref name="appos-u" min="1"/>
+      <context-ref name="reorder-presyl-u/consonant1"/>
+      <context-ref name="reorder-presyl-u/consonant2"/>
+      <context-ref name="reorder-presyl-u/consonant3"/>
+      <context-ref name="reorder-presyl-u/semi-vowel"/>
+      <context-ref name="reorder-presyl-u/v-before"/>
+      <context-ref name="reorder-presyl-u/v-above"/>
+      <context-ref name="reorder-presyl-u/v-below"/>
+      <context-ref name="reorder-presyl-u/v-after"/>
+      <context-ref name="reorder-presyl-u/final"/>
+      <context-ref name="reorder-presyl-u/tone"/>
+    </group>
+    
+    
+    
+<!--
+    <group id="reorder-uc2v1-u">
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="double-cons1-u" id="consonant1" min="1"/>
+        <class-ref name="double-cons2-u" id="consonant2" min="1"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="vowels-after-u" id="v-after" min="0"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+    </group>
+    
+    <group id="reorder-uc2v1-b">
+      <context-ref name="reorder-uc2v1-u/consonant1"/>
+      <context-ref name="reorder-uc2v1-u/consonant2"/>
+      <context-ref name="reorder-uc2v1-u/semi-vowel"/>
+      <context-ref name="reorder-uc2v1-u/v-before"/>
+      <context-ref name="reorder-uc2v1-u/v-above"/>
+      <context-ref name="reorder-uc2v1-u/v-below"/>
+      <context-ref name="reorder-uc2v1-u/v-after"/>
+      <context-ref name="reorder-uc2v1-u/final"/>
+      <context-ref name="reorder-uc2v1-u/tone"/>
+    </group>
+
+    <group id="reorder-uc2v2-u">
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="double-cons1-u" id="consonant1" min="1"/>
+        <class-ref name="double-cons2-u" id="consonant2" min="1"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="vowels-after1-u" id="v-after1" min="1"/>
+        <class-ref name="vowels-after2-u" id="v-after2" min="1"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+    </group>
+    
+    <group id="reorder-uc2v2-b">
+      <context-ref name="reorder-uc2v2-u/consonant1"/>
+      <context-ref name="reorder-uc2v2-u/consonant2"/>
+      <context-ref name="reorder-uc2v2-u/semi-vowel"/>
+      <context-ref name="reorder-uc2v2-u/v-before"/>
+      <context-ref name="reorder-uc2v2-u/v-above"/>
+      <context-ref name="reorder-uc2v2-u/v-below"/>
+      <context-ref name="reorder-uc2v2-u/v-after1"/>
+      <context-ref name="reorder-uc2v2-u/v-after2"/>
+      <context-ref name="reorder-uc2v2-u/final"/>
+      <context-ref name="reorder-uc2v2-u/tone"/>
+    </group>
+
+    <group id="reorder-uc3v1-u">
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="tripple-cons1-u" id="consonant1" min="1"/>
+        <class-ref name="tripple-cons2-u" id="consonant2" min="1"/>
+        <class-ref name="tripple-cons3-u" id="consonant3" min="1"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="vowels-after-u" id="v-after" min="0"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+    </group>
+    
+    <group id="reorder-uc3v1-b">
+      <context-ref name="reorder-uc3v1-u/consonant1"/>
+      <context-ref name="reorder-uc3v1-u/consonant2"/>
+      <context-ref name="reorder-uc3v1-u/consonant3"/>
+      <context-ref name="reorder-uc3v1-u/semi-vowel"/>
+      <context-ref name="reorder-uc3v1-u/v-before"/>
+      <context-ref name="reorder-uc3v1-u/v-above"/>
+      <context-ref name="reorder-uc3v1-u/v-below"/>
+      <context-ref name="reorder-uc3v1-u/v-after"/>
+      <context-ref name="reorder-uc3v1-u/final"/>
+      <context-ref name="reorder-uc3v1-u/tone"/>
+    </group>
+
+    <group id="reorder-uc3v2-u">
+        <class-ref name="vowels-before-u" id="v-before" min="0"/>
+        <class-ref name="tripple-cons1-u" id="consonant1" min="1"/>
+        <class-ref name="tripple-cons2-u" id="consonant2" min="1"/>
+        <class-ref name="tripple-cons3-u" id="consonant3" min="1"/>
+        <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+        <class-ref name="vowels-above-u" id="v-above" min="0"/>
+        <class-ref name="vowels-below-u" id="v-below" min="0"/>
+        <class-ref name="tones-u" id="tone" min="0"/>
+        <class-ref name="vowels-after1-u" id="v-after1" min="1"/>
+        <class-ref name="vowels-after2-u" id="v-after2" min="1"/>
+        <class-ref name="finals-u" id="final" min="0"/>
+    </group>
+    
+    <group id="reorder-uc3v2-b">
+      <context-ref name="reorder-uc3v2-u/consonant1"/>
+      <context-ref name="reorder-uc3v2-u/consonant2"/>
+      <context-ref name="reorder-uc3v2-u/consonant3"/>
+      <context-ref name="reorder-uc3v2-u/semi-vowel"/>
+      <context-ref name="reorder-uc3v2-u/v-before"/>
+      <context-ref name="reorder-uc3v2-u/v-above"/>
+      <context-ref name="reorder-uc3v2-u/v-below"/>
+      <context-ref name="reorder-uc3v2-u/v-after1"/>
+      <context-ref name="reorder-uc3v2-u/v-after2"/>
+      <context-ref name="reorder-uc3v2-u/final"/>
+      <context-ref name="reorder-uc3v2-u/tone"/>
+    </group>
+
+            -->
     
     <group id="test">
     <class name="test">2612</class>
@@ -3114,7 +3239,7 @@ They will be stripped out later during the vowel & tone reordering
     <class name="let-l-b" size="bytes">6c</class>
     <class name="let-M-b" size="bytes">4d</class>
     <class name="let-m-b" size="bytes">6d</class>
-    <class name="let-N-b" size="bytes">ee</class>
+    <class name="let-N-b" size="bytes">4e</class>
     <class name="let-n-b" size="bytes">6e</class>
     <class name="let-O-b" size="bytes">4f</class>
     <class name="let-o-b" size="bytes">6f</class>
@@ -3133,8 +3258,8 @@ They will be stripped out later during the vowel & tone reordering
     
     <class name="appos-b" size="bytes">27</class><!-- ' -->
     
-    <!-- c x -->
-    <class name="high-tones-b" size="bytes">63 78</class>
+    <!-- c x is a presyllable always hight?-->
+    <class name="high-tones-b" size="bytes">63 78 27</class>
     <!-- c h v x z -->
     <class name="mid-tones-b" size="bytes">63 68 76 78 7A</class>
     <!-- h v z -->
@@ -3299,10 +3424,41 @@ They will be stripped out later during the vowel & tone reordering
     
     <class name="caret-b" size="bytes">5e</class>
 
-    <class name="whitespace-b" size="bytes">20 2c 2e 2d 0b 21 28 29</class>
+    <class name="whitespace-b" size="bytes">20 2c 2e 2d 0b 21 28 29 3c 3e 28 29 22</class>
         
     <!-- Vowels that need to be moved before the consonant -->
     <class name="vowels-before-u">0ec0 0ec1 0ec2 0ec4 </class>
+    
+    <class name="double-cons1-u">0e94 0e95 0e96 0e97 0eab 0ead 0eae</class>
+    <class name="double-cons2-u">
+      0e81 0e87 0e88 0e8d 0e99 0ea1 0ea2 0ea5 0ea7 0eaa 
+      <!-- tripple only--> 0eae
+    </class>
+    
+    <class name="tripple-cons1-u">0eab</class>
+    <class name="tripple-cons2-u">0eae</class>
+    <class name="tripple-cons3-u">
+      0e87 0e8d 0e99 0ea1 0ea2 0ea5 0ea7
+    </class>
+    
+    <group id="middle-cons-any-u">
+      <context-ref name="mid-cons-u" min="1"/>
+      <class-ref name="semi-vowel-u" id="semi-vowel" min="0"/>
+      <class-ref name="vowels-before-u" id="v-above" min="0"/>
+      <class-ref name="vowels-above-u" id="v-above" min="0"/>
+      <class-ref name="vowels-below-u" id="v-below" min="0"/>
+      <class-ref name="vowels-after-u" id="v-after1" min="0"/>
+      <class-ref name="vowels-after2-u" id="v-after2" min="0"/>
+      <class-ref name="finals-u" id="final" min="0"/>
+    </group>
+    
+    <group id="mid-cons-u" alt="1">
+        <context-ref name="z-mid-u"/>
+        <context-ref name="nq-mid-u"/>
+        <context-ref name="nj-mid-u"/>
+        <context-ref name="nz-mid-u"/>
+        <class-ref name="single-cons-mid-u" id="c"/>
+    </group>
     
     <group id="cons-u" alt="1">
         <context-ref name="hng-high-u"/>
@@ -3438,8 +3594,8 @@ They will be stripped out later during the vowel & tone reordering
         <class-ref name="eaa-u"/>
     </group>
     <group id="l-high-u">
-        <class-ref name="eab-u"/>
-        <class-ref name="ea5-u"/>
+        <class-ref name="eab-u" id="a"/>
+        <class-ref name="ea5-u" id="b"/>
     </group>
     <group id="w-high-u">
         <class-ref name="eab-u"/>
@@ -3474,6 +3630,9 @@ They will be stripped out later during the vowel & tone reordering
         0ea1 0ea2 0ea5 0ea7 0eaa 0eab 0ead 0eae
         0edc 0edd
     </class>
+    <class name="single-cons-mid-u">
+      0e81  0e88  0e94  0e95  0e9a  0e9b  0ea2
+    </class>
     <!--
     <class name="consonant-1-u">
         0e81 0e82 0e84 0e87 0e88 0e8d 
@@ -3498,7 +3657,12 @@ They will be stripped out later during the vowel & tone reordering
         0eb8 0eb9 
     </class>
     
-    
+    <class name="vowels-after1-u">
+      0eb2 0ebd 0ead 0ea7
+    </class>
+    <class name="vowels-after2-u">
+      0ebd 0e8d 0eb0 0ea7
+    </class>
     
     <group id="vowels-after-u" alt="1">
         <context-ref name="eb2-ebd-u" id="va1"/>
