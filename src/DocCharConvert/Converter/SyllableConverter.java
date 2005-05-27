@@ -155,7 +155,7 @@ public class SyllableConverter extends ReversibleConverter
                     longest = testSyl;
                     result = new Syllable(longest, text.substring(offset, length), conversion);
                 }
-                else if (testLength == length)
+                else if (testLength > 0 && testLength == length)
                 {
                     // much harder to decide, choose the first one for now
                     System.out.println("Ambiguous conversion:\t" + text.substring(offset, length) + '\t' + 
@@ -252,9 +252,10 @@ public class SyllableConverter extends ReversibleConverter
     protected String dumpSyllable(int side, Integer [] compValues)
     {
         StringBuffer orig = new StringBuffer(compValues[0]);
+        // index offset by 1 to accomodate length at index 0
         for (int i = 1; i<compValues.length; i++)
         {
-            Component comp = scripts[side].getSyllableComponent(i);
+            Component comp = scripts[side].getSyllableComponent(i - 1);
             orig.append(comp.getComponentValue(compValues[i]));
         }
         return orig.toString();
