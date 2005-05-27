@@ -41,9 +41,11 @@ RSC=rc.exe
 # PROP Use_Debug_Libraries 0
 # PROP Output_Dir "Release"
 # PROP Intermediate_Dir "Release"
+# PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /Yu"stdafx.h" /FD /c
-# ADD CPP /nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MT /W3 /GX /O2 /I "..\..\Public-headers" /I "..\..\\" /I "..\..\zlib\src" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include\win32" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /FD /c
+# SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x809 /d "NDEBUG"
@@ -66,9 +68,10 @@ LINK32=link.exe
 # PROP Use_Debug_Libraries 1
 # PROP Output_Dir "Debug"
 # PROP Intermediate_Dir "Debug"
+# PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /Yu"stdafx.h" /FD /GZ  /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /I "..\..\\" /I "..\..\zlib\src" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include\win32" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /FD /GZ  /c
+# ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /Yu"stdafx.h" /FD /GZ /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /I "..\..\\" /I "..\..\zlib\src" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include\win32" /I "..\..\Public-headers" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /FD /GZ /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
@@ -94,9 +97,9 @@ LINK32=link.exe
 # PROP Intermediate_Dir "TestDebug"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /I "..\..\\" /I "..\..\zlib\src" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include\win32" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /FD /GZ  /c
+# ADD BASE CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /I "..\..\\" /I "..\..\zlib\src" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include\win32" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "TECKITJNI_EXPORTS" /FD /GZ /c
 # SUBTRACT BASE CPP /YX /Yc /Yu
-# ADD CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /I "..\..\\" /I "..\..\zlib\src" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include\win32" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FD /GZ  /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /Zi /Od /I "..\..\\" /I "..\..\zlib\src" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include" /I "C:\Program Files\j2sdk_nb\j2sdk1.4.2\include\win32" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FD /GZ /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
@@ -138,7 +141,18 @@ SOURCE=..\..\zlib\src\deflate.c
 # End Source File
 # Begin Source File
 
-SOURCE=..\src\Engine.cpp
+SOURCE=..\..\Engine.cpp
+
+!IF  "$(CFG)" == "TecKitJni - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "TecKitJni - Win32 Debug"
+
+# ADD CPP /I "..\..\Public-headers"
+
+!ELSEIF  "$(CFG)" == "TecKitJni - Win32 TestDebug"
+
+!ENDIF 
+
 # End Source File
 # Begin Source File
 
