@@ -454,7 +454,7 @@ public class SyllableConverter extends ReversibleConverter
                 throw new FatalException(e.getLocalizedMessage());
             }
         }
-        SyllableXmlReader reader = new SyllableXmlReader(xmlFile);
+        SyllableXmlReader reader = new SyllableXmlReader(xmlFile, debug);
         if (reader.parse())
         {
           scripts = reader.getScripts();
