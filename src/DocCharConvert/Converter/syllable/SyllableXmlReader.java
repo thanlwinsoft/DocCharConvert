@@ -45,6 +45,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.LinkedHashMap;
 import java.util.Vector;
+import java.util.Arrays;
 
 import DocCharConvert.Config;
 import DocCharConvert.Converter.SyllableConverter;
@@ -335,11 +336,15 @@ public class SyllableXmlReader
         }
         else
         {
-          value = hex.getNodeValue();
+          value = readHexValues(hex.getNodeValue());
         }
         if (value == null) value = "";
         int compIndex = thisComp.getIndex(value);
-        if (compIndex == -1) compIndex = thisComp.addValue(value);
+        if (compIndex == -1) 
+        {
+            compIndex = thisComp.addValue(value);
+            //System.out.println("added " + value +" to " + thisComp.getId());
+        }
         vector.add(new Integer(compIndex));
       }
 //       else
@@ -391,7 +396,7 @@ public class SyllableXmlReader
         }
         else
         {
-          value = hex.getNodeValue();
+          value = readHexValues(hex.getNodeValue());
         }
         if (value == null) value = "";
         int compIndex = thisComp.getIndex(value);
@@ -409,6 +414,12 @@ public class SyllableXmlReader
   
   protected String readHexValues(String hexValues)
   {
+      if (hexValues == null || hexValues.length() == 0)
+      {
+          Object [] args = { null, HEX_ATTR, COMP_VALUE_NODE };
+          errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+           errorLog.append('\n');
+      }
       StringTokenizer hexString = new StringTokenizer(hexValues);
           StringBuffer data = new StringBuffer();
           try
@@ -416,7 +427,7 @@ public class SyllableXmlReader
             while (hexString.hasMoreTokens())
             {
               int hexValue = Integer.parseInt(hexString.nextToken(),16);
-              data.append((char)hexValue);
+              data.append(Character.toChars(hexValue));
             }
           }
           catch (NumberFormatException e)
@@ -512,6 +523,8 @@ public class SyllableXmlReader
         LinkedList <Integer[]> rightValues = new LinkedList<Integer[]> ();
         leftValues.add(new Integer[table.getNumLeftColumns()]);
         rightValues.add(new Integer[table.getNumRightColumns()]);
+        Arrays.fill(leftValues.get(0), 0);
+        Arrays.fill(rightValues.get(0), 0);        
         for (int l = 0; l < table.getNumLeftColumns(); l++)
         {
           String cId = table.getLeftColumnId(l);
@@ -563,7 +576,6 @@ public class SyllableXmlReader
             LinkedList <Integer[]> tempLeft = new LinkedList<Integer[]> ();
             LinkedList <Integer[]> tempRight = new LinkedList<Integer[]> ();
             Iterator <Integer> icc = cc.getIterator(0);
-            Iterator <Integer[]>iVal = leftValues.iterator();
             int leftCompIndex = table.getColumnLeftIndex(sylComp.getId());
             int rightCompIndex = table.getColumnRightIndex(rightComp.getId());
             // loop over class on left hand side
@@ -571,27 +583,28 @@ public class SyllableXmlReader
             {
               int iccv = icc.next(); // value from class
               // loop over all combinations already found
+              Iterator <Integer[]>iVal = leftValues.iterator();
               while (iVal.hasNext()) 
               {
                 Integer[] iArray = iVal.next();
                 Integer[] iArrayCopy = new Integer[iArray.length];
-                iArrayCopy = iArray;
+                for (int a = 0; a<iArray.length; a++) iArrayCopy[a] = iArray[a];
                 iArrayCopy[leftCompIndex] = iccv;
                 tempLeft.add(iArrayCopy);
               }
             }
             // loop over right side
             icc = cc.getIterator(1);
-            iVal = rightValues.iterator();
             while (icc.hasNext())
             {
               int iccv = icc.next(); // value from class
               // loop over all combinations already found
+              Iterator <Integer[]>iVal = rightValues.iterator();
               while (iVal.hasNext()) 
               {
                 Integer[] iArray = iVal.next();
                 Integer[] iArrayCopy = new Integer[iArray.length];
-                iArrayCopy = iArray;
+                for (int a = 0; a<iArray.length; a++) iArrayCopy[a] = iArray[a];
                 iArrayCopy[rightCompIndex] = iccv;
                 tempRight.add(iArrayCopy);
               }
@@ -617,8 +630,8 @@ public class SyllableXmlReader
             }
             table.addMap(tempL, tempR);
         }
-        mappingTable.add(table);
       } // for (int j = 0; j<mapList.getLength(); j++)
+      if (!initialPass) mappingTable.add(table);
     } // for (int i = 0; i<tableList.getLength(); i++)
     return true;
   }

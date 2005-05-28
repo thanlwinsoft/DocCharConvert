@@ -80,6 +80,8 @@ public class MappingTable
         rightColumnMap = new LinkedHashMap<String, Integer>();
         leftEntries = new Vector <List<Integer>>();
         rightEntries = new Vector <List<Integer>>();
+        leftEntries.add(null);
+        rightEntries.add(null);
         HashMap<String, Integer>colMap = leftColumnMap;
         Vector <Integer> sizes = leftSizes;
         for (int i = 0; i<columns.length; i++)
@@ -140,7 +142,7 @@ public class MappingTable
     public void addMap(Integer [] leftEntry, Integer [] rightEntry)
         throws ConflictException, IllegalArgumentException
     {
-        if (leftEntry.length != leftSizes.size() ||
+        if (leftEntry == null || rightEntry == null || leftEntry.length != leftSizes.size() ||
              rightEntry.length != rightSizes.size())
         {
             throw new IllegalArgumentException("Expected " +leftSizes.size() +
@@ -148,15 +150,32 @@ public class MappingTable
                     "," + rightEntry.length);
         }
         int leftOffset = getMapOffset(leftSizes, leftEntry);
-        int entryIndex = rightEntries.size();
+        int entryIndexL = rightEntries.size();
         rightEntries.add(Arrays.asList(rightEntry));
-        leftMap[leftOffset] = entryIndex;
+        leftMap[leftOffset] = entryIndexL;
         
         int rightOffset = getMapOffset(rightSizes, rightEntry);
-        entryIndex = leftEntries.size();
+        int entryIndexR = leftEntries.size();
         leftEntries.add(Arrays.asList(leftEntry));
-        rightMap[rightOffset] = entryIndex; 
+        rightMap[rightOffset] = entryIndexR; 
+        System.out.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
+                "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR);
     }
+    
+    protected String showEntry(int side, Integer[] entries)
+    {
+        StringBuffer entry = new StringBuffer();
+        for (int i = 0; i< entries.length; i++)
+        {
+            Component c = columns[i + (leftSizes.size() * side)];
+            entry.append(c.getId());
+            entry.append("='");
+            entry.append(c.getComponentValue(entries[i]));
+            entry.append("'\t");
+        }
+        return entry.toString();
+    }
+    
     /**
     * Retrieve the offset in the linear array for this entry.
     * This is used to convert the multidimensional entries into a linear offset.
@@ -184,8 +203,11 @@ public class MappingTable
     {
         int leftOffset = getMapOffset(leftSizes, leftEntry);
         int rightIndex = leftMap[leftOffset];
-        if (rightIndex >= rightEntries.size()) return null;
-        return rightEntries.elementAt(rightIndex);
+        if (rightIndex == 0 || rightIndex >= rightEntries.size()) return null;
+        List<Integer> result = rightEntries.elementAt(rightIndex);
+        System.out.println("Mapped: " + showEntry(0,leftEntry) + " => " + 
+                showEntry(1,result.toArray(new Integer[0])));
+        return result;
     }
     /**
     * Map from right to left
@@ -196,8 +218,11 @@ public class MappingTable
     {
         int rightOffset = getMapOffset(rightSizes, rightEntry);
         int leftIndex = rightMap[rightOffset];
-        if (leftIndex >= leftEntries.size()) return null;
-        return leftEntries.elementAt(leftIndex);
+        if (leftIndex == 0 || leftIndex >= leftEntries.size()) return null;
+        List<Integer> result = leftEntries.elementAt(leftIndex);
+        System.out.println("Mapped: " + showEntry(1,rightEntry) + " => " + 
+                showEntry(0,result.toArray(new Integer[0])));
+        return result;
     }
     /**
     * Generic version of map, which allows the side to be parsed as an 

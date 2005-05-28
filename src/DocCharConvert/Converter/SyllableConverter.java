@@ -145,7 +145,10 @@ public class SyllableConverter extends ReversibleConverter
         while (syl.hasNext())
         {
             Vector<Integer> testSyl = syl.next();
-            Integer [] conversion = convertSyllable(testSyl);
+            System.out.println("Choose syllable for  '" + text.substring(offset, offset + testSyl.elementAt(0)) + 
+                    "' " + testSyl.toString() );
+             Integer [] conversion = convertSyllable(testSyl);
+       
             if (conversion != null)
             {
                 int testLength = testSyl.elementAt(0);
@@ -153,12 +156,14 @@ public class SyllableConverter extends ReversibleConverter
                 {
                     length = testLength;
                     longest = testSyl;
-                    result = new Syllable(longest, text.substring(offset, length), conversion);
+                    if (length > text.length())
+                        length = text.length();
+                    result = new Syllable(longest, text.substring(offset, offset + length), conversion);
                 }
                 else if (testLength > 0 && testLength == length)
                 {
                     // much harder to decide, choose the first one for now
-                    System.out.println("Ambiguous conversion:\t" + text.substring(offset, length) + '\t' + 
+                    System.out.println("Ambiguous conversion:\t" + text.substring(offset, offset + length) + '\t' + 
                             longest.toString() + " or " + testSyl.toString());
                 }
             }
@@ -177,7 +182,7 @@ public class SyllableConverter extends ReversibleConverter
         Component comp = script.getSyllableComponent(cIndex);
         Vector <Vector<Integer>> candidates = new Vector<Vector<Integer>>();
         // find all possible matches for this component
-        for (int i = offset;( i < offset + comp.getMaxLength()) && (i < text.length()); i++)
+        for (int i = offset;( i <= offset + comp.getMaxLength()) && (i <= text.length()); i++)
         {
             int valueIndex = comp.getIndex(text.substring(offset, i));
             if (valueIndex > -1)
@@ -185,7 +190,7 @@ public class SyllableConverter extends ReversibleConverter
                 Vector<Integer>candidate = new Vector<Integer>(compValues);
                 candidate.add(valueIndex);
                 int length = compValues.elementAt(0) + i - offset;
-                compValues.set(0, length);
+                candidate.set(0, length);
                 if (cIndex < script.getNumComponents() - 1)
                 {
                     Vector <Vector<Integer>> subCandidates = parseSyllableComponent(script, text, i, cIndex + 1, candidate);
@@ -211,16 +216,19 @@ public class SyllableConverter extends ReversibleConverter
             for (int i = 0; i<oldValues.length; i++)
             {
                 int indexInSyllable = mapId2ScriptId(table, oldSide,i);
-                oldValues[i] = compValues.elementAt(indexInSyllable);
+                oldValues[i] = compValues.elementAt(indexInSyllable + 1);
             }
             List <Integer> newValues = table.map(oldSide, oldValues);
             if (newValues == null) return null;
             for (int j=0; j<newValues.size(); j++)
             {
                 int indexInSyllable = mapId2ScriptId(table, newSide, j);
-                if (result[indexInSyllable] > INVALID_COMP)
+                if (result[indexInSyllable] > INVALID_COMP &&
+                     result[indexInSyllable] != newValues.get(j))
                 {
-                    System.out.println("Warning: overwriting syllable values " + dumpSyllable(oldSide,compValues.toArray(new Integer[0])));
+                    // remove leading char count for dump
+                    Integer[] sylIndices = compValues.subList(1, compValues.size()).toArray(new Integer[0]);
+                    System.out.println("Warning: overwriting syllable values " + dumpSyllable(oldSide,sylIndices));
                 }
                 result[indexInSyllable] = newValues.get(j);
             }
@@ -238,7 +246,7 @@ public class SyllableConverter extends ReversibleConverter
                     String cid = iCId.next();
                     ComponentClass cc = comp.getClass(cid);
                     Component origComp = cc.getComponent(oldSide);
-                    int oldRef = compValues.elementAt(scripts[oldSide].getComponentIndex(origComp));
+                    int oldRef = compValues.elementAt(scripts[oldSide].getComponentIndex(origComp) + 1);
                     result[k] = cc.getCorrespondingRef(oldSide, oldRef);
                     if (result[k] > -1) break;
                 }
@@ -251,11 +259,10 @@ public class SyllableConverter extends ReversibleConverter
     
     protected String dumpSyllable(int side, Integer [] compValues)
     {
-        StringBuffer orig = new StringBuffer(compValues[0]);
-        // index offset by 1 to accomodate length at index 0
-        for (int i = 1; i<compValues.length; i++)
+        StringBuffer orig = new StringBuffer();
+        for (int i = 0; i<compValues.length; i++)
         {
-            Component comp = scripts[side].getSyllableComponent(i - 1);
+            Component comp = scripts[side].getSyllableComponent(i);
             orig.append(comp.getComponentValue(compValues[i]));
         }
         return orig.toString();

@@ -59,19 +59,28 @@
 
 <class id="kptmnngFinal">
 <component r="f">
-  <c>k</c><c>t</c><c>p</c><c>q</c>><c>m</c><c>n</c><c>ng</c>
+  <c>k</c><c>t</c><c>p</c><c>q</c><c>m</c><c>n</c><c>ng</c>
 </component>
 <component r="lf">
     <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c/><c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/>
 </component>
 </class>
 
-<class id="anyFinal">
+<class id="qktpnmFinal">
 <component r="f">
-  <c>k</c><c>t</c><c>p</c><c>q</c>><c>m</c><c>n</c><c>ng</c>
+  <c>q</c><c>k</c><c>t</c><c>p</c><c>n</c><c>m</c>
 </component>
 <component r="lf">
-    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c/><c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/>
+  <c/><c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c hex="0e99"/><c hex="0ea1"/>
+</component>
+</class>
+
+<class id="anyFinal">
+<component r="f">
+  <c>k</c><c>t</c><c>p</c><c>q</c>><c>m</c><c>n</c><c>ng</c><c/>
+</component>
+<component r="lf">
+    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c/><c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/><c/>
 </component>
 </class>
 
@@ -134,6 +143,7 @@
   <c></c> <c></c> <c></c> <c></c> <c></c>
   <c></c> <c></c> <c></c> <c></c> <c></c>
   <c></c> <c></c> <c></c> <c></c> <c></c>-->
+  <c/>
 </component>
 <component r="lc">
   <c hex="0e81"/><c hex="0e88"/><c hex="0e95 0eaa"/><c hex="0e94"/><c hex="0e95"/>
@@ -141,6 +151,7 @@
   <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
   <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
   <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>-->
+  <c hex="0ead"/>
 </component>
 </class>
 
@@ -176,6 +187,10 @@
 <m><!-- v tone, other -->
 <c r="c" class="lowCons"/> <c r="t">v</c><c r="f" class="mnngFinal"/> 
 <c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf" class="mnngFinal"/>
+</m>
+<m><!-- v tone, no final -->
+<c r="c" class="lowCons"/> <c r="t">v</c><c r="f" /> 
+<c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf" />
 </m>
 <m><!-- hz tone -->
 <c r="c" class="lowCons"/> <c r="t" class="hzTone"/><c r="f" class="anyFinal"/>
@@ -255,23 +270,194 @@
 <c r="lvp" hex="0ec4"/> <c r="lvu"/><c r="lvd"/> <c r="lva"/><c r="lf" class="anyFinal"/>
 </m>
 <m>
-<c r="v"></c> <c r="f"></c> 
-<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" hex=""/>
+<c r="v">aai</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0eb2 0e8d"/><c r="lf" class="anyFinal"/>
 </m>
 <m>
-<c r="v"></c> <c r="f"></c> 
-<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" hex=""/>
+<c r="v">au</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0ebb"/><c r="lvd" hex=""/> <c r="lva" hex="0eb2"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">aau</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0eb2 0ea7"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">ei</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb5"/><c r="lvd" hex=""/> <c r="lva" hex="0e8d"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">eu</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ea7"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">iou</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ebd 0e8d"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">oi</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ead 0e8d"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">ou</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex="0ec2"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ea7"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">iu</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0eb4"/><c r="lvd" hex=""/> <c r="lva" hex="0ea7"/><c r="lf" class="anyFinal"/>
+</m>
+<m>
+<c r="v">ui</c> <c r="f" class="anyFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex="0eb8"/> <c r="lva" hex="0e8d"/><c r="lf" class="anyFinal"/>
+</m>
+<!-- Vowels long unless with q stop -->
+<m>
+<c r="v">ue</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0eb7"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v">ue</c> <c r="f"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0eb7"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" />
+</m>
+<m>
+<c r="v">ue</c> <c r="f">q</c> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0eb6"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf"/>
+</m>
+<m>
+<c r="v">er</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb5"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v">er</c> <c r="f"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb5"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" />
+</m>
+<m>
+<c r="v">er</c> <c r="f">q</c> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb4"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf"/>
+</m>
+<m>
+<c r="v">ie</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ebd"/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v">ie</c> <c r="f"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0e8d"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" />
+</m>
+<m>
+<c r="v">ie</c> <c r="f">q</c> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb1"/><c r="lvd" hex=""/> <c r="lva" hex="0e8d"/><c r="lf"/>
+</m>
+<m>
+<c r="v">or</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ead"/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v">or</c> <c r="f"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0ecd"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" />
+</m>
+<m>
+<c r="v">or</c> <c r="f">q</c> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb2"/><c r="lvd" hex=""/> <c r="lva" hex="0eb0"/><c r="lf"/>
+</m>
+<m>
+<c r="v">uea</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb7"/><c r="lvd" hex=""/> <c r="lva" hex="0ead"/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v">uea</c> <c r="f"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb7"/><c r="lvd" hex=""/> <c r="lva" hex="0ead"/><c r="lf" />
+</m>
+<m>
+<c r="v">uea</c> <c r="f">q</c> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb6"/><c r="lvd" hex=""/> <c r="lva" hex="0ead"/><c r="lf"/>
+</m>
+<m>
+<c r="v">uo</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ea7"/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v">uo</c> <c r="f"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0ebb"/><c r="lvd" hex=""/> <c r="lva" hex="0ea7"/><c r="lf" />
+</m>
+<m>
+<c r="v">uo</c> <c r="f">q</c> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0ebb"/><c r="lvd" hex=""/> <c r="lva" hex="0ea7 0eb0"/><c r="lf"/>
+</m>
+
+
+<m>
+<c r="v">i</c> <c r="f" class="qktpnmFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0eb4"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" class="qktpnmFinal"/>
+</m>
+<m>
+<c r="v">i</c> <c r="f"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0eb5"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf"/>
+</m>
+<m>
+<c r="v">i</c> <c r="f">ng</c> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0eb5"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" hex="0e87"/>
+</m>
+<!--
+-->
+<m>
+<c r="v">o</c> <c r="f" class="ktpnmngFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex="0ebb"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" class="ktpnmngFinal"/>
+</m>
+<m>
+<c r="v">o</c> <c r="f"/> 
+<c r="lvp" hex="0ec2"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf"/>
+</m>
+<m>
+<c r="v">o</c> <c r="f">q</c> 
+<c r="lvp" hex="0ec2"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0eb0"/><c r="lf"/>
+</m>
+<m>
+<c r="v">u</c> <c r="f" /> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex="0eb9"/> <c r="lva" hex=""/><c r="lf" />
+</m>
+<m>
+<c r="v">u</c> <c r="f">ng</c> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex="0eb9"/> <c r="lva" hex=""/><c r="lf" hex="0e87"/>
+</m>
+<m>
+<c r="v">u</c> <c r="f" class="qktpnmFinal"/> 
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex="0eb8"/> <c r="lva" hex=""/><c r="lf" class="qktpnmFinal"/>
+</m>
+
+<m>
+<c r="v">ae</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex="0ec1"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v"></c> <c r="f" /> 
+<c r="lvp" hex="0ec1"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf"/>
+</m>
+<m>
+<c r="v"></c> <c r="f">q</c> 
+<c r="lvp" hex="0ec1"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0eb0"/><c r="lf" />
+</m>
+<m>
+<c r="v">e</c> <c r="f" class="kptmnngFinal"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" class="kptmnngFinal"/>
+</m>
+<m>
+<c r="v"></c> <c r="f"/> 
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf"/>
+</m>
+<m>
+<c r="v"></c> <c r="f">q</c>
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0eb0"/><c r="lf"/>
 </m>
 
 </maps>
 </mappingTable>
 
-<mappingTable id="vowel-final">
+<mappingTable id="semi-vowel">
 <columns>
 <component r="sv"/>
 <component r="ls"/>
 </columns>
 <maps>
+<m><c r="sv"/><c r="ls"/></m><!-- need to include empty map -->
 <m><c r="sv">i</c><c r="ls" hex="0ea2"/></m>
 <m><c r="sv">u</c><c r="ls" hex="0ea7"/></m>
 </maps>
