@@ -90,11 +90,13 @@ public class SyllableXmlReader
   private MessageFormat mf = null;
   private final int CLASS_REF = -2;
   private Vector <MappingTable> mappingTable = null;
+  private boolean debug = false;
   
-  public SyllableXmlReader(File xmlFile)
+  public SyllableXmlReader(File xmlFile, boolean debug)
   {
     this.errorLog = new StringBuffer();
     this.xmlFile = xmlFile;
+    this.debug = debug;
     rb = Config.getCurrent().getMsgResource();
     mf = new MessageFormat("");
     mappingTable = new Vector<MappingTable>();
@@ -568,6 +570,7 @@ public class SyllableXmlReader
         return false;
       }
       MappingTable table = new MappingTable(id, components.toArray(new Component[0]));
+      if (debug) table.setDebug(debug);
       Element mapsElement = (Element)mapsList.item(0);
       NodeList mapList = mapsElement.getElementsByTagName(MAP_NODE);
       for (int j = 0; j<mapList.getLength(); j++)

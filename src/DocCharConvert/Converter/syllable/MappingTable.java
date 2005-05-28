@@ -62,6 +62,7 @@ public class MappingTable
     HashMap<String, Integer> leftColumnMap = null;
     HashMap<String, Integer> rightColumnMap = null;
     Component [] columns = null;
+    boolean debug = false;
     public static final int UNKNOWN = -1;
     public static final int AMBIGUOUS = -3;
     /** Constructor for a mapping table. 
@@ -181,7 +182,8 @@ public class MappingTable
         }
         leftEntries.add(arrayL);
         rightMap[rightOffset] = entryIndexR; 
-        System.out.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
+        if (debug)
+            System.out.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
                 "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR);
     }
     /**
@@ -258,7 +260,8 @@ public class MappingTable
         int rightIndex = leftMap[leftOffset];
         if (rightIndex == -1 || rightIndex >= rightEntries.size()) return null;
         List<Integer> result = rightEntries.elementAt(rightIndex);
-        System.out.println("Mapped: " + showEntry(0,leftEntry) + " => " + 
+        if (debug)
+            System.out.println("Mapped: " + showEntry(0,leftEntry) + " => " + 
                 showEntry(1,result.toArray(new Integer[0])));
         return result;
     }
@@ -273,7 +276,8 @@ public class MappingTable
         int leftIndex = rightMap[rightOffset];
         if (leftIndex == -1 || leftIndex >= leftEntries.size()) return null;
         List<Integer> result = leftEntries.elementAt(leftIndex);
-        System.out.println("Mapped: " + showEntry(1,rightEntry) + " => " + 
+        if (debug)
+            System.out.println("Mapped: " + showEntry(1,rightEntry) + " => " + 
                 showEntry(0,result.toArray(new Integer[0])));
         return result;
     }
@@ -351,5 +355,6 @@ public class MappingTable
     {
       return leftColumnMap.keySet().toArray(new String[0])[index];
     }
+    public void setDebug(boolean on) { debug = on; }
 }
 
