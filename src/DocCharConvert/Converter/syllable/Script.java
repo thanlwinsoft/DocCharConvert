@@ -38,6 +38,10 @@ public class Script
     // need access both by id and by index
     private LinkedHashMap <String, Component> componentMap;
     private Vector <Component> componentVector;
+    private boolean repeater = false;
+    // repeatChar is the character to designate a repeat if repeater = true
+    // otherwise it is the repeat separator
+    private String repeatChar = null;
     /** Creates a new instance of Script 
     * @param name of script
     */
@@ -107,4 +111,16 @@ public class Script
     {
          return componentVector.size();
     }
+    public boolean usesRepeater() { return repeater; }
+    public String getRepeatChar() { return repeatChar; }
+    /** sets the repeater (isRepeater == true) or separator character 
+     *  (isRepeater == false)
+     * @param isRepeater 
+     * @param repeater or separator character
+     */
+    public void setRepeatChar(boolean isRepeater, String repeat) 
+    {
+        repeater = isRepeater;
+        repeatChar = repeat; 
+    } 
 }

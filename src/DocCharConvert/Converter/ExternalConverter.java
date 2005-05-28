@@ -70,6 +70,7 @@ public class ExternalConverter implements CharConverter, Runnable
     private String name = "";
     private File execDir = null;
     private boolean initialized = false;
+    private boolean debug = false;
     /** Creates a new instance of ExternalConverter 
      * This should be used when wrapped in a ChildConverter     
      */
@@ -402,5 +403,9 @@ public class ExternalConverter implements CharConverter, Runnable
     public boolean isInitialized()
     {
       return initialized;
+    }
+    public void setDebug(boolean on)
+    {
+        debug = on;
     }
 }

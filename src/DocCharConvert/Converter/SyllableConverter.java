@@ -34,6 +34,7 @@ import DocCharConvert.Converter.syllable.Component;
 import DocCharConvert.Converter.syllable.ComponentClass;
 import DocCharConvert.Converter.syllable.MappingTable;
 import DocCharConvert.Converter.syllable.SyllableXmlReader;
+import DocCharConvert.Converter.syllable.ExceptionList;
 
 /**
  *
@@ -52,12 +53,28 @@ public class SyllableConverter extends ReversibleConverter
     private int newSide = 1;
     private int INVALID_COMP = -2;
     private long filetime = -1;
-        
-    /** Creates a new instance of SyllableConverter */
-    public SyllableConverter(File xmlFile)
+    private boolean debug = false;
+    private String UNKNOWN_CHAR = "??";
+    private File leftExceptions = null;
+    private File rightExceptions = null;
+    private ExceptionList exceptionList = null;
+    /** Creates a new instance of SyllableConverter 
+     * @param XML config file
+     */
+    public SyllableConverter(File xmlFile, File leftExceptions, File rightExceptions)
     {
-        scripts = new Script[2];
+        construct(xmlFile, leftExceptions, rightExceptions);
+    }
+//    public SyllableConverter(File xmlFile)
+//    {
+//       construct(xmlFile, null, null);
+//    }
+    protected void construct(File xmlFile, File leftExceptions, File rightExceptions)
+    {
+        this.scripts = new Script[2];
         this.xmlFile = xmlFile;
+        this.leftExceptions = leftExceptions;
+        this.rightExceptions = rightExceptions;
     }
     
     protected void addScript(Script script, int side)
@@ -74,6 +91,15 @@ public class SyllableConverter extends ReversibleConverter
     {
         this.name = newName;
     }
+    public void setDebug(boolean on)
+    {
+        debug = on;
+    }
+    /**
+     * Convert text using the converter - the main entry point for conversion
+     * @param oldText original text
+     * @result converted text
+     */
     public String convert(String oldText) 
         throws FatalException, RecoverableException
     {
@@ -86,13 +112,16 @@ public class SyllableConverter extends ReversibleConverter
         Vector <Syllable> parseOutput = new Vector<Syllable>();       
         for (int offset = 0; offset < oldText.length(); )
         {
-              Vector <Integer> syllable = new Vector <Integer>(scripts[oldSide].getNumComponents() + 1);
+              Vector <Integer> syllable = 
+                  new Vector <Integer>(scripts[oldSide].getNumComponents() + 1);
               syllable.add(0);
               Vector <Vector<Integer>> syllables = 
-                      parseSyllableComponent(scripts[oldSide], oldText, offset, 0, syllable);
+                  parseSyllableComponent(scripts[oldSide], oldText, offset, 
+                                         0, syllable);
               if (syllables.size() <= 1) // always get one empty vector
               {
-                  parseOutput.add(new Syllable(oldText.substring(offset, offset+1)));
+                  parseOutput.add(new Syllable(oldText.substring(offset, 
+                                                                 offset+1)));
                   offset++;
               }
               else
@@ -105,7 +134,8 @@ public class SyllableConverter extends ReversibleConverter
                   }
                   else
                   {
-                      parseOutput.add(new Syllable(oldText.substring(offset, offset+1)));
+                      parseOutput.add(new Syllable(oldText.substring(offset, 
+                                      offset + 1)));
                       offset++;
                   }
               }
@@ -113,6 +143,11 @@ public class SyllableConverter extends ReversibleConverter
         return convertSyllables(parseOutput);
     }
     
+    /**
+     * loop over the syllable objects and output the converted string
+     * @param Vector of syllables and unknown characters
+     * @return converted String
+     */
     protected String convertSyllables(Vector < Syllable> parseOutput)
     {
         StringBuffer output = new StringBuffer();
@@ -120,20 +155,85 @@ public class SyllableConverter extends ReversibleConverter
         {
             Syllable s = parseOutput.get(i);
             Syllable nextS = null;
-            if (i+1<parseOutput.size()) parseOutput.get(i + 1);
-            // tbd add exception handling
+            int exLength = 0;
+            if (exceptionList != null)
+            {
+                int j = i;
+                StringBuffer exTest = new StringBuffer();
+                int lastExMatch = -1;
+                String lastMatch = null;
+                do
+                {
+                    exTest.append(parseOutput.get(j).getInputString());
+                    exLength += parseOutput.get(j).oldLength();
+                    if (exceptionList.isException(oldSide, exTest.toString()))
+                    {
+                        lastExMatch = j - i;
+                        lastMatch = exceptionList.convert(oldSide, exTest.toString());
+                        if (debug)
+                        {
+                            System.out.println("Exception: " + exTest.toString() 
+                                               + " -> " + lastMatch);
+                        }
+                    }
+                } while (exLength < exceptionList.getMaxExceptionLength(oldSide) &&
+                         ++j < parseOutput.size());
+                
+                if (lastExMatch > -1)
+                {
+                    output.append(lastMatch);
+                    i += lastExMatch;
+                    continue;
+                }
+            }
             if (s.isKnown())
             {
-                // tbd add repeat handling
-                output.append(dumpSyllable(newSide, s.getConversionResult()));
+                String syllableText = dumpSyllable(newSide, s.getConversionResult());
+                output.append(syllableText);
+                if (syllableText.contains(UNKNOWN_CHAR))
+                    System.out.println("Ambiguous conversion:\t" + 
+                        s.getInputString() + '\t' + syllableText);
+                // repeat handling
+                if (scripts[newSide].usesRepeater() && i + 2 < parseOutput.size())
+                {
+                    if (parseOutput.get(i + 1).equals(scripts[oldSide].getRepeatChar()) &&
+                        s.equals(parseOutput.get(i+2)))
+                    {
+                        output.append(scripts[newSide].getRepeatChar());
+                        i += 2;
+                    }
+                }
+                else if (scripts[oldSide].usesRepeater() && i + 1 < parseOutput.size())
+                {
+                    if (parseOutput.get(i + 1).equals(scripts[oldSide].getRepeatChar()))
+                    {
+                        output.append(scripts[newSide].getRepeatChar());
+                        output.append(dumpSyllable(newSide, s.getConversionResult()));
+                    }
+                }
             }
-            else
+            else 
+            {
                 output.append(s.getInputString());
+            }
         }
         return output.toString();
     }
     
-    protected Syllable chooseSyllable(String text, int offset, Vector <Vector<Integer>> syllables)
+    /**
+     * Choose a syllable to use as the correct conversion from all the 
+     * candidates.
+     * The algorithm first checks to see if a valid conversion is none for the
+     * candidate syllable. It then chooses the longest syllable that has a valid
+     * conversion.
+     * @param text source text
+     * @param offset of syllabe in source text
+     * @param Vector of possible syllables to choose from. 
+     * @result Syllable object representing the original and converted syllable
+     * or null of no conversion was found.
+     */
+    protected Syllable chooseSyllable(String text, int offset, 
+        Vector <Vector<Integer>> syllables)
     {
         // choose the longest syllable
         Vector<Integer> chosen = null;
@@ -145,8 +245,12 @@ public class SyllableConverter extends ReversibleConverter
         while (syl.hasNext())
         {
             Vector<Integer> testSyl = syl.next();
-            System.out.println("Choose syllable for  '" + text.substring(offset, offset + testSyl.elementAt(0)) + 
+            if (debug)
+            {
+                System.out.println("Choose syllable for  '" + 
+                    text.substring(offset, offset + testSyl.elementAt(0)) + 
                     "' " + testSyl.toString() );
+            }
              Integer [] conversion = convertSyllable(testSyl);
        
             if (conversion != null)
@@ -158,13 +262,20 @@ public class SyllableConverter extends ReversibleConverter
                     longest = testSyl;
                     if (length > text.length())
                         length = text.length();
-                    result = new Syllable(longest, text.substring(offset, offset + length), conversion);
+                    result = new Syllable(longest, 
+                        text.substring(offset, offset + length), conversion);
                 }
-                else if (testLength > 0 && testLength == length)
+                else if (testLength > 0 && testLength == length && debug)
                 {
                     // much harder to decide, choose the first one for now
-                    System.out.println("Ambiguous conversion:\t" + text.substring(offset, offset + length) + '\t' + 
-                            longest.toString() + " or " + testSyl.toString());
+                    System.out.println("Ambiguous conversion:\t" + 
+                        text.substring(offset, offset + length) + '\t' + 
+                        longest.toString() + 
+                        dumpSyllable(oldSide, longest.subList(1, 
+                                     longest.size()).toArray(new Integer[0])) +
+                        " or " + testSyl.toString() +
+                        dumpSyllable(oldSide, testSyl.subList(1, 
+                                     testSyl.size()).toArray(new Integer[0])));
                 }
             }
         }
@@ -172,17 +283,20 @@ public class SyllableConverter extends ReversibleConverter
     }
     
     /**
-     * element 0 of the compValues vector stores the cumulative length of the syllable 
-     * Subsequent elements record the index of the value which matched for that component
-     * There may be several matches for a given component if it is of variable length
+     * element 0 of the compValues vector stores the cumulative length of the 
+     * syllable 
+     * Subsequent elements record the index of the value which matched for that 
+     * component. There may be several matches for a given component if it is 
+     * of variable length.
      */
-    protected Vector  <Vector<Integer>> parseSyllableComponent(Script script, String text, int offset, 
-                                                                                                                  int cIndex, Vector<Integer>compValues)
+    protected Vector  <Vector<Integer>> parseSyllableComponent(Script script, 
+        String text, int offset, int cIndex, Vector<Integer>compValues)
     {
         Component comp = script.getSyllableComponent(cIndex);
         Vector <Vector<Integer>> candidates = new Vector<Vector<Integer>>();
         // find all possible matches for this component
-        for (int i = offset;( i <= offset + comp.getMaxLength()) && (i <= text.length()); i++)
+        for (int i = offset; (i <= offset + comp.getMaxLength()) && 
+                             (i <= text.length()); i++)
         {
             int valueIndex = comp.getIndex(text.substring(offset, i));
             if (valueIndex > -1)
@@ -193,7 +307,9 @@ public class SyllableConverter extends ReversibleConverter
                 candidate.set(0, length);
                 if (cIndex < script.getNumComponents() - 1)
                 {
-                    Vector <Vector<Integer>> subCandidates = parseSyllableComponent(script, text, i, cIndex + 1, candidate);
+                    Vector <Vector<Integer>> subCandidates = 
+                        parseSyllableComponent(script, text, i, cIndex + 1, 
+                                               candidate);
                     candidates.addAll(subCandidates);
                 }
                 else
@@ -202,7 +318,13 @@ public class SyllableConverter extends ReversibleConverter
         }
         return candidates;
     }
-    
+    /**
+     * convert the syllable from one script to the other in terms of reference 
+     * indices used in the Component objects.
+     * @param Vector of indices of components of syllable on original side 
+     * (first value is the length of the syllable in Characters
+     * @result array of indices of components of syllable on destination side
+     */
     protected Integer[] convertSyllable(Vector<Integer>compValues)
     {
         Integer [] result = new Integer[scripts[newSide].getNumComponents()];
@@ -223,12 +345,19 @@ public class SyllableConverter extends ReversibleConverter
             for (int j=0; j<newValues.size(); j++)
             {
                 int indexInSyllable = mapId2ScriptId(table, newSide, j);
+                if (newValues.get(j) == MappingTable.AMBIGUOUS &&
+                    result[indexInSyllable] != INVALID_COMP) continue;
                 if (result[indexInSyllable] > INVALID_COMP &&
-                     result[indexInSyllable] != newValues.get(j))
+                     result[indexInSyllable] != newValues.get(j) && debug)
                 {
                     // remove leading char count for dump
-                    Integer[] sylIndices = compValues.subList(1, compValues.size()).toArray(new Integer[0]);
-                    System.out.println("Warning: overwriting syllable values " + dumpSyllable(oldSide,sylIndices));
+                    Integer[] sylIndices = compValues.subList(1, 
+                        compValues.size()).toArray(new Integer[0]);
+                    System.out.println("Warning: overwriting syllable values " + 
+                                       dumpSyllable(oldSide,sylIndices) + 
+                                       " with " + 
+                        scripts[newSide].getSyllableComponent(indexInSyllable)
+                        .getComponentValue(newValues.get(j)));
                 }
                 result[indexInSyllable] = newValues.get(j);
             }
@@ -236,7 +365,7 @@ public class SyllableConverter extends ReversibleConverter
         // now look for any unconverted components
         for (int k = 0; k<result.length; k++) 
         {
-            if (result[k] == -2)
+            if (result[k] == INVALID_COMP)
             {
                 // try to find a class to convert it with
                 Component comp = scripts[oldSide].getSyllableComponent(k);
@@ -246,7 +375,8 @@ public class SyllableConverter extends ReversibleConverter
                     String cid = iCId.next();
                     ComponentClass cc = comp.getClass(cid);
                     Component origComp = cc.getComponent(oldSide);
-                    int oldRef = compValues.elementAt(scripts[oldSide].getComponentIndex(origComp) + 1);
+                    int oldRef = compValues.elementAt(scripts[oldSide]
+                        .getComponentIndex(origComp) + 1);
                     result[k] = cc.getCorrespondingRef(oldSide, oldRef);
                     if (result[k] > -1) break;
                 }
@@ -256,18 +386,31 @@ public class SyllableConverter extends ReversibleConverter
         }
         return result;
     }
-    
+    /**
+     * Convert the list of reference indices representing the syllable into a
+     * human readable string or the output string.
+     * @param side of conversion LEFT or RIGHT
+     * @param integer of refrences indices of component values
+     * @result Output string
+     */
     protected String dumpSyllable(int side, Integer [] compValues)
     {
         StringBuffer orig = new StringBuffer();
         for (int i = 0; i<compValues.length; i++)
         {
             Component comp = scripts[side].getSyllableComponent(i);
-            orig.append(comp.getComponentValue(compValues[i]));
+            if (compValues[i] < 0) orig.append(UNKNOWN_CHAR);
+            else orig.append(comp.getComponentValue(compValues[i]));
         }
         return orig.toString();
     }
-    
+    /** Convert the index of the component in the mapping table into an index
+     * in the syllable that can be retrieved from the script
+     * @param table
+     * @param side LEFT or RIGHT
+     * @param index of column in table on side
+     * @return index of component in syllable
+     */
     protected int mapId2ScriptId(MappingTable table, int side, int i)
     {
         String colId = table.getColumnId(side, i);
@@ -276,10 +419,16 @@ public class SyllableConverter extends ReversibleConverter
         int indexInSyllable = scripts[side].getComponentIndex(col);
         return indexInSyllable;
     }
-    
+    /**
+     * Test for successful initialisation. This is reset to false if the config
+     * file has changed on disk.
+     * @return initOK true if initialisation successful
+     */
     public boolean isInitialized()
     {       
-        if (xmlFile.lastModified() > filetime) initOk = false;
+        if (xmlFile.lastModified() > filetime ||
+            leftExceptions.lastModified() > filetime ||
+            rightExceptions.lastModified() > filetime) initOk = false;
         return initOk;
     }
 
@@ -289,12 +438,28 @@ public class SyllableConverter extends ReversibleConverter
     public void initialize() throws FatalException
     {
         filetime = xmlFile.lastModified();
+        if (leftExceptions != null && leftExceptions.lastModified() > filetime) 
+            filetime = leftExceptions.lastModified();
+        if (rightExceptions != null && rightExceptions.lastModified() > filetime) 
+            filetime = rightExceptions.lastModified();
+        if (leftExceptions != null && rightExceptions != null)
+        {   
+            try
+            {
+                exceptionList = new ExceptionList(leftExceptions, rightExceptions);
+                exceptionList.load();
+            }
+            catch (java.io.IOException e)
+            {
+                throw new FatalException(e.getLocalizedMessage());
+            }
+        }
         SyllableXmlReader reader = new SyllableXmlReader(xmlFile);
         if (reader.parse())
         {
           scripts = reader.getScripts();
           mappingTables = reader.getMappingTables();
-          //initOk = true;
+          initOk = true;
         }
         else
         {
@@ -310,7 +475,9 @@ public class SyllableConverter extends ReversibleConverter
         
         
     }
-    
+    /**
+     * Helper class to hold properties of a syllable.
+     */
     protected class Syllable
     {
         boolean known = true;
@@ -329,8 +496,13 @@ public class SyllableConverter extends ReversibleConverter
             this.known = false;
         }
         public boolean isKnown() { return known; }
-        public int oldLength() { return syllable.elementAt(0); }
+        public int oldLength() { return text.length(); }
         public Integer [] getConversionResult() { return result; }
         public String getInputString() { return text; }
+        public boolean equals(Syllable syl)
+        {
+            if (syl == null) return false;
+            return text.equals(syl.getInputString());
+        }
     }
 }

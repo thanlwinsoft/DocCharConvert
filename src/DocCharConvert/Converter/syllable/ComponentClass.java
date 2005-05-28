@@ -112,11 +112,13 @@ public class ComponentClass
         if (side == 0) 
         {
             index = leftVector.indexOf(ref);
+            if (index == -1) return index;
             return rightVector.elementAt(index);
         }
         else if (side == 1)
         {
             index = rightVector.indexOf(ref);
+            if (index == -1) return index;
             return leftVector.elementAt(index);
         }
         else throw new IllegalArgumentException("Invalid side " + side);

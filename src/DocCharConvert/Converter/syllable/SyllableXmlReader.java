@@ -71,6 +71,9 @@ public class SyllableXmlReader
   private final String COLUMNS_NODE = "columns";
   private final String MAPS_NODE = "maps";
   private final String MAP_NODE = "m";
+  private final String REPEAT_NODE = "repeat";
+  private final String MARKER_NODE= "marker";
+  private final String SEPARATOR_NODE = "separator";
   
   private final String SIDE_ATTR = "side";
   private final String ID_ATTR = "id";
@@ -156,6 +159,8 @@ public class SyllableXmlReader
         // need 2 passes on maps
         if (!parseMaps(true)) return false;
         if (!parseMaps(false)) return false;
+        // look for repeat tags
+        if (!parseRepeats()) return false;
     }
     catch (ConflictException e)
     {
@@ -203,19 +208,9 @@ public class SyllableXmlReader
          errorLog.append('\n');
           return false;
         }
-        Node sideNode = cluster.item(0).getAttributes().getNamedItem(SIDE_ATTR);
-        String side = null;
-        if (sideNode != null) side = sideNode.getNodeValue();
-        int sideId = -1;
-        if (side.equals(LEFT)) sideId = SyllableConverter.LEFT;
-        else if (side.equals(RIGHT)) sideId = SyllableConverter.RIGHT;
-        else
-        {
-          Object [] args = { side, SIDE_ATTR, CLUSTER_NODE };
-          errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
-          errorLog.append('\n');
-          return false;
-        }
+        
+        int sideId = getSideForNode(cluster.item(0));
+        if (sideId == -1) return false;
         script[sideId] = new Script(name);
         NodeList clusters = cluster.item(0).getChildNodes();
         for (int c = 0; c<clusters.getLength(); c++)
@@ -227,8 +222,8 @@ public class SyllableXmlReader
             Node id = node.getAttributes().getNamedItem(ID_ATTR);
             if (id == null)
             {
-              Object [] args = { side, SIDE_ATTR, CLUSTER_NODE };
-              errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));          
+              Object [] args = { sideId, ID_ATTR, CLUSTER_NODE };
+              errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));          
             }
             else
             {
@@ -243,6 +238,22 @@ public class SyllableXmlReader
         errorLog.append('\n');
       }
     return true;
+  }
+  protected int getSideForNode(Node node)
+  {
+        Node sideNode = node.getAttributes().getNamedItem(SIDE_ATTR);
+        String side = null;
+        if (sideNode != null) side = sideNode.getNodeValue();
+        int sideId = -1;
+        if (side.equals(LEFT)) sideId = SyllableConverter.LEFT;
+        else if (side.equals(RIGHT)) sideId = SyllableConverter.RIGHT;
+        else
+        {
+          Object [] args = { side, SIDE_ATTR, CLUSTER_NODE };
+          errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+          errorLog.append('\n');
+        }
+        return sideId;
   }
   
   protected boolean parseClasses()
@@ -410,6 +421,56 @@ public class SyllableXmlReader
 //       }
     }
     return map;
+  }
+  
+  protected boolean parseRepeats()
+  {
+      NodeList repeatList = doc.getElementsByTagName(REPEAT_NODE);
+      if (repeatList.getLength() > 1)
+      {
+        Object [] args = { new Integer(1), REPEAT_NODE, 
+                             new Integer(repeatList.getLength())};
+        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append('\n');
+        return false;       
+      }
+      if (repeatList.getLength() == 0) return true;
+      Element repeatElement = (Element)repeatList.item(0);
+      NodeList nList = repeatElement.getElementsByTagName(MARKER_NODE);
+      if (nList.getLength() != 1)
+      {
+        Object [] args = { new Integer(1), MARKER_NODE, 
+                             new Integer(repeatList.getLength())};
+        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append('\n');
+        return false;       
+      }
+      int side = getSideForNode(nList.item(0));
+      Node hexNode = nList.item(0).getAttributes().getNamedItem(HEX_ATTR);
+      String value = null;
+      if (hexNode != null)
+          value = readHexValues(hexNode.getNodeValue());
+      else
+          value = nList.item(0).getTextContent();
+      script[side].setRepeatChar(true, value);
+      
+      nList = repeatElement.getElementsByTagName(SEPARATOR_NODE);
+      if (nList.getLength() != 1)
+      {
+        Object [] args = { new Integer(1), SEPARATOR_NODE, 
+                             new Integer(repeatList.getLength())};
+        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append('\n');
+        return false;       
+      }
+      side = getSideForNode(nList.item(0));
+      hexNode = nList.item(0).getAttributes().getNamedItem(HEX_ATTR);
+      if (hexNode != null)
+          value = readHexValues(hexNode.getNodeValue());
+      else
+          value = nList.item(0).getTextContent();
+      script[side].setRepeatChar(false, value);
+      return true;
   }
   
   protected String readHexValues(String hexValues)

@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Arrays;
+import java.util.ArrayList;
 import DocCharConvert.Converter.SyllableConverter;
 /**
  * The MappingTable represents how one or more components from one
@@ -61,6 +62,8 @@ public class MappingTable
     HashMap<String, Integer> leftColumnMap = null;
     HashMap<String, Integer> rightColumnMap = null;
     Component [] columns = null;
+    public static final int UNKNOWN = -1;
+    public static final int AMBIGUOUS = -3;
     /** Constructor for a mapping table. 
     * @param id name of table identifier used in XML file
     * @columns array of components in the table
@@ -103,16 +106,18 @@ public class MappingTable
             throw new ConflictException("MappingTable " + id + 
                     " must have columns on both sides");
         // allocate maps
-       for (int j =0; j<leftSizes.size(); j++)
+        for (int j =0; j<leftSizes.size(); j++)
         {
             leftMapSize *= leftSizes.elementAt(j).intValue();
         }
         leftMap = new int[leftMapSize];
+        Arrays.fill(leftMap, -1);
         for (int j =0; j<rightSizes.size(); j++)
         {
             rightMapSize *= rightSizes.elementAt(j).intValue();
         }
         rightMap = new int[rightMapSize];
+        Arrays.fill(rightMap, -1);
     }
     /** 
     * get the index of the specified component in the left hand map
@@ -151,15 +156,56 @@ public class MappingTable
         }
         int leftOffset = getMapOffset(leftSizes, leftEntry);
         int entryIndexL = rightEntries.size();
-        rightEntries.add(Arrays.asList(rightEntry));
+        // sometimes a mapping already exists, in this case it is ambigous, so
+        // another table will be needed to resolve the conversion - usually this
+        // only happens on one side
+        List<Integer> arrayR = new ArrayList<Integer>(rightEntry.length);
+        for (int i = 0; i<rightEntry.length; i++) arrayR.add(i,rightEntry[i]);
+        if (leftMap[leftOffset] != UNKNOWN)
+        {
+            arrayR = setAmbiguousFlag(arrayR, 
+                                      rightEntries.get(leftMap[leftOffset]));   
+        }
+        rightEntries.add(arrayR);
         leftMap[leftOffset] = entryIndexL;
         
         int rightOffset = getMapOffset(rightSizes, rightEntry);
         int entryIndexR = leftEntries.size();
-        leftEntries.add(Arrays.asList(leftEntry));
+        
+        List<Integer> arrayL = new ArrayList<Integer>(leftEntry.length);
+        for (int i = 0; i<leftEntry.length; i++) arrayL.add(i,leftEntry[i]);
+        if (rightMap[rightOffset] != UNKNOWN)
+        {
+            arrayL = setAmbiguousFlag(arrayL, 
+                                      leftEntries.get(rightMap[rightOffset]));            
+        }
+        leftEntries.add(arrayL);
         rightMap[rightOffset] = entryIndexR; 
         System.out.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
                 "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR);
+    }
+    /**
+     * More than 2 lines match the same map offset on this side
+     * This methods sets the component index to AMBIGUOUS for all components
+     * which differ. Another map must be specified in which this component is 
+     * not ambiguous.
+     * @param newest set of component indices, 
+     * @param previous set of component indices
+     * @result combined set of component indices with AMBIGUOUS index set where
+     * the 2 arrays differ
+     */
+    protected List<Integer> setAmbiguousFlag(List <Integer> newArray, 
+                                             List<Integer> oldArray)
+    {
+        assert (oldArray.size() == newArray.size());
+        for (int i = 0; i<oldArray.size(); i++)
+        {
+            if (oldArray.get(i) != newArray.get(i))
+            {   
+                newArray.set(i, AMBIGUOUS);
+            }
+        }
+        return newArray;
     }
     
     protected String showEntry(int side, Integer[] entries)
@@ -169,9 +215,16 @@ public class MappingTable
         {
             Component c = columns[i + (leftSizes.size() * side)];
             entry.append(c.getId());
-            entry.append("='");
-            entry.append(c.getComponentValue(entries[i]));
-            entry.append("'\t");
+            entry.append("=");
+            if (entries[i] == AMBIGUOUS)
+                entry.append("??");
+            else
+            {
+                entry.append("'");
+                entry.append(c.getComponentValue(entries[i]));
+                entry.append("'");
+            }
+            entry.append("\t");
         }
         return entry.toString();
     }
@@ -203,7 +256,7 @@ public class MappingTable
     {
         int leftOffset = getMapOffset(leftSizes, leftEntry);
         int rightIndex = leftMap[leftOffset];
-        if (rightIndex == 0 || rightIndex >= rightEntries.size()) return null;
+        if (rightIndex == -1 || rightIndex >= rightEntries.size()) return null;
         List<Integer> result = rightEntries.elementAt(rightIndex);
         System.out.println("Mapped: " + showEntry(0,leftEntry) + " => " + 
                 showEntry(1,result.toArray(new Integer[0])));
@@ -218,7 +271,7 @@ public class MappingTable
     {
         int rightOffset = getMapOffset(rightSizes, rightEntry);
         int leftIndex = rightMap[rightOffset];
-        if (leftIndex == 0 || leftIndex >= leftEntries.size()) return null;
+        if (leftIndex == -1 || leftIndex >= leftEntries.size()) return null;
         List<Integer> result = leftEntries.elementAt(leftIndex);
         System.out.println("Mapped: " + showEntry(1,rightEntry) + " => " + 
                 showEntry(0,result.toArray(new Integer[0])));

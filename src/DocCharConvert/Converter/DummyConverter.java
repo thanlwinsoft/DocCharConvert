@@ -69,4 +69,7 @@ public class DummyConverter implements CharConverter
     {
     }
     public boolean isInitialized() { return true; }
+    public void setDebug(boolean on)
+    {
+    }
 }

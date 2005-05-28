@@ -94,4 +94,8 @@ public class ChildConverter implements CharConverter
     {
       return parent;
     }
+    public void setDebug(boolean on)
+    {
+        parent.setDebug(on);
+    }
 }

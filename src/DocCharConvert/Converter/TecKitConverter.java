@@ -220,4 +220,8 @@ public class TecKitConverter extends ReversibleConverter
         }
         System.out.println(dump.toString());
     }
+    public void setDebug(boolean on)
+    {
+        debug = on;
+    }
 }

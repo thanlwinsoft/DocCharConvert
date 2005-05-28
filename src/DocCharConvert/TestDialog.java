@@ -46,6 +46,9 @@ public class TestDialog extends javax.swing.JDialog
         initComponents();
         converter = cc;
         reverseConverter = rcc;
+        // set debug in this mode - for now output is written to console
+        cc.setDebug(true);
+        rcc.setDebug(true);
         int fontSize = Config.getCurrent().getTestFontSize();
         jTextArea1.setFont(new Font(cc.getOldStyle().getFontName(),
                            Font.PLAIN,fontSize));

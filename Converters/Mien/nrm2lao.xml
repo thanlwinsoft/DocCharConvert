@@ -27,6 +27,12 @@
 </cluster>
 </script>
 
+<repeat>
+<marker side="right" hex="0ec6"/>
+<separator side="left">-</separator>
+</repeat>
+
+
 <classes>
 
 <!-- classes must be the same size on both sides -->
@@ -41,10 +47,10 @@
 
 <class id="mnngFinal">
 <component r="f">
-  <c>m</c><c>n</c><c>ng</c><c/>
+  <c>m</c><c>n</c><c>ng</c>
 </component>
 <component r="lf">
-    <c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/><c/>
+    <c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/>
 </component>
 </class>
 
@@ -104,54 +110,48 @@
 
 <class id="lowCons">
 <component r="c">
-  <c>k</c> <c>ng</c> <c>q</c> <c>c</c> <c>hng</c>
-  <!--<c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>-->
+  <c>k</c>   <c>ng</c> <c>q</c>  <c>c</c>  <c>hng</c>
+  <c>hny</c> <c>hm</c> <c>hn</c> <c>hl</c> <c>hu</c>
+  <c>hi</c>  <c>s</c>  <c>ny</c> <c>t</c>  <c>n</c>
+  <c>p</c>   <c>f</c>  <c>m</c>  <c>l</c>  <c>w</c>
+  <c>h</c>   <c>m'</c>
 </component>
 <component r="lc">
   <c hex="0e84"/><c hex="0e87"/><c hex="0e97 0e88"/><c hex="0e97 0eaa"/><c hex="0eae 0e87"/>
-  <!--<c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>-->
+  <c hex="0eae 0e8d"/><c hex="0eae 0ea1"/><c hex="0eae 0e99"/><c hex="0eae 0ea5"/><c hex="0eae 0ea7"/>
+  <c hex="0eae 0ea2"/><c hex="0e8a"/><c hex="0e8d"/><c hex="0e97"/><c hex="0e99"/>
+  <c hex="0e9e"/><c hex="0e9f"/><c hex="0ea1"/><c hex="0ea5"/><c hex="0ea7"/>
+  <c hex="0eae"/><c hex="0ea1"/>
 </component>
 </class>
 
 <class id="highCons">
 <component r="c">
-  <c>k</c> <c>ng</c> <c>q</c> <c>c</c> <c>hng</c>
-  <!--<c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>-->
+  <c>k</c>   <c>ng</c> <c>q</c>  <c>c</c>  <c>hng</c>
+  <c>hny</c> <c>hm</c> <c>hn</c> <c>hl</c> <c>hu</c>
+  <c>hi</c>  <c>s</c>  <c>ny</c> <c>t</c>  <c>n</c>
+  <c>p</c>   <c>f</c>  <c>m</c>  <c>l</c>  <c>w</c>
+  <c>h</c> 
 </component>
 <component r="lc">
   <c hex="0e82"/><c hex="0eab 0e87"/><c hex="0e96 0e88"/><c hex="0e96 0eaa"/><c hex="0eab 0eae 0e87"/>
-  <!--<c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>-->
+  <c hex="0eab 0eae 0e8d"/><c hex="0eab 0eae 0ea1"/><c hex="0eab 0eae 0e99"/><c hex="0eab 0eae 0ea5"/><c hex="0eab 0eae 0ea7"/>
+  <c hex="0eab 0eae 0ea2"/><c hex="0eaa"/><c hex="0eab 0e8d"/><c hex="0e96"/><c hex="0edc"/>
+  <c hex="0e9c"/><c hex="0e9d"/><c hex="0edd"/><c hex="0eab 0ea5"/><c hex="0eab 0ea7"/>
+  <c hex="0eab"/>
 </component>
 </class>
 
 <class id="midCons">
 <component r="c">
   <c>g</c> <c>j</c> <c>z</c> <c>nd</c> <c>d</c>
-  <!--<c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>
-  <c></c> <c></c> <c></c> <c></c> <c></c>-->
-  <c/>
+  <c>mb</c> <c>b</c> <c>y</c> <c>nq</c> <c>nj</c>
+  <c>nz</c> <c/>
 </component>
 <component r="lc">
   <c hex="0e81"/><c hex="0e88"/><c hex="0e95 0eaa"/><c hex="0e94"/><c hex="0e95"/>
-  <!--<c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>
-  <c hex=""/><c hex=""/><c hex=""/><c hex=""/><c hex=""/>-->
-  <c hex="0ead"/>
+  <c hex="0e9a"/><c hex="0e9b"/><c hex="0ea2"/><c hex="0ead 0e81"/><c hex="0ead 0e88"/>
+  <c hex="0e94 0eaa"/><c hex="0ead"/>
 </component>
 </class>
 
@@ -177,8 +177,9 @@
 -->
 <!-- Low Consonants -->
 <m><!-- unmarked tone -->
-<c r="c" class="lowCons"/> <c r="t"/><c r="f" class="anyFinal"/> 
-<c r="lc" class="lowCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
+<!-- not sure about the final here! this stops it being ambiguous in reverse -->
+<c r="c" class="lowCons"/> <c r="t"/><c r="f" class="mnngFinal"/> 
+<c r="lc" class="lowCons"/> <c r="lt" hex=""/><c r="lf" class="mnngFinal"/>
 </m>
 <m><!-- v tone, stop,glottal -->
 <c r="c" class="lowCons"/> <c r="t">v</c><c r="f" class="kptqFinal"/> 
@@ -187,6 +188,10 @@
 <m><!-- v tone, other -->
 <c r="c" class="lowCons"/> <c r="t">v</c><c r="f" class="mnngFinal"/> 
 <c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf" class="mnngFinal"/>
+</m>
+<m><!-- v tone, other -->
+<c r="c" class="lowCons"/> <c r="t">v</c><c r="f"/> 
+<c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf"/>
 </m>
 <m><!-- v tone, no final -->
 <c r="c" class="lowCons"/> <c r="t">v</c><c r="f" /> 
@@ -199,16 +204,21 @@
 
 <!-- Mid Consonants -->
 <m><!-- unmarked tone -->
-<c r="c" class="midCons"/> <c r="t"/><c r="f" class="anyFinal"/> 
-<c r="lc" class="midCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
+<!-- not sure about the final here! this stops it being ambiguous in reverse -->
+<c r="c" class="midCons"/> <c r="t"/><c r="f" class="mnngFinal"/> 
+<c r="lc" class="midCons"/> <c r="lt" hex=""/><c r="lf" class="mnngFinal"/>
 </m>
-<m><!-- v tone, stop,glottal -->
+<m><!-- c tone, stop,glottal -->
 <c r="c" class="midCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
 <c r="lc" class="midCons"/> <c r="lt"/><c r="lf" class="kptqFinal"/>
 </m>
-<m><!-- v tone, other -->
+<m><!-- c tone, other -->
 <c r="c" class="midCons"/> <c r="t">c</c><c r="f" class="mnngFinal"/> 
 <c r="lc" class="midCons"/> <c r="lt" hex="0ec8"/><c r="lf" class="mnngFinal"/>
+</m>
+<m><!-- c tone, other -->
+<c r="c" class="midCons"/> <c r="t">c</c><c r="f"/> 
+<c r="lc" class="midCons"/> <c r="lt" hex="0ec8"/><c r="lf"/>
 </m>
 <m><!-- hz tone -->
 <c r="c" class="midCons"/> <c r="t" class="hvxzMidTone"/><c r="f" class="anyFinal"/>
@@ -217,8 +227,8 @@
 
 <!-- High Consonants -->
 <m><!-- unmarked tone -->
-<c r="c" class="highCons"/> <c r="t">x</c><c r="f" class="anyFinal"/> 
-<c r="lc" class="highCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
+<c r="c" class="highCons"/> <c r="t">x</c><c r="f" class="mnngFinal"/> 
+<c r="lc" class="highCons"/> <c r="lt" hex=""/><c r="lf" class="mnngFinal"/>
 </m>
 <m><!-- v tone, stop,glottal -->
 <c r="c" class="highCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
@@ -263,7 +273,7 @@
 </m>
 <m>
 <c r="v">aa</c> <c r="f" class="anyFinal"/> 
-<c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex=""/><c r="lf" class="anyFinal"/>
+<c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb2"/><c r="lf" class="anyFinal"/>
 </m>
 <m>
 <c r="v">ai</c> <c r="f" class="anyFinal"/> 

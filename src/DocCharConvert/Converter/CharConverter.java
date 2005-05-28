@@ -33,10 +33,16 @@ public interface CharConverter
 {
     public String getName();
     public void setName(String newName);
+    /**
+     * Convert text using the converter
+     * @param oldText original text
+     * @result converted text
+     */
     public String convert(String oldText) 
         throws FatalException, RecoverableException;
     
     public boolean isInitialized();
+    public void setDebug(boolean on);
     public TextStyle getOldStyle();
     public TextStyle getNewStyle();
     /**
