@@ -276,6 +276,10 @@
 <c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb0"/><c r="lf"/>
 </m>
 <m>
+<c r="v">a</c> <c r="f">q</c> 
+<c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb0"/><c r="lf"/>
+</m>
+<m>
 <c r="v">a</c> <c r="f">m</c> 
 <c r="lvp"/> <c r="lvu" /><c r="lvd"/> <c r="lva" hex="0eb3"/><c r="lf" />
 </m>
@@ -313,7 +317,7 @@
 </m>
 <m>
 <c r="v">iou</c> <c r="f" class="anyFinal"/> 
-<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ebd 0e8d"/><c r="lf" class="anyFinal"/>
+<c r="lvp" hex=""/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0ebd 0ea7"/><c r="lf" class="anyFinal"/>
 </m>
 <m>
 <c r="v">oi</c> <c r="f" class="anyFinal"/> 
@@ -498,8 +502,10 @@
 <m><c r="p">ba'</c><c r="lp">ປະ</c></m>
 <m><c r="p">gu'</c><c r="lp">ກູ້ </c></m>
 <m><c r="p">za'</c><c r="lp">ຕສະ</c></m>
-<!--<m><c r="p"></c><c r="lp"></c></m>
-<m><c r="p"></c><c r="lp"></c></m>-->
+<m><c r="p">ga'</c><c r="lp">ກະ</c></m>
+<m><c r="p">mba'</c><c r="lp">ບະ</c></m>-->
+<m><c r="p">la'</c><c r="lp">ຫລະ</c></m>
+<m><c r="p">mi'</c><c r="lp">ໝີ່ </c></m>
 <!--
 <m><c r="p"></c><c r="lp"></c></m>
 -->
