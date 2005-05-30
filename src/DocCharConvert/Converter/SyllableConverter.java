@@ -276,15 +276,15 @@ public class SyllableConverter extends ReversibleConverter
                     result = test;
                     longest = testSyl;
                   }
-                  else if (debug)
+                  else if (test.getPriority() == result.getPriority() && debug)
                   {
                     // much harder to decide, choose the first one for now
                     System.out.println("Ambiguous conversion:\t" + 
                         text.substring(offset, offset + length) + '\t' + 
-                        longest.toString() + 
+                        longest.toString() + test.getPriority() +
                         dumpDebugSyllable(oldSide, longest.subList(1, 
                                      longest.size()).toArray(new Integer[0])) +
-                        " or " + testSyl.toString() +
+                        " or " + testSyl.toString() + result.getPriority() +
                         dumpDebugSyllable(oldSide, testSyl.subList(1, 
                                      testSyl.size()).toArray(new Integer[0])));
                   }

@@ -71,12 +71,17 @@ public class BatchConversion implements Runnable
     Component dialog = null;
     Charset iCharset = null;
     Charset oCharset = null;
+    boolean commandLine = false;
     /** Creates a new instance of BatchConversion */
     public BatchConversion(Component dialog) 
     {
         this.dialog = dialog;
         inputFileList = new Vector<File>();
         converterList = new Hashtable<TextStyle,CharConverter>();
+    }
+    public void setCommandLine(boolean cl)
+    {
+      commandLine = cl;
     }
     public void setConversionMode(ConversionMode mode)
     {
@@ -404,6 +409,7 @@ public class BatchConversion implements Runnable
                         System.out.println(ite2.getMessage());
                     }
                 }
+                if (commandLine) System.out.print('.');
             } // while ((i.hasNext())&&(stop == false))
             
             if (docInterface != null)

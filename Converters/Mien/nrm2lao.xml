@@ -5,9 +5,9 @@
 <!-- Mien NRM -->
 <cluster side="left" id="syllable">
   <component id="p" min="0" priority="20">pre-syllable</component>
-  <component id="c" min="0" priority="100">consonant</component>
+  <component id="c" min="0" priority="70">consonant</component>
   <component id="sv" min="0" priority="10">semi-vowel </component>
-  <component id="v" min="0" priority="60">vowel</component>
+  <component id="v" min="0" priority="80">vowel</component>
   <component id="f" min="0" priority="50">final</component>
   <component id="t" min="0" priority="40">tone</component>
 </cluster>
@@ -277,7 +277,7 @@
 </m>
 <m>
 <c r="v">a</c> <c r="f">m</c> 
-<c r="lvp"/> <c r="lvu" hex="0eb3"/><c r="lvd"/> <c r="lva"/><c r="lf" hex="0ea1"/>
+<c r="lvp"/> <c r="lvu" /><c r="lvd"/> <c r="lva" hex="0eb3"/><c r="lf" />
 </m>
 <m>
 <c r="v">a</c> <c r="f" class="kptnngFinal"/> 
@@ -362,7 +362,7 @@
 </m>
 <m>
 <c r="v">ie</c> <c r="f"/> 
-<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0e8d"/><c r="lvd" hex=""/> <c r="lva" hex=""/><c r="lf" />
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0e8d"/><c r="lf" />
 </m>
 <m>
 <c r="v">ie</c> <c r="f">q</c> 
@@ -378,7 +378,7 @@
 </m>
 <m>
 <c r="v">or</c> <c r="f">q</c> 
-<c r="lvp" hex="0ec0"/> <c r="lvu" hex="0eb2"/><c r="lvd" hex=""/> <c r="lva" hex="0eb0"/><c r="lf"/>
+<c r="lvp" hex="0ec0"/> <c r="lvu" hex=""/><c r="lvd" hex=""/> <c r="lva" hex="0eb2 0eb0"/><c r="lf"/>
 </m>
 <m>
 <c r="v">uea</c> <c r="f" class="kptmnngFinal"/> 
@@ -497,8 +497,8 @@
 <m><c r="p">a'</c><c r="lp">ອະ</c></m>
 <m><c r="p">ba'</c><c r="lp">ປະ</c></m>
 <m><c r="p">gu'</c><c r="lp">ກູ້ </c></m>
+<m><c r="p">za'</c><c r="lp">ຕສະ</c></m>
 <!--<m><c r="p"></c><c r="lp"></c></m>
-<m><c r="p"></c><c r="lp"></c></m>
 <m><c r="p"></c><c r="lp"></c></m>-->
 <!--
 <m><c r="p"></c><c r="lp"></c></m>
