@@ -251,7 +251,7 @@ public class SyllableConverter extends ReversibleConverter
                     text.substring(offset, offset + testSyl.elementAt(0)) + 
                     "' " + testSyl.toString() );
             }
-             Integer [] conversion = convertSyllable(testSyl);
+            Integer [] conversion = convertSyllable(testSyl);
        
             if (conversion != null)
             {
@@ -534,6 +534,10 @@ public class SyllableConverter extends ReversibleConverter
             if (syl == null) return false;
             return text.equals(syl.getInputString());
         }
+        /* 
+        * Priority = sum over each component of
+        * number of char matched in component * priority of component
+        */
         public int getPriority()
         {
           int p = 0;
@@ -541,7 +545,9 @@ public class SyllableConverter extends ReversibleConverter
           {
             if (syllable.get(i) > 0)
             {
-              p += scripts[oldSide].getSyllableComponent(i - 1).getPriority();
+              Component c = scripts[oldSide].getSyllableComponent(i - 1);
+              String value = c.getComponentValue(syllable.get(i));
+              p += c.getPriority() * value.length();
             }
           }
           return p;
