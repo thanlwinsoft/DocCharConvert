@@ -541,7 +541,7 @@ public class SyllableConverter extends ReversibleConverter
           {
             if (syllable.get(i) > 0)
             {
-              p += scripts[oldSide].getSyllableComponent(i).getPriority();
+              p += scripts[oldSide].getSyllableComponent(i - 1).getPriority();
             }
           }
           return p;
