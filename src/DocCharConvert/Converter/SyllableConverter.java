@@ -100,7 +100,7 @@ public class SyllableConverter extends ReversibleConverter
      * @param oldText original text
      * @result converted text
      */
-    public String convert(String oldText) 
+    public String convert(String inputText) 
         throws FatalException, RecoverableException
     {
         String converted = "";
@@ -109,6 +109,8 @@ public class SyllableConverter extends ReversibleConverter
             oldSide = 1;
             newSide = 0;
         }
+        String oldText = inputText;
+        if (scripts[oldSide].ignoreCase()) oldText = inputText.toLowerCase();
         Vector <Syllable> parseOutput = new Vector<Syllable>();       
         for (int offset = 0; offset < oldText.length(); )
         {
@@ -472,18 +474,6 @@ public class SyllableConverter extends ReversibleConverter
             filetime = leftExceptions.lastModified();
         if (rightExceptions != null && rightExceptions.lastModified() > filetime) 
             filetime = rightExceptions.lastModified();
-        if (leftExceptions != null && rightExceptions != null)
-        {   
-            try
-            {
-                exceptionList = new ExceptionList(leftExceptions, rightExceptions);
-                exceptionList.load();
-            }
-            catch (java.io.IOException e)
-            {
-                throw new FatalException(e.getLocalizedMessage());
-            }
-        }
         SyllableXmlReader reader = new SyllableXmlReader(xmlFile, debug);
         if (reader.parse())
         {
@@ -494,6 +484,20 @@ public class SyllableConverter extends ReversibleConverter
         else
         {
           throw new FatalException(reader.getErrorLog());
+        }
+        if (leftExceptions != null && rightExceptions != null)
+        {   
+            try
+            {
+                exceptionList = new ExceptionList(leftExceptions, rightExceptions);
+                exceptionList.ignoreCase(scripts[0].ignoreCase(), 
+                                         scripts[1].ignoreCase());
+                exceptionList.load();
+            }
+            catch (java.io.IOException e)
+            {
+                throw new FatalException(e.getLocalizedMessage());
+            }
         }
     }
     /**

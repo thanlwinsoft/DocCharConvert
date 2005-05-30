@@ -42,6 +42,7 @@ public class Script
     // repeatChar is the character to designate a repeat if repeater = true
     // otherwise it is the repeat separator
     private String repeatChar = null;
+    private boolean caseInsensitive = false;
     /** Creates a new instance of Script 
     * @param name of script
     */
@@ -123,4 +124,15 @@ public class Script
         repeater = isRepeater;
         repeatChar = repeat; 
     } 
+    /**
+     * Should the conversion convert to lower case before conversion proceeds?
+     */
+    public boolean ignoreCase()
+    {
+      return caseInsensitive;
+    }
+    public void setIgnoreCase(boolean ignore)
+    {
+      caseInsensitive = ignore;
+    }
 }

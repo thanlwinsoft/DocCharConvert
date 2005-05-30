@@ -41,6 +41,7 @@ public class ExceptionList
     HashMap<String, String> rightExceptions = null;
     File [] files = null; 
     int [] maxLength = null;
+    boolean [] caseInsensitive = { false, false }; 
     /** Creates a new instance of ExceptionList */
     public ExceptionList(File leftExceptionsFile, File rightExceptionsFile)
     {
@@ -66,13 +67,23 @@ public class ExceptionList
             for (int i = 0; i<2; i++)
             {
                 line [i] = reader[i].readLine();
+                if (line[i] == null) break;
                 if (line[i].length() > maxLength[i]) 
                     maxLength[i] = line[i].length();
             }
-            if (line[0] == null || line[1] == null) break;
-            leftExceptions.put(line[0], line[1]);
-            rightExceptions.put(line[1], line[0]);
-        } while (line[0] == null || line[1] == null);
+            if (line[0] == null || line[1] == null) 
+            {
+              break;
+            }
+            if (caseInsensitive[0]) 
+              leftExceptions.put(line[0].toLowerCase(), line[1]);
+            else
+              leftExceptions.put(line[0], line[1]);
+            if (caseInsensitive[1]) 
+              rightExceptions.put(line[1].toLowerCase(), line[0]);
+            else
+              rightExceptions.put(line[1], line[0]);
+        } while (line[0] != null || line[1] != null);
         for (int i = 0; i<2; i++)
         {
             reader[i].close();
@@ -94,5 +105,10 @@ public class ExceptionList
     {
         assert(side == 0 || side == 1);
         return maxLength[side];
+    }
+    public void ignoreCase(boolean left, boolean right)
+    {
+      caseInsensitive[0] = left;
+      caseInsensitive[1] = right;
     }
 }

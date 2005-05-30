@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <syllableConverter>
-<script side="left" ignorecase="true">
+<script side="left" ignoreCase="true">
 <name>Mien NRM</name>
 <!-- Mien NRM -->
 <cluster side="left" id="syllable">

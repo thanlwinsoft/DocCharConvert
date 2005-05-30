@@ -82,9 +82,11 @@ public class SyllableXmlReader
   private final String HEX_ATTR = "hex";
   private final String CLASS_ATTR = "class";
   private final String PRIORITY_ATTR = "priority";
+  private final String IGNORE_CASE_ATTR = "ignoreCase";
   
   private final String LEFT = "left";
   private final String RIGHT = "right";
+  private final String TRUE = "true";
   
   private ResourceBundle rb = null;
   private     org.w3c.dom.Document doc = null;
@@ -196,7 +198,7 @@ public class SyllableXmlReader
         {
           Object [] args = { NAME_NODE };
           errorLog.append(mf.format(rb.getString("missingTag"),args));
-        errorLog.append('\n');
+          errorLog.append('\n');
         }
         else if (nameNodes.item(0).hasChildNodes())
         {
@@ -215,6 +217,16 @@ public class SyllableXmlReader
         int sideId = getSideForNode(cluster.item(0));
         if (sideId == -1) return false;
         script[sideId] = new Script(name);
+        Node caseNode = scriptNode.getAttributes().getNamedItem(IGNORE_CASE_ATTR);
+        if (caseNode != null) 
+        {
+          String ignoreCase = caseNode.getNodeValue();
+          if (ignoreCase.equals(TRUE))
+          {
+            script[sideId].setIgnoreCase(true);
+          }
+        }
+        
         NodeList clusters = cluster.item(0).getChildNodes();
         for (int c = 0; c<clusters.getLength(); c++)
         {
