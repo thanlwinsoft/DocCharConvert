@@ -4,6 +4,7 @@
 <name>Mien NRM</name>
 <!-- Mien NRM -->
 <cluster side="left" id="syllable">
+  <component id="p" min="0" priority="20">pre-syllable</component>
   <component id="c" min="0" priority="100">consonant</component>
   <component id="sv" min="0" priority="10">semi-vowel </component>
   <component id="v" min="0" priority="60">vowel</component>
@@ -16,9 +17,10 @@
 <name>Mien Lao</name>
 <!-- Mien Lao -->
 <cluster side="right" id="syllable">
+  <component id="lp" min="0"/><!--pre-syllable -->
   <component id="lvp" min="0"/><!--pre-vowel -->
   <component id="lc" min="0"/><!--consonant -->
-  <component id="ls" min="0"/><!--semi-vowel -->
+  <component id="ls" min="0" priority="10"/><!--semi-vowel -->
   <component id="lvu" min="0"/><!--vowel-above -->
   <component id="lvd" min="0"/><!--vowel-below -->
   <component id="lt" min="0"/><!--tone -->
@@ -110,11 +112,6 @@
 
 <class id="lowCons">
 <component r="c">
-  <!--<c>K</c>   <c>Ng</c> <c>Q</c>  <c>C</c>  <c>Hng</c>
-  <c>Hny</c> <c>Hm</c> <c>Hn</c> <c>Hl</c> <c>Hu</c>
-  <c>Hi</c>  <c>S</c>  <c>Ny</c> <c>T</c>  <c>N</c>
-  <c>P</c>   <c>F</c>  <c>M</c>  <c>L</c>  <c>W</c>
-  <c>H</c>-->   <!--<c>m'</c>-->
   <c>k</c>   <c>ng</c> <c>q</c>  <c>c</c>  <c>hng</c>
   <c>hny</c> <c>hm</c> <c>hn</c> <c>hl</c> <c>hu</c>
   <c>hi</c>  <c>s</c>  <c>ny</c> <c>t</c>  <c>n</c>
@@ -122,11 +119,6 @@
   <c>h</c>   <!--<c>m'</c>-->
 </component>
 <component r="lc">
-  <!--<c hex="0e84"/><c hex="0e87"/><c hex="0e97 0e88"/><c hex="0e97 0eaa"/><c hex="0eae 0e87"/>
-  <c hex="0eae 0e8d"/><c hex="0eae 0ea1"/><c hex="0eae 0e99"/><c hex="0eae 0ea5"/><c hex="0eae 0ea7"/>
-  <c hex="0eae 0ea2"/><c hex="0e8a"/><c hex="0e8d"/><c hex="0e97"/><c hex="0e99"/>
-  <c hex="0e9e"/><c hex="0e9f"/><c hex="0ea1"/><c hex="0ea5"/><c hex="0ea7"/>
-  <c hex="0eae"/>--><!--<c hex="0ea1"/>-->
   <c hex="0e84"/><c hex="0e87"/><c hex="0e97 0e88"/><c hex="0e97 0eaa"/><c hex="0eae 0e87"/>
   <c hex="0eae 0e8d"/><c hex="0eae 0ea1"/><c hex="0eae 0e99"/><c hex="0eae 0ea5"/><c hex="0eae 0ea7"/>
   <c hex="0eae 0ea2"/><c hex="0e8a"/><c hex="0e8d"/><c hex="0e97"/><c hex="0e99"/>
@@ -137,11 +129,6 @@
 
 <class id="highCons">
 <component r="c">
-  <!--<c>K</c>   <c>Ng</c> <c>Q</c>  <c>C</c>  <c>Hng</c>
-  <c>Hny</c> <c>Hm</c> <c>Hn</c> <c>Hl</c> <c>Hu</c>
-  <c>Hi</c>  <c>S</c>  <c>Ny</c> <c>T</c>  <c>N</c>
-  <c>P</c>   <c>F</c>  <c>M</c>  <c>L</c>  <c>W</c>
-  <c>H</c>--> 
   <c>k</c>   <c>ng</c> <c>q</c>  <c>c</c>  <c>hng</c>
   <c>hny</c> <c>hm</c> <c>hn</c> <c>hl</c> <c>hu</c>
   <c>hi</c>  <c>s</c>  <c>ny</c> <c>t</c>  <c>n</c>
@@ -149,11 +136,6 @@
   <c>h</c> 
 </component>
 <component r="lc">
-  <!--<c hex="0e82"/><c hex="0eab 0e87"/><c hex="0e96 0e88"/><c hex="0e96 0eaa"/><c hex="0eab 0eae 0e87"/>
-  <c hex="0eab 0eae 0e8d"/><c hex="0eab 0eae 0ea1"/><c hex="0eab 0eae 0e99"/><c hex="0eab 0eae 0ea5"/><c hex="0eab 0eae 0ea7"/>
-  <c hex="0eab 0eae 0ea2"/><c hex="0eaa"/><c hex="0eab 0e8d"/><c hex="0e96"/><c hex="0edc"/>
-  <c hex="0e9c"/><c hex="0e9d"/><c hex="0edd"/><c hex="0eab 0ea5"/><c hex="0eab 0ea7"/>
-  <c hex="0eab"/>-->
   <c hex="0e82"/><c hex="0eab 0e87"/><c hex="0e96 0e88"/><c hex="0e96 0eaa"/><c hex="0eab 0eae 0e87"/>
   <c hex="0eab 0eae 0e8d"/><c hex="0eab 0eae 0ea1"/><c hex="0eab 0eae 0e99"/><c hex="0eab 0eae 0ea5"/><c hex="0eab 0eae 0ea7"/>
   <c hex="0eab 0eae 0ea2"/><c hex="0eaa"/><c hex="0eab 0e8d"/><c hex="0e96"/><c hex="0edc"/>
@@ -227,8 +209,8 @@
 <!-- Mid Consonants -->
 <m><!-- unmarked tone -->
 <!-- not sure about the final here! this stops it being ambiguous in reverse -->
-<c r="c" class="midCons"/> <c r="t"/><c r="f" class="mnngFinal"/> 
-<c r="lc" class="midCons"/> <c r="lt" hex=""/><c r="lf" class="mnngFinal"/>
+<c r="c" class="midCons"/> <c r="t"/><c r="f" class="anyFinal"/> 
+<c r="lc" class="midCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
 </m>
 <m><!-- c tone, stop,glottal -->
 <c r="c" class="midCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
@@ -252,15 +234,18 @@
 <c r="c" class="highCons"/> <c r="t">x</c><c r="f" class="anyFinal"/> 
 <c r="lc" class="highCons"/> <c r="lt" hex=""/><c r="lf" class="anyFinal"/>
 </m>
-<m><!-- v tone, stop,glottal -->
+<m><!-- c tone, stop,glottal -->
 <c r="c" class="highCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
 <c r="lc" class="highCons"/> <c r="lt"/><c r="lf" class="kptqFinal"/>
 </m>
-<m><!-- v tone, other -->
+<m><!-- c tone, other -->
 <c r="c" class="highCons"/> <c r="t">c</c><c r="f" class="mnngFinal"/> 
 <c r="lc" class="highCons"/> <c r="lt" hex="0ec8"/><c r="lf" class="mnngFinal"/>
 </m>
-
+<m><!-- c tone, other -->
+<c r="c" class="highCons"/> <c r="t">c</c><c r="f" /> 
+<c r="lc" class="highCons"/> <c r="lt" hex="0ec8"/><c r="lf" />
+</m>
 </maps>
 </mappingTable>
 
@@ -499,5 +484,27 @@
 <m><c r="sv">u</c><c r="ls" hex="0ea7"/></m>
 </maps>
 </mappingTable>
+
+<mappingTable id="pre-syllable">
+<columns>
+<component r="p"/>
+<component r="lp"/>
+</columns>
+<maps>
+<m><c r="p"/><c r="lp"/></m><!-- need to include empty map -->
+<m><c r="p">da'</c><c r="lp">ຕະ</c></m>
+<m><c r="p">m'</c><c r="lp" hex="0ea1"/></m>
+<m><c r="p">a'</c><c r="lp">ອະ</c></m>
+<m><c r="p">ba'</c><c r="lp">ປະ</c></m>
+<m><c r="p">gu'</c><c r="lp">ກູ້ </c></m>
+<!--<m><c r="p"></c><c r="lp"></c></m>
+<m><c r="p"></c><c r="lp"></c></m>
+<m><c r="p"></c><c r="lp"></c></m>-->
+<!--
+<m><c r="p"></c><c r="lp"></c></m>
+-->
+</maps>
+</mappingTable>
+
 
 </syllableConverter>
