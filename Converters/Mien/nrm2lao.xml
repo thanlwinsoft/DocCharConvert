@@ -189,10 +189,6 @@
 <c r="c" class="lowCons"/> <c r="t">v</c><c r="f" class="mnngFinal"/> 
 <c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf" class="mnngFinal"/>
 </m>
-<m><!-- v tone, other -->
-<c r="c" class="lowCons"/> <c r="t">v</c><c r="f"/> 
-<c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf"/>
-</m>
 <m><!-- v tone, no final -->
 <c r="c" class="lowCons"/> <c r="t">v</c><c r="f" /> 
 <c r="lc" class="lowCons"/> <c r="lt" hex="0ec9"/><c r="lf" />
