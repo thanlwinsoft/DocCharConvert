@@ -265,17 +265,27 @@ public class SyllableConverter extends ReversibleConverter
                     result = new Syllable(longest, 
                         text.substring(offset, offset + length), conversion);
                 }
-                else if (testLength > 0 && testLength == length && debug)
+                else if (testLength > 0 && testLength == length)
                 {
+                  Syllable test = new Syllable(testSyl, 
+                        text.substring(offset, offset + testLength), conversion);
+                  if (test.getPriority() > result.getPriority())
+                  {
+                    result = test;
+                    longest = testSyl;
+                  }
+                  else if (debug)
+                  {
                     // much harder to decide, choose the first one for now
                     System.out.println("Ambiguous conversion:\t" + 
                         text.substring(offset, offset + length) + '\t' + 
                         longest.toString() + 
-                        dumpSyllable(oldSide, longest.subList(1, 
+                        dumpDebugSyllable(oldSide, longest.subList(1, 
                                      longest.size()).toArray(new Integer[0])) +
                         " or " + testSyl.toString() +
-                        dumpSyllable(oldSide, testSyl.subList(1, 
+                        dumpDebugSyllable(oldSide, testSyl.subList(1, 
                                      testSyl.size()).toArray(new Integer[0])));
+                  }
                 }
             }
         }
@@ -404,6 +414,26 @@ public class SyllableConverter extends ReversibleConverter
         }
         return orig.toString();
     }
+    
+    /**
+     * Convert the list of reference indices representing the syllable into a
+     * human readable string or the output string.
+     * @param side of conversion LEFT or RIGHT
+     * @param integer of refrences indices of component values
+     * @result Output string
+     */
+    protected String dumpDebugSyllable(int side, Integer [] compValues)
+    {
+        StringBuffer orig = new StringBuffer();
+        for (int i = 0; i<compValues.length; i++)
+        {
+            Component comp = scripts[side].getSyllableComponent(i);
+            if (compValues[i] < 0) orig.append(UNKNOWN_CHAR);
+            else orig.append(comp.getComponentValue(compValues[i]));
+            orig.append('|');
+        }
+        return orig.toString();
+    }
     /** Convert the index of the component in the mapping table into an index
      * in the syllable that can be retrieved from the script
      * @param table
@@ -503,6 +533,18 @@ public class SyllableConverter extends ReversibleConverter
         {
             if (syl == null) return false;
             return text.equals(syl.getInputString());
+        }
+        public int getPriority()
+        {
+          int p = 0;
+          for (int i = 1; i<syllable.size(); i++)
+          {
+            if (syllable.get(i) > 0)
+            {
+              p += scripts[oldSide].getSyllableComponent(i).getPriority();
+            }
+          }
+          return p;
         }
     }
 }

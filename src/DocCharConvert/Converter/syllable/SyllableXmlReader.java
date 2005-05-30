@@ -81,6 +81,7 @@ public class SyllableXmlReader
   private final String REF_ATTR = "r";
   private final String HEX_ATTR = "hex";
   private final String CLASS_ATTR = "class";
+  private final String PRIORITY_ATTR = "priority";
   
   private final String LEFT = "left";
   private final String RIGHT = "right";
@@ -233,6 +234,20 @@ public class SyllableXmlReader
                                                   id.getNodeValue(),
                                                   node.getTextContent());
               script[sideId].addComponent(id.getNodeValue(), component);
+              Node priority = node.getAttributes().getNamedItem(PRIORITY_ATTR);
+              if (priority != null)
+              {
+                try
+                {
+                  int p = Integer.parseInt(priority.getNodeValue());
+                  component.setPriority(p);
+                }
+                catch (NumberFormatException e)
+                {
+                  Object [] args = { e.getMessage(), PRIORITY_ATTR, CLUSTER_NODE };
+                  errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+                }
+              }
             }
           }
         }

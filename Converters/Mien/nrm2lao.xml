@@ -4,11 +4,11 @@
 <name>Mien NRM</name>
 <!-- Mien NRM -->
 <cluster side="left" id="syllable">
-  <component id="c" min="0">consonant</component>
-  <component id="sv" min="0">semi-vowel </component>
-  <component id="v" min="0">vowel</component>
-  <component id="f" min="0">final</component>
-  <component id="t" min="0">tone</component>
+  <component id="c" min="0" priority="70">consonant</component>
+  <component id="sv" min="0" priority="30">semi-vowel </component>
+  <component id="v" min="0" priority="60">vowel</component>
+  <component id="f" min="0" priority="50">final</component>
+  <component id="t" min="0" priority="40">tone</component>
 </cluster>
 </script>
 

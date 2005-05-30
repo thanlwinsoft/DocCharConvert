@@ -41,6 +41,7 @@ public class Component
     private Vector <String> entries = null;
     private LinkedHashMap <String, ComponentClass> classMap = null;
     private int maxLength = 0;
+    private int priority = 50;
     /** Creates a new instance of Component
      * @param script that this component refers to
      * @param id of this component used as a reference in the XML file
@@ -122,5 +123,13 @@ public class Component
     public int getMaxLength()
     {
         return maxLength;
+    }
+    public void setPriority(int p)
+    {
+        priority = p;
+    }
+    public int getPriority()
+    {
+        return priority;
     }
 }
