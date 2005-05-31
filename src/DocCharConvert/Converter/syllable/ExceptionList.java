@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import DocCharConvert.Converter.CharConverter;
 
 /**
  *
@@ -54,7 +55,7 @@ public class ExceptionList
         maxLength[0] = 0;
         maxLength[1] = 0;
     }
-    public void load() throws IOException
+    public void load() throws IOException, CharConverter.FatalException
     {
         BufferedReader [] reader = new BufferedReader[2];
         for (int i = 0; i<2; i++)
@@ -76,18 +77,31 @@ public class ExceptionList
               break;
             }
             if (caseInsensitive[0]) 
-              leftExceptions.put(line[0].toLowerCase(), line[1]);
+              addException(leftExceptions,line[0].toLowerCase(), line[1]);
             else
-              leftExceptions.put(line[0], line[1]);
+              addException(leftExceptions,line[0], line[1]);
             if (caseInsensitive[1]) 
-              rightExceptions.put(line[1].toLowerCase(), line[0]);
+              addException(rightExceptions, line[1].toLowerCase(), line[0]);
             else
-              rightExceptions.put(line[1], line[0]);
+              addException(rightExceptions, line[1], line[0]);
         } while (line[0] != null || line[1] != null);
         for (int i = 0; i<2; i++)
         {
             reader[i].close();
         }
+    }
+    
+    protected void addException(HashMap<String, String> list, String a, String b)
+      throws CharConverter.FatalException
+    {
+      if (list.containsKey(a))
+      {
+        throw new CharConverter.FatalException("Duplicate in exception list:" + a);
+      }
+      else
+      {
+        list.put(a,b);
+      }
     }
     public boolean isException(int side, String text)
     {

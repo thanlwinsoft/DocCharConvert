@@ -198,8 +198,11 @@ public class SyllableConverter extends ReversibleConverter
                 // repeat handling
                 if (scripts[newSide].usesRepeater() && i + 2 < parseOutput.size())
                 {
-                    if (parseOutput.get(i + 1).equals(scripts[oldSide].getRepeatChar()) &&
-                        s.equals(parseOutput.get(i+2)))
+                  String nextSylText = parseOutput.get(i + 1).getInputString();
+                  // this is a bit of a hack to hard code space here!
+                    if ((nextSylText.equals(" ") ||
+                         nextSylText.equals(scripts[oldSide].getRepeatChar())) &&
+                         s.equals(parseOutput.get(i+2)))
                     {
                         output.append(scripts[newSide].getRepeatChar());
                         i += 2;
