@@ -279,6 +279,7 @@ public class SyllableConverter extends ReversibleConverter
                         length = text.length();
                     result = new Syllable(longest, 
                         text.substring(offset, offset + length), conversion);
+                    longestPriority = result.getPriority();
                 }
                 else if (testLength > 0 && testLength == length)
                 {
