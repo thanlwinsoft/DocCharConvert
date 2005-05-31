@@ -152,17 +152,16 @@ public class SyllableConverter extends ReversibleConverter
      */
     protected String convertSyllables(Vector < Syllable> parseOutput)
     {
-        StringBuffer output = new StringBuffer();
         for (int i = 0; i< parseOutput.size(); i++)
         {
             Syllable s = parseOutput.get(i);
-            Syllable nextS = null;
             int exLength = 0;
             if (exceptionList != null)
             {
                 int j = i;
                 StringBuffer exTest = new StringBuffer();
                 int lastExMatch = -1;
+                String lastInput = null;
                 String lastMatch = null;
                 do
                 {
@@ -180,15 +179,25 @@ public class SyllableConverter extends ReversibleConverter
                     }
                 } while (exLength < exceptionList.getMaxExceptionLength(oldSide) &&
                          ++j < parseOutput.size());
-                
+                // replace the syllables found in the exception list with one
+                // "unknown" syllable
                 if (lastExMatch > -1)
                 {
-                    output.append(lastMatch);
-                    i += lastExMatch;
+                    Syllable exSyl = new Syllable(lastMatch);
+                    do
+                    {
+                      parseOutput.remove(i);
+                    } while (lastExMatch-- > 0);
+                    parseOutput.insertElementAt(exSyl, i);
                     continue;
                 }
             }
-            if (s.isKnown())
+        }
+        StringBuffer output = new StringBuffer();
+        for (int i = 0; i< parseOutput.size(); i++)
+        {
+          Syllable s = parseOutput.get(i);
+          if (s.isKnown())
             {
                 String syllableText = dumpSyllable(newSide, s.getConversionResult());
                 output.append(syllableText);
@@ -246,6 +255,7 @@ public class SyllableConverter extends ReversibleConverter
         Iterator <Vector<Integer>> syl = syllables.iterator();
         Vector <Integer> longest = null; 
         int length = 0;
+        int longestPriority = 0;
         Syllable result = null;
         while (syl.hasNext())
         {
@@ -274,12 +284,14 @@ public class SyllableConverter extends ReversibleConverter
                 {
                   Syllable test = new Syllable(testSyl, 
                         text.substring(offset, offset + testLength), conversion);
-                  if (test.getPriority() > result.getPriority())
+                  int testPriority = test.getPriority();
+                  if (testPriority > longestPriority)
                   {
                     result = test;
                     longest = testSyl;
+                    longestPriority = testPriority;
                   }
-                  else if (test.getPriority() == result.getPriority() && debug)
+                  else if (testPriority == longestPriority && debug)
                   {
                     // much harder to decide, choose the first one for now
                     System.out.println("Ambiguous conversion:\t" + 
