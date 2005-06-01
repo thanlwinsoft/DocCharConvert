@@ -2,7 +2,7 @@ a'ngunc
 aah
 hmz
 wuom
-wuov
+#wuov
 nernh
 haaix
 maah
@@ -16,7 +16,7 @@ m'nqorngv
 se gorngv
 fu'jueiv
 wuoqc
-mbu'ziex
+#mbu'ziex
 laeqh
 niaa
 weqv
@@ -583,14 +583,11 @@ Selekv
 Utc^si^yaa
 Me^tu^se^laa
 Kitv^tim
-Se^mbaa
 Si^ni
-Se^me
 Temaa
 Yetu
 Temaan
 Sefi
-Selaa
 Se^i
 Lotaan
 Mbin^haan
@@ -713,7 +710,7 @@ Si^naa
 Amlaam
 Gesom
 Mikaa
-Maali
+#Maali
 Musi
 Haalim
 Se^o^lim
@@ -890,3 +887,485 @@ He^letv^se
 Gaalaan
 Tanmon
 Yaalaa
+nyei
+Timnaatv Selaa
+Jatv
+kouv
+Mene
+Mole
+Neko
+Yesu
+Minlo
+wuov-ndaangc
+Giduc
+Silaa
+Se^laa^saa
+Laasen
+guinh
+Maadi
+Mbesekv
+Yelupv^Mbaa^an
+Yepv^taa
+nzaangc
+Mbetc Aawen
+Mbosetv
+Sene
+Melaapv
+Kenai
+Aagakc
+Sekenx
+guenx
+Ekon
+Naayotv
+Seku
+Baalaan
+Ganlim
+Banti
+Maa^okc
+Negepc
+#u^lim
+kuinx
+yieqv
+Mbeso
+Laakaan
+Aataakv
+Eli
+Selo
+Baulo
+Haawaa
+Bilaatv
+Bide
+ga'nyiec
+Helotv
+Taasatv
+Saibatc
+ga'hlen
+Ko^lo^si
+An^ti^okc
+Yannetv
+Mbe^e^se^mbaa
+Hesi
+# auto added
+Aa^kuin^laa
+Aa^le^okc
+Aa^li^okc
+Aa^se^natv
+Aa^taa^lotv
+Aa^ti^li^yaa
+Aa^to^lotv
+Aafekv
+Aagu
+Aahapc
+Aakitv
+Aalapc
+Aan^gopc
+Aanfaa
+Aanni
+Aannon
+Aasor
+ae'ngi
+Annaa
+Annaatv
+aqc mangc
+Atc^si^lie
+ba'gi
+ba'laqc
+ba'nai'h
+Baa^hatc Mo^apc
+Baafotv
+Baalaa
+Baalotv
+Baantie
+Batc^lotv
+Batc^ndaan
+Begaa
+Bekaa
+Bekotc
+Belaetv
+benxj
+Besie
+Besitc
+Bison
+Bulaa
+Bulim
+bun bun
+Buwaa
+ca'lengc
+camv-camv
+caq
+caux
+da'betv
+da'faanh
+da'lan
+da'luoqc
+da'yietv
+Daatim^Hotc^qi
+dangx-donx
+dau
+ding ding
+dueiv'g
+E^li^se^mbaa
+E^se^ken
+E^si^on Ge^mbe
+Efaai
+Elatv
+Elim
+Elon
+Elotv
+En Ekc^laa^im
+En Gannim
+En Ge^ndi
+En Ge^ndi)
+En Haaso
+En Limmon
+En Mbetc^en
+En Mitv^fatv
+En Semetv
+En Tapv^bu^waa
+En^kotc
+Esie
+Etc Kaasin
+Faalo Neko
+Fiko
+Filipv
+ga'sorpc
+Gaamatv
+Gaasaa
+Gaat0g
+Gatc Hefe
+gatv
+Gaubaa
+Ge^li^lotv
+Ge^nde^lotv
+Gesem
+Getc^se^maa^ni
+Gi
+Goaa
+Gomaa
+Gosen
+Gu Mbaa^an
+guen
+guengx
+guetv
+ha'louh
+Haa^mon^gokc
+Haa^se^lotv
+Haagaapc
+Haalakv
+Haali
+Haasaa Lenan
+Haasaa Su^aan
+Haaso
+haih haih
+Hannaa
+Hatc^se^naa^aa
+Haulaan
+He^si^on
+Hegai
+Helaam
+Helekv
+Helepv
+Heli
+Helon
+Hepv^si^mbaa
+hienv
+Hienx
+hietv
+Hilaa
+Hinlen
+Hinnom
+hiuang-hienv
+hiun
+hmuangx
+hnAngv
+Ho^ndaa^wi^aa
+Hofaa
+Holaam
+Holepv
+Holetv
+Holon
+houh
+hui
+hui-baeqc
+Hulaam^Aa^mbi
+Humtaa
+Hun^ndaa
+huon
+huonh huonh
+huov-jeix
+I^saa^la^en
+In Semetv
+Ipc^taa En
+Iu-Mienh
+j'hienv
+ja'waanh
+jaauv
+jiem-kou kou
+jiem-kuing
+ka'ndau
+Kaalaa
+Kaali
+Kaan^ndaa^si
+Kaankaa
+Kaanne
+Kaanno
+Kefaatv
+Kelan
+Kelotv
+Kenmen
+Kesinx
+Kinaa
+Kinmaatv
+Kison
+Kitv^lepv
+Kitv^litv
+Kitv^liu
+Kitv^lon
+Kosamx
+kouv kouv
+kuing
+Kusaa
+Kutaa
+la'ngopv
+Laafu
+Laasie
+laatc laatc
+Laisaa
+le^an^notv
+Le^hox^mbotc I
+Le^mbo Haamatv
+Lefaan
+Lesaa
+Lesem
+Lesenx
+Lesin
+Leson
+Lim^mon Be^letv
+Lipv^nvq
+Lisie
+liuz
+Lo Nde^mbaa
+loh
+Lomaa
+Lufatv
+Lugaa
+Lumaa
+Lute
+Ma^ndai
+maa Maa^li^yaa
+Maa^se^yaa
+maaih maaih
+maaiqh
+Maakaatv
+Maalaa
+Maalon
+Maalotv
+Maataa
+mae'ng'lc
+Makv^he^lotv
+Mamle
+mangc
+Mankatv
+Mb[ae]n
+mba'zorng-hiun
+Mbaa^an Be^o
+Mbaa^an Haaso
+Mbaa^an Sefon
+Mbaa^kotc
+Mbaa^mbi^lon
+Mbaa^se^matv
+Mbaalaakv
+Mbe^so^ndai^aa
+Mben^Hesetc
+Mben^Hinnom
+Mbesai
+Mbesaix
+Mbetc Aanaatv
+Mbetc Aanotv
+Mbetc Batc^setv
+Mbetc Be^o
+Mbetc Beletv
+Mbetc E^mekv
+Mbetc Gingaan
+Mbetc Haalam
+Mbetc Hokv^laa
+Mbetc Le^hopc
+Mbetc Minlo
+Mbetc Ndaagon
+Mbetc Nimlaa
+Mbetc Qitv^taa
+Mbinnui
+Mbinsaa
+mbiungc
+mbiungc-gorng
+mbiungc-mbuonv
+Mbiungc-Nziaaux
+Mbiungc-Suiv
+mbiungc-wuom
+Mbu'ziex
+Mbunni
+mbuo
+mbuo Yiutai
+mbuo'yaac
+Me Yaankon
+Melom
+Melotv
+Memfitv
+Menki
+Mennaa
+Mesaakv
+Mi^kitv
+Mie'nnh
+Min^yaa^min
+minaa
+Minkaa
+Minni
+Minnitv
+miuc-fangxj
+Mo^se^laa
+Mo^se^lotv
+morc morc
+Naafaatv Ndo
+Naafotv Ndo
+Naakon
+Naasi
+ndaauv
+Ndimnaa
+ndongc
+Ndulaa
+Ne'n'h
+Neaa
+Nefin
+Negan
+Neli
+nie-ha'louh
+Nige
+Nimfaa
+Nimlaa
+Nimlim
+Nimsi
+nquekc
+nquin
+nz
+nzengc
+Ofen
+Okaan
+Olepv
+pa'len
+Pi Mbesetc
+piuqv
+piuv
+qa'motv
+s'du
+Saafaan
+Saafi
+Saagorn
+Saalaa
+Saalaai
+Saalem
+Saamaa
+Saanx^se^kim
+Saawe
+Saen^maa^ne^se
+saeng
+Sailatv
+Sanmai
+Sanman
+Se^aa
+Se^epc
+Se^faa^laatv
+Se^faa^taa
+Se^faan^waa^im
+Se^gaa^li^yaa
+Se^ji^atc
+se^ken
+Se^kun^ndatc
+se^laa^fim
+Se^le^laa
+Se^le^ndaa
+Se^maa^laa^im
+Se^mbaa^lim
+Se^mbaam
+Se^mbe^ndi
+Se^mbo^yim
+Se^mbun
+Se^me
+Se^me^in
+Se^naa^aa
+Se^naa^ke^lepv
+Se^naatv
+Se^nan
+Se^ndatc
+Sefaa
+Sefatv
+Sefe
+Selaa
+Seletv Saa^haax
+Sesai
+Setaa
+si
+Si^aa^haa
+Si^haqc
+Si^li^orn
+Si^lo^am
+Sifim
+Simlitv
+Simlon Melon
+Simsai
+sin-hlen
+Siyon
+So
+So^aa
+So^an
+So^baa^te
+So^haa
+So^haax
+So^ndi
+So^ndokc
+Solekv
+Sulem
+Sunem
+sung sung
+Supc^aa
+Taafatv
+Taaib
+Taantakv
+Taigitc
+Teken
+Telem
+Teletv
+Temutv
+Ten Atc^saax
+Ten Haanx^saa
+Ten Melaa
+Ten^aa^mbipc
+Timnaatv Heletv
+Tin^Hungh
+Tofen
+Tofetv
+Tu^mban Kaa^in
+Tummim
+Ulai
+Unno
+waac waac
+wac
+Wopv^si
+wuov wuov
+Yaagorpc
+Yaasen
+Yaasonx
+Yannaai
+Ye^ho^se^mbaa
+Ye^ko^ni^yaa
+Ye^lu^sa^lem
+Yeto
+Yolaa
+Yolim
+Yonaa
+Yosaa
+Yosekc
+Yosetc
+Yukaan
+Yulie
+Yulietv
+Yulopv
