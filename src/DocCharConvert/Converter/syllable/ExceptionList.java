@@ -43,6 +43,7 @@ public class ExceptionList
     File [] files = null; 
     int [] maxLength = null;
     boolean [] caseInsensitive = { false, false }; 
+    StringBuffer duplicates = null;
     /** Creates a new instance of ExceptionList */
     public ExceptionList(File leftExceptionsFile, File rightExceptionsFile)
     {
@@ -54,6 +55,7 @@ public class ExceptionList
         maxLength = new int[2];
         maxLength[0] = 0;
         maxLength[1] = 0;
+        duplicates = new StringBuffer();
     }
     public void load() throws IOException, CharConverter.FatalException
     {
@@ -89,6 +91,11 @@ public class ExceptionList
         {
             reader[i].close();
         }
+        if (duplicates.length() > 0)
+        {
+          throw new CharConverter.FatalException("Duplicates in exception list:" 
+              + duplicates.toString());
+        }
     }
     
     protected void addException(HashMap<String, String> list, String a, String b)
@@ -96,7 +103,8 @@ public class ExceptionList
     {
       if (list.containsKey(a))
       {
-        throw new CharConverter.FatalException("Duplicate in exception list:" + a);
+        duplicates.append(a);
+        duplicates.append('\n');
       }
       else
       {

@@ -253,7 +253,7 @@ public class SyllableConverter extends ReversibleConverter
         Vector<Integer> chosen = null;
         assert(syllables.size() > 0);
         Iterator <Vector<Integer>> syl = syllables.iterator();
-        Vector <Integer> longest = null; 
+        Vector <Integer> longest = syl.next(); // ignore null result
         int length = 0;
         int longestPriority = 0;
         Syllable result = null;
