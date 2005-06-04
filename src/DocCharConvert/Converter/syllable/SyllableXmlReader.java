@@ -20,6 +20,7 @@
  * $LastChangedDate: $
  * $LastChangedRevision: $
  * -----------------------------------------------------------------------
+ *
  */
 package DocCharConvert.Converter.syllable;
 
@@ -49,10 +50,6 @@ import java.util.Arrays;
 
 import DocCharConvert.Config;
 import DocCharConvert.Converter.SyllableConverter;
-//import DocCharConvert.Converter.syllable.Script;
-//import DocCharConvert.Converter.syllable.Component;
-//import DocCharConvert.Converter.syllable.ComponentClass;
-//import DocCharConvert.Converter.syllable.MappingTable;
 
 public class SyllableXmlReader
 {
@@ -83,6 +80,7 @@ public class SyllableXmlReader
   private final String CLASS_ATTR = "class";
   private final String PRIORITY_ATTR = "priority";
   private final String IGNORE_CASE_ATTR = "ignoreCase";
+  private final String OPTIONAL_ATTR = "optional";
   
   private final String LEFT = "left";
   private final String RIGHT = "right";
@@ -598,6 +596,11 @@ public class SyllableXmlReader
       }
       MappingTable table = new MappingTable(id, components.toArray(new Component[0]));
       if (debug) table.setDebug(debug);
+      if (tableElement.hasAttribute(OPTIONAL_ATTR) &&
+          tableElement.getAttribute(OPTIONAL_ATTR).equals(TRUE))
+      {
+        table.setOptional(true);
+      }
       Element mapsElement = (Element)mapsList.item(0);
       NodeList mapList = mapsElement.getElementsByTagName(MAP_NODE);
       for (int j = 0; j<mapList.getLength(); j++)

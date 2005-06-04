@@ -63,6 +63,7 @@ public class MappingTable
     HashMap<String, Integer> rightColumnMap = null;
     Component [] columns = null;
     boolean debug = false;
+    boolean optional = false;
     public static final int UNKNOWN = -1;
     public static final int AMBIGUOUS = -3;
     /** Constructor for a mapping table. 
@@ -356,5 +357,7 @@ public class MappingTable
       return leftColumnMap.keySet().toArray(new String[0])[index];
     }
     public void setDebug(boolean on) { debug = on; }
+    public void setOptional(boolean yes) { optional = yes; }
+    public boolean isOptional() { return optional; }
 }
 

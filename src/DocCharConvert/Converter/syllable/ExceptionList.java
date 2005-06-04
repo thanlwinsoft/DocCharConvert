@@ -26,11 +26,13 @@ package DocCharConvert.Converter.syllable;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.text.MessageFormat;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import DocCharConvert.Converter.CharConverter;
+import DocCharConvert.Config;
 
 /**
  *
@@ -70,7 +72,7 @@ public class ExceptionList
             for (int i = 0; i<2; i++)
             {
                 line [i] = reader[i].readLine();
-                if (line[i] == null) break;
+                if (line[i] == null) continue;
                 if (line[i].length() > maxLength[i]) 
                     maxLength[i] = line[i].length();
             }
@@ -87,17 +89,32 @@ public class ExceptionList
             else
               addException(rightExceptions, line[1], line[0]);
         } while (line[0] != null || line[1] != null);
+        if (line[0] != line[1])
+        {
+          // should both be NULL at same time
+          Object [] args = { files[0].getName(), files[1].getName() };
+          String msg = 
+            Config.getCurrent().getMsgResource().getString("exceptLinesWrong");
+          throw new CharConverter.FatalException(MessageFormat.format(msg, args));
+        }
         for (int i = 0; i<2; i++)
         {
             reader[i].close();
         }
         if (duplicates.length() > 0)
         {
-          throw new CharConverter.FatalException("Duplicates in exception list:" 
-              + duplicates.toString());
+          Object [] args = {duplicates.toString()};
+          String msg = 
+            Config.getCurrent().getMsgResource().getString("exceptionDuplicates");
+          throw new CharConverter.FatalException(MessageFormat.format(msg, args));              
         }
     }
-    
+    /** 
+     * add words to exception list and check for duplicates
+     * @param list to add to 
+     * @param a key
+     * @param b value
+     */
     protected void addException(HashMap<String, String> list, String a, String b)
       throws CharConverter.FatalException
     {
@@ -111,23 +128,47 @@ public class ExceptionList
         list.put(a,b);
       }
     }
+    /**
+     * test whether word is an exception 
+     * @param side that the text is written in
+     * @param text to test for an exception
+     * @return true if text is found in exception list
+     */
     public boolean isException(int side, String text)
     {
         assert(side == 0 || side == 1);
         if (side == 0) return leftExceptions.containsKey(text);
         return rightExceptions.containsKey(text);
     }
+    /**
+     * converts word using exception list
+     * if word is case insensitve the caller should convert to lower 
+     * case before calling this method.
+     * @param side that the text is written in
+     * @param text to test for an exception
+     * @return converted word or null if text is not in list
+     */
     public String convert(int side, String text)
     {
         assert(side == 0 || side == 1);
         if (side == 0) return leftExceptions.get(text);
         return rightExceptions.get(text);
     }
+    /**
+     * the maximum length of an exception
+     * @param side to check
+     * @return the length of the longest exception on that side
+     */
     public int getMaxExceptionLength(int side)
     {
         assert(side == 0 || side == 1);
         return maxLength[side];
     }
+    /**
+     * Should the exception list be converted to lower case?
+     * @param left true if left hand side is not case-sensitive
+     * @param right true if right hand side is not case-sensitive
+     */
     public void ignoreCase(boolean left, boolean right)
     {
       caseInsensitive[0] = left;

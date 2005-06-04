@@ -369,7 +369,11 @@ public class SyllableConverter extends ReversibleConverter
                 oldValues[i] = compValues.elementAt(indexInSyllable + 1);
             }
             List <Integer> newValues = table.map(oldSide, oldValues);
-            if (newValues == null) return null;
+            if (newValues == null) 
+            {
+              if (table.isOptional()) continue;
+              else return null;
+            }
             for (int j=0; j<newValues.size(); j++)
             {
                 int indexInSyllable = mapId2ScriptId(table, newSide, j);
