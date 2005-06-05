@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Mien NRM to Tai Unicode">
+<ConverterClass name="DocCharConvert.Converter.SyllableConverter">
+<Argument value="Mien/nrm2tai.xml" type="File" />
+<Argument value="Mien/mienNrm2TaiNrmExceptions.txt" type="File" />
+<Argument value="Mien/mienNrm2TaiTaiUExceptions.txt" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Arial" type="old" />
+<Font name="Cordia New" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>
