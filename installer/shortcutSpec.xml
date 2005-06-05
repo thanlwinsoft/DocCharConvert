@@ -4,11 +4,11 @@
               description="Converts between different character encodings." 
               workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.jar" 
               programGroup="yes" desktop="yes"/>
-    <!--<shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="Doc Char Convert" 
-              description="Converts between different character encodings." 
+    <shortcut iconFile="$INSTALL_PATH\DocCharConvert16.ico" name="Doc Char Convert (Test Mode)" 
+              description="Converts between different character encodings (shows console)." 
               initialState="noShow"
-              workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.sh" 
-              programGroup="yes" desktop="yes"/>-->
+              workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\DocCharConvert.bat" 
+              programGroup="yes" desktop="no"/>
     <shortcut iconFile="$INSTALL_PATH\UninstallDCC16.ico" name="Uninstall Language Test" 
               description="Uninstall DocCharConvert" 
               workingDirectory="$INSTALL_PATH" target="$INSTALL_PATH\Uninstaller\uninstaller.jar" 

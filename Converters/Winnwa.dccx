@@ -5,7 +5,7 @@
 </ConverterClass>
 <Styles>
 <Style>
-<Font name="Winnwa" type="old" />
+<Font name="WinInnwa" type="old" />
 <Font name="MyaZedi_Graphite" type="new" />
 </Style>
 <Style>
@@ -29,7 +29,7 @@
   <Font name="MyaZedi_Graphite" type="new" />
 </Style>
 <Style>
-<Font name="Winnwa" type="old" />
+<Font name="WinInnwa" type="old" />
 <Font name="Padauk" type="new" />
 </Style>
 <Style>

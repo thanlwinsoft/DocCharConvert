@@ -48,15 +48,20 @@
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.bat" type="plain"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.sh" type="shell"/>
             <fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
-              <include name="Academy.dccx" />
-              <include name="academy.tec" />
-              <include name="academy.xml" />
+              <include name="LaoMien2Unicode.dccx" />
+              <include name="laoMien2Unicode.xml" />
+              <include name="laoMien2Unicode.tec" />
               <include name="ThaiUPC2Unicode.dccx" />
               <include name="thaiupc.tec" />
               <include name="thaiupc.xml" />
-              <include name="WinMyanmar.tec" />
-              <include name="WinMyanmar.xml" />
-              <include name="Winnwa.dccx" />
+              <include name="MienNrm2Lao.dccx" />
+              <include name="Mien/nrm2lao.xml" />
+              <include name="Mien/mienNrm2LaoNrmExceptions.txt" />
+              <include name="Mien/mienNrm2LaoLaoUExceptions.txt" />
+              <include name="MienNrm2Tai.dccx" />
+              <include name="Mien/nrm2tai.xml" />
+              <include name="Mien/mienNrm2TaiNrmExceptions.txt" />
+              <include name="Mien/mienNrm2TaiTaiUExceptions.txt" />
               <include name="utr22tec.pl" />
               <include name="libTecKitJni.so" />
               <include name="TecKitJni.dll" />
