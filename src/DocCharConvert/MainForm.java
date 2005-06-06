@@ -87,11 +87,15 @@ public class MainForm extends javax.swing.JFrame
         }
         
         SortedMap charsets = Charset.availableCharsets();
-        DefaultComboBoxModel charsetModel = 
+        // must use separate models, otherwise a change in one combo also
+        // changes the other
+        DefaultComboBoxModel iCharsetModel = 
            new DefaultComboBoxModel(charsets.keySet().toArray());
-        iEncCombo.setModel(charsetModel);
-        oEncCombo.setModel(charsetModel);
-        int utf8Index = charsetModel.getIndexOf("UTF-8");
+        DefaultComboBoxModel oCharsetModel = 
+           new DefaultComboBoxModel(charsets.keySet().toArray());
+        iEncCombo.setModel(iCharsetModel);
+        oEncCombo.setModel(oCharsetModel);
+        int utf8Index = iCharsetModel.getIndexOf("UTF-8");
         iEncCombo.setSelectedIndex(utf8Index);
         oEncCombo.setSelectedIndex(utf8Index);
         parseConverters();
