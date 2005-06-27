@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="IWIN Medium">
+<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<Argument value="IWinMedi.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="IWIN Medium" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>

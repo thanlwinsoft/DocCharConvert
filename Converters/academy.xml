@@ -139,6 +139,7 @@
     <a b="56" u="1020"/><!-- V -->
     <a b="57" u="1039 1010"/><!-- W -->
     <a b="58" u="100C"/><!-- X -->
+    <fbu b="58 69 66 3a" u="104e"/><!-- occasionally written like this -->
     <a b="59" u="104C"/><!-- Y -->
     <a b="5A" u="1007"/><!-- Z -->
     <a b="5B" u="101F"/><!-- [ -->
@@ -171,7 +172,9 @@
     <a b="69 FB" u="1004 200D 1039 101A 1039 101F"/>
     <a b="6A" u="1039 101B"/><!-- j -->
     <a b="6B" u="102F" ubctxt="short-uu"/><!-- k -->
+    <fub b="6B" u="102F" ubctxt="thth-short-uu"/><!-- k -->
     <a b="6C" u="1030" ubctxt="short-uu"/><!-- l -->
+    <fub b="6C" u="1030" ubctxt="thth-short-uu"/><!-- l -->
     <a b="6D" u="102C"/><!-- m -->
     <a b="6E" u="100A"/><!-- m -->
     <a b="6F" u="101E"/><!-- o -->
@@ -195,10 +198,9 @@
     <a b="97" u="1039 101c"/><!--  -->
     <a b="82" u="1029 1039 1010"/><!-- 201a -->
     
-<!--
-    <fub b="101E 1039 101B" u="1029"/>
-    <fub b="101E 1039 101B 1031 102C 1039 200C" u="102A"/>
--->
+    <a b="6f 6a " u="1029"/>
+    <a b="6f 6a 61 6d 66" u="102A"/>
+    
     <a b="87" u="1004 1039 102D"/><!-- windows-1252 2021 -->
     <a b="8C" u="1014 1039 1010 1039 101A"/><!-- windows-1252 0152 -->
 
@@ -295,7 +297,7 @@
         <order b="reorder-kinzi-b" u="reorder-kinzi-u"/>
     </ordering>
     <ordering side="bytes"><!---->
-        <order b="reorder-bytes-wrap-b" u="reorder-bytes-wrap-u"/>
+        <order b="reorder-bytes-b" u="reorder-bytes-u"/>
     </ordering>
 
 </assignments>
@@ -303,7 +305,7 @@
 <contexts>
 
 <!-- byte side re-ordering contexts -->
-
+<!-- old
     <group id="reorder-bytes-wrap-b">
         <class-ref name="evowel-b" id="e" min="0"/>
         <class-ref name="rmed-b" id="r" min="0"/>
@@ -348,6 +350,71 @@
         <context-ref name="reorder-bytes-wrap-b/ldot3"/>
         <context-ref name="reorder-bytes-wrap-b/ldot2"/>
         <context-ref name="reorder-bytes-wrap-b/ldot1"/>
+    </group>
+    -->
+    
+        <group id="reorder-bytes-b">
+        <class-ref name="evowel-b" id="e" min="0"/>
+        <class-ref name="rmed-b" id="r" min="0"/>
+        <class-ref name="cons-b" id="c" />
+        <class-ref name="uvowel-b" id="vu1" min="0"/>
+        <class-ref name="udot-b" id="udot1" min="0"/>
+        <class-ref name="consm-b" id="cm" min="0"/>
+        <class-ref name="wmed-b" id="w1" min="0"/>
+        <class-ref name="hmed-b" id="h" min="0"/>
+        <class-ref name="wmed-b" id="w2" min="0"/>
+        <class-ref name="nga-b" id="ng1" min="0"/>
+        <class-ref name="lvowel-dia-b" id="vul1" min="0"/>
+        <class-ref name="ymed-b" id="y1" min="0"/>
+        <class-ref name="nga-b" id="ng2" min="0"/>
+        <class-ref name="kill-b" id="contract1" min="0"/><!---->
+        <class-ref name="ymed-b" id="y2" min="0"/>
+        <class-ref name="kill-b" id="contract2" min="0"/>
+        <class-ref name="lvowel-tall-b" id="vl" min="0"/>
+        <class-ref name="nga-b" id="ng3" min="0"/>
+        <class-ref name="ldot-b" id="ldot1" min="0"/>
+        <class-ref name="uvowel-b" id="vu2" min="0"/>
+        <class-ref name="lvowel-dia-b" id="vul2" min="0"/>
+        <class-ref name="udot-b" id="udot2" min="0"/>
+        <class-ref name="lvowel-dia-b" id="vul3" min="0"/>
+        <class-ref name="lvowel-tall-b" id="vlf" min="0"/>
+        <class-ref name="avowel-b" id="a" min="0"/>
+        <class-ref name="ldot-b" id="ldot2" min="0"/>
+        <class-ref name="colon-b" id="colon" min="0"/>
+        <class-ref name="kill-b" id="kill" min="0"/>
+        <class-ref name="ldot-b" id="ldot3" min="0"/>
+    </group>
+
+    <group id="reorder-bytes-u">
+        <context-ref name="reorder-bytes-b/ng1"/>
+        <context-ref name="reorder-bytes-b/ng2"/>
+        <context-ref name="reorder-bytes-b/ng3"/>
+        <context-ref name="reorder-bytes-b/c"/>
+        <context-ref name="reorder-bytes-b/cm"/>
+        <context-ref name="reorder-bytes-b/contract2"/>
+        <context-ref name="reorder-bytes-b/contract1"/>
+        <context-ref name="reorder-bytes-b/r"/>
+        <context-ref name="reorder-bytes-b/y1"/>
+        <context-ref name="reorder-bytes-b/y2"/>
+        <context-ref name="reorder-bytes-b/h"/>
+        <context-ref name="reorder-bytes-b/w1"/>
+        <context-ref name="reorder-bytes-b/w2"/>
+        <context-ref name="reorder-bytes-b/e"/>
+        <context-ref name="reorder-bytes-b/vul1"/>
+        <context-ref name="reorder-bytes-b/vul2"/>
+        <context-ref name="reorder-bytes-b/vul3"/>
+        <context-ref name="reorder-bytes-b/vl"/>
+        <context-ref name="reorder-bytes-b/vlf"/>        
+        <context-ref name="reorder-bytes-b/vu2"/>
+        <context-ref name="reorder-bytes-b/vu1"/>
+        <context-ref name="reorder-bytes-b/a"/>
+        <context-ref name="reorder-bytes-b/udot2"/>
+        <context-ref name="reorder-bytes-b/udot1"/>
+        <context-ref name="reorder-bytes-b/kill"/>
+        <context-ref name="reorder-bytes-b/ldot3"/>
+        <context-ref name="reorder-bytes-b/ldot2"/>
+        <context-ref name="reorder-bytes-b/ldot1"/>  
+        <context-ref name="reorder-bytes-b/colon"/> 
     </group>
 
     <group id="numbers">
@@ -450,6 +517,12 @@
             <class-ref name="h"/>
         </group>
     </group>
+    
+    <group id="thth-short-uu">
+      <class-ref name="th"/>
+      <class-ref name="virama"/>
+      <class-ref name="th"/>
+    </group>
 
     <group id="slant-h">
         <class-ref name="virama"/>
@@ -461,6 +534,17 @@
         </group>
     </group>
 
+    <group id="vdown">
+      <group min="0">
+        <class-ref name="virama"/>
+        <class-ref name="w"/>
+      </group>
+      <group>
+        <class-ref name="virama"/>
+        <class-ref name="h"/>
+      </group>
+    </group>
+    
     <group id="bdia" alt="1">
         <group>
             <class-ref name="virama"/>
@@ -661,6 +745,7 @@
     <class name="r">101B</class>
     <class name="w">101D</class>
     <class name="h">101F</class>
+    <class name="th">101e</class>
     <class name="aa">102C</class>
     <class name="vowel-up">102D 102E 1032</class>
     <class name="uvowel">102D 102E</class>

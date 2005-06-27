@@ -3,264 +3,316 @@
 <!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
  
 <characterMapping
-    id="Winnwa" 
+    id="IWinMed" 
     version="0"
-    description="Mapping for Winnwa and other Win fonts"
+    description="Mapping for IWIN Medium font to Unicode"
     contact="mailto:keith@myanmarlug.org"
     registrationAuthority="none"
     registrationName=""
-    byte-font="Winnwa"
+    byte-font="IWIN Medium"
     normalization="NFD"
 >
 
 <history>
     
-    <modified version="0" date="2005-02-23">
-        Original - based on Academy encoding conversion by Martin Hosken (SIL)
+    <modified version="0" date="2005-06-23">
+        Original   Keith Stribley
+        - based on Academy encoding conversion by Martin Hosken (SIL)
     </modified>
 </history>
 
 
 <assignments sub="2D">
-    <range bFirst="00" bLast="1F" uFirst="0000" uLast="001F"/>
+    <a b="00" u="0000"/>
+    <a b="01" u="1014 1039 1010 1039 101d"/>
+    <a b="02" u="1014 1039 1010 1039 101a"/>
+    <a b="03" u="0003"/>
+    <a b="04" u="0004"/>
+    <a b="05" u="0005"/>
+    <a b="06" u="0006"/>
+    <a b="07" u="0007"/>
+    <a b="08" u="0008"/>
+    <a b="09" u="0009"/>
+    <a b="0a" u="000a"/>
+    <a b="0b" u="000b"/>
+    <a b="0c" u="000c"/>
+    <a b="0d" u="000d"/>
+    <a b="0e" u="000e"/>
+    <a b="0f" u="000f"/>
+    <a b="10" u="0010"/>
+    <a b="11" u="0011"/>
+    <a b="12" u="0012"/>
+    <a b="13" u="0013"/>
+    <a b="14" u="0014"/>
+    <fbu b="15" u="102d"/>
+    <fbu b="16" u="1036"/>
+    <a b="17" u="1039 1000" ubctxt="base-narrow"/>
+    <a b="18" u="1039 100f" ubctxt="base-narrow"/>
+    <fbu b="19" u="1039 101a 1039 101f"/><!-- what context is this used in cf 2030 -->
+    <fbu b="1a" u="1039 101d 1039 101f"/>
+    <a b="1b" u="1039 101d"/>
+    <a b="1c" u="1039 101a 1039 101d"/>
+    <a b="1d" u="2639"/><!-- frowning face! -->
+    <a b="1e" u="001e"/>
+    <a b="1f" u="001f"/>
 
     <a b="20" u="0020"/><!-- space -->
-    <fbu b="21" u="100d"/><!-- ! -->
-    <a b="22" u="1013"/><!-- " -->
-    <a b="23" u="100b"/><!-- # -->
-    <a b="24" u="1000 1039 101A 1015 1039 200C"/><!-- $ -->
+    <a b="21" u="0021"/><!-- ! -->
+    <a b="22" u="0022"/><!-- " -->
+    <a b="23" u="0023"/><!-- # -->
+    <a b="24" u="0024"/><!-- $ -->
     <a b="25" u="0025"/><!-- % -->
-    <a b="26" u="101b"/><!-- & -->
-    <a b="27" u="1012"/><!-- ' -->
+    <a b="26" u="0026"/><!-- & -->
+    <a b="27" u="0027"/><!-- ' -->
     <a b="28" u="0028"/><!-- ( -->
     <a b="29" u="0029"/><!-- ) -->
-    <a b="2A" u="1002"/><!-- * -->
+    <a b="2A" u="002a"/><!-- * -->
     <a b="2B" u="002B"/><!-- + -->
-    <a b="2C" u="101a"/><!-- , -->
+    <a b="2C" u="002c"/><!-- , -->
     <a b="2D" u="002D"/><!-- - -->
     <a b="2E" u="002e"/><!-- . -->
-    <a b="2F" u="104b"/><!-- / -->
-    <!-- wa and 0 are the same in the old encoding 
-    Assume that it is wa unless another number comes
-    before or after.
-    -->
-    <a b="30" u="101d"/>
-    <a b="30" u="1040" bbctxt="numbers"/><!-- 0 -->
-    <fbu b="30" u="1040" bactxt="numbers"/><!-- 0 -->
-    <fbu b="30" u="1040" bbctxt="space" bactxt="space"/><!-- 0 -->
-    <a b="31" u="1041"/><!-- 1 -->
-    <a b="32" u="1042"/><!-- 2 -->
-    <a b="33" u="1043"/><!-- 3 -->
-    <!-- it is common to be lazy and type aforementioned like this -->
-    <fbu b="34 69 66 3b" u="104e"/>
-    <a b="34" u="1044"/><!-- 4 -->
-    <a b="35" u="1045"/><!-- 5 -->
-    <a b="36" u="1046"/><!-- 6 -->
-    <a b="37" u="1047"/><!-- 7 -->
-    <a b="38" u="1048"/><!-- 8 -->
-    <a b="39" u="1049"/><!-- 9 -->
-    <a b="3A" u="102C 1039 200C" ubctxt="tall-a"/><!-- : -->
-    <a b="3B" u="1038"/><!-- ; -->
-    <a b="3C" u="1039 101b 1039 101d"/><!-- < -->
+    <a b="2F" u="002f"/><!-- / -->
+    <a b="30" u="0030"/><!-- 0 -->
+    <a b="31" u="0031"/><!-- 1 -->
+    <a b="32" u="0032"/><!-- 2 -->
+    <a b="33" u="0033"/><!-- 3 -->
+    <a b="34" u="0034"/><!-- 4 -->
+    <a b="35" u="0035"/><!-- 5 -->
+    <a b="36" u="0036"/><!-- 6 -->
+    <a b="37" u="0037"/><!-- 7 -->
+    <a b="38" u="0038"/><!-- 8 -->
+    <a b="39" u="0039"/><!-- 9 -->
+    <a b="3A" u="003a"/><!-- : -->
+    <a b="3B" u="003b"/><!-- ; -->
+    <a b="3C" u="003c"/><!-- < -->
     <a b="3D" u="003D"/><!-- = -->
-    <a b="3E" u="1039 101b 1039 101d" ubctxt="base-narrow"/><!-- > -->
-    <a b="3F" u="104A"/><!-- ? -->
+    <a b="3E" u="003e"/><!-- > -->
+    <a b="3F" u="003f"/><!-- ? -->
 
-    <a b="40" u="100f 1039 100d"/><!-- @ -->
-    <a b="41" u="1017"/><!-- A -->
-    <a b="42" u="1039 101b" uactxt="vup"/><!-- B -->
-    <a b="43" u="1003"/><!-- C -->
-    <a b="44" u="102E"/><!-- D -->
-    <a b="45" u="1014" uactxt="bdia"/><!-- E -->
-    <a b="46" u="1004 1039" ubctxt="nga-cons" uactxt="cons"/><!-- F -->
-    <a b="47" u="1039 101D"/><!-- G -->
-    <a b="48" u="1036"/><!-- H -->
-    <a b="49" u="1039 101f 102f"/><!-- I -->
-    <a b="4A" u="1032"/><!-- J -->
-    <a b="4B" u="102F"/><!-- K -->
-    <a b="4C" u="1030"/><!-- L -->
-    <a b="4D" u="1039 101b"/><!-- M -->
-    <a b="4E" u="1039 101b" ubctxt="base-narrow" uactxt="vup"/><!-- N -->
-    <a b="4F" u="1025"/><!-- O -->
-    <a b="4F 44" u="1026"/><!-- OD -->
+    <a b="40" u="0040"/><!-- @ -->
+    <a b="41" u="0041"/><!-- A -->
+    <a b="42" u="0042"/><!-- B -->
+    <a b="43" u="0043"/><!-- C -->
+    <a b="44" u="0044"/><!-- D -->
+    <a b="45" u="0045"/><!-- E -->
+    <a b="46" u="0046"/><!-- F -->
+    <a b="47" u="0047"/><!-- G -->
+    <a b="48" u="0048"/><!-- H -->
+    <a b="49" u="0049"/><!-- I -->
+    <a b="4A" u="004a"/><!-- J -->
+    <a b="4B" u="004b"/><!-- K -->
+    <a b="4C" u="004c"/><!-- L -->
+    <a b="4D" u="004d"/><!-- M -->
+    <a b="4E" u="004e" /><!-- N -->
+    <a b="4F" u="004f"/><!-- O -->
 
-    <a b="50" u="100f"/><!-- P -->
-    <a b="51" u="1039 101a 1039 101f"/><!-- Q -->
-    <a b="52" u="1039 101a 1039 101d"/><!-- R -->
-    <a b="53" u="1039 101F"/><!-- S -->
-    <a b="54" u="1039 101d 1039 101f"/><!-- T -->
-    <a b="55" u="1037" ubctxt="rdot"/><!-- U -->
-    <a b="56" u="1020"/><!-- V -->
-    <a b="57" u="1039 101a 1039 101d 1039 101f"/><!-- W -->
-    <a b="58" u="100C"/><!-- X -->
-    <a b="59" u="1037"/><!-- Y -->
-    <a b="5A" u="1007"/><!-- Z -->
-    <a b="5B" u="101F"/><!-- [ -->
-    <a b="5C" u="104f"/><!-- \ -->
-    <a b="5D" u="2018"/><!-- ] -->
-    <a b="5E" u="002f"/><!-- ^ -->
-    <a b="5F" u="00d7"/><!-- _ -->
+    <a b="50" u="0050"/><!-- P -->
+    <a b="51" u="0051"/><!-- Q -->
+    <a b="52" u="0052"/><!-- R -->
+    <a b="53" u="0053"/><!-- S -->
+    <a b="54" u="0054"/><!-- T -->
+    <a b="55" u="0055"/><!-- U -->
+    <a b="56" u="0056"/><!-- V -->
+    <a b="57" u="0057"/><!-- W -->
+    <a b="58" u="0058"/><!-- X -->
+    <a b="59" u="0059"/><!-- Y -->
+    <a b="5A" u="005a"/><!-- Z -->
+    <a b="5B" u="005b"/><!-- [ -->
+    <a b="5C" u="005c"/><!-- \ -->
+    <a b="5D" u="005d"/><!-- ] -->
+    <a b="5E" u="005e"/><!-- ^ -->
+    <a b="5F" u="005f"/><!-- _ -->
 
-    <a b="60" u="1039 101b" ubctxt="base-narrow" uactxt="vdown"/><!-- ` -->
-    <a b="61" u="1031"/><!-- a -->
-    <a b="62" u="1018"/><!-- b -->
-    <a b="63" u="1001"/><!-- c -->
-    <a b="64" u="102D"/><!-- d -->
-    <a b="65" u="1014"/><!-- e -->
-    <a b="66" u="1039 200C"/><!-- f -->
-    <fub b="66" u="1039"/> <!-- f -->
-    <a b="67" u="102C" ubctxt="tall-a"/><!-- g -->
-    <a b="68" u="1037" ubctxt="ldot"/><!-- h -->
-    <a b="69" u="1004"/><!-- i -->
-    <a b="69 53" u="1004 200D 1039 101F"/><!-- i -->
-    <a b="69 73" u="1004 200D 1039 101A"/><!-- i -->
-    <a b="69 47" u="1004 200D 1039 101D"/><!-- i -->
-    <a b="69 4e" u="1004 200D 1039 101B" uactxt="vup"/><!-- ]i has been reordered before the substitution -->
-    <a b="69 6a" u="1004 200D 1039 101B" /><!-- ]i has been reordered before the substitution -->
-    <a b="69 51" u="1004 200D 1039 101A 1039 101F" />
-    <a b="69 52" u="1004 200D 1039 101A 1039 101D" />
-    <a b="69 3e" u="1004 200D 1039 101B 1039 101D" /><!-- has been reordered before the substitution -->
-    <a b="69 54" u="1004 200D 1039 101D 1039 101F" />
-    <a b="69 fb" u="1004 200D 1039 101B 102F" /><!-- has been reordered before the substitution -->
-    <a b="6A" u="1039 101B" ubctxt="base-narrow"/><!-- j -->
-    <a b="6B" u="102F" ubctxt="short-uu"/><!-- k -->
-    <fub b="6B" u="102F" ubctxt="thth-short-uu"/><!-- k -->
-    <a b="6C" u="1030" ubctxt="short-uu"/><!-- l -->
-    <fub b="6C" u="1030" ubctxt="thth-short-uu"/><!-- l -->
-    <a b="6D" u="102C"/><!-- m -->
-    <a b="6E" u="100A"/><!-- m -->
-    <a b="6F" u="101E"/><!-- o -->
+    <a b="60" u="0060"/><!-- ` -->
+    <a b="61" u="0061"/><!-- a -->
+    <a b="62" u="0062"/><!-- b -->
+    <a b="63" u="0063"/><!-- c -->
+    <a b="64" u="0064"/><!-- d -->
+    <a b="65" u="0065"/><!-- e -->
+    <a b="66" u="0066"/><!-- f -->
+    <a b="67" u="0067"/><!-- g -->
+    <a b="68" u="0068"/><!-- h -->
+    <a b="69" u="0069"/><!-- i -->
+    <a b="6A" u="006a"/><!-- j -->
+    <a b="6B" u="006b"/><!-- k -->
+    <a b="6C" u="006c"/><!-- l -->
+    <a b="6D" u="006d"/><!-- m -->
+    <a b="6E" u="006e"/><!-- m -->
+    <a b="6F" u="006f"/><!-- o -->
     
-    <a b="6F 4d" u="1029"/>
-    <a b="6F 4d 61 6d 66" u="102a"/>
+    <a b="70" u="0070"/><!-- p -->
+    <a b="71" u="0071"/><!-- q -->
+    <a b="72" u="0072"/><!-- r -->
+    <a b="73" u="0073"/><!-- s -->
+    <a b="74" u="0074"/><!-- t -->
+    <a b="75" u="0075"/><!-- u -->
+    <a b="76" u="0076"/><!-- v -->
+    <a b="77" u="0077"/><!-- w -->
+    <a b="78" u="0078"/><!-- x -->
+    <a b="79" u="0079"/><!-- y -->
+    <a b="7A" u="007a"/><!-- z -->
+    <a b="7B" u="007b"/><!-- { -->
+    <a b="7C" u="007c"/><!-- | -->
+    <a b="7D" u="007d"/><!-- } -->
+    <a b="7E" u="007e"/><!-- ~ -->
     
-    <a b="70" u="1005"/><!-- p -->
-    <a b="71" u="1006"/><!-- q -->
-    <a b="72" u="1019"/><!-- r -->
-    <a b="73" u="1039 101A"/><!-- s -->
-    <a b="74" u="1021"/><!-- t -->
-    <a b="75" u="1000"/><!-- u -->
-    <a b="76" u="101C"/><!-- v -->
-    <a b="77" u="1010"/><!-- w -->
-    <a b="78" u="1011"/><!-- x -->
-    <a b="79" u="1015"/><!-- y -->
-    <a b="7A" u="1016"/><!-- z -->
-    <a b="7B" u="1027"/><!-- { -->
-    <a b="7C" u="100B 1039 100c"/><!-- | -->
-    <a b="7D" u="2019"/><!-- } -->
-    <a b="7E" u="1039 101b" uactxt="vdown"/><!-- ~ -->
- 
-    <a b="82" u="260e"/><!-- windows-1252 201a black telephone -->
-    <fbu b="83" u="1041 002f 1042"/><!-- windows-1252 0192 -->
-    <fbu b="84" u="1041 002f 1043"/><!-- windows-1252 201e -->
-    <fbu b="85" u="1042 002f 1043"/><!-- windows-1252 2026 -->
-    <fbu b="86" u="1041 002f 1044"/><!-- windows-1252 2020 -->
-    <fbu b="87" u="1043 002f 1044"/><!-- windows-1252 2021 -->
-    <fbu b="88" u="1041 002f 1045"/><!-- windows-1252 02c6 -->
-    <fbu b="89" u="1042 002f 1045"/><!-- windows-1252 2030 -->
-    <fbu b="8a" u="1043 002f 1045"/><!-- windows-1252 0160 -->
-    <fbu b="8b" u="1044 002f 1045"/><!-- windows-1252 2039 -->
-    
-    <a b="92" u="1039 101c"/><!-- windows-1252 2019 -->
-    <a b="A1" u="100e"/><!--  -->
-    <a b="a2" u="1039 1003"/>
-    <a b="a3" u="1023"/>
+    <a b="80" u="1039 101b"/>
+    <a b="81" u="1039 101b" ubctxt="base-narrow"  uactxt="vdown"/>
+    <a b="82" u="1039 101b" uactxt="vdown"/><!-- windows-1252 201a black telephone -->
+    <a b="83" u="1039 101b" ubctxt="base-narrow"  uactxt="vup"/><!-- windows-1252 0192 -->
+    <a b="84" u="1039 101b" uactxt="vup"/><!-- windows-1252 201e -->
+    <fbu b="85" u="100b"/><!-- windows-1252 2026 -->
+    <a b="86" u="100b 1039 100c"/><!-- windows-1252 2020 -->
+    <a b="87" u="1039 101a" ubctxt="medial-cons"/><!-- windows-1252 2021 -->
+    <a b="88" u="1039 1006" ubctxt="base-narrow"/><!-- windows-1252 02c6 -->
+    <a b="89" u="1039 101d 1039 101f"/><!-- windows-1252 2030 -->
+    <a b="8a" u="1039 101d"/><!-- windows-1252 0160 -->
+    <a b="8b" u="1039 1003" ubctxt="base-narrow"/><!-- windows-1252 2039 -->
+    <fbu b="8c" u="1039 101d 1039 101f"/><!-- when is 152 used rather than 2030-->
+    <fbu b="8d" u="1039 101f"/><!-- this is a windows special char -->
+    <a b="8e" u="1039 1010" ubctxt="base-narrow"/>
+    <fbu b="8f" u="1014" uactxt="bdia"/><!-- this is a windows special char -->
+    <a b="90" u="1039 101f 1030"/><!-- reserved -->
+    <a b="91" u="1039 101f 102f"/>
+    <a b="92" u="1004 1039 102e"/><!-- windows-1252 2019 -->
+    <a b="93" u="1004 1039 102d"/><!-- windows-1252 201c -->
+    <a b="94" u="102d 1036"/><!-- windows-1252 201d -->
+    <a b="95" u="1004 1039 1036"/><!-- windows-1252 2022 -->
+    <a b="96" u="1037" ubctxt="rdot"/><!-- windows-1252 2013 -->
+    <a b="97" u="1039 101c" ubctxt="base-narrow"/><!-- windows-1252 2014 -->
+    <a b="98" u="104f"/><!-- windows-1252 02dc -->
+    <a b="99" u="104d"/><!-- windows-1252 2122 -->
+    <a b="9a" u="1024"/><!-- windows-1252 0161 -->
+    <a b="9b" u="104c"/><!-- windows-1252 203a -->
+    <a b="9c" u="1039 1011" ubctxt="base-narrow"/><!-- windows-1252 0153 -->
+    <a b="9d" u="100e 1039 100d"/><!-- windows-1252 reserved -->
+    <a b="9e" u="1039 109e" ubctxt="base-narrow"/><!-- windows-1252 009e -->
     <!-- not really, but this character doesn't exist on its own-->
     <!-- teckit seems to like a single char mapping for every char
          otherwise it gets confused -->
-    <a b="a4 69 66 3b" u="104e"/>
-    <fbu b="a4" u="1044"/>
-    <a b="a5" u="100b 1039 100b"/>
-    <a b="a6" u="1039 1011"/>
-    <a b="a7" u="1039 101f"/>
-    <a b="a8" u="1039 1013"/>
-    <a b="a9" u="1039 1001"/>
-    <a b="aa" u="1039 101f 1030"/>
-    <a b="AB" u="105b"/><!--  -->
-    <a b="AC" u="1039 1011"/>
-    <!--<a b="AD" u="00ad"/> no glyph -->
-    <a b="AE" u="1039 1019"/><!--  -->
-    <!--<a b="AF" u="00af"/>  no glyph-->
+    <fbu b="9f" u="1044"/>
+    <a b="9f a5 fd fc" u="104e"/><!-- windows-1252 0178 -->
+    <a b="A0" u="00a0"/><!-- NBSP -->
+    <a b="A1" u="1000"/><!--  -->
+    <a b="a2" u="1001"/>
+    <a b="a3" u="1002"/>
+    <a b="a4" u="1003"/>
+    <a b="a5" u="1004"/>
+    <a b="a5 fb" u="1004 200D 1039 101F"/><!--  -->
+    <a b="a5 8a" u="1004 200D 1039 101D"/><!--  -->
+    <fbu b="a5 ee" u="1004 200D 1039 101D"/><!--  -->
+    <a b="a5 83" u="1004 200D 1039 101B" uactxt="vup"/><!--  has been reordered before the substitution -->
+    <a b="a5 ed" u="1004 200D 1039 101B" /><!--  has been reordered before the substitution -->
+    <a b="a5 ec" u="1004 200D 1039 101A"/>
+    <fbu b="a5 87" u="1004 200D 1039 101A"/>
+    <a b="a5 1c" u="1004 200D 1039 101A 1039 101D" />
+    <a b="a5 19" u="1004 200D 1039 101A 1039 101F" />
+    <a b="a5 81" u="1004 200D 1039 101B" uactxt="vdown"/><!-- has been reordered before the substitution -->
+    <a b="a5 89" u="1004 200D 1039 101D 1039 101F" />
+    <fbu b="a5 8c" u="1004 200D 1039 101D 1039 101F" />
+    <fbu b="a5 1a" u="1004 200D 1039 101D 1039 101F" />
+    <a b="a5 91" u="1004 200D 1039 101B 102F" /><!-- has been reordered before the substitution -->
+    <a b="a5 90" u="1004 200D 1039 101B 1030" /><!-- has been reordered before the -->    
+    <a b="a6" u="1005"/>
+    <a b="a7" u="1006"/>
+    <a b="a8" u="1007"/>
+    <a b="a9" u="1008"/>
+    <a b="aa" u="1009"/>
+    <a b="AB" u="100a"/><!--  -->
+    <a b="AC" u="100b"/>
+    <a b="AD" u="100c"/> 
+    <a b="AE" u="100d"/><!--  -->
+    <a b="AF" u="100e"/>
+  
+    <a b="B0" u="100f"/>
+    <a b="B1" u="1010"/>
+    <a b="B2" u="1011"/><!--  -->
+    <a b="B3" u="1012"/> <!--  -->       
+    <a b="B4" u="1013"/> <!--  -->       
+    <a b="B5" u="1014"/> <!--  -->       
+    <a b="B6" u="1015"/> <!--  -->       
+    <a b="B7" u="1016"/>
+    <a b="B8" u="1017"/> 
+    <a b="B9" u="1018"/>
+    <a b="ba" u="1019"/>
+    <a b="BB" u="101a"/>
+    <a b="BC" u="101b"/><!--  -->
+    <a b="BD" u="101c"/><!--  -->
+    <a b="BE" u="101d"/><!--  -->
+    <a b="BF" u="101e"/><!--  -->
+    <a b="C0" u="101f"/><!--  -->
+    <a b="C1" u="1020"/><!--  -->
+    <a b="C2" u="1021"/><!--  -->
+    <a b="C3" u="1039 1000"/><!--  -->
+    <a b="C4" u="1039 1001"/><!--  -->
+    <a b="C5" u="1039 1002"/><!--  -->
+    <a b="C6" u="1039 1003"/><!--  -->
+    <a b="C7" u="1039 1005"/><!--  -->
+    <a b="C8" u="1039 1006"/><!--    -->
+    <a b="C9" u="1039 1007"/><!--  -->
+    <fbu b="CA" u="1039 100c"/><!-- not sure about when this is used  -->
+    <a b="CB" u="1039 100d"/><!--    -->
+    <a b="CC" u="1039 100d"/><!--    -->
+    <a b="CD" u="1039 100e"/><!--  -->
+    <a b="CE" u="1039 100f"/><!-- -->
+    <a b="CF" u="1039 1010"/><!--   -->
 
-    <!--<a b="B0" u="00b0"/> no glyph -->
-    <!--<a b="B1" u="00b1"/> no glyph -->
-    <a b="B2" u="1039 100c"/><!--  -->
-    <a b="B3" u="1039 100b"/> <!--  -->       
-    <a b="B4" u="1039 1012"/> <!--  -->       
-    <a b="B5" u="0021"/> <!--  -->       
-    <a b="B6" u="21e6"/> <!--  -->       
-    <!--<a b="B7" u="00b7"/> no glyph  -->
-    <!--<a b="B8" u="00b8"/> no glyph  -->
-    <a b="B9" u="100e 1039 100d"/>
-    <a b="BB" u="005d"/>
-    <fbu b="BC" u="002d"/><!--  -->
-    <a b="BD" u="101b" uactxt="short-r"/><!--  -->
-    <a b="BE" u="1039 1002"/><!--  -->
-    <a b="BF" u="003F"/><!--  -->
-    <a b="C0" u="2666"/><!--  -->
-    <a b="C1" u="1039 1017"/><!--  -->
-    <a b="C2" u="2714"/><!--  -->
-    <a b="C3" u="2663"/><!--  -->
-    <a b="C4" u="2734"/><!--  -->
-    <a b="C5" u="1039 1010"/><!--  -->
-    <a b="C6" u="1039 1007"/><!--  -->
-    <a b="C7" u="1039 1018"/><!--  -->
-    <a b="C8" u="00C8"/><!-- NO GLYPH  -->
-    <a b="C9" u="1039 1011 1039 101D"/><!--  -->
-    <a b="CA" u="00ca"/><!-- no glyph -->
-    <a b="CB" u="00cb"/><!--  no glyph -->
-    <a b="CC" u="00cc"/><!--  no glyph -->
-    <a b="CD" u="1025" uactxt="bdia"/><!--  -->
-    <a b="CE" u="00ce"/><!-- no glyph -->
-    <a b="CF" u="00cf"/><!--  no glyph-->
-
-    <a b="D0" u="1004 1039 102e" /><!--  -->
-    <a b="D1" u="1039 1008"/><!--  -->
+    <a b="D0" u="1039 1011" /><!--  -->
+    <a b="D1" u="1039 1012"/><!--  -->
+    <a b="d2" u="1039 1013"/>
+    <a b="D3" u="1039 1014"/><!--  -->
+    <a b="d4" u="1039 1015"/>
+    <a b="d5" u="1039 1016"/>
+    <a b="D6" u="1039 1017"/><!--  --> 
+    <a b="D7" u="1039 1018"/><!--  -->
+    <a b="D8" u="1039 1019"/><!--  -->
+    <a b="d9" u="1039 101c"/>
+    <a b="a1 DA" u="1023"/><!--  -->
+    <a b="db" u="1039 00b"/>
+    <a b="DC" u="1025"/><!--  -->
+    <a b="dd" u="101e 1039 101e"/>
+    <a b="de" u="1027"/>
+    <a b="DF" u="101b" uactxt="short-r"/><!--  -->
     
-    <a b="D3" u="1009 102C"/><!--  -->
-    <a b="D6" u="1039 100f"/><!--  --> 
-    <a b="D7" u="100D 1039 100d"/><!--  -->
-    <a b="D8" u="1004 1039 102d"/><!--  -->
-
-    <a b="DA" u="1009"/><!--  -->
- 
-    <a b="DC" u="1039 1015"/><!--  -->
-
-
-    <a b="DF" u="1039 101a"/><!--  -->
-
-    <a b="E0" u="2665"/><!--  -->
-    <a b="E1" u="21e8"/><!--  -->
-    <a b="E2" u="2718"/><!--  -->
-    <a b="E3" u="2660"/><!--  -->
-    <a b="E4" u="1039 1006"/><!--  -->
-    <a b="E5" u="1039 1010"/><!--  -->
-    <a b="E6" u="1039 1016"/><!--  -->
-    <a b="E7" u="002c"/><!--  -->
-    <a b="E8" u="005f"/><!--  -->
-    <a b="E9" u="1039 1014"/><!--  -->
-    <a b="EA" u="1039 101b 102f"/><!--  -->
+    <a b="E0" u="102c"/><!--  -->
+    <a b="E1" u="102c"  ubctxt="tall-a"/><!--  -->
+    <a b="E2" u="102d"/><!--  -->
+    <a b="E3" u="102e"/><!--  -->
+    <a b="E4" u="102f" ubctxt="short-uu"/>/><!--  -->
+    <fub b="e4" u="102F" ubctxt="thth-short-uu"/><!--  -->
+    <a b="E5" u="102f"/><!--  -->
+    <a b="E6" u="1030" ubctxt="short-uu"/><!--  -->
+    <fub b="E6" u="1030" ubctxt="thth-short-uu"/><!--  -->
+    <a b="E7" u="1030"/><!--  -->
+    <a b="E8" u="1031"/><!--  -->
+    <a b="E9" u="1032"/><!--  -->
+    <a b="EA" u="1036"/><!--  -->
+    <a b="eb" u="1004 1039" ubctxt="nga-cons" uactxt="cons"/>
+    <a b="ec" u="1039 101a"/><!--  -->
+    <a b="ed" u="1039 101b" ubctxt="base-narrow"/><!--  -->
+    <a b="ee" u="1039 101d"/>
+    <a b="ef" u="102c 1039 200c" ubctxt="tall-a"/><!--  -->
     
+    <a b="F0" u="1040" bbctxt="numbers"/><!-- 0 -->
+    <fbu b="F0" u="1040" bactxt="numbers"/><!-- 0 -->
+    <fbu b="F0" u="1040" bbctxt="space" bactxt="space"/><!-- 0 -->
+    <fbu b="F0" u="101d"/><!--  -->
+    <a b="F1" u="1041"/><!--  -->
+    <a b="f2" u="1042"/>
+    <a b="F3" u="1043"/><!--  -->
+    <a b="f4" u="1044"/>
+    <a b="f5" u="1045"/>
+    <a b="F6" u="1046"/><!--  -->
+    <a b="F7" u="1047"/><!--  -->
+    <a b="F8" u="1048"/><!--  -->
+    <a b="F9" u="1049"/>
+    <a b="FA" u="1037"/><!--  -->
+    <a b="FB" u="1039 101F"/><!--  -->
+    <a b="FC" u="1038"/><!--  -->
+    <a b="fd" u="1039 200c"/>
+    <a b="FE" u="104a"/><!--  -->
+    <a b="ff" u="104b"/>
     
-    <a b="ED" u="104d"/><!--  -->
-    
-
-    <a b="F0" u="102d 1036" ubctxt="rdot"/><!--  -->
-    <a b="F1" u="100a" uactxt="bdia"/><!--  -->
-    
-    <a b="F3" u="101e 1039 101e"/><!--  -->
-    
-    <a b="F6" u="1039 1005"/><!--  -->
-    <a b="F7" u="00f7"/><!--  -->
-    <a b="F8" u="1004 1039 1036"/><!--  -->
-    
-    <a b="FA" u="1039 1000" /><!--  -->
-    
-    <a b="FB" u="1039 101b 102F" ubctxt="base-narrow"/><!--  -->
-    <a b="FC" u="104c"/><!--  -->
-    
-    <a b="FE" u="1024"/><!--  -->
-
     <ordering side="unicode"><!---->
         <order b="reorder-kinzi-b" u="reorder-kinzi-u"/>
     </ordering>
@@ -281,12 +333,12 @@
         <class-ref name="uvowel-b" id="vu1" min="0"/>
         <class-ref name="udot-b" id="udot1" min="0"/>
         <class-ref name="consm-b" id="cm" min="0"/>
+        <class-ref name="nga-b" id="ng1" min="0"/>
         <class-ref name="wmed-b" id="w1" min="0"/>
+        <class-ref name="ymed-b" id="y1" min="0"/>
         <class-ref name="hmed-b" id="h" min="0"/>
         <class-ref name="wmed-b" id="w2" min="0"/>
-        <class-ref name="nga-b" id="ng1" min="0"/>
         <class-ref name="lvowel-dia-b" id="vul1" min="0"/>
-        <class-ref name="ymed-b" id="y1" min="0"/>
         <class-ref name="nga-b" id="ng2" min="0"/>
         <class-ref name="kill-b" id="contract1" min="0"/><!---->
         <class-ref name="ymed-b" id="y2" min="0"/>
@@ -302,6 +354,7 @@
         <class-ref name="avowel-b" id="a" min="0"/>
         <class-ref name="ldot-b" id="ldot2" min="0"/>
         <class-ref name="colon-b" id="colon" min="0"/>
+        <!--<class-ref name="section-b" id="section" min="0"/>-->
         <class-ref name="kill-b" id="kill" min="0"/>
         <class-ref name="ldot-b" id="ldot3" min="0"/>
     </group>
@@ -421,6 +474,13 @@
         </group>
     </group>
 
+    <group id="medial-cons">
+      <group min="1">
+            <class-ref name="virama"/>
+            <class-ref name="consi"/>
+      </group>
+    </group>
+    
     <group id="short-uu">
         <group alt="1">
             <eos/>
@@ -435,12 +495,6 @@
             <class-ref name="h"/>
         </group>
     </group>
-    
-    <group id="thth-short-uu">
-      <class-ref name="th"/>
-      <class-ref name="virama"/>
-      <class-ref name="th"/>
-    </group>
 
     <group id="slant-h">
         <class-ref name="virama"/>
@@ -452,6 +506,12 @@
         </group>
     </group>
 
+    <group id="thth-short-uu">
+      <class-ref name="th"/>
+      <class-ref name="virama"/>
+      <class-ref name="th"/>
+    </group>
+    
     <group id="vdown">
       <group min="0">
         <class-ref name="virama"/>
@@ -553,6 +613,10 @@
             </group>
             <class-ref name="aa"/>
         </group>
+    </group>
+    
+    <group id="ymed-b">
+      <class-ref name="ymed-b"/>
     </group>
     
     <group id="rdot">
@@ -662,7 +726,7 @@
     <class name="r">101B</class>
     <class name="w">101D</class>
     <class name="h">101F</class>
-    <class name="th">101e</class>
+    <class name="th">101E</class>
     <class name="aa">102C</class>
     <class name="vowel-up">102D 102E 1032</class>
     <class name="uvowel">102D 102E</class>
@@ -680,43 +744,45 @@
 
 <!-- byte classes -->
     <!-- kinzi, kinzi+102e, kinzi+102d, kinzi+1036-->
-    <class name="nga-b" size="bytes">46 d0 d8 f8</class>
+    <class name="nga-b" size="bytes">eb 92 93 95</class>
     <!-- 0 is included as a consonant, because it is often wa-->
     <class name="cons-b" size="bytes">
-        21 22 23 26 27 2a 2c 30
-        41 43 45 4f 50 56 58 5a 5b 62 63 65 69 6e 6f
-        70 71 72 74 75 76 77 78 79 7a 7b a1 bd cd d3 da f1
-        <!-- these are cons/medial ligatures, but it allows reordering --> 
-        f3 40 a5 b9 d7
+        85 86 8f
+           a1 a2 a3 a4 a5 a6 a7 a8 a9 aa ab ac ad ae af 
+        b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 ba bb bc bd be bf
+        c0 c1 c2
+        dd f0 01 02 
     </class>
     <class name="consm-b" size="bytes">
-        a2 a6 a8 a9 ac ae b2 b3 b4 be c1 c5 c6 c7 c9 d1 d6 dc e4 e5 e6 e9 
-        92 f6 fa 
+        17 18
+        97 9c 9e 
+        c3 c4 c5 c6 c7 c8 c9 ca cb cc cd ce cf
+        d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 db 
     </class>
-    <class name="rmed-b" size="bytes">3c 3e 42 4d 4e 60 6a 7e ea fb</class>
-    <class name="ymed-b" size="bytes">73 52 57 51 df </class>
-    <class name="ymed-tall-b" size="bytes">73</class>
+    <class name="rmed-b" size="bytes">ed 80 81 82 83 84</class>
+    <class name="ymed-b" size="bytes">87 ec 1c 19</class>
+    <!--<class name="ymed-tall-b" size="bytes"></class>-->
     <!-- don't include ligatures with y or r in the w or h classes -->
-    <class name="wmed-b" size="bytes">47 54 <!--52 57 3c 3e--></class>
-    <class name="hmed-b" size="bytes">53 <!--54 51--> 49 a7 aa</class>
-    <class name="evowel-b" size="bytes">61</class>
+    <class name="wmed-b" size="bytes">89 8a 8c 1a 1b ee</class>
+    <class name="hmed-b" size="bytes">8d fb</class>
+    <class name="evowel-b" size="bytes">e8</class>
     <!-- note lig with kinzi excluded -->
-    <class name="uvowel-b" size="bytes">4A 64 44 f0 </class>
-    <class name="udot-b" size="bytes">48 f0 <!--f8--></class>
-    <class name="lvowel-b" size="bytes">6b 6c 4b 4c 49 aa ea fb</class>
-    <class name="lvowel-dia-b" size="bytes">6B 6C</class>
-    <class name="lvowel-tall-b" size="bytes">4B 4C</class>
-    <class name="avowel-b" size="bytes">6D 67 3a</class>
-    <class name="kill-b" size="bytes">66</class>
-    <class name="ldot-b" size="bytes">55 59 68</class>
-    <class name="colon-b" size="bytes">3b</class>
-    <class name="section-b" size="bytes">2F 3F</class>
+    <class name="uvowel-b" size="bytes">15 e2 e3 94 e9</class>
+    <class name="udot-b" size="bytes">95 ea</class>
+    <class name="lvowel-b" size="bytes">90 91 e4 e6 </class>
+    <class name="lvowel-dia-b" size="bytes">e4 e6</class>
+    <class name="lvowel-tall-b" size="bytes">e5 e7</class>
+    <class name="avowel-b" size="bytes">e0 e1 ef</class>
+    <class name="kill-b" size="bytes">fd</class>
+    <class name="ldot-b" size="bytes">fa 96</class>
+    <class name="colon-b" size="bytes">fc</class>
+    <class name="section-b" size="bytes">fe ff</class>
     <class name="numbers-b" size="bytes">
-      30 31 32 33 34 35 36 37 38 39
+      f0 f1 f2 f3 f4 f5 f6 f7 f8 f9
     </class>
     <!--  =+-.| || / -->
     <class name="space-b" size="bytes">
-      20 3d 2b 2d 2e 2f 3f 5e 5f f7
+      20 2b 2c 2d 2f 2e 5f 3d 7c 7e fe ff
     </class>
 </contexts>
 
