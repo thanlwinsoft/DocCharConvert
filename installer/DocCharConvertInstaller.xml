@@ -41,7 +41,7 @@
         <pack name="DocCharConverter" preselected="yes" required="yes">
             <description>Core files and example converters</description>
             <file targetdir="$INSTALL_PATH" src="../dist/DocCharConvert.jar" override="true"/>
-            <file targetdir="$INSTALL_PATH" src="DocCharConvert16.ico" override="true"/>
+            <file targetdir="$INSTALL_PATH" src="DocCharConvert32.ico" override="true"/>
             <file targetdir="$INSTALL_PATH" src="UninstallDCC16.ico" override="true"/>
             <file targetdir="$INSTALL_PATH" src="DocCharConvert.bat" override="true" />
             <file targetdir="$INSTALL_PATH" src="DocCharConvert.sh" override="true"/>
