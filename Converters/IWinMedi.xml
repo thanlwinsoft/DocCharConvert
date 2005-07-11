@@ -214,6 +214,7 @@
     <a b="a5 91" u="1004 200D 1039 101B 102F" /><!-- has been reordered before the substitution -->
     <a b="a5 90" u="1004 200D 1039 101B 1030" /><!-- has been reordered before the -->    
     <a b="a6" u="1005"/>
+    <fbu b="a6 ec" u="1008"/><!-- is this needed since it occurs as a separate code? -->
     <a b="a7" u="1006"/>
     <a b="a8" u="1007"/>
     <a b="a9" u="1008"/>
