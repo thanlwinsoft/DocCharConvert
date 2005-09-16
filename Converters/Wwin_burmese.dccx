@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="WinMyanmar Fonts">
+<DocCharConverter name="Wwin_Burmese">
 <ConverterClass name="DocCharConvert.Converter.TecKitConverter">
 <Argument value="Wwin_burmese.tec" type="File" />
 </ConverterClass>
 <Styles>
 <Style>
 <Font name="Wwin_burmese" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
+<Style>
+<Font name="Wwin_Burmese" type="old" />
+<Font name="Padauk" type="new" />
+</Style>
+<Style>
+<Font name="Wwin_Burmese1" type="old" />
 <Font name="Padauk" type="new" />
 </Style>
 
