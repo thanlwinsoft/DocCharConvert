@@ -89,7 +89,7 @@
     <a b="51" u="1039 1001"/><!-- Q -->
     <a b="52" u="1039 1019"/><!-- R -->
     <a b="53" u="1039 101F"/><!-- S -->
-    <a b="54" u="1039 1000"/><!-- T -->
+    <a b="54" u="1024"/><!-- T -->
     <a b="55" u="1037" ubctxt="rdot"/><!-- U -->
     <a b="56" u="1020"/><!-- V -->
     <a b="57" u="1039 101a 1039 101d 1039 101f"/><!-- W -->
@@ -100,8 +100,7 @@
     <a b="5C" u="101e 1039 101e"/><!-- \ -->
     <a b="5D" u="003d"/><!-- ] -->
     <a b="5E" u="1009"/><!-- ^ -->
-    <a b="5F" u="1039 101f 102f "/><!-- _ -->
-
+    <a b="5F" u="1039 101F 102F"/><!-- _ -->
     <a b="60" u="1039 101b" ubctxt="base-narrow" uactxt="vdown"/><!-- ` -->
     <a b="61" u="1031"/><!-- a -->
     <a b="62" u="1018"/><!-- b -->
@@ -163,6 +162,7 @@
     <fbu b="89" u="1039 1016"/><!-- windows-1252 2030 -->
     <fbu b="8a" u="1039 1017"/><!-- windows-1252 0160 -->
     <fbu b="8b" u="1037"/><!-- windows-1252 2039 -->
+    <fbu b="8c" u="1037"/><!-- windows-1252 2039 -->
     
     <a b="91" u="2018"/><!-- windows-1252 2018 -->
     <a b="92" u="2019"/><!-- windows-1252 2019 -->
@@ -189,7 +189,7 @@
     <!-- not really, but this character doesn't exist on its own-->
     <!-- teckit seems to like a single char mapping for every char
          otherwise it gets confused -->
-    <a b="aa" u="1039 101f 1039 1030"/>
+    <a b="aa" u="1039 101f 1030"/>
     <!--<a b="AD" u="00ad"/> no glyph -->
     <a b="AE" u="00ae"/><!--  -->
     <!--<a b="AF" u="00af"/>  no glyph-->
@@ -207,7 +207,7 @@
     <a b="B9" u="1039 101b" ubctxt="base-narrow" uactxt="vdown"/><!-- -->
     <a b="BA" u="1039 101b" uactxt="vdown"/> <!-- -->
     <a b="BB" u="0078"/><!-- -->
-    <fbu b="BC" u="1041 002f 1044"/><!--  -->
+    <a b="BC" u="1041 002f 1044"/><!--  -->
     <a b="BD" u="1041 002f 1042"/><!--  -->
     <a b="BE" u="100f 1039 100d"/><!--  -->
     <a b="BF" u="100f 1039 100c"/><!--  -->
@@ -715,14 +715,14 @@
         5c be bf c0 c1 c2 c3 c4 c5 cc cd 
       </class>
     <class name="consm-b" size="bytes">
-        3e 42 4d 4e 50 51 52 55 57 60 7e 92 1e 26 20 c6 30 60 53  
-        c6 ce 
+        3c 3e 42 4d 4e 50 51 52 55 57 60 7e 83 84 85 86 88 89 8a
+        9c c6 c7 ce
     </class>
     <class name="rmed-b" size="bytes">2b 3d 6a 7d b9 ba f0 f1 f2 f3</class>
     <class name="ymed-b" size="bytes">23 73 7c e9 ed ee </class>
     <!--<class name="ymed-tall-b" size="bytes"></class>-->
     <!-- don't include ligatures with y or r in the w or h classes -->
-    <class name="wmed-b" size="bytes">24 eb ec ef 47</class>
+    <class name="wmed-b" size="bytes">47 24 eb ec ef</class>
     <class name="hmed-b" size="bytes">53 5f 87</class>
     <class name="evowel-b" size="bytes">61</class>
     <!-- note lig with kinzi excluded -->
@@ -733,7 +733,7 @@
     <class name="lvowel-tall-b" size="bytes">4b 4c</class>
     <class name="avowel-b" size="bytes">3a 67 6d</class>
     <class name="kill-b" size="bytes">66</class>
-    <class name="ldot-b" size="bytes">8b 8c 9b b2 b3</class>
+    <class name="ldot-b" size="bytes">68 8b 8c 9b b2 b3</class>
     <class name="colon-b" size="bytes">3b</class>
     <class name="section-b" size="bytes">2F 3F</class>
     <class name="numbers-b" size="bytes">
