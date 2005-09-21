@@ -63,7 +63,7 @@
     <a b="3B" u="1038"/><!-- ; -->
     <a b="3C" u="1039 1013"/><!-- < -->
     <a b="3D" u="1039 101b"/><!-- = -->
-    <a b="3E" u="1039 1006" ubctxt="base-narrow"/><!-- > -->
+    <a b="3E" u="1039 1006"/><!-- > -->
     <a b="3F" u="104b"/><!-- ? -->
 
     <a b="40" u="1037" ubctxt="rdot"/><!-- @ -->
@@ -100,7 +100,7 @@
     <a b="5C" u="101e 1039 101e"/><!-- \ -->
     <a b="5D" u="003d"/><!-- ] -->
     <a b="5E" u="1009"/><!-- ^ -->
-    <a b="5F" u="00d7"/><!-- _ -->
+    <a b="5F" u="1039 101f 102f "/><!-- _ -->
 
     <a b="60" u="1039 101b" ubctxt="base-narrow" uactxt="vdown"/><!-- ` -->
     <a b="61" u="1031"/><!-- a -->
@@ -111,7 +111,7 @@
     <a b="66" u="1039 200C"/><!-- f -->
     <fub b="66" u="1039"/> <!-- f -->
     <a b="67" u="102C" ubctxt="tall-a"/><!-- g -->
-    <a b="68" u="1037" ubctxt="ldot"/><!-- h -->
+    <a b="68" u="1031" ubctxt="ldot"/><!-- h -->
     <a b="69" u="1004"/><!-- i -->
     <!-- list all forms of nga with medial -->
     <a b="69 53" u="1004 200D 1039 101F"/><!-- i -->
@@ -209,23 +209,23 @@
     <a b="BB" u="0078"/><!-- -->
     <fbu b="BC" u="1041 002f 1044"/><!--  -->
     <a b="BD" u="1041 002f 1042"/><!--  -->
-    <a b="BE" u="1039 100f 1039 100d"/><!--  -->
-    <a b="BF" u="1039 100f 1039 100c"/><!--  -->
-    <a b="C0" u="1039 100f 1039 100f"/><!--  -->
+    <a b="BE" u="100f 1039 100d"/><!--  -->
+    <a b="BF" u="100f 1039 100c"/><!--  -->
+    <a b="C0" u="100f 1039 100f"/><!--  -->
     <a b="C1" u="1023"/><!--  -->
-    <a b="C2" u="1039 100f 1039 100b"/><!--   -->
-    <a b="C3" u="1039 100b 1039 100b"/><!--  -->
+    <a b="C2" u="100f 1039 100b"/><!--   -->
+    <a b="C3" u="100b 1039 100b"/><!--  -->
     <!-- <a b="C4" u="2734"/>This is a star in some version of the font, medial ta in others -->
-    <fbu b="C4" u="1039 100d 1039 100b"/><!--  -->
-    <a b="C5" u="1039 100e 1039 100d"/><!--  -->
+    <a b="C4" u="100d 1039 100b"/><!--  -->
+    <a b="C5" u="100e 1039 100d"/><!--  -->
     <a b="C6" u="1039 1008"/><!--  -->
     <a b="C7" u="1039 1007 1039 101a"/><!--  -->
     <a b="C8" u="100d"/><!--  -->
     <a b="C9" u="100b"/><!--  -->
     <a b="CA" u="100e"/><!--  -->
     <fbu b="CB" u="100b"/><!-- which variant this or c8?  -->
-    <a b="CC" u="1039 1025 1039 1005"/><!--  -->
-    <a b="CD" u="1039 1025 1039 1007"/><!--  -->
+    <a b="CC" u="1025 1039 1005"/><!--  -->
+    <a b="CD" u="1025 1039 1007"/><!--  -->
     <a b="CE" u="1039 1011"/><!-- no glyph -->
     <a b="CF" u="100b 1039 100c"/><!--  no glyph-->
 
@@ -722,7 +722,7 @@
     <class name="ymed-b" size="bytes">23 73 7c e9 ed ee </class>
     <!--<class name="ymed-tall-b" size="bytes"></class>-->
     <!-- don't include ligatures with y or r in the w or h classes -->
-    <class name="wmed-b" size="bytes">24 eb ec ef</class>
+    <class name="wmed-b" size="bytes">24 eb ec ef 47</class>
     <class name="hmed-b" size="bytes">53 5f 87</class>
     <class name="evowel-b" size="bytes">61</class>
     <!-- note lig with kinzi excluded -->
