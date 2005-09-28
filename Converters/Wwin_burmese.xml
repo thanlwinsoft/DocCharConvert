@@ -116,13 +116,19 @@
     <a b="69 53" u="1004 200D 1039 101F"/><!-- i -->
     <a b="69 73" u="1004 200D 1039 101A"/><!-- i -->
     <a b="69 47" u="1004 200D 1039 101D"/><!-- i -->
-    <a b="69 4e" u="1004 200D 1039 101B" uactxt="vup"/><!-- ]i has been reordered before the substitution -->
+    <a b="69 2b" u="1004 200D 1039 101B" uactxt="vup"/><!-- ]i has been reordered before the substitution -->
     <a b="69 6a" u="1004 200D 1039 101B" /><!-- ]i has been reordered before the substitution -->
-    <a b="69 51" u="1004 200D 1039 101A 1039 101F" />
-    <a b="69 52" u="1004 200D 1039 101A 1039 101D" />
-    <a b="69 3e" u="1004 200D 1039 101B 1039 101D" /><!-- has been reordered before the substitution -->
-    <a b="69 54" u="1004 200D 1039 101D 1039 101F" />
-    <a b="69 fb" u="1004 200D 1039 101B 102F" /><!-- has been reordered before the substitution -->
+    <a b="69 6a 87" u="1004 200D 1039 101B 1039 101f" /><!-- ]i has been reordered before the substitution -->
+    <a b="69 2b 87" u="1004 200D 1039 101B 1039 101f" uactxt="vup"/><!-- ]i has been reordered before the substitution -->
+    <a b="69 23" u="1004 200D 1039 101A 1039 101F" />
+    <a b="69 7c" u="1004 200D 1039 101A 1039 101D" />
+    <a b="69 b9 47" u="1004 200D 1039 101B 1039 101D" /><!-- has been reordered before the substitution -->
+    <a b="69 b9 53" u="1004 200D 1039 101B 1039 101f" /><!-- has been reordered before the substitution -->
+    <a b="69 b9 5f" u="1004 200D 1039 101B 1039 101f 102f" /><!-- has been reordered before the substitution -->
+    <a b="69 24" u="1004 200D 1039 101D 1039 101F" />
+    <fbu b="69 b8" u="1004 200D 1039 101D 1039 101F" />
+    <a b="69 f0" u="1004 200D 1039 101B 102F" /><!-- has been reordered before the substitution -->
+    <a b="69 f2" u="1004 200D 1039 101B 102F" uactxt="vup"/><!-- has been reordered before the substitution -->
     <a b="6A" u="1039 101B" ubctxt="base-narrow"/><!-- j -->
     <a b="6B" u="102F" ubctxt="short-uu"/><!-- k -->
     <fub b="6B" u="102F" ubctxt="thth-short-uu"/><!-- k -->
