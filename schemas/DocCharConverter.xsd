@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.thanlwinsoft.org/schemas/SyllableParser" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xml:lang="en">
+<xsd:annotation>
+  <xsd:documentation xml:lang="en">
+DocCharConvert: A schema for definining a conversion using a specific converter and configuration file. Currently the conversion is usually between one text encoding to another. Font styles are used to match the text to be converted.
+Copyright 2005 www.thanlwinsoft.org. All rights reserved.
+  </xsd:documentation>
+</xsd:annotation>
+<xsd:element name="DocCharConverter" type="DocCharConverter"/>
+
+<xsd:complexType name="DocCharConverter">
+  <xsd:sequence>
+    <xsd:element name="ConverterClass" type="ConverterClass"/>
+    <xsd:element name="Styles" type="Styles"/>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="ConverterClass">
+  <xsd:sequence>
+    <xsd:element name="Argument" type="Argument" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  <xsd:attribute name="name" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="Argument">
+  <xsd:attribute name="value" type="xsd:string"/>
+  <xsd:attribute name="type" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="Styles">
+  <xsd:sequence>
+    <xsd:element name="Style" type="Style" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="Style">
+  <xsd:sequence>
+    <xsd:element name="Font" type="Font" minOccurs="2" maxOccurs="2"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="Font">
+  <xsd:attribute name="name" type="xsd:string"/>
+  <xsd:attribute name="type" type="age"/>
+</xsd:complexType>
+
+
+<xsd:simpleType name="argType">
+  <xsd:restriction base="xsd:NMTOKEN">
+    <xsd:enumeration value="File"/>
+    <xsd:enumeration value="String"/>
+    <xsd:enumeration value="int"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="age">
+  <xsd:restriction base="xsd:NMTOKEN">
+    <xsd:enumeration value="old"/>
+    <xsd:enumeration value="new"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+
+<xsd:simpleType name="hex">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9a-f]{4}( [0-9a-f]{4})*"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.thanlwinsoft.org/schemas/SyllableParser" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xml:lang="en">
+<xsd:annotation>
+  <xsd:documentation xml:lang="en">
+SyllableParser: A schema for definining a conversion between syllable structures in two different scripts.
+Copyright 2005 www.thanlwinsoft.org. All rights reserved.
+  </xsd:documentation>
+</xsd:annotation>
+<xsd:element name="syllableConverter" type="SyllableConverter"/>
+
+<xsd:complexType name="SyllableConverter">
+  <xsd:sequence>
+    <xsd:element name="script" minOccurs="2" maxOccurs="2" type="Script"/>
+    <xsd:element name="repeat" minOccurs="0" type="Repeat"/>
+    <xsd:element name="classes" type="Classes"/>
+    <xsd:element name="mappingTable" type="MappingTable" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="Script">
+  <xsd:sequence>
+    <xsd:element name="name" type="xsd:string"/>
+    <xsd:element name="cluster" minOccurs="0" type="Cluster"/>
+  </xsd:sequence>
+  <xsd:attribute name="side" type="side"/>
+  <xsd:attribute name="ignoreCase" type="xsd:boolean"/>
+</xsd:complexType>
+
+<xsd:complexType name="Cluster">
+  <xsd:sequence>
+    <xsd:element name="component" type="Component" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  <xsd:attribute name="id" type="xsd:NMTOKEN"/>
+  <xsd:attribute name="side" type="side" use="optional"/>
+</xsd:complexType>
+
+<xsd:complexType name="Component" mixed="true">
+  <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
+  <xsd:attribute name="min" type="xsd:nonNegativeInteger"  use="optional"/>
+  <xsd:attribute name="priority" type="xsd:positiveInteger" use="optional"/>
+</xsd:complexType>
+
+<xsd:complexType name="ComponentRef">
+  <xsd:sequence>
+    <xsd:element name="c" type="C" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  <!-- r must match a component id -->
+  <xsd:attribute name="r" type="xsd:NMTOKEN" use="required"/>
+</xsd:complexType>
+
+
+<xsd:complexType name="Repeat">
+  <xsd:sequence>
+    <xsd:element name="marker" type="Marker" maxOccurs="1"/>
+    <xsd:element name="separator" type="Separator" maxOccurs="1"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="Marker">
+  <xsd:simpleContent>
+    <xsd:extension base="xsd:string">
+      <xsd:attribute name="side" type="side" use="required"/>
+      <xsd:attribute name="hex" type="hex" use="optional"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:complexType name="Separator">
+  <xsd:simpleContent>
+    <xsd:extension base="xsd:string">
+      <xsd:attribute name="side" type="side" use="required"/>
+      <xsd:attribute name="hex" type="hex" use="optional"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:complexType name="Classes">
+  <xsd:sequence>
+    <xsd:element name="class" type="Class" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="Class">
+  <xsd:sequence>
+    <xsd:element name="component" type="ComponentRef" minOccurs="2" maxOccurs="2"/>
+  </xsd:sequence>
+  <xsd:attribute name="id" type="xsd:NMTOKEN"/>
+</xsd:complexType>
+
+
+<!-- This ought to be tightened up either hex or class or an 
+     element with inner content should be used not a mixture -->
+<xsd:complexType name="C">
+  <xsd:simpleContent>
+    <xsd:extension base="xsd:string">
+      <xsd:attribute name="hex" type="hex" use="optional"/>
+      <!-- r must match a component id-->
+      <xsd:attribute name="r" type="xsd:NMTOKEN" use="optional"/>
+      <!-- class must match a class id -->
+      <xsd:attribute name="class" type="xsd:NMTOKEN" use="optional"/>
+    </xsd:extension>
+  </xsd:simpleContent>
+</xsd:complexType>
+
+<xsd:complexType name="MappingTable">
+  <xsd:sequence>
+    <xsd:element name="columns" type="Columns" />
+    <xsd:element name="maps" type="Maps" />
+  </xsd:sequence>
+  <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="Columns">
+  <xsd:sequence>
+    <xsd:element name="component" type="ComponentRef" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="Maps">
+  <xsd:sequence>
+    <xsd:element name="m" type="Map" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="Map">
+  <xsd:sequence>
+    <xsd:element name="c" type="C" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="side">
+  <xsd:restriction base="xsd:NMTOKEN">
+    <xsd:enumeration value="left"/>
+    <xsd:enumeration value="right"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="hex">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9a-f]{4}( [0-9a-f]{4})*"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

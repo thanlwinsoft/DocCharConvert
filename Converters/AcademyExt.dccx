@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Academy Ext">
+<DocCharConverter name="Academy Ext" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
 <ConverterClass name="DocCharConvert.Converter.ExternalConverter">
 <Argument value="testTecKit" type="String" />
 <Argument value="-char2utf8 academy.tec INFILE OUTFILE" type="String" />
