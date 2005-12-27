@@ -59,7 +59,59 @@ public class ExceptionList
         maxLength[1] = 0;
         duplicates = new StringBuffer();
     }
+    public ExceptionList(File exceptionsFile)
+    {
+        files = new File[1];
+        this.leftExceptions = new  HashMap<String, String> ();
+        this.rightExceptions = new  HashMap<String, String> ();
+        files[0] = exceptionsFile;
+        maxLength = new int[2];
+        maxLength[0] = 0;
+        maxLength[1] = 0;
+        duplicates = new StringBuffer();
+    }
     public void load() throws IOException, CharConverter.FatalException
+    {
+      if (files.length == 1)
+      {
+        BufferedReader reader = new BufferedReader(new FileReader(files[0]));
+        String line = null;
+        do
+        {
+          line = reader.readLine();
+          String [] words = line.split("\t");
+          if (words.length != 2)
+          {
+            // should both be NULL at same time
+            Object [] args = { line, words.length, "2" };
+            String msg = 
+              Config.getCurrent().getMsgResource().getString("wrongNumTokens");
+            throw new CharConverter.FatalException(MessageFormat.format(msg, args));
+          }
+          else
+          {
+            if (caseInsensitive[0]) 
+              addException(leftExceptions,words[0].toLowerCase(), words[1]);
+            else
+              addException(leftExceptions,words[0], words[1]);
+            if (caseInsensitive[1]) 
+              addException(rightExceptions, words[1].toLowerCase(), words[0]);
+            else
+              addException(rightExceptions, words[1], words[0]);
+          }
+        } while (line != null);
+        reader.close();
+        if (duplicates.length() > 0)
+        {
+          Object [] args = {duplicates.toString()};
+          String msg = 
+            Config.getCurrent().getMsgResource().getString("exceptionDuplicates");
+          throw new CharConverter.FatalException(MessageFormat.format(msg, args));              
+        }
+      }
+      else load2Files();
+    }
+    public void load2Files() throws IOException, CharConverter.FatalException
     {
         BufferedReader [] reader = new BufferedReader[2];
         for (int i = 0; i<2; i++)
@@ -121,6 +173,10 @@ public class ExceptionList
       if (list.containsKey(a))
       {
         duplicates.append(a);
+        duplicates.append(">");
+        duplicates.append(b);
+        duplicates.append("|");
+        duplicates.append(list.get(a));
         duplicates.append('\n');
       }
       else
