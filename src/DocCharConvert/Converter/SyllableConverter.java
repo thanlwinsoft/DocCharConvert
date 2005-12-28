@@ -307,6 +307,7 @@ public class SyllableConverter extends ReversibleConverter
                 }
             }
         }
+        if (debug) System.out.println("Chose: " + longest.toString());
         return result;
     }
     
@@ -379,8 +380,10 @@ public class SyllableConverter extends ReversibleConverter
                 int indexInSyllable = mapId2ScriptId(table, newSide, j);
                 if (newValues.get(j) == MappingTable.AMBIGUOUS &&
                     result[indexInSyllable] != INVALID_COMP) continue;
-                if (result[indexInSyllable] > INVALID_COMP &&
-                     result[indexInSyllable] != newValues.get(j) && debug)
+                int oldValue = result[indexInSyllable];
+                int newValue = newValues.get(j);
+                if ((oldValue > INVALID_COMP) &&
+                    (oldValue != newValue) && debug)
                 {
                     // remove leading char count for dump
                     Integer[] sylIndices = compValues.subList(1, 
@@ -431,7 +434,8 @@ public class SyllableConverter extends ReversibleConverter
         for (int i = 0; i<compValues.length; i++)
         {
             Component comp = scripts[side].getSyllableComponent(i);
-            if (compValues[i] < 0) orig.append(UNKNOWN_CHAR);
+            if (compValues[i].intValue() < 0) 
+              orig.append(UNKNOWN_CHAR);
             else orig.append(comp.getComponentValue(compValues[i]));
         }
         return orig.toString();
@@ -450,7 +454,8 @@ public class SyllableConverter extends ReversibleConverter
         for (int i = 0; i<compValues.length; i++)
         {
             Component comp = scripts[side].getSyllableComponent(i);
-            if (compValues[i] < 0) orig.append(UNKNOWN_CHAR);
+            if (compValues[i].intValue() < 0) 
+              orig.append(UNKNOWN_CHAR);
             else orig.append(comp.getComponentValue(compValues[i]));
             orig.append('|');
         }

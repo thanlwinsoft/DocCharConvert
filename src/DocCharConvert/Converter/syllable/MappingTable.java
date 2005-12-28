@@ -203,7 +203,7 @@ public class MappingTable
         assert (oldArray.size() == newArray.size());
         for (int i = 0; i<oldArray.size(); i++)
         {
-            if (oldArray.get(i) != newArray.get(i))
+            if (oldArray.get(i).intValue() != newArray.get(i).intValue())
             {   
                 newArray.set(i, AMBIGUOUS);
             }
