@@ -17,14 +17,14 @@
 <name>Mien Lao</name>
 <!-- Mien Lao -->
 <cluster side="right" id="syllable">
-  <component id="lp" min="0"/><!--pre-syllable -->
-  <component id="lvp" min="0"/><!--pre-vowel -->
-  <component id="lc" min="0"/><!--consonant -->
+  <component id="lp" min="0" priority="30"/><!--pre-syllable -->
+  <component id="lvp" min="0" priority="50"/><!--pre-vowel -->
+  <component id="lc" min="0" priority="50"/><!--consonant -->
   <component id="ls" min="0" priority="10"/><!--semi-vowel -->
-  <component id="lvu" min="0"/><!--vowel-above -->
-  <component id="lvd" min="0"/><!--vowel-below -->
-  <component id="lt" min="0"/><!--tone -->
-  <component id="lva" min="0"/><!--vowel-after -->
+  <component id="lvu" min="0" priority="20"/><!--vowel-above -->
+  <component id="lvd" min="0" priority="50"/><!--vowel-below -->
+  <component id="lt" min="0" priority="50"/><!--tone -->
+  <component id="lva" min="0" priority="70"/><!--vowel-after -->
   <component id="lf" min="0"/><!--final -->
 </cluster>
 </script>
@@ -214,8 +214,12 @@
 <!-- Mid Consonants -->
 <m><!-- unmarked tone -->
 <!-- not sure about the final here! this stops it being ambiguous in reverse -->
-<c r="c" class="midCons"/> <c r="t"/><c r="f" class="anyFinal"/> 
-<c r="lc" class="midCons"/> <c r="lt" /><c r="lf" class="anyFinal"/>
+<c r="c" class="midCons"/> <c r="t"/><c r="f" class="mnngFinal"/> 
+<c r="lc" class="midCons"/> <c r="lt" /><c r="lf" class="mnngFinal"/>
+</m>
+<m><!-- unmarked tone -->
+<c r="c" class="midCons"/> <c r="t"/><c r="f"/> 
+<c r="lc" class="midCons"/> <c r="lt" /><c r="lf"/>
 </m>
 <m><!-- c tone, stop,glottal -->
 <c r="c" class="midCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
