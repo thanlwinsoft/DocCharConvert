@@ -209,7 +209,7 @@ public class SyllableConverter extends ReversibleConverter
                 {
                   String nextSylText = parseOutput.get(i + 1).getInputString();
                   // this is a bit of a hack to hard code space here!
-                    if ((nextSylText.equals(" ") ||
+                    if ((/*nextSylText.equals(" ") ||*/
                          nextSylText.equals(scripts[oldSide].getRepeatChar())) &&
                          s.equals(parseOutput.get(i+2)))
                     {

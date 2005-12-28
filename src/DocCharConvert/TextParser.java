@@ -105,7 +105,8 @@ public class TextParser implements DocCharConvert.DocInterface
                 String line = reader.readLine();
                 // remove byte order mark for now since it confuses
                 // converters 
-                if (line.length() > 0 && line.charAt(0) == '\ufeff' &&
+                if (line != null && line.length() > 0 && 
+                    line.charAt(0) == '\ufeff' &&
                     inputCharset == Charset.forName("UTF-8") )
                 {                  
                   line = line.substring(1,line.length());

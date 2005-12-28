@@ -85,10 +85,10 @@
 
 <class id="anyFinal">
 <component r="f">
-  <c>k</c><c>t</c><c>p</c><c>q</c><c>m</c><c>n</c><c>ng</c><c/>
+  <c>k</c><c>t</c><c>p</c><!--<c>q</c>--><c>m</c><c>n</c><c>ng</c><c/>
 </component>
 <component r="lf">
-    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><c/><c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/><c/>
+    <c hex="0e81"/><c hex="0e94"/><c hex="0e9a"/><!--<c/>--><c hex="0ea1"/><c hex="0e99"/><c hex="0e87"/><c/>
 </component>
 </class>
 
@@ -186,8 +186,13 @@
 <!-- Low Consonants -->
 <m><!-- unmarked tone -->
 <!-- not sure about the final here! it is ambiguous in reverse -->
-<c r="c" class="lowCons"/> <c r="t"/><c r="f" class="anyFinal"/> 
-<c r="lc" class="lowCons"/> <c r="lt"/><c r="lf" class="anyFinal"/>
+<c r="c" class="lowCons"/> <c r="t"/><c r="f" class="mnngFinal"/> 
+<c r="lc" class="lowCons"/> <c r="lt"/><c r="lf" class="mnngFinal"/>
+</m>
+<m><!-- unmarked tone -->
+  <!-- not sure about the final here! it is ambiguous in reverse -->
+  <c r="c" class="lowCons"/> <c r="t"/><c r="f"/> 
+  <c r="lc" class="lowCons"/> <c r="lt"/><c r="lf"/>
 </m>
 <m><!-- v tone, stop,glottal -->
 <c r="c" class="lowCons"/> <c r="t">v</c><c r="f" class="kptqFinal"/> 
@@ -231,8 +236,8 @@
 
 <!-- High Consonants -->
 <m><!-- unmarked tone -->
-<c r="c" class="highCons"/> <c r="t">x</c><c r="f" class="anyFinal"/> 
-<c r="lc" class="highCons"/> <c r="lt" /><c r="lf" class="anyFinal"/>
+  <c r="c" class="highCons"/> <c r="t">x</c><c r="f" class="mnngFinal"/> 
+  <c r="lc" class="highCons"/> <c r="lt" /><c r="lf" class="mnngFinal"/>
 </m>
 <m><!-- c tone, stop,glottal -->
 <c r="c" class="highCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
@@ -275,10 +280,12 @@
 <c r="v">a</c> <c r="f"/> 
 <c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb0"/><c r="lf"/>
 </m>
+<!--
 <m>
 <c r="v">a</c> <c r="f">q</c> 
 <c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb0"/><c r="lf"/>
 </m>
+-->
 <m>
 <c r="v">a</c> <c r="f">m</c> 
 <c r="lvp"/> <c r="lvu" /><c r="lvd"/> <c r="lva" hex="0eb3"/><c r="lf" />

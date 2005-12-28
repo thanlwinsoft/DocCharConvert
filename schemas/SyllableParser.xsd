@@ -2,10 +2,13 @@
 <xsd:schema targetNamespace="http://www.thanlwinsoft.org/schemas/SyllableParser" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xml:lang="en">
 <xsd:annotation>
   <xsd:documentation xml:lang="en">
-SyllableParser: A schema for definining a conversion between syllable structures in two different scripts.
+SyllableParser: A schema for defining a conversion between 
+syllable structures in two different scripts.
 Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:documentation>
 </xsd:annotation>
+
+<!-- Top level SyllableConverter element-->
 <xsd:element name="syllableConverter" type="SyllableConverter"/>
 
 <xsd:complexType name="SyllableConverter">
@@ -17,6 +20,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:sequence>
 </xsd:complexType>
 
+<!-- represents the information on the Syllable Structure in one script -->
 <xsd:complexType name="Script">
   <xsd:sequence>
     <xsd:element name="name" type="xsd:string"/>
@@ -26,6 +30,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   <xsd:attribute name="ignoreCase" type="xsd:boolean"/>
 </xsd:complexType>
 
+<!-- defines the cluster structure -->
 <xsd:complexType name="Cluster">
   <xsd:sequence>
     <xsd:element name="component" type="Component" maxOccurs="unbounded"/>
@@ -34,12 +39,14 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   <xsd:attribute name="side" type="side" use="optional"/>
 </xsd:complexType>
 
+<!-- Defines one component within a cluster -->
 <xsd:complexType name="Component" mixed="true">
   <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
   <xsd:attribute name="min" type="xsd:nonNegativeInteger"  use="optional"/>
   <xsd:attribute name="priority" type="xsd:positiveInteger" use="optional"/>
 </xsd:complexType>
 
+<!-- Defines a particular value that a referenced Component may take -->
 <xsd:complexType name="ComponentRef">
   <xsd:sequence>
     <xsd:element name="c" type="C" minOccurs="0" maxOccurs="unbounded"/>
@@ -48,7 +55,9 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   <xsd:attribute name="r" type="xsd:NMTOKEN" use="required"/>
 </xsd:complexType>
 
-
+<!-- An element to define special markers for representing repeat syllables 
+     This may be used in scripts like Thai and Lao
+     -->
 <xsd:complexType name="Repeat">
   <xsd:sequence>
     <xsd:element name="marker" type="Marker" maxOccurs="1"/>
@@ -56,6 +65,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:sequence>
 </xsd:complexType>
 
+<!-- A Marker which follows a syllable to indicate that it is duplicated. -->
 <xsd:complexType name="Marker">
   <xsd:simpleContent>
     <xsd:extension base="xsd:string">
@@ -65,6 +75,8 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:simpleContent>
 </xsd:complexType>
 
+<!-- The symbol used to separate 2 duplicate syllables in a script that does
+     not use a duplicate marker. -->
 <xsd:complexType name="Separator">
   <xsd:simpleContent>
     <xsd:extension base="xsd:string">
@@ -74,12 +86,15 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:simpleContent>
 </xsd:complexType>
 
+<!-- A container element for all the classes -->
 <xsd:complexType name="Classes">
   <xsd:sequence>
     <xsd:element name="class" type="Class" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:complexType>
 
+<!-- Defines a Class with a 1-to-1 mapping between a component
+     on one side and a component on the other -->
 <xsd:complexType name="Class">
   <xsd:sequence>
     <xsd:element name="component" type="ComponentRef" minOccurs="2" maxOccurs="2"/>
@@ -87,7 +102,8 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   <xsd:attribute name="id" type="xsd:NMTOKEN"/>
 </xsd:complexType>
 
-
+<!-- C is used in Classes and Tables to represent the specific value
+     that a Component may take in a specific context. -->
 <!-- This ought to be tightened up either hex or class or an 
      element with inner content should be used not a mixture -->
 <xsd:complexType name="C">
@@ -102,6 +118,8 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:simpleContent>
 </xsd:complexType>
 
+<!-- MappingTable containing information to map between components
+     on one side of the conversion and the other. -->
 <xsd:complexType name="MappingTable">
   <xsd:sequence>
     <xsd:element name="columns" type="Columns" />
@@ -110,24 +128,32 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
 </xsd:complexType>
 
+<!-- Columns provides a header for a MappingTable defining which components
+     are included in the table -->
 <xsd:complexType name="Columns">
   <xsd:sequence>
     <xsd:element name="component" type="ComponentRef" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:complexType>
 
+<!-- Maps contains all the actual mappings (rows) in the table -->
 <xsd:complexType name="Maps">
   <xsd:sequence>
     <xsd:element name="m" type="Map" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:complexType>
 
+<!-- A specific mapping between Component values on one side
+     and component values on the other side. It represents a row in the
+     mapping table. -->
 <xsd:complexType name="Map">
   <xsd:sequence>
     <xsd:element name="c" type="C" maxOccurs="unbounded"/>
   </xsd:sequence>
 </xsd:complexType>
 
+<!-- side defines the legal values for the side attribute 
+     used to distinguish the 2 sides of the mapping. -->
 <xsd:simpleType name="side">
   <xsd:restriction base="xsd:NMTOKEN">
     <xsd:enumeration value="left"/>
@@ -135,6 +161,9 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:restriction>
 </xsd:simpleType>
 
+<!-- A type to represent one or more 16 bit hex codes 
+     For the moment, it assumes all hex values will be
+     in lower case. -->
 <xsd:simpleType name="hex">
     <xsd:restriction base="xsd:string">
       <xsd:pattern value="[0-9a-f]{4}( [0-9a-f]{4})*"/>
