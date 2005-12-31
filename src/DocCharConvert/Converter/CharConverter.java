@@ -36,7 +36,7 @@ public interface CharConverter
     /**
      * Convert text using the converter
      * @param oldText original text
-     * @result converted text
+     * @return converted text
      */
     public String convert(String oldText) 
         throws FatalException, RecoverableException;

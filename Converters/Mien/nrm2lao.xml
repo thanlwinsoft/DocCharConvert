@@ -29,11 +29,20 @@
 </cluster>
 </script>
 
-<repeat>
-<marker side="right" hex="0ec6"/>
-<separator side="left">-</separator>
-</repeat>
+<checks>
+  <checker class="DocCharConvert.Converters.syllable.ExceptionList">
+    <arg>mienNrm2LaoExceptions.txt</arg>
+  </checker>
+  <checker class="DocCharConvert.Converters.syllable.MienSyllableSeparators">
+  </checker>
+  <checker class="DocCharConvert.Converters.syllable.CapitalizeSentences">
+  </checker>
+</checks>
 
+<repeat>
+  <marker side="right" hex="0ec6"/>
+  <separator side="left">-</separator>
+</repeat>
 
 <classes>
 
@@ -540,7 +549,7 @@
 </maps>
 </mappingTable>
 
-<!--<mappingTable id="vowel-tone" optional="true">
+<mappingTable id="vowel-tone" optional="true">
 <columns>
 <component r="v"/>
 <component r="t"/>
@@ -558,6 +567,6 @@
 <m><c r="v">ae</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
 <m><c r="v">e</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
 </maps>
-</mappingTable>-->
+</mappingTable>
 
 </syllableConverter>

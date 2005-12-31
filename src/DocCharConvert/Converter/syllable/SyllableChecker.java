@@ -1,7 +1,25 @@
 /*
- * SyllableChecker.java
+ *  Copyright (C) 2005 Keith Stribley <doccharconvert@thanlwinsoft.org>
  *
- * Created on December 31, 2005, 12:13 PM
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * -----------------------------------------------------------------------
+ * $HeadURL: $
+ * $LastChangedBy: keith $
+ * $LastChangedDate: $
+ * $LastChangedRevision: $
+ * -----------------------------------------------------------------------
  */
 
 package DocCharConvert.Converter.syllable;
@@ -15,5 +33,18 @@ import java.util.Vector;
  */
 public interface SyllableChecker
 {
-  public Vector <Syllable> checkSyllables(Vector <Syllable> syllables);
+  /**
+  * Checks the specified syllables, assuming that the first syllable 
+  * starts a sentence.
+  * @param syllables Vector of converted Syllables
+  * @param boolean flag to enable debug logging
+  */
+  public Vector <Syllable> checkSyllables(Vector <Syllable> syllables, boolean debug);
+  /**
+  * Generic initializer that may be used to set initialization variables
+  * in the checker if needed.
+  * @param args
+  * @return true if initialisation was successful
+  */
+  public boolean initialize(Object [] args);
 }

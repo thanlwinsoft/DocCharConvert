@@ -72,8 +72,8 @@ public class Script
     }
     /**
     * Add a component to this script
-    * @param id of component in XML
     * @param component object
+    * @return index of component
     */
     public int getComponentIndex(Component component)
     {
@@ -81,7 +81,9 @@ public class Script
     }
     /**
     * Obtains an interator over the components in this script. 
-    * The order returned should be the same in which the components were added.
+    * The order returned should be the same in which the components 
+    * were added.
+    * @return Component iterator
     */
     public Iterator<Component> getComponentIterator()
     {
@@ -114,10 +116,10 @@ public class Script
     }
     public boolean usesRepeater() { return repeater; }
     public String getRepeatChar() { return repeatChar; }
-    /** sets the repeater (isRepeater == true) or separator character 
-     *  (isRepeater == false)
+    /** sets the repeater (isRepeater == true) 
+     *  or separator character (isRepeater == false)
      * @param isRepeater 
-     * @param repeater or separator character
+     * @param repeat or separator character
      */
     public void setRepeatChar(boolean isRepeater, String repeat) 
     {

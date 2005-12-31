@@ -45,7 +45,7 @@ public class Component
     /** Creates a new instance of Component
      * @param script that this component refers to
      * @param id of this component used as a reference in the XML file
-     * @param description of component
+     * @param desc description of component
      */
     public Component(Script script, String id, String desc)
     {
@@ -100,7 +100,10 @@ public class Component
     {
         return entries.size();
     }
-    /** add value*/
+    /** add value and give it a unique id
+    * @param value
+    * @return reference index of value that will be used internally
+    */
     public int addValue(String value)
     {
       if (value.length() > maxLength) maxLength = value.length();

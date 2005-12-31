@@ -65,7 +65,9 @@ public class SyllableConverter extends ReversibleConverter
     private ExceptionList exceptionList = null;
     private Vector<SyllableChecker> checkers = null;
     /** Creates a new instance of SyllableConverter 
-     * @param XML config file
+     * @param xmlFile XML config file
+     * @param leftExceptions exceptions on the left side
+     * @param rightExceptions corresponding exceptions on right side
      */
     public SyllableConverter(File xmlFile, File leftExceptions, File rightExceptions)
     {
@@ -103,8 +105,8 @@ public class SyllableConverter extends ReversibleConverter
     }
     /**
      * Convert text using the converter - the main entry point for conversion
-     * @param oldText original text
-     * @result converted text
+     * @param inputText original text
+     * @return converted text
      */
     public String convert(String inputText) 
         throws FatalException, RecoverableException
@@ -157,7 +159,7 @@ public class SyllableConverter extends ReversibleConverter
     
     /**
      * loop over the syllable objects and output the converted string
-     * @param Vector of syllables and unknown characters
+     * @param origParseOutput Vector of syllables and unknown characters
      * @return converted String
      */
     protected String convertSyllables(Vector <Syllable> origParseOutput)
@@ -166,50 +168,10 @@ public class SyllableConverter extends ReversibleConverter
       Iterator <SyllableChecker> c = checkers.iterator();
       while (c.hasNext())
       {
-        parseOutput = c.next().checkSyllables(parseOutput);
+        parseOutput = c.next().checkSyllables(parseOutput, debug);
       }
       // loop over output doing some final checking 
-        for (int i = 0; i< parseOutput.size(); i++)
-        {
-            Syllable s = parseOutput.get(i);
-            int exLength = 0;
-            if (exceptionList != null)
-            {
-                int j = i;
-                StringBuffer exTest = new StringBuffer();
-                int lastExMatch = -1;
-                String lastInput = null;
-                String lastMatch = null;
-                do
-                {
-                    exTest.append(parseOutput.get(j).getInputString());
-                    exLength += parseOutput.get(j).oldLength();
-                    if (exceptionList.isException(oldSide, exTest.toString()))
-                    {
-                        lastExMatch = j - i;
-                        lastMatch = exceptionList.convert(oldSide, exTest.toString());
-                        if (debug)
-                        {
-                            System.out.println("Exception: " + exTest.toString() 
-                                               + " -> " + lastMatch);
-                        }
-                    }
-                } while (exLength < exceptionList.getMaxExceptionLength(oldSide) &&
-                         ++j < parseOutput.size());
-                // replace the syllables found in the exception list with one
-                // "unknown" syllable
-                if (lastExMatch > -1)
-                {
-                    Syllable exSyl = new Syllable(lastMatch);
-                    do
-                    {
-                      parseOutput.remove(i);
-                    } while (lastExMatch-- > 0);
-                    parseOutput.insertElementAt(exSyl, i);
-                    continue;
-                }
-            }
-        }
+        
         StringBuffer output = new StringBuffer();
         for (int i = 0; i< parseOutput.size(); i++)
         {
@@ -259,9 +221,9 @@ public class SyllableConverter extends ReversibleConverter
      * conversion.
      * @param text source text
      * @param offset of syllabe in source text
-     * @param Vector of possible syllables to choose from. 
-     * @result Syllable object representing the original and converted syllable
-     * or null of no conversion was found.
+     * @param syllables Vector of possible syllables to choose from. 
+     * @return Syllable object representing the original and converted
+     *  syllable or null of no conversion was found.
      */
     protected TreeSet<Syllable> chooseSyllable(String text, int offset, 
         Vector <Vector<Integer>> syllables)
@@ -338,11 +300,18 @@ public class SyllableConverter extends ReversibleConverter
     }
     
     /**
-     * element 0 of the compValues vector stores the cumulative length of the 
-     * syllable 
+     * Parses a syllable component.
+     * Element 0 of the compValues vector stores the cumulative 
+     * length of the syllable.
      * Subsequent elements record the index of the value which matched for that 
      * component. There may be several matches for a given component if it is 
      * of variable length.
+     * @param script
+     * @param text
+     * @param offset into text
+     * @param cIndex index of cluster component
+     * @param compValues running vector of component values for syllable
+     * @return vector of component Values updated with this component
      */
     protected Vector  <Vector<Integer>> parseSyllableComponent(Script script, 
         String text, int offset, int cIndex, Vector<Integer>compValues)
@@ -374,11 +343,11 @@ public class SyllableConverter extends ReversibleConverter
         return candidates;
     }
     /**
-     * convert the syllable from one script to the other in terms of reference 
-     * indices used in the Component objects.
-     * @param Vector of indices of components of syllable on original side 
-     * (first value is the length of the syllable in Characters
-     * @result array of indices of components of syllable on destination side
+     * Convert the syllable from one script to the other 
+     * in terms of reference indices used in the Component objects.
+     * @param compValues of indices of components of syllable on original
+     *  side (first value is the length of the syllable in Characters)
+     * @return array of indices of components of syllable on destination side
      */
     protected Integer[] convertSyllable(Vector<Integer>compValues)
     {
@@ -451,8 +420,8 @@ public class SyllableConverter extends ReversibleConverter
      * Convert the list of reference indices representing the syllable into a
      * human readable string or the output string.
      * @param side of conversion LEFT or RIGHT
-     * @param integer of refrences indices of component values
-     * @result Output string
+     * @param compValues integer of refrences indices of component values
+     * @return Output string
      */
     protected String dumpSyllable(int side, Integer [] compValues)
     {
@@ -471,8 +440,8 @@ public class SyllableConverter extends ReversibleConverter
      * Convert the list of reference indices representing the syllable into a
      * human readable string or the output string.
      * @param side of conversion LEFT or RIGHT
-     * @param integer of refrences indices of component values
-     * @result Output string
+     * @param compValues integer of references indices of component values
+     * @return Output string
      */
     protected String dumpDebugSyllable(int side, Integer [] compValues)
     {
@@ -491,7 +460,7 @@ public class SyllableConverter extends ReversibleConverter
      * in the syllable that can be retrieved from the script
      * @param table
      * @param side LEFT or RIGHT
-     * @param index of column in table on side
+     * @param i index of column in table on side
      * @return index of component in syllable
      */
     protected int mapId2ScriptId(MappingTable table, int side, int i)
@@ -544,6 +513,7 @@ public class SyllableConverter extends ReversibleConverter
                 exceptionList.ignoreCase(scripts[0].ignoreCase(), 
                                          scripts[1].ignoreCase());
                 exceptionList.load();
+                checkers.add(exceptionList);
             }
             catch (java.io.IOException e)
             {
@@ -561,44 +531,5 @@ public class SyllableConverter extends ReversibleConverter
         
     }
     
-    /**
-     * Adds the checker with the given className
-     * The checker must be in the classpath and implement the SyllableChecker
-     * interface.
-     * e.g. doccharconvert.converter.syllableconverter.CapitalizeSentences
-     * @param full binary class name 
-     * @return true if class was loaded successfully
-     */
-    public boolean addChecker(String className)
-    {
-      boolean added = false;
-      try
-      {
-        Class c = ClassLoader.getSystemClassLoader().loadClass(className);
-        Object instance = c.newInstance();
-        if (instance instanceof SyllableChecker)
-        {
-          SyllableChecker checker = (SyllableChecker)instance;
-          checkers.add(checker);
-          added = true;
-        }
-      }
-      catch (ClassNotFoundException e)
-      {
-        System.out.println(e);
-      }
-      catch (InstantiationException e)
-      {
-        System.out.println(e);
-      }
-      catch (IllegalAccessException e)
-      {
-        System.out.println(e);
-      }
-      catch (java.lang.NoSuchMethodError e)
-      {
-        System.out.println(e);
-      }
-      return added;
-    }
+    
 }

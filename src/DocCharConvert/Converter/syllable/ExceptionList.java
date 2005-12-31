@@ -26,6 +26,7 @@ package DocCharConvert.Converter.syllable;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Vector;
 import java.text.MessageFormat;
 import java.io.File;
 import java.io.BufferedReader;
@@ -38,7 +39,7 @@ import DocCharConvert.Config;
  *
  * @author keith
  */
-public class ExceptionList
+public class ExceptionList implements SyllableChecker
 {
     HashMap<String, String> leftExceptions = null;
     HashMap<String, String> rightExceptions = null;
@@ -229,5 +230,97 @@ public class ExceptionList
     {
       caseInsensitive[0] = left;
       caseInsensitive[1] = right;
+    }
+    /** 
+    * apply the exceptions to the given Syllable list
+    */
+    public Vector <Syllable> checkSyllables(Vector <Syllable> syllables, boolean debug)
+    {
+      ExceptionList exceptionList = this;
+      Vector <Syllable> parseOutput = syllables;
+      for (int i = 0; i< parseOutput.size(); i++)
+        {
+            Syllable s = parseOutput.get(i);
+            int exLength = 0;
+            if (exceptionList != null)
+            {
+                int j = i;
+                StringBuffer exTest = new StringBuffer();
+                int lastExMatch = -1;
+                String lastInput = null;
+                String lastMatch = null;
+                do
+                {
+                    exTest.append(parseOutput.get(j).getInputString());
+                    exLength += parseOutput.get(j).oldLength();
+                    if (exceptionList.isException(s.getOldSide(), exTest.toString()))
+                    {
+                        lastExMatch = j - i;
+                        lastMatch = exceptionList.convert(s.getOldSide(), exTest.toString());
+                        if (debug)
+                        {
+                            System.out.println("Exception: " + exTest.toString() 
+                                               + " -> " + lastMatch);
+                        }
+                    }
+                } while (exLength < exceptionList.getMaxExceptionLength(s.getOldSide()) &&
+                         ++j < parseOutput.size());
+                // replace the syllables found in the exception list with one
+                // "unknown" syllable
+                if (lastExMatch > -1)
+                {
+                    Syllable exSyl = new Syllable(lastMatch);
+                    do
+                    {
+                      parseOutput.remove(i);
+                    } while (lastExMatch-- > 0);
+                    parseOutput.insertElementAt(exSyl, i);
+                    continue;
+                }
+            }
+        }
+        return parseOutput;
+    }
+    /**
+    * Initialisation using SyllableChecker interface method.
+    * @param array that is assumed to specify the files containing
+    * the exceptions.
+    * @return true if initialisation succeeded
+    */
+    public boolean initialize(Object [] args)
+    {
+      boolean initOk = false;
+      switch (args.length)
+      {
+        case 0:
+          initOk = true;
+          break;
+        case 2:
+          if (args[1] instanceof File)
+            files[1] = (File)args[1];
+          else files[1] = new File(args[1].toString());
+          // deliberate fall through
+        case 1:
+          if (args[0] instanceof File)
+            files[0] = (File)args[0];
+          else files[0] = new File(args[0].toString());
+          try
+          {
+            load();
+            initOk = true;
+          }
+          catch (IOException e)
+          {
+            System.out.println(e.getMessage());
+          }
+          catch (CharConverter.FatalException e)
+          {
+            System.out.println(e.getMessage());
+          }
+          break;
+        default:
+          System.out.println("exceptionlist does not support " + args.length + " args");
+      }
+      return initOk;
     }
 }

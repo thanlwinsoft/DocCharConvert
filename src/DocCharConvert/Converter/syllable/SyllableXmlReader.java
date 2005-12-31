@@ -71,7 +71,10 @@ public class SyllableXmlReader
   private final String REPEAT_NODE = "repeat";
   private final String MARKER_NODE= "marker";
   private final String SEPARATOR_NODE = "separator";
-  
+  private final String CHECKS_NODE = "checks";
+  private final String CHECKER_NODE = "checker";
+  private final String ARG_NODE = "arg";
+
   private final String SIDE_ATTR = "side";
   private final String ID_ATTR = "id";
   private final String MIN_ATTR = "min";
@@ -81,18 +84,19 @@ public class SyllableXmlReader
   private final String PRIORITY_ATTR = "priority";
   private final String IGNORE_CASE_ATTR = "ignoreCase";
   private final String OPTIONAL_ATTR = "optional";
-  
+
   private final String LEFT = "left";
   private final String RIGHT = "right";
   private final String TRUE = "true";
-  
+
   private ResourceBundle rb = null;
-  private     org.w3c.dom.Document doc = null;
+  private org.w3c.dom.Document doc = null;
   private MessageFormat mf = null;
   private final int CLASS_REF = -2;
   private Vector <MappingTable> mappingTable = null;
+  private Vector<SyllableChecker> checkers = null;
   private boolean debug = false;
-  
+
   public SyllableXmlReader(File xmlFile, boolean debug)
   {
     this.errorLog = new StringBuffer();
@@ -101,7 +105,9 @@ public class SyllableXmlReader
     rb = Config.getCurrent().getMsgResource();
     mf = new MessageFormat("");
     mappingTable = new Vector<MappingTable>();
+    checkers = new Vector<SyllableChecker>();
   }
+
   public boolean parse()
   {
     try 
@@ -183,7 +189,7 @@ public class SyllableXmlReader
         Object [] args = { new Integer(scriptsList.getLength()) };
         errorLog.append(mf.format(rb.getString("expected2Conv"),args)); 
         errorLog.append('\n');
-        return false;       
+        return false;
       }
       // parse script tags
       for (int i = 0; i<scriptsList.getLength(); i++)
@@ -584,7 +590,7 @@ public class SyllableXmlReader
       for (int j = 0; j<compList.getLength(); j++)
       {
         Component component = componentFromRefAttribute(compList.item(j));
-        if (component != null) components.add(component);      
+        if (component != null) components.add(component); 
       }
       NodeList mapsList = tableElement.getElementsByTagName(MAPS_NODE);
       if (mapsList.getLength() != 1)
@@ -729,6 +735,62 @@ public class SyllableXmlReader
     } // for (int i = 0; i<tableList.getLength(); i++)
     return true;
   }
+
+  protected boolean parseChecks()
+  {
+    NodeList checks = doc.getElementsByTagName(CHECKS_NODE);
+    for (int i = 0; i<checks.getLength(); i++)
+    {
+      Element checker = (Element)checks.item(i);
+      if (checker.getNodeName().equals(CHECKER_NODE))
+      {
+          if (checker.hasAttribute(CLASS_ATTR))
+          {
+            String className = checker.getAttribute(CLASS_ATTR);
+            Object [] checkerArgs = null;
+            if (checker.hasChildNodes())
+            {
+              NodeList argNodes = checker.getChildNodes();
+              checkerArgs = new String[argNodes.getLength()];
+              for (int a = 0; a<argNodes.getLength(); a++)
+              {
+                Node arg = argNodes.item(a);
+                if (arg.getNodeName().equals(ARG_NODE))
+                {
+                  checkerArgs[a] = arg.getTextContent();
+                }
+                else
+                {
+                  Object [] args = { arg.getNodeName() };
+                  errorLog.append(mf.format(rb.getString("unexpectedNode"),
+                                  args));
+                }
+              }
+            }
+            if (!addChecker(className, checkerArgs))
+            {
+              Object [] args = { className};
+              errorLog.append(mf.format(rb.getString("invalidChecker"),
+                              args));
+            }
+          }
+          else
+          {
+            Object [] args = { 
+              new String(CLASS_ATTR), new String(CHECKER_NODE)
+            };
+            errorLog.append(mf.format(rb.getString("missingAttribute"), args));
+          }
+      }
+      else
+      {
+        Object [] args = { checker.getNodeName() };
+        errorLog.append(mf.format(rb.getString("unexpectedNode"), args));
+      }
+    }
+    return true;
+  }
+
   /**
   * Get script objects if they have been loaded
   * @return scripts loaded from file Array will always be size 2
@@ -746,5 +808,51 @@ public class SyllableXmlReader
     String error = errorLog.toString();
     errorLog.delete(0,errorLog.length());
     return error;
+  }
+  public Vector<SyllableChecker> getCheckers() { return checkers;}
+  /**
+     * Adds the checker with the given className
+     * The checker must be in the classpath and implement the SyllableChecker
+     * interface.
+     * e.g. doccharconvert.converter.syllableconverter.CapitalizeSentences
+     * @param className full binary class name 
+     * @return true if class was loaded successfully
+     */
+  public boolean addChecker(String className, Object [] args)
+  {
+    boolean added = false;
+    try
+    {
+      Class c = ClassLoader.getSystemClassLoader().loadClass(className);
+      Object instance = c.newInstance();
+      if (instance instanceof SyllableChecker)
+      {
+        SyllableChecker checker = (SyllableChecker)instance;
+        added = checker.initialize(args);
+        if (added)
+          checkers.add(checker);
+      }
+    }
+    catch (ClassNotFoundException e)
+    {
+      System.out.println(e);
+      errorLog.append(e.getLocalizedMessage());
+    }
+    catch (InstantiationException e)
+    {
+      System.out.println(e);
+      errorLog.append(e.getLocalizedMessage());
+    }
+    catch (IllegalAccessException e)
+    {
+      System.out.println(e);
+      errorLog.append(e.getLocalizedMessage());
+    }
+    catch (java.lang.NoSuchMethodError e)
+    {
+      System.out.println(e);
+      errorLog.append(e.getLocalizedMessage());
+    }
+    return added;
   }
 }

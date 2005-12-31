@@ -14,6 +14,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
 <xsd:complexType name="SyllableConverter">
   <xsd:sequence>
     <xsd:element name="script" minOccurs="2" maxOccurs="2" type="Script"/>
+    <xsd:element name="checks" type="Checks"/>
     <xsd:element name="repeat" minOccurs="0" type="Repeat"/>
     <xsd:element name="classes" type="Classes"/>
     <xsd:element name="mappingTable" type="MappingTable" maxOccurs="unbounded"/>
@@ -126,6 +127,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
     <xsd:element name="maps" type="Maps" />
   </xsd:sequence>
   <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
+  <xsd:attribute name="optional" type="xsd:boolean" use="optional"/>
 </xsd:complexType>
 
 <!-- Columns provides a header for a MappingTable defining which components
@@ -150,6 +152,23 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   <xsd:sequence>
     <xsd:element name="c" type="C" maxOccurs="unbounded"/>
   </xsd:sequence>
+</xsd:complexType>
+
+<!-- section to define additional classes to check Syllable conversions -->
+<xsd:complexType name="Checks">
+  <xsd:sequence>
+    <xsd:element name="checker" type="Checker"  minOccurs="0"
+                 maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+<!-- Checker represents one SyllableChecker class and associated arguments -->
+<xsd:complexType name="Checker">
+  <xsd:sequence>
+    <xsd:element name="arg" type="xsd:string" minOccurs="0"
+                 maxOccurs="unbounded"/>
+  </xsd:sequence>
+  <xsd:attribute name="class" type="xsd:string"/>
 </xsd:complexType>
 
 <!-- side defines the legal values for the side attribute 

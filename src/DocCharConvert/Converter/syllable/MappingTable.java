@@ -48,8 +48,6 @@ import DocCharConvert.Converter.SyllableConverter;
  */
 public class MappingTable
 {
-    
-    /** Creates a new instance of MappingTable */
     int [] leftMap;
     int [] rightMap;
     int leftMapSize = 1; 
@@ -68,7 +66,7 @@ public class MappingTable
     public static final int AMBIGUOUS = -3;
     /** Constructor for a mapping table. 
     * @param id name of table identifier used in XML file
-    * @columns array of components in the table
+    * @param columns array of components in the table
     * there must be components present from 2 scripts
     * 
     */
@@ -192,9 +190,9 @@ public class MappingTable
      * This methods sets the component index to AMBIGUOUS for all components
      * which differ. Another map must be specified in which this component is 
      * not ambiguous.
-     * @param newest set of component indices, 
-     * @param previous set of component indices
-     * @result combined set of component indices with AMBIGUOUS index set where
+     * @param newArray newest set of component indices, 
+     * @param oldArray previous set of component indices
+     * @return combined set of component indices with AMBIGUOUS index set where
      * the 2 arrays differ
      */
     protected List<Integer> setAmbiguousFlag(List <Integer> newArray, 
@@ -235,8 +233,8 @@ public class MappingTable
     /**
     * Retrieve the offset in the linear array for this entry.
     * This is used to convert the multidimensional entries into a linear offset.
-    * @param size of each column
-    * @param index in each dimension
+    * @param colSizes of each column
+    * @param entries in each dimension
     * @return index in linear array.
     */
     protected int getMapOffset(Vector <Integer> colSizes, Integer[] entries)
@@ -252,7 +250,7 @@ public class MappingTable
     }
     /**
     * Map from left to right
-    * @param values for each component in map on left hand side
+    * @param leftEntry values for each component in map on left hand side
     * @return corresponding values for each component in map on right hand side
     */
     public List<Integer> mapLeft2Right(Integer[] leftEntry)
@@ -268,7 +266,7 @@ public class MappingTable
     }
     /**
     * Map from right to left
-    * @param values for each component in map on right hand side
+    * @param rightEntry values for each component in map on right hand side
     * @return corresponding values for each component in map on left hand side
     */
     public List<Integer> mapRight2Left(Integer[] rightEntry)
@@ -286,7 +284,8 @@ public class MappingTable
     * Generic version of map, which allows the side to be parsed as an 
     * identifier
     * Map from side A to side b
-    * @param values for each component in map on side A
+    * @param sourceSide - side A
+    * @param entry for each component in map on side A
     * @return corresponding values for each component in map on side B
     */
     public List<Integer> map(int sourceSide, Integer[] entry)
