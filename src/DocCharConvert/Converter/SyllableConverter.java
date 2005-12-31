@@ -33,7 +33,9 @@ import DocCharConvert.Converter.syllable.Script;
 import DocCharConvert.Converter.syllable.Component;
 import DocCharConvert.Converter.syllable.ComponentClass;
 import DocCharConvert.Converter.syllable.MappingTable;
+import DocCharConvert.Converter.syllable.Syllable;
 import DocCharConvert.Converter.syllable.SyllableXmlReader;
+import DocCharConvert.Converter.syllable.SyllableChecker;
 import DocCharConvert.Converter.syllable.ExceptionList;
 
 /**
@@ -46,6 +48,7 @@ public class SyllableConverter extends ReversibleConverter
     Vector <MappingTable> mappingTables = null;
     public static final int LEFT = 0;
     public static final int RIGHT = 1;
+    public static final String UNKNOWN_CHAR = "??";
     private String name = null;
     protected boolean initOk = false;
     private File xmlFile = null;
@@ -54,16 +57,17 @@ public class SyllableConverter extends ReversibleConverter
     private int INVALID_COMP = -2;
     private long filetime = -1;
     private boolean debug = false;
-    private String UNKNOWN_CHAR = "??";
     private File leftExceptions = null;
     private File rightExceptions = null;
     private ExceptionList exceptionList = null;
+    private Vector<SyllableChecker> checkers = null;
     /** Creates a new instance of SyllableConverter 
      * @param XML config file
      */
     public SyllableConverter(File xmlFile, File leftExceptions, File rightExceptions)
     {
         construct(xmlFile, leftExceptions, rightExceptions);
+        checkers = new Vector<SyllableChecker>();
     }
 //    public SyllableConverter(File xmlFile)
 //    {
@@ -128,7 +132,8 @@ public class SyllableConverter extends ReversibleConverter
               }
               else
               {
-                  Syllable syl = chooseSyllable(oldText, offset, syllables);
+                  Vector <Syllable> options = chooseSyllable(oldText, offset, syllables);
+                  Syllable syl = options.get(0);
                   if (syl != null)
                   {
                     offset += syl.oldLength();
@@ -150,8 +155,15 @@ public class SyllableConverter extends ReversibleConverter
      * @param Vector of syllables and unknown characters
      * @return converted String
      */
-    protected String convertSyllables(Vector < Syllable> parseOutput)
+    protected String convertSyllables(Vector <Syllable> origParseOutput)
     {
+      Vector <Syllable> parseOutput = origParseOutput;
+      Iterator <SyllableChecker> c = checkers.iterator();
+      while (c.hasNext())
+      {
+        parseOutput = c.next().checkSyllables(parseOutput);
+      }
+      // loop over output doing some final checking 
         for (int i = 0; i< parseOutput.size(); i++)
         {
             Syllable s = parseOutput.get(i);
@@ -246,7 +258,7 @@ public class SyllableConverter extends ReversibleConverter
      * @result Syllable object representing the original and converted syllable
      * or null of no conversion was found.
      */
-    protected Syllable chooseSyllable(String text, int offset, 
+    protected Vector<Syllable> chooseSyllable(String text, int offset, 
         Vector <Vector<Integer>> syllables)
     {
         // choose the longest syllable
@@ -256,6 +268,7 @@ public class SyllableConverter extends ReversibleConverter
         Vector <Integer> longest = syl.next(); // ignore null result
         int length = 0;
         int longestPriority = 0;
+        Vector<Syllable> results = null;
         Syllable result = null;
         while (syl.hasNext())
         {
@@ -277,13 +290,13 @@ public class SyllableConverter extends ReversibleConverter
                     longest = testSyl;
                     if (length > text.length())
                         length = text.length();
-                    result = new Syllable(longest, 
+                    result = new Syllable(scripts, oldSide, longest, 
                         text.substring(offset, offset + length), conversion);
                     longestPriority = result.getPriority();
                 }
                 else if (testLength > 0 && testLength == length)
                 {
-                  Syllable test = new Syllable(testSyl, 
+                  Syllable test = new Syllable(scripts, oldSide, testSyl, 
                         text.substring(offset, offset + testLength), conversion);
                   int testPriority = test.getPriority();
                   if (testPriority > longestPriority)
@@ -291,6 +304,7 @@ public class SyllableConverter extends ReversibleConverter
                     result = test;
                     longest = testSyl;
                     longestPriority = testPriority;
+                    results.add(test);
                   }
                   else if (testPriority == longestPriority && debug)
                   {
@@ -303,12 +317,13 @@ public class SyllableConverter extends ReversibleConverter
                         " or " + testSyl.toString() + result.getPriority() +
                         dumpDebugSyllable(oldSide, testSyl.subList(1, 
                                      testSyl.size()).toArray(new Integer[0])));
+                    results.add(test);
                   }
                 }
             }
         }
         if (debug) System.out.println("Chose: " + longest.toString());
-        return result;
+        return results;
     }
     
     /**
@@ -534,52 +549,45 @@ public class SyllableConverter extends ReversibleConverter
         
         
     }
+    
     /**
-     * Helper class to hold properties of a syllable.
+     * Adds the checker with the given className
+     * The checker must be in the classpath and implement the SyllableChecker
+     * interface.
+     * e.g. doccharconvert.converter.syllableconverter.CapitalizeSentences
+     * @param full binary class name 
+     * @return true if class was loaded successfully
      */
-    protected class Syllable
+    public boolean addChecker(String className)
     {
-        boolean known = true;
-        String text = "";
-        Vector <Integer> syllable = null;
-        Integer [] result = null;
-        public Syllable(Vector<Integer> syllable, String orig, Integer [] result) 
+      boolean added = false;
+      try
+      {
+        Class c = ClassLoader.getSystemClassLoader().loadClass(className);
+        Object instance = c.newInstance();
+        if (instance instanceof SyllableChecker)
         {
-            this.text = orig;
-            this.syllable = syllable;
-            this.result = result;
+          SyllableChecker checker = (SyllableChecker)instance;
+          checkers.add(checker);
+          added = true;
         }
-        public Syllable (String unknown)
-        {
-            this.text = unknown;
-            this.known = false;
-        }
-        public boolean isKnown() { return known; }
-        public int oldLength() { return text.length(); }
-        public Integer [] getConversionResult() { return result; }
-        public String getInputString() { return text; }
-        public boolean equals(Syllable syl)
-        {
-            if (syl == null) return false;
-            return text.equals(syl.getInputString());
-        }
-        /* 
-        * Priority = sum over each component of
-        * number of char matched in component * priority of component
-        */
-        public int getPriority()
-        {
-          int p = 0;
-          for (int i = 1; i<syllable.size(); i++)
-          {
-            if (syllable.get(i) > 0)
-            {
-              Component c = scripts[oldSide].getSyllableComponent(i - 1);
-              String value = c.getComponentValue(syllable.get(i));
-              p += c.getPriority() * value.length();
-            }
-          }
-          return p;
-        }
+      }
+      catch (ClassNotFoundException e)
+      {
+        System.out.println(e);
+      }
+      catch (InstantiationException e)
+      {
+        System.out.println(e);
+      }
+      catch (IllegalAccessException e)
+      {
+        System.out.println(e);
+      }
+      catch (java.lang.NoSuchMethodError e)
+      {
+        System.out.println(e);
+      }
+      return added;
     }
 }
