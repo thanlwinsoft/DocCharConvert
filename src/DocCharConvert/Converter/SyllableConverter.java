@@ -137,7 +137,8 @@ public class SyllableConverter extends ReversibleConverter
               {
                   SortedSet <Syllable> options = chooseSyllable(oldText, offset, syllables);
                   parseChoices.add(options); // may be useful for backtracking
-                  Syllable syl = options.first();
+                  Syllable syl = null;
+                  if (options.size() > 0) syl = options.first();
                   if (syl != null)
                   {
                     offset += syl.oldLength();
@@ -287,6 +288,10 @@ public class SyllableConverter extends ReversibleConverter
        
             if (conversion != null)
             {
+              int testLength = testSyl.elementAt(0);
+              if (testLength > 0)
+                results.add(new Syllable(scripts, oldSide, testSyl, 
+                    text.substring(offset, offset + testLength), conversion));
               /*
                 int testLength = testSyl.elementAt(0);
                 if ( testLength > length)
