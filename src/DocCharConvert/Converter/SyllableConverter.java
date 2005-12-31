@@ -28,12 +28,15 @@ import java.io.File;
 import java.util.Vector;
 import java.util.Iterator;
 import java.util.List;
+import java.util.TreeSet;
+import java.util.SortedSet;
 
 import DocCharConvert.Converter.syllable.Script;
 import DocCharConvert.Converter.syllable.Component;
 import DocCharConvert.Converter.syllable.ComponentClass;
 import DocCharConvert.Converter.syllable.MappingTable;
 import DocCharConvert.Converter.syllable.Syllable;
+import DocCharConvert.Converter.syllable.SyllableComparator;
 import DocCharConvert.Converter.syllable.SyllableXmlReader;
 import DocCharConvert.Converter.syllable.SyllableChecker;
 import DocCharConvert.Converter.syllable.ExceptionList;
@@ -67,7 +70,6 @@ public class SyllableConverter extends ReversibleConverter
     public SyllableConverter(File xmlFile, File leftExceptions, File rightExceptions)
     {
         construct(xmlFile, leftExceptions, rightExceptions);
-        checkers = new Vector<SyllableChecker>();
     }
 //    public SyllableConverter(File xmlFile)
 //    {
@@ -75,6 +77,7 @@ public class SyllableConverter extends ReversibleConverter
 //    }
     protected void construct(File xmlFile, File leftExceptions, File rightExceptions)
     {
+        this.checkers = new Vector<SyllableChecker>();
         this.scripts = new Script[2];
         this.xmlFile = xmlFile;
         this.leftExceptions = leftExceptions;
@@ -88,8 +91,7 @@ public class SyllableConverter extends ReversibleConverter
     
     public String getName()
     {
-        return name;
-        
+        return name;        
     }
     public void setName(String newName)
     {
@@ -115,7 +117,8 @@ public class SyllableConverter extends ReversibleConverter
         }
         String oldText = inputText;
         if (scripts[oldSide].ignoreCase()) oldText = inputText.toLowerCase();
-        Vector <Syllable> parseOutput = new Vector<Syllable>();       
+        Vector <Syllable> parseOutput = new Vector<Syllable>(); 
+        Vector <SortedSet<Syllable>> parseChoices = new Vector<SortedSet<Syllable>>();
         for (int offset = 0; offset < oldText.length(); )
         {
               Vector <Integer> syllable = 
@@ -132,8 +135,9 @@ public class SyllableConverter extends ReversibleConverter
               }
               else
               {
-                  Vector <Syllable> options = chooseSyllable(oldText, offset, syllables);
-                  Syllable syl = options.get(0);
+                  SortedSet <Syllable> options = chooseSyllable(oldText, offset, syllables);
+                  parseChoices.add(options); // may be useful for backtracking
+                  Syllable syl = options.first();
                   if (syl != null)
                   {
                     offset += syl.oldLength();
@@ -258,7 +262,7 @@ public class SyllableConverter extends ReversibleConverter
      * @result Syllable object representing the original and converted syllable
      * or null of no conversion was found.
      */
-    protected Vector<Syllable> chooseSyllable(String text, int offset, 
+    protected TreeSet<Syllable> chooseSyllable(String text, int offset, 
         Vector <Vector<Integer>> syllables)
     {
         // choose the longest syllable
@@ -268,7 +272,7 @@ public class SyllableConverter extends ReversibleConverter
         Vector <Integer> longest = syl.next(); // ignore null result
         int length = 0;
         int longestPriority = 0;
-        Vector<Syllable> results = null;
+        TreeSet<Syllable> results = new TreeSet<Syllable>(new SyllableComparator());
         Syllable result = null;
         while (syl.hasNext())
         {
@@ -283,6 +287,7 @@ public class SyllableConverter extends ReversibleConverter
        
             if (conversion != null)
             {
+              /*
                 int testLength = testSyl.elementAt(0);
                 if ( testLength > length)
                 {
@@ -320,6 +325,7 @@ public class SyllableConverter extends ReversibleConverter
                     results.add(test);
                   }
                 }
+               */
             }
         }
         if (debug) System.out.println("Chose: " + longest.toString());
