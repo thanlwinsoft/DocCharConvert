@@ -31,7 +31,9 @@
 
 <checks>
   <checker class="DocCharConvert.Converters.syllable.ExceptionList">
-    <arg>mienNrm2LaoExceptions.txt</arg>
+    <!--<arg>mienNrm2LaoExceptions.txt</arg>-->
+    <arg>Mien/mienNrm2LaoNrmExceptions.txt</arg>
+    <arg>Mien/mienNrm2LaoLaoUExceptions.txt</arg>
   </checker>
   <checker class="DocCharConvert.Converters.syllable.MienSyllableSeparators">
   </checker>

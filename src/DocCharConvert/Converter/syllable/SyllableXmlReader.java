@@ -170,6 +170,7 @@ public class SyllableXmlReader
         if (!parseMaps(false)) return false;
         // look for repeat tags
         if (!parseRepeats()) return false;
+        if (!parseChecks()) return false;
     }
     catch (ConflictException e)
     {
@@ -738,36 +739,47 @@ public class SyllableXmlReader
 
   protected boolean parseChecks()
   {
-    NodeList checks = doc.getElementsByTagName(CHECKS_NODE);
+    NodeList check = doc.getElementsByTagName(CHECKS_NODE);
+    if (check.getLength() != 1)
+    {
+      Object [] args = { 1, CHECKS_NODE, check.getLength() };
+      errorLog.append(mf.format(rb.getString("unexpectedNumTags"), args));
+      return false;
+    }
+    NodeList checks = check.item(0).getChildNodes();
     for (int i = 0; i<checks.getLength(); i++)
     {
+      if (checks.item(i).getNodeType() != Node.ELEMENT_NODE) continue;
       Element checker = (Element)checks.item(i);
       if (checker.getNodeName().equals(CHECKER_NODE))
       {
           if (checker.hasAttribute(CLASS_ATTR))
           {
             String className = checker.getAttribute(CLASS_ATTR);
-            Object [] checkerArgs = null;
+            Vector <Object> checkerArgs = new Vector<Object>();
             if (checker.hasChildNodes())
             {
               NodeList argNodes = checker.getChildNodes();
-              checkerArgs = new String[argNodes.getLength()];
+              checkerArgs = new Vector<Object>();
               for (int a = 0; a<argNodes.getLength(); a++)
               {
                 Node arg = argNodes.item(a);
-                if (arg.getNodeName().equals(ARG_NODE))
+                if (arg.getNodeType() == Node.ELEMENT_NODE)
                 {
-                  checkerArgs[a] = arg.getTextContent();
-                }
-                else
-                {
-                  Object [] args = { arg.getNodeName() };
-                  errorLog.append(mf.format(rb.getString("unexpectedNode"),
-                                  args));
+                  if (arg.getNodeName().equals(ARG_NODE))
+                  {
+                    checkerArgs.add(arg.getTextContent());
+                  }
+                  else
+                  {
+                    Object [] args = { arg.getNodeName() };
+                    errorLog.append(mf.format(rb.getString("unexpectedNode"),
+                                    args));
+                  }
                 }
               }
             }
-            if (!addChecker(className, checkerArgs))
+            if (!addChecker(className, checkerArgs.toArray()))
             {
               Object [] args = { className};
               errorLog.append(mf.format(rb.getString("invalidChecker"),

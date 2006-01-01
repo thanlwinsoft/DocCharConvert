@@ -499,6 +499,7 @@ public class SyllableConverter extends ReversibleConverter
         {
           scripts = reader.getScripts();
           mappingTables = reader.getMappingTables();
+          checkers = reader.getCheckers();
           initOk = true;
         }
         else
@@ -513,7 +514,7 @@ public class SyllableConverter extends ReversibleConverter
                 exceptionList.ignoreCase(scripts[0].ignoreCase(), 
                                          scripts[1].ignoreCase());
                 exceptionList.load();
-                checkers.add(exceptionList);
+                //checkers.add(exceptionList);
             }
             catch (java.io.IOException e)
             {
