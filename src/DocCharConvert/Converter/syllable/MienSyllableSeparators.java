@@ -34,9 +34,9 @@ public class MienSyllableSeparators implements SyllableChecker
   MienSyllableSeparators(){}
   // indices of components on NRM side
   static final int CONSONANT = 1;
-  static final int VOWEL = 3;
-  static final int TONE = 4;  
-  static final int FINAL = 5;
+  static final int VOWEL = 3;  
+  static final int FINAL = 4;
+  static final int TONE = 5;
 /**
   * Checks the specified syllables, assuming that the first syllable 
   * starts a sentence.

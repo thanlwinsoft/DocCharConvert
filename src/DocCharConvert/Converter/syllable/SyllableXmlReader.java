@@ -84,10 +84,12 @@ public class SyllableXmlReader
   private final String PRIORITY_ATTR = "priority";
   private final String IGNORE_CASE_ATTR = "ignoreCase";
   private final String OPTIONAL_ATTR = "optional";
+  private final String TYPE_ATTR = "type";
 
   private final String LEFT = "left";
   private final String RIGHT = "right";
   private final String TRUE = "true";
+  private final String FILE = "file";
 
   private ResourceBundle rb = null;
   private org.w3c.dom.Document doc = null;
@@ -768,7 +770,17 @@ public class SyllableXmlReader
                 {
                   if (arg.getNodeName().equals(ARG_NODE))
                   {
-                    checkerArgs.add(arg.getTextContent());
+                    Element eArg = (Element)arg;
+                    if (eArg.hasAttribute(TYPE_ATTR) && 
+                        eArg.getAttribute(TYPE_ATTR).equals(FILE))
+                    {
+                      checkerArgs.add(new File(xmlFile.getParentFile(),
+                                               eArg.getTextContent()));
+                    }
+                    else
+                    {
+                      checkerArgs.add(arg.getTextContent());
+                    }
                   }
                   else
                   {

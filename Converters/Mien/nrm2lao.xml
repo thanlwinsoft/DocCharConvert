@@ -30,14 +30,15 @@
 </script>
 
 <checks>
-  <checker class="DocCharConvert.Converters.syllable.ExceptionList">
+  <checker class="DocCharConvert.Converter.syllable.ExceptionList">
     <!--<arg>mienNrm2LaoExceptions.txt</arg>-->
-    <arg>Mien/mienNrm2LaoNrmExceptions.txt</arg>
-    <arg>Mien/mienNrm2LaoLaoUExceptions.txt</arg>
+    <!-- files must have path specified relative to this xml file -->
+    <arg type="file">mienNrm2LaoNrmExceptions.txt</arg>
+    <arg type="file">mienNrm2LaoLaoUExceptions.txt</arg>
   </checker>
-  <checker class="DocCharConvert.Converters.syllable.MienSyllableSeparators">
+  <checker class="DocCharConvert.Converter.syllable.MienSyllableSeparators">
   </checker>
-  <checker class="DocCharConvert.Converters.syllable.CapitalizeSentences">
+  <checker class="DocCharConvert.Converter.syllable.CapitalizeSentences">
   </checker>
 </checks>
 

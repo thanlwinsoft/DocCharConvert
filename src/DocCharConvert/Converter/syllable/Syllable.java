@@ -60,7 +60,8 @@ public class Syllable
   public Integer [] getConversionResult() { return result; }
   public Integer [] getOriginal() 
   { 
-    return syllable.toArray(new Integer[syllable.size()]); 
+    java.util.List <Integer> subList = syllable.subList(1, syllable.size());
+    return subList.toArray(new Integer[syllable.size() - 1]); 
   }
   public void setConversionResult(Integer [] newResult) { result = newResult; }
   public String getInputString() { return text; }

@@ -118,7 +118,8 @@ public class SyllableConverter extends ReversibleConverter
             newSide = 0;
         }
         String oldText = inputText;
-        if (scripts[oldSide].ignoreCase()) oldText = inputText.toLowerCase();
+        // case is handled inside parseSyllableComponent
+        //if (scripts[oldSide].ignoreCase()) oldText = inputText.toLowerCase();
         Vector <Syllable> parseOutput = new Vector<Syllable>(); 
         Vector <SortedSet<Syllable>> parseChoices = new Vector<SortedSet<Syllable>>();
         for (int offset = 0; offset < oldText.length(); )
@@ -323,6 +324,8 @@ public class SyllableConverter extends ReversibleConverter
                              (i <= text.length()); i++)
         {
             int valueIndex = comp.getIndex(text.substring(offset, i));
+            if (valueIndex == -1 && script.ignoreCase())
+              valueIndex = comp.getIndex(text.substring(offset, i).toLowerCase());
             if (valueIndex > -1)
             {
                 Vector<Integer>candidate = new Vector<Integer>(compValues);

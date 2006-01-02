@@ -47,6 +47,18 @@ public class ExceptionList implements SyllableChecker
     int [] maxLength = null;
     boolean [] caseInsensitive = { false, false }; 
     StringBuffer duplicates = null;
+    /** Empty constructor for use with SyllableChecker interface 
+     * initialize will be called to set the excepions files.
+     */
+    public ExceptionList()
+    {
+        this.leftExceptions = new  HashMap<String, String> ();
+        this.rightExceptions = new  HashMap<String, String> ();
+        maxLength = new int[2];
+        maxLength[0] = 0;
+        maxLength[1] = 0;
+        duplicates = new StringBuffer();
+    }
     /** Creates a new instance of ExceptionList */
     public ExceptionList(File leftExceptionsFile, File rightExceptionsFile)
     {
@@ -290,6 +302,7 @@ public class ExceptionList implements SyllableChecker
     public boolean initialize(Object [] args)
     {
       boolean initOk = false;
+      files = new File[args.length];
       switch (args.length)
       {
         case 0:
