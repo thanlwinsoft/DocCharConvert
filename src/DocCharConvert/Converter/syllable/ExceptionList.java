@@ -41,6 +41,9 @@ import DocCharConvert.Config;
  */
 public class ExceptionList implements SyllableChecker
 {
+    public final static String COMMENT_CHAR = "#";
+    public final static String DELIMIT_CHAR = "\t";
+    
     HashMap<String, String> leftExceptions = null;
     HashMap<String, String> rightExceptions = null;
     File [] files = null; 
@@ -92,7 +95,9 @@ public class ExceptionList implements SyllableChecker
         do
         {
           line = reader.readLine();
-          String [] words = line.split("\t");
+          if (line == null) break; 
+          if (line.startsWith(COMMENT_CHAR)) continue; // comment character
+          String [] words = line.split(DELIMIT_CHAR);
           if (words.length != 2)
           {
             // should both be NULL at same time
@@ -103,6 +108,8 @@ public class ExceptionList implements SyllableChecker
           }
           else
           {
+            maxLength[0] = words[0].length();
+            maxLength[1] = words[1].length();
             if (caseInsensitive[0]) 
               addException(leftExceptions,words[0].toLowerCase(), words[1]);
             else
@@ -145,6 +152,9 @@ public class ExceptionList implements SyllableChecker
             {
               break;
             }
+            if (line[0].startsWith(COMMENT_CHAR) &&
+                line[1].startsWith(COMMENT_CHAR))
+              continue;
             if (caseInsensitive[0]) 
               addException(leftExceptions,line[0].toLowerCase(), line[1]);
             else
@@ -246,7 +256,7 @@ public class ExceptionList implements SyllableChecker
     /** 
     * apply the exceptions to the given Syllable list
     */
-    public Vector <Syllable> checkSyllables(Vector <Syllable> syllables, boolean debug)
+    public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, boolean debug)
     {
       ExceptionList exceptionList = this;
       Vector <Syllable> parseOutput = syllables;
@@ -263,19 +273,22 @@ public class ExceptionList implements SyllableChecker
                 String lastMatch = null;
                 do
                 {
-                    exTest.append(parseOutput.get(j).getInputString());
-                    exLength += parseOutput.get(j).oldLength();
-                    if (exceptionList.isException(s.getOldSide(), exTest.toString()))
+                    if (caseInsensitive[oldSide])
+                      exTest.append(parseOutput.get(j).getOriginalString().toLowerCase());
+                    else
+                      exTest.append(parseOutput.get(j).getOriginalString());
+                    exLength += parseOutput.get(j).originalLength();
+                    if (exceptionList.isException(oldSide, exTest.toString()))
                     {
                         lastExMatch = j - i;
-                        lastMatch = exceptionList.convert(s.getOldSide(), exTest.toString());
+                        lastMatch = exceptionList.convert(oldSide, exTest.toString());
                         if (debug)
                         {
                             System.out.println("Exception: " + exTest.toString() 
                                                + " -> " + lastMatch);
                         }
                     }
-                } while (exLength < exceptionList.getMaxExceptionLength(s.getOldSide()) &&
+                } while (exLength < exceptionList.getMaxExceptionLength(oldSide) &&
                          ++j < parseOutput.size());
                 // replace the syllables found in the exception list with one
                 // "unknown" syllable
@@ -299,10 +312,11 @@ public class ExceptionList implements SyllableChecker
     * the exceptions.
     * @return true if initialisation succeeded
     */
-    public boolean initialize(Object [] args)
+    public boolean initialize(Script [] scripts, Object [] args)
     {
       boolean initOk = false;
       files = new File[args.length];
+      ignoreCase(scripts[0].ignoreCase(), scripts[1].ignoreCase());
       switch (args.length)
       {
         case 0:

@@ -40,6 +40,7 @@ public class CapitalizeSentences implements SyllableChecker
   private boolean assumeStart = true;
   private boolean lastState = true;
   private HashSet<String> ends;
+  private Script [] script = null;
   /** 
   * Constructor initialises with default English end of sentence markers.
   */
@@ -49,6 +50,7 @@ public class CapitalizeSentences implements SyllableChecker
     ends.add(new String("."));
     ends.add(new String("?"));
     ends.add(new String("!"));
+    script = new Script[2];
   }
   /**
   * Change the characters that are assumed to mark the end of a sentence.
@@ -65,18 +67,17 @@ public class CapitalizeSentences implements SyllableChecker
   * @param syllables Vector of converted Syllables
   * @param boolean flag to enable debug logging
   */
-  public Vector <Syllable> checkSyllables(Vector <Syllable> syllables, boolean debug)
+  public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, boolean debug)
   {
     boolean isStart = assumeStart;
     Iterator <Syllable> s = syllables.iterator();
-    assert (s.hasNext());
-    Syllable syllable = syllables.get(0);
+    int newSide = (oldSide > 0) ? 0 : 1;
     // only process if initial conversion ignored case
-    if (syllable.getNewScript().ignoreCase() == false) 
-      return syllables;
+    if (script[newSide].ignoreCase() == false) return syllables;
+    int index = 0;
     while (s.hasNext())
     {
-      syllable = s.next();
+      Syllable syllable = s.next();
       if (syllable.isKnown())
       {
         if (isStart)
@@ -89,8 +90,7 @@ public class CapitalizeSentences implements SyllableChecker
             first++;
             assert(first < result.length);
           }
-          Component firstComponent =
-            syllable.getNewScript().getSyllableComponent(first);
+          Component firstComponent =script[newSide].getSyllableComponent(first);
           String oldValue = firstComponent.getComponentValue(result[first]);
           String newValue = null;
           if (oldValue.length() > 1)
@@ -108,10 +108,23 @@ public class CapitalizeSentences implements SyllableChecker
           isStart = false;
         }
       }
-      else if (ends.contains(syllable.getInputString()))
+      else if (ends.contains(syllable.getOriginalString()))
       {
         isStart = true;
       }
+      else if (isStart)
+      {
+        String oldResult = syllable.getResultString();
+        if (Character.isLetter(oldResult.charAt(0)))
+        {
+          String newResult = oldResult.substring(0, 1).toUpperCase();
+          if (oldResult.length() > 1)
+            newResult += oldResult.substring(1);
+          syllables.set(index, new Syllable(newResult));
+          isStart = false;
+        }
+      }
+      index++;
     }
     lastState = isStart;
     return syllables;
@@ -139,8 +152,11 @@ public class CapitalizeSentences implements SyllableChecker
   * sentence markers (Object.toString() is used to retrieve them)
   * @return true if succeeded
   */
-  public boolean initialize(Object args[])
+  public boolean initialize(Script [] scripts, Object args[])
   {
+    this.script[0] = scripts[0];
+    this.script[1] = scripts[1];
+    
     if (args != null && args.length > 0)
     {
       ends = new HashSet<String>();

@@ -18,24 +18,24 @@
 <name>Mien Lao</name>
 <!-- Mien Lao -->
 <cluster side="right" id="syllable">
-  <component id="lp" min="0" priority="30"/><!--pre-syllable -->
-  <component id="lvp" min="0" priority="50"/><!--pre-vowel -->
-  <component id="lc" min="0" priority="50"/><!--consonant -->
-  <component id="ls" min="0" priority="10"/><!--semi-vowel -->
-  <component id="lvu" min="0" priority="20"/><!--vowel-above -->
-  <component id="lvd" min="0" priority="50"/><!--vowel-below -->
-  <component id="lt" min="0" priority="50"/><!--tone -->
-  <component id="lva" min="0" priority="70"/><!--vowel-after -->
-  <component id="lf" min="0"/><!--final -->
+  <component id="lp" min="0" priority="30">pre-syllable </component>
+  <component id="lvp" min="0" priority="50">pre-vowel </component>
+  <component id="lc" min="0" priority="50">consonant </component>
+  <component id="ls" min="0" priority="10">semi-vowel </component>
+  <component id="lvu" min="0" priority="20">vowel-above </component>
+  <component id="lvd" min="0" priority="50">vowel-below </component>
+  <component id="lt" min="0" priority="50">tone </component>
+  <component id="lva" min="0" priority="70">vowel-after </component>
+  <component id="lf" min="0">final </component>
 </cluster>
 </script>
 
 <checks>
   <checker class="DocCharConvert.Converter.syllable.ExceptionList">
-    <!--<arg>mienNrm2LaoExceptions.txt</arg>-->
+    <arg type="file">mienNrm2LaoExceptions.txt</arg>
     <!-- files must have path specified relative to this xml file -->
-    <arg type="file">mienNrm2LaoNrmExceptions.txt</arg>
-    <arg type="file">mienNrm2LaoLaoUExceptions.txt</arg>
+    <!--<arg type="file">mienNrm2LaoNrmExceptions.txt</arg>
+    <arg type="file">mienNrm2LaoLaoUExceptions.txt</arg>-->
   </checker>
   <checker class="DocCharConvert.Converter.syllable.MienSyllableSeparators">
   </checker>
@@ -234,7 +234,11 @@
 <c r="c" class="midCons"/> <c r="t"/><c r="f"/> 
 <c r="lc" class="midCons"/> <c r="lt" /><c r="lf"/>
 </m>
-<m><!-- c tone, stop,glottal -->
+<m><!-- c tone, glottal -->
+<c r="c" class="midCons"/> <c r="t">c</c><c r="f" /> 
+<c r="lc" class="midCons"/> <c r="lt"/><c r="lf" />
+</m>
+<m><!-- c tone, stop-->
 <c r="c" class="midCons"/> <c r="t">c</c><c r="f" class="kptqFinal"/> 
 <c r="lc" class="midCons"/> <c r="lt"/><c r="lf" class="kptqFinal"/>
 </m>
@@ -547,6 +551,7 @@
 <m><c r="p">ca'</c><c r="lp">ຖສະ</c></m>
 <m><c r="p">sa'</c><c r="lp">ສະ</c></m>
 <m><c r="p">nda'</c><c r="lp">ດະ</c></m>
+<m><c r="p">mbu'</c><c r="lp">ບຸ</c></m>
 <!--
 <m><c r="p"></c><c r="lp"></c></m>
 -->
@@ -560,6 +565,27 @@
 <component r="lt"/>
 </columns>
 <maps>
+<m><c r="v">a</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">aa</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">ai</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">aai</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">au</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">aau</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">ei</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">eu</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">iou</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">oi</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">ou</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">iu</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">ui</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+
+<m><c r="v">ueq</c><c r="t">c</c><c r="lt"/></m>
+<m><c r="v">erq</c><c r="t">c</c><c r="lt"/></m>
+<m><c r="v">ieq</c><c r="t">c</c><c r="lt"/></m>
+<m><c r="v">orq</c><c r="t">c</c><c r="lt"/></m>
+<m><c r="v">ueaq</c><c r="t">c</c><c r="lt"/></m>
+<m><c r="v">uoq</c><c r="t">c</c><c r="lt"/></m>
+
 <m><c r="v">uq</c><c r="t">c</c><c r="lt"/></m>
 <m><c r="v">iq</c><c r="t">c</c><c r="lt"/></m>
 <m><c r="v">oq</c><c r="t">c</c><c r="lt"/></m>
@@ -570,6 +596,13 @@
 <m><c r="v">o</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
 <m><c r="v">ae</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
 <m><c r="v">e</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+
+<m><c r="v">ue</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">er</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">ie</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">or</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">uea</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
+<m><c r="v">uo</c><c r="t">c</c><c r="lt" hex="0ec8"/></m>
 </maps>
 </mappingTable>
 

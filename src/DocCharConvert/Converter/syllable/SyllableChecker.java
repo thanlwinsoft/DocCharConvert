@@ -36,15 +36,16 @@ public interface SyllableChecker
   /**
   * Checks the specified syllables, assuming that the first syllable 
   * starts a sentence.
+  * @param oldSide 0=left, 1=right
   * @param syllables Vector of converted Syllables
   * @param boolean flag to enable debug logging
   */
-  public Vector <Syllable> checkSyllables(Vector <Syllable> syllables, boolean debug);
+  public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, boolean debug);
   /**
   * Generic initializer that may be used to set initialization variables
   * in the checker if needed.
   * @param args
   * @return true if initialisation was successful
   */
-  public boolean initialize(Object [] args);
+  public boolean initialize(Script [] scripts, Object [] args);
 }

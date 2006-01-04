@@ -20,12 +20,12 @@ public class SyllableComparator implements java.util.Comparator<Syllable>
 
   public int compare(Syllable a, Syllable b)
   {
-    int relative = b.oldLength() - a.oldLength();
+    int relative = b.originalLength() - a.originalLength();
     if (relative == 0)
     {
       relative = b.getPriority() - a.getPriority();
       if (relative == 0)
-        relative = b.getInputString().compareTo(b.getInputString());
+        relative = b.getOriginalString().compareTo(b.getOriginalString());
     }
     return relative;
   }

@@ -155,7 +155,9 @@ public class SyllableXmlReader
     {
         doc.normalize();
         Node topNode = doc.getFirstChild();
-        if (!topNode.getNodeName().equals(TOP_NODE) ||
+        while (topNode != null && topNode.getNodeType() != Node.ELEMENT_NODE)
+          topNode = topNode.getNextSibling();
+        if (topNode == null || !topNode.getNodeName().equals(TOP_NODE) ||
             topNode.getNodeType() != Node.ELEMENT_NODE) 
         {
             if (xmlFile != null) 
@@ -852,7 +854,7 @@ public class SyllableXmlReader
       if (instance instanceof SyllableChecker)
       {
         SyllableChecker checker = (SyllableChecker)instance;
-        added = checker.initialize(args);
+        added = checker.initialize(script, args);
         if (added)
           checkers.add(checker);
       }

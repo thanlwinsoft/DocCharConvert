@@ -56,7 +56,8 @@ public class Syllable
       this.known = false;
   }
   public boolean isKnown() { return known; }
-  public int oldLength() { return text.length(); }
+  public int originalLength() { return text.length(); }
+  public int resultLength() { return getResultString().length(); }
   public Integer [] getConversionResult() { return result; }
   public Integer [] getOriginal() 
   { 
@@ -64,11 +65,17 @@ public class Syllable
     return subList.toArray(new Integer[syllable.size() - 1]); 
   }
   public void setConversionResult(Integer [] newResult) { result = newResult; }
-  public String getInputString() { return text; }
+  public String getOriginalString() { return text; }
+  public String getResultString() 
+  {
+    if (known)
+      return dumpSyllable(); 
+    return text;
+  }
   public boolean equals(Syllable syl)
   {
       if (syl == null) return false;
-      return text.equals(syl.getInputString());
+      return text.equals(syl.getOriginalString());
   }
   /* 
   * Priority = sum over each component of
@@ -106,9 +113,11 @@ public class Syllable
       }
       return text.toString();
   }
-  public int getOldSide() { return oldSide; }
-  public int getNewSide() { return newSide; }
-  public Script getOldScript() { return scripts[oldSide]; }
-  public Script getNewScript() { return scripts[newSide]; }
+  // These methods won't work if the unknown constructor was used, client code
+  // should be able to get the script information from some where else anyway
+  //public int getOldSide() { return oldSide; }
+  //public int getNewSide() { return newSide; }
+  //public Script getOldScript() { return scripts[oldSide]; }
+  //public Script getNewScript() { return scripts[newSide]; }
 
 }

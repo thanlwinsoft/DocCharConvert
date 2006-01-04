@@ -31,7 +31,10 @@ import java.util.Vector;
 */
 public class MienSyllableSeparators implements SyllableChecker
 {
-  MienSyllableSeparators(){}
+  MienSyllableSeparators(){ script = new Script[2]; }
+  private Script[] script = null;
+  private int oldSide = 0;
+  private int newSide = 1;
   // indices of components on NRM side
   static final int CONSONANT = 1;
   static final int VOWEL = 3;  
@@ -44,11 +47,13 @@ public class MienSyllableSeparators implements SyllableChecker
   * @param boolean flag to enable debug logging
   * @return corrected Syllable Vector
   */
-  public Vector <Syllable> checkSyllables(Vector <Syllable> syllables, 
+  public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, 
                                           boolean debug)
   {
+    this.oldSide = oldSide;
+    this.newSide = (oldSide > 0) ? 0 : 1;
     assert(syllables.size() > 0);
-    if (syllables.get(0).getNewSide() == 1)
+    if (newSide == 1)
     {
       return insertCaretsAsNeeded(syllables);
     }
@@ -70,18 +75,18 @@ public class MienSyllableSeparators implements SyllableChecker
     {
       if (syllables.get(i).isKnown() && syllables.get(i - 2).isKnown() &&
           ! syllables.get(i - 1).isKnown() && 
-          syllables.get(i - 1).getInputString().equals(" "))
+          syllables.get(i - 1).getOriginalString().equals(" "))
       {
         // see if the 2 syllables meet the criteria for not having a caret
-        if (nrmNeedsCaret(syllables.get(i).getOldScript(),
+        if (nrmNeedsCaret(script[oldSide],
             syllables.get(i - 2).getOriginal(),
             syllables.get(i).getOriginal()) == false)
         {
           // May need to insert one, but only if this looks like it is a 
           // in the middle of other capitalised syllables that indicate 
           // a name.
-          char l = syllables.get(i - 2).getInputString().charAt(0);
-          char r = syllables.get(i).getInputString().charAt(0);
+          char l = syllables.get(i - 2).getOriginalString().charAt(0);
+          char r = syllables.get(i).getOriginalString().charAt(0);
           if (Character.isUpperCase(l) && Character.isUpperCase(r))
           {
             // it shouldn't have a caret in NRM, indeed it doesn't have a caret
@@ -106,18 +111,19 @@ public class MienSyllableSeparators implements SyllableChecker
     {
       if (syllables.get(i).isKnown() && syllables.get(i - 2).isKnown() &&
           ! syllables.get(i - 1).isKnown() && 
-          syllables.get(i - 1).getInputString().equals("^"))
+          syllables.get(i - 1).getOriginalString().equals("^"))
       {
-        if (nrmNeedsCaret(syllables.get(i).getNewScript(),
+        if (nrmNeedsCaret(script[newSide],
             syllables.get(i - 2).getConversionResult(),
             syllables.get(i).getConversionResult()) == false)
         {
           syllables.set(i - 1, new Syllable(" "));
+          // capitalize second syllable since it is separated by a space
+          capitalize(syllables.get(i));
         }
         // either way if it has a caret between it is probably a name
-        // and so needs capitalisation
+        // and so needs capitalisation of the first syllable
         capitalize(syllables.get(i - 2));
-        capitalize(syllables.get(i));
       }
     }
     return syllables;
@@ -139,8 +145,7 @@ public class MienSyllableSeparators implements SyllableChecker
       first++;
       assert(first < result.length);
     }
-    Component firstComponent =
-      syllable.getNewScript().getSyllableComponent(first);
+    Component firstComponent =script[newSide].getSyllableComponent(first);
     String oldValue = firstComponent.getComponentValue(result[first]);
     String newValue = null;
     if (oldValue.length() > 1)
@@ -190,5 +195,10 @@ public class MienSyllableSeparators implements SyllableChecker
   /** Initialize does nothing in this implementation 
   * @param args ignored
   */
-  public boolean initialize(Object [] args) { return true; }
+  public boolean initialize(Script [] scripts, Object [] args) 
+  { 
+    this.script[0] = scripts[0];
+    this.script[1] = scripts[1];
+    return true; 
+  }
 }

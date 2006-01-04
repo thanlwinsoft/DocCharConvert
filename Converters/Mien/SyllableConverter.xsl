@@ -59,7 +59,7 @@ border-left-width: 0.2em;
 
 border-top-color: #000000;
 border-top-style: solid;
-border-top-width: 2px;
+border-top-width: 4px;
 
 border-bottom-color: #000000;
 border-bottom-style: solid;
@@ -68,11 +68,12 @@ border-bottom-width: 2px;
 background-color: #ccccff;
 }
 h2 {
+border-top-width: 2px;
 border-bottom-width: 1px;
 }
 h3{
 border-top-width: 1px;
-border-bottom-width: 1px;
+border-bottom-width: 0px;
 }
 table {
   width: 100%;
@@ -111,6 +112,12 @@ th.right {
 }
 .right {
   background-color: #ccffcc;
+}
+hr {
+  border-style: solid;
+  border-color: black;
+  border-width: 0px;
+  border-top-width: 2px;
 }
 </style>
 <script type="text/javascript">
@@ -202,6 +209,8 @@ function fixHex()
 <h2 id="tables"><a href="#contents">Mapping Tables</a></h2>
 <xsl:apply-templates select="/sp:syllableConverter/sp:mappingTable"/>
 
+<hr/>
+<p><i>Generated directly from the configuration file using <tt>SyllableConverter.xsl</tt>.</i></p>
 </body>
 </html>
 </xsl:template>

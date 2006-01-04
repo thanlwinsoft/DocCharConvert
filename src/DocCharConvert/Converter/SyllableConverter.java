@@ -144,7 +144,7 @@ public class SyllableConverter extends ReversibleConverter
                   if (options.size() > 0) syl = options.first();
                   if (syl != null)
                   {
-                    offset += syl.oldLength();
+                    offset += syl.originalLength();
                     parseOutput.add(syl);
                   }
                   else
@@ -169,7 +169,7 @@ public class SyllableConverter extends ReversibleConverter
       Iterator <SyllableChecker> c = checkers.iterator();
       while (c.hasNext())
       {
-        parseOutput = c.next().checkSyllables(parseOutput, debug);
+        parseOutput = c.next().checkSyllables(oldSide, parseOutput, debug);
       }
       // loop over output doing some final checking 
         
@@ -179,15 +179,16 @@ public class SyllableConverter extends ReversibleConverter
           Syllable s = parseOutput.get(i);
           if (s.isKnown())
             {
-                String syllableText = dumpSyllable(newSide, s.getConversionResult());
+                //String syllableText = dumpSyllable(newSide, s.getConversionResult());
+                String syllableText = s.getResultString();
                 output.append(syllableText);
                 if (syllableText.contains(UNKNOWN_CHAR))
                     System.out.println("Ambiguous conversion:\t" + 
-                        s.getInputString() + '\t' + syllableText);
+                        s.getOriginalString() + '\t' + syllableText);
                 // repeat handling
                 if (scripts[newSide].usesRepeater() && i + 2 < parseOutput.size())
                 {
-                  String nextSylText = parseOutput.get(i + 1).getInputString();
+                  String nextSylText = parseOutput.get(i + 1).getOriginalString();
                   // this is a bit of a hack to hard code space here!
                     if ((/*nextSylText.equals(" ") ||*/
                          nextSylText.equals(scripts[oldSide].getRepeatChar())) &&
@@ -208,7 +209,7 @@ public class SyllableConverter extends ReversibleConverter
             }
             else 
             {
-                output.append(s.getInputString());
+                output.append(s.getOriginalString());
             }
         }
         return output.toString();
@@ -380,9 +381,13 @@ public class SyllableConverter extends ReversibleConverter
                     result[indexInSyllable] != INVALID_COMP) continue;
                 int oldValue = result[indexInSyllable];
                 int newValue = newValues.get(j);
-                if ((oldValue > INVALID_COMP) &&
-                    (oldValue != newValue) && debug)
-                {
+                // Don't let optional tables overwrite existing values
+                // They should only be used if there is an ambiguity
+                if (oldValue <= INVALID_COMP || 
+                    (oldValue != newValue && table.isOptional() == false))
+                {                  
+                  if (debug)
+                  {
                     // remove leading char count for dump
                     Integer[] sylIndices = compValues.subList(1, 
                         compValues.size()).toArray(new Integer[0]);
@@ -391,8 +396,9 @@ public class SyllableConverter extends ReversibleConverter
                                        " with " + 
                         scripts[newSide].getSyllableComponent(indexInSyllable)
                         .getComponentValue(newValues.get(j)));
+                  }                  
+                  result[indexInSyllable] = newValues.get(j);
                 }
-                result[indexInSyllable] = newValues.get(j);
             }
         }
         // now look for any unconverted components

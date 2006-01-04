@@ -63,7 +63,8 @@ public class Component
     */
     public String getComponentValue(int index)
     {
-        return entries.elementAt(index);
+        if (index >= 0) return entries.elementAt(index);
+        return "??";
     }
     /**
     * Retrieve the index of a given component value
