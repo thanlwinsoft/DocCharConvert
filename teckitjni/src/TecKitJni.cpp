@@ -1,4 +1,5 @@
-#include "DocCharConvert_Converter_TecKitJni.h"
+//#include "DocCharConvert_Converter_TecKitJni.h"
+#include "org_sil_scripts_teckit_TecKitJni.h"
 
 #include <jni.h>
 

@@ -190,7 +190,7 @@ public class SyllableConverter extends ReversibleConverter
                 {
                   String nextSylText = parseOutput.get(i + 1).getOriginalString();
                   // this is a bit of a hack to hard code space here!
-                    if ((/*nextSylText.equals(" ") ||*/
+                    if ((nextSylText.equals(" ") ||
                          nextSylText.equals(scripts[oldSide].getRepeatChar())) &&
                          s.equals(parseOutput.get(i+2)))
                     {
@@ -200,10 +200,11 @@ public class SyllableConverter extends ReversibleConverter
                 }
                 else if (scripts[oldSide].usesRepeater() && i + 1 < parseOutput.size())
                 {
-                    if (parseOutput.get(i + 1).equals(scripts[oldSide].getRepeatChar()))
+                    if (parseOutput.get(i + 1).getResultString().equals(scripts[oldSide].getRepeatChar()))
                     {
                         output.append(scripts[newSide].getRepeatChar());
                         output.append(dumpSyllable(newSide, s.getConversionResult()));
+                        i += 1; // ignore repeat char
                     }
                 }
             }

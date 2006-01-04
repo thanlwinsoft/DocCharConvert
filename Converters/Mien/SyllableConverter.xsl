@@ -127,11 +127,18 @@ function fixHex()
   for (var i = 0; i &lt; nodes.length; i++)
   {
     var node = nodes.item(i);
-    if (node.getAttribute('hexValue'))
+    if (node.hasAttribute('hexValue'))
     {
-      //var hexCode = node.innerHTML;
-      node.innerHTML = String.fromCharCode(node.getAttribute('decValue'));
       node.title = node.getAttribute('hexValue');
+      var hexCode = node.innerHTML;
+      if (node.hasAttribute('decValue'))
+      {
+        try {
+          var newValue = String.fromCharCode(node.getAttribute('decValue'));
+          if (node.innerHTML) node.innerHTML = newValue;
+        }
+        catch (e) { node.innerHTML = hexCode; }
+      }
     }
   }
 }

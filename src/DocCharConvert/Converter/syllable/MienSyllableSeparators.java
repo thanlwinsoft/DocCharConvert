@@ -66,14 +66,15 @@ public class MienSyllableSeparators implements SyllableChecker
   * Look for capitalized syllables separated by a space.
   * If they meet the criteria for droping the caret in NRM, 
   * then they should probably have one added going to Thai/Lao
-  * @param syllables going from Thai/Lao to NRM
+  * @param syllables going from NRM to Thai/Lao
   * @return converted syllable
   */
   protected Vector <Syllable> insertCaretsAsNeeded(Vector <Syllable> syllables)
   {
-    for (int i = 2; i < syllables.size(); i++)
+    for (int i = 1; i < syllables.size(); i++)
     {
-      if (syllables.get(i).isKnown() && syllables.get(i - 2).isKnown() &&
+      if (i > 1 && syllables.get(i).isKnown() && 
+          syllables.get(i - 2).isKnown() &&
           ! syllables.get(i - 1).isKnown() && 
           syllables.get(i - 1).getOriginalString().equals(" "))
       {
@@ -87,7 +88,9 @@ public class MienSyllableSeparators implements SyllableChecker
           // a name.
           char l = syllables.get(i - 2).getOriginalString().charAt(0);
           char r = syllables.get(i).getOriginalString().charAt(0);
-          if (Character.isUpperCase(l) && Character.isUpperCase(r))
+          if (Character.isUpperCase(r) && (Character.isUpperCase(l) ||
+              ((i - 2 > 0) &&
+               syllables.get(i - 3).getOriginalString().equals("^"))))
           {
             // it shouldn't have a caret in NRM, indeed it doesn't have a caret
             // in NRM, both syllables either side have capitals, so it 
@@ -95,6 +98,13 @@ public class MienSyllableSeparators implements SyllableChecker
             syllables.set(i - 1, new Syllable("^"));
           }
         }
+      }
+      else if (syllables.get(i).isKnown() && 
+               syllables.get(i - 1).isKnown())
+      {
+        // 2 known syllables must be separated by a caret in Lao
+        syllables.add(i, new Syllable("^"));
+        i++;
       }
     }
     return syllables;

@@ -32,6 +32,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import DocCharConvert.Converter.CharConverter.FatalException;
 import DocCharConvert.Converter.CharConverter;
 import DocCharConvert.Config;
 
@@ -48,7 +49,8 @@ public class ExceptionList implements SyllableChecker
     HashMap<String, String> rightExceptions = null;
     File [] files = null; 
     int [] maxLength = null;
-    boolean [] caseInsensitive = { false, false }; 
+    boolean [] caseInsensitive = { false, false };
+    long loadTime = 0;
     StringBuffer duplicates = null;
     /** Empty constructor for use with SyllableChecker interface 
      * initialize will be called to set the excepions files.
@@ -88,8 +90,12 @@ public class ExceptionList implements SyllableChecker
     }
     public void load() throws IOException, CharConverter.FatalException
     {
+      this.leftExceptions = new  HashMap<String, String> ();
+      this.rightExceptions = new  HashMap<String, String> ();
       if (files.length == 1)
       {
+        loadTime = files[0].lastModified();
+
         BufferedReader reader = new BufferedReader(new FileReader(files[0]));
         String line = null;
         do
@@ -129,7 +135,11 @@ public class ExceptionList implements SyllableChecker
           throw new CharConverter.FatalException(MessageFormat.format(msg, args));              
         }
       }
-      else load2Files();
+      else 
+      {
+         loadTime = Math.max(files[0].lastModified(), files[1].lastModified());
+         load2Files();
+      }
     }
     public void load2Files() throws IOException, CharConverter.FatalException
     {
@@ -258,6 +268,19 @@ public class ExceptionList implements SyllableChecker
     */
     public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, boolean debug)
     {
+      if (debug)
+      {
+        // reload if file has changed
+        try
+        {
+          if (files[0].lastModified() > loadTime) load();
+        }
+        catch (IOException e) { System.out.println(e.getMessage()); }
+        catch (FatalException e) 
+        { 
+          System.out.println(e.getMessage()); 
+        }
+      }
       ExceptionList exceptionList = this;
       Vector <Syllable> parseOutput = syllables;
       for (int i = 0; i< parseOutput.size(); i++)

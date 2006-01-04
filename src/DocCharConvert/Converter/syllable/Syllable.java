@@ -75,6 +75,10 @@ public class Syllable
   public boolean equals(Syllable syl)
   {
       if (syl == null) return false;
+      if (scripts != null && scripts[oldSide].ignoreCase())
+      {
+        return text.equalsIgnoreCase(syl.getOriginalString());
+      }
       return text.equals(syl.getOriginalString());
   }
   /* 
