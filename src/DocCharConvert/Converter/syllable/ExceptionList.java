@@ -108,8 +108,8 @@ public class ExceptionList implements SyllableChecker
           }
           else
           {
-            maxLength[0] = words[0].length();
-            maxLength[1] = words[1].length();
+            maxLength[0] = Math.max(maxLength[0],words[0].length());
+            maxLength[1] = Math.max(maxLength[1],words[1].length());
             if (caseInsensitive[0]) 
               addException(leftExceptions,words[0].toLowerCase(), words[1]);
             else
