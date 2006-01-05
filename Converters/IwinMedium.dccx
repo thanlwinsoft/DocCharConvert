@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DocCharConverter name="IWIN Medium">
-<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="IWinMedi.tec" type="File" />
 </ConverterClass>
 <Styles>

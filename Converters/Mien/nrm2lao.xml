@@ -31,15 +31,21 @@
 </script>
 
 <checks>
-  <checker class="DocCharConvert.Converter.syllable.ExceptionList">
+  <checker 
+   class="org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList">
     <arg type="file">mienNrm2LaoExceptions.txt</arg>
     <!-- files must have path specified relative to this xml file -->
     <!--<arg type="file">mienNrm2LaoNrmExceptions.txt</arg>
     <arg type="file">mienNrm2LaoLaoUExceptions.txt</arg>-->
   </checker>
-  <checker class="DocCharConvert.Converter.syllable.MienSyllableSeparators">
+  <checker 
+  class="org.thanlwinsoft.doccharconvert.converter.syllable.RepeatSyllables">
   </checker>
-  <checker class="DocCharConvert.Converter.syllable.CapitalizeSentences">
+  <checker
+   class="org.thanlwinsoft.doccharconvert.converter.syllable.MienSyllableSeparators">
+  </checker>
+  <checker
+   class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences">
   </checker>
 </checks>
 

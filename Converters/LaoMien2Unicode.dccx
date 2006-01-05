@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DocCharConverter name="MienLao to Lao Unicode">
-<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="laoMien2Unicode.tec" type="File" />
 </ConverterClass>
 <Styles>

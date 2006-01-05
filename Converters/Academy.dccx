@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DocCharConverter name="Academy" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
-<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="academy.tec" type="File" />
 </ConverterClass>
 <Styles>

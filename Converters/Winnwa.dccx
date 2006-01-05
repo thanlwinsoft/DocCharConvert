@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DocCharConverter name="WinMyanmar Fonts">
-<ConverterClass name="DocCharConvert.Converter.TecKitConverter">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="WinMyanmar.tec" type="File" />
 </ConverterClass>
 <Styles>
