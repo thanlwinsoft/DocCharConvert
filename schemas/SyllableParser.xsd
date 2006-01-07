@@ -165,10 +165,14 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
 <!-- Checker represents one SyllableChecker class and associated arguments -->
 <xsd:complexType name="Checker">
   <xsd:sequence>
-    <xsd:element name="arg" type="xsd:string" minOccurs="0"
+    <xsd:element name="arg" type="Argument" minOccurs="0"
                  maxOccurs="unbounded"/>
   </xsd:sequence>
   <xsd:attribute name="class" type="xsd:string"/>
+</xsd:complexType>
+
+<xsd:complexType name="Argument" mixed="true">
+	<xsd:attribute name="type" type="type" use="optional"/>
 </xsd:complexType>
 
 <!-- side defines the legal values for the side attribute 
@@ -178,6 +182,15 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
     <xsd:enumeration value="left"/>
     <xsd:enumeration value="right"/>
   </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="type">
+	<xsd:restriction base="xsd:NMTOKEN">
+		<xsd:enumeration value="file"/>
+		<xsd:enumeration value="int"/>
+		<xsd:enumeration value="float"/>
+		<xsd:enumeration value="double"/>
+	</xsd:restriction>
 </xsd:simpleType>
 
 <!-- A type to represent one or more 16 bit hex codes 
