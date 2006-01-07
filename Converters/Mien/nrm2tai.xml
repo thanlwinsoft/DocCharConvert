@@ -34,11 +34,10 @@
 	<checker class="DocCharConvert.Converter.syllable.ExceptionList">
 		<arg type="file">mienNrm2TaiExceptions.txt</arg>
 		<!-- files must have path specified relative to this xml file -->
-		<!--<arg type="file">mienNrm2LaoNrmExceptions.txt</arg>
-		<arg type="file">mienNrm2LaoLaoUExceptions.txt</arg>-->
 	</checker>
 	<checker class="DocCharConvert.Converter.syllable.MienSyllableSeparators">
-	</checker>
+		<arg>^</arg><arg>^</arg>
+   	</checker>
 	<checker class="DocCharConvert.Converter.syllable.CapitalizeSentences">
 	</checker>
 </checks>

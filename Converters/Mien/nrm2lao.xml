@@ -43,6 +43,7 @@
   </checker>
   <checker
    class="org.thanlwinsoft.doccharconvert.converter.syllable.MienSyllableSeparators">
+   <arg>^</arg><arg>^</arg>
   </checker>
   <checker
    class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences">
