@@ -31,10 +31,15 @@ import java.util.Vector;
 */
 public class MienSyllableSeparators implements SyllableChecker
 {
-  MienSyllableSeparators(){ script = new Script[2]; }
+  MienSyllableSeparators()
+  { 
+    script = new Script[2]; 
+    separators = new String[2];
+  }
   private Script[] script = null;
   private int oldSide = 0;
   private int newSide = 1;
+  private String [] separators = null;
   // indices of components on NRM side
   static final int CONSONANT = 1;
   static final int VOWEL = 3;  
@@ -90,12 +95,12 @@ public class MienSyllableSeparators implements SyllableChecker
           char r = syllables.get(i).getOriginalString().charAt(0);
           if (Character.isUpperCase(r) && (Character.isUpperCase(l) ||
               ((i - 2 > 0) &&
-               syllables.get(i - 3).getOriginalString().equals("^"))))
+               syllables.get(i - 3).getOriginalString().equals(separators[oldSide]))))
           {
             // it shouldn't have a caret in NRM, indeed it doesn't have a caret
             // in NRM, both syllables either side have capitals, so it 
             // should probably be one word in Thai or Lao - insert a caret
-            syllables.set(i - 1, new Syllable("^"));
+            syllables.set(i - 1, new Syllable(separators[newSide]));
           }
         }
       }
@@ -103,7 +108,7 @@ public class MienSyllableSeparators implements SyllableChecker
                syllables.get(i - 1).isKnown())
       {
         // 2 known syllables must be separated by a caret in Lao
-        syllables.add(i, new Syllable("^"));
+        syllables.add(i, new Syllable(separators[newSide]));
         i++;
       }
     }
@@ -121,7 +126,7 @@ public class MienSyllableSeparators implements SyllableChecker
     {
       if (syllables.get(i).isKnown() && syllables.get(i - 2).isKnown() &&
           ! syllables.get(i - 1).isKnown() && 
-          syllables.get(i - 1).getOriginalString().equals("^"))
+          syllables.get(i - 1).getOriginalString().equals(separators[oldSide]))
       {
         if (nrmNeedsCaret(script[newSide],
             syllables.get(i - 2).getConversionResult(),
@@ -131,9 +136,16 @@ public class MienSyllableSeparators implements SyllableChecker
           // capitalize second syllable since it is separated by a space
           capitalize(syllables.get(i));
         }
+        else if (!separators[oldSide].equals(separators[newSide]))
+        {
+          syllables.set(i - 1, new Syllable(separators[newSide]));
+        }
         // either way if it has a caret between it is probably a name
         // and so needs capitalisation of the first syllable
-        capitalize(syllables.get(i - 2));
+        if (i - 2 == 0 || !syllables.get(i - 3).getResultString().equals(separators[newSide]))
+        {
+          capitalize(syllables.get(i - 2));
+        }
       }
     }
     return syllables;
@@ -203,12 +215,18 @@ public class MienSyllableSeparators implements SyllableChecker
     return false;
   }
   /** Initialize does nothing in this implementation 
-  * @param args ignored
+  * @param args separators on left / right sides
   */
   public boolean initialize(Script [] scripts, Object [] args) 
   { 
     this.script[0] = scripts[0];
     this.script[1] = scripts[1];
-    return true; 
+    if (args.length == 2)
+    {
+      separators[0] = args[0].toString();
+      separators[1] = args[1].toString();
+      return true;
+    }
+    return false; 
   }
 }

@@ -30,6 +30,7 @@ public class TecKitJni
         {
             try
             {
+                // try first with the specified library path
                 File library = new File
                     (libraryPath, 
                     System.mapLibraryName(LIBRARY));
@@ -37,12 +38,22 @@ public class TecKitJni
                 System.out.println("Loaded " + System.mapLibraryName(LIBRARY));
                 libraryLoaded = true;
             }
-            catch (UnsatisfiedLinkError e)
+            catch (UnsatisfiedLinkError eFirst)
             {
-                System.out.println(e);
-                System.out.println(e.getMessage() + " " + 
-                    System.mapLibraryName(LIBRARY) + " " + 
-                    System.getProperty("java.library.path"));
+                // if that fails, see if it is in the system path
+                try
+                {
+                  System.loadLibrary(LIBRARY); 
+                  System.out.println("Loaded system library:" + LIBRARY);
+                  libraryLoaded = true;
+                }
+                catch (UnsatisfiedLinkError e)
+                {
+                  System.out.println(eFirst.getMessage());
+                  System.out.println(e.getMessage() + " Library:" + 
+                      System.mapLibraryName(LIBRARY) + " not found in: " + 
+                      System.getProperty("java.library.path"));
+                }
             }
             catch (Exception e)
             {

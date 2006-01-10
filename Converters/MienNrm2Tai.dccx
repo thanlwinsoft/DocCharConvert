@@ -2,8 +2,6 @@
 <DocCharConverter name="Mien NRM to Tai Unicode">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
 <Argument value="Mien/nrm2tai.xml" type="File" />
-<Argument value="Mien/mienNrm2TaiNrmExceptions.txt" type="File" />
-<Argument value="Mien/mienNrm2TaiTaiUExceptions.txt" type="File" />
 </ConverterClass>
 <Styles>
 <Style>

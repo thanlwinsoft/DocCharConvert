@@ -73,10 +73,15 @@ public class SyllableConverter extends ReversibleConverter
     {
         construct(xmlFile, leftExceptions, rightExceptions);
     }
-//    public SyllableConverter(File xmlFile)
-//    {
-//       construct(xmlFile, null, null);
-//    }
+    public SyllableConverter(File xmlFile)
+    {
+       construct(xmlFile, null, null);
+    }
+    /** Creates a new instance of SyllableConverter 
+     * @param xmlFile XML config file
+     * @param leftExceptions exceptions on the left side
+     * @param rightExceptions corresponding exceptions on right side
+     */
     protected void construct(File xmlFile, File leftExceptions, File rightExceptions)
     {
         this.checkers = new Vector<SyllableChecker>();
@@ -494,7 +499,7 @@ public class SyllableConverter extends ReversibleConverter
                 exceptionList.ignoreCase(scripts[0].ignoreCase(), 
                                          scripts[1].ignoreCase());
                 exceptionList.load();
-                //checkers.add(exceptionList);
+                checkers.add(exceptionList);
             }
             catch (java.io.IOException e)
             {

@@ -2,8 +2,6 @@
 <DocCharConverter name="Mien NRM to Lao Unicode">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
 <Argument value="Mien/nrm2lao.xml" type="File" />
-<Argument value="Mien/mienNrm2LaoNrmExceptions.txt" type="File" />
-<Argument value="Mien/mienNrm2LaoLaoUExceptions.txt" type="File" />
 </ConverterClass>
 <Styles>
 <Style>
