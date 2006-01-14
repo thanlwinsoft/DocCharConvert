@@ -259,7 +259,7 @@ Fi^ko	ຟີ^ໂຄ
 Fi^li^saa^die	ຟິ^ລິ^ສະ^ເຕຍ
 Fi^lipv	ຟີ^ລິບ
 Fi^nikv	ຟິ^ນິກ
-Ga'nyuoz	ກະຍົ໌ວ
+#Ga'nyuoz	ກະຍົ໌ວ
 Gaa^laan	ກາ^ລານ
 Gaa^lepv	ກາ^ເລບ
 Gaa^li^li	ກາ^ລິ^ລີ
@@ -440,7 +440,7 @@ I^laa	ອິ^ລະ
 I^laa^aa	ອິ^ລາ^ອາ
 I^laa^naa^haatc	ອິ^ລະ^ນາ^ຫາດ
 I^laam	ອິ^ລາມ
-I^laatv	ອິ^ລາດ
+#I^laatv	ອິ^ລາດ
 I^lai	ອິ^ໄລ
 I^li	ອິ^ລີ
 I^li^yaa	ອິ^ລີ^ຢາ
@@ -628,7 +628,7 @@ Lo^nde^mbaa	ໂລ^ເດ^ບາ
 Lo^taan	ໂລ^ທານ
 Lotv	ໂລດ
 Lu^fatv	ລູ^ຟັດ
-Lu^gaa	ລູ^ກາ
+#Lu^gaa	ລູ^ກາ
 Lu^hitv	ລູ^ຮີດ
 Lu^maa	ລູ^ມາ
 Lu^si^atc	ລູ^ສິ^ອັດ
@@ -1272,7 +1272,7 @@ Ti^ndaan	ທິ^ດານ
 Ti^sai	ທິ^ໄຊ
 Ti^yaa^ti^laa	ທິ^ຢາ^ທິ^ລາ
 Tikc^waa	ທິກ^ວາ
-Tikv^latv^Bi^le^se	ທິກ^ລັດ^ປິ^ເລ^ເສ
+#Tikv^latv^Bi^le^se	ທິກ^ລັດ^ປິ^ເລ^ເສ
 Tikv^latv^bi^le^se	ທິກ^ລັດ^ປີ^ເລ^ເຊ
 Tim^naa	ທິມ^ນາ
 Tim^naatv	ທິມ^ນາດ
@@ -1427,6 +1427,7 @@ guengx	ເກວ໋ງ
 guenx	ເກວ໋ນ
 guetv	ເກວ໊ດ
 guinh	ກວິ້ນ
+# not sure about this one
 hieh	ເຮຢ່ຍ
 hienv	ຮຢ້ຽນ
 hienx	ຫຮຢຽນ
@@ -1455,7 +1456,8 @@ la'bieiv-zorng	ຫລະເປຢີ໊ຍ-ຕສອງ
 la'kuqv	ຫລະຄຸ
 la'ngopv	ຫລະອົ໊ບ
 laeqh	ແລ່ະ
-loh	ໂລ່
+loh	ໂລ
+loh!	ໂລ່ະ!່
 loqh	ໂລ່ະ
 m'nqorngv	ມອກ໊ອງ
 ma'd'nza'hmien	ມັດດສະຮມຽນ
@@ -1471,7 +1473,7 @@ mbu'ziex	ບຸເຕສ໋ຍ
 mi^naa	ມີ^ນາ
 mienc	ມຢ່ຽນ
 mukv	ມຸກ
-mv	ມ້
+#mv	ມ້
 ndiangx-gaa'mat	ດຢັ໋ງ-ກ໌າມັດ
 niaa	ນີຢາ
 nie-ha'louh	ເນຍ-ຫະໂລ່ວ
@@ -1479,6 +1481,7 @@ nquin	ອກວິນ
 nyei	ເຍີຍ
 oeix	ໂອ໋ຍ
 orqh	ເອ້າະ
+# not sure about this one
 orqv	ເອ໊າະ
 se gorngv	ເຊ ກ໊ອງ
 se^me^nitv	ເຊ^ເມ^ນິດ
@@ -1492,8 +1495,28 @@ yie'm'zangc	ຢຽມຕສັ່ງ
 yie'mae	ເຢແມ
 yieqv	ເຢັ໊ຍ
 za'gengh	ຕສະເກ້ງ
-zangc	ຕສັ່ງ
+#zangc	ຕສັ່ງ
 zie'fongc	ເຕສ່ຍຝົ່ງ
 zioucj	ຕສ່ຽວ
 zueiz	ເຕສວີ໌ຍ
-�e^hi^ndaa	ິme-hi-Daa > ເມ^ຫິ^ດາ
+# hand editions
+bun	ປຸນ
+zunv	ຕສຸ໊ນ
+gunv	ກຸ໊ນ
+Gu'nyuoz	ກະຍົ໌ວ
+saeng-kuv	ແຊງ-ຄູ້
+maah!	ມ່າະ!
+Hipv^lu	ຮິບ^ລູ
+Yu^fe^ditc	ຢູ^ເຟ^ຕິດ
+#I^yipv	ຮິບ^ລູ
+zaangc	ຕສັ່ງ
+lunh	ລຸ່ນ
+kuv	ຄູ້
+kuh	ຄູ່
+saah?	ຊ່າະ?
+ndutv	ດຸ໊ດ
+nzunc	ດສຸ່ນ
+zunc	ຕສຸ່ນ
+Lugaa	ລູ^ກາ
+funx	ຝຸນ
+Ilaatv	ອິ^ລາດ
