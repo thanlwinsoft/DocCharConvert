@@ -335,7 +335,7 @@ Haa^lu^mapv	ຮາ^ລຸ^ມັບ
 Haa^lum	ຮາ^ລູມ
 Haa^lupv	ຮາ^ລູບ
 Haa^lutv	ຮາ^ລຸດ
-Haa^matv	ຮາ^ມັດ
+Haamatv	ຮາ^ມັດ
 Haa^matv^so^mbaa	ຮາ^ມັດ^ໂຊ^ບາ
 Haa^mbaa^gukc	ຮາ^ບາ^ກຸກ
 Haa^mon^gokg	ຮາ^ມົນ^ກົກກ
@@ -478,7 +478,8 @@ Itc^saa^maa^ki^yaa	ອິດ^ສະ^ມາ^ຄິ^ຢາ
 Itc^wi	ອິດ^ວີ
 Itv^hotv	ອິ໊ດ^ຮົດ
 Jietc^si	ຈຽດ^ຊີ
-Jietv	ຈ໊ຽດ
+#Jietv	ຈ໊ຽດ
+jatv	ຈ໊ຽດ
 Jor^laa^kev	ຈໍລະເຂັ
 Kaa^laa	ຄາ^ລາ
 Kaa^laau^ndi^atc	ຄາ^ລາວ^ດີ^ອັດ
@@ -622,7 +623,7 @@ Lin^naa	ລິນ^ນາ
 Lo^gaa	ໂລ^ກາ
 Lo^lu^aa^maa	ໂລ^ລູ^ອາ^ມາ
 Lo^lu^haa^maa	ໂລ^ລຸ^ຫະ^ມາ
-Lo^maa	ໂລ^ມາ
+#Lo^maa	ໂລ^ມາ
 Lo^mam^ti^e^se	ໂລ^ມຳ^ທີ^ເອ^ເຊ
 Lo^nde^mbaa	ໂລ^ເດ^ບາ
 Lo^taan	ໂລ^ທານ
@@ -643,7 +644,7 @@ Maa^aa^saix	ມະ^ອາ^ໄສ
 Maa^aa^se^aa	ມາ^ອາ^ເສ^ອາ
 Maa^aa^si^yaa	ມາ^ອາ^ຊິ^ຢາ
 Maa^di	ມາ^ຕີ
-Maa^gokc	ມາ^ກົກ
+Maagokc	ມາ^ກົກ
 Maa^haa^laa^le^en	ມາ^ຫະ^ລາ^ເລ^ເອນ
 Maa^haa^laa^len	ມາ^ຫະ^ລາ^ເລນ
 Maa^haa^laapv	ມາ^ຫະ^ລາບ
@@ -939,7 +940,7 @@ Ni^saanx	ນິ^ສານ
 Nim^faa	ນິມ^ຟາ
 Nim^laa	ນິມ^ລາ
 Nim^lim	ນິມ^ລິມ
-Nim^lotv	ນິມ^ລົດ
+NimLotv	ນິມ^ລົດ
 Nim^si	ນິມ^ຊີ
 Nitv^lotv	ນິດ^ໂລກ
 No^aa^mon	ໂນ^ອາ^ມົນ
@@ -1063,7 +1064,7 @@ Se^maa^ki^yaa	ເສ^ມາ^ຄິ^ຢາ
 Se^maa^laa^im	ເສ^ມາ^ລາ^ອິມ
 Se^maa^li^yaa	ເຊ^ມາ^ລິ^ຢາ
 Se^mai^aa	ເຊ^ໄມ^ອາ
-Se^mbaa	ເຊ^ບາ
+#Se^mbaa	ເຊ^ບາ
 Se^mbaa^ndi^yaa	ເສ^ບາ^ດິ^ຢາ
 Se^mbaa^ni^yaa	ເຊ^ບາ^ນິ^ຢາ
 Se^mbaam	ເສ^ບາມ
@@ -1226,7 +1227,7 @@ Taa^laa^laa	ທາ^ລະ^ລາ
 Taa^letv	ທາ^ເລດ
 Taa^li^taa^ku^mi	ທາ^ລິ^ທາ^ຄູ^ມິ
 Taa^lie	ທາ^ເລຍ
-Taa^maa	ທາ^ມາ
+Taamaa	ທາ^ມາ
 Taa^mbi^taa	ທາ^ບິ^ທາ
 Taa^satv	ທາ^ຊັດ
 Taan^sitv	ທານ^ຊິດ
@@ -1317,7 +1318,7 @@ Utc^si^yaa	ອຸດ^ຊີ^ຢາ
 Waa^ni^yaa	ວາ^ນິ^ຢາ
 Wic	ຫວຸ່ຍ
 Wih	ວຸ່ຍ
-Wix	ຫວຸຍ
+#Wix	ຫວຸຍ
 Wopv^si	ວົບ^ສີ
 Yaa^aa^si^en	ຢາ^ອາ^ຊີ^ເອນ
 Yaa^aa^su	ຢາ^ອາ^ສຸ
@@ -1365,7 +1366,7 @@ Ye^se	ເຢ^ເຊ
 Ye^si^mi^en	ເຢ^ສິ^ມີ^ເອນ
 Ye^si^mon	ເຢ^ຊິ^ໂມນ
 Ye^si^sai	ເຢ^ຊິ^ໄຊ
-Ye^su	ເຢ^ຊູ
+Yesu	ເຢ^ຊູ
 Ye^su^aa	ເຢ^ຊູ^ອາ
 Ye^te	ເຢ^ເທ
 Ye^tetv	ເຢ^ເທດ
@@ -1510,13 +1511,10 @@ Hipv^lu	ຮິບ^ລູ
 Yu^fe^ditc	ຢູ^ເຟ^ຕິດ
 #I^yipv	ຮິບ^ລູ
 zaangc	ຕສັ່ງ
-lunh	ລຸ່ນ
-kuv	ຄູ້
-kuh	ຄູ່
 saah?	ຊ່າະ?
-ndutv	ດຸ໊ດ
-nzunc	ດສຸ່ນ
-zunc	ຕສຸ່ນ
 Lugaa	ລູ^ກາ
-funx	ຝຸນ
 Ilaatv	ອິ^ລາດ
+Lomaa	ໂລ^ມາ
+mv	ມ້
+ga'naaiv-mbeix-mbeix	ກະນ້າຍ-ເບີ໋ຍໆ
+uix	ຫວຸຍ
