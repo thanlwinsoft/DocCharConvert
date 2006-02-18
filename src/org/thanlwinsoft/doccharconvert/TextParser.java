@@ -24,8 +24,6 @@
 
 package org.thanlwinsoft.doccharconvert;
 
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.FileOutputStream;
@@ -131,10 +129,6 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
             }
         }
         catch (java.io.FileNotFoundException e)
-        {
-            throw new DocInterface.WarningException(e.getLocalizedMessage());
-        }
-        catch (java.io.IOException e)
         {
             throw new DocInterface.WarningException(e.getLocalizedMessage());
         }

@@ -28,8 +28,7 @@ import java.util.Hashtable;
 import java.io.File;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.DummyConverter;
-import org.thanlwinsoft.doccharconvert.converter.ExternalConverter;
-import org.thanlwinsoft.doccharconvert.converter.TecKitConverter;
+
 /**
  *
  * @author  keith

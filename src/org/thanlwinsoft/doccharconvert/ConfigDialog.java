@@ -35,7 +35,11 @@ import java.io.File;
 public class ConfigDialog extends javax.swing.JDialog
 {
     
-    /** Creates new form ConfigDialog */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4014720621264394714L;
+	/** Creates new form ConfigDialog */
     public ConfigDialog(java.awt.Frame parent, boolean modal)
     {
         super(parent, modal);

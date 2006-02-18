@@ -79,8 +79,8 @@ public class RepeatSyllables implements SyllableChecker
       if (hasSeparator) offset = 2;
       String testSeparator = "";
       String separator = scripts[oldSide].getRepeatChar();
-      String preSyl = null;
-      String postSyl = null;
+      //String preSyl = null;
+      //String postSyl = null;
       for (int i = offset; i< syllables.size(); i++)
       {
         Syllable s = syllables.get(i);

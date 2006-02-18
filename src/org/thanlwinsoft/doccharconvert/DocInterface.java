@@ -41,14 +41,24 @@ public interface DocInterface
     String getStatusDesc();
     public class InterfaceException extends Exception
     {
-        public InterfaceException(String msg)
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 5240937337192021874L;
+
+		public InterfaceException(String msg)
         {
             super(msg);
         }
     }
     public class WarningException extends Exception
     {
-        public WarningException(String msg)
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = 2860752860816168163L;
+
+		public WarningException(String msg)
         {
             super(msg);
         }

@@ -28,8 +28,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.FileInputStream;
@@ -275,7 +273,6 @@ public class ExternalConverter implements CharConverter, Runnable
                 {
                     reader = new BufferedReader
                         (new InputStreamReader(process.getErrorStream()));
-                    int read;
                     String line = null;
                     do 
                     { 
@@ -309,7 +306,7 @@ public class ExternalConverter implements CharConverter, Runnable
                 try
                 {
                     Thread.sleep(10);
-                    System.out.println(errorReader.readLine());
+                    if (debug) System.out.println(errorReader.readLine());
                 }
                 catch (InterruptedException ie) 
                 {

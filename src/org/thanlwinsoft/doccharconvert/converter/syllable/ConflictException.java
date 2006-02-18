@@ -30,7 +30,12 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
 public class ConflictException extends Exception
 {
     
-    /** Creates a new instance of ConflictException */
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1999084359790925605L;
+
+	/** Creates a new instance of ConflictException */
     public ConflictException(String msg)
     {
         super(msg);

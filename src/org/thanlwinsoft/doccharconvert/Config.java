@@ -25,6 +25,7 @@
 package org.thanlwinsoft.doccharconvert;
 
 import java.io.File;
+import javax.swing.JOptionPane;
 import java.net.URL;
 import java.util.prefs.Preferences;
 import java.util.ResourceBundle;
@@ -226,10 +227,10 @@ public class Config
             {
               System.out.println(OO_CLASSES_UNFOUND + classDir.toString() + 
                                  OO_PATH_FAIL);
-              MessageFormat mf = new MessageFormat("");
               Object [] args = {classDir.toString()};
-              String msg = mf.format(i18nResource.getString("no_oo_classes"), 
+              String msg = MessageFormat.format(i18nResource.getString("no_oo_classes"), 
                                      args);
+              JOptionPane.showMessageDialog(null, msg);
               return null;
             }
             java.io.FilenameFilter jarFilter = new java.io.FilenameFilter() {
@@ -256,10 +257,6 @@ public class Config
             return urls;
         }
         catch (java.net.MalformedURLException e)
-        {
-            System.out.println(e.getMessage());
-        }
-        catch (java.io.IOException e)
         {
             System.out.println(e.getMessage());
         }

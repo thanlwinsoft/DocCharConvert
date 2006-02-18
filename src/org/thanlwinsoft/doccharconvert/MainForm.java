@@ -29,7 +29,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.util.Map.Entry;
+//import java.util.Map.Entry;
 import java.text.MessageFormat;
 import java.nio.charset.Charset;
 import java.awt.BorderLayout;
@@ -40,7 +40,7 @@ import java.util.Vector;
 import java.util.SortedMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+//import java.util.regex.PatternSyntaxException;
 import java.util.ResourceBundle;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -67,7 +67,11 @@ import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
  */
 public class MainForm extends javax.swing.JFrame
 {
-    private BatchConversion conversion = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3143912382434841346L;
+	private BatchConversion conversion = null;
     private Vector availableConverters = null;
     private DefaultListModel aModel = null;
     private DefaultListModel sModel = null;
@@ -973,9 +977,9 @@ public class MainForm extends javax.swing.JFrame
             else
             {
                 File iFile = chooser.getSelectedFile();
-                MessageFormat mf = new MessageFormat("");
+                //MessageFormat mf = new MessageFormat("");
                 Object [] args = {iFile.getName()};
-                String msg = mf.format(msgResource.getString("setOutputFileTitle"), 
+                String msg = MessageFormat.format(msgResource.getString("setOutputFileTitle"), 
                                      args);
                 chooser.setDialogTitle(msg);
                 chooser.setCurrentDirectory

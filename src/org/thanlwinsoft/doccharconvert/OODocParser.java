@@ -23,11 +23,11 @@
  */
 package org.thanlwinsoft.doccharconvert;
 
-import com.sun.star.awt.Point;
-import com.sun.star.awt.Size;
-import com.sun.star.awt.FontWeight;
+//import com.sun.star.awt.Point;
+//import com.sun.star.awt.Size;
+//import com.sun.star.awt.FontWeight;
 
-import com.sun.star.beans.Property;
+//import com.sun.star.beans.Property;
 import com.sun.star.beans.PropertyState;
 import com.sun.star.beans.PropertyValue;
 import com.sun.star.beans.XPropertySet;
@@ -35,18 +35,18 @@ import com.sun.star.beans.XPropertyState;
 import com.sun.star.beans.UnknownPropertyException;
 import com.sun.star.container.NoSuchElementException;
 
-import com.sun.star.bridge.XUnoUrlResolver;
+//import com.sun.star.bridge.XUnoUrlResolver;
 
-import com.sun.star.comp.servicemanager.ServiceManager;
+//import com.sun.star.comp.servicemanager.ServiceManager;
 
-import com.sun.star.connection.XConnector;
-import com.sun.star.connection.XConnection;
+//import com.sun.star.connection.XConnector;
+//import com.sun.star.connection.XConnection;
 
 import com.sun.star.container.XNameAccess;
 import com.sun.star.container.XNameContainer;
-import com.sun.star.container.XNamed;
+//import com.sun.star.container.XNamed;
 import com.sun.star.container.XIndexAccess;
-import com.sun.star.container.XIndexReplace;
+//import com.sun.star.container.XIndexReplace;
 import com.sun.star.container.XEnumeration;
 import com.sun.star.container.XEnumerationAccess;
 //
@@ -62,63 +62,63 @@ import com.sun.star.frame.XComponentLoader;
 
 import com.sun.star.lang.XComponent;
 import com.sun.star.lang.XMultiComponentFactory;
-import com.sun.star.lang.XMultiServiceFactory;
+//import com.sun.star.lang.XMultiServiceFactory;
 import com.sun.star.lang.XServiceInfo;
 import com.sun.star.lang.WrappedTargetException;
-import com.sun.star.style.NumberingType;
-import com.sun.star.style.XStyle;
+//import com.sun.star.style.NumberingType;
+//import com.sun.star.style.XStyle;
 import com.sun.star.style.XStyleFamiliesSupplier;
 
 
-import com.sun.star.table.XCell;
+//import com.sun.star.table.XCell;
 
-import com.sun.star.text.ControlCharacter;
-import com.sun.star.text.ReferenceFieldSource;
-import com.sun.star.text.ReferenceFieldPart;
-import com.sun.star.text.TextColumn;
-import com.sun.star.text.TextContentAnchorType;
-import com.sun.star.text.XAutoTextContainer;
-import com.sun.star.text.XAutoTextGroup;
-import com.sun.star.text.XAutoTextEntry;
-import com.sun.star.text.XDependentTextField;
-import com.sun.star.text.XDocumentIndex;
-import com.sun.star.text.XFootnote;
-import com.sun.star.text.XFootnotesSupplier;
-import com.sun.star.text.XParagraphCursor;
-import com.sun.star.text.XReferenceMarksSupplier;
-import com.sun.star.text.XRelativeTextContentInsert;
-import com.sun.star.text.XSentenceCursor;
-import com.sun.star.text.XSimpleText;
+//import com.sun.star.text.ControlCharacter;
+//import com.sun.star.text.ReferenceFieldSource;
+//import com.sun.star.text.ReferenceFieldPart;
+//import com.sun.star.text.TextColumn;
+//import com.sun.star.text.TextContentAnchorType;
+//import com.sun.star.text.XAutoTextContainer;
+//import com.sun.star.text.XAutoTextGroup;
+//import com.sun.star.text.XAutoTextEntry;
+//import com.sun.star.text.XDependentTextField;
+//import com.sun.star.text.XDocumentIndex;
+//import com.sun.star.text.XFootnote;
+//import com.sun.star.text.XFootnotesSupplier;
+//import com.sun.star.text.XParagraphCursor;
+//import com.sun.star.text.XReferenceMarksSupplier;
+//import com.sun.star.text.XRelativeTextContentInsert;
+//import com.sun.star.text.XSentenceCursor;
+//import com.sun.star.text.XSimpleText;
 import com.sun.star.text.XText;
-import com.sun.star.text.XTextColumns;
-import com.sun.star.text.XTextContent;
+//import com.sun.star.text.XTextColumns;
+//import com.sun.star.text.XTextContent;
 import com.sun.star.text.XTextCursor;
 import com.sun.star.text.XTextDocument;
-import com.sun.star.text.XTextField;
-import com.sun.star.text.XTextFrame;
+//import com.sun.star.text.XTextField;
+//import com.sun.star.text.XTextFrame;
 import com.sun.star.text.XTextRange;
-import com.sun.star.text.XTextSection;
-import com.sun.star.text.XTextTable;
-import com.sun.star.text.XTextTableCursor;
-import com.sun.star.text.XTextTablesSupplier;
-import com.sun.star.text.XTextFieldsSupplier;
-import com.sun.star.text.XBookmarksSupplier;
-import com.sun.star.text.XTextViewCursorSupplier;
-import com.sun.star.text.XTextViewCursor;
-import com.sun.star.text.XPageCursor;
+//import com.sun.star.text.XTextSection;
+//import com.sun.star.text.XTextTable;
+//import com.sun.star.text.XTextTableCursor;
+//import com.sun.star.text.XTextTablesSupplier;
+//import com.sun.star.text.XTextFieldsSupplier;
+//import com.sun.star.text.XBookmarksSupplier;
+//import com.sun.star.text.XTextViewCursorSupplier;
+//import com.sun.star.text.XTextViewCursor;
+//import com.sun.star.text.XPageCursor;
 
-import com.sun.star.text.XWordCursor;
+//import com.sun.star.text.XWordCursor;
 
 import com.sun.star.uno.AnyConverter;
 import com.sun.star.uno.UnoRuntime;
-import com.sun.star.uno.XComponentContext;
-import com.sun.star.uno.XInterface;
-import com.sun.star.uno.XNamingService;
+//import com.sun.star.uno.XComponentContext;
+//import com.sun.star.uno.XInterface;
+//import com.sun.star.uno.XNamingService;
 
-import com.sun.star.util.XRefreshable;
+//import com.sun.star.util.XRefreshable;
 
-import com.sun.star.frame.XStorable;
-import com.sun.star.view.XPrintable;
+//import com.sun.star.frame.XStorable;
+//import com.sun.star.view.XPrintable;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 
@@ -136,7 +136,7 @@ public class OODocParser
     private XTextDocument mxDoc = null;
     private XText mxDocText = null;
     private OOMainInterface ooMain = null;
-    private java.io.File inFile = null;
+//    private java.io.File inFile = null;
     private StringBuffer warningBuffer = null;
     private java.util.Map<TextStyle,CharConverter> converterMap = null;
     private XComponentLoader mxComponentLoader = null;
@@ -149,13 +149,13 @@ public class OODocParser
     private static final int STAGE_PARAS = 1;
     private static final int STAGE_STYLES = 2;
     private int stage = STAGE_INIT;
-    private boolean abort = false;
+//    private boolean abort = false;
     /** Creates a new instance of OODocParser */
     public OODocParser(OOMainInterface ooMain) 
         
     {
         this.ooMain = ooMain;
-        this.inFile = inFile;
+        //this.inFile = inFile;
         warningBuffer = new StringBuffer();
         
     }
@@ -681,14 +681,8 @@ public class OODocParser
         // configuration (using service com.sun.star.document.FilterFactory)
         // but here we use well known filter names directly.
 
-         String sFilter = null;
-
          // Detect document type by asking XServiceInfo
 
-         com.sun.star.lang.XServiceInfo xInfo = (com.sun.star.lang.XServiceInfo)UnoRuntime.queryInterface (
-          com.sun.star.lang.XServiceInfo .class, mxDoc);
-
-        
              // Build necessary argument list for store properties.
              // Use flag "Overwrite" to prevent exceptions, if file already exists.
 
@@ -825,9 +819,9 @@ public class OODocParser
             String[] filterNames = xFilterFactory.getElementNames();
             for (int i = 0; i < filterNames.length; i++)
             {
-                PropertyValue[] filterProperties = (PropertyValue[])
-                    UnoRuntime.queryInterface(PropertyValue[].class,
-                        xFilterFactory.getByName(filterNames[i]));
+//                PropertyValue[] filterProperties = (PropertyValue[])
+//                    UnoRuntime.queryInterface(PropertyValue[].class,
+//                        xFilterFactory.getByName(filterNames[i]));
                 String typeName = "";
                 //    AnyConverter.toString(filterProperties.getPropertyValue("Type"));
                 System.out.println("Filter: " + filterNames[i] + "," +

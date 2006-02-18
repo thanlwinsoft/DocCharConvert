@@ -60,7 +60,12 @@ public interface CharConverter
      */
     public class FatalException extends Exception
     {
-        public FatalException(String desc)
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = -2260785362431150554L;
+
+		public FatalException(String desc)
         {
             super(desc);
         }
@@ -71,7 +76,12 @@ public interface CharConverter
      */
     public class RecoverableException extends Exception
     {
-        public RecoverableException(String desc)
+        /**
+		 * 
+		 */
+		private static final long serialVersionUID = -8169772486169734912L;
+
+		public RecoverableException(String desc)
         {
             super(desc);
         }

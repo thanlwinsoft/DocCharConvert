@@ -26,7 +26,6 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.FilenameFilter;
 import java.net.MalformedURLException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -35,7 +34,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.InputSource;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import org.w3c.dom.Attr;
 import org.w3c.dom.NodeList;
 import java.io.InputStream;
 import java.util.ResourceBundle;
@@ -60,7 +58,7 @@ public class SyllableXmlReader
   private final String SCRIPT_NODE = "script";
   private final String NAME_NODE = "name";
   private final String CLUSTER_NODE = "cluster";
-  private final String CLASSES_NODE = "classes";
+//  private final String CLASSES_NODE = "classes";
   private final String CLASS_NODE = "class";
   private final String COMPONENT_NODE = "component";
   private final String COMP_VALUE_NODE = "c";
@@ -77,7 +75,7 @@ public class SyllableXmlReader
 
   private final String SIDE_ATTR = "side";
   private final String ID_ATTR = "id";
-  private final String MIN_ATTR = "min";
+//  private final String MIN_ATTR = "min";
   private final String REF_ATTR = "r";
   private final String HEX_ATTR = "hex";
   private final String CLASS_ATTR = "class";
@@ -93,8 +91,7 @@ public class SyllableXmlReader
 
   private ResourceBundle rb = null;
   private org.w3c.dom.Document doc = null;
-  private MessageFormat mf = null;
-  private final int CLASS_REF = -2;
+//  private final int CLASS_REF = -2;
   private Vector <MappingTable> mappingTable = null;
   private Vector<SyllableChecker> checkers = null;
   private boolean debug = false;
@@ -105,7 +102,6 @@ public class SyllableXmlReader
     this.xmlFile = xmlFile;
     this.debug = debug;
     rb = Config.getCurrent().getMsgResource();
-    mf = new MessageFormat("");
     mappingTable = new Vector<MappingTable>();
     checkers = new Vector<SyllableChecker>();
   }
@@ -166,7 +162,6 @@ public class SyllableXmlReader
            errorLog.append('\n');
             return false;
         }
-        Element topElement = (Element)topNode;
         if (!parseScripts()) return false;
         if (!parseClasses()) return false;
         // need 2 passes on maps
@@ -192,7 +187,7 @@ public class SyllableXmlReader
       if (scriptsList.getLength() != 2)
       {
         Object [] args = { new Integer(scriptsList.getLength()) };
-        errorLog.append(mf.format(rb.getString("expected2Conv"),args)); 
+        errorLog.append(MessageFormat.format(rb.getString("expected2Conv"),args)); 
         errorLog.append('\n');
         return false;
       }
@@ -206,7 +201,7 @@ public class SyllableXmlReader
         if (nameNodes.getLength() < 1)
         {
           Object [] args = { NAME_NODE };
-          errorLog.append(mf.format(rb.getString("missingTag"),args));
+          errorLog.append(MessageFormat.format(rb.getString("missingTag"),args));
           errorLog.append('\n');
         }
         else if (nameNodes.item(0).hasChildNodes())
@@ -218,7 +213,7 @@ public class SyllableXmlReader
         {
           Object [] args = { new Integer(1), CLUSTER_NODE, 
                              new Integer(cluster.getLength())};
-          errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+          errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
          errorLog.append('\n');
           return false;
         }
@@ -247,7 +242,7 @@ public class SyllableXmlReader
             if (id == null)
             {
               Object [] args = { sideId, ID_ATTR, CLUSTER_NODE };
-              errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));          
+              errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));          
             }
             else
             {
@@ -266,7 +261,7 @@ public class SyllableXmlReader
                 catch (NumberFormatException e)
                 {
                   Object [] args = { e.getMessage(), PRIORITY_ATTR, CLUSTER_NODE };
-                  errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+                  errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));
                 }
               }
             }
@@ -288,7 +283,7 @@ public class SyllableXmlReader
         else
         {
           Object [] args = { side, SIDE_ATTR, CLUSTER_NODE };
-          errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+          errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));
           errorLog.append('\n');
         }
         return sideId;
@@ -306,7 +301,7 @@ public class SyllableXmlReader
       {
         Object [] args = { new Integer(2), COMPONENT_NODE, 
                              new Integer(componentList.getLength())};
-        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
         errorLog.append('\n');
         return false;
       }
@@ -315,7 +310,7 @@ public class SyllableXmlReader
       if (ref == null)
       {
         Object [] args = { REF_ATTR, componentList.item(SyllableConverter.LEFT)};
-        errorLog.append(mf.format(rb.getString("missingAttribute"),args));
+        errorLog.append(MessageFormat.format(rb.getString("missingAttribute"),args));
         errorLog.append('\n');
         return false;
       }  
@@ -326,7 +321,7 @@ public class SyllableXmlReader
       if (ref == null)
       {
         Object [] args = { REF_ATTR, componentList.item(SyllableConverter.LEFT)};
-        errorLog.append(mf.format(rb.getString("missingAttribute"),args));
+        errorLog.append(MessageFormat.format(rb.getString("missingAttribute"),args));
         errorLog.append('\n');
         return false;
       }  
@@ -336,7 +331,7 @@ public class SyllableXmlReader
       {
         Object [] args = { new Integer(2), COMPONENT_NODE, 
                              new Integer(componentList.getLength())};
-        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
         errorLog.append('\n');
         return false;
       }
@@ -350,7 +345,7 @@ public class SyllableXmlReader
         if (leftValues.size() != rightValues.size())
         {
           Object [] args = { id };
-          errorLog.append(mf.format(rb.getString("classSizeMismatch"),args));
+          errorLog.append(MessageFormat.format(rb.getString("classSizeMismatch"),args));
           errorLog.append('\n');
           return false;
         }
@@ -377,7 +372,7 @@ public class SyllableXmlReader
        
         // if it has a hex value use that, otherwise read it literally
         Node hex = c.getAttributes().getNamedItem(HEX_ATTR);
-        Node classRef = c.getAttributes().getNamedItem(CLASS_ATTR);
+        //Node classRef = c.getAttributes().getNamedItem(CLASS_ATTR);
         String value = null;
         if (hex == null)
         {
@@ -432,7 +427,7 @@ public class SyllableXmlReader
             if (thisComp.getClass(className) == null)
             {
               Object [] args = { className, CLASS_ATTR, COMP_VALUE_NODE };
-              errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+              errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));
               errorLog.append('\n');
               continue;
             }
@@ -468,7 +463,7 @@ public class SyllableXmlReader
       {
         Object [] args = { new Integer(1), REPEAT_NODE, 
                              new Integer(repeatList.getLength())};
-        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
         errorLog.append('\n');
         return false;       
       }
@@ -479,7 +474,7 @@ public class SyllableXmlReader
       {
         Object [] args = { new Integer(1), MARKER_NODE, 
                              new Integer(repeatList.getLength())};
-        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
         errorLog.append('\n');
         return false;       
       }
@@ -497,7 +492,7 @@ public class SyllableXmlReader
       {
         Object [] args = { new Integer(1), SEPARATOR_NODE, 
                              new Integer(repeatList.getLength())};
-        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
         errorLog.append('\n');
         return false;       
       }
@@ -516,7 +511,7 @@ public class SyllableXmlReader
       if (hexValues == null || hexValues.length() == 0)
       {
           Object [] args = { null, HEX_ATTR, COMP_VALUE_NODE };
-          errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+          errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));
            errorLog.append('\n');
       }
       StringTokenizer hexString = new StringTokenizer(hexValues);
@@ -551,14 +546,14 @@ public class SyllableXmlReader
       if (thisComp == null)
       {
         Object [] args = { ref.getNodeValue(), REF_ATTR, node.getNodeName() };
-        errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));
         errorLog.append('\n');
       }
     }
     else
     {
       Object [] args = { REF_ATTR, node.toString() };
-      errorLog.append(mf.format(rb.getString("missingAttribute"),args));
+      errorLog.append(MessageFormat.format(rb.getString("missingAttribute"),args));
       errorLog.append('\n');
     }
     return thisComp;
@@ -584,7 +579,7 @@ public class SyllableXmlReader
       {
         Object [] args = { new Integer(1), COLUMNS_NODE, 
                            new Integer(columns.getLength()) };
-        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
         errorLog.append('\n');
         return false;
       }
@@ -601,7 +596,7 @@ public class SyllableXmlReader
       if (mapsList.getLength() != 1)
       {
         Object [] args = { new Integer(1), MAPS_NODE, new Integer(mapsList.getLength()) };
-        errorLog.append(mf.format(rb.getString("unexpectedNumTags"),args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"),args));
         errorLog.append('\n');
         return false;
       }
@@ -673,7 +668,7 @@ public class SyllableXmlReader
             if (cc == null) // class not found
             {
               Object [] args = { classId, CLASS_ATTR, COMP_VALUE_NODE };
-              errorLog.append(mf.format(rb.getString("unexpectedAttribute"),args));
+              errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));
               errorLog.append('\n');
               continue;
             }
@@ -729,7 +724,7 @@ public class SyllableXmlReader
             if (tempL == null || tempR == null)
             {
                 Object [] args = { new String(COMP_VALUE_NODE ) };
-                errorLog.append(mf.format(rb.getString("missingTag"),args));
+                errorLog.append(MessageFormat.format(rb.getString("missingTag"),args));
                 errorLog.append('\n');
                 return false;
             }
@@ -747,7 +742,7 @@ public class SyllableXmlReader
     if (check.getLength() != 1)
     {
       Object [] args = { 1, CHECKS_NODE, check.getLength() };
-      errorLog.append(mf.format(rb.getString("unexpectedNumTags"), args));
+      errorLog.append(MessageFormat.format(rb.getString("unexpectedNumTags"), args));
       return false;
     }
     NodeList checks = check.item(0).getChildNodes();
@@ -787,7 +782,7 @@ public class SyllableXmlReader
                   else
                   {
                     Object [] args = { arg.getNodeName() };
-                    errorLog.append(mf.format(rb.getString("unexpectedNode"),
+                    errorLog.append(MessageFormat.format(rb.getString("unexpectedNode"),
                                     args));
                   }
                 }
@@ -796,7 +791,7 @@ public class SyllableXmlReader
             if (!addChecker(className, checkerArgs.toArray()))
             {
               Object [] args = { className};
-              errorLog.append(mf.format(rb.getString("invalidChecker"),
+              errorLog.append(MessageFormat.format(rb.getString("invalidChecker"),
                               args));
             }
           }
@@ -805,13 +800,13 @@ public class SyllableXmlReader
             Object [] args = { 
               new String(CLASS_ATTR), new String(CHECKER_NODE)
             };
-            errorLog.append(mf.format(rb.getString("missingAttribute"), args));
+            errorLog.append(MessageFormat.format(rb.getString("missingAttribute"), args));
           }
       }
       else
       {
         Object [] args = { checker.getNodeName() };
-        errorLog.append(mf.format(rb.getString("unexpectedNode"), args));
+        errorLog.append(MessageFormat.format(rb.getString("unexpectedNode"), args));
       }
     }
     return true;

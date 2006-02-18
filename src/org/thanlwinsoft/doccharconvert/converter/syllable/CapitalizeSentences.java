@@ -59,7 +59,7 @@ public class CapitalizeSentences implements SyllableChecker
   */
   public void setSentenceEnds(HashSet <String> newEnds)
   {
-    ends = ends;
+    ends = newEnds;
   }
   /**
   * Checks the specified syllables, assuming that the first syllable 

@@ -116,7 +116,6 @@ public class SyllableConverter extends ReversibleConverter
     public String convert(String inputText) 
         throws FatalException, RecoverableException
     {
-        String converted = "";
         if (!isForwards())
         {
             oldSide = 1;
@@ -207,14 +206,10 @@ public class SyllableConverter extends ReversibleConverter
         Vector <Vector<Integer>> syllables)
     {
         // choose the longest syllable
-        Vector<Integer> chosen = null;
         assert(syllables.size() > 0);
         Iterator <Vector<Integer>> syl = syllables.iterator();
         Vector <Integer> longest = syl.next(); // ignore null result
-        int length = 0;
-        int longestPriority = 0;
         TreeSet<Syllable> results = new TreeSet<Syllable>(new SyllableComparator());
-        Syllable result = null;
         while (syl.hasNext())
         {
             Vector<Integer> testSyl = syl.next();
@@ -232,45 +227,6 @@ public class SyllableConverter extends ReversibleConverter
               if (testLength > 0)
                 results.add(new Syllable(scripts, oldSide, testSyl, 
                     text.substring(offset, offset + testLength), conversion));
-              /*
-                int testLength = testSyl.elementAt(0);
-                if ( testLength > length)
-                {
-                    length = testLength;
-                    longest = testSyl;
-                    if (length > text.length())
-                        length = text.length();
-                    result = new Syllable(scripts, oldSide, longest, 
-                        text.substring(offset, offset + length), conversion);
-                    longestPriority = result.getPriority();
-                }
-                else if (testLength > 0 && testLength == length)
-                {
-                  Syllable test = new Syllable(scripts, oldSide, testSyl, 
-                        text.substring(offset, offset + testLength), conversion);
-                  int testPriority = test.getPriority();
-                  if (testPriority > longestPriority)
-                  {
-                    result = test;
-                    longest = testSyl;
-                    longestPriority = testPriority;
-                    results.add(test);
-                  }
-                  else if (testPriority == longestPriority && debug)
-                  {
-                    // much harder to decide, choose the first one for now
-                    System.out.println("Ambiguous conversion:\t" + 
-                        text.substring(offset, offset + length) + '\t' + 
-                        longest.toString() + test.getPriority() +
-                        dumpDebugSyllable(oldSide, longest.subList(1, 
-                                     longest.size()).toArray(new Integer[0])) +
-                        " or " + testSyl.toString() + result.getPriority() +
-                        dumpDebugSyllable(oldSide, testSyl.subList(1, 
-                                     testSyl.size()).toArray(new Integer[0])));
-                    results.add(test);
-                  }
-                }
-               */
             }
         }
         if (debug) System.out.println("Chose: " + longest.toString());

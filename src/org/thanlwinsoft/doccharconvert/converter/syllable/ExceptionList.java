@@ -25,7 +25,6 @@
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Vector;
 import java.text.MessageFormat;
 import java.io.File;
@@ -285,14 +284,12 @@ public class ExceptionList implements SyllableChecker
       Vector <Syllable> parseOutput = syllables;
       for (int i = 0; i< parseOutput.size(); i++)
         {
-            Syllable s = parseOutput.get(i);
             int exLength = 0;
             if (exceptionList != null)
             {
                 int j = i;
                 StringBuffer exTest = new StringBuffer();
                 int lastExMatch = -1;
-                String lastInput = null;
                 String lastMatch = null;
                 do
                 {

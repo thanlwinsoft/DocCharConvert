@@ -25,7 +25,7 @@
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 import java.util.Vector;
-import java.util.Arrays;
+//import java.util.Arrays;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Component;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Script;

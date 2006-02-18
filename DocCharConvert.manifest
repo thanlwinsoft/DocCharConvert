@@ -1,6 +1,4 @@
 Manifest-Version: 1.0
-Created-By: NetBeans IDE
-Class-Path: ooClassPath.jar
 Main-Class: org.thanlwinsoft.doccharconvert.MainForm
 Implementation-Title: DocCharConvert
 Implementation-Version: 0.0.1

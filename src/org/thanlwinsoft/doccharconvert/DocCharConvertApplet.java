@@ -9,17 +9,14 @@
 
 package org.thanlwinsoft.doccharconvert;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
-import javax.swing.JApplet;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import java.net.URL;
-import java.net.URI;
 import java.net.MalformedURLException;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
@@ -32,7 +29,11 @@ import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
  */
 public class DocCharConvertApplet extends javax.swing.JApplet
 {
-    private Vector <CharConverter> availableConverters = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8885288908002896091L;
+	private Vector <CharConverter> availableConverters = null;
     private DefaultComboBoxModel aModel = null;
     private JComboBox convCombo = null;
     /** Creates a new instance of DocCharConvertApplet */

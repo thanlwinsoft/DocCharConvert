@@ -37,7 +37,11 @@ import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
  */
 public class TestDialog extends javax.swing.JDialog
 {
-    private ChildConverter converter = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3152816015516734437L;
+	private ChildConverter converter = null;
     private ChildConverter reverseConverter = null;
     private int DEBUG_FONT_SIZE = 12;
     private String DEBUG_FONT = "Courier";

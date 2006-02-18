@@ -108,7 +108,6 @@ public class ComponentClass
     public int getCorrespondingRef(int side, int ref)
     {
         int index = 0;
-        Vector <Integer> otherSide = null;
         if (side == 0) 
         {
             index = leftVector.indexOf(ref);

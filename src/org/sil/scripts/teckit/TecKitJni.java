@@ -14,7 +14,7 @@ Description:
 -------------------------------------------------------------------------*/
 
 package org.sil.scripts.teckit;
-import java.net.URL;
+//import java.net.URL;
 import java.io.File;
 /**
  *
@@ -23,6 +23,11 @@ import java.io.File;
 public class TecKitJni
 {
     private static final String LIBRARY = "TecKitJni";
+    private static final String LIBRARY_1 = "libTecKitJni.1";
+    private static final String [] LIB_PATHS = {
+    	"/usr/lib/",
+    	"/usr/local/lib/"
+    };
     private static boolean libraryLoaded = false;
     public static boolean loadLibrary(File libraryPath)
     {
@@ -40,6 +45,7 @@ public class TecKitJni
             }
             catch (UnsatisfiedLinkError eFirst)
             {
+            	System.out.println(eFirst.getMessage());	
                 // if that fails, see if it is in the system path
                 try
                 {
@@ -47,12 +53,27 @@ public class TecKitJni
                   System.out.println("Loaded system library:" + LIBRARY);
                   libraryLoaded = true;
                 }
-                catch (UnsatisfiedLinkError e)
+                catch (UnsatisfiedLinkError eSecond)
                 {
-                  System.out.println(eFirst.getMessage());
-                  System.out.println(e.getMessage() + " Library:" + 
-                      System.mapLibraryName(LIBRARY) + " not found in: " + 
-                      System.getProperty("java.library.path"));
+                	System.out.println(eSecond.getMessage());	
+                	for (int i = 0; i < LIB_PATHS.length; i++)
+                	{
+	                	try
+	                    {
+	                      System.load(LIB_PATHS[i] + LIBRARY_1); 
+	                      System.out.println("Loaded system library:" + LIB_PATHS[i] +
+	                    		             LIBRARY_1);
+	                      libraryLoaded = true;
+	                    }
+	                    catch (UnsatisfiedLinkError e)
+	                    {
+	                    	System.out.println(e.getMessage());	                    	
+	                    }
+                	}
+                	if (libraryLoaded == false)
+                		System.out.println("Library:" + 
+                        	System.mapLibraryName(LIBRARY) + " not found in: " + 
+                        	System.getProperty("java.library.path"));
                 }
             }
             catch (Exception e)

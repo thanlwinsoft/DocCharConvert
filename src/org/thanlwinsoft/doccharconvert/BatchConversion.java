@@ -25,8 +25,8 @@
 package org.thanlwinsoft.doccharconvert;
 
 import java.awt.Component;
-import java.net.URLClassLoader;
-import java.net.URL;
+//import java.net.URLClassLoader;
+//import java.net.URL;
 import java.util.Map;
 import java.util.Vector;
 import java.util.Iterator;
