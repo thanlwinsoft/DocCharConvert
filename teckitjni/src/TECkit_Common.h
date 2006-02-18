@@ -15,11 +15,21 @@ Description:
 #ifndef __TECkit_Common_H__
 #define __TECkit_Common_H__
 
+#include <sys/types.h>
+
 #ifndef MAC_TYPES	/* these are all predefined if using a Mac prefix */
+#ifdef __int8_t_defined
+typedef u_int8_t					UInt8;
+typedef u_int16_t				UInt16;
+typedef u_int32_t				UInt32;
+typedef u_int8_t				Byte;
+#else
+#warning These types may not work on 64 bit architectures
 typedef unsigned char			UInt8;
 typedef unsigned short			UInt16;
 typedef unsigned long			UInt32;
 typedef UInt8					Byte;
+#endif
 typedef Byte*					BytePtr;
 typedef UInt16					UniChar;
 

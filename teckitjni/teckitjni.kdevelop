@@ -12,7 +12,7 @@
     </keywords>
     <projectdirectory>.</projectdirectory>
     <absoluteprojectpath>false</absoluteprojectpath>
-    <description/>
+    <description></description>
     <ignoreparts/>
     <secondaryLanguages>
       <language>C</language>
@@ -22,7 +22,7 @@
   <kdevautoproject>
     <general>
       <activetarget>src/teckitjni</activetarget>
-      <useconfiguration>debug</useconfiguration>
+      <useconfiguration>default</useconfiguration>
     </general>
     <run>
       <mainprogram>src/testTecKit</mainprogram>
@@ -41,15 +41,16 @@
         <cxxcompiler>kdevgppoptions</cxxcompiler>
         <f77compiler>kdevg77options</f77compiler>
         <cxxflags>-O2 -g0</cxxflags>
-        <configargs/>
-        <topsourcedir/>
-        <cppflags>-I /usr/java/j2sdk_nb/j2sdk1.4.2/include -I /usr/java/j2sdk_nb/j2sdk1.4.2/include/linux </cppflags>
-        <ldflags/>
-        <ccompilerbinary/>
-        <cxxcompilerbinary/>
-        <f77compilerbinary/>
-        <cflags/>
-        <f77flags/>
+        <configargs></configargs>
+        <topsourcedir></topsourcedir>
+        <cppflags>-I $JAVA_HOME/include -I $JAVA_HOME/include/linux </cppflags>
+        <ldflags></ldflags>
+        <ccompilerbinary></ccompilerbinary>
+        <cxxcompilerbinary></cxxcompilerbinary>
+        <f77compilerbinary></f77compilerbinary>
+        <cflags></cflags>
+        <f77flags></f77flags>
+        <envvars/>
       </optimized>
       <debug>
         <configargs>--enable-debug=full</configargs>
@@ -66,8 +67,29 @@
         <f77compilerbinary/>
         <cflags/>
         <f77flags/>
-        <envvars/>
+        <envvars>
+          <envvar value="/opt/jdk1.5.0_06" name="JAVA_HOME" />
+        </envvars>
       </debug>
+      <default>
+        <envvars>
+          <envvar value="/opt/jdk1.5.0_06" name="JAVA_HOME" />
+        </envvars>
+        <configargs></configargs>
+        <builddir></builddir>
+        <topsourcedir></topsourcedir>
+        <cppflags>-I $JAVA_HOME/include -I $JAVA_HOME/include/linux </cppflags>
+        <ldflags></ldflags>
+        <ccompiler>kdevgccoptions</ccompiler>
+        <cxxcompiler>kdevgppoptions</cxxcompiler>
+        <f77compiler>kdevg77options</f77compiler>
+        <ccompilerbinary></ccompilerbinary>
+        <cxxcompilerbinary></cxxcompilerbinary>
+        <f77compilerbinary></f77compilerbinary>
+        <cflags></cflags>
+        <cxxflags></cxxflags>
+        <f77flags></f77flags>
+      </default>
     </configurations>
     <make>
       <envvars>
@@ -76,7 +98,7 @@
       <abortonerror>false</abortonerror>
       <numberofjobs>1</numberofjobs>
       <dontact>false</dontact>
-      <makebin/>
+      <makebin></makebin>
       <prio>0</prio>
     </make>
   </kdevautoproject>
@@ -172,15 +194,23 @@
       <headerCompletionDelay>250</headerCompletionDelay>
     </codecompletion>
     <references/>
+    <creategettersetter>
+      <prefixGet></prefixGet>
+      <prefixSet>set</prefixSet>
+      <prefixVariable>m_,_</prefixVariable>
+      <parameterName>theValue</parameterName>
+      <inlineGet>true</inlineGet>
+      <inlineSet>true</inlineSet>
+    </creategettersetter>
   </kdevcppsupport>
   <kdevdebugger>
     <general>
       <programargs>-char2utf8 /home/keith/projects/DocCharConvert/Academy.tec ../../../MyanmarAcademy.txt ../../../MyanmarUnicode.txt</programargs>
-      <gdbpath/>
-      <dbgshell/>
+      <gdbpath></gdbpath>
+      <dbgshell></dbgshell>
       <configGdbScript>gdb.txt</configGdbScript>
-      <runShellScript/>
-      <runGdbScript/>
+      <runShellScript></runShellScript>
+      <runGdbScript></runGdbScript>
       <breakonloadinglibs>true</breakonloadinglibs>
       <separatetty>false</separatetty>
       <floatingtoolbar>false</floatingtoolbar>
@@ -191,4 +221,13 @@
       <outputradix>10</outputradix>
     </display>
   </kdevdebugger>
+  <kdevvisualadvance>
+    <emulator>VisualBoyAdvance</emulator>
+    <binary></binary>
+    <addOptions></addOptions>
+    <terminal>false</terminal>
+    <fullscreen>false</fullscreen>
+    <graphicFilter>-f0</graphicFilter>
+    <scaling>-1</scaling>
+  </kdevvisualadvance>
 </kdevelop>

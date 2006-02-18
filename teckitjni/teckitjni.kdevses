@@ -1,9 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <!DOCTYPE KDevPrjSession>
 <KDevPrjSession>
- <DocsAndViews NumberOfDocuments="9" >
+ <DocsAndViews NumberOfDocuments="12" >
   <Doc0 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/teckitjni/src/TECkit_Common.h" >
-   <View0 line="0" Type="Source" />
+   <View0 Type="Source" />
   </Doc0>
   <Doc1 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/teckitjni/src/TECkit_Engine.h" >
    <View0 line="0" Type="Source" />
@@ -21,14 +21,23 @@
    <View0 line="0" Type="Source" />
   </Doc5>
   <Doc6 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/teckitjni/Makefile.am" >
-   <View0 line="2" Type="Source" />
+   <View0 line="5" Type="Source" />
   </Doc6>
   <Doc7 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/teckitjni/src/Makefile.am" >
-   <View0 line="0" Type="Source" />
+   <View0 line="17" Type="Source" />
   </Doc7>
   <Doc8 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/teckitjni/src/Engine.h" >
    <View0 line="0" Type="Source" />
   </Doc8>
+  <Doc9 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/dist/org_sil_scripts_teckit_TecKitJni.h" >
+   <View0 line="1" Type="Source" />
+  </Doc9>
+  <Doc10 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/teckitjni/configure.in" >
+   <View0 line="11" Type="Source" />
+  </Doc10>
+  <Doc11 NumberOfViews="1" URL="file:///home/keith/projects/DocCharConvert/teckitjni/Makefile.cvs" >
+   <View0 line="0" Type="Source" />
+  </Doc11>
  </DocsAndViews>
  <pluginList>
   <kdevdebugger>
