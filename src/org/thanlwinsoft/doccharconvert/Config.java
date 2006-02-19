@@ -151,10 +151,6 @@ public class Config
              System.out.println(mre.getMessage());
         }
     }
-    private File getBasePath()
-    {
-        return basePath;
-    }
     public File getConverterPath()
     {
         return converterPath;

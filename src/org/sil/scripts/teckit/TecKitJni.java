@@ -23,7 +23,6 @@ import java.io.File;
 public class TecKitJni
 {
     private static final String LIBRARY = "TecKitJni";
-    private static final String LIBRARY_1 = "libTecKitJni.1";
     private static final String [] LIB_PATHS = {
     	"/usr/lib/",
     	"/usr/local/lib/"
@@ -33,19 +32,20 @@ public class TecKitJni
     {
         if (!libraryLoaded) 
         {
+        	String systemLibName = System.mapLibraryName(LIBRARY);
+            File library = new File(libraryPath, systemLibName);
             try
             {
                 // try first with the specified library path
-                File library = new File
-                    (libraryPath, 
-                    System.mapLibraryName(LIBRARY));
                 System.load(library.getAbsolutePath());
-                System.out.println("Loaded " + System.mapLibraryName(LIBRARY));
+                System.out.println("Loaded " + systemLibName);
                 libraryLoaded = true;
             }
             catch (UnsatisfiedLinkError eFirst)
             {
-            	System.out.println(eFirst.getMessage());	
+            	// only give a message if the file exists, but failed to load
+            	if (library.exists())
+            		System.out.println(eFirst.getMessage());	
                 // if that fails, see if it is in the system path
                 try
                 {
@@ -60,9 +60,9 @@ public class TecKitJni
                 	{
 	                	try
 	                    {
-	                      System.load(LIB_PATHS[i] + LIBRARY_1); 
-	                      System.out.println("Loaded system library:" + LIB_PATHS[i] +
-	                    		             LIBRARY_1);
+	                      System.load(LIB_PATHS[i] + systemLibName); 
+	                      System.out.println("Loaded system library:" + 
+	                    		             LIB_PATHS[i] +systemLibName);
 	                      libraryLoaded = true;
 	                    }
 	                    catch (UnsatisfiedLinkError e)
