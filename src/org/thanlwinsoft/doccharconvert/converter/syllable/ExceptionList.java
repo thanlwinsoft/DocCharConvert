@@ -370,4 +370,13 @@ public class ExceptionList implements SyllableChecker
       }
       return initOk;
     }
+    public boolean fileChanged()
+    {
+    	for (int i = 0; i<files.length; i++)
+    	{
+    		if (files[i].lastModified() > loadTime)
+    			return true;
+    	}
+    	return false;
+    }
 }

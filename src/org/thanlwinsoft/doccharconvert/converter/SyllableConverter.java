@@ -419,9 +419,19 @@ public class SyllableConverter extends ReversibleConverter
      */
     public boolean isInitialized()
     {       
-        if (xmlFile.lastModified() > filetime ||
-            leftExceptions.lastModified() > filetime ||
-            rightExceptions.lastModified() > filetime) initOk = false;
+        if (xmlFile.lastModified() > filetime) initOk = false;
+        Iterator <SyllableChecker> checker = checkers.iterator();
+        while (checker.hasNext())
+        {
+        	SyllableChecker sc = checker.next();
+        	if (sc instanceof ExceptionList)
+        	{
+        		if (((ExceptionList)sc).fileChanged())
+        		{
+        			initOk = false;
+        		}
+        	}
+        }
         return initOk;
     }
 

@@ -26,6 +26,7 @@ package org.thanlwinsoft.doccharconvert;
 
 
 import java.util.HashSet;
+import java.io.IOException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 /**
  *
@@ -39,12 +40,14 @@ public class TeXParser extends TextParser
     int lineIndex = 0;
     boolean conversionOn = true; // on by default
     boolean ignoreLine = false;
+    StringBuffer inputText;
     StringBuffer convertedLine;
     String currentLine;
     String currentCommand = null;
     /** Creates a new instance of TeXParser */
     public TeXParser()
     {
+    	inputText = new StringBuffer();
         convertedLine = new StringBuffer();
         onCommands = new HashSet<String>();
         offCommands =new HashSet<String>();
@@ -61,9 +64,9 @@ public class TeXParser extends TextParser
         currentLine = line;
         currentCommand = null;
         convertedLine.delete(0, convertedLine.length());
+        int prevLineIndex = 0;
         try
         {
-            
             while (lineIndex < currentLine.length())
             {
                 String part = getNextPart();
@@ -71,21 +74,57 @@ public class TeXParser extends TextParser
                 {
                     if (conversionOn && !ignoreLine)
                     {
-                        convertedLine.append(converter.convert(part));
+                    	if (inputText.length() > 0)
+                        	inputText.append(" ");// append a space
+                    	inputText.append(part);
                     }
                     else
                     {
                         convertedLine.append(part);
                     }
                 }
-                processCommand();
-            }    
+                
+                if (currentCommand != null)
+                {
+                	if (inputText.length() > 0)
+                    {
+		            	convertedLine.append(converter.convert(inputText.toString()));
+		        		inputText.delete(0,inputText.length());
+		        		if (prevLineIndex == 0 && part.length() == 0)
+		                {
+		        			writer.write(convertedLine.toString());
+		                	writer.newLine();
+		                	convertedLine.delete(0, convertedLine.length());
+		                }
+                    }
+                	processCommand();
+                }
+                prevLineIndex = lineIndex;
+            }
+            writer.write(convertedLine.toString());
+            if (inputText.length() == 0)
+            	writer.newLine();
         }
         catch (CharConverter.RecoverableException e)
         {
             System.out.println(e);
+            try
+            {
+            	writer.write(line);
+            	writer.newLine();
+            }
+            catch (IOException e2)
+            {
+            	System.out.println(e2.getMessage());
+            }
             return line; // output unconverted line
         }
+        catch (IOException e)
+        {
+            System.out.println(e);
+            return line; // output unconverted line
+        }
+        
         return convertedLine.toString();
     }
     private String getNextPart()
@@ -95,10 +134,9 @@ public class TeXParser extends TextParser
         {
             int endIndex = commandIndex;
             while (++endIndex < currentLine.length() && 
-                Character.isLetter(currentLine.charAt(endIndex)));
-            if (endIndex < currentLine.length() &&
-                currentLine.charAt(endIndex) == '\\')
-              endIndex++;
+                (Character.isLetter(currentLine.charAt(endIndex)) ||
+                 ((endIndex == commandIndex + 1) && 
+                  (currentLine.charAt(endIndex) == '\\'))));
             //currentLine.indexOf(' ', commandIndex);
             if (endIndex < 0) endIndex = currentLine.length();
             currentCommand = currentLine.substring(commandIndex + 1,endIndex);

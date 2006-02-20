@@ -25,6 +25,7 @@
 package org.thanlwinsoft.doccharconvert;
 
 import java.io.InputStreamReader;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
@@ -114,9 +115,7 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
                 }
                 while (line != null)
                 {    
-                    String convertedLine = parseLine(line);
-                    writer.write(convertedLine);
-                    writer.newLine();
+                    parseLine(line);
                     line = reader.readLine();
                 }
                 reader.close();
@@ -134,7 +133,7 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
         }
     }
     protected String parseLine(String line) 
-        throws CharConverter.FatalException
+        throws CharConverter.FatalException, IOException
     {
         String convertedLine;
         try
@@ -146,6 +145,8 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
             System.out.println(e);
             convertedLine = line; // output unconverted line
         }
+        writer.write(convertedLine);
+        writer.newLine();
         return convertedLine;
     }
     public String getStatusDesc()
