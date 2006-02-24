@@ -84,6 +84,7 @@ table {
 }
 tr {
   padding: 0px;
+  height: 1em;
 }
 th.rowTitle {
   text-align: left;

@@ -24,12 +24,16 @@
 
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
+import java.text.MessageFormat;
 import java.util.Vector;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
 /**
  * The MappingTable represents how one or more components from one
@@ -63,6 +67,7 @@ public class MappingTable
     boolean optional = false;
     public static final int UNKNOWN = -1;
     public static final int AMBIGUOUS = -3;
+    ResourceBundle rb = null;
     /** Constructor for a mapping table. 
     * @param id name of table identifier used in XML file
     * @param columns array of components in the table
@@ -84,6 +89,7 @@ public class MappingTable
         rightEntries = new Vector <List<Integer>>();
         leftEntries.add(null);
         rightEntries.add(null);
+        rb = Config.getCurrent().getMsgResource();
         HashMap<String, Integer>colMap = leftColumnMap;
         Vector <Integer> sizes = leftSizes;
         for (int i = 0; i<columns.length; i++)
@@ -93,8 +99,12 @@ public class MappingTable
                 script = columns[i].getScript();
                 side++; 
                 if (side > SyllableConverter.RIGHT)
+                {
+                	Object [] args = { columns[i].getId(), id };
                     throw new IllegalArgumentException(
-                      "Only 2 scripts allowed in MappingTable");
+                        MessageFormat.format(rb.getString("unexpectedSyllableComponent"), 
+                        		             args));
+                }
                 sizes = rightSizes;
                 colMap = rightColumnMap;
             }
@@ -125,7 +135,12 @@ public class MappingTable
     */
     public int getColumnLeftIndex(String id)
     {
-        return leftColumnMap.get(id).intValue();
+    	if (leftColumnMap.containsKey(id))
+    		return leftColumnMap.get(id);
+    	Object [] args = { id, this.id };
+    	throw new IllegalArgumentException(
+    			MessageFormat.format(rb.getString("unexpectedIdInMap"), 
+	             args));
     }
     /** get the index of the specified component in the right hand map
     * @param id of component
@@ -133,7 +148,12 @@ public class MappingTable
     */
     public int getColumnRightIndex(String id)
     {
-        return rightColumnMap.get(id).intValue();
+    	if (rightColumnMap.containsKey(id))
+    		return rightColumnMap.get(id);
+    	Object [] args = { id, this.id };
+    	throw new IllegalArgumentException(
+    			MessageFormat.format(rb.getString("unexpectedIdInMap"), 
+	             args));
     }
     /** 
     * Add an entry to the map. This uses the indices returned from a component 
@@ -149,9 +169,11 @@ public class MappingTable
         if (leftEntry == null || rightEntry == null || leftEntry.length != leftSizes.size() ||
              rightEntry.length != rightSizes.size())
         {
-            throw new IllegalArgumentException("Expected " +leftSizes.size() +
-                    "," + rightSizes.size() + " found " +  leftEntry.length + 
-                    "," + rightEntry.length);
+        	Object [] args = { id, leftSizes.size(), rightSizes.size(),
+        			leftEntry.length, rightEntry.length };
+            throw new IllegalArgumentException(
+                MessageFormat.format(rb.getString("wrongMapSize"), 
+                		             args));            
         }
         int leftOffset = getMapOffset(leftSizes, leftEntry);
         int entryIndexL = rightEntries.size();

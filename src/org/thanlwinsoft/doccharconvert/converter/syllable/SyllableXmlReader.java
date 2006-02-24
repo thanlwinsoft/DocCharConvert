@@ -178,6 +178,13 @@ public class SyllableXmlReader
       errorLog.append('\n');
       return false;
     }
+    catch (IllegalArgumentException e)
+    {
+      System.out.println(e.getMessage());
+      errorLog.append(e.getLocalizedMessage());
+      errorLog.append('\n');
+      return false;
+    }
     return true;
   }
   
@@ -320,7 +327,7 @@ public class SyllableXmlReader
         .getAttributes().getNamedItem(REF_ATTR);
       if (ref == null)
       {
-        Object [] args = { REF_ATTR, componentList.item(SyllableConverter.LEFT)};
+        Object [] args = { REF_ATTR, componentList.item(SyllableConverter.RIGHT)};
         errorLog.append(MessageFormat.format(rb.getString("missingAttribute"),args));
         errorLog.append('\n');
         return false;
@@ -412,7 +419,11 @@ public class SyllableXmlReader
           c.getNodeName().equals(COMP_VALUE_NODE))
       {
         thisComp = componentFromRefAttribute(c);
-        if (thisComp == null) continue;
+        if (thisComp == null) 
+        {
+        	// componentFromRefAttribute should have already logged this
+        	continue;
+        }
         // if it has a hex value use that, otherwise read it literally
         Node hex = c.getAttributes().getNamedItem(HEX_ATTR);
         Node classRef = c.getAttributes().getNamedItem(CLASS_ATTR);
@@ -445,7 +456,16 @@ public class SyllableXmlReader
         if (value == null) value = "";
         int compIndex = thisComp.getIndex(value);
         if (compIndex == -1) compIndex = thisComp.addValue(value);
-        map.put(thisComp.getId(), new Integer(compIndex));
+        if (map.containsValue(thisComp.getId()))
+        {
+        	Object [] args = { thisComp.getId(), i };
+            errorLog.append(MessageFormat.format(rb.getString("multipleEntriesForSameComponent"),args));
+            errorLog.append('\n');
+        }
+        else
+        {
+        	map.put(thisComp.getId(), new Integer(compIndex));
+        }
       }
 //       else
 //       {
@@ -574,6 +594,7 @@ public class SyllableXmlReader
     {
       Element tableElement = (Element)tableList.item(i);
       String id = getId(tableElement);
+      // read table columns
       NodeList columns = tableElement.getElementsByTagName(COLUMNS_NODE);
       if (columns.getLength() != 1)
       {
@@ -608,6 +629,7 @@ public class SyllableXmlReader
         table.setOptional(true);
       }
       Element mapsElement = (Element)mapsList.item(0);
+      // read table rows (maps)
       NodeList mapList = mapsElement.getElementsByTagName(MAP_NODE);
       for (int j = 0; j<mapList.getLength(); j++)
       {

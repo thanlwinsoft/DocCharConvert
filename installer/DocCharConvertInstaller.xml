@@ -3,11 +3,11 @@
 <installation version="1.0">
     <info>
         <appname>Language Test</appname>
-        <appversion>0.1.0</appversion>
+        <appversion>0.2.0</appversion>
         <authors>
-            <author name="Keith Stribley" email="keith@snc.co.uk"/>
+            <author name="Keith Stribley" email="keith@thanlwinsoft.org"/>
         </authors>
-        <url>mailto:keith@snc.co.uk</url>
+        <url>http://www.thanlwinsoft.org/</url>
         <javaversion>1.5</javaversion>
     </info>
     <guiprefs height="550" resizable="yes" width="790"/>
@@ -16,7 +16,7 @@
     </locale>
     <native name="ShellLink.dll" type="izpack"/>
     <resources>
-        <res src="../src/DocCharConvert/icons/DocCharConvert16.png" id="Installer.image"/>
+		<res src="../src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png" id="Installer.image"/>
         <res src="../license.txt" id="LicencePanel.licence"/>
         <!--<res src="/home/keith/projects/LanguageTest/useNativeLAF" id="useNativeLAF"/>-->
         <res src="TargetPanel.dir.windows" id="TargetPanel.dir.windows"/>
@@ -45,24 +45,63 @@
             <file targetdir="$INSTALL_PATH" src="UninstallDCC16.ico" override="true"/>
             <file targetdir="$INSTALL_PATH" src="DocCharConvert.bat" override="true" />
             <file targetdir="$INSTALL_PATH" src="DocCharConvert.sh" override="true"/>
+			<file targetdir="$INSTALL_PATH" src="../license.txt"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.bat" type="plain"/>
             <parsable targetfile="$INSTALL_PATH/DocCharConvert.sh" type="shell"/>
             <fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
-              <include name="Academy.dccx" />
-              <include name="academy.tec" />
-              <include name="academy.xml" />
-              <include name="ThaiUPC2Unicode.dccx" />
-              <include name="thaiupc.tec" />
-              <include name="thaiupc.xml" />
-              <include name="WinMyanmar.tec" />
-              <include name="WinMyanmar.xml" />
-              <include name="Winnwa.dccx" />
+			  <include name="SyllableConverter.xsl" />
               <include name="utr22tec.pl" />
               <include name="libTecKitJni.so" />
               <include name="TecKitJni.dll" />
+			  <include name="libTecKitJni.amd64.so" />
+            </fileset>
+			<fileset dir="../docs" targetdir="$INSTALL_PATH/docs">
+				<include name="**/*.html" />
+				<include name="**/*.css" />
+				<include name="**/*.js" />
+				<include name="**/*.png" />
             </fileset>
             <executable targetfile="$INSTALL_PATH/DocCharConvert.sh" stage="never"/>
         </pack>
+		<pack name="Myanmar" preselected="no" required="no">
+			<description>Converters between the legacy encodings used by different Myanmar fonts and Myanmar Unicode encoding.
+			</description>
+			<fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
+				<include name="Academy.dccx" />
+				<include name="academy.tec" />
+				<include name="academy.xml" />
+				<include name="WinMyanmar.tec" />
+				<include name="WinMyanmar.xml" />
+                <include name="Winnwa.dccx" />
+				<include name="Wwin_burmese.tec" />
+				<include name="Wwin_burmese.xml" />
+                <include name="Wwin_burmese.dccx" />
+				<include name="IwinMedium.dccx" />
+				<include name="IWinMedi.xml" />
+				<include name="IWinMedi.tec" />
+				<include name="MyanmarUni4ToUni5.dccx" />
+				<include name="myUni4ToUni5.xml" />
+			</fileset>
+		</pack>
+		<pack name="Mien" preselected="no" required="no">
+			<description>Converters between the different scripts used for the Mien language</description>
+			<fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
+			    <include name="ThaiUPC2Unicode.dccx" />
+			    <include name="thaiupc.tec" />
+                <include name="thaiupc.xml" />
+				<include name="MienNrm2Lao.dccx" />
+				<include name="MienNrm2Tai.dccx" />
+			</fileset>
+			<fileset dir="../Converters/Mien" targetdir="$INSTALL_PATH/Converters/Mien">
+				<include name="nrm2lao.xml" />
+				<include name="nrm2tai.xml" />
+				<include name="nrm2orm.xml" />
+				<include name="mienNrm2LaoExceptions.txt" />
+				<include name="mienNrm2TaiExceptions.txt" />
+				<include name="mienNrm2OrmExceptions.txt" />
+				<include name="SyllableConverter.xsl" />
+			</fileset>
+		</pack>
         <pack name="Developer Files" preselected="no" required="no">
             <description>Source Code - You only need this if you want to edit the software yourself.</description>
             <file targetdir="$INSTALL_PATH" src="../DocCharConvert.zip"  override="true"/>

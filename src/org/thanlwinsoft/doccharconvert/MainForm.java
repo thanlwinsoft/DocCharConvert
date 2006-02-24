@@ -79,6 +79,7 @@ public class MainForm extends javax.swing.JFrame
     private int TIMER_DELAY = 250;
     private ResourceBundle guiResource = null;
     private ResourceBundle msgResource = null;
+    private static final String DOCS_DIR = "docs";
     private String resourceBase = 
         this.getClass().getPackage().getName().replace(".","/");
     /** Creates new form MainForm */
@@ -95,17 +96,31 @@ public class MainForm extends javax.swing.JFrame
            System.out.println(mre.getMessage());
         }
         System.out.println(resourceBase);
+        helpButton = new javax.swing.JButton(guiResource.getString("btn_help"));
+        helpButton.addActionListener(new java.awt.event.ActionListener()
+	    {
+	      public void actionPerformed(java.awt.event.ActionEvent evt)
+	      {
+	        helpButtonActionPerformed(evt);
+	      }
+	    });
+
+        jPanel8.remove(exitButton);
+        jPanel8.add(helpButton);
+        jPanel8.add(exitButton);
+        	    
         addConverter.setIcon(new ImageIcon(getClass().getResource("/" +resourceBase + "/icons/Add.png")));
         removeConverter.setIcon(new ImageIcon(getClass().getResource("/" +resourceBase + "/icons/Remove.png")));
         convertButton.setIcon(new ImageIcon(getClass().getResource("/" +resourceBase + "/icons/Convert.png")));
         testButton.setIcon(new ImageIcon(getClass().getResource("/" +resourceBase + "/icons/ConvertTest.png")));
         exitButton.setIcon(new ImageIcon(getClass().getResource("/" +resourceBase + "/icons/Exit.png")));
         configButton.setIcon(new ImageIcon(getClass().getResource("/" +resourceBase + "/icons/Config.png")));
-        
+        helpButton.setIcon(new ImageIcon(getClass().getResource("/" +resourceBase + "/icons/Help.png")));
         convertButton.setText(guiResource.getString("btn_convert"));
         testButton.setText(guiResource.getString("btn_test"));
         exitButton.setText(guiResource.getString("btn_exit"));
         configButton.setText(guiResource.getString("btn_config"));
+        helpButton.setToolTipText(guiResource.getString("btn_help_tt"));
         this.iFileAdd.setText(guiResource.getString("btn_fileAdd"));
         this.iFileRemove.setText(guiResource.getString("btn_fileRemove"));
         this.saveFileList.setText(guiResource.getString("btn_saveFileList"));
@@ -585,6 +600,44 @@ public class MainForm extends javax.swing.JFrame
             }
         }
         return rcc;
+    }
+    
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt)
+    {
+    	boolean started = false;
+    	final String [] browsers = {
+    		"firefox",
+    		"C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+    		"explorer.exe"
+    	};
+    	File docDir = new File(Config.getCurrent().getConverterPath().getParentFile(), DOCS_DIR);
+    	if (!docDir.isDirectory())
+    	{
+    		docDir = new File(Config.DEFAULT_WIN_INSTALL);
+    	}
+    	File htmlFile = new File(docDir, "index.html");
+    	if (docDir.isDirectory() && htmlFile.exists())
+    	{
+	    	for (int b = 0; b < browsers.length; b++)
+	    	{
+	    		ProcessBuilder pb = new ProcessBuilder(browsers[b], 
+	    	        htmlFile.getAbsolutePath());
+	    		try
+	    		{
+	    			pb.start();
+	    			started = true;
+	    			break;
+	    		}
+	    		catch (java.io.IOException e)
+	    		{
+	    			System.out.println(e);
+	    		}
+	    	}
+    	}
+    	if (!started)
+    	{
+    		JOptionPane.showMessageDialog(this, msgResource.getString("noDocs"));
+    	}
     }
     
     private void saveFileListActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_saveFileListActionPerformed
@@ -1357,6 +1410,8 @@ public class MainForm extends javax.swing.JFrame
     }
     public ResourceBundle getResource() { return guiResource; }
     
+    
+  private javax.swing.JButton helpButton;
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton addConverter;
   private javax.swing.JPanel availPanel;
@@ -1403,5 +1458,5 @@ public class MainForm extends javax.swing.JFrame
   private javax.swing.JPanel selectedPanel;
   private javax.swing.JButton testButton;
   // End of variables declaration//GEN-END:variables
-    
+  
 }

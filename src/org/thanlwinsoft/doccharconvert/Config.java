@@ -48,6 +48,7 @@ public class Config
     private final String OOPATH = "OOPath";
     private final String OOUNO = "OOUNO";
     private final String OOOPTIONS = "OOOptions";
+    public static final String DEFAULT_WIN_INSTALL = "C:\\Program Files\\DocCharConvert";
     public static final String CONVERTER_CONFIG_PATH = "Converters";
     private String ooPath = "soffice";
     public static final String OO_DEFAULT_UNO = "uno:socket,host=localhost,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager";
@@ -113,7 +114,9 @@ public class Config
         }
         if (basePath == null)
         {
-            basePath = new File(System.getProperty("user.home"));
+        	basePath = new File(DEFAULT_WIN_INSTALL);
+        	if (!basePath.isDirectory())
+        		basePath = new File(System.getProperty("user.home"));
         }
         converterPath = new File(basePath, CONVERTER_CONFIG_PATH);
         packagePref = Preferences.userNodeForPackage(this.getClass());

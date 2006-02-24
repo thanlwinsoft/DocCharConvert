@@ -317,8 +317,8 @@ public class SyllableConverter extends ReversibleConverter
                 // They should only be used if there is an ambiguity
                 if (oldValue <= INVALID_COMP || 
                     (oldValue != newValue && table.isOptional() == false))
-                {                  
-                  if (debug)
+                {
+                  if (debug && oldValue > INVALID_COMP)
                   {
                     // remove leading char count for dump
                     Integer[] sylIndices = compValues.subList(1, 
