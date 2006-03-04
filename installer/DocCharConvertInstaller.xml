@@ -63,7 +63,7 @@
             </fileset>
             <executable targetfile="$INSTALL_PATH/DocCharConvert.sh" stage="never"/>
         </pack>
-		<pack name="Myanmar" preselected="no" required="no">
+		<pack name="Myanmar" preselected="yes" required="no">
 			<description>Converters between the legacy encodings used by different Myanmar fonts and Myanmar Unicode encoding.
 			</description>
 			<fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
@@ -83,6 +83,7 @@
 				<include name="myUni4ToUni5.xml" />
 			</fileset>
 		</pack>
+<!--
 		<pack name="Mien" preselected="no" required="no">
 			<description>Converters between the different scripts used for the Mien language</description>
 			<fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
@@ -102,6 +103,7 @@
 				<include name="SyllableConverter.xsl" />
 			</fileset>
 		</pack>
+-->
         <pack name="Developer Files" preselected="no" required="no">
             <description>Source Code - You only need this if you want to edit the software yourself.</description>
             <file targetdir="$INSTALL_PATH" src="../DocCharConvert.zip"  override="true"/>
