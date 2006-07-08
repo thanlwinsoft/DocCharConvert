@@ -33,6 +33,7 @@ import java.io.OutputStreamWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.Config;
@@ -69,6 +70,8 @@ public class ExternalConverter implements CharConverter, Runnable
     private File execDir = null;
     private boolean initialized = false;
     private boolean debug = false;
+    private Charset inCharset = Charset.forName(UTF8);
+    private Charset outCharset = Charset.forName(UTF8);
     /** Creates a new instance of ExternalConverter 
      * This should be used when wrapped in a ChildConverter     
      */
@@ -231,10 +234,13 @@ public class ExternalConverter implements CharConverter, Runnable
             
             process = Runtime.getRuntime().exec(programPath + " " + completeArguments,
                 null,execDir);
+            // note the writer is used to write the input to the external
+            // converter, the reader to read the output, hence the slightly
+            // non-intuitive choice of character sets
             reader = new BufferedReader(new InputStreamReader
-                (process.getInputStream(),UTF8));
+                (process.getInputStream(),outCharset));
             writer = new BufferedWriter(new OutputStreamWriter
-                (process.getOutputStream(),UTF8));
+                (process.getOutputStream(),inCharset));
         }
         catch (UnsupportedEncodingException e)
         {
@@ -256,7 +262,7 @@ public class ExternalConverter implements CharConverter, Runnable
     {
         StringBuffer output = new StringBuffer();
         writer = new BufferedWriter(
-            new OutputStreamWriter(new FileOutputStream(outFile),UTF8));
+            new OutputStreamWriter(new FileOutputStream(outFile),inCharset));
         writer.write(oldText);
         writer.flush();
         writer.close();
@@ -288,7 +294,7 @@ public class ExternalConverter implements CharConverter, Runnable
                 else
                 {
                     reader = new BufferedReader(
-                        new InputStreamReader(new FileInputStream(inFile),UTF8));
+                        new InputStreamReader(new FileInputStream(inFile),outCharset));
                     int read = 0;
                     while(read >= 0)
                     {
@@ -404,5 +410,10 @@ public class ExternalConverter implements CharConverter, Runnable
     public void setDebug(boolean on)
     {
         debug = on;
+    }
+    public void setEncodings(Charset iCharset, Charset oCharset)
+    {
+        inCharset = iCharset;
+        outCharset = oCharset;
     }
 }

@@ -1,853 +1,1552 @@
-aaqh	aa'b
-#Dungv	[tuvq]
-#Ga'nyuoz	[ka'Euad]
-#Gi^lo	[ki-lo]
-#Haiv	[haiq]
-#Jietv	[Jyetq]
-#Maaqh	[maa'b]
-#Nenh	[nrnb]
-#Nzangc	[Ravg]
-#Saaqh	[saa'b]
-#Wic	[wig]
-#Wih	[wib]
-#Wix	[wij]
-a'mangc	a'mavg
-dungv	tuvq
-e^fotv	e-fotq
-ga'nyuoz	ka'Euad
-gi^lo	ki-lo
-haiv	haiq
-ieqv	ia'q
-jietv	Jyetq
-loqh	lo'b
-laeqh	lc'b
-maa^li	maa-li
-maaqh	maa'b
-mbaa^li	Baa-li
-mi^naa	mi-naa
-nenh	nrnb
-nzangc	Ravg
-orqh	x'b
-saaqh	saa'b
-weiqh	weiQb
-wic	wig
-wih	wib
-wix	wij
-zangc	zavg
-Mv Baac	[mq paag]
-Aa^mben^mbetc^maa^aa^kaa	[aa-Ben-Betg-maa-aa-Kaa]
-Aa^mben^me^ho^laa	[aa-Ben-me-ho-laa]
-Aa^mben^mitv^laa^im	[aa-Ben-mitq-laa-im]
-Aa^bitc	[aa-pitg]
-Aa^fekv	[aa-fekq]
-Aa^fikv	[aa-fikq]
-Aa^gakc	[aa-kakg]
-Aa^gu	[aa-ku]
-Aa^kitv	[aa-Kitq]
-Aa^laa	[aa-laa]
-Aa^laapv	[aa-laapq]
-Aa^laatv	[aa-laatq]
-Aa^lam	[aa-lam]
-Aa^lam^naa^haa^laa^im	[aa-lam-naa-haa-laa-im]
-Aa^lam^naa^haqc^laa^im	[aa-lam-naa-ha'g-laa-im]
-Aa^lam^maa^aa^kaa	[aa-lam-maa-aa-Kaa]
-Aa^lam^so^mbaa	[aa-lam-so-Baa]
-Aa^lan	[aa-lan]
-Aa^lapc	[aa-lapg]
-Aa^lon	[aa-lon]
-Aa^lotv	[aa-lotq]
-Aa^lutv	[aa-lutq]
-Aa^mben^ke^laa^mim	[aa-Ben-Ke-laa-mim]
-#Aa^mben^mbetc^maa^aa^kaa	[aa-Ben-Betg-maa-aa-Kaa]
-#Aa^mben^me^ho^laa	[aa-Ben-me-ho-laa]
-#Aa^mben^mitv^laa^im	[aa-Ben-mitq-laa-im]
-Aa^mben^sitv^tim	[aa-Ben-sitq-Tim]
-Aa^ndaa^mi^ne^kepc	[aa-Daa-mi-ne-Kepg]
-Aa^ndo^ni^se^ndekc	[aa-Do-ni-se-Dekg]
-Aa^ndo^ni^mbe^sekc	[aa-Do-ni-Be-sekg]
-Aa^taakv	[aa-Taakq]
-Aa^yin	[aa-yin]
-Aan^bakc	[aan-pakg]
-Aan^faa	[aan-faa]
-Aan^kaa	[aan-Kaa]
-Aan^ki	[aan-Ki]
-Aan^nan	[aan-nan]
-Aan^ni	[aan-ni]
-Aan^non	[aan-non]
-Aan^saa	[aan-saa]
-Aan^watv	[aan-watq]
-Aa^qan	[aa-Qan]
-Aa^saapc	[aa-saapg]
-Aa^saatv	[aa-saatq]
-Aa^saax	[aa-saaj]
-#Aa^se	[aa-se]
-Aa^se	[aa-se]
-Aa^sen	[aa-sen]
-Aa^sor	[aa-sx]
-Aa^su	[aa-su]
-Aa^taa^lotv^atc^ndaa	[aa-Taa-lotq-atg-Daa]
-Aa^ten	[aa-Ten]
-Aa^witv	[aa-witq]
-Ai^yaa	[ai-yaa]
-Am^laam	[am-laam]
-Am^mon	[am-mon]
-Am^non	[am-non]
-Am^si	[am-si]
-An^lon^mbaa^kutv	[an-lon-Baa-Kutq]
-An^mon^ndipc^laa^taa^im	[an-mon-Dipg-laa-Taa-im]
-An^naa	[an-naa]
-An^naatv	[an-naatq]
-Atc^notv^taa^mbo	[atg-notq-Taa-Bo]
-Baa^fotv	[paa-fotq]
-Baa^hatc^mo^apc	[paa-hatg-mo-apg]
-Baa^laa	[paa-laa]
-#Baa^laan	[paa-laan]
-Baa^laan	[paa-laan]
-Baa^lai	[paa-lai]
-Baa^lotv	[paa-lotq]
-Baan^sin	[paan-sin]
-Baan^tie	[paan-Tia]
-Baa^sakc	[paa-sakg]
-Ban^lu	[pan-lu]
-Ban^ti	[pan-Ti]
-Bau^lo	[pau-lo]
-Batc^ndaan^aa^lam	[patg-Daan-aa-lam]
-Be^gaa	[pe-kaa]
-Be^kaa	[pe-Kaa]
-Be^kotc	[pe-Kotg]
-Be^laetv	[pe-lctq]
-Be^lekv	[pe-lekq]
-Be^letc	[pe-letg]
-Be^letv	[pe-letq]
-Be^letv^utc^saa	[pe-letq-utg-saa]
-Be^lie	[pe-lia]
-Be^lon	[pe-lon]
-Be^sie	[pe-sia]
-Be^sitc	[pe-sitg]
-Bi^de	[pi-te]
-Bi^laam	[pi-laam]
-Bi^laatv	[pi-laatq]
-Bi^latv	[pi-latq]
-Bin^tai	[pin-Tai]
-Bi^son	[pi-son]
-Bo^ke^letv^hatc^saa^mbaa^im	[po-Ke-letq-hatg-saa-Baa-im]
-Bu^laa	[pu-laa]
-Bu^lim	[pu-lim]
-Bun^le	[pun-le]
-#Bu^waa	[pu-waa]
-Bu^waa	[pu-waa]
-Daa^tim^hotc^qi	[taa-Tim-hotg-Qi]
-E^daam	[e-taam]
-e^faa	e-faa
-#E^faa	[e-faa]
-E^faa^im^aa^saa^li^yaa	[e-faa-im-aa-saa-li-yaa]
-E^faai	[e-faai]
-E^faan	[e-faan]
-E^fe	[e-fe]
-#E^fotv	[e-fotq]
-E^kon	[e-Kon]
-#E^laa	[e-laa]
-E^laa	[e-laa]
-E^laam	[e-laam]
-E^latv	[e-latq]
-E^li	[e-li]
-E^lim	[e-lim]
-E^lon	[e-lon]
-E^lon^mbetc^haa^nan	[e-lon-Betg-haa-nan]
-E^lotv	[e-lotq]
-E^lun	[e-lun]
-E^saau	[e-saau]
-E^se	[e-se]
-E^sekv	[e-sekq]
-E^sem	[e-sem]
-E^sie	[e-sia]
-E^si^on^ge^mbe	[e-si-on-ke-Be]
-E^mekv^ke^sitv	[e-mekq-Ke-sitq]
-E^win^me^lo^ndakc	[e-win-me-lo-Dakg]
-Ekc^latv^se^li^si^yaa	[ekg-latq-se-li-si-yaa]
-En^e^lo^he^i^saa^laa^en	[en-e-lo-he-i-saa-laa-en]
-En^ekc^laa^im	[en-ekg-laa-im]
-En^gan^nim	[en-kan-nim]
-En^ge^ndi	[en-ke-Di]
-En^haa^so	[en-haa-so]
-En^hakc^ko	[en-hakg-Ko]
-En^hatc^ndaa	[en-hatg-Daa]
-En^lim^mon	[en-lim-mon]
-En^mbetc^en	[en-Betg-en]
-En^mbe^litv	[en-Be-litq]
-En^mitv^fatv	[en-mitq-fatq]
-En^se^metv	[en-se-metq]
-En^tapv^bu^waa	[en-Tapq-pu-waa]
-Etc^kaa^sin	[etg-Kaa-sin]
-Etc^mbaa^an	[etg-Baa-an]
-Faa^lo	[faa-lo]
-Faa^lo^ne^ko	[faa-lo-ne-Ko]
-Fe^likv	[fe-likq]
-Fi^ko	[fi-Ko]
-Fi^lipv	[fi-lipq]
-Gaa^laan	[kaa-laan]
-Gaa^lepv	[kaa-lepq]
-Gaa^matv	[kaa-matq]
-#Gaa^saa	[kaa-saa]
-Gaa^saa	[kaa-saa]
-Gaa^setv	[kaa-setq]
-Gan^lim	[kan-lim]
-Gan^saam	[kan-saam]
-#Gau^baa	[kau-paa]
-Gau^baa	[kau-paa]
-Gatc^he^fe	[katg-he-fe]
-Gatc^lim^mon	[katg-lim-mon]
-Ge^haa^laa^sim	[ke-haa-laa-sim]
-Ge^laa	[ke-laa]
-Ge^lem	[ke-lem]
-Ge^lutv^kim^ham	[ke-lutq-Kim-ham]
-Gen^naatv	[ken-naatq]
-Ge^saan	[ke-saan]
-#Ge^se	[ke-se]
-Ge^se	[ke-se]
-Ge^sem	[ke-sem]
-Ge^som	[ke-som]
-Ge^son	[ke-son]
-Ge^su	[ke-su]
-Gi^duc	[ki-tug]
-Gi^lon	[ki-lon]
-Gi^mbe^atc^haa^laa^lotv	[ki-Be-atg-haa-laa-lotq]
-Gim^so	[kim-so]
-Go^aa	[ko-aa]
-Go^laan	[ko-laan]
-Go^maa	[ko-maa]
-Go^saan	[ko-saan]
-Go^sen	[ko-sen]
-Gu^mbaa^an	[ku-Baa-an]
-Haa^gaa	[haa-kaa]
-Haa^gaapc	[haa-kaapg]
-Haa^gi	[haa-ki]
-#Haa^laa	[haa-laa]
-Haa^laa	[haa-laa]
-Haa^laan	[haa-laan]
-Haa^lakv	[haa-lakq]
-Haa^le^lu^yaa	[haa-le-lu-yaa]
-Haa^letv	[haa-letq]
-Haa^li	[haa-li]
-Haa^lim	[haa-lim]
-Haa^lipv	[haa-lipq]
-Haa^lotv	[haa-lotq]
-Haa^lo^setv^haa^go^yim	[haa-lo-setq-haa-ko-yim]
-Haa^lum	[haa-lum]
-Haa^lupv	[haa-lupq]
-Haa^matv	[haa-matq]
-Haa^matv^so^mbaa	[haa-matq-so-Baa]
-Haa^mon^gokg	[haa-mon-kokk]
-Haa^motv^ndo^aa	[haa-motq-Do-aa]
-Haa^ndatc^lim^mon	[haa-Datg-lim-mon]
-Haa^nun	[haa-nun]
-Haa^saa^latv^ndaa	[haa-saa-latq-Daa]
-Haa^saa^le^nan	[haa-saa-le-nan]
-Haa^saa^le^non	[haa-saa-le-non]
-Haa^saa^son^taa^maa	[haa-saa-son-Taa-maa]
-Haa^saa^su^aan	[haa-saa-su-aan]
-Haa^saan^su^aan	[haa-saan-su-aan]
-Haa^saan^sux^simx	[haa-saan-suj-simj]
-Haan^saa	[haan-saa]
-Haa^saan^gatc^ndaa	[haa-saan-katg-Daa]
-Haa^sem	[haa-sem]
-Haa^se^hatv^ti^kon	[haa-se-hatq-Ti-Kon]
-Haa^so	[haa-so]
-Haa^so^haa^ndatc^taa	[haa-so-haa-Datg-Taa]
-Haa^son^haa^ndatc^taa	[haa-son-haa-Datg-Taa]
-Haa^sum	[haa-sum]
-Haa^waa	[haa-waa]
-Ham^laan	[ham-laan]
-Ham^mon	[ham-mon]
-Han^naa	[han-naa]
-Hau^laan	[hau-laan]
-Haau^wotv^yaa^i	[haau-wotq-yaa-i]
-He^fe	[he-fe]
-He^gai	[he-kai]
-He^gam	[he-kam]
-He^laa	[he-laa]
-He^laam	[he-laam]
-He^le	[he-le]
-He^lepv	[he-lepq]
-He^letv	[he-letq]
-He^lekv	[he-lekq]
-He^li	[he-li]
-He^lon	[he-lon]
-He^lotv	[he-lotq]
-He^mon	[he-mon]
-He^si	[he-si]
-Hi^laa	[hi-laa]
-Hi^laan	[hi-laan]
-Hi^len	[hi-len]
-Hin^len	[hin-len]
-Hin^nom	[hin-nom]
-Ho^faa	[ho-faa]
-Ho^hakv^gitc^gaatc	[ho-hakq-kitg-kaatg]
-Ho^laam	[ho-laam]
-Ho^lem	[ho-lem]
-Ho^lepv	[ho-lepq]
-Ho^letv	[ho-letq]
-Ho^li	[ho-li]
-Ho^lon	[ho-lon]
-Ho^maa	[ho-maa]
-Ho^saax	[ho-saaj]
-Hu^faam	[hu-faam]
-Hu^gorkc	[hu-kxkg]
-Hu^laam	[hu-laam]
-Hu^lai	[hu-lai]
-Hu^laam^aa^mbi	[hu-laam-aa-Bi]
-Hu^li	[hu-li]
-Hum^taa	[hum-Taa]
-#Hu^saa	[hu-saa]
-Hu^saa	[hu-saa]
-Hu^saam	[hu-saam]
-Hu^sai	[hu-sai]
-Hu^sim	[hu-sim]
-Hu^sopc	[hu-sopg]
-I^gaan	[i-kaan]
-I^laa	[i-laa]
-I^laa^naa^haatc	[i-laa-naa-haatg]
-I^laam	[i-laam]
-I^laatv	[i-laatq]
-I^lai	[i-lai]
-I^li	[i-li]
-I^lu	[i-lu]
-I^sakc	[i-sakg]
-#Im^laa	[im-laa]
-Im^laa	[im-laa]
-Im^li	[im-li]
-Im^me	[im-me]
-Im^naa	[im-naa]
-In^se^metv	[in-se-metq]
-Ipc^taa^en	[ipg-Taa-en]
-#I^sakc	[i-sakg]
-I^ye^aa^mbaa^lim	[i-ye-aa-Baa-lim]
-Jietc^si	[Jyetg-si]
-Kaa^laa	[Kaa-laa]
-Kaa^lepv	[Kaa-lepq]
-Kaa^li	[Kaa-li]
-Kaa^ndetc^mbaa^nie	[Kaa-Detg-Baa-nia]
-Kaa^ne	[Kaa-ne]
-Kaan^kaa	[Kaan-Kaa]
-#Kaan^ko	[Kaan-Ko]
-Kaan^ko	[Kaan-Ko]
-Kaan^lai	[Kaan-lai]
-Kaan^men	[Kaan-men]
-Kaan^mi	[Kaan-mi]
-#Kaan^ne	[Kaan-ne]
-Kaan^ne	[Kaan-ne]
-Kaan^no	[Kaan-no]
-Kaan^taa	[Kaan-Taa]
-Kai^wan	[Kai-wan]
-Ke^faatv	[Ke-faatq]
-Ke^laan	[Ke-laan]
-Ke^lan	[Ke-lan]
-Ke^li^otc^hetv^lon	[Ke-li-otg-hetq-lon]
-Ke^lotv	[Ke-lotq]
-Ke^lupv	[Ke-lupq]
-Ken^men	[Ken-men]
-Ke^nai	[Ke-nai]
-Ke^setc	[Ke-setg]
-Ke^sinx	[Ke-sinj]
-Ke^sipv	[Ke-sipq]
-Ki^naa	[Ki-naa]
-Ki^li^yaatv^aa^lim	[Ki-li-yaatq-aa-lim]
-Ki^li^yaatv^aan^mbaa	[Ki-li-yaatq-aan-Baa]
-Ki^li^yaatv^mbaa^an	[Ki-li-yaatq-Baa-an]
-Ki^li^yaatv^sanx^naa	[Ki-li-yaatq-sanj-naa]
-Ki^li^yaatv^se^fe	[Ki-li-yaatq-se-fe]
-Ki^li^yaatv^ye^aa^lim	[Ki-li-yaatq-ye-aa-lim]
-Kin^haa^le^setv	[Kin-haa-le-setq]
-Kin^maatv	[Kin-maatq]
-Ki^si	[Ki-si]
-Ki^son	[Ki-son]
-Ki^tu	[Ki-Tu]
-Kitv^lotv^taa^mbo	[Kitq-lotq-Taa-Bo]
-Kipc^lotv^hatc^daa^aa^waa	[Kipg-lotq-hatg-taa-aa-waa]
-Ko^laa	[Ko-laa]
-Ko^le	[Ko-le]
-Ko^samx	[Ko-samj]
-Kon^ho^se	[Kon-ho-se]
-Kum^laan	[Kum-laan]
-Ku^qan^li^taa^im	[Ku-Qan-li-Taa-im]
-Ku^qi	[Ku-Qi]
-Ku^saa	[Ku-saa]
-Ku^taa	[Ku-Taa]
-Laa^faa	[laa-faa]
-Laa^fu	[laa-fu]
-Laa^kaan	[laa-Kaan]
-Laa^kem	[laa-Kem]
-Laa^kitv	[laa-Kitq]
-Laa^maatv^le^hi	[laa-maatq-le-hi]
-Laa^maatv^mitv^be	[laa-maatq-mitq-pe]
-Laa^motv	[laa-motq]
-Laa^motv^gi^le^aatc	[laa-motq-ki-le-aatg]
-Laa^saa	[laa-saa]
-Laa^sen	[laa-sen]
-Laa^sie	[laa-sia]
-Laa^supv^mbi^le^hem	[laa-supq-Bi-le-hem]
-Lai^saa	[lai-saa]
-Le^faa	[le-faa]
-Le^faan	[le-faan]
-Le^gem	[le-kem]
-Le^kaa	[le-Kaa]
-Le^kaapv	[le-Kaapq]
-Le^kem	[le-Kem]
-Le^mbo^haa^matv	[le-Bo-haa-matq]
-Le^saa	[le-saa]
-Le^sem	[le-sem]
-Le^senx	[le-senj]
-#Le^sepv	[le-sepq]
-Le^sepv	[le-sepq]
-Le^sin	[le-sin]
-Le^son	[le-son]
-Le^wi	[le-wi]
-Li^faatv	[li-faatq]
-Lim^mon	[lim-mon]
-Lim^mon^be^letv	[lim-mon-pe-letq]
-Lin^naa	[lin-naa]
-Li^sie	[li-sia]
-Li^siex	[li-siaj]
-Lo^gaa	[lo-kaa]
-Lo^lu^aa^maa	[lo-lu-aa-maa]
-Lo^maa	[lo-maa]
-Lo^mam^ti^e^se	[lo-mam-Ti-e-se]
-Lo^nde^mbaa	[lo-De-Baa]
-Lo^taan	[lo-Taan]
-Lu^fatv	[lu-fatq]
-Lu^gaa	[lu-kaa]
-Lu^maa	[lu-maa]
-Lu^te	[lu-Te]
-Maa^di	[maa-ti]
-Maa^gokc	[maa-kokg]
-Maa^haa^ne^ndaan	[maa-haa-ne-Daan]
-Maa^he^saa^laan^hatc^mbatc	[maa-he-saa-laan-hatg-Batg]
-Maa^kaatv	[maa-Kaatq]
-Maa^ki	[maa-Ki]
-Maa^ko	[maa-Ko]
-Maa^laa	[maa-laa]
-#Maa^li	[maa-li]
-Maa^lon	[maa-lon]
-Maa^lotv	[maa-lotq]
-Maa^saan	[maa-saan]
-Maa^taa	[maa-Taa]
-Mam^le	[mam-le]
-Man^katv	[man-Katq]
-Man^ki^su^aa	[man-Ki-su-aa]
-Man^lukv	[man-lukq]
-Mbaa^aa^latv^mbe^e	[Baa-aa-latq-Be-e]
-Mbaa^an^be^laa^sim	[Baa-an-pe-laa-sim]
-Mbaa^an^be^o	[Baa-an-pe-o]
-Mbaa^an^gaatc	[Baa-an-kaatg]
-Mbaa^an^haa^nan	[Baa-an-haa-nan]
-Mbaa^an^haa^so	[Baa-an-haa-so]
-Mbaa^an^he^mon	[Baa-an-he-mon]
-Mbaa^an^ho^lon	[Baa-an-ho-lon]
-Mbaa^an^me^on	[Baa-an-me-on]
-Mbaa^an^mbe^litv	[Baa-an-Be-litq]
-#Mbaa^an^Qaa^li^Qaa	[Baa-an-Qaa-li-Qaa]
-Mbaa^an^saa^li^Qaa	[Baa-an-saa-li-Qaa]
-Mbaa^an^se^fon	[Baa-an-se-fon]
-Mbaa^an^taa^maa	[Baa-an-Taa-maa]
-Mbaa^laa	[Baa-laa]
-Mbaa^laakv	[Baa-laakq]
-Mbaa^lukv	[Baa-lukq]
-Mbaa^motv^mbaa^an	[Baa-motq-Baa-an]
-Mbaa^an^qaa^li^qaa	[Baa-an-Qaa-li-Qaa]
-Mbaa^saa	[Baa-saa]
-Mbaa^saan	[Baa-saan]
-Mbe^e^laa^hai^loi	[Be-e-laa-hai-lxi]
-Mbe^e^lotv^mbe^ne^yaa^aa^kan	[Be-e-lotq-Be-ne-yaa-aa-Kan]
-Mbe^ne^yaa^aa^kan	[Be-ne-yaa-aa-Kan]
-Mbe^ne^mbe^laakv	[Be-ne-Be-laakq]
-Mbe^ke	[Be-Ke]
-Mbe^laa	[Be-laa]
-Mbe^letv	[Be-letq]
-Mbe^li	[Be-li]
-Mbe^ne^mbe^latv	[Be-ne-Be-latq]
-Mbe^sai	[Be-sai]
-Mbe^saix	[Be-saij]
-Mbe^sekv	[Be-sekq]
-Mbe^so	[Be-so]
-Mbe^aa^laa^mbaa	[Be-aa-laa-Baa]
-Mbe^taa^wen	[Be-Taa-wen]
-Mben^aa^mbi^naa^ndapc	[Ben-aa-Bi-naa-Dapg]
-Mben^ge^mbe	[Ben-ke-Be]
-Mben^haa^ndatc	[Ben-haa-Datg]
-Mben^hin^nom	[Ben-hin-nom]
-Mben^he	[Ben-he]
-Mben^he^setc	[Ben-he-setg]
-Mben^nde^ke	[Ben-De-Ke]
-Mben^so^hetv	[Ben-so-hetq]
-Mbetc^aa^laa^mbaa	[Betg-aa-laa-Baa]
-Mbetc^aa^mben	[Betg-aa-Ben]
-Mbetc^aa^naatv	[Betg-aa-naatq]
-Mbetc^aa^wen	[Betg-aa-wen]
-Mbetc^atc^maa^wetv	[Betg-atg-maa-wetq]
-Mbetc^atc^mbi^aa	[Betg-atg-Bi-aa]
-Mbetc^be^letv	[Betg-pe-letq]
-Mbetc^be^o	[Betg-pe-o]
-Mbetc^e^mekv	[Betg-e-mekq]
-Mbetx^hakv^kaan	[Betj-hakq-Kaan]
-Mbetc^hakv^ke^lem	[Betg-hakq-Ke-lem]
-Mbetc^ho^lon	[Betg-ho-lon]
-Mbetc^hokv^laa	[Betg-hokq-laa]
-Mbetc^gin^gaan	[Betg-kin-kaan]
-#Mbetc^haa^lam	[Betg-haa-lam]
-Mbetc^haa^lam	[Betg-haa-lam]
-Mbetc^laa^faa	[Betg-laa-faa]
-Mbetc^le^hopc	[Betg-le-hopg]
-Mbetc^maa^aa^kaa	[Betg-maa-aa-Kaa]
-Mbetc^maa^haa^kaa	[Betg-maa-haa-Kaa]
-Mbetc^maan^kaa^mbotc	[Betg-maan-Kaa-Botg]
-Mbetc^mbaa^an^me^on	[Betg-Baa-an-me-on]
-Mbetc^mbaa^laa	[Betg-Baa-laa]
-Mbetc^mbi^li	[Betg-Bi-li]
-Mbetc^ndaa^gon	[Betg-Daa-kon]
-Mbetc^min^lo	[Betg-min-lo]
-Mbetc^nim^laa	[Betg-nim-laa]
-Mbetc^batc^setv	[Betg-patg-setq]
-Mbetc^qitv^taa	[Betg-Qitq-Taa]
-Mbetc^saan	[Betg-saan]
-Mbetc^se^aan	[Betg-se-aan]
-Mbetc^se^metv	[Betg-se-metq]
-Mbetc^su	[Betg-su]
-Mbetc^tapv^bu^waa	[Betg-Tapq-pu-waa]
-Mbe^taa^naatv	[Be-Taa-naatq]
-Mbe^taa^notv	[Be-Taa-notq]
-Mbetc^to^gaan^maa	[Betg-To-kaan-maa]
-Mbetc^ye^si^motv	[Betg-ye-si-motq]
-Mbi^laa	[Bi-laa]
-Mbin^nui	[Bin-nwi]
-Mbin^saa	[Bin-saa]
-Mbo^setv	[Bo-setq]
-Mbun^ni	[Bun-ni]
-Mbu^si	[Bu-si]
-M'naix	[mnaij]
-M'faam	[mfaam]
-M'feix	[mfeij]
-M'manv	[mmanq]
-Me^laa	[me-laa]
-Me^laapv	[me-laapq]
-Me^lekv	[me-lekq]
-Me^letc	[me-letg]
-Me^letv	[me-letq]
-Me^lipv^mbaa^an	[me-lipq-Baa-an]
-Me^lom	[me-lom]
-Me^lopv	[me-lopq]
-Me^lotv	[me-lotq]
-Me^lo^ndakc^mbaa^laa^ndan	[me-lo-Dakg-Baa-laa-Dan]
-Mem^fitv	[mem-fitq]
-Me^ne	[me-ne]
-Men^ki	[men-Ki]
-Men^naa	[men-naa]
-Me^saa	[me-saa]
-Me^saakv	[me-saakq]
-Me^sekv	[me-sekq]
-Me^yaan^kon	[me-yaan-Kon]
-Mic\_aqv	[mig\_a'q]
-Mi^gon	[mi-kon]
-Mi^kaa	[mi-Kaa]
-Mi^kaan	[mi-Kaan]
-Mi^laa	[mi-laa]
-Mi^liem	[mi-lyem]
-Mikv^ndan^en	[mikq-Dan-en]
-Mikv^ndan^gaatc	[mikq-Dan-kaatg]
-Min^kaa	[min-Kaa]
-Min^kom	[min-Kom]
-Min^lo	[min-lo]
-Min^maa	[min-maa]
-Min^ni	[min-ni]
-Min^nitv	[min-nitq]
-Mitv^le^fotv^maa^im	[mitq-le-fotq-maa-im]
-Mi^saa	[mi-saa]
-Mi^saan	[mi-saan]
-Mi^sie	[mi-sia]
-Mo^lekv	[mo-lekq]
-Mo^litv	[mo-litq]
-Mo^lokv	[mo-lokq]
-Mor^daa	[mx-taa]
-Mo^saa	[mo-saa]
-Mo^se	[mo-se]
-Mu^si	[mu-si]
-Naa^faatv	[naa-faatq]
-Naa^fitv	[naa-fitq]
-Naa^faatv^ndo	[naa-faatq-Do]
-Naa^fotv^ndo^aa	[naa-fotq-Do-aa]
-Naa^kon	[naa-Kon]
-Naa^si	[naa-si]
-Naa^son	[naa-son]
-Naa^tan	[naa-Tan]
-Naa^tan^me^lekv	[naa-Tan-me-lekq]
-Naa^yotv	[naa-yotq]
-Ndaa^gon	[Daa-kon]
-Ndaa^laa	[Daa-laa]
-Ndaan^yaa^an	[Daan-yaa-an]
-Ndaan^na	[Daan-na]
-Ndaa^taa	[Daa-Taa]
-Ndaa^witv	[Daa-witq]
-Nde^maa	[De-maa]
-Ndi^fatv	[Di-fatq]
-Ndim^naa	[Dim-naa]
-Ndi^mbon^gaatc	[Di-Bon-kaatg]
-Ndi^saan	[Di-saan]
-Ndi^son	[Di-son]
-Ndu^laa	[Du-laa]
-Ne^fekv	[ne-fekq]
-Ne^fin	[ne-fin]
-Ne^gan	[ne-kan]
-Ne^gepc	[ne-kepg]
-Ne^getc	[ne-ketg]
-Ne^ko	[ne-Ko]
-Ne^li	[ne-li]
-Ne^sipv	[ne-sipq]
-Ni^ge	[ni-ke]
-Nim^faa	[nim-faa]
-Nim^laa	[nim-laa]
-Nim^lim	[nim-lim]
-Nim^lotv	[nim-lotq]
-Nim^si	[nim-si]
-Ni^saanx	[ni-saanj]
-No^aa^mon	[no-aa-mon]
-No^gaa	[no-kaa]
-No^yaa	[no-yaa]
-O^baa	[o-paa]
-O^fen	[o-fen]
-O^fi	[o-fi]
-O^kaan	[o-Kaan]
-O^len	[o-len]
-O^lepv	[o-lepq]
-Om^li	[om-li]
-O^mbetc^e^ndom	[o-Betg-e-Dom]
-O^nan	[o-nan]
-O^no	[o-no]
-O^sem	[o-sem]
-Pi^haa^hi^lotv	[Pi-haa-hi-lotq]
-Pi^mbe^setc	[Pi-Be-setg]
-Qe^fo	[Qe-fo]
-Qe^laa	[Qe-laa]
-Qi^qaa	[Qi-Qaa]
-Saa^ben	[saa-pen]
-Saa^daan	[saa-taan]
-Saa^faam	[saa-faam]
-Saa^faan	[saa-faan]
-Saa^fatv	[saa-fatq]
-Saa^fi	[saa-fi]
-Saa^gi	[saa-ki]
-Saa^gorn	[saa-kxn]
-Saa^laa	[saa-laa]
-Saa^laai	[saa-laai]
-Saa^lai	[saa-lai]
-Saa^lem	[saa-lem]
-Saa^lon	[saa-lon]
-Saa^maa	[saa-maa]
-Saa^sai	[saa-sai]
-Saa^sakv	[saa-sakq]
-Saa^we	[saa-we]
-Saax^fe^naatv^baa^ne^aa	[saaj-fe-naatq-paa-ne-aa]
-Saem^san	[scm-san]
-#Sai^batc	[sai-patg]
-sai^batc	sai-patg
-Sai^latv	[sai-latq]
-Sai^lin	[sai-lin]
-Sam^lai	[sam-lai]
-Sam^maa	[sam-maa]
-Sam^mai	[sam-mai]
-Sam^motv	[sam-motq]
-San^lum	[san-lum]
-San^mai	[san-mai]
-San^man	[san-man]
-Sau^lo	[sau-lo]
-Se^aan^yaa^supv	[se-aan-yaa-supq]
-Se^faa	[se-faa]
-Se^faam	[se-faam]
-Se^fatv	[se-fatq]
-Se^fe	[se-fe]
-Se^fi	[se-fi]
-Se^fo	[se-fo]
-Se^fon	[se-fon]
-Se^gupc	[se-kupg]
-Se^ke	[se-Ke]
-Se^kem	[se-Kem]
-Se^kenx	[se-Kenj]
-Se^ku	[se-Ku]
-Se^laa	[se-laa]
-Se^laa^ham^maa^le^kotv	[se-laa-ham-maa-le-Kotq]
-Se^lekv	[se-lekq]
-Se^lepv	[se-lepq]
-Se^letv	[se-letq]
-Ze^e^letv^saa^haax	[ze-e-letq-saa-haaj]
-Se^li	[se-li]
-Se^lo	[se-lo]
-Se^lukv	[se-lukq]
-Se^ne	[se-ne]
-Se^ni	[se-ni]
-Se^sai	[se-sai]
-Se^san	[se-san]
-#Se^taa	[se-Taa]
-Se^taa	[se-Taa]
-Se^taa^mbo^se^nai	[se-Taa-Bo-se-nai]
-Se^taam	[se-Taam]
-Se^taan	[se-Taan]
-Se^tu	[se-Tu]
-#Se^waa	[se-waa]
-Se^waa	[se-waa]
-Si^aa	[si-aa]
-Si^faa	[si-faa]
-Si^fi	[si-fi]
-Si^fim	[si-fim]
-Si^fon	[si-fon]
-Si^hox^lipv^naatv	[si-hoj-lipq-naatq]
-Si^kaa	[si-Kaa]
-Si^laa	[si-laa]
-Si^lie	[si-lia]
-Si^lo	[si-lo]
-Sim^laatv	[sim-laatq]
-Sim^li	[sim-li]
-Sim^litv	[sim-litq]
-Sim^lon	[sim-lon]
-Sim^lon^me^lon	[sim-lon-me-lon]
-Si^mon	[si-mon]
-Sim^sai	[sim-sai]
-Sin^lem	[sin-lem]
-Sin^saa	[sin-saa]
-Si^saa	[si-saa]
-Si^sakv	[si-sakq]
-Si^tie	[si-Tia]
-Si^wan	[si-wan]
-Si^yo	[si-yo]
-Si^yon	[si-yon]
-So^faa	[so-faa]
-So^fai	[so-fai]
-So^fakv	[so-fakq]
-So^fim	[so-fim]
-So^ko	[so-Ko]
-So^laa	[so-laa]
-So^lekv	[so-lekq]
-So^tai	[so-Tai]
-Su^faa	[su-faa]
-Su^kaa	[su-Kaa]
-Sukc^kotv^mben^notv	[sukg-Kotq-Ben-notq]
-Su^lem	[su-lem]
-Su^nem	[su-nem]
-Su^saax	[su-saaj]
-Su^si	[su-si]
-Su^waa	[su-waa]
-Taa^aa^natv^si^lo	[Taa-aa-natq-si-lo]
-Taa^fatv	[Taa-fatq]
-Taa^letv	[Taa-letq]
-Taa^lie	[Taa-lia]
-Taa^maa	[Taa-maa]
-Taan^taa	[Taan-Taa]
-Taan^takv	[Taan-Takq]
-Taan^sitv	[Taan-sitq]
-Taa^satv	[Taa-satq]
-Tai^gitc	[Tai-kitg]
-Tai^laqv	[Tai-la'q]
-Tan^mai	[Tan-mai]
-Tan^mon	[Tan-mon]
-Te^ken	[Te-Ken]
-Te^laa	[Te-laa]
-Te^lem	[Te-lem]
-Te^letv	[Te-letq]
-Te^maa	[Te-maa]
-Te^maan	[Te-maan]
-Te^mutv	[Te-mutq]
-Ten^atc^saax	[Ten-atg-saaj]
-Ten^haanx^saa	[Ten-haanj-saa]
-Ten^me^laa	[Ten-me-laa]
-Ti^datc	[Ti-tatg]
-Ti^laatv	[Ti-laatq]
-Ti^lon	[Ti-lon]
-Ti^Ti^atc^yu^saa^Tatv	[Ti-Ti-atg-yu-saa-Tatq]
-Tikv^latv^bi^le^se	[Tikq-latq-pi-le-se]
-Tim^naa	[Tim-naa]
-Tim^naatv	[Tim-naatq]
-Tim^naatv^he^letv	[Tim-naatq-he-letq]
-Tim^naatv^se^laa	[Tim-naatq-se-laa]
-Ti^mon	[Ti-mon]
-Ti^sai	[Ti-sai]
-To^fen	[To-fen]
-To^fetv	[To-fetq]
-To^hu	[To-hu]
-To^ken	[To-Ken]
-To^laa	[To-laa]
-To^latv	[To-latq]
-Topv^aa^ndo^ni^yaa	[Topq-aa-Do-ni-yaa]
-Tu^mban^kaa^in	[Tu-Ban-Kaa-in]
-Tum^mim	[Tum-mim]
-U^faatv	[u-faatq]
-U^kaan	[u-Kaan]
-U^laam	[u-laam]
-U^lai	[u-lai]
-U^li	[u-li]
-U^lim	[u-lim]
-Um^maa	[um-maa]
-Un^laa	[un-laa]
-Un^ni	[un-ni]
-Un^no	[un-no]
-U^saan	[u-saan]
-U^sai	[u-sai]
-U^tai	[u-Tai]
-Utc^sen^se^e^laa	[utg-sen-se-e-laa]
-Yaa^fetv	[yaa-fetq]
-Yaa^fie	[yaa-fia]
-Yaa^gorpc	[yaa-kxpg]
-Yaa^gun	[yaa-kun]
-Yaa^kim	[yaa-Kim]
-Yaa^kin	[yaa-Kin]
-Yaa^kopv	[yaa-Kopq]
-Yaa^laa	[yaa-laa]
-Yaa^laam	[yaa-laam]
-Yaa^letv	[yaa-letq]
-Yaa^lipv	[yaa-lipq]
-Yaa^lon	[yaa-lon]
-Yaa^mbetc^gi^le^aatc	[yaa-Betg-ki-le-aatg]
-Yaa^wan	[yaa-wan]
-Yaan^mutv	[yaan-mutq]
-Yaa^saa	[yaa-saa]
-Yaa^se	[yaa-se]
-Yaa^sen	[yaa-sen]
-Yaa^sitv	[yaa-sitq]
-Yaa^sonx	[yaa-sonj]
-Yaa^supv	[yaa-supq]
-Yaa^waan	[yaa-waan]
-Yam^lekv	[yam-lekq]
-Yan^naai	[yan-naai]
-Yan^netv	[yan-netq]
-Ye^gaa^saax^haax^ndu^taa	[ye-kaa-saaj-haaj-Du-Taa]
-Ye^laa	[ye-laa]
-Ye^letv	[ye-letq]
-Ye^lupv^mbaa^an	[ye-lupq-Baa-an]
-Ye^se	[ye-se]
-Ye^su	[ye-su]
-Ye^te	[ye-Te]
-Ye^tetv	[ye-Tetq]
-Ye^to	[ye-To]
-Ye^tu	[ye-Tu]
-Yi^lon	[yi-lon]
-Yiu^tai	[yiu-Tai]
-Yiu-Mienh	[yiu= myenb]
-Yo^aa	[yo-aa]
-Yo^aatc	[yo-aatg]
-Yo^kim	[yo-Kim]
-Yo^laa	[yo-laa]
-Yo^lai	[yo-lai]
-Yo^lam	[yo-lam]
-Yo^lim	[yo-lim]
-Yo^naa	[yo-naa]
-Yo^saa	[yo-saa]
-Yo^sekc	[yo-sekg]
-Yo^sepv	[yo-sepq]
-Yo^setc	[yo-setg]
-Yo^taam	[yo-Taam]
-Yo^qepv^mbatc^qe^mbetc	[yo-Qepq-Batg-Qe-Betg]
-Yu^kaan	[yu-Kaan]
-Yu^lie	[yu-lia]
-Yu^lietv	[yu-lyetq]
-Yu^lopv	[yu-lopq]
-Yu^sapv^he^setc	[yu-sapq-he-setg]
-#Ze^e^letv^saa^haax	[ze-e-letq-saa-haaj]
-Zingh Haaix	[zivb haiq]
-#Zangc	[zavg]
-Ze^laa	[ze-laa]
+Fe^saa^tatv	fe-saa-Tatq
+hlieqv-kou kou	Lia'g Kru Kru
+Yaalaam	yaa-laam
+Ki^li^yaatv	Ki-li-yaatq
+Haalipv	haa-lipq
+yiem	yem
+#bienh	pyenb
+Kaa^laau^ndi^atc	Kaa-laau-Di-atg
+Aalutv	aa-lutq
+Aa^mben Maa^im	aa-Ben-maa-im
+Se^kun^ndatc	sej-Kun-Datg
+huotv	Wrtq
+Aanim	aa-nim
+Si^me^aa	si-me-aa
+sou-nzaangc	srub Ravg
+Atc^taa^li^yaa	atg-Taa-li-yaa
+Sifon	si-fon
+Maa^li^yaa	maa-li-yaa
+guenx	kwenj
+Se^mbo^im	sej-Bo-im
+Kaa^ndetc Mbaa^nie	Kaa-Detg-Baa-nia
+Ye^kaa^mi^yaa	ye-Kaa-mi-yaa
+Gaa^maa^li^en	kaa-maa-li-en
+Musi	mu-si
+Hufaam	hu-faam
+O^ne^si^fo^latv	o-ne-si-fo-latq
+Yaaletv	yaa-letq
+Sumatv	su-matq
+Mbetc Hakv^ke^lem	Betg-hakq-Ke-lem
+La'maaqh	la'maa'b
+Kitv	Kitq
+Husaam	hu-saam
+wuom-zingv-nqaai	uamb zivb Gaai
+Maalotv	maa-lotq
+Daa^ko^ni^ditc	taa-Ko-ni-titg
+Lo^Lu^haa^maa	lo-lu-haa-maa
+Aa^hi^hutv	aa-hi-hutq
+Maaki	maa-Ki
+Haamaan	haa-maan
+Mikv^ne^yaa	mikq-ne-yaa
+Ki^ndon	Ki-Don
+Haalaan	haa-laan
+Mikv^lotv	mikq-lotq
+huon-huaa	Wrnb Waa
+aah	aa'b
+Laamam	laa-mam
+Tikv^latv Bi^le^se	Tikq-latq-pi-le-sej
+haaix zanc	haiq zang
+Haanan	haa-nan
+Ese	e-se
+Taa^li^taa^ku^mi	Taa-li-Taa-Ku-mi
+Selaa Ham^maa^le^kotv	se-laa-ham-maa-le-Kotq
+Omaa	o-maa
+Segupc	sej-kupg
+Anlon Mbaakutv	an-lon-Baa-Kutq
+wuonv	wrnq
+Aa^hi^saa^makv	aa-hi-saa-makq
+Sammotv	sam-motq
+Aayin	aa-yin
+Hakv^kotc	hakq-Kotg
+Se^le^ndaa	sej-le-Daa
+Aate	aa-Te
+Utai	u-Tai
+Mbaasaan	Baa-saan
+Gi^ndom	ki-Dom
+Ki^li^yaatv Ye^aa^lim	Ki-li-yaatq-ye-aa-lim
+jiem-dieh	Jyemb tiab
+I^li^yaa	i-li-yaa
+ndenz-ndenz	Drnb Drnd
+Semetv	se-metq
+Sammaa	sam-maa
+saah	saa'b
+haaix laanh	haiq laanb
+Seli	sej-li
+Ikc^ndaa^li^yaa	ikg-Daa-li-yaa
+yiemh	yemb
+Mben^yaa^min	Ben-yaa-min
+Aa^kuin^laa	aa-Kwin-laa
+Taa^aa^natv Silo	Taa-aa-natq-si-lo
+Yaa^aa^su	yaa-aa-su
+Haawaa	haa-waa
+Atc^si	atg-sij
+Gaasaa	kaa-saa
+Se^mi^laa^motv	se-mi-laa-motq
+Yo^laa^ke^am	yo-laa-Ke-am
+Mbaa^an Qaa^li^qaa	Baa-an-Qaa-li-Qaa
+Aa^hi^ye^se	aa-hi-ye-se
+wuonh	wrnb
+Hatc^se^nu^aa	hatg-sej-nu-aa
+Se^haa^li^yaa	se-haa-li-yaa
+siemv	syemq
+si^ndaa	sij-Daa
+Gi^mbe^atc Haa^laa^lotv	ki-Be-atg-haa-laa-lotq
+So^baa^te	soj-paa-Te
+gong-mienh	kovb myenb
+sienh	syenb
+Aa^hu^mai	aa-hu-mai
+pien	Pyen
+Sux^li^en	suj-li-en
+Sakc^kaa^li^yaa	sakg-Kaa-li-yaa
+Me^li^mbatc Kaa^ndetc	me-li-Batg-Kaa-Detg
+Faalo Neko	faa-lo-ne-Ko
+So^mbaa	soj-Baa
+laatc laatc	laatg laatg
+Ndi^mbon Gaatc	Di-Bon-kaatg
+la'kuqv	la'Ku'q
+Aa^hi^maa^atc	aa-hi-maa-atg
+Zefi	ze-fi
+Aa^hi^yam	aa-hi-yam
+Taamaa	Taa-maa
+Huingx-ziouv	Wivb zyruq
+Ilaqv	i-la'q
+huon	Wrn
+Fi^nikv	fi-nikq
+Enkotc	en-Kotg
+efotv	e-fotq
+Me^hu^maan	me-hu-maan
+hiaangv hiaangv	Yaavq Yaavq
+Mbe^aa^lotv	Be-aa-lotq
+Sikv^ke^lon	sikq-Ke-lon
+Saa^haa^laa^im	saa-haa-laa-im
+Haamo	haa-mo
+Se^mai^aa	se-mai-aa
+Nesipv	ne-sipq
+Kaasetv	Kaa-setq
+Mbaa^laa^saa^tatv	Baa-laa-saa-Tatq
+Enotv	e-notq
+Lu^hitv	lu-hitq
+E^hutv	e-hutq
+Aa^mo^lai	aa-mo-lai
+Mbaani	Baa-ni
+huing	Wiv
+Haa^kaa^li^yaa	haa-Kaa-li-yaa
+Mikv^ndon	mikq-Don
+Timnaatv Selaa	Tim-naatq-sej-laa
+Yopv	yopq
+Jor^laa^kev	Jx-laa-Keq
+Mbetc Tapv^bu^waa	Betg-Tapq-pu-waa
+Sofaa	soj-faa
+Naafitv	naa-fitq
+Ti^yaa^ti^laa	Ti-yaa-Ti-laa
+Gopc	kopg
+Si^li^orn	sij-li-xn
+Aalaa	aa-laa
+Isakc	i-sakg
+haaix deix	haiq teij
+Se^lu^mi^en	se-lu-mi-en
+Seletc	se-letg
+Ge^maa^li^yaa	ke-maa-li-yaa
+nyei	Eei
+I^ye Aa^mbaa^lim	i-ye-aa-Baa-lim
+loh!	lo'b!
+Bupc^li^atc	pupg-li-atg
+Mi^yaa^min	mi-yaa-min
+Aa^mben Mbetc Maa^aa^kaa	aa-Ben-Betg-maa-aa-Kaa
+huingx	Wivj
+Mbe^so^ndai^aa	Be-soj-Dai-aa
+Naason	naa-son
+Ti^mbe^li^atc	Ti-Be-li-atg
+Saa^maa^lie	saa-maa-lia
+Mbeli	Be-li
+Yaamin	yaa-min
+Mikv^me^tatv	mikq-me-Tatq
+Maataa	maa-Taa
+Kaantaa	Kaan-Taa
+Si^fi^yon	si-fi-yon
+Timon	Ti-mon
+Selaa	se-laa
+Mbaamotv Mbaa^an	Baa-motq-Baa-an
+Ke^litv^taa	Ke-litq-Taa
+Tan^hu^metv	Tan-hu-metq
+mbiungc-nziaaux	Byuvb Ryaauj
+Esekv	e-sekq
+Eke	e-Ke
+ga'naaiv-mbeix mbeix	ka'naaib Beij Beij
+Esem	e-sem
+Yaa^laa^haa	yaa-laa-haa
+Aa^mbi^tupv	aa-Bi-Tupq
+I^yon	i-yon
+se gorngv	sij kxvq
+Likv^hi	likq-hi
+Mi^saa^en	mi-saa-en
+Mbetc Minlo	Betg-min-lo
+Kitv^lotv Taa^mbo	Kitq-lotq-Taa-Bo
+wuon-baengc	wrnb pcvg
+Saa^te^fen	saa-Te-fen
+Gese	ke-se
+Aa^hi^yo	aa-hi-yo
+njietv	Fyetq
+Mbetc Batc^setv	Betg-patg-setq
+Suwaa	su-waa
+Yitv^saa^laa^yaa	yitq-saa-laa-yaa
+Se^aa^laa	se-aa-laa
+Esaau	e-saau
+M'Yienc	myeng
+Mesekv	me-sekq
+Tofetv	To-fetq
+Ono	o-no
+Simli	sim-li
+haaix dauh	haiq taub
+O^mbetc E^ndom	o-Betg-e-Dom
+siepv-siepv	syepg syepq
+Nimlotv	nim-lotq
+Bo^ti^fe^laa	po-Ti-fe-laa
+hietc	Yetg
+Ke^lu^mbai	Ke-lu-Bai
+Mbetc Emekv	Betg-e-mekq
+Mikaan	mi-Kaan
+Se^i	sej-i
+Nogaa	no-kaa
+Haasaan Sux^simx	haa-saan-suj-simj
+Tohu	To-hu
+husopc	hu-sopg
+Te^mbaa^li^yaa	Te-Baa-li-yaa
+m'nqorngv-beu beu	mGxvb peu peu
+huing-gormx	Wivb kxmj
+En Mbetc^en	en-Betg-en
+morng morng	mxv mxv
+haaix buonc	haiq pwrng
+Se^faa^laatv	sej-faa-laatq
+jiem-cie	Jyemb Zia
+Mbetc Le^hopc	Betg-le-hopg
+Aakim	aa-Kim
+Haa^saa^bi^yaa	haa-saa-pi-yaa
+wuic	wig
+Mbeso	Be-soj
+Saami	saa-mi
+Mbeletv	Be-letq
+Ye^si^sai	ye-si-sai
+Maa^aa^saix	maa-aa-saij
+sekv sekv	sekq sekq
+Onam	o-nam
+jiem-ningv	Jyemb nivq
+Ye^ho^waa Yi^le	ye-ho-waa yi-le
+yiem-yiem	yemb yem
+Baalaa	paa-laa
+Mbakc^mbu^ki^yaa	Bakg-Bu-Ki-yaa
+Bide	pi-te
+Kelaan	Ke-laan
+wuom-baeqc	uamb pc'g
+Naa^haa^li^en	naa-haa-li-en
+Itai	i-Tai
+Ki^li^yaatv Aalim	Ki-li-yaatq-aa-lim
+Yolai	yo-lai
+In Semetv	in-se-metq
+Melaapv	me-laapq
+Aalam Naa^haqc^laa^im	aa-lam-naa-ha'g-laa-im
+Ki^li^on	Ki-li-on
+Tanmai	Tan-mai
+Ti^laa^haa^kaa	Ti-laa-haa-Kaa
+Yeto	ye-To
+Lekem	le-Kem
+Seme	sej-me
+Maa^haa^lai	maa-haa-lai
+Em^maa^utc	em-maa-utg
+hienv	Yenq
+Semaa	se-maa
+Haanun	haa-nun
+Sinsaa	sin-saa
+Gaamun	kaa-mun
+Tu^mban Kaa^in	Tu-Ban-Kaa-in
+Elun	e-lun
+jien-fouv	Jyenb fruq
+Saa^ndu^si	saa-Du-sij
+En Mbelitv	en-Be-litq
+Yotaam	yo-Taam
+Se^i^laa	sej-i-laa
+En Limmon	en-lim-mon
+Ho^ndaa^wi^yaa	ho-Daa-wi-yaa
+Qetaa	Qe-Taa
+Te^ti^atc	Te-Ti-atg
+Ni^kaa^no	ni-Kaa-no
+Silaa	si-laa
+So^ndom	soj-Dom
+Gan^li^o	kan-li-o
+Haulaan	hau-laan
+nzaangc-maac	Ravb maag
+Atc^notv Taa^mbo	atg-notq-Taa-Bo
+Mikaa	mi-Kaa
+Saa^waa^saa	saa-waa-saa
+Haagaa	haa-kaa
+E^saa^li	e-saa-li
+ndopv-zaangc	Dopg zavg
+Mbaa^an Be^o	Baa-an-pe-o
+Aasen	aa-sen
+la'bieiv-nzueic	la'pyeib Rweig
+Ye^utc^e	ye-utg-e
+Utc^si^en	utg-si-en
+Aa^mben Mitv^laa^im	aa-Ben-mitq-laa-im
+Se^naa^aa	sej-naa-aa
+Heletv	he-letq
+Ndaawitv	Daa-witq
+Limmon Beletv	lim-mon-pe-letq
+Husaa	hu-saa
+Negepc	ne-kepg
+Ko^lo^si	Ko-lo-sij
+Am^mi^saa^mbaatc	am-mi-saa-Baatg
+ga'nyiec	ka'Eiag
+Se^lu^yaa	sej-lu-yaa
+Matv^daa^taa	matq-taa-Taa
+Amsi	am-si
+Imli	im-li
+Laamaa	laa-maa
+Efaan	e-faan
+Etc Kaasin	etg-Kaa-sin
+Yiutai	yiu-Tai
+Banti	pan-Ti
+Aa^hi^to^fen	aa-hi-To-fen
+Si^aa	sij-aa
+Kin Haa^le^setv	Kin-haa-le-setq
+Mbetc Aanaatv	Betg-aa-naatq
+Selukv	sej-lukq
+Yaasupv	yaa-supq
+Elim	e-lim
+huonh	Wonb
+Aan^taa^se^sitv	aan-Taa-se-sitq
+Mesaa	me-saa
+wuonx	wrnj
+Ne^si^yaa	ne-si-yaa
+Yamlekv	yam-lekq
+Aakitv	aa-Kitq
+Laafaa	laa-faa
+Mben Hinnom	Ben-hin-nom
+yienz	yend
+Mi^ndien	mi-Dyen
+Si^saa^li^yaa Fi^lipv^poi	si-saa-li-yaa fi-lipq-Pxi
+Lapv^mbitc	lapq-Bitg
+Hammon	ham-mon
+Ye^ho^yaa^kin	ye-ho-yaa-Kin
+Be^tu^en	pe-Tu-en
+ding ding	tiv tiv
+jiem-bunh	Jyemb punb
+Haanokv	haa-nokq
+se^laa^fim	sej-laa-fim
+Qelepv	Qe-lepq
+Neko	ne-Ko
+Ilaa Naahaatc	i-laa-naa-haatg
+Sotai	soj-Tai
+Me^lo^notv	me-lo-notq
+Minkom	min-Kom
+Sikc^li	sikg-li
+Hulaam Aa^mbi	hu-laam-aa-Bi
+Okaan	o-Kaan
+Etaan	e-Taan
+Solaa	soj-laa
+Si^saa^mai	si-saa-mai
+Ten Haanx^saa	Ten-haanj-saa
+Aalaatv	aa-laatq
+da'hmz	ta'Mmd
+Se^lai^aa	sej-lai-aa
+Lutv	lutq
+Ye^mbe^le^ki^yaa	ye-Be-le-Ki-yaa
+Aa^hi^maan	aa-hi-maan
+Haa^ndatc Limmon	haa-Datg-lim-mon
+Sinx^ti^ke	sinj-Ti-Ke
+Ke^li^otc Hetv^lon	Ke-li-otg-hetq-lon
+Lute	lu-Te
+He^se^ki^yaa	he-se-Ki-yaa
+Lesepv	le-sepq
+Hotaam	ho-Taam
+Edaam	e-taam
+zuiz-mienh	zwib myenb
+Mbe^e^lotv	Be-e-lotq
+haaix norm	haiq nxm
+E^baa^fo^ndi^tatv	e-paa-fo-Di-Tatq
+So^mbe^mbaa	soj-Be-Baa
+Aa^haa^laa	aa-haa-laa
+Mba'zorng-hiun	Ba'zxvb Yun
+Tu^ndaatc	Tu-Daatg
+Si^hox Lipv^naatv	si-hoj-lipq-naatq
+Hun	hun
+Gosen	ko-sen
+Ndaa^li^atc	Daa-li-atg
+Gi^nde^on	ki-De-on
+Akc^sipv	akg-sipq
+Lifaatv	li-faatq
+Aa^hi^qaa^haa	aa-hi-Qaa-haa
+Kitv^tim	Kitq-Tim
+Laakitv	laa-Kitq
+Itc^wi	itg-wi
+Ye^so^haa^yaa	ye-so-haa-yaa
+Olen	o-len
+Mbaalaakv	Baa-laakq
+Mbeno	Be-no
+Ki^li^yaatv Aan^mbaa	Ki-li-yaatq-aan-Baa
+Aa^hi^no^am	aa-hi-no-am
+Mbusi	Bu-si
+Fu'jueiv-fun	fu'Jweib fun
+Aami	aa-mi
+Mo^se^laa	mo-sej-laa
+Laa^maa^taa^im Sofim	laa-maa-Taa-im-so-fim
+Haasaa Enan	haa-saa-e-nan
+Filipv	fi-lipq
+Holi	ho-li
+Ye^ko^ni^yaa	ye-Ko-ni-yaa
+da'faanh	ta'faanb
+Mbe^en^se^mbun	Be-en-se-Bun
+Saen^maa^ne^se	scn-maa-ne-sej
+E^se^ken	e-sej-Ken
+Enokv	e-nokq
+Mbetc Aawen	Betg-aa-wen
+Ga'naaiv-huotv	ka'naaib Wrtq
+Yusapv Hesetc	yu-sapq-he-setg
+Elatv	e-latq
+Aalan	aa-lan
+Ipc^taa En	ipg-Taa-en
+Aa^maa^si^yaa	aa-maa-si-yaa
+Ndo^ndaa^waa^hu	Do-Daa-waa-hu
+Tanmon	Tan-mon
+cie-yienh	Ziab yenb
+mv baac	mq paag
+Yaalaa	yaa-laa
+Maa^aa^si^yaa	maa-aa-si-yaa
+haaix nyungc	haiq Euvg
+Utc	utg
+Mbunaa	Bu-naa
+Hukc^gorkc	hukg-kxkg
+nzaangc	Ravg
+kouv kouv	Kruq Kruq
+Kison	Ki-son
+Mbatc^se^mbaa	Batg-se-Baa
+Haa^wi^laa	haa-wi-laa
+Lo^mam^ti E^se	lo-mam-Ti-e-se
+ninh ninh	ninb ninb
+ndiangx-ding	Dyavb tiv
+Mbetc Aanotv	Be-Taa-notq
+Mbaa^aa^se^yaa	Baa-aa-sej-yaa
+Notv	notq
+Ke^naa^aa^naa	Ke-naa-aa-naa
+Sesan	se-san
+Maadi	maa-ti
+So^an	soj-an
+Nisaanx	ni-saanj
+Susi	su-sij
+So^haax	soj-haaj
+Sunem	su-nem
+Hulai	hu-lai
+Yaafetv	yaa-fetq
+Sukaa	su-Kaa
+Hulaam	hu-laam
+Hegai	he-kai
+Geson	ke-son
+Simon	si-mon
+Haamatv	haa-matq
+Laamaatv	laa-maatq
+mbu'ndongx-qangx	Bu'Dovb Qavj
+Bi^haa^hi^lotv	pi-haa-hi-lotq
+Sefo	sej-fo
+Mbaa^an Me^on	Baa-an-me-on
+Akc^kupc	akg-Kupg
+Elaa	e-laa
+Ndo^faa^kaa	Do-faa-Kaa
+I^saa^maa^en	i-saa-maa-en
+Ke^saa^lon	Ke-saa-lon
+Kun	Kun
+Yaa^mbetc Gi^le^aatc	yaa-Betg-ki-le-aatg
+Yaamai	yaa-mai
+Haa^hi^lotv	haa-hi-lotq
+huov-jeix	Wuab Jeij
+Utc^sen Se^e^laa	utg-sen-se-e-laa
+jiem-gaengh	Jyemb kcvb
+yieqv-yieqv	yia'g yia'q
+Seke	sej-Ke
+Ni^ko^lau^ni^yom	ni-Ko-lau-ni-yom
+Senan	sej-nan
+Ganlim	kan-lim
+Ge^ndaa^li^yaa	ke-Daa-li-yaa
+yieqv	yia'q
+Aanwatv	aan-watq
+Se^laa^saa	se-laa-saa
+Gi^le^aatc	ki-le-aatg
+huonh huonh	Wrnb Wrnb
+Silie Fi^ni^sie	si-lia-fi-ni-sia
+Samx^gaa Ne^mbo	samj-kaa-ne-Bo
+Aa^hi^qaa	aa-hi-Qaa
+Me^ndi^de^le^nien	me-Di-te-le-nyen
+Giduc	ki-tug
+Sini	sij-ni
+Aa^mbipc	aa-Bipg
+Siang-a'ngunc	syavb a'vung
+Lo Nde^mbaa	lo-De-Baa
+Seletv	sej-letq
+Gelem	ke-lem
+Yegaa Saax^haax^ndu^taa	ye-kaa-saaj-haaj-Du-Taa
+Haalaa	haa-laa
+Saa^te^faa^natv	saa-Te-faa-natq
+Haalakv	haa-lakq
+Sikv^gaa^yon	sikq-kaa-yon
+Saalem	saa-lem
+nernh	nrnb
+Okc	okg
+laa^maa^saa^mbakc^taa^ni	laa-maa-saa-Bakg-Taa-ni
+hiun	Yun
+So Hungh	soj huvb
+Mbetc Maan^kaa^mbotc	Betg-maan-Kaa-Botg
+Tolaa	To-laa
+Lewi	le-wi
+Gete	ke-Te
+Yesu	ye-su
+saeng-yietv	scvb yetq
+Aa^laa^maa^getc^ndon	aa-laa-maa-ketg-Don
+Imme	im-me
+Bi^si^ndie	pi-si-Dia
+Si^aa^haa	sij-aa-haa
+Haasem	haa-sem
+Laamotv Gi^le^aatc	laa-motq-ki-le-aatg
+hnangv haaix nor	Navq haiq nx
+Qetaa Mbo^se^nai	Qe-Taa-Bo-se-nai
+hiuang-hienv	Ywavb Yenq
+Hemaan	he-maan
+Hilen	hi-len
+Qiqaa	Qi-Qaa
+Ke^sunx^lotv	Ke-sunj-lotq
+Be^kaa^hi^yaa	pe-Kaa-hi-yaa
+Mbaa^ti^me^atc	Baa-Ti-me-atg
+Sekem	se-Kem
+Saalaa	saa-laa
+Maa^aa^se^aa	maa-aa-sej-aa
+Etc Mbaa^an	etg-Baa-an
+Ti^me^atc	Ti-me-atg
+Saalaai	saa-laai
+Homaa	ho-maa
+lienh	lyenb
+norm-norm	nxmb nxm
+yiemc	yemg
+Se^mbi^naa	sej-Bi-naa
+Zinaa	zi-naa
+En Hakc^ko	en-hakg-Ko
+haaix nzong	haiq Rov
+guen	kwen
+Aasaatv	aa-saatq
+Utc^si^yaa	utg-si-yaa
+leid ka'naaiq	leiz ga'naaiv
+Aa^taa^li^yaa	aa-Taa-li-yaa
+camv-camv	Zamb Zamq
+nzangv-jien	Ravb Jyen
+Hilaam	hi-laam
+yietc	yetg
+hlieqv-kou	Lia'g Kru
+hlieqv-zaangc	Lia'g zavg
+Aa^si^maa	aa-si-maa
+Timnaatv Heletv	Tim-naatq-he-letq
+Sekenx	se-Kenj
+Memfitv	mem-fitq
+Usai	u-sai
+Mbaa^an Haanan	Baa-an-haa-nan
+wuonc	wrng
+kou kou	Kru Kru
+wuom-mueic	uamb mweig
+Gesu	ke-su
+Aamen	aa-men
+I^opc	i-opg
+Wuom-Zingv	uamb zivq
+Saagi	saa-ki
+jiem-nzormc	Jyemb Rxmg
+Li^mbe^tin	li-Be-Tin
+Amnon	am-non
+haaix diuc	haiq tiug
+Selo	sej-lo
+Gi^laa^lai	ki-laa-lai
+Mbetc Mbili	Betg-Bi-li
+Haa^saax^ndi^yaa	haa-saaj-Di-yaa
+An^ti^okc	an-Ti-okg
+la'bieiv-benv	la'pyeib penq
+Molekv	mo-lekq
+njien-njien	Fyenb Fyen
+Yo^saa^wi^yaa	yo-saa-wi-yaa
+Yo^si^yaa	yo-si-yaa
+Hoti	ho-Ti
+Yaagorpc	yaa-kxpg
+Baalaan	paa-laan
+haaix guoqv	haiq kua'q
+Kitv^lon	Kitq-lon
+So^hetc	soj-hetg
+Aanni	aan-ni
+fu'jueiv	fu'Jweiq
+Sufaa	su-faa
+Aa^hi^naa^ndapc	aa-hi-naa-Dapg
+Sammai	sam-mai
+Ilu	i-lu
+Kumlaan	Kum-laan
+miuc-mienv	miub myenq
+haaix bung	haiq puv
+Batc^lotv	patg-lotq
+Sisakv	si-sakq
+Mikv^ndan En	mikq-Dan-en
+Maa^haa^ne Ndaan	maa-haa-ne-Daan
+Nopv	nopq
+Utc^saa	utg-saa
+Se^maa^li^yaa	se-maa-li-yaa
+nzangv-m'nqorngv	Ravb mGxvq
+Gi^mbe^aa	ki-Be-aa
+Yo^en	yo-en
+saeng-hmz	scvb Mmd
+Se^mbatc	se-Batg
+fienx	fyenj
+Baafotv	paa-fotq
+Me^so^bo^de^mie	me-soj-po-te-mia
+ga'hlen	ka'Len
+Lefaa	le-faa
+Ndison	Di-son
+Hatc^so^fe^letv	hatg-soj-fe-letq
+In^li^kum	in-li-Kum
+Lisiex	li-siaj
+Minkaa	min-Kaa
+Mbetc Se^aan	Betg-se-aan
+Manlukv	man-lukq
+Aa^hi^motv	aa-hi-motq
+Sifi	si-fi
+Kaalepv	Kaa-lepq
+sim-mbiuic	simb Bywig
+Sofim	soj-fim
+jiem-ba'gen-nyaapv	Jyemb pa'kenb Eaapq
+Haaso Haa^ndatc^taa	haa-so-haa-Datg-Taa
+Aakaan	aa-Kaan
+Sefi	se-fi
+Haagi	haa-ki
+Ge^haa^si	ke-haa-si
+da'yietv	ta'yetq
+Aaqan	aa-Qan
+Yepv^taa	yepq-Taa
+Me^tu^se^laa	me-Tu-sej-laa
+Le^wi^aa^taan	le-wi-aa-Taan
+haaix hnoi	haiq Nxi
+Tu^mban	Tu-Ban
+Ni^naa^we	ni-naa-we
+pa'li pa'laaix	Pa'li Pa'laaij
+hieh	Yiab
+Osem	o-sem
+Mikv^ndan Gaatc	mikq-Dan-kaatg
+Aanaakv	aa-naakq
+Kaanko	Kaan-Ko
+Saafaan	saa-faan
+haaix diuh	haiq tiub
+Aagu	aa-ku
+Yaagun	yaa-kun
+wuom-nzuih	uamb Rwib
+Taasatv	Taa-satq
+Maa^okc	maa-okg
+Hefe	he-fe
+Gi^mbe^on	ki-Be-on
+Ni^ko^mbu^li	ni-Ko-Bu-li
+Mbe^e^lotv Mbe^ne^yaa^aa^kan	Be-e-lotq-Be-ne-yaa-aa-Kan
+Bor^si^atc	px-si-atg
+Mbikc^wai	Bikg-wai
+Yitv^le^en	yitq-le-en
+Mosaa	mo-saa
+Bilaatv	pi-laatq
+Aasaax	aa-saaj
+Saulo	sau-lo
+Igaan	i-kaan
+Yen^ne^saa^letv	yen-ne-saa-letq
+Kesipv	Ke-sipq
+En Ge^ndi	en-ke-Di
+Mben Haa^ndatc	Ben-haa-Datg
+I^ko^ni^yum	i-Ko-ni-yum
+Kaanmen	Kaan-men
+Maalaa	maa-laa
+Makv^he^lotv	makq-he-lotq
+Baa^se^aa	paa-sej-aa
+Hatc^supv	hatg-supq
+guinh	kwinb
+Sanlum	san-lum
+Saa^taa^kitv	saa-Taa-Kitq
+Se^me^in	sej-me-in
+Maasaan	maa-saan
+Mbaa^an Hemon	Baa-an-he-mon
+Aa^ndin	aa-Din
+Mbetc To^gaan^maa	Betg-To-kaan-maa
+Yetu	ye-Tu
+Ten Melaa	Ten-me-laa
+Se^mbu^lun	sej-Bu-lun
+Ne^hum	ne-hum
+ka'ndau	Ka'Dau
+hienx	Yenj
+Yetetv	ye-Tetq
+Mbe^ne Yaa^aa^kan	Be-ne-yaa-aa-Kan
+Mbetc Hokv^laa	Betg-hokq-laa
+Kelitv	Ke-litq
+Gosaan	ko-saan
+Mbaa^an Mbelitv	Baa-an-Be-litq
+Se^maa^laa^im	sej-maa-laa-im
+Mbetc Beletv	Betg-pe-letq
+Be^taa^hi^yaa	pe-Taa-hi-yaa
+Laami	laa-mi
+maaz-li	maa-li
+hmz	Mmd
+Ndikc^laa	Dikg-laa
+Si^me^on	si-me-on
+ndiangx-zaangc	Dyavb zavg
+So^haa	soj-haa
+I^tu^lie	i-Tu-lia
+Aa^hi^kam	aa-hi-Kam
+Tolatv	To-latq
+Usaan	u-saan
+haaix kang	haiq Kav
+kuing	Kwiv
+jiem-don	Jyemb ton
+Atc^taa^lotv	atg-Taa-lotq
+Mbetc Be^o	Betg-pe-o
+Silie	si-lia
+Ti^laa^haa^naa	Ti-laa-haa-naa
+Se^le^laa	sej-le-laa
+Lumaa	lu-maa
+Sukc^kotv	sukg-Kotq
+Temaan	Te-maan
+Mbaa^an Be^laa^sim	Baa-an-pe-laa-sim
+nie-ha'louh	niab ha'lrub
+Bu^ti^en	pu-Ti-en
+Taigitc	Tai-kitg
+Mbinsaan	Bin-saan
+Baasakc	paa-sakg
+Ke^lu^mbim	Ke-lu-Bim
+Linnaa	lin-naa
+Yete	ye-Te
+Ge^li^sim	ke-li-sim
+Ndi^o^ni^si^atc	Di-o-ni-si-atg
+Kelupv	Ke-lupq
+Be^lu^ndaa	pe-lu-Daa
+Sefon	sej-fon
+Yo^si^fi^yaa	yo-si-fi-yaa
+Mi^ti^le^ni	mi-Ti-le-ni
+Mbaa^se^matv	Baa-sej-matq
+Mbetc Atc^maa^wetv	Betg-atg-maa-wetq
+Se^kaa^kaa	sej-Kaa-Kaa
+Taa^mbi^taa	Taa-Bi-Taa
+Haa^e^lepv	haa-e-lepq
+Me^li^taa	me-li-Taa
+Seku	sej-Ku
+Aa^si^en	aa-si-en
+Te^saa^lo^ni^gaa	Te-saa-lo-ni-kaa
+Mbetc Haalaan	Betg-haa-laan
+Lekaapv	le-Kaapq
+Gaa^li^li	kaa-li-li
+Tilon	Ti-lon
+Zeletv	ze-letq
+Yilon	yi-lon
+Mbi^ti^nie	Bi-Ti-nia
+jiem-jaa-dorngx	Jyemb Jaab txvj
+Gaamatv	kaa-matq
+Aa^bor^li^yon	aa-px-li-yon
+Bitom	pi-Tom
+Sikc^laakv	sikg-laakq
+Ko^ni^yaa	Ko-ni-yaa
+Jetc^si	Jyetg-si
+Ilai	i-lai
+Li^ndie	li-Dia
+yiemx	yemj
+Ye^si^mi^en	ye-si-mi-en
+Se^kaa^ni^yaa	se-Kaa-ni-yaa
+Me^lo^ndakc Mbaa^laa^ndan	me-lo-Dakg-Baa-laa-Dan
+Saa^lu^hen	saa-lu-hen
+Holepv	ho-lepq
+Omli	om-li
+Kitv^lepv	Kitq-lepq
+Mesaakv	me-saakq
+Aataakv	aa-Taakq
+Migon	mi-kon
+Mbetc Haalam	Betg-haa-lam
+Melotv	me-lotq
+Kaanmi	Kaan-mi
+mbeix mbeix	Beij Beij
+Yaase	yaa-se
+Ki^le^aapc	Ki-le-aapg
+Yaakin	yaa-Kin
+Ke^li^otc	Ke-li-otg
+Aanupv	aa-nupq
+Ndaagon	Daa-kon
+Kolaa	Ko-laa
+I^saa^laa^hi^yaa	i-saa-laa-hi-yaa
+mbiungc-mbuonv	Byuvb Bwrnq
+Ho Hakv^gitc^gaatc	ho-hakq-kitg-kaatg
+Ulaam	u-laam
+wuom-daaih	uamb taaib
+Naatan	naa-Tan
+Ge Haa^laa^sim	ke-haa-laa-sim
+la'bieiv-jaaix	la'pyeib Jaaij
+njien	Fyenb
+la'ngopv	la'vopq
+fu'jueiv-faix	fu'Jweib faij
+Peletc	Pe-letg
+Aa^hi^yan	aa-hi-yan
+Silo	si-lo
+Anwaan	an-waan
+Hosaax	ho-saaj
+Hesi	he-si
+E^li^utc	e-li-utg
+Orqv?	x'b?
+Selekv	sej-lekq
+Se^lupv^mbaa^mben	sej-lupq-Baa-Ben
+a'ngunc	a'vung
+Maan^se^naa	maan-sej-naa
+Si^e^ne	si-e-ne
+Le^mbo Haamatv	le-Bo-haa-matq
+Solekv	soj-lekq
+Kenan	Ke-nan
+Beletv	pe-letq
+se gorngv-baeqc	se kxvb pc'g
+Aankaa	aan-Kaa
+Yelupv Mbaa^an	ye-lupq-Baa-an
+Me^hi^ndaa	me-hi-Daa
+Begaa	pe-kaa
+Baulo	pau-lo
+Haa^le^lu Yaa	haa-le-lu-yaa
+Aa^mben Me^ho^laa	aa-Ben-me-ho-laa
+Mamle	mam-le
+mbiungc-gorng	Byuvb kxv
+Haasaa Lenon	haa-saa-le-non
+Maa^se^yaa	maa-sej-yaa
+ndiangx-gaaz gaaz	Dyavb kaad kaad
+Gin^mbo^aa	kin-Bo-aa
+Gaalepv	kaa-lepq
+Anmon Ndipc^laa^taa^im	an-mon-Dipg-laa-Taa-im
+En Haaso	en-haa-so
+Aa^maa^li^yaa	aa-maa-li-yaa
+Melekv	me-lekq
+Se^mbo^yim	sej-Bo-yim
+Simlon Melon	sim-lon-me-lon
+Naa^hum	naa-hum
+mv	mq
+Si^mbie	si-Bia
+caen caen	Zcn Zcn
+Itc^hotv	itg-hotq
+Maako	maa-Ko
+Saafatv	saa-fatq
+Haasaa Latv^ndaa	haa-saa-latq-Daa
+Aanki	aan-Ki
+Se^mbaa^ni^yaa	se-Baa-ni-yaa
+Ufaatv	u-faatq
+Haasaan Su^aan	haa-saan-su-aan
+Beletv Utc^saa	pe-letq-utg-saa
+Kaanaa	Kaa-naa
+I^taa^maa	i-Taa-maa
+Mbetc Mbaalaa	Betg-Baa-laa
+Aa^le^okc	aa-le-okg
+Se^mbe^ndi	sej-Be-Di
+Maagokc	maa-kokg
+I^saa^kaa^li^otc	i-saa-Kaa-li-otg
+cienh	Zyenb
+huin-nzuonx	Winb Rwrnj
+En E^lo^he I^saa^laa^en	en-e-lo-he-i-saa-laa-en
+Kuqan Li^taa^im	Ku-Qan-li-Taa-im
+jiem-zaangc	Jyemb zavg
+Ye^hutv	ye-hutq
+Sifaa	si-faa
+I^ndaa^laa	i-Daa-laa
+huin	Win
+Haamatv So^mbaa	haa-matq-soj-Baa
+Sinlem	sin-lem
+wuom-beqv	uamb pe'q
+Sam^mu^waa	sam-mu-waa
+Se^mi^nitv	se-mi-nitq
+Se^fan^yaa	sej-fan-yaa
+Annaatv	an-naatq
+Se^lu^waa	sej-lu-waa
+Token	To-Ken
+Nza'hmien	Ra'Myen
+Susaax	su-saaj
+cien-ceqv	Zyenb Ze'q
+Gi^nde^o^ni	ki-De-o-ni
+qiemx	Qyemj
+No Aamon	no-aa-mon
+Ilaam	i-laam
+Melaa	me-laa
+Si^on	si-on
+Aa^mben Ke^laa^mim	aa-Ben-Ke-laa-mim
+haaix zeiv	haiq zeiq
+Ewi	e-wi
+Nefekv	ne-fekq
+Mbetc Holon	Betg-ho-lon
+Ye^ndu^tun	ye-Du-Tun
+Haataatv	haa-Taatq
+Laamotv	laa-motq
+Mben So^hetv	Ben-so-hetq
+Kipc^lotv Hatc^daa^aa^waa	Kipg-lotq-hatg-taa-aa-waa
+Husai	hu-sai
+Nitv^lotv	nitq-lotq
+Haa^ti^faa	haa-Ti-faa
+Huli	hu-li
+Belekv	pe-lekq
+Haau^wotv Jaa^i	haau-wotq-Jaa-i
+Husim	hu-sim
+Fiko	fi-Ko
+Faa^le^gon	faa-le-kon
+biuih biuih	pywib pywib
+Mbukc^ki	Bukg-Ki
+aqc mangc	a'mavg
+Eli	e-li
+Unlaa	un-laa
+Manki Su^waa	man-Ki-su-waa
+Taalie	Taa-lia
+Mbaa^an Taamaa	Baa-an-Taa-maa
+Mbe^e Laa^hai Loi	Be-e-laa-hai-lxi
+lai-huingx	laib Wivj
+I^saa^li^yaa	i-saa-li-yaa
+Laamekv	laa-mekq
+Ne^taa^ni^yaa	ne-Taa-ni-yaa
+Maa^haa^latv	maa-haa-latq
+Mbetc Saan	Betg-saan
+haaix zungh	haiq zuvb
+Aa^naa^ni	aa-naa-ni
+Gatc Limmon	katg-lim-mon
+E^li^se^mbaa	e-li-se-Baa
+Sailatv	sai-latq
+haaix ndunh	haiq Dunb
+yiem-toi	yemb Txi
+Supc	supg
+Mbi^le^am	Bi-le-am
+mbiungc	Byuvg
+wuom-njaangh	uamb Faavb
+Mo^se^lotv	mo-sej-lotq
+E^li^se^aa	e-li-se-aa
+Siyo	si-yo
+E^li^yaa^sipv	e-li-yaa-sipq
+Mbe^e^qe^mbaa	Be-e-Qe-Baa
+haaix ndau	haiq Dau
+mietc	myetg
+la'bieiv-muonc	la'pyeib mwrng
+Se^kaa^li^yaa	sej-Kaa-li-yaa
+Tilaatv	Ti-laatq
+Ekc^latv Se^li^si^yaa	ekg-latq-se-li-si-yaa
+Maa^haa^si^otc	maa-haa-si-otg
+Ki^li^ni^atc	Ki-li-ni-atg
+Sux^li^satv^ndai	suj-li-satq-Dai
+Maa^naa^sanx	maa-naa-sanj
+Se^mbaa^ndi^yaa	sej-Baa-Di-yaa
+Yaanmutv	yaan-mutq
+Mbetc Gaa^nde	Betg-kaa-De
+Elaam	e-laam
+He^li^o^mbu^li	he-li-o-Bu-li
+Si^mbe^on	si-Be-on
+He^letv^se	he-letq-sej
+Aa^saa^si^yaa	aa-saa-si-yaa
+Bunle	pun-le
+E^bi^ku^lien	e-pi-Ku-lyen
+Ye^su^aa	ye-su-aa
+jiem-kuing	Jyemb Kwiv
+Bilatv	pi-latq
+Aanaapv	aa-naapq
+An^ti^baatc	an-Ti-paatg
+niaa	nyaa
+fin-mienh	finb myenb
+Mbaa^an Sefon	Baa-an-se-fon
+Mbetc Su	Betg-su
+Aa^mben Sitv^tim	aa-Ben-sitq-Tim
+Mbaalukv	Baa-lukq
+Ki^si^on	Ki-si-on
+Tikc^waa	Tikg-waa
+Aasaapc	aa-saapg
+piuv	Pyuq
+Ki^li^yaatv Sefe	Ki-li-yaatq-sej-fe
+Aa^hi^laa	aa-hi-laa
+Mitv^ndin	mitq-Din
+Elon	e-lon
+Se^faa^taa	sej-faa-Taa
+Aa^taa^lotv Atc^ndaa	aa-Taa-lotq-atg-Daa
+Mikv^maatv	mikq-maatq
+yienh	yenb
+Aiyaa	ai-yaa
+Homam	ho-mam
+Gokc	kokg
+Laakem	laa-Kem
+So^ndi	soj-Di
+Haalutv	haa-lutq
+Ke^si^yaa	Ke-si-yaa
+Yolam	yo-lam
+Itv^hotv	itq-hotq
+Mbetc Aa^mben	Betg-aa-Ben
+Lu^si^atc	lu-si-atg
+Aa^ndun^lam	aa-Dun-lam
+En Mitv^fatv	en-mitq-fatq
+Haaletv	haa-letq
+Saasakv	saa-sakq
+Gesaan	ke-saan
+dungx	tuvq
+Go^li^atc	ko-li-atg
+Bulaa	pu-laa
+I^laa^aa	i-laa-aa
+Ko^se^mbaa	Ko-se-Baa
+Pi Mbesetc	Pi-Be-setg
+Kuqi	Ku-Qi
+Ndaalaa	Daa-laa
+Ilaanc	i-laang
+Simlaatv	sim-laatq
+En Gannim	en-kan-nim
+Aa^hi	aa-hi
+morc morc	mxg mxg
+Hemon	he-mon
+Si^se^laa	si-sej-laa
+Saa^do^ikc	saa-to-ikg
+Mbetc Ndaagon	Betg-Daa-kon
+Haa^mu^taan	haa-mu-Taan
+Yaawaan	yaa-waan
+Haa^mbaa^gukc	haa-Baa-kukg
+Maa^he Saalaan Hatc Mbatc	maa-he-saa-laan-hatg-Batg
+Mbetc Aa^laa^mbaa	Betg-aa-laa-Baa
+Yaasaa	yaa-saa
+Kitv^liu	Kitq-liu
+Aa^naa^haa^laatv	aa-naa-haa-laatq
+Gilon	ki-lon
+Minlo	min-lo
+haaix nzopv	haiq Ropq
+fiem	fyem
+Uli	u-li
+Noyaa	no-yaa
+Naasic	naa-sig
+Iyipv	i-yipq
+Aa^li^okc	aa-li-okg
+Aamon	aa-mon
+Sefaa	sej-faa
+zuei zuei	zwei zwei
+Ko^ne^li^atc	Ko-ne-li-atg
+Lotv	lotq
+Ekon	e-Kon
+Mbe^le^ki^yaa	Be-le-Ki-yaa
+Meletv	me-letq
+Ye^utc	ye-utg
+Mbosetv	Bo-setq
+Kaa^si^fie	Kaa-si-fia
+zaangc	zavg
+Senaatv	sej-naatq
+Aa^hi^tupv	aa-hi-Tupq
+Naa^haa^lon	naa-haa-lon
+He^lo^ndi^on	he-lo-Di-on
+Emekv Kesitv	e-mekq-Ke-sitq
+So^fe^letv	soj-fe-letq
+Gelaa	ke-laa
+Siwan	si-wan
+Gi^mbe^atc E^lo^him	ki-Be-atg-e-lo-him
+la'bieiv-zorng	la'pyeib zxv
+Li^kaa^o^nie	li-Kaa-o-nia
+Aawitv	aa-witq
+Onan	o-nan
+Aaten	aa-Ten
+Tisai	Ti-sai
+Naa^haa^maa^ni	naa-haa-maa-ni
+Itc^mbi Mbenopv	itg-Bi-Be-nopq
+Loz-a'ngunc	lob a'vung
+Milaa	mi-laa
+la'bieiv-zaangc	la'pyeib zavg
+Se^ji^atc	sej-Ji-atg
+Ti^mbe^lietv	Ti-Be-lyetq
+jiem-dang	Jyemb tav
+Gatc Hefe	katg-he-fe
+Ki^li^yaatv Husotv	Ki-li-yaatq-hu-sotq
+guinh guinh	kwinb kwinb
+hae hae	hc hc
+Logaa	lo-kaa
+Aannon	aan-non
+Le^hum	le-hum
+Mbukc^ki^yaa	Bukg-Ki-yaa
+zuqc zuqc	zu'g zu'g
+Se^epc	sej-epg
+kuinx	Kwinj
+Aasor	aa-sx
+mbiungc-suiv	Byuvb swiq
+Ki^li^yaatv Sanx^naa	Ki-li-yaatq-sanj-naa
+Aa^haa^waa	aa-haa-waa
+Kaan^ndaa^si	Kaan-Daa-sij
+Nde^metv^li^atc	De-metq-li-atg
+Aanaa	aa-naa
+Setaam	sej-Taam
+Mikv^li	mikq-li
+Maa^haa^naa^im	maa-haa-naa-im
+yietv	yetq
+Aa^haa^su^e^latv	aa-haa-su-e-latq
+Ikc^ketc	ikg-Ketg
+mv bei	mq pei
+Makv^mbitc	makq-Bitg
+Kotc	Kotg
+An^ti^baa^di	an-Ti-paa-ti
+An^ndo^ni^katv	an-Do-ni-Katq
+Saa^mbakc^taa^ni	saa-Bakg-Taa-ni
+Se^aan Yaasupv	se-aan-yaa-supq
+Gaalaan	kaa-laan
+Aa^saa^li^yaa	aa-saa-li-yaa
+Ndaankon	Daan-Kon
+Sin^hi	sin-hi
+Gaataam	kaa-Taam
+Ye^ho^waa Nitv^si	ye-ho-waa nitq-si
+hlieqv-gaaz gaaz	Lia'g kaad kaad
+Kisi	Ki-si
+Hun^ndaa	hun-Daa
+Aase	aa-se
+Melipv Mbaa^an	me-lipq-Baa-an
+Haase Hatv^ti^kon	haa-se-hatq-Ti-Kon
+Yokim	yo-Kim
+Lotaan	lo-Taan
+Nefin	ne-fin
+Hannaa	han-naa
+Yaakim	yaa-Kim
+Haasum	haa-sum
+saev-saev	scb scq
+Kaa^litv^batc	Kaa-litq-patg
+Maa^haa^laa^le^en	maa-haa-laa-le-en
+Aa^se^natv	aa-sej-natq
+Zisaa	zi-saa
+Si^me^atc	si-me-atg
+Ki^li^yaatv Mbaa^an	Ki-li-yaatq-Baa-an
+Lakv^kum	lakq-Kum
+Supc^aa	supg-aa
+biuih	pywib
+Sefaam	se-faam
+Ndisaan	Di-saan
+E^si^on Ge^mbe	e-si-on-ke-Be
+Elekv	e-lekq
+wuov	uaq
+I^saa^laa	i-saa-laa
+nyiemv	Eyemq
+Ko^naa^ni^yaa	Ko-naa-ni-yaa
+Helotv	he-lotq
+Le^maa^li^yaa	le-maa-li-yaa
+Yonaa	yo-naa
+Mbi^ti^yaa	Bi-Ti-yaa
+Gesem	ke-sem
+Sisaa	si-saa
+weqv	wei'b
+Yaanai	yaa-nai
+Limmon	lim-mon
+U^li^en	u-li-en
+Gomaa	ko-maa
+Yaafie	yaa-fia
+Temaa	Te-maa
+Tailaqv	Tai-la'q
+jiem-nyaanh	Jyemb Eaanb
+Se^ndatc	sej-Datg
+Haa^ti^taa	haa-Ti-Taa
+Su^sanx^naa	su-sanj-naa
+Bi^laa^ton	pi-laa-Ton
+Aamam	aa-mam
+jiem-torngv-baaih	Jyemb Txvb paaib
+Saadaan	saa-taan
+Si^si^li	si-si-li
+I^saa^li	i-saa-li
+Mbe^ne Mbelaakv	Be-ne-Be-laakq
+Lugaa	lu-kaa
+Maa^natv^se	maa-natq-sej
+Se^laa^hi^yaa	sej-laa-hi-yaa
+Golaan	ko-laan
+Utc^sen Qe^e^laa	utg-sen-Qe-e-laa
+Me^hi	me-hi
+Bison	pi-son
+Si^mbaa	si-Baa
+se^me^nitv	se-me-nitq
+la'bieiv-mau	la'pyeib mau
+Saax^fe^naatv Baa^ne^aa	saaj-fe-naatq-paa-ne-aa
+Hamlaan	ham-laan
+Huwaa	hu-waa
+Iyim	i-yim
+Min^yaa^min	min-yaa-min
+Timnaa	Tim-naa
+Mbetc Semetv	Betg-se-metq
+Misaan	mi-saan
+Fi^li^saa^die	fi-li-saa-tia
+Aan^gopc	aan-kopg
+Anlon	an-lon
+Hi^e^laa^mbu^li	hi-e-laa-Bu-li
+Ye^si^mon	ye-si-mon
+Saa^lo^me	saa-lo-me
+Misaa	mi-saa
+Su^ki^im	su-Ki-im
+Yaakopv	yaa-Kopq
+Seni	sej-ni
+Si^hox	si-hoj
+Mi^laa^lai	mi-laa-lai
+Yosepv	yo-sepq
+Setaan	sej-Taan
+Mbeke	Be-Ke
+mi'aqv	mig a'q
+Sitie	si-Tia
+Man^ki^yaa	man-Ki-yaa
+wuotc	wrtg
+Qewaa	Qe-waa
+Aanem	aa-nem
+Sukc^kotv Mbenotv	sukg-Kotq-Be-notq
+Itc^saa^maa^ki^yaa	itg-saa-maa-Ki-yaa
+maah	maa'b
+Gu^aa Mbaa^an	ku-aa-Baa-an
+Ge^li^lotv	ke-li-lotq
+ziex ziex	ziaj ziaj
+Utc^si	utg-si
+Saafaam	saa-faam
+hietv	Yetq
+Hugorkc	hu-kxkg
+Ti^laa^saa	Ti-laa-saa
+Imlaa	im-laa
+Aa^taa^lotv	aa-Taa-lotq
+gorqv-mienh	kx'g myenb
+Naafotv Ndo^aa	naa-fotq-Do-aa
+Atc^si^lie	atg-si-lia
+Me^se^le^mi^yaa	me-se-le-mi-yaa
+Lomaa	lo-maa
+Sofaakv	so-faakq
+Sefatv	sej-fatq
+Han^hun	han-hun
+guetv	kwetq
+Baa^hatc Mo^apc	paa-hatg-mo-apg
+Ne^mbu^saa^laa^ndaan	ne-Bu-saa-laa-Daan
+Sailin	sai-lin
+Se^mbi^ndaa	sej-Bi-Daa
+Tummim	Tum-mim
+Yese	ye-se
+Si^haqc	sij-ha'g
+Laamaatv Lehi	laa-maatq-le-hi
+Ne^fi^simx	ne-fi-simj
+jiem-zinh	Jyemb zinb
+Ke^li^taa	Ke-li-Taa
+namv^man	namq-man
+Ko^lin^to	Ko-lin-To
+Atc^laa^mitv^ti^yum	atg-laa-mitq-Ti-yum
+Helaa	he-laa
+wuom-gorqv	uamb kx'q
+wuon	wrn
+Mbetc Laafaa	Betg-laa-faa
+oeix	oij
+nzaangc-gorn	Ravb kxn
+Mbatc^litv	Batg-litq
+Se^mbun	sej-Bun
+jiem-dang-jaax	Jyemb tavb Jaaj
+Haa^lu^mapv	haa-lu-mapq
+Yaalon	yaa-lon
+Yaa^aa^si^en	yaa-aa-si-en
+minaa	mi-naa
+Lesin	le-sin
+Yoqepv Mbatc^qe^mbetc	yo-Qepq-Batg-Qe-Betg
+E^saa^laa	e-saa-laa
+Aalam Maa^aa^kaa	aa-lam-maa-aa-Kaa
+Hotv	hotq
+Negan Saa^le^se	ne-kan-saa-le-se
+Kutv	Kutq
+Yaalipv	yaa-lipq
+Mbelaa	Be-laa
+Ge^nde^lotv	ke-De-lotq
+gilo	ki-lo
+Saa^haa^su^maa	saa-haa-su-maa
+Bo^ke^letv Hatc^saa^mbaa^im	po-Ke-letq-hatg-saa-Baa-im
+Ti^li^yaa	Ti-li-yaa
+Laa^aa^mi^yaa	laa-aa-mi-yaa
+Mbesekv	Be-sekq
+wuom-mbeux	uamb Beuj
+Mbetc Qitv^taa	Betg-Qitq-Taa
+Maa^haa^laapv	maa-haa-laapq
+Nde^li^laa	De-li-laa
+haaix qongx	haiq Qovj
+I^saa^yaa	i-saa-yaa
+Mbaakotc	Baa-Kotg
+He^si^on	he-si-on
+Se^mi^ndaa	se-mi-Daa
+Mbikc^taa^naa	Bikg-Taa-naa
+Mose	mo-se
+Ndi^le^an	Di-le-an
+Efe	e-fe
+Kitv^litv	Kitq-litq
+mbienv-mbeux	Byenb Beuj
+Saibatc	sai-patg
+Taa^laa^laa	Taa-laa-laa
+Se^le^mi^yaa	se-le-mi-yaa
+Guni	ku-ni
+mbaali	Baa-li
+Aalam	aa-lam
+Ndumaa	Du-maa
+Batc^lu^simx	patg-lu-simj
+Se^an^ti^en	se-an-Ti-en
+Putv	Putq
+Lapv^saax^litv	lapq-saaj-litq
+Me^lo^nopv	me-lo-nopq
+congx congx	Zovj Zovj
+I^daa^li	i-taa-li
+So^saa^te^netv	soj-saa-Te-netq
+hu hu	hu hu
+Se^faa^ti^yaa	se-faa-Ti-yaa
+Se^maa^ki^yaa	sej-maa-Ki-yaa
+Lapv^bi^ndotc	lapq-pi-Dotg
+Bekotc	pe-Kotg
+Gesom	ke-som
+U^li^aa	u-li-aa
+En Ekc^laa^im	en-ekg-laa-im
+aah!	aa'b!
+Yelaa	ye-laa
+da'ziepc	ta'zyepg
+Ne^li^yaa	ne-li-yaa
+Haalum	haa-lum
+So^aa	soj-aa
+hui-baeqc	Wib pc'g
+Saaben	saa-pen
+Am^mi^hutv	am-mi-hutq
+Ilaatv	i-laatq
+Haalim	haa-lim
+Bo^ti^faa	po-Ti-faa
+Mbetc Gin^gaan	Betg-kin-kaan
+Saa^li^saa	saa-li-saa
+Besie	pe-sia
+Bekaa	pe-Kaa
+Banlu	pan-lu
+Haa^lo^setv Haa^go^yim	haa-lo-setq-haa-ko-yim
+Se^lo^fe^hatc	sej-lo-fe-hatg
+Huingx-ga'nyuoz	Wivb ka'Euad
+Yannetv	yan-netq
+I^ndu^me^aa	i-Du-me-aa
+Soko	soj-Ko
+Aa^hi^yaa	aa-hi-yaa
+Gimso	kim-so
+za'gengh	za'kevb
+Hepv^si^mbaa	hepq-si-Baa
+Felikv	fe-likq
+Saamaa	saa-maa
+Se^mbaam	sej-Baam
+Laasen	laa-sen
+Mbe^ni^nu	Be-ni-nu
+korv-lienh	Kxb lyenb
+Aalapc	aa-lapg
+Si^saa^aa	si-saa-aa
+Mi^le^tatv	mi-le-Tatq
+Haaso	haa-so
+Hatc^se^naa^aa	hatg-sej-naa-aa
+Butai	pu-Tai
+Mbaa^an Se^mbupc	Baa-an-se-Bupg
+Saalon	saa-lon
+Baa^laa^di^yaa	paa-laa-ti-yaa
+Aa^laa^mbie	aa-laa-Bia
+gu'nyuoz	ka'Euad
+Mo^li^yaa	mo-li-yaa
+jiem-ding	Jyemb tiv
+Matv^taa^ni^yaa	matq-Taa-ni-yaa
+Topv Aa^ndo^ni^yaa	Topq-aa-Do-ni-yaa
+Lekaa	le-Kaa
+Kelotv	Ke-lotq
+Su^aa	su-aa
+Se^nde^ki^yaa	sej-De-Ki-yaa
+Ten Aa^mbipc	Ten-aa-Bipg
+Mbatc^lutv	Batg-lutq
+Yu^saa^tatv	yu-saa-Tatq
+Gin^gaan	kin-kaan
+Atc^lotv Sofaan	atg-lotq-so-faan
+Haalotv	haa-lotq
+Naa^haa^lai	naa-haa-lai
+Getc^se^maa^ni	ketg-sej-maa-ni
+Mbaa^aa^latv Mbe^e	Baa-aa-latq-Be-e
+Si^mbi^yaa	si-Bi-yaa
+Belon	pe-lon
+jiem-mba'zorng-hiun	Jyemb Ba'zxvb Yun
+nyapv nyapv	Eapq Eapq
+Maa^haa^laa^len	maa-haa-laa-len
+Batc^ndaan Aalam	patg-Daan-aa-lam
+Mbinnui	Bin-nwi
+Kon Ho^se	Kon-ho-se
+Zelaa	ze-laa
+Ofi	o-fi
+Minmaa	min-maa
+Le^yi^um	le-yi-um
+wuih	wib
+Waa^ni^yaa	waa-ni-yaa
+I^ye^aa^laa^mbim	i-ye-aa-laa-Bim
+mbu'ziex	Bu'ziaj
+En Semetv	en-se-metq
+Aafekv	aa-fekq
+Aa^mbi^hutv	aa-Bi-hutq
+Aalon	aa-lon
+Saanx^se^kim	saanj-sej-Kim
+Selepv	se-lepq
+Sikaa	si-Kaa
+Mbikc^taa	Bikg-Taa
+wuom-gapv	uamb kapq
+Si^gi^o^notv	si-ki-o-notq
+Haalupv	haa-lupq
+Le^haa^mbim	le-haa-Bim
+Am^fi^mbu^li	am-fi-Bu-li
+Am^paa^li^aa^tatv	am-Paa-li-aa-Tatq
+Ammon	am-mon
+Tidatc	Ti-tatg
+Wopv^si	wopq-sij
+Aannan	aan-nan
+Si^honx	si-honj
+zien-zien	zyenb zyen
+wuoqc	ua'g
+Elotv	e-lotq
+Mikc^lotv	mikg-lotq
+Li^saa^daa	li-saa-taa
+Sewaa	sej-waa
+Misie	mi-sia
+Haa^yaa^ni^yaa	haa-yaa-ni-yaa
+Si^me^am	si-me-am
+yienx	yenj
+wuom-ndiev	uamb Diaq
+Mitv^le^fotv Maa^im	mitq-le-fotq-maa-im
+Maa^haa^wai	maa-haa-wai
+Unni	un-ni
+Setu	sej-Tu
+Se^mi^laa	sej-mi-laa
+Ne^aa^mbu^li	ne-aa-Bu-li
+I^saa^laa^en	i-saa-laa-en
+Iu-Mienh	yiub myenb
+Se^aa^li^yaa	se-aa-li-yaa
+Annaa	an-naa
+njien-youh	Fyenb yrub
+Aa^hi^lam	aa-hi-lam
+Aalam So^mbaa	aa-lam-so-Baa
+Aa^su^mbaa	aa-su-Baa
+Mbetc Ye^si^motv	Betg-ye-si-motq
+Mbikc^taan	Bikg-Taan
+mbaqc piatv	Ba'g Pyatq
+Kutv^aa	Kutq-aa
+Hiwai	hi-wai
+Kinaa	Ki-naa
+Se^mbaa	sej-Baa
+Sofai	soj-fai
+nquekc	Gwekg
+Simlon	sim-lon
+Totv^mbu^li	Totq-Bu-li
+mbiuic	Bywig
+Naasi	naa-sij
+Efaa	e-faa
+Bulim	pu-lim
+Ti^ndaan	Ti-Daan
+Aagakc	aa-kakg
+Mbi^ne^aa	Bi-ne-aa
+Hakv^gitc	hakq-kitg
+Matv^ti^ti^yaa	matq-Ti-Ti-yaa
+Aa^hi^me^lekv	aa-hi-me-lekq
+Yeletv	ye-letq
+Biton	pi-Ton
+Aa^hi^lutv	aa-hi-lutq
+Haa^se^lotv	haa-se-lotq
+Sene	sej-ne
+Amlaam	am-laam
+Mene	me-ne
+Laakaan	laa-Kaan
+nyiemc	Eyemg
+Kenaatv	Ke-naatq
+Esie	e-sia
+Sakc^kutv	sakg-Kutq
+Teletv	Te-letq
+haaix hnyangx	haiq Havj
+Se^o^lim	sej-o-lim
+da'cietv	ta'Zyetq
+guengx	kwevj
+Atc^lotv Mbetc Yo^aapc	atg-lotq-Betg-yo-aapg
+Me^si^yaa	me-si-yaa
+haaix joux	haiq Jruj
+Si^lo^am	sij-lo-am
+Ndin^haa^mbaa	Din-haa-Baa
+Ukaan	u-Kaan
+Si^laa^aa	sij-laa-aa
+Naayotv	naa-yotq
+Faa^li^si	faa-li-sij
+Faalo	faa-lo
+Ze^e^letv Saa^haax	ze-e-letq-saa-haaj
+Saa^me^naa	saa-me-naa
+E^li^fe^le^hu	e-li-fe-le-hu
+Ki^li^yaa^taa^im	Ki-li-yaa-Taa-im
+Aa^li^maa^tie	aa-li-maa-Tia
+Naa^haa^laan	naa-haa-laan
+Born^ti^atc	pxn-Ti-atg
+Molitv	mo-litq
+Aah loc	aab log
+Haasaa Su^aan	haa-saa-su-aan
+Telaa	Te-laa
+mbiungc-suiv-imx	Byuvb swib imj
+O^ne^si^matv	o-ne-si-matq
+Kaa^lo^e	Kaa-lo-e
+Ti^ti^atc Yu^saa^tatv	Ti-Ti-atg-yu-saa-Tatq
+mbiungc-wuom	Byuvb uam
+Binon	pi-non
+Ten Atc^saax	Ten-atg-saaj
+Kenatv	Ke-natq
+Gelutv Kim^ham	ke-lutq-Kim-ham
+Taansitv	Taan-sitq
+Imnaa	im-naa
+Ye^ndi^ndi^yaa	ye-Di-Di-yaa
+Mbin^haan	Bin-haan
+Ti^laa^tai	Ti-laa-Tai
+Haamun	haa-mun
+haaix zung	haiq zuv
+Be^laa^li^yaa	pe-laa-li-yaa
+Ulim	u-lim
+hlaetv hlaetv	Lctq Lctq
+Yu^ti^gatc	yu-Ti-katg
+Miliem	mi-lyem
+fiem-fingx	fyemb fivj
+Peletv	Pe-letq
+Yo^si^mbi^yaa	yo-si-Bi-yaa
+Yaasitv	yaa-sitq
+jiem-kou kou	Jyemb Kru Kru
+So^si^baa^te	soj-si-paa-Te
+Qeme	Qe-me
+uix	wij
+Mbaa^laa^ki^yaa	Baa-laa-Ki-yaa
+gorngv-baeqc	kxvb pc'g
+I^ti^en	i-Ti-en
+nquin	Gwin
+Teken	Te-Ken
+Mbetc Nimlaa	Betg-nim-laa
+Li^mbie	li-Bia
+Kenai	Ke-nai
+Mbi^si^o^ti^yaa	Bi-si-o-Ti-yaa
+Se^faan^waa^im	sej-faan-waa-im
+Ti^mo^tai	Ti-mo-Tai
+Ilaa	i-laa
+Aalotv	aa-lotq
+Ti^ki^gatc	Ti-Ki-katg
+Ke^len^hapc^bukc	Ke-len-hapg-pukg
+Baalotv	paa-lotq
+jatv	Jyetq
+haaix fingx	haiq fivj
+Tammutv	Tam-mutq
+Aa^naa^ni^yaa	aa-naa-ni-yaa
+Sinaa	si-naa
+mukv	mukq
+hiou	Yru
+U^li^yaa	u-li-yaa
+Ke^lu^hi	Ke-lu-hi
+Yaakaan	yaa-Kaan
+Aa^hi^aa	aa-hi-aa
+si sietc	sij syetg
+Ne^haa^mi	ne-haa-mi
+Ili	i-li
+Mben He	Ben-he
+Mben Nde^ke	Ben-De-Ke
+Maakaatv	maa-Kaatq
+Mben Hesetc	Ben-he-setg
+Mben Aa^mbi^naa^ndapc	Ben-aa-Bi-naa-Dapg
+Mben Ge^mbe	Ben-ke-Be
+njoux njoux	Fruj Fruj
+Elon Mbetc^haa^nan	e-lon-Betg-haa-nan
+Haa^saa^son Taamaa	haa-saa-son-Taa-maa
+suqv suqv	su'q su'q
+Kutaa	Ku-Taa
+haaix wuonc	haiq wrng
+Naatan Melekv	naa-Tan-me-lekq
+Ewin Me^lo^ndakc	e-win-me-lo-Dakg
+Naakon	naa-Kon
+Mbaa^an Haaso	Baa-an-haa-so
+Ndan^yaa^an	Dan-yaa-an
+Mbetc Maa^aa^kaa	Betg-maa-aa-Kaa
+Daatim Hotc^qi	taa-Tim-hotg-Qi
+nzaangc-waeqc	Ravb wc'g
+jienv jienv	Jyenq Jyenq
+fu'jueiv-toi	fu'Jweib Txi
+haev haev	hcq hcq
+ga'naaiv-cenv cenv	ka'naaib Zenq Zenq
+Yukaan	yu-Kaan
+haaix nzunc	haiq Rung
+fengx fengx	fevj fevj
+Aa^ndo^ni Se^ndekc	aa-Do-ni-se-Dekg
+Mbaa^an Gaatc	Baa-an-kaatg
+Mbetc^mbaa^an Me^on	Betg-Baa-an-me-on
+Haasaan Gatc^ndaa	haa-saan-katg-Daa
+En Tapv^bu^waa	en-Tapq-pu-waa
+En Hatc^ndaa	en-hatg-Daa
+Me Yaankon	me-yaan-Kon
+haaix bungh	haiq puvb
+haaix biauv	haiq pyauq

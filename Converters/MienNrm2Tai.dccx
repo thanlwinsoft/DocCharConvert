@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Mien NRM to Tai Unicode">
+<DocCharConverter name="Mien:NRM=>Tai[Unicode]" rname="Mien:Tai=>NRM[Unicode]">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
 <Argument value="Mien/nrm2tai.xml" type="File" />
 </ConverterClass>

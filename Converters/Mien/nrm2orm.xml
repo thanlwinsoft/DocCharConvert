@@ -11,6 +11,7 @@
   <component id="v" min="0" priority="80">vowel</component>
   <component id="f" min="0" priority="50">final</component>
   <component id="t" min="0" priority="40">tone</component>
+  <!--<component id="sep" min="0" priority="30">separator</component>-->
 </cluster>
 </script>
 
@@ -24,6 +25,7 @@
 	<component id="ov" min="0" priority="80">vowel</component>
 	<component id="of" min="0" priority="50">final</component>
 	<component id="ot" min="0" priority="40">tone</component>
+	<!--<component id="osep" min="0" priority="30">separator</component>-->
 </cluster>
 </script>
 
@@ -32,63 +34,20 @@
     <arg type="file">mienNrm2OrmExceptions.txt</arg>
     <!-- files must have path specified relative to this xml file -->
   </checker>
-  <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.MienSyllableSeparators">
-  	<arg>^</arg><arg>-</arg>
-  </checker>
+  
   <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences">
   </checker>
+  <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.mien.MienOrmToneChange">
+  </checker>
+  <!--<checker class="org.thanlwinsoft.doccharconvert.converter.syllable.MienSyllableSeparators">
+		  <arg>^</arg><arg>-</arg><arg>1</arg>
+  </checker>-->
 </checks>
 
 
 <classes>
 
 <!-- classes must be the same size on both sides -->
-<!--
-<class id="kptFinal">
-  <component r="f">
-    <c>k</c><c>t</c><c>p</c>
-  </component>
-  <component r="of">
-	  <c>k</c><c>t</c><c>p</c>
-  </component>
-</class>
-
-<class id="mnngFinal">
-<component r="f">
-  <c>m</c><c>n</c><c>ng</c>
-</component>
-<component r="of">
-	<c>m</c><c>n</c><c>v</c>
-</component>
-</class>
-
-<class id="kptnngFinal">
-<component r="f">
-  <c>k</c> <c>t</c> <c>p</c> <c>n</c> <c>ng</c>
-</component>
-<component r="of">
-	<c>k</c> <c>t</c> <c>p</c> <c>n</c> <c>v</c>
-</component>
-</class>
-
-<class id="kptmnngFinal">
-<component r="f">
-  <c>k</c><c>t</c><c>p</c><c>m</c><c>n</c><c>ng</c>
-</component>
-<component r="of">
-	<c>k</c><c>t</c><c>p</c><c>m</c><c>n</c><c>v</c>
-</component>
-</class>
-
-<class id="ktpnmFinal">
-<component r="f">
-  <c>k</c><c>t</c><c>p</c><c>n</c><c>m</c>
-</component>
-<component r="of">
-	<c>k</c><c>t</c><c>p</c><c>n</c><c>m</c>
-</component>
-</class>
--->
 <class id="anyFinal">
 <component r="f">
   <c>k</c><c>t</c><c>p</c><c>m</c><c>n</c><c>ng</c><c/>
@@ -97,25 +56,6 @@
 	<c>k</c><c>t</c><c>p</c><c>m</c><c>n</c><c>v</c><c/>
 </component>
 </class>
-<!--
-<class id="hzTone">
-<component r="t">
-  <c>h</c><c>z</c>
-</component>
-<component r="ot">
-	<c>b</c><c>d</c>
-</component>
-</class>
-
-<class id="hvxzMidTone">
-<component r="t">
-  <c>h</c><c>v</c><c>x</c><c>z</c>
-</component>
-<component r="ot">
-	<c>b</c><c>q</c><c>j</c><c>d</c>
-</component>
-</class>
--->
 <class id="anyTone">
 	<component r="t">
 		<c>c</c><c>h</c><c>v</c><c>x</c><c>z</c>
@@ -133,25 +73,6 @@
 		<c/><c>y</c><c>w</c>
 	</component>
 </class>
-
-<!--
-<class id="lowCons">
-<component r="c">
-  <c>k</c>   <c>ng</c> <c>q</c>  <c>c</c>  <c>hng</c>
-  <c>hny</c> <c>hm</c> <c>hn</c> <c>hl</c> <c>hu</c>
-  <c>hi</c>  <c>s</c>  <c>ny</c> <c>t</c>  <c>n</c>
-  <c>p</c>   <c>f</c>  <c>m</c>  <c>l</c>  <c>w</c>
-  <c>h</c>
-</component>
-<component r="oc">
-	<c>K</c>   <c>v</c> <c>Q</c>  <c>Z</c>  <c>V</c>
-	<c>H</c>   <c>M</c> <c>N</c>  <c>L</c>  <c>W</c>
-	<c>Y</c>  <c>s</c>  <c>E</c> <c>T</c>  <c>n</c>
-	<c>P</c>   <c>f</c>  <c>m</c>  <c>l</c>  <c>w</c>
-	<c>h</c>
-</component>
-</class>
--->
 
 <class id="highLowCons">
 <component r="c">
@@ -183,6 +104,25 @@
 </component>
 </class>
 
+<class id="nouaieVowel">
+	<component r="v">
+		<c>a</c> <c>aa</c> <c>aq</c> <c>ai</c> <c>aai</c>
+		<c>au</c> <c>aau</c> <c>ae</c> <c>aeq</c> <c>e</c>
+		<c>eq</c> <c>ei</c> <c>eu</c> <c>i</c> <c>iq</c>
+		<c>ieq</c> <c>iu</c> <c>o</c> <c>oq</c>
+		<c>oi</c> <c>or</c> <c>ou</c> <c>u</c> <c>uq</c>
+		<c>uoq</c>
+	</component>
+	<component r="ov">
+		<c>a</c> <c>aa</c> <c>a'</c> <c>ai</c> <c>aai</c>
+		<c>au</c> <c>aau</c> <c>c</c> <c>c'</c> <c>e</c>
+		<c>e'</c> <c>ei</c> <c>eu</c> <c>i</c> <c>i'</c>
+		<c>ia'</c> <c>iu</c> <c>o</c> <c>o'</c>
+		<c>xi</c> <c>x</c> <c>ru</c> <c>u</c> <c>u'</c>
+		<c>ua'</c>
+	</component>
+</class>
+
 </classes>
 
 <mappingTable id="cons">
@@ -194,6 +134,8 @@
 	<m><c r="c"/><c r="oc"/></m>
 	<m><c r="c" class="highLowCons"/><c r="oc" class="highLowCons"/></m>
 	<m><c r="c" class="midCons"/><c r="oc" class="midCons"/></m>
+	<m><c r="c">w</c><c r="oc"/></m>
+	<m><c r="c">y</c><c r="oc"/></m>
 </maps>
 </mappingTable>
 
@@ -242,7 +184,9 @@
 	<m><c r="v">i</c><c r="ov">i</c></m>
 	<m><c r="v">iq</c><c r="ov">i'</c></m>
 	<m><c r="v">ie</c><c r="ov">ia</c></m>
+	<m><c r="v">ie</c><c r="ov">ye</c></m>
 	<m><c r="v">ieq</c><c r="ov">ia'</c></m>
+	<m><c r="v">iu</c><c r="ov">iu</c></m>
 	<m><c r="v">o</c><c r="ov">o</c></m>
 	<m><c r="v">oq</c><c r="ov">o'</c></m>
 	<m><c r="v">oi</c><c r="ov">xi</c></m>
@@ -252,6 +196,7 @@
 	<m><c r="v">u</c><c r="ov">u</c></m>
 	<m><c r="v">uq</c><c r="ov">u'</c></m>
 	<m><c r="v">uo</c><c r="ov">ua</c></m>
+	<m><c r="v">uo</c><c r="ov">wr</c></m>
 	<m><c r="v">uoq</c><c r="ov">ua'</c></m>
 </maps>
 </mappingTable>
@@ -263,8 +208,8 @@
 </columns>
 <maps>
 <m><c r="sv"/><c r="osv"/></m><!-- need to include empty map -->
-<m><c r="sv">i</c><c r="osv">i</c></m>
-<m><c r="sv">u</c><c r="osv">u</c></m>
+<m><c r="sv">i</c><c r="osv">y</c></m>
+<m><c r="sv">u</c><c r="osv">w</c></m>
 </maps>
 </mappingTable>
 
@@ -279,7 +224,7 @@
 <m><c r="p">m'</c><c r="op">m</c></m>
 <m><c r="p">a'</c><c r="op">a'</c></m>
 <m><c r="p">ba'</c><c r="op">pa'</c></m>
-<m><c r="p">gu'</c><c r="op">ku'</c></m>
+<m><c r="p">gu'</c><c r="op">kub </c></m>
 <m><c r="p">za'</c><c r="op">za'</c></m>
 <m><c r="p">ga'</c><c r="op">ka'</c></m>
 <m><c r="p">mba'</c><c r="op">Ba'</c></m>
@@ -294,11 +239,86 @@
 <m><c r="p">ha'</c><c r="op">ha'</c></m>
 <m><c r="p">qa'</c><c r="op">Qa'</c></m>
 <m><c r="p">pa'</c><c r="op">Pa'</c></m>
+<m><c r="p">nza'</c><c r="op">Ra'</c></m>
 <!--
 <m><c r="p"></c><c r="op"></c></m>
 -->
 </maps>
 </mappingTable>
 
+<mappingTable id="cons-vowel" optional="true">
+	<columns>
+		<component r="c"/>
+		<component r="v"/>
+		<component r="oc"/>
+		<component r="ov"/>
+	</columns>
+	<maps>
+		<m><c r="c">w</c><c r="v">uo</c><c r="oc"/><c r="ov">ua</c></m>
+		<m><c r="c">w</c><c r="v">uo</c><c r="oc"/><c r="ov">wa</c></m>
+		<m><c r="c">w</c><c r="v">ie</c><c r="oc">w</c><c r="ov">ia</c></m>
+		<m><c r="c">w</c><c r="v">ie</c><c r="oc">w</c><c r="ov">ye</c></m>
+		<m><c r="c">w</c><c r="v" class="nouaieVowel"/><c r="oc">w</c><c r="ov" class="nouaieVowel"/></m>
+		<m><c r="c">y</c><c r="v">uo</c><c r="oc">y</c><c r="ov">ua</c></m>
+		<m><c r="c">y</c><c r="v">uo</c><c r="oc">y</c><c r="ov">wa</c></m>
+		<m><c r="c">y</c><c r="v">ie</c><c r="oc">y</c><c r="ov">ie</c></m>
+		<m><c r="c">y</c><c r="v">ie</c><c r="oc"/><c r="ov">ye</c></m>
+		<m><c r="c">y</c><c r="v" class="nouaieVowel"/><c r="oc">y</c><c r="ov" class="nouaieVowel"/></m>
+	</maps>
+</mappingTable>
+
+
+<mappingTable id="vowel-final" optional="true">
+	<columns>
+		<component r="v"/>
+		<component r="f"/>
+		<component r="ov"/>
+		<component r="of"/>
+	</columns>
+	<maps>
+		<m><c r="v">uo</c><c r="f">t</c><c r="ov">wr</c><c r="of">t</c></m>
+		<m><c r="v">uo</c><c r="f">n</c><c r="ov">wr</c><c r="of">n</c></m>
+		<m><c r="v">uo</c><c r="f">k</c><c r="ov">ua</c><c r="of">k</c></m>
+		<m><c r="v">uo</c><c r="f">p</c><c r="ov">ua</c><c r="of">p</c></m>
+		<m><c r="v">uo</c><c r="f">m</c><c r="ov">ua</c><c r="of">m</c></m>
+		<m><c r="v">uo</c><c r="f">ng</c><c r="ov">ua</c><c r="of">v</c></m>
+		<m><c r="v">uo</c><c r="f"></c><c r="ov">ua</c><c r="of"></c></m>
+		
+		<m><c r="v">ie</c><c r="f">t</c><c r="ov">ye</c><c r="of">t</c></m>
+		<m><c r="v">ie</c><c r="f">n</c><c r="ov">ye</c><c r="of">n</c></m>
+		<m><c r="v">ie</c><c r="f">k</c><c r="ov">ia</c><c r="of">k</c></m>
+		<m><c r="v">ie</c><c r="f">p</c><c r="ov">ye</c><c r="of">p</c></m>
+		<m><c r="v">ie</c><c r="f">m</c><c r="ov">ye</c><c r="of">m</c></m>
+		<m><c r="v">ie</c><c r="f">ng</c><c r="ov">ia</c><c r="of">v</c></m>
+		<m><c r="v">ie</c><c r="f"></c><c r="ov">ia</c><c r="of"></c></m>
+	</maps>
+</mappingTable>
+
+<mappingTable id="cons-vowel-final" optional="true">
+	<columns>
+		<component r="c"/>
+		<component r="v"/>
+		<component r="f"/>
+		<component r="oc"/>
+		<component r="ov"/>
+		<component r="of"/>
+	</columns>
+	<maps>
+		<m><c r="c">y</c><c r="v">ie</c><c r="f">n</c><c r="oc"></c><c r="ov">ye</c><c r="of">n</c></m>
+		<m><c r="c">y</c><c r="v">ie</c><c r="f"></c><c r="oc">y</c><c r="ov">ia</c><c r="of"></c></m>
+	</maps>
+	.</mappingTable>
+<!--
+<mappingTable id="separator">
+	<columns>
+		<component r="sep"/>
+		<component r="osep"/>
+	</columns>
+	<maps>
+		<m><c r="sep"/><c r="osep"/></m>
+		<m><c r="sep">^</c><c r="osep">-</c></m>
+	</maps>
+</mappingTable>
+-->
 
 </syllableConverter>

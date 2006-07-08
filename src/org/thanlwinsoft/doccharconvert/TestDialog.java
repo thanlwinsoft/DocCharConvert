@@ -25,9 +25,16 @@
 package org.thanlwinsoft.doccharconvert;
 import java.awt.Font;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.util.ResourceBundle;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.text.JTextComponent;
+import javax.swing.JPopupMenu;
+import javax.swing.JMenuItem;
+import javax.swing.AbstractAction;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
@@ -45,16 +52,31 @@ public class TestDialog extends javax.swing.JDialog
     private ChildConverter reverseConverter = null;
     private int DEBUG_FONT_SIZE = 12;
     private String DEBUG_FONT = "Courier";
+    private ResourceBundle guiResource = null;
     /** Creates new form TestDialog */
-    public TestDialog(java.awt.Frame parent, boolean modal, ChildConverter cc, ChildConverter rcc)
+    public TestDialog(MainForm parent, boolean modal, ChildConverter cc, ChildConverter rcc)
     {
         super(parent, modal);
+        guiResource = parent.getResource();
         initComponents();
         converter = cc;
         reverseConverter = rcc;
+        debugCheckBox = new JCheckBox();
+        debugCheckBox.setSelected(false);
+        
+        debugCheckBox.setText(guiResource.getString("enable_debug"));
+        debugCheckBox.setToolTipText(guiResource.getString("enable_debug_tt"));
+        
+        debugCheckBox.addActionListener(new java.awt.event.ActionListener() { 
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+              debugCheckBoxActionPerformed(evt);
+            }
+        });
+        buttonPanel.add(debugCheckBox, 1); // add after label
         // set debug in this mode - for now output is written to console
-        cc.setDebug(true);
-        rcc.setDebug(true);
+        cc.setDebug(false);
+        rcc.setDebug(false);
         int fontSize = Config.getCurrent().getTestFontSize();
         jTextArea1.setFont(new Font(cc.getOldStyle().getFontName(),
                            Font.PLAIN,fontSize));
@@ -65,8 +87,79 @@ public class TestDialog extends javax.swing.JDialog
         jTextArea4.setFont(new Font(DEBUG_FONT,
                            Font.PLAIN,DEBUG_FONT_SIZE));
         this.setSize(600,500);
-        this.setTitle("Test Conversion");
+        this.setTitle(guiResource.getString("test_dialog_title"));
         converterLabel.setText(cc.getName());
+        initContextMenu();
+    }
+    
+    protected JTextComponent getTextComponentFromAction(ActionEvent ae)
+    {
+        if (ae.getSource() instanceof JMenuItem)
+        {
+            JMenuItem mi = (JMenuItem)ae.getSource();
+            if (mi.getParent() instanceof JPopupMenu)
+            {
+                JPopupMenu pm = (JPopupMenu)mi.getParent();
+                if (pm.getInvoker() instanceof JTextComponent)
+                {
+                    return (JTextComponent)pm.getInvoker();
+                }
+            }
+        }
+        return null;
+    }
+    
+    private void initContextMenu()
+    {
+        JPopupMenu menu = new JPopupMenu(guiResource.getString("popup_title"));
+        JPopupMenu readOnlyMenu = new JPopupMenu(guiResource.getString("popup_title"));
+        AbstractAction copyAction = new AbstractAction(guiResource.getString("copy")) 
+        {
+            /**
+             * 
+             */
+            private static final long serialVersionUID = -5237671201534677052L;
+
+            public void actionPerformed(ActionEvent ae)
+            {
+                JTextComponent tc = getTextComponentFromAction(ae);
+                if (tc != null) tc.copy();
+            }            
+        };
+        AbstractAction cutAction = new AbstractAction(guiResource.getString("cut")) 
+        {
+            /**
+             * 
+             */
+            private static final long serialVersionUID = 7468679584634147672L;
+
+            public void actionPerformed(ActionEvent ae)
+            {
+                JTextComponent tc = getTextComponentFromAction(ae);
+                if (tc != null) tc.cut();
+            }            
+        };
+        AbstractAction pasteAction = new AbstractAction(guiResource.getString("paste")) 
+        {
+            /**
+             * 
+             */
+            private static final long serialVersionUID = -2612076764097953750L;
+
+            public void actionPerformed(ActionEvent ae)
+            {
+                JTextComponent tc = getTextComponentFromAction(ae);
+                if (tc != null) tc.paste();
+            }            
+        };
+        menu.add(new JMenuItem(cutAction));
+        menu.add(new JMenuItem(copyAction));
+        menu.add(new JMenuItem(pasteAction));
+        readOnlyMenu.add(new JMenuItem(copyAction));
+        jTextArea1.setComponentPopupMenu(menu);
+        jTextArea2.setComponentPopupMenu(readOnlyMenu);
+        jTextArea3.setComponentPopupMenu(readOnlyMenu);
+        jTextArea4.setComponentPopupMenu(readOnlyMenu);
     }
     
     /** This method is called from within the constructor to
@@ -221,6 +314,12 @@ public class TestDialog extends javax.swing.JDialog
         
     }//GEN-LAST:event_convertButtonActionPerformed
     
+    private void debugCheckBoxActionPerformed(java.awt.event.ActionEvent evt)
+    {
+        converter.setDebug(debugCheckBox.isSelected());
+        reverseConverter.setDebug(debugCheckBox.isSelected());
+    }
+    
     protected void debugDump(String text, StringBuffer buffer)
     {
         for (int i = 0; i<text.length(); i++)
@@ -256,5 +355,5 @@ public class TestDialog extends javax.swing.JDialog
   private javax.swing.JTextArea jTextArea3;
   private javax.swing.JTextArea jTextArea4;
   // End of variables declaration//GEN-END:variables
-    
+  private javax.swing.JCheckBox debugCheckBox;
 }

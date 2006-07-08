@@ -25,6 +25,7 @@
 package org.thanlwinsoft.doccharconvert.converter;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
+import java.nio.charset.Charset;
 /**
  *
  * @author  keith
@@ -45,6 +46,12 @@ public interface CharConverter
     public void setDebug(boolean on);
     public TextStyle getOldStyle();
     public TextStyle getNewStyle();
+    /**
+     * Set the input and output encodings.
+     * @param iCharset Input Encoding
+     * @param oCharset Output Encoding
+     */
+    public void setEncodings(Charset iCharset, Charset oCharset);
     /**
      * Some converters may need to preinitialise some things
      */

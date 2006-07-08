@@ -25,6 +25,7 @@
 package org.thanlwinsoft.doccharconvert.converter;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import java.util.Vector;
 import java.util.Iterator;
 import java.util.List;
@@ -53,6 +54,7 @@ public class SyllableConverter extends ReversibleConverter
     public static final int RIGHT = 1;
     public static final String UNKNOWN_CHAR = "??";
     private String name = null;
+    private String reverseName = null;
     protected boolean initOk = false;
     private File xmlFile = null;
     private int oldSide = 0;
@@ -98,12 +100,21 @@ public class SyllableConverter extends ReversibleConverter
     
     public String getName()
     {
-        return name;        
+        if (isForwards())
+            return name;
+        else
+            return reverseName;
+    }
+    public String getBaseName()
+    {
+        return name;
     }
     public void setName(String newName)
     {
         this.name = newName;
     }
+    public void setReverseName(String aName) { this.reverseName =aName; }
+    
     public void setDebug(boolean on)
     {
         debug = on;
@@ -481,6 +492,10 @@ public class SyllableConverter extends ReversibleConverter
     {
         
         
+    }
+    public void setEncodings(Charset iCharset, Charset oCharset)
+    {
+        // Processing is done in unicode, so this converter ignores the charsets
     }
     
     

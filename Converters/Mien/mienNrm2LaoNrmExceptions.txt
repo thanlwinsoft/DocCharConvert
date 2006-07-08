@@ -2,7 +2,7 @@ a'ngunc
 aah
 hmz
 wuom
-#wuov
+wuov
 nernh
 haaix
 maah
@@ -11,18 +11,17 @@ dungx
 oeix
 mbiuic
 biuih
-orqv
 m'nqorngv
 se gorngv
 fu'jueiv
 wuoqc
-#mbu'ziex
-laeqh
-#niaa
+mbu'ziex
+niaa
 weqv
-mienc
+M'Yienc
 Lewi
 Aa^mben Mbetc Maa^aa^kaa
+Aa^mben Maa^im
 Aa^mbi^hutv
 Aa^mbi^tupv
 Aa^mbipc
@@ -56,16 +55,14 @@ Aa^hi^yo
 Aa^hu^mai
 Aa^laa^mbie
 Aa^laa^maa^getc^ndon
-Aa^lam^maa^aa^kaa
-aa^lam^naa^haa^laa^im
+Aa^lam Naa^haa^laa^im
 Aalam So^mbaa
 Aa^li^maa^tie
-Aa^lon^mbaa^kutv
 Aalutv
 Aa^maa^li^yaa
 Aa^maa^si^yaa
 Aa^naa^haa^laatv
-Aa^nupv
+Aanupv
 Aa^bor^li^yon
 Aa^saa^li^yaa
 Aa^saa^si^yaa
@@ -87,9 +84,8 @@ An^ti^baa^di
 An^ti^baatc
 Atc^laa^mitv^ti^yum
 Atc^taa^li^yaa
-Mbaa^an^Mbelitv
+Mbaa^an Mbelitv
 Mbaa^an Qaa^li^qaa
-Mbaa^an^se^mbupc
 Mbaa^laa^ki^yaa
 Mbaa^laa^saa^tatv
 Mbaalukv
@@ -111,7 +107,7 @@ Mbikc^taa
 Mbikc^taa^naa
 Mbikc^taan
 Mbikc^wai
-Mbu^naa
+Mbunaa
 Mbusi
 Mbukc^ki
 Mbukc^ki^yaa
@@ -128,14 +124,14 @@ E^li^fe^le^hu
 E^li^utc
 E^li^yaa^sipv
 Elun
-E^mekv Kesitv
+Emekv Kesitv
 E^baa^fo^ndi^tatv
 E^bi^ku^lien
 E^saa^laa
 E^saa^li
-E^wi
+Ewi
 Em^maa^utc
-En^Mbelitv
+En Mbelitv
 Faa^le^gon
 Faa^li^si
 Felikv
@@ -149,9 +145,10 @@ Haa^lu^mapv
 Haalum
 Haalupv
 Haa^mu^taan
-Haa^mun
+Haamun
 Haanun
 Haa^saa^bi^yaa
+Haa^saa^son Taamaa
 Haa^saax^ndi^yaa
 Haase Hatv^ti^kon
 Haasum
@@ -170,7 +167,7 @@ Ho Hakv^gitc^gaatc
 Hotv
 Hufaam
 Hugorkc
-Hu^laa^maa^mbi
+Hulaam Aa^mbi
 Hulaam
 Hulai
 Huli
@@ -178,7 +175,6 @@ Husaa
 Husaam
 Husai
 Husim
-Husopc
 Hukc^gorkc
 Hun
 I^ndaa^laa
@@ -188,6 +184,7 @@ I^ko^ni^yum
 Ilaa
 I^laa^aa
 Ilaa Naahaatc
+Ilaanc
 Ilaam
 Ilaatv
 Ilai
@@ -206,10 +203,11 @@ I^saa^maa^en
 I^saa^yaa
 I^daa^li
 I^taa^maa
-I^tai
+Itai
+I^ti^en
 I^tu^lie
 I^ye^aa^laa^mbim
-I^yim
+Iyim
 Ikc^ndaa^li^yaa
 Ikc^ketc
 Itc^saa^maa^ki^yaa
@@ -230,19 +228,19 @@ Ke^li^otc
 Ke^li^otc Hetv^lon
 Ge^li^sim
 Ke^li^taa
-Ke^litv
+Kelitv
 Ke^litv^taa
 Ke^lu^mbai
 Ke^lu^hi
 Kelupv
-Ge^lutv^kim^ham
+Gelutv Kim^ham
 Ge^maa^li^yaa
 Ke^naa^aa^naa
 Ke^saa^lon
 Ke^si^yaa
 Kesipv
 Gi^mbe^aa
-Gi^mbe^atc^e^lo^him
+Gi^mbe^atc E^lo^him
 Gi^mbe^atc Haa^laa^lotv
 Gi^mbe^on
 Gi^nde^o^ni
@@ -259,7 +257,7 @@ Ki^li^yaatv
 Ki^li^yaatv Aalim
 Ki^li^yaatv Aan^mbaa
 Ki^li^yaatv Mbaa^an
-Ki^li^yaatv^hu^sotv
+Ki^li^yaatv Husotv
 Ki^li^yaatv Sanx^naa
 Ki^li^yaatv Sefe
 Ki^li^yaatv Ye^aa^lim
@@ -274,7 +272,7 @@ Ko^ni^yaa
 Gokc
 Gopc
 Kotc
-Gu^ni
+Guni
 Kuqan Li^taa^im
 Kumlaan
 Kun
@@ -298,7 +296,7 @@ Li^ndie
 Li^kaa^o^nie
 Li^saa^daa
 Likv^hi
-Lo^lu^haa^maa
+Lo^Lu^haa^maa
 Lotv
 Lu^hitv
 Lu^si^atc
@@ -324,9 +322,9 @@ Matv^daa^taa
 Matv^ti^ti^yaa
 Me^ndi^de^le^nien
 Me^hi
-�e^hi^ndaa
+Me^hi^ndaa
 Me^hu^maan
-Me^li^mbatc^kaa^ndetc
+Me^li^mbatc Kaa^ndetc
 Me^li^taa
 Me^se^le^mi^yaa
 Me^si^yaa
@@ -389,11 +387,11 @@ Bi^haa^hi^lotv
 Bi^laa^ton
 Bilatv
 Bi^si^ndie
-Bi^tom
-Bi^ton
+Bitom
+Biton
 Bo^ti^faa
 Bo^ti^fe^laa
-Bu^tai
+Butai
 Bu^ti^en
 Bupc^li^atc
 Putv
@@ -401,10 +399,10 @@ Bor^si^atc
 Born^ti^atc
 Saa^mbakc^taa^ni
 Saa^ndu^si
-Aa^haa^laa^im
-Aa^haa^su^maa
-Aa^li^saa
-Aa^lo^me
+Saa^haa^laa^im
+Saa^haa^su^maa
+Saa^li^saa
+Saa^lo^me
 Saa^lu^hen
 Saa^maa^lie
 Saa^me^naa
@@ -442,7 +440,7 @@ Se^lu^yaa
 Selukv
 Se^maa^ki^yaa
 Se^mi^laa
-Siaa
+Si^aa
 Si^mbaa
 Si^mbe^on
 Si^mbi^yaa
@@ -453,16 +451,17 @@ Sifi
 Si^fi^yon
 Sifon
 Si^hox
-Sihox Lipv^naatv
+Si^hox Lipv^naatv
 Si^honx
 Sikaa
 Si^gi^o^notv
-Si^lie^fi^ni^sie
+Silie Fi^ni^sie
 Si^me^aa
 Si^me^am
 Si^me^atc
 Si^me^Iaa
 Si^me^on
+Sinaa
 Si^on
 Si^saa^aa
 Si^saa^mai
@@ -483,17 +482,16 @@ So^si^baa^te
 Su^aa
 Sufaa
 Sukaa
-Su^ki^im
 Susaax
 Su^sanx^naa
 Susi
 Sux^li^en
 Sux^li^satv^ndai
 Sukc^kotv
-Sukc^kotv^mbe^notv
 Supc
 Taa^aa^natv Silo
 Taa^mbi^taa
+Tammutv
 Daa^ko^ni^ditc
 Taa^laa^laa
 Taa^li^taa^ku^mi
@@ -518,12 +516,10 @@ Ti^mo^tai
 Timon
 Tisai
 Tidatc
-Ti^datc^yu^saa^tatv
+Ti^ti^datc Yu^saa^tatv
 Ti^yaa^ti^laa
 Tikc^waa
-Tikv^latv^Bi^le^se
 Tohu
-Topv^Aa^ndo^ni^yaa
 Totv^mbu^li
 Tu^ndaatc
 Ufaatv
@@ -544,13 +540,12 @@ Yaakin
 Yaagun
 Yaa^laa^haa
 Yaalipv
-Yaa^min
 Yaasitv
 Yaasupv
 Yaanmutv
 Ye^ndi^ndi^yaa
 Ye^ndu^tun
-Ye^ho^waa^yi^le
+Ye^ho^waa Yi^le
 Ye^ho^yaa^kin
 Ye^hutv
 Ye^kaa^mi^yaa
@@ -570,23 +565,21 @@ Yo^si^yaa
 Yopv
 Yu^saa^tatv
 Yu^ti^gatc
-#new-stuff
 Gin^mbo^aa
 Jetc^si
 gu'nyuoz
 mbu'ndongx
 Aa^ndun^lam
-la'bieiv-zorng
+la'bieiv
 Naatan
 Selekv
 Utc^si^yaa
 Me^tu^se^laa
 Kitv^tim
-Si^ni
+Sini
 Temaa
 Yetu
 Temaan
-Sefi
 Se^i
 Lotaan
 Mbin^haan
@@ -594,11 +587,8 @@ Ndin^haa^mbaa
 Mbaa^an Haanan
 Me^Saahapc
 Yetetv
-zanc-zanc
-mengh mengh
 Maako
 za'gengh
-mv
 Simon
 la'kuqv
 Yoaatc
@@ -618,8 +608,6 @@ Yaakopv
 Ko^lin^to
 So^mbaa
 uix
-#Aalam Naa^haa^laa^im
-#unchecked
 mv baac
 Ndaawitv
 zaangc
@@ -656,19 +644,20 @@ Nogaa
 Nefekv
 Yaafie
 Gese
+huin
 huing
+huingx
 Geson
 Mose
 Aasaapc
 Unni
-Efotv
+efotv
 Isakc
 Hosaax
 Silie
 Aalam
 gilo
-Sofakv
-E^notv
+Enotv
 Yaaletv
 Noyaa
 Yaafetv
@@ -701,13 +690,10 @@ Molekv
 huotv
 Saadaan
 Onan
-huin
 Setaam
-Si^naa
 Amlaam
 Gesom
 Mikaa
-#Maali
 Musi
 Haalim
 Se^o^lim
@@ -721,7 +707,6 @@ Yolam
 Yaase
 Mikc^lotv
 Omli
-huingx
 Sefaam
 Saalon
 Saafatv
@@ -756,15 +741,17 @@ Seletv
 Sesan
 Efaan
 Mesaa
+Utc^sen Qe^e^laa
 Lekem
 Mbetc Su
 Mosaa
 Yotaam
 Gesaan
 Sewaa
+Qewaa
 Haaletv
 Solaa
-Atc^lotv^mbetc^yo^aapc
+Atc^lotv Mbetc Yo^aapc
 Lekaapv
 Amnon
 Gesu
@@ -777,9 +764,10 @@ Yusapv^Hesetc
 Aannan
 Edaam
 Helaa
-Se^letc
+Seletc
 So^mbe^mbaa
 Mbetc Laafaa
+Mbetc Haalam
 Baa^se^aa
 Lekaa
 Se^lai^aa
@@ -791,7 +779,6 @@ Soko
 Gelem
 Linnaa
 So^hetc
-Mben^Sohetv
 Ko^se^mbaa
 Yokim
 Esem
@@ -801,6 +788,7 @@ Mbetc Maan^kaa^mbotc
 Haasaan Sux^simx
 Aayin
 Limmon
+Limmon Beletv
 Token
 Aaqan
 Yamlekv
@@ -808,7 +796,7 @@ Sisaa
 Se^mai^aa
 Banlu
 Aasaatv
-Se^maa
+Semaa
 Mbaa^an Me^on
 Mbaasaan
 Saafaam
@@ -816,7 +804,6 @@ Yolai
 Mbaa^an Hemon
 Seni
 Hemon
-hieh
 Bunle
 Gosaan
 Utc^si
@@ -829,7 +816,7 @@ Amsi
 Hilen
 Mbetc Semetv
 Sekem
-Mbetc^Holon
+Mbetc Holon
 Gatc Limmon
 Golaan
 Laamotv
@@ -863,14 +850,14 @@ Lisiex
 Laafaa
 Gelaa
 Minmaa
-Se^metv
+Semetv
 Ono
 Saasakv
 Aalaatv
 Yaakim
 Simlaatv
 Seke
-Melipv^Mbaa^an
+Melipv Mbaa^an
 Melekv
 Taalie
 Aasen
@@ -885,14 +872,13 @@ Tanmon
 Yaalaa
 nyei
 Timnaatv Selaa
-Jatv
 kouv
+kou kou
 Mene
 Mole
 Neko
 Yesu
 Minlo
-wuov-ndaangc
 Giduc
 Silaa
 Se^laa^saa
@@ -900,7 +886,7 @@ Laasen
 guinh
 Maadi
 Mbesekv
-Yelupv^Mbaa^an
+Yelupv Mbaa^an
 Yepv^taa
 nzaangc
 Mbetc Aawen
@@ -919,7 +905,6 @@ Ganlim
 Banti
 Maa^okc
 Negepc
-#u^lim
 kuinx
 Mbeso
 Laakaan
@@ -935,9 +920,8 @@ Taasatv
 Saibatc
 An^ti^okc
 Yannetv
-Mbe^e^se^mbaa
+Mbe^e^qe^mbaa
 Hesi
-# auto added
 Aa^kuin^laa
 Aa^li^okc
 Aafekv
@@ -949,7 +933,6 @@ Annaatv
 Atc^si^lie
 Bekaa
 Besie
-E^se^ken
 Elon
 En Ge^ndi
 Esie
@@ -970,17 +953,15 @@ Lomaa
 Lugaa
 Lute
 Maalaa
-Maali
 Maataa
 Mamle
 Mbaalaakv
-Mben^Hinnom
+Mben Hinnom
 Mbinnui
 Me^so^bo^de^mie
 Memfitv
 Mesaakv
 Minkaa
-Naasi
 Saafaan
 Saalaa
 Saalaai
@@ -991,7 +972,6 @@ Se^mbaa
 Se^mbe^ndi
 Se^mbun
 So^aa
-So^an
 So^ndom
 Sunem
 Tofetv
@@ -1016,14 +996,10 @@ jiem-kuing
 ka'ndau
 kuing
 la'ngopv
-loh
 mbiungc
 mbiungc-nziaaux
 mbiungc-suiv
-mbu'ziex
-niaa
 nquin
-yieqv
 Aa^se^natv
 Aa^taa^lotv
 Aagu
@@ -1056,8 +1032,298 @@ Getc^se^maa^ni
 Haa^le^lu Yaa
 Haa^se^lotv
 Haalakv
-Haasaa Lenan
 Haasaa Lenon
 Haulaan
 He^se^ki^yaa
-#singles
+Tin Deic
+Ceng Tin-hungh
+Bison
+Taigitc
+Tu^mban Kaa^in
+Nefin
+Se^mbo^yim
+Sefaa
+Aa^le^okc
+So^haax
+nie-ha'louh
+Batc^ndaan Aalam
+Mbaa^se^matv
+En E^lo^he I^saa^laa^en
+En Mbetc^en
+Saax^fe^naatv Baa^ne^aa
+Sefon
+Mbaa^an Sefon
+guengx
+Ye^ho^waa Nitv^si
+Supc^aa
+Kaa^ndetc Mbaa^nie
+Si^li^orn
+Aa^mo^lai
+Kipc^lotv Hatc^daa^aa^waa
+Mbe^e^lotv Mbe^ne^yaa^aa^kan
+Mo^se^laa
+Mbetc Be^o
+So^ndi
+Setu
+Wopv^si
+I^ye Aa^mbaa^lim
+Sofim
+Aalotv
+Se^mbaam
+Atc^lotv Sofaan
+Makv^he^lotv
+Mo^se^lotv
+Anmon Ndipc^laa^taa^im
+Se^ndatc
+Haasaa Lenan
+Mitv^le^fotv Maa^im
+Simlon Melon
+Naafotv Ndo^aa
+Mbaamotv Mbaa^an
+Ze^e^letv Saa^haax
+Kinaa
+Mbetc Hokv^laa
+Mbe^aa^lotv
+Haaso Haa^ndatc^taa
+Mbetc Beletv
+Senan
+Kitv^litv
+Mbetc Ndaagon
+Mbetc Tapv^bu^waa
+Mbetc Aanotv
+Aa^taa^lotv Atc^ndaa
+Mbetc Aa^laa^mbaa
+Mbetc Se^aan
+Se^maa^laa^im
+Mbaa^aa^latv Mbe^e
+Kitv^lotv Taa^mbo
+Etc Kaasin
+Ipc^taa En
+Ke^sunx^lotv
+Mbetc Batc^setv
+Atc^notv Taa^mbo
+En Haaso
+In Semetv
+Mbe^ne Mbelaakv
+pa'li pa'laaix
+Timnaatv Heletv
+Sefatv
+Mbetc Aanaatv
+Haa^lo^setv Haa^go^yim
+Melotv
+Se^le^laa
+Mbetc Qitv^taa
+Mbetc Mbaalaa
+Se^epc
+Mbelitv
+Laamaatv Lehi
+Solekv
+huov-jeix
+Se^mbo^im
+Si^laa^aa
+O^mbetc E^ndom
+Itc^mbi Mbenopv
+Yoqepv Mbatc^qe^mbetc
+Saamaa
+Qiqaa
+Elotv
+minaa
+Se^le^ndaa
+hiou
+He^si^on
+Saen^maa^ne^se
+So Hungh
+Hepv^si^mbaa
+Haalutv
+Se^naa^aa
+Si^haqc
+Si^aa^haa
+Kelotv
+Sotai
+Hatc^so^fe^letv
+Kitv^lepv
+Mbe^so^ndai^aa
+So^fe^letv
+Min^yaa^min
+Mbetc Gin^gaan
+Gin^gaan
+Qetaa
+Qetaa Mbo^se^nai
+Maan^se^naa
+mbaqc piatv
+hienv
+Hegai
+Teletv
+Ten Aa^mbipc
+Bekotc
+E^li^se^aa
+Gaamatv
+Gomaa
+Seme Mienh
+Aa^naa^ni
+Mben So^hetv
+Ye^so^haa^yaa
+Tikv^latv Bi^le^se
+Itc^hotv
+Utc^sen Se^e^laa
+Aalam Maa^aa^kaa
+maaz-li
+Se^aa^laa
+Sefi
+Zefi
+yieqv
+mv
+So^an
+Ti^ti^atc Yu^saa^tatv
+Se^faa^taa
+Su^ki^im
+I^yon
+Topv Aa^ndo^ni^yaa
+loh!
+guangc
+laa^maa^saa^mbakc^taa^ni
+hlieqv-kou
+Si^saa^li^yaa Fi^lipv^poi
+E^se^ken
+Naasi
+Naasic
+Sakc^kutv
+La'maaqh
+husopc
+Ye^mbe^le^ki^yaa
+Zinaa
+Zisaa
+Ke^lu^mbim
+Se^me^in
+nquekc
+Si^lo^am
+Orqv?
+Elekv
+Kaan^ndaa^si
+En Mbeletv
+Kuqi
+Negan Saa^le^se
+Samx^gaa Ne^mbo
+Saanx^se^kim
+Maa^se^yaa
+No Aamon
+Se^faa^laatv
+piuv
+si sietc
+Senaatv
+Se^mbatc
+huonh
+Omaa
+Gaataam
+Kenatv
+Lumaa
+Yo^en
+Iu-Mienh
+Mbetc Haalan
+Mbetc Nimlaa
+Enkotc
+hieh
+Ilaqv
+Qeme
+Hemaan
+Anlon
+Anlon Mbaakutv
+Sumatv
+Kenan
+Enokv
+Iyipv
+Hiwai
+Gete
+Qelepv
+Haanokv
+Aanaa
+Homam
+Laamekv
+Yaamai
+Aanem
+Etaan
+Yaakaan
+Yaanai
+Huwaa
+Haataatv
+Anwaan
+Binon
+Kenaatv
+Yaamin
+Eke
+Peletv
+Peletc
+Kaasetv
+Mbetc Gaa^nde
+Haanan
+Mbaani
+Hotaam
+Hilaam
+Sofaakv
+Laami
+Aa^ndaa^mi Nekepc
+Mbeno
+Hoti
+Haamaan
+Mbinsaan
+Aate
+Ndaankon
+Mbaakotc
+Aami
+Ten Melaa
+Ten Haanx^saa
+Se^ji^atc
+So^baa^te
+Se^kun^ndatc
+Haasaa Enan
+namv^man
+Laa^maa^taa^im Sofim
+ga'naaiv-mbeix mbeix
+ndiangx-gaaz gaaz
+hlieqv-gaaz gaaz
+hlieqv-kou kou
+huonh huonh
+biuih biuih
+guinh guinh
+kouv kouv
+ndenz-ndenz
+norm-norm
+saev-saev
+camv-camv
+ding ding
+morc morc
+laatc laatc
+Ndumaa
+Selaa
+Onam
+Aamen
+Laamaa
+Gu^aa Mbaa^an
+Mbaa^an Se^mbupc
+Aanaakv
+Aamon
+mv bei
+Maalotv
+Ye^utc^e
+Gaamun
+Saami
+Selaa Ham^maa^le^kotv
+Sukc^kotv Mbenotv
+Haamo
+yieqv-yieqv
+So^haa
+se^laa^fim
+zuqc zuqc
+Kaanaa
+Aanaapv
+Aamam
+Laamam
+Laamaatv
+Mbetc Emekv
+ninh ninh
+Maa^li^yaa
+Me^lo^notv
+Zeletv
+Zelaa
+Aanim
+Kitv^liu

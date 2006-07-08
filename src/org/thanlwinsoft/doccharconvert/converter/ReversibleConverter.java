@@ -35,6 +35,8 @@ public abstract class ReversibleConverter implements CharConverter
     public boolean isForwards() { return forwards; }
     public void setOriginalStyle(TextStyle aName) { this.originalStyle = aName; }
     public void setTargetStyle(TextStyle aName) { this.targetStyle = aName; }
+    public abstract String getBaseName();
+    public abstract void setReverseName(String rName);
     public TextStyle getOldStyle() 
     { 
         if(forwards==true) return originalStyle; 

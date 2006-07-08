@@ -110,9 +110,11 @@ th.right {
 }
 .left {
   background-color: #ffcccc;
+  font-family: '<xsl:value-of select="/sp:syllableConverter/sp:script[@side='left']/@font"/>';
 }
 .right {
   background-color: #ccffcc;
+  font-family: '<xsl:value-of select="/sp:syllableConverter/sp:script[@side='right']/@font"/>';
 }
 hr {
   border-style: solid;

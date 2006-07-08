@@ -85,7 +85,13 @@ public class BatchConversion implements Runnable
     }
     public void setConversionMode(ConversionMode mode)
     {
-        this.mode = mode;
+        if (mode != this.mode)
+        {
+            if (docInterface != null)
+                docInterface.destroy();
+            docInterface = null;
+            this.mode = mode;
+        }
     }
     public void setPairsMode(boolean isPairs)
     {
@@ -185,8 +191,16 @@ public class BatchConversion implements Runnable
         }
         return outputFile;
     }
+    /**
+     * Add a new converter to the list or replace the current converter if only
+     * one converter is 
+     * @param cc
+     */
     public void addConverter(CharConverter cc)
     {
+        // Note: at the moment the encoding is set just before conversion is 
+        // called, so it shouldn't really be necessary to do it here.
+        cc.setEncodings(iCharset, oCharset);
         if (!mode.hasStyleSupport())
         {
             // can only have one converter in text mode
@@ -504,8 +518,24 @@ public class BatchConversion implements Runnable
             docInterface = null;
         }
     }
-    public void setInputEncoding(Charset iEnc) {iCharset = iEnc; };
-    public void setOutputEncoding(Charset oEnc) { oCharset = oEnc; };
+    public void setInputEncoding(Charset iEnc) 
+    {
+        iCharset = iEnc;
+        Iterator<TextStyle> i = converterList.keySet().iterator();
+        while(i.hasNext())
+        {
+            converterList.get(i.next()).setEncodings(iCharset, oCharset);
+        }
+    }
+    public void setOutputEncoding(Charset oEnc) 
+    { 
+        oCharset = oEnc; 
+        Iterator<TextStyle> i = converterList.keySet().iterator();
+        while(i.hasNext())
+        {
+            converterList.get(i.next()).setEncodings(iCharset, oCharset);
+        }
+    }
     public synchronized String getProgressDesc()
     {
       if (docInterface != null)

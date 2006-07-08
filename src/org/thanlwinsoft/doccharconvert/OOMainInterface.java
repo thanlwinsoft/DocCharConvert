@@ -44,10 +44,8 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 public class OOMainInterface implements DocInterface
 {
     public final static String OO_PATH = "soffice";
-    public final static String UNO_URL =
-        "uno:socket,host=localhost,port=8100;urp;StarOffice.ServiceManager";
-    public final static String RUN_OO =
-        "-accept=socket,hostname=localhost,port=8100;urp;"; 
+    public final static String UNO_URL = Config.OO_DEFAULT_UNO;
+    public final static String RUN_OO = Config.OO_DEFAULT_OPTIONS;
     private XComponentContext xRemoteContext = null;
 
     private XMultiComponentFactory xRemoteServiceManager = null;
@@ -273,7 +271,7 @@ public class OOMainInterface implements DocInterface
                 if (ooDir != null) ooDir = ooDir.getParentFile();
                 //ooProcess = Runtime.getRuntime().exec(args, null, ooDir);
                 ProcessBuilder pb = new ProcessBuilder(
-                        Config.getCurrent().getOOPath(), "-headless", 
+                        Config.getCurrent().getOOPath(), //"-headless", 
                         Config.getCurrent().getOOOptions());
                 pb.redirectErrorStream(true);
                 pb.directory(ooDir);

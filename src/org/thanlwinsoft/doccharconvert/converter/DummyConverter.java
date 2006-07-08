@@ -23,6 +23,8 @@
  */
 
 package org.thanlwinsoft.doccharconvert.converter;
+import java.nio.charset.Charset;
+
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.FontStyle;
 
@@ -71,5 +73,10 @@ public class DummyConverter implements CharConverter
     public boolean isInitialized() { return true; }
     public void setDebug(boolean on)
     {
+    }
+
+    public void setEncodings(Charset iCharset, Charset oCharset)
+    {
+        // ignore        
     }
 }

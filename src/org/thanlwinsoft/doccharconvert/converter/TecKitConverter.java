@@ -36,10 +36,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.charset.IllegalCharsetNameException;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 import org.sil.scripts.teckit.TecKitJni;
-
+//import org.thanlwinsoft.doccharconvert.RawByteCharset;
 /**
  *
  * @author  keith
@@ -50,20 +51,36 @@ public class TecKitConverter extends ReversibleConverter
     private boolean initOk = false;
     private String mapFilePath = null;
     private String name = "TECKit";
+    private String reverseName = name;
     private ByteArrayOutputStream os = null;
     private StringBuffer ob = null;
     private Charset beforeCharset = null;
     private Charset afterCharset = null;
     private long converterInstance = 0;
     private boolean debug = false;
+    private Charset charEncoding = Charset.forName("windows-1252");
+    
     /** Creates a new instance of TecKitConverter */
-    public TecKitConverter(File mapFile, TextStyle origFont, TextStyle targFont)
-    {
-        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
-        construct(mapFile, origFont, targFont);
-    }
+//    public TecKitConverter(File mapFile, TextStyle origFont, TextStyle targFont)
+//    {
+//        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+//        construct(mapFile, origFont, targFont);
+//    }
     public TecKitConverter(File mapFile)
     {
+        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+        construct(mapFile,null,null);
+    }
+    public TecKitConverter(File mapFile, String encoding)
+    {
+        try
+        {
+            charEncoding = Charset.forName(encoding);
+        }
+        catch (IllegalCharsetNameException e)
+        {
+            System.out.println(e);
+        }
         TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
         construct(mapFile,null,null);
     }
@@ -84,6 +101,19 @@ public class TecKitConverter extends ReversibleConverter
         setOriginalStyle(origFont);
         setTargetStyle(targFont);
         name = "TECKit<" + mapFile.getName() + ">";
+        // set some sensible default character sets
+        if (isForwards())
+        {
+            //beforeCharset = Charset.forName("ISO-8859-1");
+            beforeCharset = charEncoding;
+            afterCharset = Charset.forName("UTF-8");
+        }
+        else
+        {
+            beforeCharset = Charset.forName("UTF-8");
+            //afterCharset = Charset.forName("ISO-8859-1");
+            afterCharset = charEncoding;
+        }
     }
     
     public void initialize() throws CharConverter.FatalException
@@ -100,18 +130,7 @@ public class TecKitConverter extends ReversibleConverter
             converterInstance = jni.createConverter(mapFilePath,isForwards());
             if (converterInstance == 0) initOk = false;
             else initOk = true;
-            if (isForwards())
-            {
-                //beforeCharset = Charset.forName("ISO-8859-1");
-                beforeCharset = Charset.forName("windows-1252");
-                afterCharset = Charset.forName("UTF-8");
-            }
-            else
-            {
-                beforeCharset = Charset.forName("UTF-8");
-                //afterCharset = Charset.forName("ISO-8859-1");
-                afterCharset = Charset.forName("windows-1252");
-            }
+            
         }
         catch (Exception e)
         {
@@ -197,8 +216,19 @@ public class TecKitConverter extends ReversibleConverter
         initOk = false;
     }
     
-    public String getName() { return name; }
+    public String getName() 
+    { 
+        if (isForwards())
+            return name;
+        else
+            return reverseName; 
+    }
+    public String getBaseName()
+    {
+        return name;
+    }
     public void setName(String aName) { this.name =aName; }
+    public void setReverseName(String aName) { this.reverseName =aName; }
     public boolean isInitialized() { return initOk; }
     
     protected void printConversion(String source)
@@ -223,5 +253,36 @@ public class TecKitConverter extends ReversibleConverter
     public void setDebug(boolean on)
     {
         debug = on;
+    }
+    public void setEncodings(Charset iCharset, Charset oCharset)
+    {
+        // assume that the TecKit encoding is the same as the input encoding
+        // The Unicode side of TecKit is always UTF-8
+//        if (isForwards())
+//        {
+//            if (iCharset == null || iCharset == Charset.forName("UTF-8"))
+//            {
+//                beforeCharset = Charset.forName(RawByteCharset.CHARSET_NAME);
+//                System.out.println("Warning: TECkit input encoding " + 
+//                        beforeCharset.name());
+//            }
+//            else
+//                beforeCharset = iCharset;
+//            afterCharset = Charset.forName("UTF-8");
+//        }
+//        else
+//        {
+//            if (oCharset == null || oCharset == Charset.forName("UTF-8"))
+//            {
+//                afterCharset = Charset.forName(RawByteCharset.CHARSET_NAME);
+//                System.out.println("Warning: TECkit input encoding " + 
+//                        afterCharset.name());
+//            }
+//            else
+//                afterCharset = oCharset;
+//            beforeCharset = Charset.forName("UTF-8");
+//        }
+        System.out.println("TecKIT encodings: " + beforeCharset + " > " + 
+                           afterCharset);
     }
 }

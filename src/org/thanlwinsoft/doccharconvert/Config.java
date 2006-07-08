@@ -73,6 +73,10 @@ public class Config
         if (instance == null) instance = new Config();
         return instance;
     }
+    public static ResourceBundle messageResource()
+    {
+        return Config.getCurrent().getMsgResource();
+    }
     /** Creates a new instance of Config */
     protected Config()
     {

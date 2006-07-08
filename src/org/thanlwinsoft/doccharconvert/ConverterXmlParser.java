@@ -52,6 +52,7 @@ public class ConverterXmlParser
     public final static String TOP_NODE = "DocCharConverter";
     public final static String CLASS_NODE = "ConverterClass";
     public final static String NAME_ATTRIB = "name"; 
+    public final static String REVERSE_NAME_ATTRIB = "rname"; 
     public final static String PARAMETER_NODE = "Parameter";
     public final static String ARGUMENT_NODE = "Argument";
     public final static String TYPE_ATTRIB = "type";
@@ -185,6 +186,17 @@ public class ConverterXmlParser
             if ((converterName == null || converterName.length() == 0) &&
                 currentXmlFile != null)
                 converterName = currentXmlFile.getName();
+            String reverseName = converterName
+                + Config.messageResource().getString("reversed");
+            if (topElement.hasAttribute(REVERSE_NAME_ATTRIB))
+            {
+                if (topElement.getAttribute(REVERSE_NAME_ATTRIB) != null &&
+                    topElement.getAttribute(REVERSE_NAME_ATTRIB).length() > 0)
+                {
+                  reverseName = topElement.getAttribute(REVERSE_NAME_ATTRIB);
+                }
+            }
+            
             NodeList classList = doc.getElementsByTagName(CLASS_NODE);
             if (classList.getLength() != 1)
             {
@@ -231,6 +243,7 @@ public class ConverterXmlParser
                     constructor.newInstance(arguments);
                 reverseConverter.setDirection(false);
                 reverseConverter.setName(converterName);
+                reverseConverter.setReverseName(reverseName);
             }
             // now find the parameter arguments
             parameters = classElement.getElementsByTagName(PARAMETER_NODE);

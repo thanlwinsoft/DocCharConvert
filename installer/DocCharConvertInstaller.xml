@@ -3,7 +3,7 @@
 <installation version="1.0">
     <info>
         <appname>Language Test</appname>
-        <appversion>0.2.0</appversion>
+        <appversion>0.3.0</appversion>
         <authors>
             <author name="Keith Stribley" email="keith@thanlwinsoft.org"/>
         </authors>
@@ -89,9 +89,13 @@
 			<fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
 			    <include name="ThaiUPC2Unicode.dccx" />
 			    <include name="thaiupc.tec" />
-                <include name="thaiupc.xml" />
+                            <include name="thaiupc.xml" />
+				<include name="LaoMien2Unicode.dccx" />
+				<include name="laoMien2Unicode.tec" />
+				<include name="laoMien2Unicode.xml" />
 				<include name="MienNrm2Lao.dccx" />
 				<include name="MienNrm2Tai.dccx" />
+				<include name="MienNrm2Orm.dccx" />
 			</fileset>
 			<fileset dir="../Converters/Mien" targetdir="$INSTALL_PATH/Converters/Mien">
 				<include name="nrm2lao.xml" />

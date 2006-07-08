@@ -547,8 +547,15 @@ public class MainForm extends javax.swing.JFrame
         {
             if (sModel.getElementAt(0) instanceof ChildConverter)
             {
+                Charset inCharset = Charset.forName(iEncCombo.getSelectedItem()
+                                                    .toString());
+                Charset outCharset = Charset.forName(oEncCombo.getSelectedItem()
+                                                     .toString());
+                
                 ChildConverter cc = (ChildConverter)sModel.getElementAt(0);
                 ChildConverter rcc = getReverseConverter(cc);
+                cc.setEncodings(inCharset, outCharset);
+                rcc.setEncodings(outCharset, inCharset);
                 new TestDialog(this, true, cc, rcc).setVisible(true);
             }
             else System.out.println("unexpected converter type");
@@ -586,7 +593,7 @@ public class MainForm extends javax.swing.JFrame
                         {
                             ReversibleConverter tempParent = 
                                 (ReversibleConverter)tempCc.getParent();
-                            if (tempParent.getName().equals(ccParent.getName()) 
+                            if (tempParent.getBaseName().equals(ccParent.getBaseName()) 
                                && (tempParent.isForwards() != 
                                    ccParent.isForwards()))
                             {
@@ -947,6 +954,7 @@ public class MainForm extends javax.swing.JFrame
         }
         conversion.setInputEncoding(Charset.forName(iEncCombo.getSelectedItem().toString()));
         conversion.setOutputEncoding(Charset.forName(oEncCombo.getSelectedItem().toString()));
+        
         jProgressBar.setIndeterminate(true);
         disableButtons();
         new Thread(conversion).start();
@@ -1270,7 +1278,10 @@ public class MainForm extends javax.swing.JFrame
               return 4;
             }
             if (inEnc != null) conv.setInputEncoding(inEnc);
+            else conv.setInputEncoding(Charset.forName("UTF-8"));
             if (outEnc != null) conv.setOutputEncoding(outEnc);
+            else conv.setOutputEncoding(Charset.forName("UTF-8"));
+            
             File convPath = getConverterPath();
             ConverterXmlParser xmlParser = 
                 new ConverterXmlParser(convPath);

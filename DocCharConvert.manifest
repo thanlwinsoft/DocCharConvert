@@ -3,3 +3,4 @@ Main-Class: org.thanlwinsoft.doccharconvert.MainForm
 Implementation-Title: DocCharConvert
 Implementation-Version: 0.0.1
 Implementation-Vendor: Keith Stribley
+Class-Path: ooClassPath.jar

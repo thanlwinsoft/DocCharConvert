@@ -2,7 +2,7 @@ a'ngunc	ອະຫງຸ່ນ
 aah	ອ້າ
 hmz	ຮມ໌
 wuom	ວວມ
-#wuov	#ອັ້ວ
+wuov	ວົ້ວ
 nernh	ເນິ່ນ
 haaix	ຫາຍ
 maah	ມ່າະ
@@ -11,17 +11,18 @@ dungx	ຕູ໋ງ
 oeix	ໂອ໋ຍ
 mbiuic	ບຢຸ່ຍ
 biuih	ປຢຸ້ຍ
+#biuih biuih	ປຢຸ້ຍໆ
 m'nqorngv	ມອກ໊ອງ
 se gorngv	ເຊ ກ໊ອງ
 fu'jueiv	ຝຸຈ໊ວຍ
 wuoqc	ວົວະ
-#mbu'ziex	#ບົວະ ເຕສຍ
-laeqh	ແລ່ະ
-#niaa	#ນີອາ
+mbu'ziex	ບຸເຕສ໋ຍ
+niaa	ນີອາ
 weqv	ເວ່ະ
-mienc	ມຢ່ຽນ
+M'Yienc	ມຢ່ຽນ
 Lewi	ເລ^ວີ
 Aa^mben Mbetc Maa^aa^kaa	ອາ^ເບນ^ເບດ^ມາ^ອະ^ຄາ
+Aa^mben Maa^im	ອາ^ເບນ^ມາ^ອິມ
 Aa^mbi^hutv	ອາ^ບີ^ຮູດ
 Aa^mbi^tupv	ອາ^ບີ^ທູບ
 Aa^mbipc	ອາ^ບີບ
@@ -55,15 +56,13 @@ Aa^hi^yo	ອາ^ຫິ^ໂຢ
 Aa^hu^mai	ອາ^ຫຸ^ໄມ
 Aa^laa^mbie	ອາ^ລະ^ເບຍ
 Aa^laa^maa^getc^ndon	ອາ^ລະ^ມາ^ເກດ^ໂດນ
-aa^lam^naa^haa^laa^im	ອາ^ລຳ^ນາ^ຫະ^ລາ^ອິມ
 Aalam So^mbaa	ອາ^ລຳ^ໂຊ^ບາ
 Aa^li^maa^tie	ອາ^ລິ^ມາ^ເທຍ
-Aa^lon^mbaa^kutv	ອາ^ໂລນ^ບາ^ຄູດ
 Aalutv	ອາ^ລູດ
 Aa^maa^li^yaa	ອາ^ມາ^ລິ^ຢາ
 Aa^maa^si^yaa	ອາ^ມາ^ຊິ^ຢາ
 Aa^naa^haa^laatv	ອາ^ນາ^ຫະ^ລາດ
-Aa^nupv	ອາ^ນູບ
+Aanupv	ອາ^ນູບ
 Aa^bor^li^yon	ອາ^ປໍ^ລິ^ໂຢນ
 Aa^saa^li^yaa	ອາ^ຊາ^ລິ^ຢາ
 Aa^saa^si^yaa	ອາ^ຊາ^ຊິ^ຢາ
@@ -85,9 +84,8 @@ An^ti^baa^di	ອັນ^ທິ^ປາ^ຕີ
 An^ti^baatc	ອັນ^ທິ^ປາດ
 Atc^laa^mitv^ti^yum	ອັດ^ລາ^ມິດ^ທິ^ຢຸມ
 Atc^taa^li^yaa	ອັດ^ທາ^ລິ^ຢາ
-Mbaa^an^Mbelitv	ບາ^ອັນ^ເບ^ລີ້ດ
-Mbaa^an Qaa^li^qaa	ບາ^ອັນ^ທຈາ^ລິ^ທຈາ
-Mbaa^an^se^mbupc	ບາ^ອັນ^ເຊ^ບູບ
+Mbaa^an Mbelitv	ບາ^ອັນ^ເບ^ລີ້ດ 
+Mbaa^an Qaa^li^qaa	ບາ^ອັນ ທຈາ^ລິ^ທຈາ
 Mbaa^laa^ki^yaa	ບາ^ລາ^ຄິ^ຢາ
 Mbaa^laa^saa^tatv	ບາ^ລະ^ສະ^ທັດ
 Mbaalukv	ບາ^ລຸກ
@@ -109,7 +107,7 @@ Mbikc^taa	ບິກ^ທາ
 Mbikc^taa^naa	ບິກ^ທາ^ນາ
 Mbikc^taan	ບິກ^ທານ
 Mbikc^wai	ບິກ^ໄວ
-Mbu^naa	ບຸ^ນາ
+Mbunaa	ບຸ^ນາ
 Mbusi	ບຸ^ຊີ
 Mbukc^ki	ບຸກ^ຄີ
 Mbukc^ki^yaa	ບຸກ^ຄີ^ຢາ
@@ -123,17 +121,17 @@ Ndo^ndaa^waa^hu	ໂດ^ດາ^ວາ^ຫຸ
 Ndo^faa^kaa	ໂດ^ຟະ^ຂາ
 E^hutv	ເອ^ຮູດ
 E^li^fe^le^hu	ເອ^ລີ^ຟາ^ເລ^ຫຸ
-E^li^utc	ເອ^ລີ^ອູ
+E^li^utc	ເອ^ລີ^ອູດ
 E^li^yaa^sipv	ເອ^ລີ^ຢາ^ຊິບ
 Elun	ເອ^ລູນ
-E^mekv Kesitv	ເອ^ເມັກ^ເຄ^ຊີດ
+Emekv Kesitv	ເອ^ເມກ^ເຄ^ຊີດ
 E^baa^fo^ndi^tatv	ເອ^ປາ^ໂຟ^ດິ^ທັດ
 E^bi^ku^lien	ເອ^ປິ^ຄູ^ລຽນ
 E^saa^laa	ເອ^ສະ^ລາ
 E^saa^li	ເອ^ສະ^ລີ
-E^wi	ເອ^ວີ
+Ewi	ເອ^ວີ
 Em^maa^utc	ເອມ^ມາ^ອູດ
-En^Mbelitv	ເອນ^ເບ^ລີດ
+En Mbelitv	ເອນ^ເບ^ລີດ
 Faa^le^gon	ຟະ^ເລ^ໂກນ
 Faa^li^si	ຟາ^ລິ^ສີ
 Felikv	ເຟ^ລິກ
@@ -147,9 +145,10 @@ Haa^lu^mapv	ຮາ^ລຸ^ມັບ
 Haalum	ຮາ^ລູມ
 Haalupv	ຮາ^ລູບ
 Haa^mu^taan	ຮາ^ມຸ^ທານ
-Haa^mun	ຮາ^ມູນ
+Haamun	ຮາ^ມູນ
 Haanun	ຮາ^ນູນ
 Haa^saa^bi^yaa	ຮາ^ຊາ^ປິ^ຢາ
+Haa^saa^son Taamaa	ຮາ^ຊາ^ຊົນ ທາ^ມາ
 Haa^saax^ndi^yaa	ຮາ^ສາ^ດິ^ຢາ
 Haase Hatv^ti^kon	ຮາ^ເຊ^ຮັດ^ທິ^ໂຄນ
 Haasum	ຮາ^ຊູມ
@@ -168,10 +167,12 @@ Ho Hakv^gitc^gaatc	ໂຮ^ຮັກ^ກີດ^ກາດ
 Hotv	ໂຮດ
 Hufaam	ຫຸ^ຟາມ
 Hugorkc	ຫຸ^ກອກ
-Hu^laa^maa^mbi	ຫຸ^ລາ^ມາ^ບີ
+# Hulaam Aa^mbi - which one is correct
+#Hulaam Aa^mbi	ຮູ^ລາມ^ອາ^ບີ
+Hulaam Aa^mbi	ຫຸ^ລາມ^ອາ^ບີ
 Hulaam	ຫຸ^ລາມ
 Hulai	ຫຸ^ໄລ
-Huli	ຫ^ລີ
+Huli	ຫຸ^ລີ
 Husaa	ຫຸ^ຊາ
 Husaam	ຫຸ^ຊາມ
 Husai	ຫຸ^ໄຊ
@@ -185,6 +186,7 @@ I^ko^ni^yum	ອີ^ໂຄ^ນີ^ຢູມ
 Ilaa	ອິ^ລະ
 I^laa^aa	ອິ^ລາ^ອາ
 Ilaa Naahaatc	ອິ^ລະ^ນາ^ຫາດ
+Ilaanc	ອິ^ຫລ່ານ
 Ilaam	ອິ^ລາມ
 Ilaatv	ອິ^ລາດ
 Ilai	ອິ^ໄລ
@@ -203,11 +205,11 @@ I^saa^maa^en	ອິ^ສະ^ມາ^ເອນ
 I^saa^yaa	ອິ^ສະ^ຢາ
 I^daa^li	ອິ^ຕາ^ລີ
 I^taa^maa	ອິ^ທາ^ມາ
-I^tai	ອິ^ໄທ
-i-Ti-en	ອິ^ທີ^ເອນ
+Itai	ອິ^ໄທ
+I^ti^en	ອິ^ທີ^ເອນ
 I^tu^lie	ອິ^ທູ^ເລຍ
 I^ye^aa^laa^mbim	ອິ^ເຢ^ອາ^ລາ^ບິມ
-I^yim	ອິ^ຢິ
+Iyim	ອິ^ຢິມ
 Ikc^ndaa^li^yaa	ອິກ^ດາ^ລິ^ຢາ
 Ikc^ketc	ອິກ^ເຂດ
 Itc^saa^maa^ki^yaa	ອິດ^ສະ^ມາ^ຄິ^ຢາ
@@ -228,19 +230,19 @@ Ke^li^otc	ເຄ^ລິ^ໂອດ
 Ke^li^otc Hetv^lon	ເຄ^ລິ^ໂອດ^ເຮດ^ໂລນ
 Ge^li^sim	ເກ^ລິ^ຊິມ
 Ke^li^taa	ເຄ^ລິ^ທາ
-Ke^litv	ເຄ^ລີ້ດ
+Kelitv	ເຄ^ລີ້ດ	
 Ke^litv^taa	ເຄ^ລີ້ດ^ທາ
 Ke^lu^mbai	ເຄ^ລູ^ເປຍ
 Ke^lu^hi	ເຄ^ລຸ^ຮ
 Kelupv	ເຄ^ລູບ
-Ge^lutv^kim^ham	ເກ^ລູດ^ຄິມ^ຮຳ
+Gelutv Kim^ham	ເກ^ລູດ^ຄິມ^ຮຳ
 Ge^maa^li^yaa	ເກ^ມາ^ລິ^ຢາ
 Ke^naa^aa^naa	ເຄ^ນາ^ອະ^ນາ
 Ke^saa^lon	ເຄ^ສະ^ໂລນ
 Ke^si^yaa	ເຄ^ສິ^ຢາ
 Kesipv	ເຄ^ຊີບ
 Gi^mbe^aa	ກິ^ເບ^ອາ
-Gi^mbe^atc^e^lo^him	ກິ^ເບ^ອັດ^ເອ^ໂລ^ຮິມ
+Gi^mbe^atc E^lo^him	ກິ^ເບ^ອັດ^ເອ^ໂລ^ຮິມ
 Gi^mbe^atc Haa^laa^lotv	ກິ^ເບ^ອັດ^ຮາ^ລາ^ໂລດ
 Gi^mbe^on	ກິ^ເບ^ໂອນ
 Gi^nde^o^ni	ກິ^ເດ^ໂອ^ນີ
@@ -257,7 +259,7 @@ Ki^li^yaatv	ຄີ^ລິ^ຢາດ
 Ki^li^yaatv Aalim	ຄີ^ລິ^ຢາດ^ອາ^ລິມ
 Ki^li^yaatv Aan^mbaa	ຄີ^ລິ^ຢາດ^ອານ^ບາ
 Ki^li^yaatv Mbaa^an	ຄີ^ລິ^ຢາດ^ບາ^ອັນ
-Ki^li^yaatv^hu^sotv	ຄີ^ລິ^ຢາດ^ຫຸ^ໂຊດ
+Ki^li^yaatv Husotv	ຄີ^ລິ^ຢາດ^ຫຸ^ໂຊດ
 Ki^li^yaatv Sanx^naa	ຄີ^ລິ^ຢາດ^ສັນ^ນາ
 Ki^li^yaatv Sefe	ຄີ^ລິ^ຢາດ^ເສ^ເຟ
 Ki^li^yaatv Ye^aa^lim	ຄີ^ລິ^ຢາດ^ເຢ^ອາ^ລິມ
@@ -272,7 +274,7 @@ Ko^ni^yaa	ໂຄ^ນິ^ຢາ
 Gokc	ໂກກ
 Gopc	ໂກບ
 Kotc	ໂຂດ
-Gu^ni	ກຸ^ນີ
+Guni	ກຸ^ນີ
 Kuqan Li^taa^im	ຄູ^ທຈັນ^ລິ^ທາ^ອິມ
 Kumlaan	ຄູມ^ລານ
 Kun	ຄູນ
@@ -296,7 +298,7 @@ Li^ndie	ລິ^ເດຍ
 Li^kaa^o^nie	ລີ^ຄາ^ໂອ^ເນຍ
 Li^saa^daa	ລິ^ສະ^ຕາ
 Likv^hi	ລິກ^ຮີ
-Lo^lu^haa^maa	ໂລ^ລຸ^ຫະ^ມາ
+Lo^Lu^haa^maa	ໂລ^ລຸ^ຫະ^ມາ
 Lotv	ໂລດ
 Lu^hitv	ລູ^ຮີດ
 Lu^si^atc	ລູ^ສິ^ອັດ
@@ -322,9 +324,11 @@ Matv^daa^taa	ມັດ^ຕະ^ທາ
 Matv^ti^ti^yaa	ມັດ^ທີ^ທິ^ຢາ
 Me^ndi^de^le^nien	ເມ^ດີ^ເຕ^ເລ^ນຽນ
 Me^hi	ເມ^ຫິ
-me-hi-Daa	ເມ^ຫິ^ດາ
+# the next 2 have the same spelling in lao
+#Me-hi-Daa	ເມ^ຫິ^ດາ
+Me^hi^ndaa	ເມ^ຫິ^ດາ
 Me^hu^maan	ເມ^ຫຸ^ມານ
-Me^li^mbatc^kaa^ndetc	ເມ^ລິ^ບັດ^ດາ^ເດດ
+Me^li^mbatc Kaa^ndetc	ເມ^ລິ^ບັດ^ດາ^ເດດ
 Me^li^taa	ເມ^ລິ^ທາ
 Me^se^le^mi^yaa	ເມ^ເຊ^ເລ^ມິ^ຢາ
 Me^si^yaa	ເມ^ສິ^ຢາ
@@ -385,24 +389,24 @@ Be^taa^hi^yaa	ເປ^ທາ^ຫິ^ຢາ
 Be^tu^en	ເປ^ທຸ^ເອນ
 Bi^haa^hi^lotv	ປິ^ຫະ^ຫິ^ໂລດ
 Bi^laa^ton	ປິ^ລາ^ໂທນ
-Bilatv	ປິ^ລັດ
+Bilatv	ປີ^ລັດ
 Bi^si^ndie	ປິ^ສິ^ເດຍ
-Bi^tom	ປິ^ໂທມ
-Bi^ton	ປິ^ໂທນ
+Bitom	ປິ^ໂທມ
+Biton	ປິ^ໂທນ
 Bo^ti^faa	ໂປ^ທິ^ຟາ
 Bo^ti^fe^laa	ໂປ^ທິ^ເຟ^ລາ
-Bu^tai	ປຸ^ໄທ
+Butai	ປຸ^ໄທ
 Bu^ti^en	ປູ^ທິ^ເອນ
 Bupc^li^atc	ປຸບ^ລິ^ອັດ
 Putv	ພູດ
 Bor^si^atc	ປໍ^ສິ^ອັດ
 Born^ti^atc	ປອນ^ທິ^ອັດ
 Saa^mbakc^taa^ni	ສະ^ປັກ^ທາ^ນີ
-Saa^ndu^si	ສະ^ດູ^ສີs
-Aa^haa^laa^im	ຊາ^ຫະ^ລາ^ອິມs
-Aa^haa^su^maa	ຊາ^ຫະ^ຊຸ^ມາs
-Aa^li^saa	ຊາ^ລິ^ຊາs
-Aa^lo^me	ສະ^ໂລ^ເມ
+Saa^ndu^si	ສະ^ດູ^ສີ
+Saa^haa^laa^im	ຊາ^ຫະ^ລາ^ອິມ
+Saa^haa^su^maa	ຊາ^ຫະ^ຊຸ^ມາ
+Saa^li^saa	ຊາ^ລິ^ຊາ
+Saa^lo^me	ສະ^ໂລ^ເມ
 Saa^lu^hen	ຊາ^ລຸ^ເຮນ
 Saa^maa^lie	ສະ^ມາ^ເລຍ
 Saa^me^naa	ສະ^ເມ^ນາ
@@ -417,7 +421,6 @@ Sakc^kaa^li^yaa	ສະ^ຄາ^ລິ^ຢາ
 Sam^mu^waa	ຊຳ^ມຸ^ວາ
 Sanlum	ຊັນ^ລູມ
 Se^aa^li^yaa	ເຊ^ອາ^ລິ^ຢາ
-Se^aan^Yaasupv	ເຊ^ອານ^ຢາ^ຊູບ
 Se^an^ti^en	ເຊ^ອັນ^ທິ^ເອນ
 Se^mbaa^ni^yaa	ເຊ^ບາ^ນິ^ຢາ
 Se^faa^ti^yaa	ເຊ^ຟາ^ທິ^ຢາ
@@ -440,7 +443,7 @@ Se^lu^yaa	ເສ^ລຸ^ຢາ
 Selukv	ເສ^ລຸກ
 Se^maa^ki^yaa	ເສ^ມາ^ຄິ^ຢາ
 Se^mi^laa	ເສ^ມິ^ລາ
-Siaa	ສິ^ອາ
+Si^aa	ສີ^ອາ
 Si^mbaa	ຊິ^ບາ
 Si^mbe^on	ສິ^ເບ^ໂອນ
 Si^mbi^yaa	ສິ^ບີ^ຢາ
@@ -451,16 +454,18 @@ Sifi	ຊິ^ຟີ
 Si^fi^yon	ສິ^ຟິ^ໂຢນ
 Sifon	ສິ^ໂຟນ
 Si^hox	ຊິ^ໂຫ
-Sihox Lipv^naatv	ຊິ^ໂຫ^ລິບ^ນາດ
+Si^hox Lipv^naatv	ຊິ^ໂຫ^ລິບ^ນາດ
 Si^honx	ສິ^ໂຫນ
 Sikaa	ສິ^ຄາ
 Si^gi^o^notv	ຊິ^ກິ^ໂອ^ໂນດ
-Si^lie^fi^ni^sie	ຊີ^ເລຍ^ຟີ^ນິ^ເຊຍ
+Silie Fi^ni^sie	ຊີ^ເລຍ^ຟີ^ນິ^ເຊຍ
 Si^me^aa	ຊິ^ເມ^ອາ
 Si^me^am	ຊິ^ເມ^ອຳ
 Si^me^atc	ຊິ^ເມ^ອັດ
-Si^me^Iaa	ຊິ^ເມ^ລາ
 Si^me^on	ສິ^ເມ^ໂອນ
+#Sinaa appears with an alternative spelling
+#Sinaa	ສີ^ນາ
+Sinaa	ຊີ^ນາ
 Si^on	ສິ^ໂອນ
 Si^saa^aa	ສິ^ຊາ^ອາ
 Si^saa^mai	ສິ^ສະ^ໄມ
@@ -487,10 +492,10 @@ Susi	ສຸ^ສີ
 Sux^li^en	ສູ^ລິ^ເອນ
 Sux^li^satv^ndai	ສູ^ລິ^ຊັດ^ໄດ
 Sukc^kotv	ສຸກ^ໂຄດ
-Sukc^kotv^mbe^notv	ສຸກ^ໂຄດ^ເບ^ໂນດ
 Supc	ສູບ
 Taa^aa^natv Silo	ທາ^ອາ^ນັດ^ຊິ^ໂລ
 Taa^mbi^taa	ທາ^ບິ^ທາ
+Tammutv	ທຳ^ມຸດ
 Daa^ko^ni^ditc	ຕາ^ໂຄ^ນິ^ຕິດ
 Taa^laa^laa	ທາ^ລະ^ລາ
 Taa^li^taa^ku^mi	ທາ^ລິ^ທາ^ຄູ^ມິ
@@ -515,7 +520,6 @@ Ti^mo^tai	ທິ^ໂມ^ໄທ
 Timon	ທິ^ໂມນ
 Tisai	ທິ^ໄຊ
 Tidatc	ທິ^ຕັດ
-Ti^datc^yu^saa^tatv	ທິ^ຕັດ^ຢຸ^ສະ^ທັດ
 Ti^yaa^ti^laa	ທິ^ຢາ^ທິ^ລາ
 Tikc^waa	ທິກ^ວາ
 Tohu	ໂທ^ຫຸ
@@ -527,7 +531,7 @@ Uli	ອຸ^ລີ
 U^li^aa	ອຸ^ລີ^ອາ
 U^li^en	ອຸ^ລີ^ເອນ
 U^li^yaa	ອຸ^ລີ^ຢາ
-Ulim	ອຸ^ລີມ
+Ulim	ອຸ^ລິມ
 Usaan	ອຸ^ຊານ
 Usai	ອຸ^ໄຊ
 Utai	ອຸ^ໄທ
@@ -539,13 +543,12 @@ Yaakin	ຢາ^ຄີນ
 Yaagun	ຢາ^ກູນ
 Yaa^laa^haa	ຢາ^ລະ^ຮາ
 Yaalipv	ຢາ^ລີບ
-Yaa^min	ຢາ^ມີນ
 Yaasitv	ຢາ^ຊີດ
 Yaasupv	ຢາ^ຊູບ
 Yaanmutv	ຢານ^ມູດ
 Ye^ndi^ndi^yaa	ເຢ^ດີ^ດິ^ຢາ
 Ye^ndu^tun	ເຢ^ດູ^ທູນ
-Ye^ho^waa^yi^le	ເຢ^ໂຮ^ວາ^ຢິ^ເລ
+Ye^ho^waa Yi^le	ເຢ^ໂຮ^ວາ ຢີ^ເລ
 Ye^ho^yaa^kin	ເຢ^ໂຮ^ຢາ^ຄີນ
 Ye^hutv	ເຢ^ຮູດ
 Ye^kaa^mi^yaa	ເຢ^ຄາ^ມິ^ຢາ
@@ -571,13 +574,14 @@ Jetc^si	ຈຽດ^ຊີ
 gu'nyuoz	ກະຍົ໌ວ
 mbu'ndongx	ບຸດົ໋ງ
 Aa^ndun^lam	ອາ^ດຸນ^ລຳ
-la'bieiv-zorng	ຫລະເປຢີ໊ຍ-ຕສອງ
+la'bieiv	ຫລະເປຢີ໊ຍ
 Naatan	ນາ^ທັນ
 Selekv	ເສ^ເລກ
 Utc^si^yaa	ອຸດ^ຊີ^ຢາ
+# in 1CH1:3 this seems to be ເມ^ທູ^ເຊ^ລາ
 Me^tu^se^laa	ເມ^ທູ^ເສ^ລາ
 Kitv^tim	ຄິດ^ທິມ
-Si^ni	ສີ^ນີ
+Sini	ສີ^ນີ
 Temaa	ເທ^ມາ
 Yetu	ເຢ^ທູ
 Temaan	ເທ^ມານ
@@ -586,13 +590,11 @@ Lotaan	ໂລ^ທານ
 Mbin^haan	ບິນ^ຮານ
 Ndin^haa^mbaa	ດິນ^ຮາ^ບາ
 Mbaa^an Haanan	ບາ^ອັນ^ຮາ^ນັນ
-Me^Saahapc	ເມ^ຊາ^ຫັບ
 Yetetv	ເຢ^ເທດ
 Maako	ມາ^ໂຄ
 za'gengh	ຕສະເກ້ງ
 Simon	ຊີ^ມົນ
 la'kuqv	ຫລະຄຸ
-Yoaatc	ໂຢ^ອາດ
 da'hmz	ຕະຮມ໌ມ
 hietc	ຫຮຢຽດ
 Se^mbu^lun	ເສ^ບູ^ລຸນ
@@ -609,8 +611,7 @@ Yaakopv	ຢາ^ໂຄບ
 Ko^lin^to	ໂຄ^ລິນ^ໂທ
 So^mbaa	ໂສ^ບາ
 uix	ຫວຸຍ
-#Aalam Naa^haa^laa^im	#ອາ^ລຳ^ນາ^ຫະ^ລາ^ອິມ
-#unchecked	#unchecked
+#Aalam Naa^haqc^laa^im	ອາ^ລຳ^ນາ^ຫະ^ລາ^ອິມ
 mv baac	ມປ່າ
 Ndaawitv	ດາ^ວິດ
 zaangc	ຕສັ່ງ
@@ -647,19 +648,20 @@ Nogaa	ໂນ^ກາ
 Nefekv	ເນ^ເຟກ
 Yaafie	ຢາ^ເຟຍ
 Gese	ເກ^ເຊ
+huin	ຮວິນ
 huing	ຮວີງ
+huingx	ຫຮວີງ
 Geson	ເກ^ຊົນ
 Mose	ໂມ^ເຊ
 Aasaapc	ອາ^ສາບ
 Unni	ອຸນ^ນີ
-Efotv	ເອ^ຟົດ
+efotv	ເອ^ຟົດ
 Isakc	ອີ^ສັກ
 Hosaax	ໂຮ^ສາ
 Silie	ຊີ^ເລຍ
 Aalam	ອາ^ລຳ
 gilo	ກີ^ໂລ
-Sofakv	ໂຊ^ຟັກ
-E^notv	ເອ^ນົດ
+Enotv	ເອ^ນົດ
 Yaaletv	ຢາ^ເລດ
 Noyaa	ໂນ^ຢາ
 Yaafetv	ຢາ^ເຟດ
@@ -692,7 +694,6 @@ Molekv	ໂມ^ເລກ
 huotv	ເຮວີດ
 Saadaan	ຊາ^ຕານ
 Onan	ໂອ^ນັນ
-huin	ຮວິນ
 Setaam	ເສ^ທາມ
 Amlaam	ອຳ^ລາມ
 Gesom	ເກ^ຊົມ
@@ -704,13 +705,10 @@ Hakv^kotc	ຮັກ^ຂົດ
 Ye^su^aa	ເຢ^ຊູ^ອາ
 Yosepv	ໂຢ^ເຊບ
 Seli	ເສ^ລີ
-Kole	ໂຄ^ເລ
-Yoaa	ໂຢ^ອາ
 Yolam	ໂຢ^ລຳ
 Yaase	ຢາ^ເຊ
 Mikc^lotv	ໝິກ^ລົດ
 Omli	ອົມ^ລີ
-huingx	ຫຮວີງ
 Sefaam	ເຊ^ຟາມ
 Saalon	ຊາ^ລົນ
 Saafatv	ຊາ^ຟັດ
@@ -737,23 +735,24 @@ Yete	ເຢ^ເທ
 Yese	ເຢ^ເຊ
 Maaki	ມາ^ຄີ
 Segupc	ເສ^ກຸບ
-Haau^wotv Yaa^i	ຮາວ^ວົດ^ຢາ^ອີ
 Olen	ໂອ^ເລນ
 Sammai	ຊຳ^ໄມ
 Molitv	ໂມ^ລິດ
-Seletv	ເຊ^ເລດ
+Seletv	ເສ^ເລດ
 Sesan	ເຊ^ຊັນ
 Efaan	ເອ^ຟານ
 Mesaa	ເມ^ຊາ
+Utc^sen Qe^e^laa	ອຸດ^ເຊນ^ເທຈ^ເອ^ລາ
 Lekem	ເລ^ເຄມ
 Mbetc Su	ເບດ^ຊູ
 Mosaa	ໂມ^ຊາ
 Yotaam	ໂຢ^ທາມ
 Gesaan	ເກ^ຊານ
-Sewaa	ເຊ^ວາ
+Sewaa	ເສ^ວາ
+Qewaa	ເທຈ^ວາ
 Haaletv	ຮາ^ເລດ
 Solaa	ໂສ^ລາ
-Atc^lotv^mbetc^yo^aapc	ອັດ^ລົດ^ເບດ^ໂຢ^ອາບ
+Atc^lotv Mbetc Yo^aapc	ອັດ^ລົດ^ເບດ^ໂຢ^ອາບ
 Lekaapv	ເລ^ຄາບ
 Amnon	ອຳ^ນົນ
 Gesu	ເກ^ຊູ
@@ -762,13 +761,13 @@ Mbatc^se^mbaa	ບັດ^ເຊ^ບາ
 Aasaax	ອາ^ສາ
 Se^nde^ki^yaa	ເສ^ເດ^ຄີ^ຢາ
 Se^lupv^mbaa^mben	ເສ^ລຸບ^ບາ^ເບນ
-Yusapv^Hesetc	ຢູ^ຊັບ^ເຮ^ເສດ
 Aannan	ອານ^ນັນ
 Edaam	ເອ^ຕາມ
 Helaa	ເຮ^ລາ
-Se^letc	ເສ^ເຫລດ
+Seletc	ເສ^ເຫລດ
 So^mbe^mbaa	ໂສ^ເບ^ບາ
 Mbetc Laafaa	ເບດ^ລາ^ຟາ
+Mbetc Haalam	ເບດ ຮາ^ລຳ
 Baa^se^aa	ປາ^ເສ^ອາ
 Lekaa	ເລ^ຄາ
 Se^lai^aa	ເສ^ໄລ^ອາ
@@ -789,6 +788,7 @@ Mbetc Maan^kaa^mbotc	ເບດ^ມານ^ຄາ^ບົດ
 Haasaan Sux^simx	ຮາ^ຊານ^ສູ^ສິມ
 Aayin	ອາ^ຢິນ
 Limmon	ລິມ^ມົນ
+Limmon Beletv	ລິມ^ມົນ^ເປ^ເລດ
 Token	ໂທ^ເຄນ
 Aaqan	ອາ^ທຈັນ
 Yamlekv	ຢຳ^ເລກ
@@ -796,7 +796,7 @@ Sisaa	ຊີ^ຊາ
 Se^mai^aa	ເຊ^ໄມ^ອາ
 Banlu	ປັນ^ລູ
 Aasaatv	ອາ^ຊາດ
-Se^maa	ເຊ^ມາ
+Semaa	ເຊ^ມາ
 Mbaa^an Me^on	ບາ^ອັນ^ເມ^ອົນ
 Mbaasaan	ບາ^ຊານ
 Saafaam	ຊາ^ຟາມ
@@ -816,7 +816,7 @@ Amsi	ອຳ^ຊີ
 Hilen	ຮີ^ເລນ
 Mbetc Semetv	ເບດ^ເຊ^ເມດ
 Sekem	ເຊ^ເຄມ
-Mbetc^Holon	ເບດ^ໂຮ^ລົນ
+Mbetc Holon	ເບດ^ໂຮ^ລົນ
 Gatc Limmon	ກັດ^ລິມ^ມົນ
 Golaan	ໂກ^ລານ
 Laamotv	ລາ^ມົດ
@@ -850,14 +850,14 @@ Lisiex	ລີ^ເສຍ
 Laafaa	ລາ^ຟາ
 Gelaa	ເກ^ລາ
 Minmaa	ມິນ^ມາ
-Se^metv	ເຊ^ເມດ
+Semetv	ເຊ^ເມດ
 Ono	ໂອ^ໂນ
 Saasakv	ຊາ^ຊັກ
 Aalaatv	ອາ^ລາດ
 Yaakim	ຢາ^ຄິມ
 Simlaatv	ຊິມ^ລາດ
 Seke	ເສ^ເຄ
-Melipv^Mbaa^an	ເມ^ລິບ^ບາ^ອັນ
+Melipv Mbaa^an	ເມ^ລິບ^ບາ^ອັນ
 Melekv	ເມ^ເລກ
 Taalie	ທາ^ເລຍ
 Aasen	ອາ^ເຊນ
@@ -872,14 +872,13 @@ Tanmon	ທັນ^ມົນ
 Yaalaa	ຢາ^ລາ
 nyei	ເຍີຍ
 Timnaatv Selaa	ທິມ^ນາດ^ເສ^ລາ
-Jatv	ຈ໊ຽດ
+# kouv should be a normal pattern
 kouv	ໂຄ້ວ
+kou kou	ໂຄວ ໂຄວ
 Mene	ເມ^ເນ
-Mole	ໂມ^ເລ
 Neko	ເນ^ໂຄ
 Yesu	ເຢ^ຊູ
 Minlo	ມິນ^ໂລ
-wuov-ndaangc	ອັ້ວ-ດ່າງ
 Giduc	ກີ^ຕູ່
 Silaa	ຊີ^ລາ
 Se^laa^saa	ເສ^ລາ^ຊາ
@@ -887,7 +886,7 @@ Laasen	ລາ^ເຊນ
 guinh	ກວິ້ນ
 Maadi	ມາ^ຕີ
 Mbesekv	ເບ^ເຊກ
-Yelupv^Mbaa^an	ເຢ^ລຸບ^ບາ^ອັນ
+Yelupv Mbaa^an	ເຢ^ລຸບ^ບາ^ອັນ
 Yepv^taa	ຢ໊ຽບ^ທາ
 nzaangc	ດສັ່ງ
 Mbetc Aawen	ເບດ^ອາ^ເວນ
@@ -906,7 +905,6 @@ Ganlim	ກັນ^ລິມ
 Banti	ປັນ^ທີ
 Maa^okc	ມາ^ອົກ
 Negepc	ເນ^ເກບ
-#u^lim	#ອຸ^ລີມ
 kuinx	ຂວິນ
 Mbeso	ເບ^ໂສ
 Laakaan	ລາ^ຄານ
@@ -922,13 +920,11 @@ Taasatv	ທາ^ຊັດ
 Saibatc	ໄຊ^ປັດ
 An^ti^okc	ອັນ^ທີ^ອົກ
 Yannetv	ຢັນ^ເນດ
-Mbe^e^se^mbaa	ເບ^ເອ^ເຊ^ບາ
+Mbe^e^qe^mbaa	ເບ^ເອ^ເທຈ^ບາ
 Hesi	ເຮ^ຊີ
-# auto added	#auto added
 Aa^kuin^laa	ອາ^ຄວິນ^ລາ
 Aa^li^okc	ອາ^ລີ^ອົກ
 Aafekv	ອາ^ເຟກ
-Aahapc	ອາ^ຫັບ
 Aakitv	ອາ^ຄິດ
 Aalapc	ອາ^ຫລັບ
 Aannon	ອານ^ນົນ
@@ -959,7 +955,7 @@ Maalaa	ມາ^ລາ
 Maataa	ມາ^ທາ
 Mamle	ມຳ^ເລ
 Mbaalaakv	ບາ^ລາກ
-Mben^Hinnom	ເບນ^ຮິນ^ນົມ
+Mben Hinnom	ເບນ^ຮິນ^ນົມ
 Mbinnui	ບິນ^ນຸຍ
 Me^so^bo^de^mie	ເມ^ໂສ^ໂປ^ເຕ^ເມຍ
 Memfitv	ເມມ^ຟິດ
@@ -998,12 +994,10 @@ huon	ເຮວີນ
 jiem-kuing	ຈຽມ-ຄວີງ
 ka'ndau	ຂະເດົາ
 kuing	ຄວີງ
-la'ngopv	ຫລະອົ໊ບ
+la'ngopv	ຫລະງົບ
 mbiungc	ບຢູ່ງ
 mbiungc-nziaaux	ບຢູ່ງ-ດສຢ໋າວ
 mbiungc-suiv	ບຢູ່ງ-ຊຸ້ຍ
-mbu'ziex	ບຸເຕສ໋ຍ
-niaa	ນີຢາ
 nquin	ອກວິນ
 Aa^se^natv	ອາ^ເສ^ນັດ
 Aa^taa^lotv	ອາ^ທາ^ລົດ
@@ -1039,115 +1033,96 @@ Haa^se^lotv	ຮາ^ເຊ^ລົດ
 Haalakv	ຮາ^ລັກ
 Haasaa Lenon	ຮາ^ຊາ^ເລ^ນົນ
 Haulaan	ເຮົາ^ລານ
-#He^se^ki^yaa	ເຮ^ເສ^ຄີ^ຢາ
 He^se^ki^yaa	ເຮ^ເຊ^ຄີ^ຢາ
-#new additions
-Tin Deic	ທິນ ເຕີ່ຍ
-Ceng Tin-hungh	ເທສງ ທິນ-ຮູ່ງ
 Bison	ປີ^ຊົນ
 Taigitc	ໄທ^ກິດ
 Tu^mban Kaa^in	ທູ^ບັນ^ຄາ^ອິນ
 Nefin	ເນ^ຟິນ
 Se^mbo^yim	ເສ^ໂບ^ຢິມ
 Sefaa	ເສ^ຟາ
-# sometimes this is used, sometimes not!
 Aa^le^okc	ອາ^ເລ^ອົກ
 So^haax	ໂສ^ຫາ
 nie-ha'louh	ເນຍ-ຫະໂລ່ວ
-So^haa	ໂສ^ຮາ
 Batc^ndaan Aalam	ປັດ^ດານ^ອາ^ລຳ
 Mbaa^se^matv	ບາ^ເສ^ມັດ
 En E^lo^he I^saa^laa^en	ເອນ^ເອ^ໂລ^ເຮ^ອີ^ຊາ^ລາ^ເອນ
 En Mbetc^en	ເອນ^ເບດ^ເອນ
 Saax^fe^naatv Baa^ne^aa	ສາ^ເຟ^ນາດ^ປາ^ເນ^ອາ
 Sefon	ເສ^ຟົນ
-zioucj	ຕສ່ຽວ
 Mbaa^an Sefon	ບາ^ອັນ^ເຊ^ຟົນ
 guengx	ເກວ໋ງ
-Ye^ho^waa Nitv^si	ເຢ^ໂຮ^ວາ ນິດ^ສີ
-jaax-zi'n'h	ຈ໋າ-ຕສິນຮ
+Ye^ho^waa Nitv^si	ເຢ^ໂຮ^ວາ ນິດ^ຊີ
 Supc^aa	ສຸບ^ອາ
 Kaa^ndetc Mbaa^nie	ຄາ^ເດດ^ບາ^ເນຍ
-Yiem Kaa^ndetc Mbaa^nie	ຢຽມ ຄາ^ເດດ^ບາ^ເນຍ
 Si^li^orn	ສີ^ລີ^ອອນ
 Aa^mo^lai	ອາ^ໂມ^ໄລ
 Kipc^lotv Hatc^daa^aa^waa	ຂິບ^ລົດ^ຫັດ^ຕາ^ອາ^ວາ
 Mbe^e^lotv Mbe^ne^yaa^aa^kan	ເບ^ເອ^ລົດ^ເບ^ເນ^ຢາ^ອາ^ຄັນ
 Mo^se^laa	ໂມ^ເສ^ລາ
 Mbetc Be^o	ເບດ^ເປ^ໂອ
-ndiangx-gaa'mat	ດຢັ໋ງ-ກ໌າມັດ
-yie'm'zangc	ຢຽມຕສັ່ງ
 So^ndi	ໂສ^ດີ
 Setu	ເສ^ທູ
 Wopv^si	ວົບ^ສີ
 I^ye Aa^mbaa^lim	ອີ^ເຢ^ອາ^ບາ^ລິມ
 Sofim	ໂສ^ຟິມ
 Aalotv	ອາ^ລົດ
-zie'fongc	ເຕສ່ຍຝົ່ງ
 Se^mbaam	ເສ^ບາມ
-Atc^lotv^so^faan	ອັດ^ລົດ^ໂຊ^ຟານ
-Mbetc Nimlaa	ເບດ^ນິມ^ລາ
+Atc^lotv Sofaan	ອັດ^ລົດ^ໂຊ^ຟານ
 Makv^he^lotv	ມັກ^ເຮ^ລົດ
-Mo^se^lotv	ໂມ^ເຊ^ລົດ
+Mo^se^lotv	ໂມ^ເສ^ລົດ
 Anmon Ndipc^laa^taa^im	ອັນ^ມົນ^ດິບ^ລາ^ທາ^ອິມ
 Se^ndatc	ເສ^ດັດ
-# This is already in the  list
-# Haasaa Lenan	ຮາ^ຊາ^ເລ^ນັນ
-# Mbetc^Holon already exists 
-#Mbetc Holon	ເບດ^ໂຮ^ລົນ
 Mitv^le^fotv Maa^im	ມິດ^ເລ^ຟົດ^ມາ^ອິມ
-Simlon Melon Mungv	ຊິມ^ລົນ^ເມ^ລົນ ມູ້ງ
+Simlon Melon	ຊິມ^ລົນ^ເມ^ລົນ
 Naafotv Ndo^aa	ນາ^ຟົດ^ໂດ^ອາ
-Mbaa^motv Mbaa^an	ບາ^ມົດ^ບາ^ອັນ
+Mbaamotv Mbaa^an	ບາ^ມົດ^ບາ^ອັນ
 Ze^e^letv Saa^haax	ເຕສ^ເອ^ເລດ^ຊາ^ຫາ
 Kinaa	ຄີ^ນາ
-Mbetc Hokv^laa Mungv	ເບດ^ຮົກ^ລາ ມູ້ງ
+Mbetc Hokv^laa	ເບດ^ຮົກ^ລາ
 Mbe^aa^lotv	ເບ^ອາ^ລົດ
 Haaso Haa^ndatc^taa	ຮາ^ໂຊ^ຮາ^ດັດ^ທາ
 Mbetc Beletv	ເບດ^ເປ^ເລດ
-Se^nan	ເສ^ນັນ
+Senan	ເສ^ນັນ
 Kitv^litv	ຄິດ^ລິດ
 Mbetc Ndaagon	ເບດ^ດາ^ກົນ
 Mbetc Tapv^bu^waa	ເບດ^ທັບ^ປູ^ວາ
 Mbetc Aanotv	ເບ^ທາ^ນົດ
-Aa^taa^lotv Atc^ndaa Laangz	ອາ^ທາ^ລົດ^ອັດ^ດາ ລ໌າງ
+Aa^taa^lotv Atc^ndaa	ອາ^ທາ^ລົດ^ອັດ^ດາ
+Mbetc Aa^laa^mbaa	ເບດ^ອາ^ລາ^ບາ
 Mbetc Se^aan	ເບດ^ເຊ^ອານ
-Mbetc Aa^laa^mbaa Laangz	ເບດ^ອາ^ລາ^ບາ
-Mbetc Hokv^laa	ເບດ^ຮົກ^ລາ
 Se^maa^laa^im	ເສ^ມາ^ລາ^ອິມ
-Mbaac^Aac^latv Mbec^Ec^mungv	ບາ^ອາ^ລັດ^ເບ^ເອ ມູ້ງ
-Kitv^lotv Taa^mbo Mungv	ຄິດ^ລົດ^ທາ^ໂບ ມູ້ງ
-Etc Kaasin Mungv	ເອດ^ຄາ^ຊິນ ມູ້ງ
-Ipc^taa En Horngz	ອິບ^ທາ^ເອນ ຮ໌ອງ
+Mbaa^aa^latv Mbe^e	ບາ^ອາ^ລັດ^ເບ^ເອ
+Kitv^lotv Taa^mbo	ຄິດ^ລົດ^ທາ^ໂບ
+Etc Kaasin	ເອດ^ຄາ^ຊິນ
+Ipc^taa En	ອິບ^ທາ^ເອນ
 Ke^sunx^lotv	ເຄ^ສຸນ^ລົດ
 Mbetc Batc^setv	ເບດ^ປັດ^ເຊດ
 Atc^notv Taa^mbo	ອັດ^ນົດ^ທາ^ໂບ
-Se^aa	ເຊ^ອາ
 En Haaso	ເອນ^ຮາ^ໂຊ
 In Semetv	ອິນ^ເຊ^ເມດ
 Mbe^ne Mbelaakv	ເບ^ເນ^ເບ^ລາກ
+pa'li pa'laaix	ພະລີ ພະຫລາຍ
 Timnaatv Heletv	ທິມ^ນາດ^ເຮ^ເລດ
 Sefatv	ເສ^ຟັດ
+# which one is correct?
+#Mbetc Aa^naatv	ເບດ^ອາ^ນາດ
 Mbetc Aanaatv	ເບດ^ອາ^ນາດ
 Haa^lo^setv Haa^go^yim	ຮາ^ໂລ^ເຊດ^ຮາ^ໂກ^ຢິມ
 Melotv	ເມ^ລົດ
-Se^le^laa Mungv	ເສ^ເລ^ລາ ມູ້ງ
-Mbetc Qitv^taa Mungv	ເບດ^ທຈິດ^ທາ ມູ້ງ
-Mbetc Mbaa^laa Saengv	ເບດ^ບາ^ລາ ແຊ້ງ
+Se^le^laa	ເສ^ເລ^ລາ
+Mbetc Qitv^taa	ເບດ^ທຈິດ^ທາ
+Mbetc Mbaalaa	ເບດ^ບາ^ລາ
 Se^epc	ເສ^ເອບ
-# also exists with out ^ between
-#Mbaa^an Mbelitv	ບາ^ອັນ^ເບ^ລີ້ດ
-Mbelitv	ເບ^ລີ້ດ
 Laamaatv Lehi	ລາ^ມາດ^ເລ^ຮີ
 Solekv	ໂສ^ເລກ
 huov-jeix	ຮວົ້ວ-ເຈີ໋ຍ
-Se^mbo^im Horngz	ເສ^ໂບ^ອິມ ຮ໌ອງ
+Se^mbo^im	ເສ^ໂບ^ອິມ
 Si^laa^aa	ສີ^ລາ^ອາ
 O^mbetc E^ndom	ໂອ^ເບດ^ເອ^ດົມ
-Itc^mbi^mbe^nopv	ອິດ^ບີ^ເບ^ນົບ
-Yoqc^epv Mbatc^Qev^mbetc	ໂຢ^ເທຈບ^ບັດ^ເທຈ^ເບດ
+Itc^mbi Mbenopv	ອິດ^ບີ^ເບ^ນົບ
+Yoqepv Mbatc^qe^mbetc	ໂຢ^ເທຈບ^ບັດ^ເທຈ^ເບດ
 Saamaa	ຊາ^ມາ
-Qiqaa	ຈີ^ທຈາ
+Qiqaa	ທຈີ^ທຈາ
 Elotv	ເອ^ລົດ
 minaa	ມີ^ນາ
 Se^le^ndaa	ເສ^ເລ^ດາ
@@ -1156,93 +1131,202 @@ He^si^on	ເຮ^ຊີ^ອົນ
 Saen^maa^ne^se	ແຊນ^ມາ^ເນ^ເສ
 So Hungh	ໂສ ຮູ່ງ
 Hepv^si^mbaa	ເຮບ^ຊີ^ບາ
-Haa^lutv	ຮາ^ລຸດ
+Haalutv	ຮາ^ລຸດ
 Se^naa^aa	ເສ^ນາ^ອາ
 Si^haqc	ສີ^ຫະ
 Si^aa^haa	ສີ^ອາ^ຮາ
-Kelotv	ຄ^ລົດ
-Me^hi^ndaa	ເມ^ຮີ^ດາ
-Mbaa^kotc	ບາ^ຂົດ
+Kelotv	ເຄ^ລົດ
+#Mbaa^kotc	ບາ^ຂົດ
 Sotai	ໂສ^ໄທ
 Hatc^so^fe^letv	ຫັດ^ໂສ^ເຟ^ເລດ
 Kitv^lepv	ຄິດ^ເລບ
 Mbe^so^ndai^aa	ເບ^ໂສ^ໄດ^ອາ
 So^fe^letv	ໂສ^ເຟ^ເລດ
 Min^yaa^min	ມິນ^ຢາ^ມິນ
-Gingaan	ເບດ^ກິນ^ການ
-Setaa	ເສ^ທາ
+Mbetc Gin^gaan	ເບດ^ກິນ^ການ
+Gin^gaan	ກິນ^ການ
+Qetaa	ເທຈ^ທາ
+Qetaa Mbo^se^nai	ເທຈ^ທາ ໂບ^ເຊ^ໄນ
 Maan^se^naa	ມານ^ເສ^ນາ
-mba'ae	ບັ໊ແອ
-ba'nai'h	ປະໄນຮ
+mbaqc piatv	ບະ ພຢັດ
 hienv	ຮຢ້ຽນ
 Hegai	ເຮ^ໄກ
-Teletv	ເທເລດ
-Ten^aa^mbipc	ເທນ^ອາ^ບິບ
-Temutv	ເທ^ມຸດ
+Teletv	ເທ^ເລດ
+Ten Aa^mbipc	ເທນ^ອາ^ບິບ
 Bekotc	ເປ^ຂົດ
 E^li^se^aa	ເອ^ລີ^ເຊ^ອາ
 Gaamatv	ກາ^ມັດ
 Gomaa	ໂກ^ມາ
-ma'd'nza'hmien	ມັດດສະຮມຽນ
-jouxj	ຫວ່າ
-yie'mae	ເຢແມ
-Se^me Mienh	ເສ^ເມ ມ່ຽນ
+Seme	ເສ^ເມ
 Aa^naa^ni	ອາ^ນາ^ນີ
-Mben Sohetv	ເບນ^ໂຊ^ເຮດ
-#Mben^Sohetv	ເບນ^ໂຊ^ເຮດ
-Ye^So^haa^yaa	ເຢ^ໂຊ^ຮາ^ຢາ
-#Tikv^latv^Bi^le^se	ທິກ^ລັດ^ປິ^ເລ^ເສ
+Mben So^hetv	ເບນ^ໂຊ^ເຮດ
+Ye^so^haa^yaa	ເຢ^ໂຊ^ຮາ^ຢາ
 Tikv^latv Bi^le^se	ທິກ^ລັດ^ປິ^ເລ^ເສ
 Itc^hotv	ອິດ^ຮົດ
 Utc^sen Se^e^laa	ອຸດ^ເຊນ^ເຊ^ເອ^ລາ
-#Aa^lam^maa^aa^kaa	ອາ^ລຳ^ມາ^ອະ^ຄາ
 Aalam Maa^aa^kaa	ອາ^ລຳ^ມາ^ອະ^ຄາ
 maaz-li	ມາ^ລີ
-#Maali	#ມາ^ລີ
-#Maali	ມາ^ລີ
 Se^aa^laa	ເຊ^ອາ^ລາ
-hieh	ເຮຢ່ຍ
 Sefi	ເຊ^ຟີ
+Zefi	ເຕສ^ຟີ
 yieqv	ເຢັ໊ຍ
-#loh	ໂລ່ະ
 mv	ມ້
 So^an	ໂສ^ອັນ
-#So^an	ໂຊ^ອັນ
-#hu^sopc	ຫຸ^ໂສບ
-Ti^ti^atc^yu^saa^tatv	ທີ^ທີ^ອັດ^ຢູ^ຊາ^ທັດ
-Hulaam Aa^mbi	ຮູ^ລາມ^ອາ^ບີ
-minghb	ມີ່ງ
-Le^hox^mbo^amguei	ເລ^ໂຫ^ໂບ^ອຳເກວີຍ
-Se^faa^taa Horngz	ເສ^ຟາ^ທາ ຮ໌ອງ
-#Su^ki^im	ສຸ^ຄີ^ອິມ
-Su^ki^im	ຊູ^ຄີ^ອິມ
+Ti^ti^atc Yu^saa^tatv	ທີ^ທີ^ອັດ^ຢູ^ຊາ^ທັດ
+Se^faa^taa	ເສ^ຟາ^ທາ
+Su^ki^im	ສຸ^ຄີ^ອິມ
 I^yon	ອິ^ໂຢນ
 Topv Aa^ndo^ni^yaa	ໂທບ^ອາ^ໂດ^ນິ^ຢາ
 loh!	ໂລ່ະ!
-Mi^kitv	ມີ^ຄິດ
-caq	ຖສະ
-gua'ng'luk	ກວັ່ງລຸກ
-#si	ສີ
-Mie'n'h	ມຽນຮ
-Maa^li^yaa	ມາ^ລີ^ຢາ
 laa^maa^saa^mbakc^taa^ni	ລາ^ມາ^ຊາ^ບັກ^ທາ^ນີ
-Hlieqv-kou	ເຮລັຍ-ໂຄວ
-lo'z-h'noei s[ou]	ໂລຕສ-ຮໂນອີ ໂຊອູ
-Si^saa^li^yaa Fi^lipv^poi	ຊີ^ຊາ^ລີ^ຢາ ຟີ^ລິບ^ພອຍ ຕສີ້ງ
+hlieqv-kou	ເຮລັຍ-ໂຄວ
+Si^saa^li^yaa Fi^lipv^poi	ຊີ^ຊາ^ລີ^ຢາ ຟີ^ລິບ^ພອຍ
 E^se^ken	ເອ^ເສ^ເຄນ
-#E^se^ken	ເອ^ເຊ^ເຄນ
-#Naasi	ນາ^ສີ
-Naasi	ນາ^ຊີ
+Naasi	ນາ^ສີ
+Naasic	ນາ^ສີ່
 Sakc^kutv	ສັກ^ຄຸດ
-La'maaqh	ຫລະມ່
-#hu^sopc	ຫຸ^ໂສບ
-Husopc	ຫຸ^ໂສບ
+La'maaqh	ຫລະມ່າ
+husopc	ຫຸ^ໂສບ
 Ye^mbe^le^ki^yaa	ເຢ^ເບ^ເລ^ຄີ^ຢາ
-#Si^naa	ຊີ^ນາ
-Si^naa	ສີ^ນາ
-se^laa^fim	ເສ^ລາ^ຟິມ
-Huonh-Huonh	ເຮວີ່ນໆ
+Zinaa	ຕສີ^ນາ
+Zisaa	ຕສີ^ຊາ
+Ke^lu^mbim	ເຄ^ລູ^ບິມ
+#huonh huonh	ເຮວີ່ນໆ
 Se^me^in	ເສ^ເມ^ອິນ
 nquekc	ເອກວກ
 Si^lo^am	ສີ^ໂລ^ອຳ
-lo'ngp	ຫລົງປ
+Orqv?	ເອ້າະ?
+Elekv	ເອ^ເລກ
+Kaan^ndaa^si	ຄານ^ດາ^ສີ
+Kuqi	ຄູ^ທຈີ
+Negan Saa^le^se	ເນ^ກັນ^ຊາ^ເລ^ເຊ
+Samx^gaa Ne^mbo	ສຳ^ກາ^ເນ^ໂບ
+Saanx^se^kim	ສານ^ເສ^ຄິມ
+Maa^se^yaa	ມາ^ເສ^ຢາ
+No Aamon	ໂນ^ອາ^ມົນ
+#I^ti^en	ອິ^ທີ^ເອນ
+Se^faa^laatv	ເສ^ຟາ^ລາດ
+piuv	ພຢູ້
+si sietc	ສີ ສຽດ
+Senaatv	ເສ^ນາດ
+Se^mbatc	ເຊ^ບັດ
+huonh	ເຮວີ່ນ
+Omaa	ໂອ^ມາ
+Gaataam	ກາ^ທາມ
+Kenatv	ເຄ^ນັດ
+Lumaa	ລູ^ມາ
+Yo^en	ໂຢ^ເອນ
+Iu-Mienh	ຢິວ-ມ່ຽນ
+Mbetc Nimlaa	ເບດ ນິມ^ລາ
+Enkotc	ເອນ^ຂົດ
+hieh	ເຮ່ຍ
+Ilaqv	ອີ^ລະ
+Qeme	ເທຈ^ເມ
+Hemaan	ເຮ^ມານ
+Anlon	ອັນ^ລົນ
+Anlon Mbaakutv	ອັນ^ໂລນ ບາ^ຄູດ
+Sumatv	ຊູ^ມັດ
+Kenan	ເຄ^ນັນ
+Enokv	ເອ^ນົກ
+# 1CH 1:8 this is different
+Iyipv	ອີ^ຢິບ
+Hiwai	ຮີ^ໄວ
+Gete	ເກ^ເທ
+Qelepv	ເທຈ^ເລບ
+Haanokv	ຮາ^ນົກ
+Aanaa	ອາ^ນາ
+Homam	ໂຮ^ມຳ
+Laamekv	ລາ^ເມກ
+Yaamai	ຢາ^ໄມ
+Aanem	ອາ^ເນມ
+Etaan	ເອ^ທານ
+Yaakaan	ຢາ^ຄານ
+#Yaawaan	ຢາ^ວານ
+Yaanai	ຢາ^ໄນ
+Huwaa	ຮູ^ວາ
+Haataatv	ຮາ^ທາດ
+Anwaan	ອັນ^ວານ
+Binon	ປີ^ນົນ
+Kenaatv	ເຄ^ນາດ
+Yaamin	ຢາ^ມີນ
+Eke	ເອ^ເຄ
+Peletv	ເພ^ເລດ
+Peletc	ເພ^ເຫລດ
+Kaasetv	ຄາ^ເຊດ
+Mbetc Gaa^nde	ເບດ^ກາ^ເດ
+Haanan	ຮາ^ນັນ
+Mbaani	ບາ^ນີ
+Hotaam	ໂຮ^ທາມ
+Hilaam	ຮີ^ລາມ
+Sofaakv	ໂຊ^ຟາກ
+Laami	ລາ^ມີ
+Mbeno	ເບ^ໂນ
+Hoti	ໂຮ^ທີ
+Haamaan	ຮາ^ມານ
+Mbinsaan	ບິນ^ຊານ
+Aate	ອາ^ເທ
+Ndaankon	ດານ^ຄົນ
+Mbaakotc	ບາ^ຂົດ
+Aami	ອາ^ມີ
+Ten Melaa	ເທນ ເມ^ລາ
+Ten Haanx^saa	ເທນ^ຫານ^ຊາ
+Se^ji^atc	ເສ^ຈີ^ອັດ
+So^baa^te	ໂສ^ປາ^ເທ
+Se^kun^ndatc	ເສ^ຄຸນ^ດັດ
+Haasaa Enan	ຮາ^ຊາ^ເອ^ນັນ
+namv^man	ນ້ຳ^ມັນ
+Laa^maa^taa^im Sofim	ລາ^ມາ^ທາ^ອິມ^ໂຊ^ຟິມ
+######################################
+ga'naaiv-mbeix mbeix	ກະນ້າຍ-ເບີ໋ຍ ເບີ໋ຍ
+ndiangx-gaaz gaaz	ດຢັ໋ງ-ກ໌າ ກ໌າ
+hlieqv-gaaz gaaz	ເຮລັຍ-ກ໌າ ກ໌າ
+hlieqv-kou kou	ເຮລັຍ-ໂຄວ ໂຄວ
+# These have no tone change in NRM but do have a reduplication sign in Lao. 
+huonh huonh	ເຮວີ່ນໆ
+biuih biuih	ປຢຸ້ຍໆ
+guinh guinh	ກວິ້ນໆ
+kouv kouv	ໂຄ້ວໆ
+# These have tone change in NRM and reduplication sign in Lao. 
+ndenz-ndenz	ເດີ໌ນໆ
+norm-norm	ນອມໆ
+saev-saev	ແຊ້ໆ
+camv-camv	ທສ້ຳໆ
+# These have no tone change and no reduplication sign.
+ding ding	ຕີງ ຕີງ
+morc morc	ໝໍ່ ໝໍ່
+laatc laatc	ຫລາດ ຫລາດ
+Ndumaa	ດູ^ມາ
+Selaa	ເຊ^ລາ
+Onam	ໂອ^ນຳ
+Aamen	ອາ^ເມນ
+Laamaa	ລາ^ມາ
+Gu^aa Mbaa^an	ກູ^ອາ^ບາ^ອັນ
+Mbaa^an Se^mbupc	ບາ^ອັນ^ເຊ^ບູບ
+Aanaakv	ອາ^ນາກ
+Aamon	ອາ^ມົນ
+mv bei	ມເປີຍ
+Maalotv	ມາ^ລົດ
+Ye^utc^e	ເຢ^ອຸດ^ເອ
+Gaamun	ກາ^ມຸນ
+Saami	ຊາ^ມີ
+Selaa Ham^maa^le^kotv	ເຊ^ລາ^ຮຳ^ມາ^ເລ^ຄົດ
+Sukc^kotv Mbenotv	ສຸກ^ໂຄດ^ເບ^ໂນດ
+Haamo	ຮາ^ໂມ
+yieqv-yieqv	ເຢັ໊ຍໆ
+So^haa	ໂສ^ຮາ
+se^laa^fim	ເສ^ລາ^ຟິມ
+zuqc zuqc	ຕສຸ ຕສຸ
+Kaanaa	ຄາ^ນາ
+Aanaapv	ອາ^ນາບ
+Aamam	ອາ^ມຳ
+Laamam	ລາ^ມຳ
+Laamaatv	ລາ^ມາດ
+Mbetc Emekv	ເບດ^ເອ^ເມກ
+ninh ninh	ນິ່ນ ນິ່ນ
+Maa^li^yaa	ມາ^ລີ^ຢາ
+Me^lo^notv	ເມ^ໂລ^ນົດ
+#Ki^li^yaatv^hu^sotv	ຄີ^ລິ^ຢາດ^ຫຸ^ໂຊດ
+Zeletv	ເຕສ^ເລດ
+Zelaa	ເຕສ^ລາ
+Aanim	ອາ^ນິມ
+Kitv^liu	ຄິດ^ລິວ

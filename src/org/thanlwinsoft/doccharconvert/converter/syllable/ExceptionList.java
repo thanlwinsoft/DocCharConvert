@@ -30,7 +30,12 @@ import java.text.MessageFormat;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.charset.IllegalCharsetNameException;
+
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.Config;
@@ -94,8 +99,20 @@ public class ExceptionList implements SyllableChecker
       if (files.length == 1)
       {
         loadTime = files[0].lastModified();
-
-        BufferedReader reader = new BufferedReader(new FileReader(files[0]));
+        BufferedReader reader = null;
+        try
+        {
+            Charset utf8 = Charset.forName("UTF-8");
+            FileInputStream fis = new FileInputStream(files[0]);
+            reader = new BufferedReader(new InputStreamReader(fis, utf8));
+        }
+        catch (IllegalCharsetNameException e)
+        {
+            System.out.println(e.getLocalizedMessage());
+            // this will probably be wrong, but try it anyway
+            reader = new BufferedReader(new FileReader(files[0]));
+        }
+        
         String line = null;
         do
         {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Thai UPC to Unicode">
+<DocCharConverter name="Thai:UPC => Unicode" rname="Thai:Unicode => UPC">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="thaiupc.tec" type="File" />
 </ConverterClass>

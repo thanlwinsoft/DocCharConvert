@@ -55,7 +55,6 @@ public class TecKitJni
                 }
                 catch (UnsatisfiedLinkError eSecond)
                 {
-                	System.out.println(eSecond.getMessage());	
                 	for (int i = 0; i < LIB_PATHS.length; i++)
                 	{
 	                	try
@@ -67,13 +66,16 @@ public class TecKitJni
 	                    }
 	                    catch (UnsatisfiedLinkError e)
 	                    {
-	                    	System.out.println(e.getMessage());	                    	
+	                    	//System.out.println(e.getMessage());	                    	
 	                    }
                 	}
                 	if (libraryLoaded == false)
+                    {
+                        System.out.println(eSecond.getMessage());
                 		System.out.println("Library:" + 
                         	System.mapLibraryName(LIBRARY) + " not found in: " + 
                         	System.getProperty("java.library.path"));
+                    }
                 }
             }
             catch (Exception e)
