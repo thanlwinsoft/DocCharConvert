@@ -37,9 +37,11 @@ public class ConversionMode
     private FileFilter fileFilter = null;
     private static FileFilter allFilesFilter = null;
     public final static int TEXT_ID = 0;
-    public final static int OO_ID = 1;
+    public final static int OO_ID = 1;// openoffice api
     public final static int TEX_ID = 2;
-    public final static int NUM_MODES = 3;
+    public final static int OD_ID = 3;/*< opendocument format */
+    public final static int NUM_MODES = 4;
+    
     /** Creates a new instance of ConversionMode */
     protected ConversionMode(int id, String name, boolean styleSupport)
     {
@@ -51,11 +53,13 @@ public class ConversionMode
     public String toString() { return name; }
     public boolean hasStyleSupport() { return styleSupport; }
     public static final ConversionMode TEXT_MODE = 
-        new ConversionMode(0,"Plain Text",false);
+        new ConversionMode(TEXT_ID,"Plain Text",false);
     public static final ConversionMode OO_MODE = 
-        new ConversionMode(1,"OpenOffice",true);
+        new ConversionMode(OO_ID,"OpenOffice",true);
     public static final ConversionMode TEX_MODE = 
-        new ConversionMode(2,"TeX",false);
+        new ConversionMode(TEX_ID,"TeX",false);
+    public static final ConversionMode OD_MODE = 
+        new ConversionMode(OD_ID,"OpenDocument",false);
     public static ConversionMode getById(int id)
     {
         switch (id)
