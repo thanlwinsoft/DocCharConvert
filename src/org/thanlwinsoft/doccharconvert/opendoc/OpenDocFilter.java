@@ -37,8 +37,27 @@ public class OpenDocFilter extends XMLFilterImpl
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException
     {
-        
-        super.characters(ch, start, length);
+        if (currentConv == null)
+            super.characters(ch, start, length);
+        else
+        {
+            try
+            {
+                // should the characters be buffered in case we can concatenate
+                // multiple characters calls?
+                String result = currentConv.convert(new String(ch, start, length));
+                super.characters(result.toCharArray(), 0, result.length());
+            }
+            catch (CharConverter.FatalException fe)
+            {
+                throw new SAXException(fe.getMessage());
+            }
+            catch (CharConverter.RecoverableException re)
+            {
+                System.out.println(re);
+                super.characters(ch, start, length);
+            }
+        }
     }
 
     @Override
@@ -50,7 +69,7 @@ public class OpenDocFilter extends XMLFilterImpl
         {
             endFontFaceDecls();
         }
-        else if (qName.equals("style:style"))
+        else if (qName.equals("style:style") || qName.equals("style:default-style"))
         {
             endStyle();
         }
@@ -141,7 +160,7 @@ public class OpenDocFilter extends XMLFilterImpl
         {
             startFontFace();
         }
-        else if (qName.equals("style:style"))
+        else if (qName.equals("style:style") || qName.equals("style:default-style"))
         {
             startStyle();
         }
@@ -172,7 +191,18 @@ public class OpenDocFilter extends XMLFilterImpl
             OpenDocStyle.StyleFamily sf = 
                 OpenDocStyle.getStyleForTag(currentElement.getQName());
             OpenDocStyle ods = styles.getStyle(sf.name(), styleName);
-            if (ods == null || ods.resolveFaceName() == null)
+            String faceName = null;
+            if (ods != null) 
+            {
+                faceName = ods.resolveFaceName();
+                if (faceName == null) // try default style
+                {
+                    OpenDocStyle defaultStyle = styles.getStyle(sf.name(), null);
+                    if (defaultStyle != null) 
+                        faceName = defaultStyle.getFaceName();
+                }
+            }
+            if (ods == null || faceName == null)
             {
                 for (int i = eStack.size() - 2; i >= 0; i--)
                 {
@@ -190,7 +220,7 @@ public class OpenDocFilter extends XMLFilterImpl
             }
             if (ods != null)
             {
-                String faceName = ods.resolveFaceName();
+                faceName = ods.resolveFaceName();
                 if (faceName != null && faceMap.containsKey(faceName))
                 {
                     currentConv = faceMap.get(faceName).converter;
@@ -213,6 +243,12 @@ public class OpenDocFilter extends XMLFilterImpl
             if (ods != null)
             {
                 String faceName = ods.resolveFaceName();
+                if (faceName == null) // try default style
+                {
+                    OpenDocStyle defaultStyle = styles.getStyle(sf.name(), null);
+                    if (defaultStyle != null) 
+                        faceName = defaultStyle.getFaceName();
+                }
                 if (faceName != null)
                 {
                     currentConv = faceMap.get(faceName).converter;
