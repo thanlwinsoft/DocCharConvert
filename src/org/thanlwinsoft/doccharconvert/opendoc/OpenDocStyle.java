@@ -202,6 +202,8 @@ public class OpenDocStyle
     TABLE_CELL("table-cell"),
     TABLE_COLUMN("table-column"),
     CHART("chart"),
+    PRESENTATION("presentation"),
+    DRAWING_PAGE("drawing-page"),
     GRAPHIC("graphic");
     
     String familyName;
@@ -223,6 +225,7 @@ public class OpenDocStyle
   {
       tag2StyleFamily = new HashMap <String, StyleFamily>();
       tag2StyleFamily.put("text:p",StyleFamily.PARAGRAPH);
+      tag2StyleFamily.put("text:h",StyleFamily.PARAGRAPH);
       tag2StyleFamily.put("text:span",StyleFamily.TEXT);
       
   }
@@ -241,5 +244,9 @@ public class OpenDocStyle
   public void setConvertedStyle(OpenDocStyle converted)
   {
       this.convertedStyle = converted;
+  }
+  public String toString()
+  {
+      return new String(this.name + ">" + this.convertedStyle);
   }
 }

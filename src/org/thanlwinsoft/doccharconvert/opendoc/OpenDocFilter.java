@@ -34,8 +34,8 @@ public class OpenDocFilter extends XMLFilterImpl
     // element stack
     Stack<ElementProperties> eStack = null;
     // converter map stack - one map per element
-    Stack<EnumMap <ScriptType.Type, OOFaceConverter>> cStack = null;
-    EnumMap <ScriptType.Type, OOFaceConverter> currentConv = null;
+    Stack<EnumMap <ScriptType.Type, OOStyleConverter>> cStack = null;
+    EnumMap <ScriptType.Type, OOStyleConverter> currentConv = null;
     ElementProperties pendingStyle = null;
     final static String STYLE_URI = 
         "urn:oasis:names:tc:opendocument:xmlns:style:1.0";
@@ -64,12 +64,13 @@ public class OpenDocFilter extends XMLFilterImpl
         this.converterMap = convertMap;
         faces = new HashMap <String, ElementProperties>();
         eStack = new Stack<ElementProperties>();
-        cStack = new Stack<EnumMap <ScriptType.Type, OOFaceConverter>>();
+        cStack = new Stack<EnumMap <ScriptType.Type, OOStyleConverter>>();
         faceMap = new HashMap <String, OOFaceConverter> ();
-        currentConv = new EnumMap <ScriptType.Type, OOFaceConverter> 
+        currentConv = new EnumMap <ScriptType.Type, OOStyleConverter> 
             (ScriptType.Type.class);
         currentStyle = new EnumMap <ScriptType.Type, OpenDocStyle> 
             (ScriptType.Type.class);
+        cStack.push(currentConv);
     }
     /**
     * @Override
@@ -82,7 +83,7 @@ public class OpenDocFilter extends XMLFilterImpl
         {
             ScriptSegment seg = ScriptType.find(ch, s, start + length - s);
             l = seg.getLength();
-            OOFaceConverter converter = currentConv.get(seg.getType());
+            OOStyleConverter converter = currentConv.get(seg.getType());
             if (converter == null || converter.converter == null)
                 super.characters(ch, s, l);
             else
@@ -93,8 +94,9 @@ public class OpenDocFilter extends XMLFilterImpl
                     // concatenate multiple characters calls?
                     String toConvert = new String(ch, s, l);
                     String result = converter.converter.convert(toConvert);
-                    OpenDocStyle activeStyle = currentStyle.get(seg.getType());
-                    System.out.println(converter.converter.getName() + " on " + 
+                    OpenDocStyle activeStyle = converter.style;
+                    if (activeStyle != null)
+                        System.out.println(converter.converter.getName() + " on " + 
                             activeStyle.getName() + " > " + 
                             activeStyle.convertedStyle.getName());
                     if (activeStyle != null && (l != length ||
@@ -168,14 +170,19 @@ public class OpenDocFilter extends XMLFilterImpl
     private void endSpan() throws SAXException
     {
         // TODO Auto-generated method stub
-        currentConv = cStack.pop();
+        cStack.pop();
+        currentConv = cStack.peek(); 
         endElement(currentElement);
     }
 
     private void endP() throws SAXException
     {
         // TODO Auto-generated method stub
-        currentConv = cStack.pop();
+        cStack.pop();
+        if (cStack.size() > 0)
+          currentConv = cStack.peek();
+        else
+          currentConv = null;
         endElement(currentElement);
     }
 
@@ -258,7 +265,7 @@ public class OpenDocFilter extends XMLFilterImpl
         {
             startTextProperties();
         }
-        else if (qName.equals("text:p"))
+        else if (qName.equals("text:p") || qName.equals("text:h"))
         {
             startP();
         }
@@ -279,6 +286,7 @@ public class OpenDocFilter extends XMLFilterImpl
         {            
             OpenDocStyle ods = null;
             String faceName = null;
+            String styleName = null;
             for (int i = eStack.size() - 1; (i >= 0 && (faceName == null)); i--)
             {
                 // look at parent elements
@@ -287,9 +295,10 @@ public class OpenDocFilter extends XMLFilterImpl
                 if (sNameIndex > -1)
                 {
                     OpenDocStyle.StyleFamily psf = 
-                        OpenDocStyle.getStyleForTag(currentElement.getQName());
-                    ods = styles.getStyle(psf, 
-                        pep.getAttributes().getValue(sNameIndex));
+                        OpenDocStyle.getStyleForTag(pep.getQName());
+                    styleName = pep.getAttributes().getValue(sNameIndex); 
+                    System.out.println(styleName + "[" + i + "] " + st);
+                    ods = styles.getStyle(psf, styleName);
                     // find face for style
                     ods = resolveFace(st, ods);
                     if (ods != null)
@@ -304,9 +313,9 @@ public class OpenDocFilter extends XMLFilterImpl
                     }
                 }
             }
-            if (addCurrentConvIfMatches(st, faceName))
+            if (addCurrentConvIfMatches(st, faceName, ods))
             {
-                System.out.print(ods.getName());
+                System.out.print(styleName + " " + st + " " + ods.getName());
                 System.out.println(" / " + ods.getConvertedStyle().getName());
             }
             currentStyle.put(st, ods);
@@ -325,13 +334,15 @@ public class OpenDocFilter extends XMLFilterImpl
 
     private void startSpan() throws SAXException
     {
-        currentConv = new EnumMap<Type, OOFaceConverter>(Type.class);
+        currentConv = new EnumMap<Type, OOStyleConverter>(Type.class);
         resolveActiveStyles();
         cStack.push(currentConv);
         startElement(currentElement);
     }
     
-    private boolean addCurrentConvIfMatches(ScriptType.Type type, String faceName)
+    private boolean addCurrentConvIfMatches(ScriptType.Type type, 
+            String faceName,
+            OpenDocStyle ods)
     {
         boolean convMatches = false;
         if (faceName != null && faceMap.containsKey(faceName))
@@ -340,7 +351,7 @@ public class OpenDocFilter extends XMLFilterImpl
             CharConverter cc = ofc.converter;
             if (cc.getOldStyle().getScriptType().equals(type))
             {
-                currentConv.put(type, ofc);
+                currentConv.put(type, new OOStyleConverter(ofc, ods));
                 System.out.println(type.toString() + " " + faceName);
                 convMatches = true;
             }
@@ -350,7 +361,7 @@ public class OpenDocFilter extends XMLFilterImpl
 
     private void startP() throws SAXException
     {
-        currentConv = new EnumMap<Type, OOFaceConverter>(Type.class);
+        currentConv = new EnumMap<Type, OOStyleConverter>(Type.class);
         resolveActiveStyles();
         cStack.push(currentConv);
         startElement(currentElement);
@@ -438,41 +449,6 @@ public class OpenDocFilter extends XMLFilterImpl
             }
                 
         }
-        /*
-        if (faceMap.containsKey(fName) || faceMap.containsKey(fcName) ||
-            faceMap.containsKey(faName))
-        {
-            OOFaceConverter oofc = faceMap.get(fName);
-            if (oofc == null) 
-            {
-                oofc = faceMap.get(fcName);
-                if (oofc == null) oofc = faceMap.get(faName);
-            }
-            int normalIndex = ai.getIndex("style:font-name");
-            if (normalIndex > -1)
-            {
-                ai.setValue(normalIndex,oofc.newOOName);
-            }
-            else
-            {
-                ai.addAttribute(currentElement.getUri(), currentElement.getLocalName(),
-                        "style:font-name","CDATA",oofc.newOOName);
-            }
-            int ctlIndex = ai.getIndex("style:font-name-complex"); 
-            if (ctlIndex > -1 &&
-                faceMap.containsKey(ai.getValue(ctlIndex)))
-            {
-                ai.setValue(ctlIndex, 
-                            faceMap.get(ai.getValue(ctlIndex)).newOOName);
-            }
-            int asianIndex = ai.getIndex("style:font-name-asian"); 
-            if (asianIndex > -1 &&
-                faceMap.containsKey(ai.getValue(asianIndex)))
-            {
-                ai.setValue(asianIndex, 
-                            faceMap.get(ai.getValue(asianIndex)).newOOName);
-            }
-        }*/
         startElement(currentElement);
     }
     
@@ -556,5 +532,15 @@ public class OpenDocFilter extends XMLFilterImpl
         String getOldOOFaceName() {return oldOOName;}
         String getNewOOFaceName() {return newOOName;}
         CharConverter getConverter() {return converter;}
+    }
+    protected class OOStyleConverter extends OOFaceConverter
+    {
+        OpenDocStyle style;
+        OOStyleConverter(OOFaceConverter oofc, OpenDocStyle style) 
+        { 
+            super(oofc.oldOOName, oofc.converter);
+            this.newOOName = oofc.newOOName;
+            this.style = style;
+        }
     }
 }
