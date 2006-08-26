@@ -24,6 +24,9 @@
 
 package org.thanlwinsoft.doccharconvert;
 
+import org.thanlwinsoft.doccharconvert.opendoc.ScriptType;
+import org.thanlwinsoft.doccharconvert.opendoc.ScriptType.Type;
+
 /**
  *
  * @author  keith
@@ -32,6 +35,7 @@ public class FontStyle implements TextStyle
 {
     String fontName = null;
     String styleName = null;
+    ScriptType.Type type = ScriptType.Type.LATIN;
     /** Creates a new instance of FontStyle */
     public FontStyle(String aFontName)
     {
@@ -76,6 +80,16 @@ public class FontStyle implements TextStyle
     public String getDescription()
     {
         return getFontName();
+    }
+
+    public ScriptType.Type getScriptType()
+    {
+        return type;
+    }
+
+    public void setScriptType(Type type)
+    {
+        this.type = type;
     }
     
 }

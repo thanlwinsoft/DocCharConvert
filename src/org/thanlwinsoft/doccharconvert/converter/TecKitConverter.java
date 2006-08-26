@@ -125,6 +125,16 @@ public class TecKitConverter extends ReversibleConverter
             throw new CharConverter.FatalException(
                 "TecKit failed to load system library");
         }
+        if (isForwards())
+        {
+          beforeCharset = charEncoding;
+          afterCharset = Charset.forName("UTF-8");
+        }
+        else
+        {
+          afterCharset = charEncoding;
+          beforeCharset = Charset.forName("UTF-8");
+        }
         try
         {
             converterInstance = jni.createConverter(mapFilePath,isForwards());
@@ -282,6 +292,7 @@ public class TecKitConverter extends ReversibleConverter
 //                afterCharset = oCharset;
 //            beforeCharset = Charset.forName("UTF-8");
 //        }
+        
         System.out.println("TecKIT encodings: " + beforeCharset + " > " + 
                            afterCharset);
     }

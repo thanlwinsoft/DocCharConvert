@@ -59,7 +59,7 @@ public class ConversionMode
     public static final ConversionMode TEX_MODE = 
         new ConversionMode(TEX_ID,"TeX",false);
     public static final ConversionMode OD_MODE = 
-        new ConversionMode(OD_ID,"OpenDocument",false);
+        new ConversionMode(OD_ID,"OpenDocument",true);
     public static ConversionMode getById(int id)
     {
         switch (id)
@@ -70,6 +70,8 @@ public class ConversionMode
                 return OO_MODE;
             case TEX_ID:
                 return TEX_MODE;
+            case OD_ID:
+                return OD_MODE;
         }
         return null;
     }
@@ -116,6 +118,23 @@ public class ConversionMode
                         {
                             String lcn = f.getName().toLowerCase();
                             if (lcn.endsWith(".tex")) return true;
+                            // need to add directory to allow directory browsing
+                            if (f.isDirectory()) return true;
+                            return false;
+                        }
+                        public String getDescription() { return name; }
+                    };
+                    break;
+                case OD_ID:
+                    fileFilter = new FileFilter() {
+                        public boolean accept(java.io.File f)
+                        {
+                            String lcn = f.getName().toLowerCase();
+                            if (lcn.endsWith(".odt")) return true;
+                            else if (lcn.endsWith(".odp")) return true;
+                            else if (lcn.endsWith(".ods")) return true;
+                            else if (lcn.endsWith(".odg")) return true;
+                            
                             // need to add directory to allow directory browsing
                             if (f.isDirectory()) return true;
                             return false;

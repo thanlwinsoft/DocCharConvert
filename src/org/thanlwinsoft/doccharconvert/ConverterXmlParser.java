@@ -43,6 +43,7 @@ import java.io.InputStream;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
+import org.thanlwinsoft.doccharconvert.opendoc.ScriptType;
 /**
  *
  * @author  keith
@@ -57,6 +58,7 @@ public class ConverterXmlParser
     public final static String ARGUMENT_NODE = "Argument";
     public final static String TYPE_ATTRIB = "type";
     public final static String VALUE_ATTRIB = "value";
+    public final static String SCRIPT_ATTRIB = "script";
     public final static String STYLES_NODE = "Styles";
     public final static String STYLE_NODE = "Style";
     public final static String FONT_NODE = "Font";
@@ -332,13 +334,19 @@ public class ConverterXmlParser
         for (int f = 0; f<fonts.getLength(); f++)
         {
             Element e = (Element)fonts.item(f);
+            String sTypeName = e.getAttribute(SCRIPT_ATTRIB);
+            ScriptType.Type scriptType = ScriptType.Type.LATIN;
+            if (sTypeName.equals("ctl")) scriptType = ScriptType.Type.COMPLEX;
+            else if (sTypeName.equals("cjk")) scriptType = ScriptType.Type.CJK;
             if (e.getAttribute(TYPE_ATTRIB).equals(OLD))
             {
                 oldStyle = new FontStyle(e.getAttribute(NAME_ATTRIB));
+                oldStyle.setScriptType(scriptType);
             }
             else if (e.getAttribute(TYPE_ATTRIB).equals(NEW))
             {
                 newStyle = new FontStyle(e.getAttribute(NAME_ATTRIB));
+                newStyle.setScriptType(scriptType);
             }
             else 
             {

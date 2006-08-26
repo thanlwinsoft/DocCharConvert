@@ -40,6 +40,7 @@ import javax.swing.JOptionPane;
 import java.lang.reflect.InvocationTargetException;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
+import org.thanlwinsoft.doccharconvert.opendoc.OpenDocParser;
 /**
  *
  * @author  keith
@@ -252,6 +253,9 @@ public class BatchConversion implements Runnable
                     break;
                 case ConversionMode.TEX_ID:
                     docInterface = new TeXParser();
+                    break;
+                case ConversionMode.OD_ID:
+                    docInterface = new OpenDocParser();
                     break;
             }
             if (iCharset != null) docInterface.setInputEncoding(iCharset);

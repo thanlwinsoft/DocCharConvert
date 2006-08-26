@@ -3,6 +3,7 @@ package org.thanlwinsoft.xml;
 import java.io.File;
 import java.io.Writer;
 import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -19,13 +20,17 @@ public class XmlWriteFilter extends XMLFilterImpl
     StringBuffer namespaces = new StringBuffer();
     boolean firstElement = true;
     String stylesheet = null;
-    XmlWriteFilter(String filename) throws FileNotFoundException
+    public XmlWriteFilter(String filename) throws FileNotFoundException
     {
-        initialise(new File(filename));
+        initialise(new FileOutputStream(new File(filename)));
     }
-    XmlWriteFilter(File file) throws FileNotFoundException
+    public XmlWriteFilter(File file) throws FileNotFoundException
     {
-        initialise(file);
+        initialise(new FileOutputStream(file));
+    }
+    public XmlWriteFilter(OutputStream os)
+    {
+        initialise(os);
     }
     public void setStylesheet(String stylesheet)
     {
@@ -49,11 +54,11 @@ public class XmlWriteFilter extends XMLFilterImpl
             System.out.println(e.getMessage());
         }
     }
-    private void initialise(File file) throws FileNotFoundException
+    private void initialise(OutputStream os) 
     {
         try
         {
-            out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF-8"));
+            out = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
             out.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
             if (stylesheet != null)
             {
@@ -83,7 +88,25 @@ public class XmlWriteFilter extends XMLFilterImpl
                 out.write(buffer.toString());
                 buffer.delete(0, buffer.length());
             }
-            out.write(ch,start,length);
+            // replace stray entities
+            for (int i = start; i < start + length; i++)
+            {
+                switch (ch[i])
+                { 
+                case '&':
+                    out.write("&amp;");
+                    break;
+                case '>':
+                    out.write("&gt;");
+                    break;
+                case '<':
+                    out.write("&lt;");
+                    break;
+                default:
+                    out.write(ch[i]);
+                } 
+            }
+            //out.write(ch,start,length);
         }
         catch (IOException e)
         {
@@ -100,7 +123,7 @@ public class XmlWriteFilter extends XMLFilterImpl
         {
         if (buffer.length() > 0)
         {
-            buffer.append("/>");
+            buffer.append("/>\n");
             out.write(buffer.toString());
             buffer.delete(0, buffer.length());
         }
@@ -109,6 +132,7 @@ public class XmlWriteFilter extends XMLFilterImpl
             out.write("</");
             out.write(qName);
             out.write(">");
+            out.write("\n");//eof
         }
         }
         catch (IOException e)

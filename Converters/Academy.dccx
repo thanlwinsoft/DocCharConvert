@@ -5,16 +5,16 @@
 </ConverterClass>
 <Styles>
 <Style>
-<Font name="Padauk Academy" type="old" />
-<Font name="MyaZedi_Graphite" type="new" />
+<Font name="Padauk Academy" type="old" script="latin" />
+<Font name="PadaukOT" type="new" script="ctl" />
 </Style>
 <Style>
-<Font name="Padauk Academy" type="old" />
-<Font name="Padauk" type="new" />
+<Font name="Padauk Academy" type="old" script="latin" />
+<Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
-<Font name="Academy" type="old" />
-<Font name="Padauk" type="new" />
+<Font name="Academy" type="old"  script="latin"/>
+<Font name="Padauk" type="new" script="ctl" />
 </Style>
 </Styles>
 </DocCharConverter>

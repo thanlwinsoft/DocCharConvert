@@ -51,7 +51,7 @@
             <fileset dir="../Converters" targetdir="$INSTALL_PATH/Converters">
 			  <include name="SyllableConverter.xsl" />
               <include name="utr22tec.pl" />
-              <include name="libTecKitJni.so" />
+              <include name="libTecKitJni.i386.so" />
               <include name="TecKitJni.dll" />
 			  <include name="libTecKitJni.amd64.so" />
             </fileset>

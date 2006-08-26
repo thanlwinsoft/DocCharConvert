@@ -6,28 +6,32 @@
 </ConverterClass>
 <Styles>
 <Style>
-  <Font name="WinInnwa" type="old" />
-  <Font name="Padauk" type="new" />
+  <Font name="WinInnwa" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
 </Style>
 <Style>
-  <Font name="WinResearcher" type="old" />
-  <Font name="Padauk" type="new" />
+  <Font name="WinInnwa" type="old" script="latin" />
+  <Font name="PadaukOT" type="new" script="ctl" />
 </Style>
 <Style>
-  <Font name="-Win---Researcher" type="old" />
-  <Font name="Padauk" type="new" />
+  <Font name="WinResearcher" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
-  <Font name="Win---Researcher" type="old" />
-  <Font name="Padauk" type="new" />
+  <Font name="-Win---Researcher" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
-  <Font name="WinMonotype" type="old" />
-  <Font name="Padauk" type="new" />
+  <Font name="Win---Researcher" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
-  <Font name="WinMonotypeNew" type="old" />
-  <Font name="Padauk" type="new" />
+  <Font name="WinMonotype" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
+</Style>
+<Style>
+  <Font name="WinMonotypeNew" type="old"  script="latin"/>
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 </Styles>
 </DocCharConverter>

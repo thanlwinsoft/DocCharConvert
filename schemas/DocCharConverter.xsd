@@ -14,6 +14,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
     <xsd:element name="Styles" type="Styles"/>
   </xsd:sequence>
   <xsd:attribute name="name" type="xsd:string"/>
+  <xsd:attribute name="rname" type="xsd:string" use="optional"/>
 </xsd:complexType>
 
 <xsd:complexType name="ConverterClass">
@@ -43,6 +44,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
 <xsd:complexType name="Font">
   <xsd:attribute name="name" type="xsd:string"/>
   <xsd:attribute name="type" type="age"/>
+  <xsd:attribute name="script" type="script" use="optional"/>
 </xsd:complexType>
 
 
@@ -58,6 +60,14 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   <xsd:restriction base="xsd:NMTOKEN">
     <xsd:enumeration value="old"/>
     <xsd:enumeration value="new"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="script">
+  <xsd:restriction base="xsd:NMTOKEN">
+    <xsd:enumeration value="latin"/>
+    <xsd:enumeration value="ctl"/>
+    <xsd:enumeration value="cjk"/>
   </xsd:restriction>
 </xsd:simpleType>
 

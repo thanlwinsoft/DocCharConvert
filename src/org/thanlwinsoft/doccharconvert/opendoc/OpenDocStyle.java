@@ -19,13 +19,15 @@ import java.util.HashMap;
  */
 public class OpenDocStyle
 {
+  protected OpenDocStyleManager manager = null;
   protected OpenDocStyle parent = null;
   protected String parentName = null;
   protected String name = null;
   protected StyleFamily styleFamily = null;
-  protected String normalFace = "";
-  protected String complexFace = "";
-  protected String cjkFace = "";
+  protected String normalFace = null;
+  protected String complexFace = null;
+  protected String cjkFace = null;
+  protected OpenDocStyle convertedStyle;
   protected static HashMap <String, StyleFamily> tag2StyleFamily = null;
   
   protected static final Pattern normalizeRegEx = Pattern.compile("[0-9 ]");
@@ -33,22 +35,36 @@ public class OpenDocStyle
    * @param name from style:name attribute
    * @param family from style:family attribute
    */
-  public OpenDocStyle(String name, String family)
+  public OpenDocStyle(String family, String name)
   {
     this.name = name;
     this.styleFamily = StyleFamily.getType(family);
+    this.convertedStyle = this;
   }
   public String getName() { return name; }
   /** Creates a new instance of OpenDocStyle 
    * @param name from style:name attribute
    * @param family from style:family attribute
    */
-  public OpenDocStyle(String name, String family, OpenDocStyle parent)
+  public OpenDocStyle(String family, String name, String parent)
+  {
+    this.name = name;
+    this.styleFamily = StyleFamily.getType(family);
+    this.parentName = parent;
+    this.parent = null;
+    this.convertedStyle = this;
+  }
+  /** Creates a new instance of OpenDocStyle 
+   * @param name from style:name attribute
+   * @param family from style:family attribute
+   */
+  public OpenDocStyle(String family, String name, OpenDocStyle parent)
   {
     this.name = name;
     this.styleFamily = StyleFamily.getType(family);
     this.parentName = parent.getName();
     this.parent = parent;
+    this.convertedStyle = this;
   }
   public StyleFamily getFamily() 
   {
@@ -57,6 +73,40 @@ public class OpenDocStyle
   public String getFaceName()
   {
     return this.normalFace;
+  }
+  public String resolveFaceName(ScriptType.Type type)
+  {
+      String name;
+      if (type.equals(ScriptType.Type.CJK))
+      {
+          name = resolveCjkFaceName();
+      }
+      else if (type.equals(ScriptType.Type.COMPLEX))
+      {
+          name = resolveComplexFaceName();
+      }
+      else
+      {
+          name = resolveFaceName();
+      }
+      return name;
+  }
+  public String getFaceName(ScriptType.Type type)
+  {
+      String name;
+      if (type.equals(ScriptType.Type.CJK))
+      {
+          name = getCjkFaceName();
+      }
+      else if (type.equals(ScriptType.Type.COMPLEX))
+      {
+          name = getComplexFaceName();
+      }
+      else
+      {
+          name = getFaceName();
+      }
+      return name;
   }
   public String resolveFaceName()
   {
@@ -73,9 +123,21 @@ public class OpenDocStyle
   {
     return this.complexFace;
   }
+  public OpenDocStyle getParentStyle()
+  {
+      if (parent == null && parentName != null && manager != null)
+      {
+          parent = manager.getStyle(this.styleFamily.name(), parentName);
+      }
+      return parent;
+  }
   public String resolveComplexFaceName()
   {
     OpenDocStyle ods = this;
+    if (parent == null && parentName != null && manager != null)
+    {
+        parent = manager.getStyle(this.styleFamily.name(), parentName);
+    }
     while (ods != null && ods.complexFace == null)
     {
       ods = ods.parent;
@@ -97,6 +159,15 @@ public class OpenDocStyle
     }
     if (ods == null) return null;//getFaceName();
     return ods.cjkFace;
+  }
+  public void setFaceName(ScriptType.Type type, String faceName)
+  {
+      if (type.equals(ScriptType.Type.CJK))
+          this.cjkFace = faceName;
+      else if (type.equals(ScriptType.Type.COMPLEX))
+          this.complexFace = faceName;
+      else
+          this.normalFace = faceName;
   }
   
   public void setFaceName(String faceName)
@@ -126,7 +197,10 @@ public class OpenDocStyle
     PARAGRAPH("paragraph"),
     TEXT("text"),
     SECTION("section"),
+    TABLE("table"),
+    TABLE_ROW("table-row"),
     TABLE_CELL("table-cell"),
+    TABLE_COLUMN("table-column"),
     CHART("chart"),
     GRAPHIC("graphic");
     
@@ -155,5 +229,17 @@ public class OpenDocStyle
   public static StyleFamily getStyleForTag(String tag)
   {
       return tag2StyleFamily.get(tag);
+  }
+  public void setManager(OpenDocStyleManager m)
+  {
+      this.manager = m;
+  }
+  public OpenDocStyle getConvertedStyle()
+  {
+      return convertedStyle;
+  }
+  public void setConvertedStyle(OpenDocStyle converted)
+  {
+      this.convertedStyle = converted;
   }
 }

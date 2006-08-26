@@ -35,6 +35,15 @@ public class OpenDocStyleManager
     }
     return null;
   }
+  public OpenDocStyle getStyle(OpenDocStyle.StyleFamily sFamily, String name)
+  {
+    if (familyMap.containsKey(sFamily))
+    {
+      HashMap<String,OpenDocStyle> styleMap = familyMap.get(sFamily);
+      return styleMap.get(name);
+    }
+    return null;
+  }
   public void addStyle(OpenDocStyle style)
   {
     if (familyMap.containsKey(style.getFamily()))

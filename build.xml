@@ -79,7 +79,7 @@
                 <fileset dir="${dist.dir}" excludes="**/*.h"/>
             </copy>
             <copy todir="${build.dir}/classes">
-              <fileset dir="${src.dir}/META-INF/services/*" excludes="**/*~"/>
+              <fileset file="${src.dir}/META-INF/services/*" excludes="**/*~"/>
             </copy>
     </target>
 </project>

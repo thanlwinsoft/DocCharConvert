@@ -24,6 +24,7 @@
 
 package org.thanlwinsoft.doccharconvert;
 
+import org.thanlwinsoft.doccharconvert.opendoc.ScriptType;
 /**
  *
  * @author  keith
@@ -37,4 +38,6 @@ public interface TextStyle
     public void setStyleName(String newName);
     public boolean equals(Object obj);
     public int hashCode();
+    public ScriptType.Type getScriptType();
+    public void setScriptType(ScriptType.Type type);
 }

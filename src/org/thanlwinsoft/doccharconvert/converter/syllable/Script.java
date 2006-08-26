@@ -27,6 +27,7 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
 import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.Vector;
+//import org.thanlwinsoft.doccharconvert.opendoc.ScriptType;
 
 /**
  * Class to represent a Script on one side of a mapping.
@@ -43,6 +44,7 @@ public class Script
     // otherwise it is the repeat separator
     private String repeatChar = null;
     private boolean caseInsensitive = false;
+    
     /** Creates a new instance of Script 
     * @param name of script
     */
