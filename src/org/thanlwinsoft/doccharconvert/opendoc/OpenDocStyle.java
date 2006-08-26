@@ -227,6 +227,12 @@ public class OpenDocStyle
       tag2StyleFamily.put("text:p",StyleFamily.PARAGRAPH);
       tag2StyleFamily.put("text:h",StyleFamily.PARAGRAPH);
       tag2StyleFamily.put("text:span",StyleFamily.TEXT);
+      tag2StyleFamily.put("table:table",StyleFamily.TABLE);
+      tag2StyleFamily.put("table:table-cell",StyleFamily.TABLE_CELL);
+      tag2StyleFamily.put("table:table-row",StyleFamily.TABLE_CELL);
+      tag2StyleFamily.put("table:table-column",StyleFamily.TABLE_CELL);
+      tag2StyleFamily.put("draw:frame",StyleFamily.PRESENTATION);
+      tag2StyleFamily.put("draw:custom-shape",StyleFamily.GRAPHIC);
       
   }
   public static StyleFamily getStyleForTag(String tag)

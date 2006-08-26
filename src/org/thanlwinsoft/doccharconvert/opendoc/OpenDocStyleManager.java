@@ -11,6 +11,9 @@
 package org.thanlwinsoft.doccharconvert.opendoc;
 
 import java.util.HashMap;
+import java.util.Stack;
+
+import org.thanlwinsoft.xml.ElementProperties;
 /**
  *
  * @author keith
@@ -18,11 +21,12 @@ import java.util.HashMap;
 public class OpenDocStyleManager
 {
   HashMap <OpenDocStyle.StyleFamily, HashMap<String,OpenDocStyle>>familyMap = null;
+  Stack <ElementProperties> pendingStyles = null;
   /** Creates a new instance of OpenDocStyleManager */
   public OpenDocStyleManager()
   {
     familyMap = new HashMap <OpenDocStyle.StyleFamily, HashMap<String,OpenDocStyle>>();
-    
+    pendingStyles = new Stack<ElementProperties>();
   }
   
   public OpenDocStyle getStyle(String family, String name)
@@ -57,5 +61,13 @@ public class OpenDocStyleManager
       styleMap.put(style.getName(),style);
       familyMap.put(style.getFamily(), styleMap);
     }
+  }
+  public void addPendingStyle(ElementProperties pendingStyle)
+  {
+      pendingStyles.add(pendingStyle);
+  }
+  public Stack<ElementProperties> getPendingStyles()
+  {
+      return pendingStyles;
   }
 }

@@ -1,6 +1,7 @@
 package org.thanlwinsoft.doccharconvert.opendoc;
 
 import java.util.HashMap;
+import java.util.Vector;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Iterator;
@@ -19,6 +20,8 @@ import org.thanlwinsoft.doccharconvert.opendoc.ScriptType.Type;
 
 public class OpenDocFilter extends XMLFilterImpl
 {
+    public enum FileType { STYLE, CONTENT };
+    FileType fileType = null; 
     /** manager to store all the styles for different families */
     OpenDocStyleManager styles = null;
     /** map of text styles to char converters passed in from DocCharConvert */
@@ -37,6 +40,9 @@ public class OpenDocFilter extends XMLFilterImpl
     Stack<EnumMap <ScriptType.Type, OOStyleConverter>> cStack = null;
     EnumMap <ScriptType.Type, OOStyleConverter> currentConv = null;
     ElementProperties pendingStyle = null;
+    
+    Vector <OpenDocStyle> columnStyles = null;
+    int column = 0;
     final static String STYLE_URI = 
         "urn:oasis:names:tc:opendocument:xmlns:style:1.0";
     final static String TEXT_URI = 
@@ -58,7 +64,7 @@ public class OpenDocFilter extends XMLFilterImpl
      * @param styleManager to keep track of the different styles within the document
      */
     OpenDocFilter(Map<TextStyle,CharConverter> convertMap, 
-                  OpenDocStyleManager styleManager)
+                  OpenDocStyleManager styleManager, FileType fileType)
     {
         this.styles = styleManager;
         this.converterMap = convertMap;
@@ -71,6 +77,8 @@ public class OpenDocFilter extends XMLFilterImpl
         currentStyle = new EnumMap <ScriptType.Type, OpenDocStyle> 
             (ScriptType.Type.class);
         cStack.push(currentConv);
+        columnStyles = new Vector <OpenDocStyle> ();
+        this.fileType = fileType;
     }
     /**
     * @Override
@@ -151,13 +159,31 @@ public class OpenDocFilter extends XMLFilterImpl
         {
             endStyle();
         }
-        else if (qName.equals("text:p"))
+        else if (qName.equals("text:p")|| qName.equals("text:h") || 
+                 qName.equals("table:table-cell"))
         {
             endP();
+        }
+        else if (qName.equals("table:table-column"))
+        {
+            super.endElement(uri, localName, qName);
+        }
+        else if (qName.equals("table:table-row"))
+        {
+           super.endElement(uri, localName, qName);
+           column = 0;
         }
         else if (qName.equals("text:span"))
         {
             endSpan();
+        }
+        else if (qName.equals("office:automatic-styles"))
+        {
+            endAutomaticStyles();
+        }
+        else if (qName.equals("draw:frame") || qName.equals("draw:custom-shape"))
+        {
+            endDrawFrame();
         }
         else
         {
@@ -167,6 +193,19 @@ public class OpenDocFilter extends XMLFilterImpl
     }
     
     
+    private void endDrawFrame()  throws SAXException
+    {
+        // TODO Auto-generated method stub
+        endP();
+    }
+    private void endAutomaticStyles() throws SAXException
+    {
+        if (fileType.equals(FileType.CONTENT))
+        {
+            writePendingStyles();
+        }
+        endElement(currentElement);
+    }
     private void endSpan() throws SAXException
     {
         // TODO Auto-generated method stub
@@ -192,6 +231,19 @@ public class OpenDocFilter extends XMLFilterImpl
         endElement(currentElement);
         if (pendingStyle != null)
         {
+            styles.addPendingStyle(pendingStyle);            
+            pendingStyle = null;
+        }
+        
+    }
+    
+    
+    
+    protected void writePendingStyles() throws SAXException
+    {
+        while (styles.getPendingStyles().empty() == false)
+        {
+            pendingStyle = styles.getPendingStyles().pop();
             startElement(pendingStyle);
             ElementProperties t[] = new ElementProperties [pendingStyle.getChildren().size()];
             // warning: assumes children are childless
@@ -201,9 +253,7 @@ public class OpenDocFilter extends XMLFilterImpl
                 endElement(i);
             }
             endElement(pendingStyle);
-            pendingStyle = null;
         }
-        
     }
 
     /**
@@ -269,6 +319,29 @@ public class OpenDocFilter extends XMLFilterImpl
         {
             startP();
         }
+        else if (qName.equals("draw:frame") || qName.equals("draw:custom-shape"))
+        {
+            startP();
+        }
+        else if (qName.equals("table:table-row"))
+        {
+           startTableRow();
+        }
+        else if (qName.equals("table:table-cell"))
+        {
+            startTableCell();
+        }
+        else if (qName.equals("table:table-column"))
+        {
+            startTableColumn();
+        }
+        else if (qName.equals("table:table"))
+        {
+           column = 0;
+           columnStyles = new Vector<OpenDocStyle>();
+           columnStyles.insertElementAt(null, 0);
+           super.startElement(uri, localName, qName, atts);
+        }
         else if (qName.equals("text:span"))
         {
             startSpan();
@@ -278,7 +351,59 @@ public class OpenDocFilter extends XMLFilterImpl
             super.startElement(uri, localName, qName, atts);
         }
     }
-    
+    private void startTableRow() throws SAXException
+    {
+        column = 0;
+        startElement(currentElement);
+    }
+    private void startTableCell() throws SAXException
+    {
+        AttributesImpl atts = currentElement.getAttributes();
+        String repeats = atts.getValue("table:number-columns-repeated"); 
+        if (repeats == null)
+        {
+            column++;
+        }
+        else
+        {
+            try
+            {
+                column += Integer.parseInt(repeats);
+            }
+            catch (NumberFormatException e) {System.out.println(e);}
+        }
+        currentConv = new EnumMap<Type, OOStyleConverter>(Type.class);
+        resolveActiveStyles();
+        cStack.push(currentConv);
+        startElement(currentElement);
+    }
+    private void startTableColumn() throws SAXException
+    {
+        AttributesImpl atts = currentElement.getAttributes();
+        String repeats = atts.getValue("table:number-columns-repeated"); 
+        String cellStyle = atts.getValue("table:default-cell-style-name");
+        OpenDocStyle colStyle = 
+            styles.getStyle(OpenDocStyle.StyleFamily.TABLE_CELL, cellStyle);
+        if (repeats == null)
+        {
+            column++;
+            columnStyles.add(column, colStyle);
+        }
+        else
+        {
+            try
+            {
+                int repeatCount = Integer.parseInt(repeats); 
+                while (repeatCount-- > 0)
+                {
+                  column++;
+                  columnStyles.add(column, colStyle);
+                }
+            }
+            catch (NumberFormatException e) {System.out.println(e);}
+        }
+        startElement(currentElement);
+    }
     protected void resolveActiveStyles()
     {
         for (ScriptType.Type st : EnumSet.range(ScriptType.Type.LATIN, 
@@ -291,11 +416,19 @@ public class OpenDocFilter extends XMLFilterImpl
             {
                 // look at parent elements
                 ElementProperties pep = eStack.get(i);
+                OpenDocStyle.StyleFamily psf = 
+                    OpenDocStyle.getStyleForTag(pep.getQName());
                 int sNameIndex = pep.getAttributes().getIndex("text:style-name"); 
+                if (sNameIndex == -1)
+                    sNameIndex = pep.getAttributes().getIndex("table:default-cell-style-name");
+                if (sNameIndex == -1)
+                    sNameIndex = pep.getAttributes().getIndex("table:style-name");
+                if (sNameIndex == -1)
+                    sNameIndex = pep.getAttributes().getIndex("draw:style-name");
+                if (sNameIndex == -1)
+                    sNameIndex = pep.getAttributes().getIndex("presentation:style-name");
                 if (sNameIndex > -1)
                 {
-                    OpenDocStyle.StyleFamily psf = 
-                        OpenDocStyle.getStyleForTag(pep.getQName());
                     styleName = pep.getAttributes().getValue(sNameIndex); 
                     System.out.println(styleName + "[" + i + "] " + st);
                     ods = styles.getStyle(psf, styleName);
@@ -305,18 +438,34 @@ public class OpenDocFilter extends XMLFilterImpl
                     {
                         faceName = ods.getFaceName(st);
                     }
-                    if (faceName == null) // try default style
+                }
+                
+                if (faceName == null && psf != null)
+                {
+                    if (psf.equals(OpenDocStyle.StyleFamily.TABLE))
+                    {
+                        // with got right up to the table tag without a style
+                        // so use the column style
+                        if (column > 0 && column < columnStyles.size())
+                        {
+                            ods = columnStyles.get(column);
+                            ods = resolveFace(st, ods);
+                            if (ods != null)
+                                faceName = ods.getFaceName(st);
+                        }
+                    }
+                    else if (psf.equals(OpenDocStyle.StyleFamily.PARAGRAPH)) // try default style
                     {
                         ods = styles.getStyle(psf,null);
                         if (ods != null) 
                             faceName = ods.resolveFaceName(st);
                     }
                 }
-            }
-            if (addCurrentConvIfMatches(st, faceName, ods))
-            {
-                System.out.print(styleName + " " + st + " " + ods.getName());
-                System.out.println(" / " + ods.getConvertedStyle().getName());
+                if (addCurrentConvIfMatches(st, faceName, ods))
+                {
+                    System.out.print(styleName + " " + st + " " + ods.getName());
+                    System.out.println(" / " + ods.getConvertedStyle().getName());
+                }
             }
             currentStyle.put(st, ods);
         }
@@ -372,9 +521,17 @@ public class OpenDocFilter extends XMLFilterImpl
         AttributesImpl ai = currentElement.getAttributes();
         EnumMap <Type, Integer> fName = 
             new EnumMap <Type, Integer>(Type.class);  
-        fName.put(Type.LATIN, ai.getIndex("style:font-name"));
-        fName.put(Type.CJK, ai.getIndex("style:font-name-asian"));
-        fName.put(Type.COMPLEX, ai.getIndex("style:font-name-complex"));
+        int normalIndex = ai.getIndex("style:font-name");
+        if (normalIndex == -1) normalIndex = ai.getIndex("fo:font-name");
+        fName.put(Type.LATIN, normalIndex);
+        int asianIndex = ai.getIndex("style:font-name-asian");
+        if (asianIndex == -1) 
+            asianIndex = ai.getIndex("style:font-family-asian");
+        fName.put(Type.CJK, asianIndex);
+        int complexIndex = ai.getIndex("style:font-name-complex");
+        if (complexIndex == -1) 
+            complexIndex = ai.getIndex("style:font-family-complex");  
+        fName.put(Type.COMPLEX, complexIndex);
         // asian and CTL fonts may need more careful handling, especially from
         // parents
         for(Type sType : EnumSet.range(Type.LATIN,Type.CJK))
@@ -382,21 +539,34 @@ public class OpenDocFilter extends XMLFilterImpl
             String faceName = ai.getValue(fName.get(sType));
             if (currentStyleDef != null && faceName != null)
                 currentStyleDef.setFaceName(sType, faceName);
-            if (faceMap.containsKey(faceName))
+            if (faceMap.containsKey(faceName) || 
+                (faceName != null && converterMap.containsKey(faceName)))
             { 
-                CharConverter cc = faceMap.get(faceName).converter;
+                OOFaceConverter oofc = faceMap.get(faceName);
+                CharConverter cc = null;
+                String newFaceName = null;
+                if (oofc != null) 
+                {
+                    cc = oofc.converter;
+                    newFaceName = oofc.getNewOOFaceName();
+                }
+                else
+                {
+                    cc = converterMap.get(faceName);
+                    newFaceName = cc.getNewStyle().getFontName();
+                }
                 Type oldType =  cc.getOldStyle().getScriptType();
                 
                 if (currentStyleDef != null)
                 {
                     System.out.println(currentStyleDef.getName() + " " + 
                         currentStyleDef.getFamily().name() + " " + 
-                        faceMap.get(faceName).getNewOOFaceName());
+                        newFaceName);
                 }
                 else
                 {
                     System.out.println("No style: " + 
-                                       faceMap.get(faceName).getNewOOFaceName());
+                                       newFaceName);
                 }
                 if (oldType.equals(sType))
                 {
@@ -405,7 +575,7 @@ public class OpenDocFilter extends XMLFilterImpl
                     if (newType.equals(oldType))
                     {
                         ai.setValue(fName.get(sType), 
-                                    faceMap.get(faceName).getNewOOFaceName());
+                                newFaceName);
                     }
                     else
                     {
@@ -429,7 +599,7 @@ public class OpenDocFilter extends XMLFilterImpl
                         
                         tpAttrib.addAttribute(STYLE_URI, "style", 
                                 scriptAttrib.get(newType), ATTRIB_TYPE,
-                                faceMap.get(faceName).getNewOOFaceName());
+                                newFaceName);
                         pendingStyle = new ElementProperties(
                                 STYLE_URI, "style", "style:style",
                                 styleAttrib);

@@ -74,8 +74,10 @@ public class OpenDocParser implements org.thanlwinsoft.doccharconvert.DocInterfa
       abort = false;
       status = OpenDocParseStatus.UNINIT;
       OpenDocStyleManager styleManager = new OpenDocStyleManager();
-      odFilterStyles = new OpenDocFilter(converters, styleManager);
-      odFilterContent = new OpenDocFilter(converters, styleManager);
+      odFilterStyles = new OpenDocFilter(converters, styleManager, 
+                                         OpenDocFilter.FileType.STYLE);
+      odFilterContent = new OpenDocFilter(converters, styleManager, 
+                                          OpenDocFilter.FileType.CONTENT);
       byte [] buffer = new byte[BUFFER_LEN];
       try
       {
