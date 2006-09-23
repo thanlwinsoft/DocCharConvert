@@ -21,7 +21,7 @@ import org.thanlwinsoft.doccharconvert.opendoc.ScriptType.Type;
 public class OpenDocFilter extends XMLFilterImpl
 {
     public enum FileType { STYLE, CONTENT };
-    FileType fileType = null; 
+    FileType fileType = null;
     /** manager to store all the styles for different families */
     OpenDocStyleManager styles = null;
     /** map of text styles to char converters passed in from DocCharConvert */
@@ -51,12 +51,17 @@ public class OpenDocFilter extends XMLFilterImpl
     ElementProperties currentElement = null;
 
     static EnumMap <ScriptType.Type, String> scriptAttrib = 
-        new EnumMap <ScriptType.Type, String> (ScriptType.Type.class); 
+        new EnumMap <ScriptType.Type, String> (ScriptType.Type.class);
+    static EnumMap <ScriptType.Type, String> scriptFamilyAttrib = 
+        new EnumMap <ScriptType.Type, String> (ScriptType.Type.class);
     /** Static initialisation */
     {
         scriptAttrib.put(ScriptType.Type.LATIN, "style:font-name");
         scriptAttrib.put(ScriptType.Type.CJK, "style:font-name-asian");
         scriptAttrib.put(ScriptType.Type.COMPLEX, "style:font-name-complex");
+        scriptFamilyAttrib.put(ScriptType.Type.LATIN, "fo:font-family");
+        scriptFamilyAttrib.put(ScriptType.Type.CJK, "style:font-family-asian");
+        scriptFamilyAttrib.put(ScriptType.Type.COMPLEX, "style:font-family-complex");
     }
     /**
      * Construct a filter with the given style to converter mapping.
@@ -104,8 +109,8 @@ public class OpenDocFilter extends XMLFilterImpl
                     String result = converter.converter.convert(toConvert);
                     OpenDocStyle activeStyle = converter.style;
                     if (activeStyle != null)
-                        System.out.println(converter.converter.getName() + " on " + 
-                            activeStyle.getName() + " > " + 
+                        System.out.println(converter.converter.getName() + 
+                            " on " + activeStyle.getName() + " > " + 
                             activeStyle.convertedStyle.getName());
                     if (activeStyle != null && (l != length ||
                         (activeStyle != activeStyle.getConvertedStyle())))
@@ -408,7 +413,7 @@ public class OpenDocFilter extends XMLFilterImpl
     {
         for (ScriptType.Type st : EnumSet.range(ScriptType.Type.LATIN, 
                                                 ScriptType.Type.CJK))
-        {            
+        {
             OpenDocStyle ods = null;
             String faceName = null;
             String styleName = null;
@@ -426,7 +431,13 @@ public class OpenDocFilter extends XMLFilterImpl
                 if (sNameIndex == -1)
                     sNameIndex = pep.getAttributes().getIndex("draw:style-name");
                 if (sNameIndex == -1)
+                {
                     sNameIndex = pep.getAttributes().getIndex("presentation:style-name");
+                    if (sNameIndex > -1 && psf.equals(OpenDocStyle.StyleFamily.GRAPHIC))
+                    {
+                        psf = OpenDocStyle.StyleFamily.PRESENTATION;
+                    }
+                }
                 if (sNameIndex > -1)
                 {
                     styleName = pep.getAttributes().getValue(sNameIndex); 
@@ -437,6 +448,7 @@ public class OpenDocFilter extends XMLFilterImpl
                     if (ods != null)
                     {
                         faceName = ods.getFaceName(st);
+                        System.out.println(faceName);
                     }
                 }
                 
@@ -458,7 +470,10 @@ public class OpenDocFilter extends XMLFilterImpl
                     {
                         ods = styles.getStyle(psf,null);
                         if (ods != null) 
+                        {
                             faceName = ods.resolveFaceName(st);
+                            System.out.println("Default-para: " + faceName);
+                        }
                     }
                 }
                 if (addCurrentConvIfMatches(st, faceName, ods))
@@ -494,15 +509,30 @@ public class OpenDocFilter extends XMLFilterImpl
             OpenDocStyle ods)
     {
         boolean convMatches = false;
-        if (faceName != null && faceMap.containsKey(faceName))
+        if (faceName != null)
         {
-            OOFaceConverter ofc = faceMap.get(faceName);
-            CharConverter cc = ofc.converter;
-            if (cc.getOldStyle().getScriptType().equals(type))
+            if (faceMap.containsKey(faceName))
             {
-                currentConv.put(type, new OOStyleConverter(ofc, ods));
-                System.out.println(type.toString() + " " + faceName);
-                convMatches = true;
+                OOFaceConverter ofc = faceMap.get(faceName);
+                CharConverter cc = ofc.converter;
+                if (cc.getOldStyle().getScriptType().equals(type))
+                {
+                    currentConv.put(type, new OOStyleConverter(ofc, ods));
+                    System.out.println(type.toString() + " " + faceName);
+                    convMatches = true;
+                }
+            }
+            else if (converterMap.containsKey(faceName))
+            {
+                CharConverter cc = converterMap.get(faceName);
+                if (cc.getOldStyle().getScriptType().equals(type))
+                {
+                    OOStyleConverter oosc = new OOStyleConverter( 
+                        new OOFaceConverter(faceName, cc), ods);
+                    currentConv.put(type, oosc);
+                    System.out.println(type.toString() + " " + faceName);
+                    convMatches = true;
+                }
             }
         }
         return convMatches;
@@ -519,24 +549,22 @@ public class OpenDocFilter extends XMLFilterImpl
     private void startTextProperties() throws SAXException
     {
         AttributesImpl ai = currentElement.getAttributes();
-        EnumMap <Type, Integer> fName = 
-            new EnumMap <Type, Integer>(Type.class);  
-        int normalIndex = ai.getIndex("style:font-name");
-        if (normalIndex == -1) normalIndex = ai.getIndex("fo:font-name");
-        fName.put(Type.LATIN, normalIndex);
-        int asianIndex = ai.getIndex("style:font-name-asian");
-        if (asianIndex == -1) 
-            asianIndex = ai.getIndex("style:font-family-asian");
-        fName.put(Type.CJK, asianIndex);
-        int complexIndex = ai.getIndex("style:font-name-complex");
-        if (complexIndex == -1) 
-            complexIndex = ai.getIndex("style:font-family-complex");  
-        fName.put(Type.COMPLEX, complexIndex);
+        EnumMap <ScriptType.Type, String> attrib = null;
+        
         // asian and CTL fonts may need more careful handling, especially from
         // parents
-        for(Type sType : EnumSet.range(Type.LATIN,Type.CJK))
+        for (Type sType : EnumSet.range(Type.LATIN, Type.CJK))
         {
-            String faceName = ai.getValue(fName.get(sType));
+            String faceAttrib = scriptAttrib.get(sType);
+            int faceIndex = ai.getIndex(faceAttrib);
+            if (faceIndex == -1)
+            {
+                faceAttrib = scriptFamilyAttrib.get(sType);
+                faceIndex = ai.getIndex(faceAttrib);
+                attrib = scriptFamilyAttrib;
+            }
+            else attrib = scriptAttrib;
+            String faceName = ai.getValue(faceIndex);
             if (currentStyleDef != null && faceName != null)
                 currentStyleDef.setFaceName(sType, faceName);
             if (faceMap.containsKey(faceName) || 
@@ -571,11 +599,11 @@ public class OpenDocFilter extends XMLFilterImpl
                 if (oldType.equals(sType))
                 {
                     Type newType =  cc.getNewStyle().getScriptType();
-//                  simple case, there is no change of script type
+                    // simple case, there is no change of script type
                     if (newType.equals(oldType))
                     {
-                        ai.setValue(fName.get(sType), 
-                                newFaceName);
+                        ai.setValue(faceIndex, newFaceName);
+                        System.out.println("");
                     }
                     else
                     {
@@ -592,13 +620,13 @@ public class OpenDocFilter extends XMLFilterImpl
                             getUniqueStyleName(styleType, 
                                     currentStyleDef.getName() + "_conv");
       
-                        styleAttrib.addAttribute(STYLE_URI, "style", 
+                        styleAttrib.addAttribute(STYLE_URI, "name", 
                                 "style:name", ATTRIB_TYPE, newStyleName);
-                        styleAttrib.addAttribute(STYLE_URI, "style", 
+                        styleAttrib.addAttribute(STYLE_URI, "family", 
                                 "style:family", ATTRIB_TYPE, styleType);
                         
                         tpAttrib.addAttribute(STYLE_URI, "style", 
-                                scriptAttrib.get(newType), ATTRIB_TYPE,
+                                attrib.get(newType), ATTRIB_TYPE,
                                 newFaceName);
                         pendingStyle = new ElementProperties(
                                 STYLE_URI, "style", "style:style",

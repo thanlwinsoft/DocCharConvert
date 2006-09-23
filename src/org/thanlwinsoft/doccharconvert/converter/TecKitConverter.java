@@ -24,6 +24,7 @@
 
 package org.thanlwinsoft.doccharconvert.converter;
 
+import org.thanlwinsoft.doccharconvert.RawByteCharset;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.Config;
 
@@ -75,7 +76,10 @@ public class TecKitConverter extends ReversibleConverter
     {
         try
         {
-            charEncoding = Charset.forName(encoding);
+            if (encoding.equals(RawByteCharset.CHARSET_NAME))
+                charEncoding = new RawByteCharset();
+            else
+                charEncoding = Charset.forName(encoding);
         }
         catch (IllegalCharsetNameException e)
         {

@@ -24,9 +24,9 @@
 
 package org.thanlwinsoft.doccharconvert;
 
-import java.awt.Component;
 //import java.net.URLClassLoader;
 //import java.net.URL;
+import java.util.Collection;
 import java.util.Map;
 import java.util.Vector;
 import java.util.Iterator;
@@ -35,9 +35,6 @@ import java.util.TreeMap;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.util.Hashtable;
-import javax.swing.SwingUtilities;
-import javax.swing.JOptionPane;
-import java.lang.reflect.InvocationTargetException;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.opendoc.OpenDocParser;
@@ -55,28 +52,26 @@ public class BatchConversion implements Runnable
     ConversionMode mode = ConversionMode.OO_MODE;
     int currentFileIndex = 0;
     int fileCount = 0;
-    boolean stop = false;
+    //boolean stop = false;
     boolean running = false;
     DocInterface docInterface = null;
     boolean useFilePairs = false;
     TreeMap<File,File> filePairList = null;
     String status = "";
-    public final static int PROMPT_YES = 0;
-    public final static int PROMPT_NO = 1;
-    public final static int OVERWRITE_ALL = 2;
-    public final static int SKIP_ALL = 3;
-    private final static String [] OPTIONS = {"Yes","No","Yes to all","No to all"};
-    private int promptMode = PROMPT_NO;
+    
+    IMessageDisplay.Option promptMode = IMessageDisplay.Option.NO;
     boolean onlyStylesInUse = true;
     boolean autoRetry = true; // because it is so common to loose the OO connection
-    Component dialog = null;
     Charset iCharset = null;
     Charset oCharset = null;
     boolean commandLine = false;
+    IMessageDisplay msgDisplay = new NoGuiMessageDisplay();
+    boolean fileMode = false;
+    ProgressNotifier notifier = new ProgressNotifier();
+    
     /** Creates a new instance of BatchConversion */
-    public BatchConversion(Component dialog) 
+    public BatchConversion() 
     {
-        this.dialog = dialog;
         inputFileList = new Vector<File>();
         converterList = new Hashtable<TextStyle,CharConverter>();
     }
@@ -110,17 +105,20 @@ public class BatchConversion implements Runnable
         {   
             filePairList.put(oldF,newF);
         }
+        else throw new IllegalArgumentException("Pairs mode is not enabled");
     }
     public void removeFilePair(Map.Entry entry)
     {
-        removeFilePair((File)entry.getKey(),(File)entry.getValue());
+        removeFilePair((File)entry.getKey()/*,
+                       (File)entry.getValue()*/);
     }
-    public void removeFilePair(File oldF, File newF)
+    public void removeFilePair(File oldF)
     {
         if (useFilePairs)
         {
             filePairList.remove(oldF);
         }
+        else throw new IllegalArgumentException("Pairs mode is not enabled");
     }
     public ConversionMode getConversionMode()
     {
@@ -128,6 +126,7 @@ public class BatchConversion implements Runnable
     }
     public void addInputFile(File f)
     {
+        fileMode = true;
         if (!inputFileList.contains(f))
         {
             inputFileList.add(f);
@@ -163,6 +162,10 @@ public class BatchConversion implements Runnable
         {
             outputDir = null;
         }
+    }
+    public boolean hasInputFile(File input)
+    {
+        return filePairList.containsKey(input);
     }
     
     public File getOutputFile(File input)
@@ -220,6 +223,14 @@ public class BatchConversion implements Runnable
             converterList.remove(cc.getOldStyle());
         }
     }
+    public void removeAllConverters()
+    {
+        converterList.clear();
+    }
+    public Collection<CharConverter> getConverters()
+    {
+        return converterList.values();
+    }
     public boolean isValid()
     {
         boolean valid = true;
@@ -274,7 +285,7 @@ public class BatchConversion implements Runnable
     public void run()
     {
         Iterator i;
-        stop = false;
+        //stop = false;
         synchronized (this)
         {
             running = true;
@@ -290,6 +301,9 @@ public class BatchConversion implements Runnable
                 i = inputFileList.iterator();
             }
             currentFileIndex = 0;
+            notifier.beginTask(MessageUtil.getString("conversionInProgress"),
+                               getFileCount());
+            notifier.worked(0);
         }
         //promptMode = PROMPT_NO;
         Iterator c = converterList.values().iterator();
@@ -313,15 +327,16 @@ public class BatchConversion implements Runnable
             
             boolean retry = false;
             File inputFile = null;
-            while ((i.hasNext())&&(stop == false))
+            while ((i.hasNext())&&(notifier.isCancelled() == false))
             {
                 if (retry == false)
                 {
                     inputFile = (File)i.next();
                     synchronized (this)
                     {
-                        currentFileIndex++;
+                        notifier.worked(++currentFileIndex);
                         status = inputFile.getName();
+                        notifier.subTask(status);
                     }
                     if (docInterface == null)
                         initDocInterface();
@@ -334,50 +349,31 @@ public class BatchConversion implements Runnable
                 final String filePath = outputFile.getAbsolutePath();
                 if (outputFile.exists())
                 {
-                    if (promptMode == PROMPT_YES || promptMode == PROMPT_NO)
+                    if (promptMode == IMessageDisplay.Option.YES || 
+                        promptMode == IMessageDisplay.Option.NO)
                     {
-                        Runnable promptRunnable = new Runnable() {
-                            public void run()
-                            {
-                                int option =
-                                    JOptionPane.showOptionDialog(dialog, 
-                                        "File " + filePath +
-                                        " already exists. Do you want to overwrite?",
-                                        "Overwrite?",
-                                        JOptionPane.YES_NO_OPTION, 
-                                        JOptionPane.WARNING_MESSAGE,null,
-                                        OPTIONS,OPTIONS[PROMPT_NO]);
-                                setPromptMode(option);                                            
-                            }
-                        };
-                        try
-                        {
-                            SwingUtilities.invokeAndWait(promptRunnable);
-                        }
-                        catch (InterruptedException e) {}
-                        catch (InvocationTargetException ite)
-                        {
-                            System.out.println(ite.getMessage());
-                        }
+                        promptMode = 
+                            msgDisplay.showYesNoMessage(
+                                MessageUtil.getString("Msg_OverwriteFile", filePath),
+                                MessageUtil.getString("Msg_Overwrite"));
+                        
                     }
-                    switch (promptMode)
-                    {
-                        case PROMPT_YES:
-                        case OVERWRITE_ALL:
-                            break;
-                        case PROMPT_NO:
-                        case SKIP_ALL:
-                            continue; // don't process this file
-                    }
+                    if (promptMode.equals(IMessageDisplay.Option.NO) ||
+                        promptMode.equals(IMessageDisplay.Option.NO_ALL))
+                            continue;
                 }
                 try
                 {
                     docInterface.parse(inputFile,outputFile,converterList); 
                     retry = false;
+                    notifier.setFileStatus(inputFile, 
+                                           MessageUtil.getString("Finished"));
                 }
                 catch (java.lang.Exception e) 
                 {
                     e.printStackTrace();
+                    notifier.setFileStatus(inputFile, 
+                            MessageUtil.getString("ConversionError"));
                     // only retry if we have had at least one successful run
                     // since the last attempt
                     if (autoRetry && retry == false) 
@@ -389,43 +385,27 @@ public class BatchConversion implements Runnable
                     }
                     retry = true;
                     final String errorMsg = e.getLocalizedMessage();
-                    final String [] options = { OPTIONS[0],OPTIONS[1],OPTIONS[2]};
-                    Runnable promptRunnable = new Runnable() {
-                            public void run()
-                            {
-                                int option =
-                                    JOptionPane.showOptionDialog(dialog, 
-                                        "An error occured while converting "+
-                                        filePath +
-                                        ".\nDo you want to continue converting?\n"
-                                        + errorMsg,
-                                        "Error during conversion!",
-                                        JOptionPane.YES_NO_OPTION, 
-                                        JOptionPane.WARNING_MESSAGE,null,
-                                        options,options[2]);
-                                if (option == PROMPT_NO)
-                                {
-                                    stopConversion();
-                                    // reset docInterface
-                                    docInterface.destroy();
-                                    docInterface = null;
-                                }
-                                else
-                                {
-                                    if (option == 2) autoRetry = true;
-                                    docInterface.destroy();
-                                }
-                            }
-                        };
-                    try
+                    IMessageDisplay.Option option = 
+                        msgDisplay.showYesNoMessage(
+                            MessageUtil.getString("Msg_ConversionErrorDesc", 
+                                    inputFile.getAbsolutePath(), 
+                                    errorMsg),
+                            MessageUtil.getString("Msg_ConversionError"));
+                    
+                    if (option == IMessageDisplay.Option.NO)
                     {
-                        SwingUtilities.invokeAndWait(promptRunnable);
+                        stopConversion();
+                        // reset docInterface
+                        docInterface.destroy();
+                        docInterface = null;
                     }
-                    catch (InterruptedException e2) {}
-                    catch (InvocationTargetException ite2)
+                    else
                     {
-                        System.out.println(ite2.getMessage());
+                        if (option == IMessageDisplay.Option.YES_ALL) 
+                            autoRetry = true;
+                        docInterface.destroy();
                     }
+                    
                 }
                 if (commandLine) System.out.print('.');
             } // while ((i.hasNext())&&(stop == false))
@@ -472,16 +452,11 @@ public class BatchConversion implements Runnable
     }
     protected void showWarning(final String warningMsg)
     {
-        Runnable promptRunnable = new Runnable() {
-            public void run()
-            {
-                JOptionPane.showMessageDialog(dialog,
-                    "Conversion failed: (" + getFileBeingConverted() + 
-                    ")\n" + warningMsg,
-                    "Conversion Aborted!",JOptionPane.WARNING_MESSAGE);
-            }
-        };
-        SwingUtilities.invokeLater(promptRunnable);
+        
+        msgDisplay.showWarningMessage(
+                MessageUtil.getString("Msg_ConversionFailDesc",
+                                      getFileBeingConverted(), warningMsg), 
+                MessageUtil.getString("Msg_ConversionError"));
     }
     public synchronized int getCurrentFileIndex() { return currentFileIndex; }
     public synchronized int getFileCount() 
@@ -492,13 +467,10 @@ public class BatchConversion implements Runnable
     {
         return status;
     }
-    public synchronized void setPromptMode(int mode)
-    {
-        promptMode = mode;
-    }
+    
     public synchronized void stopConversion()
     {
-        stop = true;
+        notifier.setCancelled(true);
         if (docInterface != null) docInterface.abort();
     }
     public void destroy()
@@ -545,5 +517,21 @@ public class BatchConversion implements Runnable
       if (docInterface != null)
         return docInterface.getStatusDesc();
       else return new String("");
+    }
+    public void setMessageDisplay(IMessageDisplay newMsgDisplay)
+    {
+        msgDisplay = newMsgDisplay;
+    }
+    public void setFileMode(boolean fm)
+    {
+        fileMode = fm;
+    }
+    public boolean isFileMode()
+    {
+        return fileMode;
+    }
+    public void setProgressNotifier(ProgressNotifier pn)
+    {
+        notifier = pn;
     }
 }

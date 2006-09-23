@@ -231,8 +231,14 @@ public class OpenDocStyle
       tag2StyleFamily.put("table:table-cell",StyleFamily.TABLE_CELL);
       tag2StyleFamily.put("table:table-row",StyleFamily.TABLE_CELL);
       tag2StyleFamily.put("table:table-column",StyleFamily.TABLE_CELL);
-      tag2StyleFamily.put("draw:frame",StyleFamily.PRESENTATION);
+      //tag2StyleFamily.put("draw:frame",StyleFamily.PRESENTATION);
+      tag2StyleFamily.put("draw:frame",StyleFamily.GRAPHIC);
       tag2StyleFamily.put("draw:custom-shape",StyleFamily.GRAPHIC);
+      tag2StyleFamily.put("draw:ellipse",StyleFamily.GRAPHIC);
+      tag2StyleFamily.put("draw:line",StyleFamily.GRAPHIC);
+      tag2StyleFamily.put("draw:text-box",StyleFamily.GRAPHIC);
+      tag2StyleFamily.put("draw:rect",StyleFamily.GRAPHIC);
+      tag2StyleFamily.put("draw:path",StyleFamily.GRAPHIC);
       
   }
   public static StyleFamily getStyleForTag(String tag)

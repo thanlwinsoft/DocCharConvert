@@ -138,7 +138,8 @@ public class MainForm extends javax.swing.JFrame
         progressPanel.setBorder(new TitledBorder(guiResource.getString("panel_progress")));
         
         int cid = 0;
-        conversion = new BatchConversion(this);
+        conversion = new BatchConversion();
+        conversion.setMessageDisplay(new SwingMessageDisplay(this));
         Object mode = ConversionMode.getById(cid);
         while (mode != null)
         {
@@ -1267,7 +1268,7 @@ public class MainForm extends javax.swing.JFrame
                 return 7;
               }
             }
-            BatchConversion conv = new BatchConversion(null);
+            BatchConversion conv = new BatchConversion();
             try 
             {
               conv.setConversionMode(ConversionMode.getById(Integer.parseInt(mode)));
@@ -1335,7 +1336,6 @@ public class MainForm extends javax.swing.JFrame
             {
                 MainForm.loadFileList(conv, fileList);
             }
-            conv.setPromptMode(BatchConversion.OVERWRITE_ALL);
             new Thread(conv).start();
             do 
             {

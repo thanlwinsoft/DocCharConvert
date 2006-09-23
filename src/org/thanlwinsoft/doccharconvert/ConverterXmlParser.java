@@ -69,6 +69,7 @@ public class ConverterXmlParser
     File currentXmlFile = null;
     Vector<ChildConverter> converters = null;
     StringBuffer errorLog = null;
+    ProgressNotifier notifier = new ProgressNotifier();
     /** Creates a new instance of ConverterXmlParser */
     public ConverterXmlParser(File converterDir)
     {
@@ -103,17 +104,23 @@ public class ConverterXmlParser
             errorLog.append(Config.getCurrent().getMsgResource().getString("noConvDir"));
             return false;
         }
+        notifier.beginTask(MessageUtil.getString("ConverterXmlParser_parsing"),
+                           files.length);
         for (int i = 0; i<files.length; i++)
         {
             if (files[i].canRead())
             {
+                notifier.subTask(files[i].getName());
                 parseFile(files[i]);
+                notifier.worked(i);
             }
+            if (notifier.isCancelled()) break;
         }
-        if (errorLog.length() > 0) return false;
+        notifier.done();
+        if (errorLog.length() > 0) return false;        
         return true;
     }
-    public Vector getConverters()
+    public Vector<ChildConverter> getConverters()
     {
         return converters;
     }
@@ -295,18 +302,23 @@ public class ConverterXmlParser
         catch (InvocationTargetException e)
         {
             System.out.println(e.getLocalizedMessage());
+            errorLog.append(currentXmlFile.getAbsolutePath());
+            errorLog.append('\n');
             errorLog.append(e.getLocalizedMessage());
             errorLog.append('\n');
         }
         catch (InstantiationException e)
         {
             System.out.println(e.getLocalizedMessage());
+            errorLog.append(currentXmlFile.getAbsolutePath());
+            errorLog.append('\n');
             errorLog.append(e.getLocalizedMessage());
             errorLog.append('\n');
         }
         catch (IllegalAccessException e)
         {
             System.out.println(e.getLocalizedMessage());
+            errorLog.append('\n');
             errorLog.append(e.getLocalizedMessage());
             errorLog.append('\n');
         }
@@ -432,5 +444,9 @@ public class ConverterXmlParser
             type = double.class;
         }
         return type; 
+    }
+    public void setProgressNotifier(ProgressNotifier pn)
+    {
+        this.notifier = pn;
     }
 }
