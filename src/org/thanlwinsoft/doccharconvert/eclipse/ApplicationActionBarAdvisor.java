@@ -20,7 +20,7 @@ import org.eclipse.ui.application.IActionBarConfigurer;
 
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor 
 {
-//  Actions - important to allocate these only in makeActions, and then use them
+    //  Actions - important to allocate these only in makeActions, and then use them
     // in the fill methods.  This ensures that the actions aren't recreated
     // when fillActionBars is called with FILL_PROXY.
     private IWorkbenchAction exitAction;
@@ -29,6 +29,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
     private IWorkbenchAction copyAction;
     private IWorkbenchAction pasteAction;
     private IWorkbenchAction newWizardAction;
+    private IWorkbenchAction preferencesAction;
+    private IWorkbenchAction undoAction;
     
     //private IWorkbenchAction newWindowAction;
     //private OpenViewAction openViewAction;
@@ -66,10 +68,12 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         newWizardAction = ActionFactory.NEW_WIZARD_DROP_DOWN.create(window);
         register(newWizardAction);
         
-        register(ActionFactory.UNDO.create(window));
-        register(ActionFactory.PREFERENCES.create(window));
+        undoAction = ActionFactory.UNDO.create(window);
+        register(undoAction);
         
         
+        preferencesAction = ActionFactory.PREFERENCES.create(window); 
+        register(preferencesAction);
         //newWindowAction = ActionFactory.OPEN_NEW_WINDOW.create(window);
         //register(newWindowAction);
         
@@ -94,13 +98,13 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
             new MenuManager(MessageUtil.getString("Menu_Help"), 
                             IWorkbenchActionConstants.M_HELP);
         
-        
         menuBar.add(fileMenu);
         menuBar.add(editMenu);
+        GroupMarker gm = new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS);
+        menuBar.add(gm);
         menuBar.add(windowMenu);
         
         // Add a group marker indicating where action set menus will appear.
-        menuBar.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
         menuBar.add(helpMenu);
         
         // File
@@ -108,8 +112,16 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         fileMenu.add(new Separator());
         //fileMenu.add(messagePopupAction);
         //fileMenu.add(openViewAction);
+        fileMenu.add(newWizardAction);
         fileMenu.add(new Separator());
         fileMenu.add(exitAction);
+        
+        editMenu.add(undoAction);
+        editMenu.add(cutAction);
+        editMenu.add(copyAction);
+        editMenu.add(pasteAction);
+        
+        windowMenu.add(preferencesAction);
         
         //editMenu.add(new GroupMarker("org.eclipse.ui.edit.text.gotoLastEditPosition"));
         // Help
@@ -125,7 +137,12 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         //CoolBarManager coolBar = new CoolBarManager();
         IToolBarManager toolBar = new ToolBarManager(SWT.FLAT | SWT.RIGHT);
         coolBar.add(new ToolBarContributionItem(toolBar, "main"));
+        toolBar.add(undoAction);
+        toolBar.add(cutAction);
+        toolBar.add(copyAction);
+        toolBar.add(pasteAction);
         toolBar.add(new GroupMarker("Bar/additions"));
+        //toolBar.add(preferencesAction);
     }
     
 }

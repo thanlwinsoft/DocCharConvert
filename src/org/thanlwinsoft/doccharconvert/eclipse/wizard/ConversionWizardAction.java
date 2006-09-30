@@ -32,16 +32,13 @@ public class ConversionWizardAction implements IWorkbenchWindowActionDelegate
 	 */
 	public void run(IAction action) 
     {
-		/*MessageDialog.openInformation(
-			window.getShell(),
-			"DocCharConvertEclipse Plug-in",
-			"Hello, Eclipse world");*/
 		//      Create the wizard
         
         ConversionWizard wizard = new ConversionWizard(window); 
         WizardDialog wizardDialog = 
             new WizardDialog(window.getWorkbench().getActiveWorkbenchWindow().getShell(), 
                 wizard);
+        wizardDialog.setMinimumPageSize(400, 300);
         wizard.setDialog(wizardDialog);
         //wizardDialog.getWizard().init(window.getWorkbench(), 
         //                              window.getActivePage().getSelection());

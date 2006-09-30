@@ -40,6 +40,9 @@ public class ConversionFileListProvider implements IStructuredContentProvider
             this.statusMap = statusMap;
             this.input = inputFile;
         }
+        public File getInput() { return input; }
+        public File getOutput() { return conversion.getOutputFile(input); }
+        public String getStatus() { return statusMap.get(input); }
         public File getParent()
         {
             return input;

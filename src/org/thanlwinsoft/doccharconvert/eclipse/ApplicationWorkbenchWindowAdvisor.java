@@ -1,10 +1,17 @@
 package org.thanlwinsoft.doccharconvert.eclipse;
 
+
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+import org.osgi.service.prefs.Preferences;
+import org.thanlwinsoft.doccharconvert.MessageUtil;
+import org.thanlwinsoft.eclipse.EclipseToJavaPrefAdapter;
 
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
@@ -21,7 +28,23 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         configurer.setInitialSize(new Point(750, 550));
         configurer.setShowCoolBar(true);
         configurer.setShowStatusLine(true);
-        configurer.setTitle("Document Character Converter");
+        configurer.setTitle(MessageUtil.getString("dialogTitle"));
+        IPreferencesService service = Platform.getPreferencesService();
+        if (service != null)
+        {
+            ConfigurationScope configScope = new ConfigurationScope();
+            Preferences configurationNode = 
+                configScope.getNode("org.thanlwinsoft.doccharconvert");
+            try
+            {
+                new org.thanlwinsoft.doccharconvert.Config
+                    (new EclipseToJavaPrefAdapter(configurationNode));
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
     }
 
     

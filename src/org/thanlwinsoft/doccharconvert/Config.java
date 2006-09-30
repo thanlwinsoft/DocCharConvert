@@ -38,16 +38,16 @@ public class Config
 {
     private static Config instance = null; 
     private File basePath = null;
-    private File converterPath = null;
+    //private File converterPath = null;
     private Preferences packagePref = null;
-    private File inputPath = null;
-    private File outputPath = null;
+    //private File inputPath = null;
+    //private File outputPath = null;
     private final String INPUT_PATH = "InputBrowsePath";
     private final String OUTPUT_PATH  = "OutputBrowsePath";
-    private final String INSTALL_PATH = "InstallPath";
-    private final String OOPATH = "OOPath";
-    private final String OOUNO = "OOUNO";
-    private final String OOOPTIONS = "OOOptions";
+    public static  final String INSTALL_PATH = "InstallPath";
+    public static  final String OOPATH = "OOPath";
+    public static  final String OOUNO = "OOUNO";
+    public static  final String OOOPTIONS = "OOOptions";
     public static final String DEFAULT_WIN_INSTALL = "C:\\Program Files\\DocCharConvert";
     public static final String CONVERTER_CONFIG_PATH = "Converters";
     private String ooPath = "soffice";
@@ -56,9 +56,9 @@ public class Config
     private String oouno = OO_DEFAULT_UNO;
     private String ooOptions = OO_DEFAULT_OPTIONS;
     private String ooClassPath = "";
-    private int DEFAULT_FONT_SIZE = 20;
-    private String TEST_FONT_SIZE = "TestFontSize";
-    private int testFontSize = DEFAULT_FONT_SIZE;
+    public static final int DEFAULT_FONT_SIZE = 20;
+    public static final String TEST_FONT_SIZE = "TestFontSize";
+    //private int testFontSize = DEFAULT_FONT_SIZE;
     private final String OO_INVALID_PATH = "Invalid OpenOffice path: ";
     private final String OO_CLASSES_UNFOUND = "OpenOffice classes not found:";
     private final String OO_PATH_FAIL = 
@@ -68,9 +68,13 @@ public class Config
     private ResourceBundle i18nResource = null;
     private String resourceBase = 
         this.getClass().getPackage().getName().replace(".","/");
+    
     public static Config getCurrent()
     {
-        if (instance == null) instance = new Config();
+        if (instance == null) 
+        {
+            instance = new Config();
+        }
         return instance;
     }
     public static ResourceBundle messageResource()
@@ -79,6 +83,17 @@ public class Config
     }
     /** Creates a new instance of Config */
     protected Config()
+    {
+        packagePref = Preferences.userNodeForPackage(this.getClass());
+        init();
+    }
+    public Config(Preferences pref)
+    {
+        this.packagePref = pref;
+        init();
+        Config.instance = this;
+    }
+    protected void init()
     {
         String className = this.getClass().getPackage().getName();
         URL classSource = 
@@ -118,18 +133,19 @@ public class Config
         }
         if (basePath == null)
         {
-        	basePath = new File(DEFAULT_WIN_INSTALL);
-        	if (!basePath.isDirectory())
-        		basePath = new File(System.getProperty("user.home"));
+            basePath = new File(DEFAULT_WIN_INSTALL);
+            if (!basePath.isDirectory())
+                basePath = new File(System.getProperty("user.home"));
         }
-        converterPath = new File(basePath, CONVERTER_CONFIG_PATH);
-        packagePref = Preferences.userNodeForPackage(this.getClass());
-        inputPath = new File(packagePref.get(INPUT_PATH, ""));
-        outputPath = new File(packagePref.get(OUTPUT_PATH, ""));
+        File converterPath = new File(basePath, CONVERTER_CONFIG_PATH);
+        
+        
+        //inputPath = new File(packagePref.get(INPUT_PATH, ""));
+        //outputPath = new File(packagePref.get(OUTPUT_PATH, ""));
         ooPath = packagePref.get(OOPATH, OOMainInterface.OO_PATH);
         ooOptions = packagePref.get(OOOPTIONS, OOMainInterface.RUN_OO);
         oouno = packagePref.get(OOUNO, OOMainInterface.UNO_URL);
-        testFontSize = packagePref.getInt(TEST_FONT_SIZE, DEFAULT_FONT_SIZE);
+        //testFontSize = packagePref.getInt(TEST_FONT_SIZE, DEFAULT_FONT_SIZE);
         try
         {
             File defaultConvPath = converterPath;
@@ -147,8 +163,8 @@ public class Config
         {
             System.out.println(e.getLocalizedMessage());
         }
-        if (!inputPath.isDirectory()) inputPath = null;
-        if (!outputPath.isDirectory()) outputPath = null;
+        //if (!inputPath.isDirectory()) inputPath = null;
+        //if (!outputPath.isDirectory()) outputPath = null;
         try
         {
             i18nResource = ResourceBundle.getBundle(resourceBase + "/Messages");
@@ -160,20 +176,22 @@ public class Config
     }
     public File getConverterPath()
     {
-        return converterPath;
+        return new File(packagePref.get(CONVERTER_CONFIG_PATH, CONVERTER_CONFIG_PATH));
     }
     public File getInputPath()
     {
-        return inputPath;
+        return new File(packagePref.get(INPUT_PATH, ""));
     }
     public File getOutputPath()
     {
-        if (outputPath == null) outputPath = inputPath;
-        return outputPath;
+        String path = packagePref.get(OUTPUT_PATH, "");
+        if (path == null)
+            path = packagePref.get(INPUT_PATH, "");
+        return new File(path);
     }
     public void setConverterPath(File file)
     {
-        converterPath = file;
+        //converterPath = file;
         try
         {
             packagePref.put(INSTALL_PATH, file.getCanonicalPath());
@@ -186,7 +204,7 @@ public class Config
     
     public void setInputPath(File file)
     {
-        inputPath = file;
+        //inputPath = file;
         try
         {
             packagePref.put(INPUT_PATH, file.getCanonicalPath());
@@ -198,7 +216,7 @@ public class Config
     }
     public void setOutputPath(File file)
     {
-        outputPath = file;
+        //outputPath = file;
         try
         {
             packagePref.put(OUTPUT_PATH, file.getCanonicalPath());
@@ -335,12 +353,19 @@ public class Config
     }
     public void setTestFontSize(int size) 
     { 
-        testFontSize = size; 
-        packagePref.putInt(TEST_FONT_SIZE, DEFAULT_FONT_SIZE);
+        //testFontSize = size; 
+        packagePref.putInt(TEST_FONT_SIZE, size);
     }
     public String getOOPath() { return ooPath; }
     public String getOOOptions() { return ooOptions; }
     public String getOOUNO() { return oouno; }
     public ResourceBundle getMsgResource() { return i18nResource; }
-    public int getTestFontSize() { return testFontSize; }
+    public void setBasePath(File basePath)
+    {
+        this.basePath = basePath;
+    }
+    public int getTestFontSize() 
+    { 
+        return packagePref.getInt(TEST_FONT_SIZE, DEFAULT_FONT_SIZE); 
+    }
 }

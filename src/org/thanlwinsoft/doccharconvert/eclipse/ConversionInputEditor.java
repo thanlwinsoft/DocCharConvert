@@ -3,6 +3,7 @@
  */
 package org.thanlwinsoft.doccharconvert.eclipse;
 
+import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentListener;
@@ -12,7 +13,13 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.editors.text.TextEditor;
+import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.ConversionHelper;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionResult;
@@ -31,6 +38,27 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
         super();
     }
     
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.editors.text.TextEditor#createActions()
+     */
+    @Override
+    protected void createActions()
+    {
+        // TODO Auto-generated method stub
+        super.createActions();
+        getEditorSite().getActionBars().setGlobalActionHandler(
+                ActionFactory.COPY.getId(),
+                this.getAction(ActionFactory.COPY.getId()));
+        getEditorSite().getActionBars().setGlobalActionHandler(
+                ActionFactory.CUT.getId(),
+                this.getAction(ActionFactory.CUT.getId()));
+        getEditorSite().getActionBars().setGlobalActionHandler(
+                ActionFactory.PASTE.getId(),
+                this.getAction(ActionFactory.PASTE.getId()));
+        
+        
+    }
+
     /* (non-Javadoc)
      * @see org.eclipse.ui.editors.text.TextEditor#dispose()
      */
@@ -77,7 +105,8 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
             String faceName = charConverter.getOldStyle().getFontName();
             StyledText textWidget = this.getSourceViewer().getTextWidget();
             if (textWidget == null) return;
-            fontSize = textWidget.getFont().getFontData()[0].getHeight();
+            //fontSize = textWidget.getFont().getFontData()[0].getHeight();
+            fontSize = Config.getCurrent().getTestFontSize();
             FontData fd = new FontData(faceName, fontSize, SWT.NORMAL);
             Shell shell = this.getSite().getWorkbenchWindow().getShell();
             Font font = new Font(shell.getDisplay(), fd);
@@ -129,13 +158,14 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
                 msgBox.open();
                 return;
             }
-            String converted = charConverter.convert(document.get());
+            String original = document.get();
+            String converted = charConverter.convert(original);
             ConversionResult cr = (ConversionResult)
-                this.getSite().getPage().findView(Perspective.CONVERSION_RESULT);
+                getSite().getPage().findView(Perspective.CONVERSION_RESULT);
             cr.setResult(charConverter.getNewStyle().getFontName(), 
                          fontSize, converted);
             cr = (ConversionResult)
-                this.getSite().getPage().findView(Perspective.REVERSE_CONVERSION);
+                getSite().getPage().findView(Perspective.REVERSE_CONVERSION);
             String reversed = "";
             if (reverseConverter != null)
             {
@@ -145,6 +175,16 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
             }
             cr.setResult(charConverter.getOldStyle().getFontName(), 
                          fontSize, reversed);
+            ConversionResult unicode = (ConversionResult)
+                getSite().getPage().findView(Perspective.DEBUG_UNICODE);
+            StringBuilder hexCodes = new StringBuilder();
+            ConversionHelper.debugDump(original, hexCodes);
+            hexCodes.append("\n");
+            ConversionHelper.debugDump(converted, hexCodes);
+            hexCodes.append("\n");
+            ConversionHelper.debugDump(reversed, hexCodes);
+            
+            unicode.setResult(JFaceResources.getTextFont(), hexCodes.toString());
         }
         catch (CharConverter.RecoverableException e)
         {
@@ -162,6 +202,17 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
             // prevent further conversions
             charConverter = null;
         }
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.texteditor.AbstractTextEditor#init(org.eclipse.ui.IEditorSite, org.eclipse.ui.IEditorInput)
+     */
+    @Override
+    public void init(IEditorSite site, IEditorInput input) throws PartInitException
+    {
+        // TODO Auto-generated method stub
+        super.init(site, input);
+        
     }
     
 }

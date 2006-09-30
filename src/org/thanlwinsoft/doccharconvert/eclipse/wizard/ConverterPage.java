@@ -74,7 +74,7 @@ public class ConverterPage extends WizardPage implements SelectionListener
         //mainControl.pack();
         setControl(mainControl);
         setPageComplete(validatePage());
-        
+        converterList.setFocus();
     }
     /* (non-Javadoc)
      * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
@@ -183,11 +183,14 @@ public class ConverterPage extends WizardPage implements SelectionListener
             xmlParser.setProgressNotifier(new Notifier(monitor));
             xmlParser.parse();
             availableConverters = xmlParser.getConverters();
-            display.asyncExec (new Runnable () {
-                public void run () {
-                    converterViewer.add(availableConverters.toArray());
-                }
-            });
+            if (availableConverters != null && availableConverters.size() > 0)
+            {
+                display.asyncExec (new Runnable () {
+                    public void run () {
+                        converterViewer.add(availableConverters.toArray());
+                    }
+                });
+            }
             monitor.done();
         }
 

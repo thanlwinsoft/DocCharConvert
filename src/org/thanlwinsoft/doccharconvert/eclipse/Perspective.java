@@ -20,22 +20,25 @@ public class Perspective implements IPerspectiveFactory
     public void createInitialLayout(IPageLayout layout) 
     {
         String editorArea = layout.getEditorArea();
-        layout.setEditorAreaVisible(true);
+        layout.setEditorAreaVisible(false);
         layout.getViewLayout(layout.getEditorArea()).setCloseable(false);
+        
         //layout.addNewWizardShortcut("DocCharConvertEclipse.wizard");
         /*
         IFolderLayout folderB = layout.createFolder(FOLDER_B, 
                 IPageLayout.BOTTOM, 0.25f, editorArea);*/
         IFolderLayout folderA = layout.createFolder(FOLDER_A, 
-                IPageLayout.BOTTOM, 0.75f, editorArea);
+                IPageLayout.BOTTOM, 0.6f, editorArea);
         //folderA.addView(CONVERSION_RESULT);
         folderA.addPlaceholder(DEBUG_UNICODE);
         folderA.addPlaceholder(CONV_FILE_LIST);
-        
-        layout.addStandaloneView(REVERSE_CONVERSION,  false, 
-                IPageLayout.BOTTOM, 0.6667f, editorArea);
-        layout.addStandaloneView(CONVERSION_RESULT,  false, 
-                IPageLayout.BOTTOM, 0.5f, editorArea);
-        
+        layout.addStandaloneViewPlaceholder(CONVERSION_RESULT,  
+                IPageLayout.RIGHT, 0.5f, editorArea, true);
+        layout.addStandaloneViewPlaceholder(REVERSE_CONVERSION,  
+                IPageLayout.LEFT, 0.5f, FOLDER_A, true);
+        layout.addShowViewShortcut(CONVERSION_RESULT);
+        layout.addShowViewShortcut(REVERSE_CONVERSION);
+        layout.addShowViewShortcut(DEBUG_UNICODE);
+        layout.addShowViewShortcut(CONV_FILE_LIST);
 	}
 }

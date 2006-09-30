@@ -21,6 +21,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
@@ -89,9 +90,9 @@ public class ConversionWizard extends Wizard
             }
             else
             {
-                wbWindow.getActivePage().showView(Perspective.CONV_FILE_LIST);
-                IViewPart fileList = 
-                    wbWindow.getActivePage().findView(Perspective.CONV_FILE_LIST);
+                IViewPart fileList = wbWindow.getActivePage().showView(Perspective.CONV_FILE_LIST, 
+                        null, IWorkbenchPage.VIEW_ACTIVATE);
+                
                 ConversionFileListView listView = null; 
                 if (fileList != null)
                 {
@@ -106,40 +107,6 @@ public class ConversionWizard extends Wizard
                 ConversionRunnable runnable = new ConversionRunnable(conversion, listView);
                 
                 dialog.run(false, true, runnable);
-                //Object [] entries = conversion.getInputFileList();
-                /*
-                for (int i = 0; i < entries.length; i++)
-                {
-                    if (entries[i] instanceof Map.Entry)
-                    {
-                        Map.Entry me = (Map.Entry)entries[i];
-                        if (me.getKey() instanceof File)
-                        {
-                            listView.updateStatus((File)(me.getKey()), 
-                                    MessageUtil.getString("Finished"));
-                        }
-                    }                    
-                }
-                */
-//                wbWindow.getShell().getDisplay().asyncExec(new Runnable() {
-//                    public void run()
-//                    {
-//                        try
-//                        {
-//                            wbWindow.run(true, false, new ConversionRunnable(conversion));
-//                        } 
-//                        catch (InvocationTargetException e)
-//                        {
-//                            // TODO Auto-generated catch block
-//                            e.printStackTrace();
-//                        } 
-//                        catch (InterruptedException e)
-//                        {
-//                            // TODO Auto-generated catch block
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                });
             }
         } 
         catch (PartInitException e) 
@@ -170,9 +137,8 @@ public class ConversionWizard extends Wizard
         Collection <CharConverter> converters = conversion.getConverters();
         // just use the first converter
         CharConverter cc = converters.iterator().next();
-                
-        wbWindow.getActivePage().showView(Perspective.CONVERSION_RESULT);
-        wbWindow.getActivePage().showView(Perspective.REVERSE_CONVERSION);
+        
+        
         
         IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
         IProject myProject = myWorkspaceRoot.getProject("DocCharConvertData");
@@ -198,10 +164,11 @@ public class ConversionWizard extends Wizard
             // tmpFile.delete(true, false, null);
             if (tmpFile.exists() == false)
             {
+              
               tmpFile.create(new ByteArrayInputStream(dummy), true, null);
             }
-                        
-            eInput = new FileEditorInput(tmpFile);            
+            tmpFile.setCharset("UTF-8", null);   
+            eInput = new FileEditorInput(tmpFile);
         }
         if (eInput != null)
         {
@@ -222,16 +189,29 @@ public class ConversionWizard extends Wizard
             {
                 ePart = wbWindow.getActivePage().openEditor(eInput,
                     "org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor");
+                wbWindow.getActivePage().setEditorAreaVisible(true);
             }
+            wbWindow.getActivePage().showView(Perspective.CONVERSION_RESULT,
+                    null, IWorkbenchPage.VIEW_VISIBLE);
+            wbWindow.getActivePage().showView(Perspective.REVERSE_CONVERSION,
+                    null, IWorkbenchPage.VIEW_VISIBLE);
+            wbWindow.getActivePage().showView(Perspective.DEBUG_UNICODE,
+                    null, IWorkbenchPage.VIEW_VISIBLE);
+            
             
             if (ePart != null && ePart instanceof ConversionInputEditor)
             {
                 ConversionInputEditor te = (ConversionInputEditor)ePart;
-                CharConverter reverse = 
-                    ReverseConversion.get(converterPage.getConverters(), 
-                                          (ChildConverter)cc);
-                te.setConversion(cc, reverse);           
+                if (converterPage.getConverters() != null &&
+                    converterPage.getConverters().size() > 0)
+                {
+                    CharConverter reverse = 
+                        ReverseConversion.get(converterPage.getConverters(), 
+                                              (ChildConverter)cc);
+                    te.setConversion(cc, reverse);
+                }      
             }
+            
         }
         
     }

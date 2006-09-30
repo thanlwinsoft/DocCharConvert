@@ -58,6 +58,10 @@ public class FileNameWidget extends Composite
         });
         this.fileDialogType = type;
     }
+    public void setLabelWidth(int width)
+    {
+    	((RowData)(label.getLayoutData())).width = width;
+    }
     public String getFileName()
     {
         return fileName.getText();
@@ -86,7 +90,10 @@ public class FileNameWidget extends Composite
         }
         String filePath = dialog.open();
         if (filePath != null)
-            setFileName(filePath);   
+        {
+            setFileName(filePath);
+            dialog.setFilterPath(new File(filePath).getParent() + "/*");
+        }
     }
     public void    addModifyListener(ModifyListener listener)
     {
