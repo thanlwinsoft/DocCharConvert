@@ -4,6 +4,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.intro.IIntroManager;
 import org.eclipse.jface.wizard.WizardDialog;
 /**
  * Our sample action implements workbench action delegate.
@@ -33,16 +34,22 @@ public class ConversionWizardAction implements IWorkbenchWindowActionDelegate
 	public void run(IAction action) 
     {
 		//      Create the wizard
-        
+        IWorkbenchWindow aww = window.getWorkbench().getActiveWorkbenchWindow();
+                  
         ConversionWizard wizard = new ConversionWizard(window); 
         WizardDialog wizardDialog = 
-            new WizardDialog(window.getWorkbench().getActiveWorkbenchWindow().getShell(), 
+            new WizardDialog(aww.getShell(), 
                 wizard);
         wizardDialog.setMinimumPageSize(400, 300);
         wizard.setDialog(wizardDialog);
         //wizardDialog.getWizard().init(window.getWorkbench(), 
         //                              window.getActivePage().getSelection());
         wizardDialog.open();
+        
+        // Not sure whether to close this automatically or not.
+//        IIntroManager introManager = aww.getWorkbench().getIntroManager(); 
+//        if (introManager.getIntro() != null)
+//            introManager.closeIntro(introManager.getIntro());
 	}
 
 	/**

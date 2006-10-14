@@ -2,6 +2,8 @@ package org.thanlwinsoft.doccharconvert.eclipse;
 
 
 import org.eclipse.ui.plugin.*;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.osgi.framework.BundleContext;
 
@@ -52,4 +54,14 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin {
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return AbstractUIPlugin.imageDescriptorFromPlugin("DocCharConvertEclipse", path);
 	}
+
+    public static void log(int warning, String string, Throwable exception)
+    {
+        if (getDefault() == null)
+            System.out.println("Error " + warning + ": " + string);
+        else
+            getDefault().getLog().log(new Status(warning,
+                        "org.thanlwinsoft.doccharconvert",
+                        IStatus.OK, string,exception));
+    }
 }

@@ -160,7 +160,7 @@ public class ConversionWizard extends Wizard
         if (tmpFolder.exists())
         {
             tmpFile = tmpFolder.getFile("DocCharConvertScratch.txt");
-            byte [] dummy = { 0 };
+            byte [] dummy = { '\n' };
             // tmpFile.delete(true, false, null);
             if (tmpFile.exists() == false)
             {

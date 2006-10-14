@@ -113,4 +113,17 @@ public class EncodingPage extends WizardPage implements SelectionListener
         // TODO Auto-generated method stub
         
     }
+    /* (non-Javadoc)
+     * @see org.eclipse.jface.dialogs.DialogPage#setVisible(boolean)
+     */
+    @Override
+    public void setVisible(boolean visible)
+    {
+        if (visible)
+        {
+            inputCombo.setFocus();
+        }   
+        super.setVisible(visible);
+    }
+    
 }

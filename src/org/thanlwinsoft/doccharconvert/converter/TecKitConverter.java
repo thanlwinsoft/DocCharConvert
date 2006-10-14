@@ -36,6 +36,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.CharBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
 import java.text.CharacterIterator;
@@ -200,12 +201,19 @@ public class TecKitConverter extends ReversibleConverter
             InputStreamReader ir = new InputStreamReader(is, newEncoding);
             BufferedReader bReader = new BufferedReader(ir);
             // reset the array ready for the next conversion
-            String line = null;
+            //String line = null;
+            int readCount = 0;
+            char [] buffer = new char[1024];
             do 
             {
-                line = bReader.readLine();
-                if (line != null) ob.append(line);
-            } while (line != null);
+                readCount = bReader.read(buffer, 0, 1024);
+                if (readCount > 0)
+                {
+                    ob.append(buffer, 0, readCount);
+                }
+                //line = bReader.readLine();
+                //if (line != null) ob.append(line);
+            } while (readCount > 0); //(line != null);
             bReader.close();
             if (debug) 
             {

@@ -26,6 +26,10 @@ package org.thanlwinsoft.doccharconvert;
 
 import java.io.File;
 import javax.swing.JOptionPane;
+
+import org.eclipse.core.runtime.IStatus;
+import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
+
 import java.net.URL;
 import java.util.prefs.Preferences;
 import java.util.ResourceBundle;
@@ -48,7 +52,8 @@ public class Config
     public static  final String OOPATH = "OOPath";
     public static  final String OOUNO = "OOUNO";
     public static  final String OOOPTIONS = "OOOptions";
-    public static final String DEFAULT_WIN_INSTALL = "C:\\Program Files\\DocCharConvert";
+    public static final String DEFAULT_WIN_INSTALL = 
+        "C:\\Program Files\\ThanLwinSoft.org\\DocCharConvert";
     public static final String CONVERTER_CONFIG_PATH = "Converters";
     private String ooPath = "soffice";
     public static final String OO_DEFAULT_UNO = "uno:socket,host=localhost,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager";
@@ -149,15 +154,17 @@ public class Config
         try
         {
             File defaultConvPath = converterPath;
-            converterPath = new File(packagePref.get(INSTALL_PATH, 
+            converterPath = new File(packagePref.get(CONVERTER_CONFIG_PATH, 
                                                 converterPath.getCanonicalPath()));
             if (!converterPath.exists()) 
             {
                 // revert to default
                 converterPath = defaultConvPath;
-                converterPath.mkdirs();
+                //converterPath.mkdirs();
+                if (converterPath.exists())
+                    packagePref.put(CONVERTER_CONFIG_PATH, converterPath.getCanonicalPath());
             }
-            packagePref.put(INSTALL_PATH, converterPath.getCanonicalPath());
+            
         }
         catch (java.io.IOException e)
         {
@@ -176,7 +183,16 @@ public class Config
     }
     public File getConverterPath()
     {
-        return new File(packagePref.get(CONVERTER_CONFIG_PATH, CONVERTER_CONFIG_PATH));
+        File path = new File(packagePref.get(CONVERTER_CONFIG_PATH, CONVERTER_CONFIG_PATH));
+        if (path.isDirectory()) return path;
+        DocCharConvertEclipsePlugin.log(IStatus.WARNING,"No converter path: " +
+                        path.getAbsolutePath(), null);
+        // try making a guess based on where the windows installer puts it
+        path = new File("configuration" + File.separator + 
+                        "org.thanlwinsoft.doccharconvert" + File.separator +
+                        CONVERTER_CONFIG_PATH);
+        if (path.isDirectory()) setConverterPath(path);
+        return path;
     }
     public File getInputPath()
     {
@@ -194,7 +210,8 @@ public class Config
         //converterPath = file;
         try
         {
-            packagePref.put(INSTALL_PATH, file.getCanonicalPath());
+            if (file.isDirectory())
+                packagePref.put(CONVERTER_CONFIG_PATH, file.getCanonicalPath());
         }
         catch (java.io.IOException e) 
         {

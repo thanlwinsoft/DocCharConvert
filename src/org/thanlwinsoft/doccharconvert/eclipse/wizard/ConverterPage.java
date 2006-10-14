@@ -9,8 +9,11 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.wizard.IWizardPage;
@@ -26,13 +29,18 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
+import org.osgi.service.prefs.Preferences;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
 import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.ConverterXmlParser;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
+import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.Notifier;
+import org.thanlwinsoft.doccharconvert.eclipse.PreferencesInitializer;
 /**
  * @author keith
  *
@@ -93,7 +101,8 @@ public class ConverterPage extends WizardPage implements SelectionListener
     protected boolean validatePage()
     {
         conversion.removeAllConverters();
-        IStructuredSelection selection = (IStructuredSelection)converterViewer.getSelection();
+        IStructuredSelection selection = 
+            (IStructuredSelection)converterViewer.getSelection();
         Iterator is = selection.iterator();
         
         while (is.hasNext())
@@ -113,7 +122,9 @@ public class ConverterPage extends WizardPage implements SelectionListener
     {
         ConverterXmlParser xmlParser = 
             new ConverterXmlParser(getConverterPath());
-        ParseRunnable pr = new ParseRunnable(xmlParser, this.getShell().getDisplay());
+        
+        ParseRunnable pr = new ParseRunnable(xmlParser, 
+                                             this.getShell().getDisplay());
         try
         {
             getWizard().getContainer().run(true, false, pr);
@@ -128,7 +139,8 @@ public class ConverterPage extends WizardPage implements SelectionListener
         catch (InvocationTargetException e)
         {
             MessageDialog.openError(getShell(), "Error", 
-                    "Error converting: InvocationTargetException " + e.getMessage());
+                    "Error converting: InvocationTargetException " + 
+                    e.getMessage());
         }
         catch (InterruptedException e)
         {
@@ -140,7 +152,30 @@ public class ConverterPage extends WizardPage implements SelectionListener
     
     static File getConverterPath()
     {
+        
         File converterConfigPath = Config.getCurrent().getConverterPath();
+        if (converterConfigPath.isDirectory() == false)
+        {
+            PreferencesInitializer initPref = new PreferencesInitializer();
+            
+            IPreferenceStore prefStore = initPref.getPrefStore();
+            
+            converterConfigPath = 
+                new File(prefStore.getString(Config.CONVERTER_CONFIG_PATH));
+            DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                            "Using pref store directly. " + 
+                            converterConfigPath, null);
+            
+        }
+        if (converterConfigPath.isDirectory() == false)
+        {
+            Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+                .getShell();
+            MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING);
+            msgBox.setMessage(MessageUtil.getString("NoConverterPath",
+                              converterConfigPath.getAbsolutePath()));
+            msgBox.open();
+        }
         System.out.println("Using config dir:" + 
             converterConfigPath.getAbsolutePath());
         return converterConfigPath;
@@ -195,4 +230,15 @@ public class ConverterPage extends WizardPage implements SelectionListener
         }
 
     }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.jface.dialogs.DialogPage#setVisible(boolean)
+     */
+    @Override
+    public void setVisible(boolean visible)
+    {
+        super.setVisible(visible);
+        converterList.setFocus();
+    }
+    
 }

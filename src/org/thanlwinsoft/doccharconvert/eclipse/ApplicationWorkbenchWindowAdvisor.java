@@ -39,6 +39,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
             {
                 new org.thanlwinsoft.doccharconvert.Config
                     (new EclipseToJavaPrefAdapter(configurationNode));
+                // can't initialize pref here - there is no shell yet
             }
             catch (Exception e)
             {

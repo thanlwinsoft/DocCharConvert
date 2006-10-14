@@ -31,6 +31,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
     private IWorkbenchAction newWizardAction;
     private IWorkbenchAction preferencesAction;
     private IWorkbenchAction undoAction;
+    private WelcomeAction welcomeAction;
     
     //private IWorkbenchAction newWindowAction;
     //private OpenViewAction openViewAction;
@@ -71,6 +72,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         undoAction = ActionFactory.UNDO.create(window);
         register(undoAction);
         
+        welcomeAction = new WelcomeAction();
+        register(welcomeAction);
         
         preferencesAction = ActionFactory.PREFERENCES.create(window); 
         register(preferencesAction);
@@ -123,6 +126,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         
         windowMenu.add(preferencesAction);
         
+        helpMenu.add(welcomeAction);
         //editMenu.add(new GroupMarker("org.eclipse.ui.edit.text.gotoLastEditPosition"));
         // Help
         helpMenu.add(aboutAction);

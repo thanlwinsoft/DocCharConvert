@@ -4,6 +4,7 @@
 package org.thanlwinsoft.doccharconvert.eclipse;
 
 import java.io.File;
+import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.eclipse.core.resources.IProject;
@@ -33,7 +34,7 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 public class MainPreferencesPage extends FieldEditorPreferencePage 
     implements IWorkbenchPreferencePage
 {
-    
+    public static final String CONVERTERS = Config.CONVERTER_CONFIG_PATH;
     private ScopedPreferenceStore prefStore = null;
     
     public MainPreferencesPage()
@@ -77,35 +78,24 @@ public class MainPreferencesPage extends FieldEditorPreferencePage
             "org.thanlwinsoft.doccharconvert");
         return prefStore;
     }
-    /* (non-Javadoc)
+    /** 
+     * Initialises the preferences
+     * The default Converter path as follows:
+     * 1. If a Converters project exists in the current workbench, then that is
+     *    used.
+     * 2. If a Converters directory exists at the same level as the workbench
+     *    directory, that is used.
+     * 3. If a Converters subdirectory exists in the install area, that is used.
+     * 4. If a Converters directory exists in the plugins state location area,
+     *    that is used.
+     * 5. If all else fails a Converters project is created in the current 
+     *    workspace.   
      * @see org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
      */
     public void init(IWorkbench workbench)
     {
         doGetPreferenceStore();
-        IWorkspace workspace = ResourcesPlugin.getWorkspace(); 
-        IProject converters = workspace.getRoot().getProject("Converters");
-        String path = "Converters";
-        try
-        {
-            if (converters.exists() == false)
-            {
-                converters.create(null);
-            }
-            path = converters.getLocation().toString();
-        }
-        catch (CoreException e)
-        {
-            MessageDialog.openError(workbench.getActiveWorkbenchWindow().getShell(), 
-                    "Error", 
-                    "Error creating Converters project:" + e.getMessage());
-        }
-        
-        prefStore.setDefault(Config.CONVERTER_CONFIG_PATH, path);
-        prefStore.setDefault(Config.TEST_FONT_SIZE, Config.DEFAULT_FONT_SIZE);
-        prefStore.setDefault(Config.OOPATH, Config.DEFAULT_WIN_INSTALL);
-        prefStore.setDefault(Config.OOUNO, Config.OO_DEFAULT_UNO);
-        prefStore.setDefault(Config.OOOPTIONS, Config.OO_DEFAULT_OPTIONS);        
+        new PreferencesInitializer().initializeDefaultPreferences();
     }
     /* (non-Javadoc)
      * @see org.eclipse.jface.preference.FieldEditorPreferencePage#propertyChange(org.eclipse.jface.util.PropertyChangeEvent)
