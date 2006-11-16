@@ -3,7 +3,7 @@
 <plugin>
 
    <extension
-         id="DocCharConvertEclipse"
+         id="DocCharConvertApp"
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
@@ -16,8 +16,8 @@
       <perspective
             class="org.thanlwinsoft.doccharconvert.eclipse.Perspective"
             icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
-            id="DocCharConvertEclipse.perspective"
-            name="DocCharConvertEclipse Perspective">
+            id="org.thanlwinsoft.doccharconvert.eclipse.Perspective"
+            name="DocCharConvert Eclipse Perspective">
       </perspective>
    </extension>
    <extension
@@ -28,20 +28,20 @@
    </extension>
    <extension
          point="org.eclipse.ui.newWizards">
-      <primaryWizard id="DocCharConvertEclipse.conversionWizard"/>
+      <primaryWizard id="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard"/>
       <category
-            id="DocCharConvertEclipse.conversion"
-            name="DocCharConvertEclipse.conversion"/>
+            id="org.thanlwinsoft.doccharconvert.conversion"
+            name="org.thanlwinsoft.doccharconvert.conversion"/>
       <wizard
             class="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard"
             icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
-            id="DocCharConvertEclipse.wizard"
-            name="DocCharConvertEclipse.wizard"/>
+            id="org.thanlwinsoft.doccharconvert.wizard"
+            name="org.thanlwinsoft.doccharconvert.wizard"/>
    </extension>
    <extension
          point="org.eclipse.ui.actionSets">
       <actionSet
-            id="DocCharConvertEclipse.actionSet"
+            id="org.thanlwinsoft.doccharconvert.actionSet"
             label="Conversion Wizard Set"
             visible="true">
          <menu
@@ -63,7 +63,7 @@
          id="DocCharConvertProduct"
          point="org.eclipse.core.runtime.products">
       <product
-            application="DocCharConvertEclipse.DocCharConvertEclipse"
+            application="org.thanlwinsoft.doccharconvert.DocCharConvertApp"
             description="%DocCharConvert.desc"
             name="%DocCharConvert.name">
          <property
@@ -127,5 +127,39 @@
             id="org.thanlwinsoft.doccharconvert.eclipse.MainPrefPage"
             name="%MainPreferencesPage"/>
    </extension>
-
+	<extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="org.thanlwinsoft.doccharconvert.intro">
+      </intro>
+      <introProductBinding
+            introId="org.thanlwinsoft.doccharconvert.intro"
+            productId="org.thanlwinsoft.doccharconvert.DocCharConvertProduct">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            introId="org.thanlwinsoft.doccharconvert.intro"
+            content="docs/en/introContent.xml"
+            id="org.thanlwinsoft.doccharconvert.configId">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   <!--
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            content="$nl$/ext.xml"
+            configId="org.thanlwinsoft.doccharconvert.configId">
+      </configExtension>
+   </extension>
+   -->
 </plugin>

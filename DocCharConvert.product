@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.1"?>
 
-<product name="%DocCharConvert.name" id="DocCharConvertEclipse.DocCharConvertProduct" application="DocCharConvertEclipse.DocCharConvertEclipse" useFeatures="false">
+<product name="%DocCharConvert.name" id="org.thanlwinsoft.doccharconvert.DocCharConvertProduct" application="org.thanlwinsoft.doccharconvert.DocCharConvertApp" useFeatures="false">
 
    <aboutInfo>
       <image path="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"/>
@@ -10,7 +10,7 @@
       </text>
    </aboutInfo>
 
-   <configIni use="default"/>
+   <configIni use="custom" path="/DocCharConvert/config.ini"/>
 
    <launcherArgs>
    </launcherArgs>
@@ -30,26 +30,28 @@
             winSmallLow="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16-256.bmp"
             win24Low="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert24-256.bmp"
             winMediumHigh="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert32.bmp"
-            winMediumLow="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert32-256.bmp"
-            winLargeHigh="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert48.bmp"
-            winLargeLow="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert48-256.bmp"/>
+            winMediumLow="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert32-256.bmp"/>
       </win>
    </launcher>
 
+   <intro introId="org.thanlwinsoft.doccharconvert.intro"/>
 
    <plugins>
-      <plugin id="DocCharConvertEclipse"/>
       <plugin id="com.ibm.icu"/>
+      <plugin id="org.apache.lucene"/>
+      <plugin id="org.apache.xerces"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.expressions"/>
       <plugin id="org.eclipse.core.filebuffers"/>
       <plugin id="org.eclipse.core.filesystem"/>
-      <plugin id="org.eclipse.core.filesystem.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.linux.x86_64"/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.resources"/>
       <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
+      <plugin id="org.eclipse.core.resources.win32" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
       <plugin id="org.eclipse.core.runtime.compatibility"/>
       <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
@@ -59,24 +61,33 @@
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.help.appserver"/>
+      <plugin id="org.eclipse.help.base"/>
       <plugin id="org.eclipse.jface"/>
       <plugin id="org.eclipse.jface.text"/>
       <plugin id="org.eclipse.osgi"/>
       <plugin id="org.eclipse.search"/>
       <plugin id="org.eclipse.swt"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86_64"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
       <plugin id="org.eclipse.text"/>
       <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.console"/>
       <plugin id="org.eclipse.ui.editors"/>
       <plugin id="org.eclipse.ui.forms"/>
       <plugin id="org.eclipse.ui.ide"/>
+      <plugin id="org.eclipse.ui.intro"/>
+      <plugin id="org.eclipse.ui.intro.universal"/>
       <plugin id="org.eclipse.ui.views"/>
+      <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.ui.workbench.texteditor"/>
       <plugin id="org.eclipse.update.configurator"/>
       <plugin id="org.eclipse.update.core"/>
-      <plugin id="org.eclipse.update.core.linux" fragment="true"/>
+      <plugin id="org.eclipse.update.core.linux"/>
+      <plugin id="org.eclipse.update.core.win32" fragment="true"/>
       <plugin id="org.eclipse.update.ui"/>
+      <plugin id="org.thanlwinsoft.doccharconvert"/>
    </plugins>
 
 </product>
