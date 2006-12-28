@@ -25,7 +25,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
     
     public void preWindowOpen() {
         IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-        configurer.setInitialSize(new Point(750, 550));
+        configurer.setInitialSize(new Point(780, 580));
         configurer.setShowCoolBar(true);
         configurer.setShowStatusLine(true);
         configurer.setTitle(MessageUtil.getString("dialogTitle"));
