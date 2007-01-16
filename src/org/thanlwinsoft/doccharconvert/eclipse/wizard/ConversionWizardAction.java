@@ -4,7 +4,6 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
-import org.eclipse.ui.intro.IIntroManager;
 import org.eclipse.jface.wizard.WizardDialog;
 /**
  * Our sample action implements workbench action delegate.

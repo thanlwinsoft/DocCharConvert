@@ -1,9 +1,6 @@
 package org.thanlwinsoft.doccharconvert.eclipse;
 
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
