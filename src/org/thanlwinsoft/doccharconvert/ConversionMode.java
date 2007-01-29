@@ -25,6 +25,8 @@
 package org.thanlwinsoft.doccharconvert;
 
 import javax.swing.filechooser.FileFilter;
+
+import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 /**
  *
  * @author  keith
@@ -72,6 +74,12 @@ public class ConversionMode
                 return TEX_MODE;
             case OD_ID:
                 return OD_MODE;
+            default:
+                ConversionMode [] extModes = ExtensionConversionMode.getExtensionModes();
+                if (extModes.length > id - NUM_MODES)
+                {
+                    return extModes[id - NUM_MODES];
+                }
         }
         return null;
     }

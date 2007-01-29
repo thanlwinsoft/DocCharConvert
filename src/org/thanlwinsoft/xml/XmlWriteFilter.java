@@ -39,7 +39,6 @@ public class XmlWriteFilter extends XMLFilterImpl
     @Override
     public void processingInstruction(String target, String data) throws SAXException
     {
-        // TODO Auto-generated method stub
         super.processingInstruction(target, data);
         try
         {
