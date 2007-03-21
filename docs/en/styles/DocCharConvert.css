@@ -1,0 +1,103 @@
+
+body {
+	margin-left: 50px;
+	margin-right: 5%;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+body.root {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+div.topIcon {
+	position: absolute;
+	left: 9px;
+	top: 9px;
+	
+	margin-left: 0px;
+}
+
+div.topIcon img {
+	border-style:none;
+}
+
+h1 {
+	background-image:url("titlebanner.gif");
+	background-repeat: repeat-x;
+	color: #10ff10;
+	padding-bottom: 20px;
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+h2, h3 {
+	border-color: #00ff00;
+	border-left-width: .5em;
+	border-style: solid;
+	border-top-width: 2px;
+	border-bottom-width: 2px;
+	border-right-width: 0px;
+}
+
+pre {
+	background-color: #dddddd;
+	overflow: auto;
+}
+
+div.footer {
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #00ff00;
+	text-align: left;
+}
+
+span.thanlwinsoft {
+	float: right;
+}
+/* IE doesn't support li:before */
+ul {
+	list-style-type: square;
+}
+/* this is selected in mozilla, IE ignores it */
+div > ul {
+	list-style-type: none;
+}
+
+ul > li:before {
+	
+	content: "▶";
+	font-family: Tahoma;
+	color: #00ff00;
+}
+
+a {
+  text-decoration:none;
+}
+
+div#content a {
+	display: block;
+	padding-bottom: 10px;
+	text-align: left;
+}
+
+div#content {
+	width:15em;
+}
+
+div.page-style {
+	text-align: center;
+	margin-left: 5%;
+	margin-right:5%;
+}
+
+body.root h1 {
+	min-width: 10em;
+}
+/* satisfy Mozilla */	
+body > div.page-style {
+	padding-left:30%;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<link rel="stylesheet" type="text/css" href="styles/DocCharConvert.css"  charset="utf-8"/>
+<title>DocCharConvert: Getting Started</title>
+</head>
+<body>
+<div class="topIcon"><a href="index.xhtml"><img src="styles/DocCharConvert.png" /></a></div>
+<div>
+<h1>DocCharConvert: Getting Started</h1>
+
+<h2>Converting some files</h2>
+<p>Open the 
+<a href="http://org.eclipse.ui.intro/runAction?pluginId=org.thanlwinsoft.doccharconvert&amp;class=org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizardAction&amp;id=org.thanlwinsoft.doccharconvert.eclipse.ConvertAction">
+Document Conversion Wizard
+</a>
+ from the File Menu or by clicking on the 
+<img src="styles/DocCharConvert16.png" style="width: 16px; height: 16px;" alt="icon" />
+ icon.</p>
+<ol>
+<li>You can either convert existing files or type / paste the text directly.</li>
+<li>If you choose to convert existing files, then you need to select the <i>File Mode</i>, usually "Plain Text" or "OpenOffice".</li>
+<li>Click next</li>
+<li>Select the converter that you want to use and click Next. (The font choices are only used with OpenOffice files)</li>
+<li>If you chose to convert existing files, then you need to choose which files to convert:
+<ol>
+<li>Browse to the file that you want to convert</li>
+<li>Browse to the file where you want to save the conversion result</li>
+<li>Add more files if necessary and click Next</li>
+</ol></li>
+<li>Set the encoding of the Input and Output files. If you are not sure what to use, Windows-1252 is a common encoding used by older fonts. More modern Unicode files probably use UTF-8 or UTF-16.</li>
+<li>Click Finish</li>
+</ol>
+<p>If you want to convert the same set of files lots of times, you may want to save the list of files in a text file. 
+You can do this by clicking the <i>Save List</i> button. 
+You can then reload it with <i>Load List</i>. 
+The list is saved a simple text file format with one file pair per line:</p>
+<pre>
+"input file.txt" "output file.txt"
+</pre>
+<h2>File Encoding</h2>
+<p>
+The file encoding refers to the standard that is used to map the raw bytes in a file into specific characters in a font. 
+For correct results, you need to know what format the files are in that you want to convert.
+</p>
+<p>
+OpenOffice supports many document formats, so that may be the best choice for any non-text files, though it is much slower. 
+If you are using text files, then you need to know the encoding of the text in the files. 
+The default on many versions of Windows is windows-1252, however UTF-8 or another Unicode format will probably be necessary for non-Latin languages. 
+If you are converting from text in an old legacy font to Unicode, then you will probably want Windows-1252 for Input and UTF-8 for Output.
+</p>
+
+</div>
+<div class="footer">
+<span class="thanlwinsoft"><a href="http://www.thanlwinsoft.org/">www.ThanLwinSoft.org</a></span>
+<a href="index.xhtml">Help Index</a> 
+</div>
+</body>
+</html>

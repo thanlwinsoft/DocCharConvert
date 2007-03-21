@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+    <page id="root" content="index.xhtml"/>
+    <page id="intro" content="introduction.xhtml"/>
+    <page id="gettingStarted" content="GettingStarted.xhtml"/>
+    <page id="installation" content="Installation.xhtml"/>
+    <page id="command" content="CommandLine.xhtml"/>
+    <page id="trouble" content="TroubleShooting.xhtml"/>
+    
+</introContent>

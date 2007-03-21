@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<link rel="stylesheet" type="text/css" href="styles/DocCharConvert.css"  charset="utf-8"/>
+<title>DocCharConvert: Getting Started</title>
+</head>
+<body>
+<div class="topIcon">
+<a href="index.html"><img src="styles/DocCharConvert.png" /></a>
+</div>
+<div>
+<h1>DocCharConvert: Command Line</h1>
+<h2>Command Line Usage</h2>
+<p>If you are running lots of conversions on a regular basis you may want to use 
+a command line version of the tool.</p>
+<p>Make sure that the correct version of Java is in your path. Change directory
+to the DocCharConvert directory which has plugins as a subdirectory. You can then run the
+ command:</p>
+<pre>
+java -cp plugins/org.thanlwinsoft.doccharconvert_1.0.0.jar org.thanlwinsoft.doccharconvert.CommandLine 
+</pre>
+<p>On Windows you can run the DocCharConvert.bat script from a Windows Command Console.</p>
+<pre>
+cd C:\Program Files\ThanLwinSoft.org\DocCharConvert
+DocCharConvert.bat
+</pre>
+<p>You can see the command line options with the --help option:</p>
+<pre>
+Using config dir:C:\Program Files\ThanLwinSoft.org\DocCharConvert
+Arguments: [-i iEnc] [-o oEnc] [-r] converter.dccx mode 
+           [-f list]|[inputFile outputFile]
+           [--converters ConvertersPath]
+Modes:
+	0	Plain Text
+	1	OpenOffice
+	2	TeX
+	3	OpenDocument
+Optional Arguments:
+	--help display this help
+	-r use the converter in reverse mode
+	-i iEnc = input encoding e.g. -i iso-8859-1 (default UTF-8)
+	-o oEnc = output encoding e.g. -o iso-8859-1 (default UTF-8)
+	-f fileList = file containing list input output files
+	--converters path = change the default Converters dir to path
+Please choose from one of the following converters:
+	Academy.dccx
+	AcademyExt.dccx
+	AcademyPipe.dccx
+	IwinMedium.dccx
+	Winnwa.dccx
+	Wwin_burmese.dccx
+	MyanmarUni4ToUni5.dccx
+	WinnwaUTN11.dccx
+</pre>
+<p>
+The list of converters may vary according to what is installed on your system.
+</p>
+<p>For example, to convert a text file in WinInnwa to Myanmar Unicode, 
+you would something like type:</p>
+<pre>
+DocCharConvert.bat -i windows-1252 Winnwa.dccx 0 wininnwa.txt myUni.txt
+</pre>
+</div>
+<div class="footer">
+<span class="thanlwinsoft"><a href="http://www.thanlwinsoft.org/">www.ThanLwinSoft.org</a></span>
+<a href="index.xhtml">Help Index</a> 
+</div>
+</body>
+</html>

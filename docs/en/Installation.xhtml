@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<link rel="stylesheet" type="text/css" href="styles/DocCharConvert.css"  charset="utf-8"/>
+<title>DocCharConvert: Getting Started</title>
+</head>
+<body>
+<div class="topIcon">
+<a href="index.html"><img src="styles/DocCharConvert.png" /></a>
+</div>
+<div>
+<h1>DocCharConvert: Installation and Configuration</h1>
+<h2>Pre-requisits</h2>
+<p>You must have Java 1.5 or later installed. You can get it from the <a href="http://java.sun.com/j2se/1.5.0/download.jsp">Sun website</a> - you only need the JRE.</p>
+<p>For conversion of OpenOffice documents, you must have OpenOffice installed from <a href="http://www.openoffice.org">OpenOffice.org</a>.</p>
+<h2>Starting DocCharConvert</h2>
+<p>If the installation went smoothly, then you should be able to just double click on the DocCharConvert Desktop icon or start it from the Programs Menu. The DocCharConvert Main Form should appear. </p>
+<p>If this does not work, you can start it from a command line. If you are already in the DocCharConvert installation directory, then you may be able to just type:</p>
+<pre>
+eclipse 
+</pre>
+If you need to specify a different Java virtual machine you can use something like:
+<pre>
+eclipse -jvm "C:\Program Files\Java\jre1.5.0_06\bin\java.exe"
+</pre>
+You will need to adjust the paths as appropriate to your system.
+<h2>Configuration</h2>
+<p>Choose Preferences from the Window menu.</p>
+<p>You can change the Converter directory by browsing to the directory containing the converters and select one of the <tt>dccx</tt> files.</p>
+<h3>OpenOffice integration</h3>
+<p>The OpenOffice tab allows you to link DocCharConvert to your OpenOffice installation, if you have one. Browse to the program sub-directory of your OpenOffice installation and select the OpenOffice executable. Usually this is <tt>soffice</tt> or <tt>ooffice</tt> or <tt>ooffice2</tt>.
+</p>
+<p>You are unlikely to need to change the default options, the following should work:
+<pre>-accept=socket,port=8100,tcpNoDelay=1;urp;</pre> with the UNO address set to:
+<pre>uno:socket,host=localhost,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager</pre>
+</p>
+</div>
+<div class="footer">
+<span class="thanlwinsoft"><a href="http://www.thanlwinsoft.org/">www.ThanLwinSoft.org</a></span>
+<a href="index.xhtml">Help Index</a> 
+</div>
+</body>
+</html>

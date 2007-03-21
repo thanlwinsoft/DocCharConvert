@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Troubleshooting.xhtml</title>
+<link rel="stylesheet" type="text/css" href="styles/DocCharConvert.css"  charset="utf-8"/>
+
+</head>
+<body>
+<div class="topIcon">
+<a href="index.xhtml"><img src="styles/DocCharConvert.png" alt="DocCharConvert" /></a></div>
+<div>
+<h1>DocCharConvert: Trouble Shooting</h1>
+
+<h2>Garbled Data</h2>
+<p>Some of the data may be converted correctly, other data isn't. This probably 
+means that you have got the encoding specified wrongly for either the Input or 
+Output files. Check the original source of the data and the documentation for 
+the specific converter that you are using. Internally, the text is all converted 
+to Unicode before it is processed. If the encoding that you are using has codes 
+that cannot be translated to Unicode then these may fail to be converted 
+correctly. Old files created with legacy pre-Unicode fonts should probably be 
+converted as Windows-1252 with the Output set to UTF-8. </p>
+<p>Some legacy fonts use code points that are undefined in Windows-1252. 
+In this case you may want to try the RawBytes encoding.</p>
+<h2>OpenOffice doesn't convert fonts specified in Word Documents</h2>
+<p>Sometimes if a document was forwarded in Microsoft word, the converter does 
+not identify the text to convert properly, even though the font is selected 
+correctly. Try openning the document in OpenOffice and resaving it from 
+OpenOffice before you do the conversion.</p>
+<h2>OpenOffice crashes</h2>
+<p>The interface that DocCharConvert uses to process documents in OpenOffice 
+is not very stable. Occasionally it crashes. DocCharConvert will attempt to 
+restart it automatically, but it does not always work. If all else fails you 
+can save the text to a plain text file and convert it that way - this is also 
+much faster.</p>
+
+<h2>TECkit on AMD64</h2>
+<p>The JNI supplied for TECkit will only work on 32 bit Windows and 32 bit Linux. 
+A 64 bit version is available in the Converter directory for Linux, but you will 
+have to rename <tt>libTecKitJni.amd64.so</tt> to <tt>libTecKitJni.so</tt>. 
+For other platforms you may need to build TECkit for yourself. The TECkit 
+source code is available from 
+<a href="http://scripts.sil.org/svn-public/">Subversion on scripts.sil.org</a>.
+</p>
+<h2>Other Problems and Bugs</h2>
+<p>For other problems and bugs please send an email to 
+devel&#x40;thanlwinsoft.org.
+Please try to be as explicit as possible in describing your problem. 
+If it is a case of incorrect conversion, then it is very hard to diagnose 
+problems unless I can reproduce it.
+If possible, please send some example files (though not too big please!) that 
+illustrate the problem.
+</p>
+</div>
+<div class="footer">
+<span class="thanlwinsoft"><a href="http://www.thanlwinsoft.org/">www.ThanLwinSoft.org</a></span>
+<a href="index.xhtml">Help Index</a> 
+</div>
+</body>
+</html>
