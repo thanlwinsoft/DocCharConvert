@@ -20,6 +20,8 @@ public class XmlWriteFilter extends XMLFilterImpl
     StringBuffer namespaces = new StringBuffer();
     boolean firstElement = true;
     String stylesheet = null;
+    boolean prettyPrint = false;
+    String endOfLine = System.getProperty("line.separator");
     public XmlWriteFilter(String filename) throws FileNotFoundException
     {
         initialise(new FileOutputStream(new File(filename)));
@@ -35,6 +37,10 @@ public class XmlWriteFilter extends XMLFilterImpl
     public void setStylesheet(String stylesheet)
     {
         this.stylesheet = stylesheet;
+    }
+    public void setPrettyPrint(boolean isPretty)
+    {
+        prettyPrint = isPretty;
     }
     @Override
     public void processingInstruction(String target, String data) throws SAXException
@@ -63,7 +69,8 @@ public class XmlWriteFilter extends XMLFilterImpl
             {
                 out.write("<?xml-stylesheet href=\"");
                 out.write(stylesheet);
-                out.write("\"?>\n");
+                out.write("\"?>");
+                if (prettyPrint) out.write(endOfLine);
             }
         }
         catch (UnsupportedEncodingException e)
@@ -122,7 +129,8 @@ public class XmlWriteFilter extends XMLFilterImpl
         {
         if (buffer.length() > 0)
         {
-            buffer.append("/>\n");
+            buffer.append("/>");
+            if (prettyPrint) out.write(endOfLine);
             out.write(buffer.toString());
             buffer.delete(0, buffer.length());
         }
@@ -131,7 +139,7 @@ public class XmlWriteFilter extends XMLFilterImpl
             out.write("</");
             out.write(qName);
             out.write(">");
-            out.write("\n");//eof
+            if (prettyPrint) out.write(endOfLine);
         }
         }
         catch (IOException e)
@@ -220,6 +228,35 @@ public class XmlWriteFilter extends XMLFilterImpl
         
         //System.out.println("StartPrefixMapping: " + prefix + ":" + uri);
         //System.out.println(namespaces);
+    }
+    
+    public void startComment()
+    {
+        try
+        {
+            if (buffer.length() > 0)
+            {
+                buffer.append(">");
+                out.write(buffer.toString());
+                buffer.delete(0, buffer.length());
+            }
+            out.write("<!--");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    public void endComment()
+    {
+        try
+        {
+            out.write("-->");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
     /*
     @Override

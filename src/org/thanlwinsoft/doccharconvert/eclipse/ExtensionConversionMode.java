@@ -89,6 +89,8 @@ public class ExtensionConversionMode extends ConversionMode
             {
                 String name = ce[j].getAttribute("name");
                 String id = ce[j].getAttribute("id");
+                if (name == null) // a null name causes problems
+                    name = id;
                 String hasStylesText = ce[j].getAttribute("styleSupport");
                 
                 boolean hasStyles = Boolean.parseBoolean(hasStylesText);

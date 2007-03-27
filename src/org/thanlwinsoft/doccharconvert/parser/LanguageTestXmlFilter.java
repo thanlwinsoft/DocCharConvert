@@ -38,6 +38,7 @@ public class LanguageTestXmlFilter extends XMLFilterImpl
     public LanguageTestXmlFilter(Map<TextStyle, CharConverter> converters)
     {
         this.converters = converters;
+        langIdToConverter = new HashMap <String,CharConverter>();
     }
     /* (non-Javadoc)
      * @see org.xml.sax.helpers.XMLFilterImpl#startDocument()

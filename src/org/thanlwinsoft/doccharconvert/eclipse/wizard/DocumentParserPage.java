@@ -17,6 +17,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.ConversionMode;
+import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 /**
  * @author keith
  *
@@ -58,6 +59,11 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
         for (int i = 0; i < ConversionMode.NUM_MODES; i++)
         {
             combo.add(ConversionMode.getById(i).toString());
+        }
+        ConversionMode [] extMode = ExtensionConversionMode.getExtensionModes();
+        for (int i = 0; i < extMode.length; i++)
+        {
+            combo.add(extMode[i].toString());
         }
         combo.addSelectionListener(this);
         //combo.setLayoutData(new RowData(100,20));

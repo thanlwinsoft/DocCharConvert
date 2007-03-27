@@ -33,7 +33,7 @@ import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
  */
 public class ConversionMode
 {
-    private int id; 
+    private int id;
     private String name;
     private boolean styleSupport = false;
     private FileFilter fileFilter = null;

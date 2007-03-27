@@ -53,8 +53,10 @@ public class OpenDocParser implements org.thanlwinsoft.doccharconvert.DocInterfa
   private final static int BUFFER_LEN = 1024;
   private OpenDocParseStatus status = OpenDocParseStatus.UNINIT;
   private boolean abort = false;
+  protected JoinTextRuns odFilterJoinRuns = null;
   protected OpenDocFilter odFilterStyles = null;
   protected OpenDocFilter odFilterContent = null;
+  private ConversionMode mode = ConversionMode.OD_MODE;
   /** Creates a new instance of OpenDocParser */
     public OpenDocParser()
     {
@@ -188,7 +190,9 @@ public class OpenDocParser implements org.thanlwinsoft.doccharconvert.DocInterfa
         throws IOException, SAXException
     {
       XMLReader myReader = XMLReaderFactory.createXMLReader();
-      odFilterStyles.setParent(myReader);
+      odFilterJoinRuns = new JoinTextRuns();
+      odFilterJoinRuns.setParent(myReader);
+      odFilterStyles.setParent(odFilterJoinRuns);
       XmlWriteFilter writeFilter = new XmlWriteFilter(os);
       writeFilter.setParent(odFilterStyles);
       writeFilter.parse(new InputSource(is));
@@ -197,7 +201,9 @@ public class OpenDocParser implements org.thanlwinsoft.doccharconvert.DocInterfa
         throws IOException, SAXException
     {
         XMLReader myReader = XMLReaderFactory.createXMLReader();
-        odFilterContent.setParent(myReader);
+        odFilterJoinRuns = new JoinTextRuns();
+        odFilterJoinRuns.setParent(myReader);
+        odFilterContent.setParent(odFilterJoinRuns);
         XmlWriteFilter writeFilter = new XmlWriteFilter(os);
         writeFilter.setParent(odFilterContent);
         writeFilter.parse(new InputSource(is));
@@ -208,7 +214,11 @@ public class OpenDocParser implements org.thanlwinsoft.doccharconvert.DocInterfa
     }
     public ConversionMode getMode()
     {
-      return ConversionMode.OD_MODE;
+      return mode;
+    }
+    public void setMode(ConversionMode mode)
+    {
+        this.mode = mode;
     }
     public void setInputEncoding(Charset iEnc)
     {

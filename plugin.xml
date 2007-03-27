@@ -146,7 +146,8 @@
             content="docs/en/introContent.xml"
             id="org.thanlwinsoft.doccharconvert.configId">
          <presentation
-               home-page-id="root">
+               home-page-id="root"
+               >
             <implementation
                   kind="html"
                   os="win32,linux,macosx">
@@ -160,6 +161,7 @@
             class="org.thanlwinsoft.doccharconvert.parser.LanguageTestParser"
             extensions=".xml"
             id="org.thanlwinsoft.doccharconvert.parser.LanguageTestParser"
+            name="%LanguageTestParser"
             styleSupport="true"/>
    </extension>
    <!--

@@ -28,6 +28,7 @@ public class LanguageTestParser implements DocInterface
     private final static String PARSING_MSG = "Parsing";
     private final static String IDLE_MSG = "Idle";
     private String message = IDLE_MSG;
+    private ConversionMode mode = null;
     public LanguageTestParser()
     {
         
@@ -44,8 +45,7 @@ public class LanguageTestParser implements DocInterface
 
     public ConversionMode getMode()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return mode;
     }
 
     public String getStatusDesc()
@@ -101,6 +101,13 @@ public class LanguageTestParser implements DocInterface
     public void setOutputEncoding(Charset oEnc)
     {
         
+    }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.DocInterface#setMode(org.thanlwinsoft.doccharconvert.ConversionMode)
+     */
+    public void setMode(ConversionMode mode)
+    {
+        this.mode = mode;
     }
 
 }

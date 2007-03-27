@@ -5,6 +5,8 @@ package org.thanlwinsoft.eclipse.widgets;
 
 import java.io.File;
 
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.MouseAdapter;
@@ -44,7 +46,7 @@ public class FileNameWidget extends Composite
             label.setText(labelText);
             label.setLayoutData(new RowData(200,SWT.DEFAULT));
         }
-        fileName = new Text(this, SWT.RIGHT | SWT.SINGLE);
+        fileName = new Text(this, SWT.LEAD | SWT.SINGLE);
         fileName.setLayoutData(new RowData(150, SWT.DEFAULT));
         button = new Button(this, SWT.PUSH | SWT.CENTER);
         button.setText(MessageUtil.getString("Browse"));
@@ -76,7 +78,7 @@ public class FileNameWidget extends Composite
         defaultPath = path;
         if (!defaultPath.endsWith(File.separator))
         {
-          defaultPath = path + File.separator + "*";
+          defaultPath = path;// + File.separator + "*";
         }
     }
     protected void browseFile(Composite parent)
@@ -86,13 +88,17 @@ public class FileNameWidget extends Composite
         dialog.setFilterPath(defaultPath);
         if (fileName.getText() != null && fileName.getText().length() > 0)
         {
-            dialog.setFileName(fileName.getText());
+            IPath path = new Path(fileName.getText());
+            dialog.setFilterPath(path.removeLastSegments(1).toOSString());
+            dialog.setFileName(path.lastSegment());
         }
         String filePath = dialog.open();
         if (filePath != null)
         {
             setFileName(filePath);
-            dialog.setFilterPath(new File(filePath).getParent() + "/*");
+            Path path = new Path(filePath);
+            defaultPath = path.removeLastSegments(1).toOSString();// + File.separator + "*";
+            //dialog.setFilterPath(new File(filePath).getParent() + "/*");
         }
     }
     public void    addModifyListener(ModifyListener listener)

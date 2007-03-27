@@ -63,7 +63,9 @@ public interface DocInterface
             super(msg);
         }
     }
-    ConversionMode getMode();
+    public ConversionMode getMode();
+    public void setMode(ConversionMode mode);
+    
     public void setInputEncoding(Charset iEnc);
     public void setOutputEncoding(Charset oEnc);
     public void abort();

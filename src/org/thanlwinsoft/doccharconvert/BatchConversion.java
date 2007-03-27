@@ -37,6 +37,7 @@ import java.nio.charset.Charset;
 import java.util.Hashtable;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
+import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 import org.thanlwinsoft.doccharconvert.opendoc.OpenDocParser;
 /**
  *
@@ -268,6 +269,12 @@ public class BatchConversion implements Runnable
                 case ConversionMode.OD_ID:
                     docInterface = new OpenDocParser();
                     break;
+                default:
+                    if (mode instanceof ExtensionConversionMode)
+                    {
+                        docInterface = ((ExtensionConversionMode)mode).getDocInterface();
+                    }
+                    else System.out.println("Unknown mode" + mode.getId());
             }
             if (iCharset != null) docInterface.setInputEncoding(iCharset);
             if (oCharset != null) docInterface.setOutputEncoding(oCharset);

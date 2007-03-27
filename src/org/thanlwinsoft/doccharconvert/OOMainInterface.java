@@ -57,6 +57,7 @@ public class OOMainInterface implements DocInterface
     private boolean onlyStylesInUse = false;
     private OODocParser parser = null;
     private boolean abort = false;
+    private ConversionMode mode =  ConversionMode.OO_MODE;
     /** Creates a new instance of OOMainInterface */
     public OOMainInterface()
     {
@@ -408,7 +409,11 @@ public class OOMainInterface implements DocInterface
     
     public ConversionMode getMode()
     {
-        return ConversionMode.OO_MODE;
+        return mode;
+    }
+    public void setMode(ConversionMode mode)
+    {
+        this.mode = mode;
     }
     /** Not implemented yet */
     public void setInputEncoding(Charset iEnc)

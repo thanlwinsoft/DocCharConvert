@@ -24,6 +24,7 @@
 
 package org.thanlwinsoft.doccharconvert;
 
+import java.io.File;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -32,7 +33,10 @@ import java.io.FileInputStream;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.nio.charset.Charset;
+import java.util.Map;
+
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
+import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 /**
  *
  * @author  keith
@@ -46,6 +50,7 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
     protected Charset inputCharset;
     protected Charset outputCharset;
     protected boolean abort = false;
+    private ConversionMode mode = ConversionMode.TEXT_MODE;
     /** Creates a new instance of TextParser */
     public TextParser()
     {
@@ -68,7 +73,7 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
     
     public ConversionMode getMode()
     {
-        return ConversionMode.TEXT_MODE;
+        return mode;
     }
     
     public void initialise()
@@ -76,10 +81,9 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
         
     }
     
-    public void parse(java.io.File input, java.io.File output, 
-                      java.util.Map converters)
-               throws DocInterface.WarningException,
-                      CharConverter.FatalException
+    public void parse(File input, File output, 
+                      Map<TextStyle, CharConverter> converters) 
+        throws FatalException, InterfaceException, WarningException 
     {
         synchronized (this) { abort = false;} 
         try
@@ -156,5 +160,14 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
     public synchronized void abort()
     {
         abort = true;
+    }
+
+    
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.DocInterface#setMode(org.thanlwinsoft.doccharconvert.ConversionMode)
+     */
+    public void setMode(ConversionMode mode)
+    {
+        this.mode = mode;
     }
 }
