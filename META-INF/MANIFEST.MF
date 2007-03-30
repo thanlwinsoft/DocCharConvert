@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DocCharConvertEclipse Plug-in
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true
+Bundle-Version: 1.0.2
+Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.ide,
+ org.eclipse.jface.text,
+ org.eclipse.ui.views,
+ org.eclipse.ui.editors,
+ org.eclipse.core.resources,
+ org.eclipse.search,
+ org.eclipse.ui.workbench.texteditor,
+ org.eclipse.ui.console,
+ org.eclipse.ui.intro,
+ org.eclipse.ui.intro.universal
+Eclipse-LazyStart: true
+Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByteCharsetProvider
+Export-Package: org.sil.scripts.teckit,
+ org.thanlwinsoft.doccharconvert,
+ org.thanlwinsoft.doccharconvert.converter,
+ org.thanlwinsoft.doccharconvert.converter.syllable,
+ org.thanlwinsoft.doccharconvert.converter.syllable.mien,
+ org.thanlwinsoft.doccharconvert.eclipse,
+ org.thanlwinsoft.doccharconvert.eclipse.views,
+ org.thanlwinsoft.doccharconvert.eclipse.wizard,
+ org.thanlwinsoft.doccharconvert.opendoc,
+ org.thanlwinsoft.eclipse,
+ org.thanlwinsoft.eclipse.widgets,
+ org.thanlwinsoft.xml
+Bundle-Vendor: ThanLwinSoft.org
