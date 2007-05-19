@@ -173,6 +173,8 @@ public class ConverterPage extends WizardPage implements SelectionListener
                               converterConfigPath.getAbsolutePath()));
             msgBox.open();
         }
+        DocCharConvertEclipsePlugin.log(IStatus.INFO, "config dir:" + 
+                converterConfigPath.getAbsolutePath(), null);
         System.out.println("Using config dir:" + 
             converterConfigPath.getAbsolutePath());
         return converterConfigPath;

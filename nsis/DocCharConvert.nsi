@@ -4,7 +4,7 @@
 
 ; Some useful definitions that may need changing for different font versions
 !ifndef VERSION
-  !define VERSION '1.0.1'
+  !define VERSION '1.0.2'
 !endif
 
 !define APP_NAME 'DocCharConvert'

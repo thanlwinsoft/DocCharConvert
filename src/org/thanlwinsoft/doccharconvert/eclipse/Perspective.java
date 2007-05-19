@@ -20,7 +20,9 @@ public class Perspective implements IPerspectiveFactory
     public void createInitialLayout(IPageLayout layout) 
     {
         String editorArea = layout.getEditorArea();
-        layout.setEditorAreaVisible(false);
+        // If DocCharConvert is being used as a perspective inside normal
+        // eclipse, it is best to show the editor
+        layout.setEditorAreaVisible(true);
         layout.getViewLayout(layout.getEditorArea()).setCloseable(false);
         
         //layout.addNewWizardShortcut("DocCharConvertEclipse.wizard");
