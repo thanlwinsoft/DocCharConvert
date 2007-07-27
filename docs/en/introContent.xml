@@ -18,6 +18,7 @@
     		id="thanlwinsoft" style-id="left">
             <text>ThanLwinSoft.org Web page</text>
         </link>
+        <text>[Double click Welcome to restore this window to its normal size]</text>
     </page>
     <page id="root" content="index.xhtml"/>
     <page id="intro" content="introduction.xhtml"/>

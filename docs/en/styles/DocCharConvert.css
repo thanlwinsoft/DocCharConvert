@@ -101,3 +101,7 @@ body.root h1 {
 body > div.page-style {
 	padding-left:30%;
 }
+
+.small {
+	font-size: 75%;
+}
