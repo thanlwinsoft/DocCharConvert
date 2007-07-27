@@ -21,7 +21,9 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IViewReference;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
@@ -197,7 +199,24 @@ public class ConversionWizard extends Wizard
                     null, IWorkbenchPage.VIEW_VISIBLE);
             wbWindow.getActivePage().showView(Perspective.DEBUG_UNICODE,
                     null, IWorkbenchPage.VIEW_VISIBLE);
-            
+            if (wbWindow.getActivePage().isPageZoomed())
+                wbWindow.getActivePage().zoomOut();
+            IWorkbenchPart part = wbWindow.getActivePage().getActivePart();
+            if (part != null)
+            {
+                if (part instanceof IViewPart)
+                {
+                    IViewPart vp = (IViewPart)part;
+                }
+                IViewReference [] viewRefs = wbWindow.getActivePage().getViewReferences();
+                for (IViewReference ref : viewRefs)
+                {
+                    if (wbWindow.getActivePage().getPartState(ref) == IWorkbenchPage.STATE_MAXIMIZED)
+                    {
+                        wbWindow.getActivePage().setPartState(ref, IWorkbenchPage.STATE_RESTORED);
+                    }
+                }
+            }
             
             if (ePart != null && ePart instanceof ConversionInputEditor)
             {
