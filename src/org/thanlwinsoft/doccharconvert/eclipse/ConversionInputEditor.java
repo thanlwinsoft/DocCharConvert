@@ -69,6 +69,12 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
         {
             charConverter.destroy();
         }
+        if (reverseConverter != null)
+        {
+            reverseConverter.destroy();
+        }
+        charConverter = null;
+        reverseConverter = null;
         if (getSourceViewer() != null && 
             getSourceViewer().getDocument() != null)
         {

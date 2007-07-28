@@ -35,6 +35,7 @@ public class FontConversionPage extends WizardPage
     final private ConverterPage converterPage;
     final private BatchConversion conversion;
     private SelectionListener conversionListener;
+    private Vector<CharConverter> selectedConverters = null;
     /**
      * @param pageName
      */
@@ -44,7 +45,7 @@ public class FontConversionPage extends WizardPage
         this.conversion = batchConversion;
         this.converterPage = converterPage;
         this.fontConverterArray = new ArrayList<ChildConverter>();
-        
+        this.selectedConverters = new Vector<CharConverter>();
     }
 
     /* (non-Javadoc)
@@ -78,13 +79,15 @@ public class FontConversionPage extends WizardPage
             public void widgetDefaultSelected(SelectionEvent e) {}
             public void widgetSelected(SelectionEvent e)
             {
+                selectedConverters.clear();
                 if (conversion.getConversionMode().hasStyleSupport() ||
                     conversion.isFileMode() == false)
                 {
-                    conversion.removeAllConverters();
+                    //conversion.removeAllConverters();
                     for (int i : fontList.getSelectionIndices())
                     {
-                        conversion.addConverter(fontConverterArray.get(i));
+                        selectedConverters.add(fontConverterArray.get(i));
+                        //conversion.addConverter(fontConverterArray.get(i));
                     }
                     setPageComplete(fontList.getSelectionCount() > 0);
                 }
@@ -110,6 +113,7 @@ public class FontConversionPage extends WizardPage
     {
         Vector <ChildConverter> childConverters = converterPage.getChildConverters();
         viewer.remove(fontConverterArray.toArray());
+        fontList.removeAll();
         fontConverterArray.clear();
         ArrayList <String> labelArray = new ArrayList<String>();
         for (CharConverter cc : converterPage.getSelectedConverters())
@@ -130,8 +134,10 @@ public class FontConversionPage extends WizardPage
             conversion.isFileMode() == false)
         {
             fontList.select(0);// select first by default
-            conversion.removeAllConverters();
-            conversion.addConverter(fontConverterArray.get(0));
+            selectedConverters.removeAllElements();
+            selectedConverters.add(fontConverterArray.get(0));
+            //conversion.removeAllConverters();
+            //conversion.addConverter(fontConverterArray.get(0));
         }
         fontList.redraw();
     }
@@ -157,5 +163,10 @@ public class FontConversionPage extends WizardPage
             return this.getWizard().getPage(ConversionWizard.ENCODING_PAGE);
         }
         return super.getNextPage();
+    }
+    
+    public Vector<CharConverter> getSelectedConverters()
+    {
+        return selectedConverters;
     }
 }

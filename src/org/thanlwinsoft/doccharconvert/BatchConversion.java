@@ -37,6 +37,8 @@ import java.nio.charset.Charset;
 import java.util.Hashtable;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
+import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
+import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
 import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 import org.thanlwinsoft.doccharconvert.opendoc.OpenDocParser;
 /**
@@ -196,6 +198,21 @@ public class BatchConversion implements Runnable
         }
         return outputFile;
     }
+
+    public void addTestConverter(CharConverter cc, Vector<CharConverter>availableConverters)
+    {
+        String logFileName = Config.getCurrent().getLogFile();
+        if (logFileName != null && logFileName.length() > 0)
+        {
+            CharConverter reverse = 
+                ReverseConversion.get(availableConverters, cc);
+            ConversionTester ct = new ConversionTester(cc, reverse);
+            ct.setLogFile(new File(logFileName + File.separator + cc.getName() + ".log"));
+            addConverter(ct);
+        }
+        else addConverter(cc);
+    }
+    
     /**
      * Add a new converter to the list or replace the current converter if only
      * one converter is 

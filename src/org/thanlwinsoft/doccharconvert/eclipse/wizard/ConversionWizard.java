@@ -7,6 +7,7 @@ import java.io.ByteArrayInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Vector;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Assert;
@@ -31,6 +32,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.swt.widgets.Composite;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
+import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionRunnable;
 import org.thanlwinsoft.doccharconvert.eclipse.EclipseMessageDisplay;
@@ -49,10 +51,14 @@ public class ConversionWizard extends Wizard
     StructuredSelection iSelection;
     StructuredSelection oSelection;
     BatchConversion conversion = null;
+    DocumentParserPage parserPage = null;
     ConverterPage converterPage = null;
     FontConversionPage fontPage = null;
     private IWorkbenchWindow wbWindow;
     private WizardDialog dialog;
+    
+    public final static String DEFAULT_PROJECT = "DocCharConvertData";
+    
     static final String DOC_PARSER_PAGE = "DOC_PARSER_PAGE";
     static final String CONVERTER_PAGE = "CONVERTER_PAGE";
     static final String FONT_CONVERTER_PAGE = "FONT_CONVERTER_PAGE";
@@ -73,7 +79,8 @@ public class ConversionWizard extends Wizard
     {
         conversion = new BatchConversion();
         conversion.setMessageDisplay(new EclipseMessageDisplay(this.getShell()));
-        addPage(new DocumentParserPage(conversion));
+        parserPage = new DocumentParserPage(conversion);
+        addPage(parserPage);
         converterPage = new ConverterPage(conversion);
         addPage(converterPage);
         fontPage = new FontConversionPage(converterPage, conversion);
@@ -91,6 +98,33 @@ public class ConversionWizard extends Wizard
         if (wbWindow == null) return false;
         try
         {
+            Vector <CharConverter> converters = null;
+            Vector <CharConverter> availableConverters = null;
+            if (conversion.isFileMode() == false ||
+                conversion.getConversionMode().hasStyleSupport())
+            {
+                converters = fontPage.getSelectedConverters();
+                Vector <ChildConverter> childConverters = converterPage.getChildConverters();
+                availableConverters = new Vector <CharConverter>(childConverters.size());
+                for (ChildConverter cc : childConverters)
+                {
+                    availableConverters.add(cc);
+                }
+            }
+            else
+            {
+                converters = converterPage.getSelectedConverters();
+                availableConverters = converterPage.getConverters();
+            }
+            conversion.removeAllConverters();
+            for (CharConverter cc : converters)
+            {
+                if (parserPage.isDebugEnabled())
+                {
+                    conversion.addTestConverter(cc, availableConverters);
+                }
+                else conversion.addConverter(cc);
+            }
             if (conversion.isFileMode() == false)
             {
                 if (!directInput())
@@ -150,7 +184,7 @@ public class ConversionWizard extends Wizard
         CharConverter cc = i.next();
         
         IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-        IProject myProject = myWorkspaceRoot.getProject("DocCharConvertData");
+        IProject myProject = myWorkspaceRoot.getProject(DEFAULT_PROJECT);
         if (myProject.exists() == false)
         {
             myProject.create(null);
@@ -229,9 +263,9 @@ public class ConversionWizard extends Wizard
                 if (converterPage.getConverters() != null &&
                     converterPage.getConverters().size() > 0)
                 {
-                    CharConverter reverse = 
-                        ReverseConversion.get(converterPage.getConverters(), 
-                                              (CharConverter)cc);
+                    CharConverter reverse = null;
+                    reverse = ReverseConversion.get(converterPage.getConverters(), 
+                                                    cc);
                     te.setConversion(cc, reverse);
                 }      
             }

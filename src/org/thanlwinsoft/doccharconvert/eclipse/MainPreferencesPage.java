@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
@@ -59,6 +60,9 @@ public class MainPreferencesPage extends FieldEditorPreferencePage
         addField(new StringFieldEditor(Config.OOUNO,
                 MessageUtil.getString("OOoUNO"),
                 this.getFieldEditorParent()));
+        addField(new DirectoryFieldEditor(Config.LOG_FILE,
+                MessageUtil.getString("LogFile"),
+                getFieldEditorParent()));
     }
 
     /* (non-Javadoc)

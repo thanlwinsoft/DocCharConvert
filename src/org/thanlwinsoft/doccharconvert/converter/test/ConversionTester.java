@@ -4,16 +4,22 @@
 package org.thanlwinsoft.doccharconvert.converter.test;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.thanlwinsoft.doccharconvert.TextStyle;
+import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.RecoverableException;
@@ -22,20 +28,25 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter.RecoverableExcept
  * @author keith
  *
  */
-public class ConversionTester
+public class ConversionTester implements CharConverter
 {
     
     HashMap <String, List<MismatchContext>> mismatches;
-    final ReversibleConverter mForwards;
-    final ReversibleConverter mBackwards;
-    public ConversionTester(ReversibleConverter forwards, 
-                            ReversibleConverter backwards)
+    final CharConverter mForwards;
+    final CharConverter mBackwards;
+    private File logFile = null;
+    public ConversionTester(CharConverter forwards, 
+                            CharConverter backwards)
     {
         this.mForwards = forwards;
         this.mBackwards = backwards;
         this.mismatches = new HashMap <String, List<MismatchContext> > ();
     }
 
+    public void setLogFile(File file)
+    {
+        logFile = file;
+    }
     /**
      * @param input
      * @param output
@@ -107,6 +118,7 @@ public class ConversionTester
                 writer.newLine();
             }
         }
+        writer.close();
     }
     
     public class MismatchContext
@@ -120,5 +132,104 @@ public class ConversionTester
             this.after = after;
             this.wrong = after;
         }
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#convert(java.lang.String)
+     */
+    public String convert(String oldText) throws FatalException,
+        RecoverableException
+    {
+        String output = mForwards.convert(oldText);
+        test(oldText, output);
+        return output;
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#destroy()
+     */
+    public void destroy()
+    {
+        if (logFile != null)
+        {
+            try
+            {
+                FileOutputStream fis = new FileOutputStream(logFile);
+                dumpToStream(fis);
+                fis.close();
+            }
+            catch (IOException e)
+            {
+                System.out.println(e);
+            }
+        }
+        mForwards.destroy();
+        mBackwards.destroy();
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#getName()
+     */
+    public String getName()
+    {
+        return mForwards.getName() + " [Test]";
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#getNewStyle()
+     */
+    public TextStyle getNewStyle()
+    {
+        return mForwards.getNewStyle();
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#getOldStyle()
+     */
+    public TextStyle getOldStyle()
+    {
+        return mForwards.getOldStyle();
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#initialize()
+     */
+    public void initialize() throws FatalException
+    {
+        mForwards.initialize();
+        mBackwards.initialize();
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#isInitialized()
+     */
+    public boolean isInitialized()
+    {
+        return mForwards.isInitialized();
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#setDebug(boolean)
+     */
+    public void setDebug(boolean on)
+    {
+        mForwards.setDebug(on);
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#setEncodings(java.nio.charset.Charset, java.nio.charset.Charset)
+     */
+    public void setEncodings(Charset iCharset, Charset oCharset)
+    {
+        mForwards.setEncodings(iCharset, oCharset);
+        mBackwards.setEncodings(oCharset, iCharset);
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#setName(java.lang.String)
+     */
+    public void setName(String newName)
+    {
+        mForwards.setName(newName);
     }
 }

@@ -58,6 +58,7 @@ public class Config
     private String ooPath = "soffice";
     public static final String OO_DEFAULT_UNO = "uno:socket,host=localhost,port=8100,tcpNoDelay=1;urp;StarOffice.ServiceManager";
     public static final String OO_DEFAULT_OPTIONS = "-accept=socket,port=8100,tcpNoDelay=1;urp;";
+    public static final String LOG_FILE = "LogFile";
     private String oouno = OO_DEFAULT_UNO;
     private String ooOptions = OO_DEFAULT_OPTIONS;
     private String ooClassPath = "";
@@ -384,5 +385,13 @@ public class Config
     public int getTestFontSize() 
     { 
         return packagePref.getInt(TEST_FONT_SIZE, DEFAULT_FONT_SIZE); 
+    }
+    public String getLogFile()
+    {
+        return packagePref.get(LOG_FILE, null);
+    }
+    public void setLogFile(String value)
+    {
+        packagePref.put(LOG_FILE, value);
     }
 }

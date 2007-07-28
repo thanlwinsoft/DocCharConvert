@@ -123,9 +123,12 @@ public class ConverterPage extends WizardPage implements SelectionListener
         while (is.hasNext())
         {
             CharConverter cc = (CharConverter)is.next();
-            if (conversion.getConversionMode().hasStyleSupport() == false &&
-                conversion.isFileMode() == true)
-                conversion.addConverter(cc);
+//            if (conversion.getConversionMode().hasStyleSupport() == false &&
+//                conversion.isFileMode() == true)
+//            {
+//                //conversion.addConverter(cc);
+//                conversion.addTestConverter(cc, availableConverters);
+//            }
             selectedConverters.add(cc);
             return true;
         }

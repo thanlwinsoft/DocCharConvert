@@ -4,8 +4,12 @@ import java.io.File;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -14,6 +18,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard;
 
 public class PreferencesInitializer extends AbstractPreferenceInitializer
 {
@@ -94,6 +99,28 @@ public class PreferencesInitializer extends AbstractPreferenceInitializer
         prefStore.setDefault(Config.OOPATH, Config.DEFAULT_WIN_INSTALL);
         prefStore.setDefault(Config.OOUNO, Config.OO_DEFAULT_UNO);
         prefStore.setDefault(Config.OOOPTIONS, Config.OO_DEFAULT_OPTIONS);
+        IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+        IProject myProject = myWorkspaceRoot.getProject(ConversionWizard.DEFAULT_PROJECT);
+        
+        try
+        {
+            if (myProject.exists() == false)
+            {
+                myProject.create(null);
+            }
+            myProject.open(null);
+            
+        }
+        catch (CoreException e)
+        {
+            DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
+                "Failed to create " + ConversionWizard.DEFAULT_PROJECT, e);
+        }
+        
+        IPath root = myWorkspaceRoot.getRawLocation();
+        IPath projectPath = myProject.getFullPath();
+        IPath projectFullPath = root.append(projectPath).makeAbsolute();
+        prefStore.setDefault(Config.LOG_FILE, projectFullPath.toOSString());
     }
 
 }

@@ -16,9 +16,9 @@ import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 public class ReverseConversion
 {
     public static CharConverter get(Vector<CharConverter>availableConverters,
-                              CharConverter conv)
+        CharConverter conv)
     {
-        CharConverter rcc = null;
+        ReversibleConverter rcc = null;
         CharConverter cc = conv;
         if (cc instanceof ChildConverter)
             cc = ((ChildConverter)cc).getParent();
@@ -48,7 +48,7 @@ public class ReverseConversion
                                && (tempParent.isForwards() != 
                                    ccParent.isForwards()))
                             {
-                                rcc = tempCc;
+                                rcc = (ReversibleConverter)tempCc;
                                 break;
                             }
                         }
