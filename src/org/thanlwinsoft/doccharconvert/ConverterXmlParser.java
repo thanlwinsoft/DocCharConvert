@@ -67,6 +67,7 @@ public class ConverterXmlParser
     public final static String EXT = ".dccx";
     File converterDir = null;
     File currentXmlFile = null;
+    Vector<CharConverter> rawConverters = null;
     Vector<ChildConverter> converters = null;
     StringBuffer errorLog = null;
     ProgressNotifier notifier = new ProgressNotifier();
@@ -75,6 +76,7 @@ public class ConverterXmlParser
     {
         this.converterDir = converterDir;
         this.converters = new Vector<ChildConverter>();
+        this.rawConverters = new Vector<CharConverter>();
         this.errorLog = new StringBuffer();
     }
     public ConverterXmlParser()
@@ -120,7 +122,11 @@ public class ConverterXmlParser
         if (errorLog.length() > 0) return false;        
         return true;
     }
-    public Vector<ChildConverter> getConverters()
+    public Vector<CharConverter> getConverters()
+    {
+        return rawConverters;
+    }
+    public Vector<ChildConverter> getChildConverters()
     {
         return converters;
     }
@@ -133,7 +139,7 @@ public class ConverterXmlParser
         try
         {
             currentXmlFile = xmlFile;
-            return parseStream(xmlFile.toURL().openStream());
+            return parseStream(xmlFile.toURI().toURL().openStream());
         }
         catch (IOException ioe)
         {
@@ -245,6 +251,7 @@ public class ConverterXmlParser
                 
             CharConverter masterConverter = (CharConverter) cco;
             masterConverter.setName(converterName);
+            rawConverters.add(masterConverter);
             ReversibleConverter reverseConverter = null;
             if (masterConverter instanceof ReversibleConverter)
             {
@@ -253,6 +260,7 @@ public class ConverterXmlParser
                 reverseConverter.setDirection(false);
                 reverseConverter.setName(converterName);
                 reverseConverter.setReverseName(reverseName);
+                rawConverters.add(reverseConverter);
             }
             // now find the parameter arguments
             parameters = classElement.getElementsByTagName(PARAMETER_NODE);

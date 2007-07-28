@@ -15,15 +15,17 @@ import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
  */
 public class ReverseConversion
 {
-    public static ChildConverter get(Vector<ChildConverter>availableConverters,
-                              ChildConverter cc)
+    public static CharConverter get(Vector<CharConverter>availableConverters,
+                              CharConverter conv)
     {
-        ChildConverter rcc = null;
-        if (cc.getParent() instanceof ReversibleConverter)
+        CharConverter rcc = null;
+        CharConverter cc = conv;
+        if (cc instanceof ChildConverter)
+            cc = ((ChildConverter)cc).getParent();
+        if (cc instanceof ReversibleConverter)
         {
             // try to find the reverse converter
-            ReversibleConverter ccParent = 
-                (ReversibleConverter)cc.getParent();
+            ReversibleConverter ccParent = (ReversibleConverter)cc;
             int i = 0;
             while (rcc == null && i<availableConverters.size())
             {
@@ -32,12 +34,16 @@ public class ReverseConversion
                     Object rco = availableConverters.elementAt(i);
                     if (rco instanceof CharConverter)
                     {
-                        ChildConverter tempCc = null;
-                        tempCc = (ChildConverter)rco;
-                        if (tempCc.getParent() instanceof ReversibleConverter)
+                        CharConverter tempCc = null;
+                        tempCc = (CharConverter)rco;
+                        if (tempCc instanceof ChildConverter)
+                        {
+                            tempCc = ((ChildConverter)tempCc).getParent();
+                        }
+                        if (tempCc instanceof ReversibleConverter)
                         {
                             ReversibleConverter tempParent = 
-                                (ReversibleConverter)tempCc.getParent();
+                                (ReversibleConverter)tempCc;
                             if (tempParent.getBaseName().equals(ccParent.getBaseName()) 
                                && (tempParent.isForwards() != 
                                    ccParent.isForwards()))

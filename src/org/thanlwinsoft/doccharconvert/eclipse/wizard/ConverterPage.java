@@ -47,13 +47,17 @@ public class ConverterPage extends WizardPage implements SelectionListener
     List converterList = null;
     ListViewer converterViewer = null;
     Shell shell = null;
-    Vector<ChildConverter> availableConverters = null;
+    Vector<CharConverter> availableConverters = null;
+    Vector<CharConverter> selectedConverters = null;
     private BatchConversion conversion = null;
+    private ConverterXmlParser xmlParser = null;
+
     public ConverterPage(BatchConversion conversion)
     {
         super(ConversionWizard.CONVERTER_PAGE, 
                 MessageUtil.getString("Wizard_ConverterTitle"), null);
         this.conversion = conversion;
+        selectedConverters = new Vector<CharConverter>();
     }
     /* (non-Javadoc)
      * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
@@ -65,7 +69,8 @@ public class ConverterPage extends WizardPage implements SelectionListener
         mainControl.setText(MessageUtil.getString("Wizard_ConverterPrompt"));
         RowLayout mainLayout = new RowLayout();
         
-        mainLayout.type = SWT.HORIZONTAL;
+        mainLayout.type = SWT.VERTICAL;
+        mainLayout.fill = true;
         //mainLayout.spacing = 5;
         mainControl.setLayout(mainLayout);
         
@@ -81,6 +86,17 @@ public class ConverterPage extends WizardPage implements SelectionListener
         setPageComplete(validatePage());
         converterList.setFocus();
     }
+    
+    public void addSelectionListener(SelectionListener sl)
+    {
+        converterList.addSelectionListener(sl);
+    }
+
+    public void removeSelectionListener(SelectionListener sl)
+    {
+        converterList.removeSelectionListener(sl);
+    }
+    
     /* (non-Javadoc)
      * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
      */
@@ -97,15 +113,20 @@ public class ConverterPage extends WizardPage implements SelectionListener
     }
     protected boolean validatePage()
     {
-        conversion.removeAllConverters();
+        if (conversion.getConversionMode().hasStyleSupport() == false &&
+            conversion.isFileMode() == true)
+            conversion.removeAllConverters();
         IStructuredSelection selection = 
             (IStructuredSelection)converterViewer.getSelection();
         Iterator is = selection.iterator();
-        
+        selectedConverters.clear();
         while (is.hasNext())
         {
             CharConverter cc = (CharConverter)is.next();
-            conversion.addConverter(cc);
+            if (conversion.getConversionMode().hasStyleSupport() == false &&
+                conversion.isFileMode() == true)
+                conversion.addConverter(cc);
+            selectedConverters.add(cc);
             return true;
         }
         if (selection.size() > 0)
@@ -117,8 +138,7 @@ public class ConverterPage extends WizardPage implements SelectionListener
     
     public void parseConverters()
     {
-        ConverterXmlParser xmlParser = 
-            new ConverterXmlParser(getConverterPath());
+        xmlParser = new ConverterXmlParser(getConverterPath());
         
         ParseRunnable pr = new ParseRunnable(xmlParser, 
                                              this.getShell().getDisplay());
@@ -149,7 +169,6 @@ public class ConverterPage extends WizardPage implements SelectionListener
     
     static File getConverterPath()
     {
-        
         File converterConfigPath = Config.getCurrent().getConverterPath();
         if (converterConfigPath.isDirectory() == false)
         {
@@ -187,14 +206,30 @@ public class ConverterPage extends WizardPage implements SelectionListener
     {
         if (conversion.isFileMode() == false)
         {
-            return this.getWizard().getPage(ConversionWizard.ENCODING_PAGE);
+            return this.getWizard().getPage(ConversionWizard.FONT_CONVERTER_PAGE);
         }
-        return super.getNextPage();
+        else if (conversion.getConversionMode().hasStyleSupport())
+        {
+            return this.getWizard().getPage(ConversionWizard.FONT_CONVERTER_PAGE);
+        }
+        else
+        {
+            return this.getWizard().getPage(ConversionWizard.FILE_SELECT_PAGE);
+        }
     }
     
-    public Vector<ChildConverter> getConverters() 
+    public Vector<CharConverter> getConverters() 
     { 
         return availableConverters; 
+    }
+    
+    public Vector<ChildConverter> getChildConverters()
+    {
+        return xmlParser.getChildConverters();
+    }
+    public Vector<CharConverter> getSelectedConverters()
+    {
+        return selectedConverters;
     }
     
     public class ParseRunnable implements IRunnableWithProgress

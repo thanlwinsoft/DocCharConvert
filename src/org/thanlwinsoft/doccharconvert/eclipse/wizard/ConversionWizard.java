@@ -6,6 +6,7 @@ package org.thanlwinsoft.doccharconvert.eclipse.wizard;
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Assert;
@@ -49,10 +50,12 @@ public class ConversionWizard extends Wizard
     StructuredSelection oSelection;
     BatchConversion conversion = null;
     ConverterPage converterPage = null;
+    FontConversionPage fontPage = null;
     private IWorkbenchWindow wbWindow;
     private WizardDialog dialog;
     static final String DOC_PARSER_PAGE = "DOC_PARSER_PAGE";
     static final String CONVERTER_PAGE = "CONVERTER_PAGE";
+    static final String FONT_CONVERTER_PAGE = "FONT_CONVERTER_PAGE";
     static final String ENCODING_PAGE = "ENCODING_PAGE";
     static final String FILE_SELECT_PAGE = "FILE_SELECT_PAGE";
     
@@ -71,8 +74,10 @@ public class ConversionWizard extends Wizard
         conversion = new BatchConversion();
         conversion.setMessageDisplay(new EclipseMessageDisplay(this.getShell()));
         addPage(new DocumentParserPage(conversion));
-        converterPage = new ConverterPage(conversion); 
+        converterPage = new ConverterPage(conversion);
         addPage(converterPage);
+        fontPage = new FontConversionPage(converterPage, conversion);
+        addPage(fontPage);
         addPage(new FileSelectionPage(conversion));
         addPage(new EncodingPage(conversion));
     }
@@ -88,7 +93,8 @@ public class ConversionWizard extends Wizard
         {
             if (conversion.isFileMode() == false)
             {
-                directInput();
+                if (!directInput())
+                    return false;
             }
             else
             {
@@ -134,13 +140,14 @@ public class ConversionWizard extends Wizard
         return true;
     }
     
-    protected void directInput() throws PartInitException, CoreException
+    protected boolean directInput() throws PartInitException, CoreException
     {
         Collection <CharConverter> converters = conversion.getConverters();
         // just use the first converter
-        CharConverter cc = converters.iterator().next();
-        
-        
+        Iterator <CharConverter> i = converters.iterator();
+        if (!i.hasNext())
+            return false;
+        CharConverter cc = i.next();
         
         IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
         IProject myProject = myWorkspaceRoot.getProject("DocCharConvertData");
@@ -199,8 +206,6 @@ public class ConversionWizard extends Wizard
                     null, IWorkbenchPage.VIEW_VISIBLE);
             wbWindow.getActivePage().showView(Perspective.DEBUG_UNICODE,
                     null, IWorkbenchPage.VIEW_VISIBLE);
-            if (wbWindow.getActivePage().isPageZoomed())
-                wbWindow.getActivePage().zoomOut();
             IWorkbenchPart part = wbWindow.getActivePage().getActivePart();
             if (part != null)
             {
@@ -226,13 +231,13 @@ public class ConversionWizard extends Wizard
                 {
                     CharConverter reverse = 
                         ReverseConversion.get(converterPage.getConverters(), 
-                                              (ChildConverter)cc);
+                                              (CharConverter)cc);
                     te.setConversion(cc, reverse);
                 }      
             }
             
         }
-        
+        return true;
     }
 
     /* (non-Javadoc)

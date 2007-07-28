@@ -40,6 +40,7 @@ public class FontStyle implements TextStyle
     public FontStyle(String aFontName)
     {
         this.fontName = aFontName;
+        this.styleName = aFontName;
     }
     
     public boolean equals(Object obj)

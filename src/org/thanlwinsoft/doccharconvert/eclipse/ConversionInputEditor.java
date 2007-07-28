@@ -100,7 +100,7 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
 
     protected void setFont()
     {
-        if (charConverter != null)
+        if (charConverter != null && charConverter.getOldStyle() != null)
         {
             String faceName = charConverter.getOldStyle().getFontName();
             StyledText textWidget = this.getSourceViewer().getTextWidget();
@@ -111,6 +111,10 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
             Shell shell = this.getSite().getWorkbenchWindow().getShell();
             Font font = new Font(shell.getDisplay(), fd);
             textWidget.setFont(font);
+        }
+        if (getSourceViewer() != null && 
+            getSourceViewer().getDocument() != null)
+        {
             showConversion(getSourceViewer().getDocument());
         }
     }

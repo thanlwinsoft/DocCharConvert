@@ -24,6 +24,9 @@
 
 package org.thanlwinsoft.doccharconvert.converter;
 import org.thanlwinsoft.doccharconvert.TextStyle;
+import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
+import org.thanlwinsoft.doccharconvert.converter.CharConverter.RecoverableException;
+import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
 
 /**
  *
@@ -47,7 +50,29 @@ public abstract class ReversibleConverter implements CharConverter
         if(forwards==true) return targetStyle;
         return originalStyle; 
     }
+    /**
+     * Test that the result of the reverse conversion is the same as the forward
+     * conversion.
+     * @param input
+     * @param output
+     * @throws FatalException
+     * @throws RecoverableException
+     */
+    protected void testConversion(String input, String output) throws FatalException, RecoverableException
+    {
+        if (tester != null)
+            tester.test(input, output);
+    }
     protected boolean forwards = true;
     protected  TextStyle originalStyle = null;
     protected  TextStyle targetStyle = null;
+    protected ConversionTester tester = null;
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString()
+    {
+        return getName();
+    }
 }

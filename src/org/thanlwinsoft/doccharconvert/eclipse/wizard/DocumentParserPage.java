@@ -54,7 +54,6 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
         
         Label label = new Label(pageComposite, SWT.WRAP);
         label.setText(MessageUtil.getString("Wizard_DocParserPageDesc"));
-        //label.setLayoutData(new RowData(100,100));
         combo = new Combo(pageComposite, SWT.DROP_DOWN | SWT.READ_ONLY);
         for (int i = 0; i < ConversionMode.NUM_MODES; i++)
         {
@@ -66,7 +65,6 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
             combo.add(extMode[i].toString());
         }
         combo.addSelectionListener(this);
-        //combo.setLayoutData(new RowData(100,20));
         pageComposite.pack();
         this.setControl(pageComposite);
         setPageComplete(validatePage());
@@ -86,6 +84,12 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
                 {
                     ((FileSelectionPage)fileSelectPage).setPageComplete(false);
                 }
+                IWizardPage fontConversionPage = 
+                    getWizard().getPage(ConversionWizard.FONT_CONVERTER_PAGE);
+                if (fontConversionPage instanceof FontConversionPage)
+                {
+                    ((FontConversionPage)fontConversionPage).validatePage();
+                }
                 return true;
             }
         }
@@ -93,6 +97,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
         {
             combo.setEnabled(false);
             conversion.setFileMode(false);
+            conversion.setConversionMode(ConversionMode.TEXT_MODE);
             IWizardPage fileSelectPage = 
                 getWizard().getPage(ConversionWizard.FILE_SELECT_PAGE);
             if (fileSelectPage instanceof FileSelectionPage)
@@ -100,7 +105,13 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
                 ((FileSelectionPage)fileSelectPage).setPageComplete(true);
             }
             
-            conversion.setConversionMode(ConversionMode.TEXT_MODE);
+            IWizardPage fontConversionPage = 
+                getWizard().getPage(ConversionWizard.FONT_CONVERTER_PAGE);
+            if (fontConversionPage instanceof FontConversionPage)
+            {
+                ((FontConversionPage)fontConversionPage).validatePage();
+            }
+            
             return true;
         }
         return false;
@@ -110,7 +121,6 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
      */
     public void widgetSelected(SelectionEvent e)
     {
-        // TODO Auto-generated method stub
         setPageComplete(validatePage());
     }
     /* (non-Javadoc)
@@ -118,8 +128,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
      */
     public void widgetDefaultSelected(SelectionEvent e)
     {
-        // TODO Auto-generated method stub
-        
+        // NOOP
     }
 
 }
