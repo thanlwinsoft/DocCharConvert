@@ -394,4 +394,5 @@ public class Config
     {
         packagePref.put(LOG_FILE, value);
     }
+    public Preferences getPrefs() { return packagePref; }
 }

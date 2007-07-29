@@ -1,10 +1,15 @@
 package org.thanlwinsoft.doccharconvert.eclipse.wizard;
 
+import java.lang.reflect.InvocationTargetException;
+
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.thanlwinsoft.doccharconvert.eclipse.ConversionRunnable;
 /**
  * Our sample action implements workbench action delegate.
  * The action proxy will be created by the workbench and
@@ -45,6 +50,22 @@ public class ConversionWizardAction implements IWorkbenchWindowActionDelegate
         //                              window.getActivePage().getSelection());
         wizardDialog.open();
         
+        try
+        {
+            ConversionRunnable runnable = wizard.getRunnable();
+            if (runnable != null)
+                PlatformUI.getWorkbench().getProgressService().busyCursorWhile(runnable);
+        }
+        catch (InvocationTargetException e)
+        {
+            MessageDialog.openError(window.getShell(), "Error", 
+                    "Error converting:" + e.getMessage());
+        }
+        catch (InterruptedException e)
+        {
+            MessageDialog.openError(window.getShell(), "Error", 
+                    "Error converting:" + e.getMessage());
+        }
         // Not sure whether to close this automatically or not.
 //        IIntroManager introManager = aww.getWorkbench().getIntroManager(); 
 //        if (introManager.getIntro() != null)

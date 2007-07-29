@@ -75,6 +75,15 @@ public class ConversionFileListProvider implements IStructuredContentProvider
             }
             return value;
         }
+        public boolean equals(Object o)
+        {
+            if (o instanceof RowCell)
+            {
+                if (((RowCell)o).getInput().equals(this.getInput()))
+                    return true;
+            }
+            return false;
+        }
     }
     
     /** Construct ConversionFileListProvider with the given BatchConversion 
@@ -90,7 +99,7 @@ public class ConversionFileListProvider implements IStructuredContentProvider
      */
     public Object[] getElements(Object inputElement)
     {
-        System.out.println("getElements: " + inputElement.toString());
+        //System.out.println("getElements: " + inputElement.toString());
         if (inputElement instanceof BatchConversion)
         {
             batchConversion = (BatchConversion)inputElement;
@@ -122,8 +131,7 @@ public class ConversionFileListProvider implements IStructuredContentProvider
      */
     public void dispose()
     {
-        // TODO Auto-generated method stub
-
+        //noop
     }
 
     /* (non-Javadoc)
@@ -167,8 +175,9 @@ public class ConversionFileListProvider implements IStructuredContentProvider
             }
         }
     }
-    void setStatus(File input, String status)
+    RowCell setStatus(File input, String status)
     {
         statusMap.put(input, status);
+        return new RowCell(batchConversion, statusMap, input);
     }
 }

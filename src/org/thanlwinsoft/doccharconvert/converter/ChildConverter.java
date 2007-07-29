@@ -35,7 +35,7 @@ import org.thanlwinsoft.doccharconvert.TextStyle;
  */
 public class ChildConverter implements CharConverter
 {
-    CharConverter parent = null;
+    protected CharConverter parent = null;
     TextStyle oldStyle = null;
     TextStyle newStyle = null;
     String name = "Unknown";
@@ -46,8 +46,13 @@ public class ChildConverter implements CharConverter
         this.parent = parent;
         this.oldStyle = oldStyle;
         this.newStyle = newStyle;
-        name = parent.getName() + "(" + oldStyle.getDescription() + " => " + 
-            newStyle.getDescription() + ")";
+        if (oldStyle == null || newStyle == null)
+            name = parent.getName();
+        else
+        {
+            name = parent.getName() + "(" + oldStyle.getDescription() + " => " + 
+                newStyle.getDescription() + ")";
+        }
     }
     
     public String convert(String oldText) throws CharConverter.FatalException,
@@ -94,7 +99,11 @@ public class ChildConverter implements CharConverter
     }
     public CharConverter getParent()
     {
-      return parent;
+        if (parent instanceof ChildConverter)
+        {
+            return ((ChildConverter)parent).getParent();
+        }
+        return parent;
     }
     public void setDebug(boolean on)
     {

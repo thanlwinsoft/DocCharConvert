@@ -70,12 +70,10 @@ public class ConversionFileListView extends ViewPart
         outputFileCol.addSelectionListener(new SelectionListener() {
 
 			public void widgetDefaultSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
 			}
 
 			public void widgetSelected(SelectionEvent e) {
-				// TODO Auto-generated method stub
-				System.out.println(e);
+				//System.out.println(e);
 			}});
         conversionStatus = new TableColumn(fileListTable, SWT.LEFT);
         conversionStatus.setText(MessageUtil.getString("FileList_Status"));
@@ -148,8 +146,7 @@ public class ConversionFileListView extends ViewPart
         
         tableView.getTable().addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event) {
-				//notifySelectedFiles(getSelectedFiles());
-				System.out.println(event.toString());
+				//System.out.println(event.toString());
 			}
 			public void widgetDefaultSelected(SelectionEvent event) {
 				doDefaultFileAction(getSelectedFiles());
@@ -195,7 +192,7 @@ public class ConversionFileListView extends ViewPart
         tableView.setInput(conv);
         tableView.add(provider.getElements(conv));
         fileListTable.setData(conv);
-        System.out.println(tableView.getTable().getItemCount());
+        //System.out.println(tableView.getTable().getItemCount());
         tableView.getTable().showColumn(inputFileCol);
         tableView.refresh();
         tableView.getTable().setEnabled(true);
@@ -237,7 +234,7 @@ public class ConversionFileListView extends ViewPart
             {
                 ConversionFileListProvider.RowCell rc = 
                     (ConversionFileListProvider.RowCell)element;
-                System.out.println(rc.toString(columnIndex));
+                //System.out.println(rc.toString(columnIndex));
                 return rc.toString(columnIndex);
             }
             return element.toString();
@@ -247,7 +244,9 @@ public class ConversionFileListView extends ViewPart
     {
         ConversionFileListProvider cflp = 
             (ConversionFileListProvider)tableView.getContentProvider();
-        cflp.setStatus(input, status);
-        tableView.refresh(true);
+        RowCell modified = cflp.setStatus(input, status);
+        //tableView.update(modified, true);
+        tableView.update(modified, null);
+        //tableView.refresh(true);
     }
 }

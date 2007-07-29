@@ -17,6 +17,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
@@ -47,6 +49,7 @@ public class ConversionTester implements CharConverter
     {
         logFile = file;
     }
+    
     /**
      * @param input
      * @param output
@@ -56,9 +59,9 @@ public class ConversionTester implements CharConverter
     public void test(String input, String output) throws FatalException, RecoverableException
     {
         String reversed = mBackwards.convert(output);
-        if (reversed.equals(input) == false)
+        if (reversed.equalsIgnoreCase(input) == false)
         {
-            logMismatch(input, output, reversed);
+            logMismatch(input.toLowerCase(), output, reversed.toLowerCase());
         }
     }
     /** Log a mismatched reverse conversion.
@@ -69,7 +72,7 @@ public class ConversionTester implements CharConverter
     private void logMismatch(String input, String output, String reversed)
     {
         int i = 0;
-        while (i < input.length() && i < output.length() && 
+        while (i < input.length() && i < reversed.length() && 
                input.charAt(i) == reversed.charAt(i))
         {
             i++;
@@ -86,7 +89,7 @@ public class ConversionTester implements CharConverter
         String orig = input.substring(i, j);
         String wrong = reversed.substring(i, k);
         String afterContext = input.substring(j);
-        MismatchContext context = new MismatchContext(beforeContext, afterContext, wrong);
+        MismatchContext context = new MismatchContext(beforeContext, afterContext, wrong, output);
         if (!mismatches.containsKey(orig))
         {
             mismatches.put(orig, new ArrayList<MismatchContext>());
@@ -101,20 +104,31 @@ public class ConversionTester implements CharConverter
      */
     public void dumpToStream(OutputStream os) throws IOException
     {
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os));
+        Pattern multipleSpace = Pattern.compile("\\s+");
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, Charset.forName("UTF-8")));
         Iterator <Map.Entry<String, List<MismatchContext>>> i = mismatches.entrySet().iterator();
+        writer.write("Prefix\tInput\tReversed\tSuffix\tConverted");
+        writer.newLine();
         while (i.hasNext())
         {
             Map.Entry<String, List<MismatchContext>> entry = i.next();
-            writer.write(entry.getKey());
             for (MismatchContext mc : entry.getValue())
             {
+                String before = multipleSpace.matcher(mc.before).replaceAll(" ");
+                String after = multipleSpace.matcher(mc.after).replaceAll(" ");
+                String orig = multipleSpace.matcher(entry.getKey()).replaceAll(" ");
+                String wrong = multipleSpace.matcher(mc.wrong).replaceAll(" ");
+                String converted = multipleSpace.matcher(mc.converted).replaceAll(" ");
+                
+                writer.write(before);
                 writer.write('\t');
-                writer.write(mc.before);
+                writer.write(orig);
                 writer.write('\t');
-                writer.write(mc.wrong);
+                writer.write(wrong);
                 writer.write('\t');
-                writer.write(mc.after);
+                writer.write(after);
+                writer.write('\t');
+                writer.write(converted);
                 writer.newLine();
             }
         }
@@ -123,14 +137,16 @@ public class ConversionTester implements CharConverter
     
     public class MismatchContext
     {
+        final String converted;
         final String before;
         final String after;
         final String wrong;
-        public MismatchContext(String before, String after, String wrong)
+        public MismatchContext(String before, String after, String wrong, String converted)
         {
-            this.before = before;
-            this.after = after;
-            this.wrong = after;
+            this.before = new String(before);
+            this.after = new String(after);
+            this.wrong = new String(wrong);
+            this.converted = new String(converted);
         }
     }
 

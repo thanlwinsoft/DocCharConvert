@@ -21,6 +21,7 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
+import org.thanlwinsoft.doccharconvert.converter.test.LogConvertedWords;
 
 /**
  * @author keith
@@ -63,6 +64,10 @@ public class MainPreferencesPage extends FieldEditorPreferencePage
         addField(new DirectoryFieldEditor(Config.LOG_FILE,
                 MessageUtil.getString("LogFile"),
                 getFieldEditorParent()));
+        
+        addField(new StringFieldEditor(LogConvertedWords.WORD_SEPARATOR_KEY,
+            MessageUtil.getString("WordDelimiterRegExp"),
+            getFieldEditorParent()));
     }
 
     /* (non-Javadoc)

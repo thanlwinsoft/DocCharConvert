@@ -28,6 +28,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     Button fileButton = null;
     Button inputButton = null;
     Button debug = null;
+    Button wordLog = null;
     private BatchConversion conversion = null;
     public DocumentParserPage(BatchConversion conversion)
     {
@@ -69,6 +70,9 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
         debug = new Button(pageComposite, SWT.CHECK);
         debug.setText(MessageUtil.getString("EnableLogging"));
         debug.setToolTipText(MessageUtil.getString("EnableLoggingTooltip"));
+        wordLog = new Button(pageComposite, SWT.CHECK);
+        wordLog.setText(MessageUtil.getString("EnableWordLogging"));
+        wordLog.setToolTipText(MessageUtil.getString("EnableWordLoggingTooltip"));
         pageComposite.pack();
         this.setControl(pageComposite);
         setPageComplete(validatePage());
@@ -76,6 +80,10 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     public boolean isDebugEnabled()
     {
         return debug.getSelection();
+    }
+    public boolean logWords()
+    {
+        return wordLog.getSelection();
     }
     protected boolean validatePage()
     {

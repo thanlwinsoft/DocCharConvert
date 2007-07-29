@@ -4,8 +4,11 @@
 package org.thanlwinsoft.doccharconvert.eclipse.wizard;
 
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -28,11 +31,13 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.swt.widgets.Composite;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
 import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
+import org.thanlwinsoft.doccharconvert.converter.test.LogConvertedWords;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionRunnable;
 import org.thanlwinsoft.doccharconvert.eclipse.EclipseMessageDisplay;
@@ -40,6 +45,7 @@ import org.thanlwinsoft.doccharconvert.eclipse.Perspective;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.DocumentParserPage;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
+import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.ReverseConversion;
 /**
@@ -56,6 +62,7 @@ public class ConversionWizard extends Wizard
     FontConversionPage fontPage = null;
     private IWorkbenchWindow wbWindow;
     private WizardDialog dialog;
+    ConversionRunnable runnable = null;
     
     public final static String DEFAULT_PROJECT = "DocCharConvertData";
     
@@ -119,6 +126,15 @@ public class ConversionWizard extends Wizard
             conversion.removeAllConverters();
             for (CharConverter cc : converters)
             {
+                if (parserPage.logWords())
+                {
+                    LogConvertedWords wordLogger = new LogConvertedWords(cc);
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
+                    File file = new File(Config.getCurrent().getLogFile() + 
+                        File.separator + "Words" + sdf.format(new Date()) + ".csv");
+                    wordLogger.setWordFile(file);
+                    cc = wordLogger;
+                }
                 if (parserPage.isDebugEnabled())
                 {
                     conversion.addTestConverter(cc, availableConverters);
@@ -132,7 +148,8 @@ public class ConversionWizard extends Wizard
             }
             else
             {
-                IViewPart fileList = wbWindow.getActivePage().showView(Perspective.CONV_FILE_LIST, 
+                IWorkbenchPage page = wbWindow.getActivePage();
+                IViewPart fileList = page.showView(Perspective.CONV_FILE_LIST, 
                         null, IWorkbenchPage.VIEW_ACTIVATE);
                 
                 ConversionFileListView listView = null; 
@@ -140,6 +157,11 @@ public class ConversionWizard extends Wizard
                 {
                     listView = (ConversionFileListView)fileList; 
                     listView.setConversion(conversion);
+                    IViewReference viewRef = page.findViewReference(Perspective.CONV_FILE_LIST);
+                    if (viewRef != null && page.isPageZoomed() == false)
+                    {
+                        page.toggleZoom(viewRef);
+                    }
                 }
                 else
                     MessageDialog.openError(wbWindow.getShell(), "Error", 
@@ -147,8 +169,14 @@ public class ConversionWizard extends Wizard
                 Assert.isNotNull(dialog);
                 
                 ConversionRunnable runnable = new ConversionRunnable(conversion, listView);
+                // The runnable is now run in the Action that openned this wizard
+                // after the wizard has closed.
+
+                //PlatformUI.getWorkbench().getProgressService().run(true, true, runnable);
+                //.busyCursorWhile(runnable);
+                //dialog.run(true, true, runnable);
+                //PlatformUI.getWorkbench().getActiveWorkbenchWindow().run(true, true, runnable);
                 
-                dialog.run(false, true, runnable);
             }
         } 
         catch (PartInitException e) 
@@ -161,17 +189,13 @@ public class ConversionWizard extends Wizard
             MessageDialog.openError(wbWindow.getShell(), "Error", 
                     "Error opening view:" + e.getMessage());
         }
-        catch (InvocationTargetException e)
-        {
-            MessageDialog.openError(wbWindow.getShell(), "Error", 
-                    "Error converting:" + e.getMessage());
-        }
-        catch (InterruptedException e)
-        {
-            MessageDialog.openError(wbWindow.getShell(), "Error", 
-                    "Error converting:" + e.getMessage());
-        }
+        
         return true;
+    }
+    
+    public ConversionRunnable getRunnable()
+    {
+        return runnable;
     }
     
     protected boolean directInput() throws PartInitException, CoreException

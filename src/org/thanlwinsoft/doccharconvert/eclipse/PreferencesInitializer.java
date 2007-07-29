@@ -1,6 +1,7 @@
 package org.thanlwinsoft.doccharconvert.eclipse;
 
 import java.io.File;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
@@ -18,6 +19,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.converter.test.LogConvertedWords;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard;
 
 public class PreferencesInitializer extends AbstractPreferenceInitializer
@@ -121,6 +123,8 @@ public class PreferencesInitializer extends AbstractPreferenceInitializer
         IPath projectPath = myProject.getFullPath();
         IPath projectFullPath = root.append(projectPath).makeAbsolute();
         prefStore.setDefault(Config.LOG_FILE, projectFullPath.toOSString());
+        prefStore.setDefault(LogConvertedWords.WORD_SEPARATOR_KEY, 
+            LogConvertedWords.WORD_SEPARATOR);
     }
 
 }

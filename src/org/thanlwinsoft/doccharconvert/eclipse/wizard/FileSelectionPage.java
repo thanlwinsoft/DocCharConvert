@@ -15,6 +15,7 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.layout.RowData;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -98,6 +99,7 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
         checkBox.setText(MessageUtil.getString("Wizard_AddMultipleFiles"));
         final Table fileTable = new Table(mainControl, 
         		SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.MULTI);
+        fileTable.setLayoutData(new RowData(300, 100));
         tViewer = new TableViewer(fileTable);
         tViewer.setLabelProvider(new FilePairLabelProvider());
         tViewer.setContentProvider(new ArrayContentProvider());
@@ -174,18 +176,21 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
                 String inputPath = Config.getCurrent().getInputPath().getAbsolutePath();
                 if (inputPath != null)
                 {
-                    inputPath += File.separator + "*";
+                    //inputPath += File.separator + "*";
                     dialog.setFilterPath(inputPath);
                 }
                 String inputListFile = dialog.open();
                 if (inputListFile != null)
                 {
                     ConversionHelper.setMsgDisplay(new EclipseMessageDisplay(shell));
-                    ConversionHelper.loadFileList(conversion, new File(inputListFile));
+                    File listFile = new File(inputListFile);
+                    ConversionHelper.loadFileList(conversion, listFile);
                     tViewer.setInput(conversion.getInputFileList());
                     tViewer.refresh();
-                    mainControl.layout();
+                    //mainControl.layout();
                     setPageComplete(conversion.getInputFileList().length > 0);
+                    Config.getCurrent().setInputPath(listFile.getParentFile().getAbsoluteFile());
+                    Config.getCurrent().save();
                 }
             }
         });
@@ -194,17 +199,20 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
             public void widgetSelected(SelectionEvent e) 
             {
                 FileDialog dialog = new FileDialog(shell, SWT.SAVE);
-                dialog.setFilterPath(Config.getCurrent().getOutputPath() + "/*");
-                String listFile = dialog.open();
-                if (listFile != null)
+                //dialog.setFilterPath(Config.getCurrent().getOutputPath() + "/*");
+                String listFileName = dialog.open();
+                if (listFileName != null)
                 {
                     ConversionHelper.setMsgDisplay(new EclipseMessageDisplay(shell));
                     try
                     {
-                        ConversionHelper.saveFileList(conversion, new File(listFile));
+                        File listFile = new File(listFileName);
+                        ConversionHelper.saveFileList(conversion, listFile);
                         tViewer.setInput(conversion.getInputFileList());
                         tViewer.refresh();
-                        getControl().pack();
+                        //getControl().pack();
+                        Config.getCurrent().setOutputPath(listFile.getParentFile());
+                        Config.getCurrent().save();
                     }
                     catch (IOException ioe)
                     {

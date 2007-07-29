@@ -4,7 +4,9 @@
 package org.thanlwinsoft.doccharconvert.eclipse;
 
 import org.thanlwinsoft.doccharconvert.IMessageDisplay;
+import org.thanlwinsoft.doccharconvert.MessageUtil;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
@@ -56,18 +58,28 @@ public class EclipseMessageDisplay implements IMessageDisplay
         }
         public void run()
         {
-            MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.YES | SWT.NO | SWT.CANCEL);
-            msgBox.setMessage(message);
-            msgBox.setText(title);
-            switch (msgBox.open())
+            String [] labels = 
             {
-            case SWT.YES:
+                MessageUtil.getString("Yes"), 
+                MessageUtil.getString("No"),
+                MessageUtil.getString("Yes to all"), 
+                MessageUtil.getString("No to all")
+            };
+            //MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.YES | SWT.NO | SWT.CANCEL);
+            MessageDialog dialog = new MessageDialog(shell, title, null,
+                message, MessageDialog.QUESTION, labels, Option.NO.ordinal());
+            switch (dialog.open())
+            {
+            case 0:
                 status = Option.YES;
                 break;
-            case SWT.NO:
+            case 1:
                 status = Option.NO;
                 break;
-            case SWT.CANCEL:
+            case 2:
+                status = Option.YES_ALL;
+                break;
+            case 3:
                 status = Option.NO_ALL;
                 break;
             default:
