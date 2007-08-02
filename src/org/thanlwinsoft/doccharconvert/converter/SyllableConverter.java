@@ -25,7 +25,11 @@
 package org.thanlwinsoft.doccharconvert.converter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 import java.util.Iterator;
 import java.util.List;
@@ -66,6 +70,7 @@ public class SyllableConverter extends ReversibleConverter
     private File rightExceptions = null;
     private ExceptionList exceptionList = null;
     private Vector<SyllableChecker> checkers = null;
+    private PrintStream debugStream = System.out;
     /** Creates a new instance of SyllableConverter 
      * @param xmlFile XML config file
      * @param leftExceptions exceptions on the left side
@@ -115,9 +120,22 @@ public class SyllableConverter extends ReversibleConverter
     }
     public void setReverseName(String aName) { this.reverseName =aName; }
     
-    public void setDebug(boolean on)
+    public void setDebug(boolean on, File logDir)
     {
         debug = on;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
+        if (logDir != null)
+        {
+            File logFile = new File(logDir, getBaseName() + sdf.format(new Date()) + ".log");
+            try
+            {
+                debugStream = new PrintStream(logFile);
+            }
+            catch (FileNotFoundException e)
+            {
+                System.err.println(e);
+            }
+        }
     }
     /**
      * Convert text using the converter - the main entry point for conversion
@@ -194,7 +212,7 @@ public class SyllableConverter extends ReversibleConverter
         Syllable s = parseOutput.get(i);
         String syllableText = s.getResultString();
         if (debug && syllableText.contains(UNKNOWN_CHAR))
-          System.out.println("Ambiguous conversion:\t" + 
+          debugStream.println("Ambiguous conversion:\t" + 
               s.getOriginalString() + '\t' + syllableText);
         output.append(syllableText);
       }
@@ -226,7 +244,7 @@ public class SyllableConverter extends ReversibleConverter
             Vector<Integer> testSyl = syl.next();
             if (debug)
             {
-                System.out.println("Choose syllable for  '" + 
+                debugStream.println("Choose syllable for  '" + 
                     text.substring(offset, offset + testSyl.elementAt(0)) + 
                     "' " + testSyl.toString() );
             }
@@ -240,7 +258,7 @@ public class SyllableConverter extends ReversibleConverter
                     text.substring(offset, offset + testLength), conversion));
             }
         }
-        if (debug) System.out.println("Chose: " + longest.toString());
+        if (debug) debugStream.println("Chose: " + longest.toString());
         return results;
     }
     
@@ -334,7 +352,7 @@ public class SyllableConverter extends ReversibleConverter
                     // remove leading char count for dump
                     Integer[] sylIndices = compValues.subList(1, 
                         compValues.size()).toArray(new Integer[0]);
-                    System.out.println("Warning: overwriting syllable values " + 
+                    debugStream.println("Warning: overwriting syllable values " + 
                                        dumpSyllable(oldSide,sylIndices) + 
                                        " with " + 
                         scripts[newSide].getSyllableComponent(indexInSyllable)
@@ -456,7 +474,7 @@ public class SyllableConverter extends ReversibleConverter
             filetime = leftExceptions.lastModified();
         if (rightExceptions != null && rightExceptions.lastModified() > filetime) 
             filetime = rightExceptions.lastModified();
-        SyllableXmlReader reader = new SyllableXmlReader(xmlFile, debug);
+        SyllableXmlReader reader = new SyllableXmlReader(xmlFile, debug, debugStream);
         if (reader.parse())
         {
           scripts = reader.getScripts();

@@ -75,8 +75,8 @@ public class TestDialog extends javax.swing.JDialog
         });
         buttonPanel.add(debugCheckBox, 1); // add after label
         // set debug in this mode - for now output is written to console
-        cc.setDebug(false);
-        rcc.setDebug(false);
+        cc.setDebug(false, null);
+        rcc.setDebug(false, null);
         int fontSize = Config.getCurrent().getTestFontSize();
         jTextArea1.setFont(new Font(cc.getOldStyle().getFontName(),
                            Font.PLAIN,fontSize));
@@ -316,8 +316,8 @@ public class TestDialog extends javax.swing.JDialog
     
     private void debugCheckBoxActionPerformed(java.awt.event.ActionEvent evt)
     {
-        converter.setDebug(debugCheckBox.isSelected());
-        reverseConverter.setDebug(debugCheckBox.isSelected());
+        converter.setDebug(debugCheckBox.isSelected(), null);
+        reverseConverter.setDebug(debugCheckBox.isSelected(), null);
     }
     
     protected void debugDump(String text, StringBuffer buffer)

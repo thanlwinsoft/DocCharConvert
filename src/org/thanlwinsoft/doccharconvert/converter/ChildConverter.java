@@ -23,6 +23,7 @@
  */
 
 package org.thanlwinsoft.doccharconvert.converter;
+import java.io.File;
 import java.nio.charset.Charset;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
@@ -105,9 +106,9 @@ public class ChildConverter implements CharConverter
         }
         return parent;
     }
-    public void setDebug(boolean on)
+    public void setDebug(boolean on, File logDir)
     {
-        parent.setDebug(on);
+        parent.setDebug(on, logDir);
     }
 
     public void setEncodings(Charset iCharset, Charset oCharset)

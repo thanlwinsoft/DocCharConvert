@@ -407,7 +407,7 @@ public class ExternalConverter implements CharConverter, Runnable
     {
       return initialized;
     }
-    public void setDebug(boolean on)
+    public void setDebug(boolean on, File logDir)
     {
         debug = on;
     }

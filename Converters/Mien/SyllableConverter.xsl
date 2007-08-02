@@ -352,7 +352,18 @@ left
 </xsl:for-each>
 </tr>
 <xsl:for-each select="sp:maps/sp:m">
-<tr><xsl:apply-templates/></tr>
+<tr>
+<xsl:variable name="cells" select="sp:c"/>
+<xsl:for-each select="../../sp:columns/sp:component">
+<xsl:variable name="col" select="@r"/>
+<xsl:choose>
+<xsl:when test="$cells[@r=$col]">
+<xsl:apply-templates select="$cells[@r=$col]"/>
+</xsl:when>
+<xsl:otherwise><td></td></xsl:otherwise>
+</xsl:choose>
+</xsl:for-each>
+</tr>
 </xsl:for-each>
 </table>
 </xsl:template>
@@ -377,21 +388,25 @@ left
 <xsl:otherwise>right</xsl:otherwise>
 </xsl:choose>
 </xsl:variable>
-<td class="{$side}">
 <xsl:choose>
 <xsl:when test="@hex">
+<td class="{$side}" title="{@hex}">
 <xsl:call-template name="hex">
 <xsl:with-param name="hexCode" select="@hex"/>
 </xsl:call-template>
+</td>
 </xsl:when>
 <xsl:when test="@class">
+<td class="{$side}">
 <a href="#class_{@class}" class="classRef"><xsl:value-of select="@class"/></a>
+</td>
 </xsl:when>
 <xsl:otherwise>
+<td class="{$side}">
 <xsl:apply-templates/>
+</td>
 </xsl:otherwise>
 </xsl:choose>
-</td>
 </xsl:template>
 
 </xsl:stylesheet>

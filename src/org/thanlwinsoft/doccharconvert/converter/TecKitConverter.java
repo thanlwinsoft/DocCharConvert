@@ -271,7 +271,7 @@ public class TecKitConverter extends ReversibleConverter
         }
         System.out.println(dump.toString());
     }
-    public void setDebug(boolean on)
+    public void setDebug(boolean on, File logDir)
     {
         debug = on;
     }

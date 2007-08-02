@@ -227,9 +227,9 @@ public class ConversionTester implements CharConverter
     /* (non-Javadoc)
      * @see org.thanlwinsoft.doccharconvert.converter.CharConverter#setDebug(boolean)
      */
-    public void setDebug(boolean on)
+    public void setDebug(boolean on, File logDir)
     {
-        mForwards.setDebug(on);
+        mForwards.setDebug(on, null);
     }
 
     /* (non-Javadoc)

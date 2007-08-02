@@ -29,6 +29,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     Button inputButton = null;
     Button debug = null;
     Button wordLog = null;
+    Button checkReverse = null;
     private BatchConversion conversion = null;
     public DocumentParserPage(BatchConversion conversion)
     {
@@ -73,6 +74,10 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
         wordLog = new Button(pageComposite, SWT.CHECK);
         wordLog.setText(MessageUtil.getString("EnableWordLogging"));
         wordLog.setToolTipText(MessageUtil.getString("EnableWordLoggingTooltip"));
+        checkReverse = new Button(pageComposite, SWT.CHECK);
+        checkReverse.setText(MessageUtil.getString("CheckReverse"));
+        checkReverse.setToolTipText(MessageUtil.getString("CheckReverseTooltip"));
+        
         pageComposite.pack();
         this.setControl(pageComposite);
         setPageComplete(validatePage());
@@ -84,6 +89,10 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     public boolean logWords()
     {
         return wordLog.getSelection();
+    }
+    public boolean doReverseCheck()
+    {
+        return checkReverse.getSelection();
     }
     protected boolean validatePage()
     {

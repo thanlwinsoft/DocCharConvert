@@ -37,6 +37,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
 import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
+import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
 import org.thanlwinsoft.doccharconvert.converter.test.LogConvertedWords;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionRunnable;
@@ -85,7 +86,7 @@ public class ConversionWizard extends Wizard
     public void addPages()
     {
         conversion = new BatchConversion();
-        conversion.setMessageDisplay(new EclipseMessageDisplay(this.getShell()));
+        conversion.setMessageDisplay(new EclipseMessageDisplay(wbWindow.getShell()));
         parserPage = new DocumentParserPage(conversion);
         addPage(parserPage);
         converterPage = new ConverterPage(conversion);
@@ -124,20 +125,32 @@ public class ConversionWizard extends Wizard
                 availableConverters = converterPage.getConverters();
             }
             conversion.removeAllConverters();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
             for (CharConverter cc : converters)
             {
+                if (parserPage.isDebugEnabled())
+                    cc.setDebug(true, new File(Config.getCurrent().getLogFile()));
                 if (parserPage.logWords())
                 {
                     LogConvertedWords wordLogger = new LogConvertedWords(cc);
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
                     File file = new File(Config.getCurrent().getLogFile() + 
                         File.separator + "Words" + sdf.format(new Date()) + ".csv");
                     wordLogger.setWordFile(file);
                     cc = wordLogger;
                 }
-                if (parserPage.isDebugEnabled())
+                if (parserPage.doReverseCheck())
                 {
-                    conversion.addTestConverter(cc, availableConverters);
+                    String logFileName = Config.getCurrent().getLogFile();
+                    if (logFileName != null && logFileName.length() > 0)
+                    {
+                        CharConverter reverse = 
+                            ReverseConversion.get(availableConverters, cc);
+                        ConversionTester ct = new ConversionTester(cc, reverse);
+                        ct.setLogFile(new File(logFileName + File.separator + 
+                            cc.getName() + sdf.format(new Date()) + ".csv"));
+                        conversion.addConverter(ct);
+                    }
+                    else conversion.addConverter(cc);
                 }
                 else conversion.addConverter(cc);
             }
@@ -168,7 +181,7 @@ public class ConversionWizard extends Wizard
                             "View not found");
                 Assert.isNotNull(dialog);
                 
-                ConversionRunnable runnable = new ConversionRunnable(conversion, listView);
+                runnable = new ConversionRunnable(conversion, listView);
                 // The runnable is now run in the Action that openned this wizard
                 // after the wizard has closed.
 

@@ -24,6 +24,7 @@
 
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
+import java.io.PrintStream;
 import java.text.MessageFormat;
 import java.util.Vector;
 import java.util.HashMap;
@@ -68,6 +69,7 @@ public class MappingTable
     public static final int UNKNOWN = -1;
     public static final int AMBIGUOUS = -3;
     ResourceBundle rb = null;
+    PrintStream debugStream = System.out;
     /** Constructor for a mapping table. 
     * @param id name of table identifier used in XML file
     * @param columns array of components in the table
@@ -203,7 +205,7 @@ public class MappingTable
         leftEntries.add(arrayL);
         rightMap[rightOffset] = entryIndexR; 
         if (debug)
-            System.out.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
+            debugStream.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
                 "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR);
     }
     /**
@@ -281,7 +283,7 @@ public class MappingTable
         if (rightIndex == -1 || rightIndex >= rightEntries.size()) return null;
         List<Integer> result = rightEntries.elementAt(rightIndex);
         if (debug)
-            System.out.println("Mapped: " + showEntry(0,leftEntry) + " => " + 
+            debugStream.println("Mapped: " + showEntry(0,leftEntry) + " => " + 
                 showEntry(1,result.toArray(new Integer[0])));
         return result;
     }
@@ -297,7 +299,7 @@ public class MappingTable
         if (leftIndex == -1 || leftIndex >= leftEntries.size()) return null;
         List<Integer> result = leftEntries.elementAt(leftIndex);
         if (debug)
-            System.out.println("Mapped: " + showEntry(1,rightEntry) + " => " + 
+            debugStream.println("Mapped: " + showEntry(1,rightEntry) + " => " + 
                 showEntry(0,result.toArray(new Integer[0])));
         return result;
     }
@@ -376,7 +378,7 @@ public class MappingTable
     {
       return leftColumnMap.keySet().toArray(new String[0])[index];
     }
-    public void setDebug(boolean on) { debug = on; }
+    public void setDebug(boolean on, PrintStream ps) { debug = on; debugStream = ps; }
     public void setOptional(boolean yes) { optional = yes; }
     public boolean isOptional() { return optional; }
 }

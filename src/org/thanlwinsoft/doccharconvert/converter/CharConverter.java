@@ -25,14 +25,24 @@
 package org.thanlwinsoft.doccharconvert.converter;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
+
+import java.io.File;
 import java.nio.charset.Charset;
 /**
- *
- * @author  keith
+ * Generic interface used by all Character Converters.
  */
 public interface CharConverter
 {
+    /**
+     * A name to identify the converter
+     * @return
+     */
     public String getName();
+    /**
+     * Set the converters name - called by the 
+     * org.thanlwinsoft.doccharconvert.ConverterXmlParser
+     * @param newName
+     */
     public void setName(String newName);
     /**
      * Convert text using the converter
@@ -41,9 +51,18 @@ public interface CharConverter
      */
     public String convert(String oldText) 
         throws FatalException, RecoverableException;
-    
+    /**
+     * Has initialize() been called and was initialisation successful?
+     * @return true if initialised
+     */
     public boolean isInitialized();
-    public void setDebug(boolean on);
+    /**
+     * Enable debugging. If logDir is null, logging can be to System.out. 
+     * Otherwise, logging should be to an appropriate file in the log directory.
+     * @param on
+     * @param logDir 
+     */
+    public void setDebug(boolean on, File logDir);
     public TextStyle getOldStyle();
     public TextStyle getNewStyle();
     /**
@@ -87,7 +106,10 @@ public interface CharConverter
 		 * 
 		 */
 		private static final long serialVersionUID = -8169772486169734912L;
-
+		/**
+		 * Construct with a description of the error.
+		 * @param desc
+		 */
 		public RecoverableException(String desc)
         {
             super(desc);

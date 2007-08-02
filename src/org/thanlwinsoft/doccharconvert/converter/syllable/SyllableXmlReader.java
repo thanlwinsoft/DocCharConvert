@@ -26,6 +26,7 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.MalformedURLException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -95,12 +96,14 @@ public class SyllableXmlReader
   private Vector <MappingTable> mappingTable = null;
   private Vector<SyllableChecker> checkers = null;
   private boolean debug = false;
+  private PrintStream debugStream = System.out;
 
-  public SyllableXmlReader(File xmlFile, boolean debug)
+  public SyllableXmlReader(File xmlFile, boolean debug, PrintStream ps)
   {
     this.errorLog = new StringBuffer();
     this.xmlFile = xmlFile;
     this.debug = debug;
+    this.debugStream = ps;
     rb = Config.getCurrent().getMsgResource();
     mappingTable = new Vector<MappingTable>();
     checkers = new Vector<SyllableChecker>();
@@ -622,7 +625,7 @@ public class SyllableXmlReader
         return false;
       }
       MappingTable table = new MappingTable(id, components.toArray(new Component[0]));
-      if (debug) table.setDebug(debug);
+      if (debug) table.setDebug(debug, debugStream);
       if (tableElement.hasAttribute(OPTIONAL_ATTR) &&
           tableElement.getAttribute(OPTIONAL_ATTR).equals(TRUE))
       {
