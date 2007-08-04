@@ -66,6 +66,7 @@ public class ConversionWizard extends Wizard
     ConversionRunnable runnable = null;
     
     public final static String DEFAULT_PROJECT = "DocCharConvertData";
+    public final static String TXT_EXT = ".txt";
     
     static final String DOC_PARSER_PAGE = "DOC_PARSER_PAGE";
     static final String CONVERTER_PAGE = "CONVERTER_PAGE";
@@ -239,7 +240,8 @@ public class ConversionWizard extends Wizard
         IFile tmpFile = null;
         if (tmpFolder.exists())
         {
-            tmpFile = tmpFolder.getFile("DocCharConvertScratch.txt");
+            String filename = cc.getName() + TXT_EXT;
+            tmpFile = tmpFolder.getFile(filename);
             byte [] dummy = { '\n' };
             // tmpFile.delete(true, false, null);
             if (tmpFile.exists() == false)
