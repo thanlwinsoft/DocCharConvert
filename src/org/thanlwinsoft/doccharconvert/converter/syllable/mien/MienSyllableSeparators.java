@@ -111,7 +111,7 @@ public class MienSyllableSeparators implements SyllableChecker
             // should probably be one word in Thai or Lao - insert a caret
             if (!noCaretSuffixWords.contains(syllables.get(i).getOriginalString()))
             {
-                syllables.set(i - 1, new Syllable(separators[newSide]));
+                syllables.set(i - 1, new Syllable(null, separators[newSide]));
             }
           }
         }
@@ -120,14 +120,14 @@ public class MienSyllableSeparators implements SyllableChecker
                syllables.get(i - 1).isKnown())
       {
         // 2 known syllables must be separated by a caret in Lao
-        syllables.add(i, new Syllable(separators[newSide]));
+        syllables.add(i, new Syllable(null, separators[newSide]));
         i++;
       }
       else if (changeAllSeparators && i > 1 && syllables.get(i).isKnown() && 
             syllables.get(i - 2).isKnown() &&
             syllables.get(i - 1).getOriginalString().equals(separators[oldSide]))
       {
-    	  syllables.set(i - 1, new Syllable(separators[newSide]));
+    	  syllables.set(i - 1, new Syllable(null, separators[newSide]));
       }
     }
     return syllables;
@@ -150,13 +150,13 @@ public class MienSyllableSeparators implements SyllableChecker
             syllables.get(i - 2).getConversionResult(),
             syllables.get(i).getConversionResult()) == false)
         {
-          syllables.set(i - 1, new Syllable(" "));
+          syllables.set(i - 1, new Syllable(null, " "));
           // capitalize second syllable since it is separated by a space
           capitalize(syllables.get(i));
         }
         else if (!separators[oldSide].equals(separators[newSide]))
         {
-          syllables.set(i - 1, new Syllable(separators[newSide]));
+          syllables.set(i - 1, new Syllable(null, separators[newSide]));
         }
         // either way if it has a caret between it is probably a name
         // and so needs capitalisation of the first syllable

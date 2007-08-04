@@ -82,7 +82,7 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
     }
     
     public void parse(File input, File output, 
-                      Map<TextStyle, CharConverter> converters) 
+                      Map<TextStyle, CharConverter> converters, ProgressNotifier notifier) 
         throws FatalException, InterfaceException, WarningException 
     {
         synchronized (this) { abort = false;} 
@@ -117,7 +117,7 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
                       writer.write('\ufeff');
                   else System.out.println("Removing BOM");
                 }
-                while (line != null)
+                while (line != null && !notifier.isCancelled())
                 {    
                     parseLine(line);
                     line = reader.readLine();

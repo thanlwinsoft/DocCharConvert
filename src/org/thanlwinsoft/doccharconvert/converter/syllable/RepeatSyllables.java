@@ -67,7 +67,7 @@ public class RepeatSyllables implements SyllableChecker
           syllables.set(i, new Syllable(syllables.get(i - 1)));
           if (hasSeparator)
           {
-            syllables.insertElementAt(new Syllable(repeatChar), i++);
+              syllables.insertElementAt(new Syllable(syllables.get(i - 1), repeatChar), i++);
           }
         }
       }
@@ -104,7 +104,8 @@ public class RepeatSyllables implements SyllableChecker
               if (testAfter.equals(separator)) continue;
             }
           }
-          syllables.set(i, new Syllable(scripts[newSide].getRepeatChar()));
+          syllables.set(i, new Syllable(syllables.get(i).getPrevious(),
+              scripts[newSide].getRepeatChar()));
           if (hasSeparator) 
           {
             syllables.remove(--i);

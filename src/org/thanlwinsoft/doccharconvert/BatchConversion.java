@@ -376,7 +376,7 @@ public class BatchConversion implements Runnable
                 }
                 try
                 {
-                    docInterface.parse(inputFile,outputFile,converterList); 
+                    docInterface.parse(inputFile,outputFile,converterList, notifier); 
                     retry = false;
                     notifier.setFileStatus(inputFile, 
                                            MessageUtil.getString("Finished"));

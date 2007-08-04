@@ -397,7 +397,7 @@ public class OOMainInterface implements DocInterface
     
     
     
-    public void parse(File input, File output, java.util.Map<TextStyle,CharConverter> converters) 
+    public void parse(File input, File output, java.util.Map<TextStyle,CharConverter> converters, ProgressNotifier notifier) 
         throws org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException,
         InterfaceException, WarningException
     {

@@ -13,6 +13,7 @@ package org.thanlwinsoft.doccharconvert.opendoc;
 //import org.thanlwinsoft.doccharconvert.DocInterface;
 import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.ProgressNotifier;
 //import org.thanlwinsoft.doccharconvert.DocInterface.InterfaceException;
 //import org.thanlwinsoft.doccharconvert.DocInterface.WarningException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
@@ -70,7 +71,8 @@ public class OpenDocParser implements org.thanlwinsoft.doccharconvert.DocInterfa
     {
       
     }
-    public void parse(File input, File output, Map<TextStyle,CharConverter> converters) 
+    public void parse(File input, File output, 
+        Map<TextStyle,CharConverter> converters, ProgressNotifier notifier) 
         throws CharConverter.FatalException, InterfaceException, WarningException
     {
       abort = false;

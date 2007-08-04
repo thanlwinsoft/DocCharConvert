@@ -24,6 +24,7 @@
 
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
+import java.util.SortedSet;
 import java.util.Vector;
 //import java.util.Arrays;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
@@ -42,8 +43,11 @@ public class Syllable
   Script [] scripts = null;
   private int oldSide = 0;
   private int newSide = 1;
-  public Syllable(Script[] scripts, int oldSide, Vector<Integer> syllable, String orig, Integer [] result) 
+  private Syllable previous = null; // previous syllable
+  private SortedSet <Syllable> nextCandidates = null;
+  public Syllable(Syllable previous, Script[] scripts, int oldSide, Vector<Integer> syllable, String orig, Integer [] result) 
   {
+      this.previous = previous;
       this.oldSide = oldSide;
       if (this.oldSide == 1) this.newSide = 0;
       this.text = orig;
@@ -51,13 +55,16 @@ public class Syllable
       this.result = result;
       this.scripts = scripts;
   }
-  public Syllable (String unknown)
+  public Syllable (Syllable previous, String unknown)
   {
+      this.previous = previous;
       this.text = unknown;
       this.known = false;
+      this.syllable = new Vector<Integer>();
   }
   public Syllable(Syllable copy)
   {
+      this.previous = copy.previous;
     this.known = copy.known;
     this.oldSide = copy.oldSide;
     this.newSide = copy.newSide;
@@ -110,7 +117,20 @@ public class Syllable
     }
     return p;
   }
+  /**
+   * Sum of syllable priorities from first syllable to this one
+   * @return
+   */
+  public int sumPriorities()
+  {
+      return ((previous == null)? 0 : previous.getPriority()) + getPriority();
+  }
   
+  public String dumpSyllables()
+  {
+      return ((previous == null)? "" : previous.dumpSyllables()) + dumpSyllable();
+  }
+
   /**
      * Convert the list of reference indices representing the syllable into a
      * human readable string or the output string.
@@ -118,15 +138,22 @@ public class Syllable
      */
   public String dumpSyllable()
   {
-      StringBuffer text = new StringBuffer();
-      for (int i = 0; i<result.length; i++)
+      StringBuffer textDump = new StringBuffer();
+      if (result == null)
       {
-          Component comp = scripts[newSide].getSyllableComponent(i);
-          if (result[i].intValue() < 0) 
-            text.append(SyllableConverter.UNKNOWN_CHAR);
-          else text.append(comp.getComponentValue(result[i]));
+          textDump.append(this.text);
       }
-      return text.toString();
+      else
+      {
+          for (int i = 0; i<result.length; i++)
+          {
+              Component comp = scripts[newSide].getSyllableComponent(i);
+              if (result[i].intValue() < 0) 
+                  textDump.append(SyllableConverter.UNKNOWN_CHAR);
+              else textDump.append(comp.getComponentValue(result[i]));
+          }
+      }
+      return textDump.toString();
   }
   // These methods won't work if the unknown constructor was used, client code
   // should be able to get the script information from some where else anyway
@@ -134,5 +161,44 @@ public class Syllable
   //public int getNewSide() { return newSide; }
   //public Script getOldScript() { return scripts[oldSide]; }
   //public Script getNewScript() { return scripts[newSide]; }
-
+  /**
+   * Retreive the previous syllable
+   * @return previous syllable or null if start of string
+   */
+  public Syllable getPrevious()
+  {
+      return previous;
+  }
+  /**
+   * Set the previous syllable to a different value
+   * @param previous Syllable
+   */
+  public void setPrevious(Syllable p)
+  {
+      this.previous = p;
+  }
+  /**
+   * Set the possible candidates for the next syllable
+   * @param candidates
+   */
+  public void setNextCandidates(SortedSet <Syllable> candidates)
+  {
+      this.nextCandidates = candidates;
+  }
+  /**
+   * Get the possible candidates for the next Syllable, most likely first
+   * @return set of candidates
+   */
+  public SortedSet <Syllable> getNextCandidates()
+  {
+      return nextCandidates;
+  }
+  /**
+   * Index of this syllable from the start
+   * @return
+   */
+  public int getSyllableIndex()
+  {
+      return (previous == null)? 0 : previous.getSyllableIndex() + 1;
+  }
 }

@@ -14,6 +14,7 @@ import java.util.Map;
 
 import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.DocInterface;
+import org.thanlwinsoft.doccharconvert.ProgressNotifier;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
@@ -59,8 +60,8 @@ public class LanguageTestParser implements DocInterface
     }
 
     public void parse(File input, File output,
-            Map<TextStyle, CharConverter> converters) throws FatalException,
-            InterfaceException, WarningException
+            Map<TextStyle, CharConverter> converters, ProgressNotifier notifier) 
+    throws FatalException,  InterfaceException, WarningException
     {
         message = PARSING_MSG;
         try

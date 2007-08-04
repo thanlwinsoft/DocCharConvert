@@ -10,6 +10,7 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
  *
  * @author keith
  * A Syllable Comparator used to prioritise which match should be used.
+ * Compares individual Syllables
  */
 public class SyllableComparator implements java.util.Comparator<Syllable>
 {

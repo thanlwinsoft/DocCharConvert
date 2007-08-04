@@ -331,7 +331,8 @@ public class ExceptionList implements SyllableChecker
                 // "unknown" syllable
                 if (lastExMatch > -1)
                 {
-                    Syllable exSyl = new Syllable(lastMatch);
+                    Syllable exSyl = new Syllable(parseOutput.get(i).getPrevious(), 
+                                                  lastMatch);
                     do
                     {
                       parseOutput.remove(i);

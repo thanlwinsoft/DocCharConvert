@@ -92,11 +92,11 @@ public class MienOrmToneChange implements SyllableChecker
                         }
                     }
                     syllables.get(i - 2).setConversionResult(oldResult);
-                    syllables.set(i - 1, new Syllable(" "));
+                    syllables.set(i - 1, new Syllable(null, " "));
                 }
                 else if (syllables.get(i - 1).getOriginalString().equals("^"))
                 {
-                    syllables.set(i - 1, new Syllable("-"));
+                    syllables.set(i - 1, new Syllable(null, "-"));
                 }
             }            
         }
@@ -105,7 +105,7 @@ public class MienOrmToneChange implements SyllableChecker
             if (syllables.get(i - 1).isKnown() &&
                 syllables.get(i).isKnown())
             {
-                syllables.insertElementAt(new Syllable("-"), i);
+                syllables.insertElementAt(new Syllable(null, "-"), i);
             }
         }
         return syllables;

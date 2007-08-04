@@ -29,7 +29,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
 import java.util.Date;
+import java.util.Deque;
 import java.util.Vector;
 import java.util.Iterator;
 import java.util.List;
@@ -42,6 +44,7 @@ import org.thanlwinsoft.doccharconvert.converter.syllable.ComponentClass;
 import org.thanlwinsoft.doccharconvert.converter.syllable.MappingTable;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Syllable;
 import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableComparator;
+import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableSetComparator;
 import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableXmlReader;
 import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker;
 import org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList;
@@ -71,6 +74,7 @@ public class SyllableConverter extends ReversibleConverter
     private ExceptionList exceptionList = null;
     private Vector<SyllableChecker> checkers = null;
     private PrintStream debugStream = System.out;
+    private Syllable previousSyl = null;
     /** Creates a new instance of SyllableConverter 
      * @param xmlFile XML config file
      * @param leftExceptions exceptions on the left side
@@ -150,12 +154,37 @@ public class SyllableConverter extends ReversibleConverter
             oldSide = 1;
             newSide = 0;
         }
+        int maxBackTrack = 1000;
         String oldText = inputText;
+        previousSyl = new Syllable(null, "");
+        //SortedSet <Syllable> conversionSet = new TreeSet<Syllable>(new SyllableSetComparator()); 
         // case is handled inside parseSyllableComponent
         //if (scripts[oldSide].ignoreCase()) oldText = inputText.toLowerCase();
-        Vector <Syllable> parseOutput = new Vector<Syllable>(); 
-        Vector <SortedSet<Syllable>> parseChoices = new Vector<SortedSet<Syllable>>();
-        for (int offset = 0; offset < oldText.length(); )
+        Deque <Syllable> backTrackPoint = new ArrayDeque<Syllable>();
+        
+        Syllable lastSyllable = findSyllables(oldText, 0, oldText.length());      
+        Syllable s = findOptimumSyllables(oldText, lastSyllable, oldText.length()); //conversionSet.first();
+
+        Vector <Syllable> parseOutput = new Vector<Syllable>(s.getSyllableIndex() + 1); 
+        while (s != null)
+        {
+            parseOutput.add(0, s);
+            s = s.getPrevious();
+        }
+        return convertSyllables(parseOutput);
+    }
+    /**
+     * Main loop for finding and analysing syllables. Called recursively during
+     * Syllable optimisation.
+     * @param text
+     * @param startOffset
+     * @param endOffset
+     * @return
+     */
+    private Syllable findSyllables(String text, int startOffset, int endOffset)
+    {
+        String oldText = text;
+        for (int offset = startOffset; offset < endOffset; )
         {
               Vector <Integer> syllable = 
                   new Vector <Integer>(scripts[oldSide].getNumComponents() + 1);
@@ -165,30 +194,136 @@ public class SyllableConverter extends ReversibleConverter
                                          0, syllable);
               if (syllables.size() <= 1) // always get one empty vector
               {
-                  parseOutput.add(new Syllable(oldText.substring(offset, 
-                                                                 offset+1)));
+                  // there was no match, but this is a useful point to try back
+                  // tracking from to prevent the number of possibilities
+                  // growing too large
+                  if (startOffset == 0  && endOffset == text.length())
+                      previousSyl = findOptimumSyllables(text, previousSyl, offset);
+                  previousSyl = new Syllable(previousSyl, oldText.substring(offset, 
+                      offset+1));
                   offset++;
               }
               else
               {
-                  SortedSet <Syllable> options = chooseSyllable(oldText, offset, syllables);
-                  parseChoices.add(options); // may be useful for backtracking
+                  SortedSet <Syllable> options = previousSyl.getNextCandidates();
+                  if (options == null)
+                  {
+                      options = chooseSyllable(previousSyl, 
+                          oldText, offset, syllables);
+                      previousSyl.setNextCandidates(options);
+                  }
                   Syllable syl = null;
                   if (options.size() > 0) syl = options.first();
                   if (syl != null)
                   {
-                    offset += syl.originalLength();
-                    parseOutput.add(syl);
+                      offset += syl.originalLength();
+                      previousSyl = syl;
                   }
-                  else
+                  else// no match, add a one char syllable and proceed
                   {
-                      parseOutput.add(new Syllable(oldText.substring(offset, 
-                                      offset + 1)));
-                      offset++;
+                      Syllable unmatched = new Syllable(previousSyl,  
+                          oldText.substring(offset, offset + 1));
+                      // try to backtrack
+                      Syllable willReplace = previousSyl;
+                      Syllable backTrack = willReplace.getPrevious();
+                      if (backTrack == null)
+                      {
+                          // nowhere to backtrack
+                          offset++;
+                          continue;
+                      }
+//                      backTrackPoint.addLast(unmatched);
+                      offset = backTrack(willReplace, offset);
+                      //parseOutput.add(previousSyl);
+                      if (previousSyl == null)
+                      {
+                          previousSyl = unmatched;
+                          offset++;
+                      }
                   }
               }
         }
-        return convertSyllables(parseOutput);
+        return previousSyl;
+    }
+    
+    /**
+     * Find the optimum syllables up to offset, starting with previousSyllable
+     * as the first possibility.
+     * @param previousSyl
+     * @param offset
+     * @return
+     */
+    private Syllable findOptimumSyllables(String text, Syllable previousSyllable, int offset)
+    {
+        assert(previousSyllable == previousSyl);
+        SortedSet <Syllable> conversionSet = new TreeSet<Syllable>(new SyllableSetComparator());
+        conversionSet.add(previousSyllable);
+        do
+        {
+            int backOffset = backTrack(previousSyl, offset);
+            if (previousSyl == null)
+                break;
+            Syllable s = findSyllables(text, backOffset, offset);
+            conversionSet.add(s);
+        } while (previousSyl != null);
+        return conversionSet.first();
+    }
+    /**
+     * back track from fromSyllable and return the first offset with an 
+     * alternative conversion. If no alternatives are found between offset
+     * and the last unknown node, then previousSyl will be set to null.
+     * @param fromSyllable
+     * @param origOffset
+     * @return
+     */
+    protected int backTrack(Syllable fromSyllable, int origOffset)
+    {
+        Syllable willReplace = fromSyllable;
+        int offset = origOffset;
+        Syllable backTrack = willReplace.getPrevious();
+        while (backTrack != null)
+        {
+            if (backTrack.getNextCandidates() != null)
+            {
+                SortedSet <Syllable> candidates = 
+                    backTrack.getNextCandidates().tailSet(willReplace);
+                Iterator <Syllable> ic = candidates.iterator();
+                Syllable candidate = null;
+                while (ic.hasNext())
+                {
+                    candidate = ic.next();
+                    if (candidate == willReplace) continue;
+                    if (candidate.originalLength() < willReplace.originalLength())
+                    {
+                        break;
+                    }
+                    candidate = null;
+                }
+                if (candidate != null && candidate != willReplace)
+                {
+                    offset += candidate.originalLength() - willReplace.originalLength();
+                    previousSyl = candidate;
+                    break;
+                }
+            }
+            else
+            {
+                // don't backtrack beyond an unknown
+                previousSyl = null;
+                offset = origOffset;
+                return offset;
+            }
+            offset -= willReplace.originalLength();
+            willReplace = backTrack;
+            backTrack = willReplace.getPrevious();
+        }
+        if (backTrack == null)
+        {
+            // back track failed
+            previousSyl = null;
+            offset = origOffset;
+        }
+        return offset;
     }
     
     /**
@@ -222,17 +357,17 @@ public class SyllableConverter extends ReversibleConverter
     /**
      * Choose a syllable to use as the correct conversion from all the 
      * candidates.
-     * The algorithm first checks to see if a valid conversion is none for the
-     * candidate syllable. It then chooses the longest syllable that has a valid
-     * conversion.
+     * The algorithm first checks to see if a valid conversion is possible for 
+     * the candidate syllable. It then chooses the longest syllable that has a 
+     * valid conversion.
      * @param text source text
-     * @param offset of syllabe in source text
+     * @param offset of syllable in source text
      * @param syllables Vector of possible syllables to choose from. 
      * @return Syllable object representing the original and converted
      *  syllable or null of no conversion was found.
      */
-    protected TreeSet<Syllable> chooseSyllable(String text, int offset, 
-        Vector <Vector<Integer>> syllables)
+    protected TreeSet<Syllable> chooseSyllable(Syllable previousSyl, 
+        String text, int offset, Vector <Vector<Integer>> syllables)
     {
         // choose the longest syllable
         assert(syllables.size() > 0);
@@ -254,7 +389,7 @@ public class SyllableConverter extends ReversibleConverter
             {
               int testLength = testSyl.elementAt(0);
               if (testLength > 0)
-                results.add(new Syllable(scripts, oldSide, testSyl, 
+                results.add(new Syllable(previousSyl, scripts, oldSide, testSyl, 
                     text.substring(offset, offset + testLength), conversion));
             }
         }

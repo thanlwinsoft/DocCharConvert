@@ -120,7 +120,7 @@ public class CapitalizeSentences implements SyllableChecker
           String newResult = oldResult.substring(0, 1).toUpperCase();
           if (oldResult.length() > 1)
             newResult += oldResult.substring(1);
-          syllables.set(index, new Syllable(newResult));
+          syllables.set(index, new Syllable(syllable.getPrevious(), newResult));
           isStart = false;
         }
       }
