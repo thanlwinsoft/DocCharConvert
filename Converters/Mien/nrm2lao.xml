@@ -311,11 +311,14 @@
 <c r="v"/> <c r="f" class="anyFinal"/> 
 <c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva"/><c r="lf" class="anyFinal"/>
 </m>
+<!--  This rule causes problems in reverse - it gets confused with aq  -->
 
-<m><!--  This rule causes problems in reverse - it gets confused with aq  -->
+<!--
+<m>
 <c r="v">a</c> <c r="f"/> 
 <c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb0"/><c r="lf"/>
 </m>
+-->
 <m>
 	<c r="v">aq</c> <c r="f"/>
 	<c r="lvp"/> <c r="lvu"/><c r="lvd"/> <c r="lva" hex="0eb0"/><c r="lf"/>
