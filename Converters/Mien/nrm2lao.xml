@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xml" href="SyllableConverter.xsl"?>
-<syllableConverter xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
+<syllableConverter xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser"
+backtrack="false">
 <script side="left" ignoreCase="true" font="Arial">
 <name>Mien NRM</name>
 <!-- Mien NRM -->
