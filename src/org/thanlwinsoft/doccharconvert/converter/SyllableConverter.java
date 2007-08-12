@@ -69,6 +69,7 @@ public class SyllableConverter extends ReversibleConverter
     private int INVALID_COMP = -2;
     private long filetime = -1;
     private boolean debug = false;
+    private boolean backtrackEnabled = false;
     private File leftExceptions = null;
     private File rightExceptions = null;
     private ExceptionList exceptionList = null;
@@ -256,6 +257,8 @@ public class SyllableConverter extends ReversibleConverter
     private Syllable findOptimumSyllables(String text, Syllable previousSyllable, int offset)
     {
         assert(previousSyllable == previousSyl);
+        if (backtrackEnabled == false)
+            return previousSyllable;
         SortedSet <Syllable> conversionSet = new TreeSet<Syllable>(new SyllableSetComparator());
         conversionSet.add(previousSyllable);
         do
@@ -615,6 +618,7 @@ public class SyllableConverter extends ReversibleConverter
           scripts = reader.getScripts();
           mappingTables = reader.getMappingTables();
           checkers = reader.getCheckers();
+          backtrackEnabled = reader.isBacktrackEnabled();
           initOk = true;
         }
         else

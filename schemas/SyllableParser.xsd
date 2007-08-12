@@ -19,6 +19,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
     <xsd:element name="classes" type="Classes"/>
     <xsd:element name="mappingTable" type="MappingTable" maxOccurs="unbounded"/>
   </xsd:sequence>
+  <xsd:attribute name="backtrack" type="xsd:boolean"/>
 </xsd:complexType>
 
 <!-- represents the information on the Syllable Structure in one script -->
@@ -29,6 +30,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:sequence>
   <xsd:attribute name="side" type="side"/>
   <xsd:attribute name="ignoreCase" type="xsd:boolean"/>
+  <xsd:attribute name="font" type="xsd:string" />
 </xsd:complexType>
 
 <!-- defines the cluster structure -->
@@ -42,9 +44,13 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
 
 <!-- Defines one component within a cluster -->
 <xsd:complexType name="Component" mixed="true">
-  <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
-  <xsd:attribute name="min" type="xsd:nonNegativeInteger"  use="optional"/>
-  <xsd:attribute name="priority" type="xsd:positiveInteger" use="optional"/>
+	<xsd:simpleContent>
+		<xsd:extension base="xsd:string">
+			  <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
+  			<xsd:attribute name="min" type="xsd:nonNegativeInteger"  use="optional"/>
+  			<xsd:attribute name="priority" type="xsd:positiveInteger" use="optional"/>
+		</xsd:extension>
+	</xsd:simpleContent>
 </xsd:complexType>
 
 <!-- Defines a particular value that a referenced Component may take -->

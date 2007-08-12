@@ -210,7 +210,6 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
                         ConversionHelper.saveFileList(conversion, listFile);
                         tViewer.setInput(conversion.getInputFileList());
                         tViewer.refresh();
-                        //getControl().pack();
                         Config.getCurrent().setOutputPath(listFile.getParentFile());
                         Config.getCurrent().save();
                     }

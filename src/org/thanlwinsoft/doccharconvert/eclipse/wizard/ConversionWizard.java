@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.Vector;
 
 import org.eclipse.core.runtime.CoreException;
@@ -127,15 +129,21 @@ public class ConversionWizard extends Wizard
             }
             conversion.removeAllConverters();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
+            sdf.setTimeZone(TimeZone.getDefault());
             for (CharConverter cc : converters)
             {
+                File logDir = new File(Config.getCurrent().getLogFile());
+                if (!logDir.isDirectory())
+                {
+                    IFolder logFolder = createProjectFolder("log");
+                    logDir = logFolder.getRawLocation().toFile();
+                }
                 if (parserPage.isDebugEnabled())
-                    cc.setDebug(true, new File(Config.getCurrent().getLogFile()));
+                    cc.setDebug(true, logDir);
                 if (parserPage.logWords())
                 {
                     LogConvertedWords wordLogger = new LogConvertedWords(cc);
-                    File file = new File(Config.getCurrent().getLogFile() + 
-                        File.separator + "Words" + sdf.format(new Date()) + ".csv");
+                    File file = new File(logDir,"Words" + sdf.format(new Date()) + ".csv");
                     wordLogger.setWordFile(file);
                     cc = wordLogger;
                 }
@@ -147,7 +155,7 @@ public class ConversionWizard extends Wizard
                         CharConverter reverse = 
                             ReverseConversion.get(availableConverters, cc);
                         ConversionTester ct = new ConversionTester(cc, reverse);
-                        ct.setLogFile(new File(logFileName + File.separator + 
+                        ct.setLogFile(new File(logDir, 
                             cc.getName() + sdf.format(new Date()) + ".csv"));
                         conversion.addConverter(ct);
                     }
@@ -220,24 +228,9 @@ public class ConversionWizard extends Wizard
         if (!i.hasNext())
             return false;
         CharConverter cc = i.next();
-        
-        IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
-        IProject myProject = myWorkspaceRoot.getProject(DEFAULT_PROJECT);
-        if (myProject.exists() == false)
-        {
-            myProject.create(null);
-        }
-        // open if necessary
-        if (myProject.exists() && !myProject.isOpen())
-           myProject.open(null);
-        IFolder tmpFolder = myProject.getFolder("tmp");
-        if (tmpFolder.exists() == false)
-        {
-            tmpFolder.create(true, true, null);
-        }
-    
         IEditorInput eInput = null;
         IFile tmpFile = null;
+        IFolder tmpFolder = createProjectFolder("tmp");
         if (tmpFolder.exists())
         {
             String filename = cc.getName() + TXT_EXT;
@@ -313,6 +306,25 @@ public class ConversionWizard extends Wizard
         return true;
     }
 
+    private IFolder createProjectFolder(String name) throws CoreException
+    {
+        IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+        IProject myProject = myWorkspaceRoot.getProject(DEFAULT_PROJECT);
+        if (myProject.exists() == false)
+        {
+            myProject.create(null);
+        }
+        // open if necessary
+        if (myProject.exists() && !myProject.isOpen())
+           myProject.open(null);
+        IFolder tmpFolder = myProject.getFolder(name);
+        if (tmpFolder.exists() == false)
+        {
+            tmpFolder.create(true, true, null);
+        }
+        return tmpFolder;
+    }
+    
     /* (non-Javadoc)
      * @see org.eclipse.jface.wizard.Wizard#createPageControls(org.eclipse.swt.widgets.Composite)
      */

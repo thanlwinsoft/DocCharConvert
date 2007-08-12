@@ -186,8 +186,10 @@ public class Config
     {
         File path = new File(packagePref.get(CONVERTER_CONFIG_PATH, CONVERTER_CONFIG_PATH));
         if (path.isDirectory()) return path;
-        DocCharConvertEclipsePlugin.log(IStatus.WARNING,"No converter path: " +
-                        path.getAbsolutePath(), null);
+        //DocCharConvertEclipsePlugin.log(IStatus.WARNING,"No converter path: " +
+        //                path.getAbsolutePath(), null);
+        System.out.println("No converter path: " +
+                           path.getAbsolutePath());
         // try making a guess based on where the windows installer puts it
         path = new File("configuration" + File.separator + 
                         "org.thanlwinsoft.doccharconvert" + File.separator +
@@ -283,10 +285,10 @@ public class Config
             File [] jarFiles = classDir.listFiles(jarFilter);
             if (jarFiles == null) return null;
             URL [] urls = new URL[jarFiles.length + 1];
-            urls[0] = basePath.toURL();
+            urls[0] = basePath.toURI().toURL();
             for (int i = 0; i<jarFiles.length; i++)
             {
-                urls[i + 1] = jarFiles[i].toURL();
+                urls[i + 1] = jarFiles[i].toURI().toURL();
                 String tempPath = jarFiles[i].toURI().toString();//jarFiles[i].getCanonicalPath();
                 ooPaths.append(tempPath);
                 ooPaths.append(" ");

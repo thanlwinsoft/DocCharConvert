@@ -16,7 +16,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.ui.console,
  org.eclipse.ui.intro,
- org.eclipse.ui.intro.universal
+ org.eclipse.ui.intro.universal,
+ org.apache.xmlbeans
 Eclipse-LazyStart: true
 Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByteCharsetProvider
 Export-Package: org.sil.scripts.teckit,
@@ -30,5 +31,12 @@ Export-Package: org.sil.scripts.teckit,
  org.thanlwinsoft.doccharconvert.opendoc,
  org.thanlwinsoft.eclipse,
  org.thanlwinsoft.eclipse.widgets,
+ org.thanlwinsoft.schemas.docCharConvert,
+ org.thanlwinsoft.schemas.docCharConvert.impl,
+ org.thanlwinsoft.schemas.syllableParser,
+ org.thanlwinsoft.schemas.syllableParser.impl,
  org.thanlwinsoft.xml
 Bundle-Vendor: ThanLwinSoft.org
+Bundle-ClassPath: lib/DocCharConvertSchema.jar,
+ lib/SyllableParserSchema.jar,
+ .

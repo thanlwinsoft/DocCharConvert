@@ -84,6 +84,7 @@ public class SyllableXmlReader
   private final String IGNORE_CASE_ATTR = "ignoreCase";
   private final String OPTIONAL_ATTR = "optional";
   private final String TYPE_ATTR = "type";
+  private final String BACKTRACK_ATTR= "backtrack";
 
   private final String LEFT = "left";
   private final String RIGHT = "right";
@@ -96,6 +97,7 @@ public class SyllableXmlReader
   private Vector <MappingTable> mappingTable = null;
   private Vector<SyllableChecker> checkers = null;
   private boolean debug = false;
+  private boolean enableBacktrack = false;
   private PrintStream debugStream = System.out;
 
   public SyllableXmlReader(File xmlFile, boolean debug, PrintStream ps)
@@ -113,7 +115,7 @@ public class SyllableXmlReader
   {
     try 
     {
-        InputStream fileStream = xmlFile.toURL().openStream();
+        InputStream fileStream = xmlFile.toURI().toURL().openStream();
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
         InputSource inputSource = new InputSource(fileStream);
@@ -164,6 +166,12 @@ public class SyllableXmlReader
             errorLog.append(": syllableConverter Element is not first node in file.\n");
            errorLog.append('\n');
             return false;
+        }
+        Element topElement = (Element)topNode;
+        if (topElement.hasAttribute(BACKTRACK_ATTR))
+        {
+            this.enableBacktrack = 
+                Boolean.parseBoolean(topElement.getAttribute(BACKTRACK_ATTR));
         }
         if (!parseScripts()) return false;
         if (!parseClasses()) return false;
@@ -854,6 +862,10 @@ public class SyllableXmlReader
     String error = errorLog.toString();
     errorLog.delete(0,errorLog.length());
     return error;
+  }
+  public boolean isBacktrackEnabled()
+  {
+      return enableBacktrack;
   }
   public Vector<SyllableChecker> getCheckers() { return checkers;}
   /**

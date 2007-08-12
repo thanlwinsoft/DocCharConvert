@@ -289,9 +289,16 @@ public class CommandLine
       System.out.println("\t-f fileList = file containing list input output files");
       System.out.println("\t--converters path = change the default Converters dir to path");
       System.out.println("Please choose from one of the following converters:");
-      for (int i = 0; i<converterFiles.length; i++)
+      if (converterFiles == null)
       {
-          System.out.println("\t" + converterFiles[i].getName());          
+          System.out.println("No Converters found");
+      }
+      else
+      {
+          for (int i = 0; i<converterFiles.length; i++)
+          {
+              System.out.println("\t" + converterFiles[i].getName());          
+          }
       }
       System.out.println("Run with no arguments for Graphical mode and Configuration editor.");
     }

@@ -58,6 +58,14 @@
                menubarPath="File/additions"
                toolbarPath="Bar/additions"
                tooltip="%ConversionWizard"/>
+         <action
+               class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
+               icon="src/org/thanlwinsoft/doccharconvert/icons/Convert.png"
+               id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
+               label="Edit Syllable Converter"
+               menubarPath="File/additions"
+               toolbarPath="Bar/additions">
+         </action>
       </actionSet>
    </extension>
    <extension
@@ -96,6 +104,14 @@
             icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor"
             name="%ConversionInputEditor.editor"/>
+      <editor
+            class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
+            default="true"
+            filenames="*.xml"
+            icon="src/org/thanlwinsoft/doccharconvert/icons/Convert.png"
+            id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
+            name="%SyllableConverterEditor">
+      </editor>
    </extension>
    <extension
          point="org.eclipse.ui.views">

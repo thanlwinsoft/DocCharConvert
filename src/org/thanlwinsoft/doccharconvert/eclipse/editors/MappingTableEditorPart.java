@@ -1,0 +1,434 @@
+/**
+ * 
+ */
+package org.thanlwinsoft.doccharconvert.eclipse.editors;
+
+import java.util.List;
+import java.util.Set;
+import java.util.Vector;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.ActionContributionItem;
+import org.eclipse.jface.action.GroupMarker;
+import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.CellLabelProvider;
+import org.eclipse.jface.viewers.ColumnViewer;
+import org.eclipse.jface.viewers.ComboBoxCellEditor;
+import org.eclipse.jface.viewers.EditingSupport;
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.TableViewerColumn;
+import org.eclipse.jface.viewers.TextCellEditor;
+import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.EditorPart;
+import org.eclipse.ui.part.MultiPageEditorSite;
+import org.thanlwinsoft.doccharconvert.MessageUtil;
+import org.thanlwinsoft.schemas.syllableParser.Script;
+import org.thanlwinsoft.schemas.syllableParser.Component;
+import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
+import org.thanlwinsoft.schemas.syllableParser.C;
+import org.thanlwinsoft.schemas.syllableParser.Map;
+import org.thanlwinsoft.schemas.syllableParser.MappingTable;
+import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
+import org.thanlwinsoft.schemas.syllableParser.SyllableConverterDocument;
+
+
+
+/**
+ * @author keith
+ *
+ */
+public class MappingTableEditorPart extends EditorPart
+{
+    private MappingTable mt = null;
+    final private SyllableConverterEditor parentEditor; 
+    private Table table = null;
+    private TableViewer viewer = null;
+    private MenuManager menuManager;
+    
+    MappingTableEditorPart(SyllableConverterEditor parentEditor, MappingTable mt)
+    {
+        this.mt = mt;
+        this.setPartName(mt.getId());
+        this.setContentDescription(mt.getId());
+        this.parentEditor = parentEditor;
+    }
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.EditorPart#doSave(org.eclipse.core.runtime.IProgressMonitor)
+     */
+    @Override
+    public void doSave(IProgressMonitor monitor)
+    {
+        parentEditor.doSave(monitor);
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.EditorPart#doSaveAs()
+     */
+    @Override
+    public void doSaveAs()
+    {
+        parentEditor.doSaveAs();
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.EditorPart#init(org.eclipse.ui.IEditorSite, org.eclipse.ui.IEditorInput)
+     */
+    @Override
+    public void init(IEditorSite site, IEditorInput input)
+        throws PartInitException
+    {
+        this.setSite(site);
+        menuManager = new MenuManager(parentEditor.getPartName() + ":" + mt.getId());
+        Action insertAction = new Action(){
+            public void run()
+            {
+                int mapIndex = getSelectedMapIndex();
+                if (mapIndex < 0)
+                    mapIndex = mt.getMaps().sizeOfMArray();
+                int insertRowCount = table.getSelectionCount();
+                for (int i = 0; i < insertRowCount; i++)
+                    mt.getMaps().insertNewM(mapIndex);
+                viewer.refresh();
+                parentEditor.setDirty(true);
+            }
+        };
+        insertAction.setId("Insert");
+        insertAction.setText(MessageUtil.getString("Insert"));
+        insertAction.setToolTipText(MessageUtil.getString("InsertToolTip"));
+        Action deleteAction = new Action(){
+            public void run()
+            {
+                int mapIndex = getSelectedMapIndex();
+                if (mapIndex < 0)
+                    return;
+                mt.getMaps().removeM(mapIndex);
+                viewer.refresh();
+                parentEditor.setDirty(true);
+            }
+        };
+        deleteAction.setId("Insert");
+        deleteAction.setText(MessageUtil.getString("Delete"));
+        deleteAction.setToolTipText(MessageUtil.getString("DeleteToolTip"));
+        
+        menuManager.add(insertAction);
+        menuManager.add(deleteAction);
+        
+        final IEditorPart part = this;
+        SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+        int usedIndex = 0;
+        for (Script script : sc.getScriptArray())
+        {
+            menuManager.add(new Separator());
+            for (Component c : script.getCluster().getComponentArray())
+            {
+                boolean used = false;
+                for (ComponentRef cr : mt.getColumns().getComponentArray())
+                {
+                    if (cr.getR().equals(c.getId()))
+                    {
+                        used = true; 
+                        ++usedIndex;
+                        break;
+                    }
+                }
+                final String cId = c.getId();
+                final int insertPos = usedIndex;
+                Action addColumn = new Action()
+                {
+                    public void run()
+                    {
+                        if (this.isChecked())
+                        {
+                            ComponentRef ncr = mt.getColumns().insertNewComponent(insertPos);
+                            ncr.setR(cId);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < mt.getColumns().sizeOfComponentArray(); i++)
+                            {
+                                if (mt.getColumns().getComponentArray(i).getR().equals(cId))
+                                {
+                                    mt.getColumns().removeComponent(i);
+                                    break;
+                                }
+                            }
+                        }
+                        //viewer.refresh();
+                        try
+                        {
+                            int index = parentEditor.getEditorIndex(part);
+                            IEditorPart replacement = 
+                                new MappingTableEditorPart(parentEditor, mt); 
+
+                            parentEditor.addPage(index + 1, replacement,  parentEditor.getEditorInput());
+                            parentEditor.setDirty(true);
+                            parentEditor.removePage(index);
+                            parentEditor.setActiveEditor(replacement);
+                        }
+                        catch (PartInitException e)
+                        {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                addColumn.setText(c.getId());
+                addColumn.setChecked(used);
+                menuManager.add(addColumn);
+            }
+        }
+        //SyllableConverterDocument doc = this.parentEditor.getDocument();
+        // TODO check table hasn't changed
+    }
+    
+    protected int getSelectedMapIndex()
+    {
+        if (!(viewer.getSelection() instanceof IStructuredSelection)) return -1;
+        IStructuredSelection s = (IStructuredSelection)viewer.getSelection();
+        if (s.getFirstElement() instanceof Map)
+        {
+            Map selectedMap = (Map)s.getFirstElement();
+            for (int i = 0; i < mt.getMaps().sizeOfMArray(); i++)
+            {
+                if (mt.getMaps().getMArray(i) == selectedMap)
+                {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.EditorPart#isDirty()
+     */
+    @Override
+    public boolean isDirty()
+    {
+        return parentEditor.isDirty();
+    }
+    
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.EditorPart#isSaveAsAllowed()
+     */
+    @Override
+    public boolean isSaveAsAllowed()
+    {
+        return parentEditor.isSaveAsAllowed();
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
+     */
+    @Override
+    public void createPartControl(Composite parent)
+    {
+        parent.setLayout(new FillLayout());
+        table = new Table(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
+        viewer = new TableViewer(table);
+        viewer.setContentProvider(new MappingTableContentProvider());
+        MappingTableLabelProvider mtlp = new MappingTableLabelProvider(mt); 
+        viewer.setLabelProvider(mtlp);
+        for (ComponentRef cr : mt.getColumns().getComponentArray())
+        {
+            final String colRef = cr.getR();
+            TableColumn tc = new TableColumn(table, SWT.LEAD);
+            tc.setText(cr.getR());
+            tc.setWidth(100);
+            TableViewerColumn tvc = new TableViewerColumn(viewer, tc);
+            SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+            tc.setToolTipText(SyllableConverterUtils.getComponentName(sc, colRef));
+            tvc.setEditingSupport(new CellEditingSupport(viewer, colRef));
+            tvc.setLabelProvider(new CellLabelProvider(){
+                
+                @Override
+                public void update(ViewerCell cell)
+                {
+                    Object o = cell.getViewerRow().getElement();
+                    if (o instanceof Map)
+                    {
+                        for (C c : ((Map)o).getCArray())
+                        {
+                            if (c.getR().equals(colRef))
+                            {
+                                cell.setText(SyllableConverterUtils.getCText(c));
+                                c.getR();
+                            }
+                        }
+                    }
+                }});
+        }
+        viewer.setInput(mt);
+        table.setHeaderVisible(true);
+        viewer.refresh();
+        menuManager.add(new GroupMarker (IWorkbenchActionConstants.MB_ADDITIONS));
+        this.getEditorSite().registerContextMenu(menuManager, viewer);
+        this.getEditorSite().setSelectionProvider(viewer);
+        menuManager.setVisible(true);
+        table.setMenu(menuManager.createContextMenu(table));
+        
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
+     */
+    @Override
+    public void setFocus()
+    {
+        
+    }
+    
+    public class CellEditingSupport extends EditingSupport
+    {
+        final String colRef;
+        /**
+         * @param viewer
+         */
+        public CellEditingSupport(ColumnViewer viewer, String colRef)
+        {
+            super(viewer);
+            this.colRef = colRef;
+        }
+
+        /* (non-Javadoc)
+         * @see org.eclipse.jface.viewers.EditingSupport#canEdit(java.lang.Object)
+         */
+        @Override
+        protected boolean canEdit(Object element)
+        {
+            if (element instanceof Map)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        
+        /* (non-Javadoc)
+         * @see org.eclipse.jface.viewers.EditingSupport#getCellEditor(java.lang.Object)
+         */
+        @Override
+        protected CellEditor getCellEditor(Object element)
+        {
+            CellEditor editor = null;
+            Composite composite = (Composite)this.getViewer().getControl();
+            if (element instanceof Map)
+            {
+                Map m = (Map)element;
+                C c = SyllableConverterUtils.getCFromMap(m, colRef);
+                SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                if (c == null || c.isSetClass1() || (c.isSetHex() == false && 
+                    (c.getStringValue() == null || c.getStringValue().isEmpty())))
+                {
+                    Vector <String> classes = 
+                        SyllableConverterUtils.getApplicableClasses(sc, colRef);
+                    classes.add(MessageUtil.getString("NoClass"));
+                    editor = new ComboBoxCellEditor(composite, 
+                        classes.toArray(new String[classes.size()]));
+                    //editor.setValue(classes.indexOf(c.getR()));
+                }
+                else
+                {
+                    return new TextCellEditor(composite);
+                }
+            }
+            return editor;
+        }
+
+        /* (non-Javadoc)
+         * @see org.eclipse.jface.viewers.EditingSupport#getValue(java.lang.Object)
+         */
+        @Override
+        protected Object getValue(Object element)
+        {
+            if (element instanceof Map)
+            {
+                Map m = (Map)element;
+                C c = SyllableConverterUtils.getCFromMap(m, colRef);
+                if (SyllableConverterUtils.getCText(c).isEmpty() || 
+                    c.isSetClass1())
+                {
+                    SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                    if (c == null)
+                        return -1;
+                    Vector <String> classes = 
+                        SyllableConverterUtils.getApplicableClasses(sc, c.getR());
+                    return (classes.indexOf(c.getClass1()));
+                }
+                else
+                {
+                    return SyllableConverterUtils.getCText(c);
+                }
+            }
+            return null;
+        }
+
+        /* (non-Javadoc)
+         * @see org.eclipse.jface.viewers.EditingSupport#setValue(java.lang.Object, java.lang.Object)
+         */
+        @Override
+        protected void setValue(Object element, Object value)
+        {
+            if (element instanceof Map)
+            {
+                Map m = (Map)element;
+                SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                
+                C c = SyllableConverterUtils.getCFromMap(m, colRef);
+                if (c == null)
+                {
+                    c = m.addNewC();
+                    c.setR(colRef);
+                }
+                String oldValue = SyllableConverterUtils.getCText(c);
+                if (SyllableConverterUtils.getCText(c).isEmpty() || 
+                    c.isSetClass1())
+                {
+                    Vector <String> classes = 
+                        SyllableConverterUtils.getApplicableClasses(sc, c.getR());
+                    if (value instanceof Integer)
+                    {
+                        int classIndex = ((Integer)value).intValue();
+                        if (classIndex < 0)
+                            return;
+                        if (classIndex < classes.size())
+                            c.setClass1(classes.get(classIndex));
+                        else
+                            c.setStringValue("-");
+                        parentEditor.setDirty(true);
+                        this.getViewer().refresh(element);
+                    }
+                }
+                else
+                {
+                    if (value.toString().equals(oldValue) == false)
+                    {
+                        c.setStringValue(value.toString());
+                        if (c.isSetHex())
+                            c.unsetHex();
+                        parentEditor.setDirty(true);
+                        this.getViewer().refresh(element);
+                    }
+                }
+            }
+        }
+        
+    }
+}
