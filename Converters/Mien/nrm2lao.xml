@@ -35,12 +35,12 @@
       <!--<arg type="file">mienNrm2LaoNrmExceptions.txt</arg>
     <arg type="file">mienNrm2LaoLaoUExceptions.txt</arg>-->
     </checker>
-    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.RepeatSyllables"></checker>
+    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.RepeatSyllables"/>
     <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.mien.MienSyllableSeparators">
       <arg>^</arg>
       <arg>^</arg>
     </checker>
-    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences"></checker>
+    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences"/>
   </checks>
   <repeat>
     <marker side="right" hex="0ec6"/>
@@ -68,6 +68,20 @@
         <c>ng</c>
       </component>
       <component r="lf">
+        <c hex="0ea1"/>
+        <c hex="0e99"/>
+        <c hex="0e87"/>
+      </component>
+    </class>
+    <class id="-mnngFinal">
+      <component r="f">
+        <c/>
+        <c>m</c>
+        <c>n</c>
+        <c>ng</c>
+      </component>
+      <component r="lf">
+        <c/>
         <c hex="0ea1"/>
         <c hex="0e99"/>
         <c hex="0e87"/>
@@ -1124,6 +1138,7 @@
         <c r="lt"/>
         <c r="lva" hex="0eb0"/>
         <c r="f"/>
+        <c r="lf"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1132,6 +1147,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb3"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1140,6 +1157,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb1"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1148,6 +1167,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1156,6 +1177,8 @@
         <c r="lvp" hex="0ec4"/>
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1164,6 +1187,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2 0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1174,6 +1199,8 @@
         <c r="lvu" hex="0ebb"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1182,6 +1209,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2 0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1192,6 +1221,8 @@
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1201,6 +1232,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1209,6 +1242,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ebd 0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1217,6 +1252,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ead 0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1226,6 +1263,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1235,6 +1274,8 @@
         <c r="lvu" hex="0eb4"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1244,6 +1285,8 @@
         <c r="lvd" hex="0eb8"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1349,6 +1392,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvd" hex="0eb9"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1357,6 +1402,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1365,6 +1412,8 @@
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1373,6 +1422,8 @@
         <c r="lvp" hex="0ec1"/>
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1381,6 +1432,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1389,6 +1442,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb7"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1398,6 +1453,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1406,6 +1463,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ebd"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1415,6 +1474,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1423,6 +1484,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1431,6 +1494,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0ecd"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1441,6 +1506,8 @@
         <c r="lvu" hex="0eb7"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1449,6 +1516,8 @@
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1458,12 +1527,16 @@
         <c r="lvu" hex="0ebb"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
         <c r="t">c</c>
         <c r="lc" class="highCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1480,6 +1553,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb3"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1488,6 +1563,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb1"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1496,6 +1573,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1504,6 +1583,8 @@
         <c r="lvp" hex="0ec4"/>
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1512,6 +1593,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2 0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1522,6 +1605,8 @@
         <c r="lvu" hex="0ebb"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1530,6 +1615,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0eb2 0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1540,6 +1627,8 @@
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1549,6 +1638,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1557,6 +1648,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ebd 0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1565,6 +1658,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ead 0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1574,6 +1669,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1583,6 +1680,8 @@
         <c r="lvu" hex="0eb4"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1592,6 +1691,8 @@
         <c r="lvd" hex="0eb8"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1654,6 +1755,7 @@
         <c r="lc" class="midCons"/>
         <c r="lvd" hex="0eb8"/>
         <c r="lt"/>
+        <c r="f"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1689,6 +1791,7 @@
         <c r="lc" class="midCons"/>
         <c r="lt"/>
         <c r="lva" hex="0eb0"/>
+        <c r="lf"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1697,6 +1800,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvd" hex="0eb9"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1705,6 +1810,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1713,6 +1820,8 @@
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1721,6 +1830,8 @@
         <c r="lvp" hex="0ec1"/>
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1729,6 +1840,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1737,6 +1850,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb7"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1746,6 +1861,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1754,6 +1871,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ebd"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1763,6 +1882,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1771,6 +1892,8 @@
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1779,6 +1902,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0ecd"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1789,6 +1914,8 @@
         <c r="lvu" hex="0eb7"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -1798,12 +1925,16 @@
         <c r="lvu" hex="0ebb"/>
         <c r="lt" hex="0ec8"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="t">c</c>
         <c r="lc" class="midCons"/>
         <c r="lt" hex="0ec8"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal"/>
       </m>
       <!--TODO add vowels for lowcons and when there is no tone-->
       <m>
@@ -1821,6 +1952,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0eb3"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1829,6 +1962,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb1"/>
         <c r="lt" hex="0ec9"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1837,6 +1972,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1845,6 +1982,8 @@
         <c r="lvp" hex="0ec4"/>
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
+        <c r="f" class="-mnngFinal"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1853,6 +1992,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0eb2 0e8d"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1863,6 +2004,8 @@
         <c r="lvu" hex="0ebb"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1871,6 +2014,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0eb2 0ea7"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1881,6 +2026,8 @@
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1890,6 +2037,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1898,6 +2047,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ebd 0ea7"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1906,6 +2057,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ead 0e8d"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1915,6 +2068,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1924,6 +2079,8 @@
         <c r="lvu" hex="0eb4"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -1933,6 +2090,8 @@
         <c r="lvd" hex="0eb8"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2038,6 +2197,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvd" hex="0eb9"/>
         <c r="lt" hex="0ec9"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2046,6 +2207,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec9"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2054,6 +2217,8 @@
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2062,6 +2227,8 @@
         <c r="lvp" hex="0ec1"/>
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2070,6 +2237,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2078,6 +2247,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb7"/>
         <c r="lt" hex="0ec9"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2087,6 +2258,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lt" hex="0ec9"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2095,6 +2268,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ebd"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2104,6 +2279,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2112,6 +2289,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2120,6 +2299,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0ecd"/>
         <c r="lt" hex="0ec9"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2130,6 +2311,8 @@
         <c r="lvu" hex="0eb7"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2139,12 +2322,16 @@
         <c r="lvu" hex="0ebb"/>
         <c r="lt" hex="0ec9"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="t">v</c>
         <c r="lc" class="lowCons"/>
         <c r="lt" hex="0ec9"/>
+        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <!--x tone high-->
       <m>
@@ -2153,6 +2340,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0eb3"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2160,6 +2349,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb1"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2167,6 +2358,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2174,6 +2367,8 @@
         <c r="t">x</c>
         <c r="lvp" hex="0ec4"/>
         <c r="lc" class="highCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2181,6 +2376,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0eb2 0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2190,6 +2387,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0ebb"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2197,6 +2396,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0eb2 0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2206,6 +2407,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2214,6 +2417,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2221,6 +2426,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0ebd 0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2228,6 +2435,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0ead 0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2236,6 +2445,8 @@
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2244,6 +2455,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb4"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2252,6 +2465,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvd" hex="0eb8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2259,6 +2474,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lvd" hex="0eb9"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2266,6 +2483,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb5"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2273,6 +2492,8 @@
         <c r="t">x</c>
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="highCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2280,6 +2501,8 @@
         <c r="t">x</c>
         <c r="lvp" hex="0ec1"/>
         <c r="lc" class="highCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2287,6 +2510,8 @@
         <c r="t">x</c>
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="highCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2294,6 +2519,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2302,6 +2529,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb5"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2309,6 +2538,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0ebd"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2317,6 +2548,8 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2324,6 +2557,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2331,6 +2566,8 @@
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0ecd"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2340,6 +2577,8 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0eb7"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -2348,11 +2587,15 @@
         <c r="lc" class="highCons"/>
         <c r="lvu" hex="0ebb"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
         <c r="t">x</c>
         <c r="lc" class="highCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <!--no tone mid-->
       <m>
@@ -2360,30 +2603,40 @@
         <c r="v">a</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0eb3"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">a</c>
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb1"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">aa</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">ai</c>
         <c r="lvp" hex="0ec4"/>
         <c r="lc" class="midCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">aai</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0eb2 0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2392,12 +2645,16 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0ebb"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">aau</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0eb2 0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2406,6 +2663,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2413,18 +2672,24 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">iou</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0ebd 0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">oi</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0ead 0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2432,6 +2697,8 @@
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2439,6 +2706,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb4"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2446,42 +2715,56 @@
         <c r="lc" class="midCons"/>
         <c r="lvd" hex="0eb8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">u</c>
         <c r="lc" class="midCons"/>
         <c r="lvd" hex="0eb9"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">i</c>
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb5"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">o</c>
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="midCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">ae</c>
         <c r="lvp" hex="0ec1"/>
         <c r="lc" class="midCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">e</c>
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="midCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">ue</c>
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2489,12 +2772,16 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb5"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">ie</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0ebd"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2502,18 +2789,24 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">or</c>
         <c r="lc" class="midCons"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="v">or</c>
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0ecd"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2522,6 +2815,8 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0eb7"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2529,10 +2824,14 @@
         <c r="lc" class="midCons"/>
         <c r="lvu" hex="0ebb"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="midCons"/>
         <c r="lc" class="midCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <!--no tone low-->
       <m>
@@ -2540,30 +2839,40 @@
         <c r="v">a</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0eb3"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">a</c>
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb1"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">aa</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">ai</c>
         <c r="lvp" hex="0ec4"/>
         <c r="lc" class="lowCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">aai</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0eb2 0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2572,12 +2881,16 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0ebb"/>
         <c r="lva" hex="0eb2"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">aau</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0eb2 0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2586,6 +2899,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb5"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2593,18 +2908,24 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">iou</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0ebd 0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">oi</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0ead 0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2612,6 +2933,8 @@
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2619,6 +2942,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb4"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2626,42 +2951,56 @@
         <c r="lc" class="lowCons"/>
         <c r="lvd" hex="0eb8"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">u</c>
         <c r="lc" class="lowCons"/>
         <c r="lvd" hex="0eb9"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">i</c>
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb5"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">o</c>
         <c r="lvp" hex="0ec2"/>
         <c r="lc" class="lowCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">ae</c>
         <c r="lvp" hex="0ec1"/>
         <c r="lc" class="lowCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">e</c>
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="lowCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">ue</c>
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2669,12 +3008,16 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb5"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">ie</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0ebd"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2682,18 +3025,24 @@
         <c r="lvp" hex="0ec0"/>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0e8d"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">or</c>
         <c r="lc" class="lowCons"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">or</c>
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0ecd"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2702,6 +3051,8 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0eb7"/>
         <c r="lva" hex="0ead"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2709,10 +3060,14 @@
         <c r="lc" class="lowCons"/>
         <c r="lvu" hex="0ebb"/>
         <c r="lva" hex="0ea7"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="lc" class="lowCons"/>
+        <c r="f" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="lf" class="anyFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
     </maps>
   </mappingTable>
