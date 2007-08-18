@@ -6,13 +6,16 @@ package org.thanlwinsoft.doccharconvert.eclipse.editors;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
+import java.util.Iterator;
 
+import org.apache.xmlbeans.XmlException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.action.SubMenuManager;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewer;
@@ -25,8 +28,13 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.dnd.Clipboard;
+import org.eclipse.swt.dnd.TextTransfer;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -61,7 +69,20 @@ public class MappingTableEditorPart extends EditorPart
     private Table table = null;
     private TableViewer viewer = null;
     private MenuManager menuManager;
-    
+    private Clipboard clipboard;
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.WorkbenchPart#dispose()
+     */
+    @Override
+    public void dispose()
+    {
+        if (clipboard != null && !clipboard.isDisposed())
+        {
+            clipboard.clearContents();
+            clipboard.dispose();
+        }
+        super.dispose();
+    }
     MappingTableEditorPart(SyllableConverterEditor parentEditor, MappingTable mt)
     {
         this.mt = mt;
@@ -95,6 +116,7 @@ public class MappingTableEditorPart extends EditorPart
         throws PartInitException
     {
         this.setSite(site);
+        clipboard = new Clipboard(site.getShell().getDisplay());
         menuManager = new MenuManager(parentEditor.getPartName() + ":" + mt.getId());
         Action insertAction = new Action(){
             public void run()
@@ -133,6 +155,19 @@ public class MappingTableEditorPart extends EditorPart
         final IEditorPart part = this;
         SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
         int usedIndex = 0;
+        MenuManager addColumns = new MenuManager(MessageUtil.getString("AddColumn"));
+        MenuManager copyColumns = new MenuManager(MessageUtil.getString("Copy"));
+        MenuManager cutColumns = new MenuManager(MessageUtil.getString("Cut"));
+        MenuManager pasteColumns = new MenuManager(MessageUtil.getString("Paste"));
+        addColumns.setParent(menuManager);
+        menuManager.add(addColumns);
+        copyColumns.setParent(menuManager);
+        menuManager.add(copyColumns);
+        cutColumns.setParent(menuManager);
+        menuManager.add(cutColumns);
+        pasteColumns.setParent(menuManager);
+        menuManager.add(pasteColumns);
+        
         for (Script script : sc.getScriptArray())
         {
             menuManager.add(new Separator());
@@ -191,11 +226,102 @@ public class MappingTableEditorPart extends EditorPart
                 };
                 addColumn.setText(c.getId());
                 addColumn.setChecked(used);
-                menuManager.add(addColumn);
+                addColumns.add(addColumn);
+                if (!used) continue;
+                Action copyColumn = new Action()
+                {
+                    public void run() { doCopy(cId, false); }
+                };
+                copyColumn.setText(c.getId());
+                copyColumns.add(copyColumn);
+                Action cutColumn = new Action()
+                {
+                    public void run() { doCopy(cId, true); }
+                };
+                cutColumn.setText(c.getId());
+                cutColumns.add(cutColumn);
+                Action pasteColumn = new Action()
+                {
+                    public void run() { doPaste(cId); }
+                };
+                pasteColumn.setText(c.getId());
+                pasteColumns.add(pasteColumn);
+                
             }
         }
         //SyllableConverterDocument doc = this.parentEditor.getDocument();
         // TODO check table hasn't changed
+    }
+    
+    protected void doCopy(String ref, boolean cut)
+    {
+        if (!(viewer.getSelection() instanceof IStructuredSelection)) return;
+        IStructuredSelection ss = (IStructuredSelection)viewer.getSelection();
+        Iterator <?>i = ss.iterator();
+        Map data = Map.Factory.newInstance();
+        while (i.hasNext())
+        {
+            Object o = i.next();
+            if (o instanceof Map)
+            {
+                C c = SyllableConverterUtils.getCFromMap((Map)o, ref);
+                C copy = data.addNewC();
+                copy.set(c);
+                if (cut)
+                {
+                    c.unsetHex();
+                    c.unsetClass1();
+                    c.setStringValue("");
+                }
+            }
+        }
+        String xmlData = data.xmlText();
+        clipboard.setContents(new Object [] {xmlData}, new Transfer[] { TextTransfer.getInstance()});
+        if (cut)
+        {
+            parentEditor.setDirty(true);
+            viewer.refresh(ss.toList().toArray());
+        }
+        
+    }
+    
+    protected void doPaste(String ref)
+    {
+        if (!(viewer.getSelection() instanceof IStructuredSelection)) return;
+        IStructuredSelection ss = (IStructuredSelection)viewer.getSelection();
+        Iterator <?>i = ss.iterator();
+        String data = (String)clipboard.getContents(TextTransfer.getInstance());
+        if (data == null) return;
+        try
+        {
+            Map m = Map.Factory.parse(data);
+            int iData = 0;
+            while (i.hasNext() && iData < m.sizeOfCArray())
+            {
+                Object o = i.next();
+                if (o instanceof Map)
+                {
+                    C c = SyllableConverterUtils.getCFromMap((Map)o, ref);
+                    C newC = m.getCArray(iData);
+                    if (c == null)
+                        c = ((Map)o).addNewC();
+                    c.set(newC);
+                    // restore the ref
+                    c.setR(ref);
+                    viewer.refresh(o);
+                    // if there is only one item do a fill down, otherwise
+                    // copy sequentially
+                    if (m.sizeOfCArray() > 1)
+                        iData++;
+                }
+            }
+            parentEditor.setDirty(true);
+            //viewer.refresh();
+        }
+        catch (XmlException e)
+        {
+            // invalid xml
+        }
     }
     
     protected int getSelectedMapIndex()
@@ -251,7 +377,7 @@ public class MappingTableEditorPart extends EditorPart
             final String colRef = cr.getR();
             TableColumn tc = new TableColumn(table, SWT.LEAD);
             tc.setText(cr.getR());
-            tc.setWidth(100);
+            tc.setWidth(50);
             TableViewerColumn tvc = new TableViewerColumn(viewer, tc);
             SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
             tc.setToolTipText(SyllableConverterUtils.getComponentName(sc, colRef));
@@ -298,6 +424,7 @@ public class MappingTableEditorPart extends EditorPart
     public class CellEditingSupport extends EditingSupport
     {
         final String colRef;
+        CellEditor editor;
         /**
          * @param viewer
          */
@@ -327,7 +454,7 @@ public class MappingTableEditorPart extends EditorPart
         @Override
         protected CellEditor getCellEditor(Object element)
         {
-            CellEditor editor = null;
+            editor = null;
             Composite composite = (Composite)this.getViewer().getControl();
             if (element instanceof Map)
             {
@@ -341,12 +468,23 @@ public class MappingTableEditorPart extends EditorPart
                         SyllableConverterUtils.getApplicableClasses(sc, colRef);
                     classes.add(MessageUtil.getString("NoClass"));
                     editor = new ComboBoxCellEditor(composite, 
-                        classes.toArray(new String[classes.size()]));
-                    //editor.setValue(classes.indexOf(c.getR()));
+                        classes.toArray(new String[classes.size()]), SWT.LEAD);
+                    if (editor.getControl() != null)
+                    {
+                        Control control = editor.getControl();
+                        if (control instanceof CCombo)
+                        {
+                            CCombo cc = (CCombo)control;
+                            cc.setEditable(true);
+                            cc.setText(SyllableConverterUtils.getCText(c));
+                        }
+                    }
+                    if (c != null && c.isSetClass1())
+                        editor.setValue(classes.indexOf(c.getClass1()));
                 }
                 else
                 {
-                    return new TextCellEditor(composite);
+                    editor = new TextCellEditor(composite);
                 }
             }
             return editor;
@@ -367,7 +505,9 @@ public class MappingTableEditorPart extends EditorPart
                 {
                     SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
                     if (c == null)
+                    {
                         return -1;
+                    }
                     Vector <String> classes = 
                         SyllableConverterUtils.getApplicableClasses(sc, c.getR());
                     return (classes.indexOf(c.getClass1()));
@@ -407,11 +547,37 @@ public class MappingTableEditorPart extends EditorPart
                     {
                         int classIndex = ((Integer)value).intValue();
                         if (classIndex < 0)
+                        {
+                            if (editor.getControl() instanceof CCombo)
+                            {
+                                CCombo cc = (CCombo)editor.getControl();
+                                String newValue = cc.getText();
+                                if (newValue != null)
+                                {
+                                    c.setStringValue(newValue);
+                                    if (c.isSetClass1()) c.unsetClass1();
+                                    if (c.isSetHex()) c.unsetHex();
+                                    parentEditor.setDirty(true);
+                                    this.getViewer().refresh(element);
+                                }
+                            }
                             return;
+                        }
                         if (classIndex < classes.size())
                             c.setClass1(classes.get(classIndex));
                         else
-                            c.setStringValue("-");
+                        {
+                            if (c.isSetClass1()) c.unsetClass1();
+                            if (c.isSetHex()) c.unsetHex();
+                        }
+                        parentEditor.setDirty(true);
+                        this.getViewer().refresh(element);
+                    }
+                    else
+                    {
+                        c.setStringValue(value.toString());
+                        if (c.isSetClass1()) c.unsetClass1();
+                        if (c.isSetHex()) c.unsetHex();
                         parentEditor.setDirty(true);
                         this.getViewer().refresh(element);
                     }

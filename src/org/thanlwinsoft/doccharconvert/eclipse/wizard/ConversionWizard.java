@@ -45,6 +45,7 @@ import org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionRunnable;
 import org.thanlwinsoft.doccharconvert.eclipse.EclipseMessageDisplay;
 import org.thanlwinsoft.doccharconvert.eclipse.Perspective;
+import org.thanlwinsoft.doccharconvert.eclipse.PreferencesInitializer;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.DocumentParserPage;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
@@ -130,9 +131,12 @@ public class ConversionWizard extends Wizard
             conversion.removeAllConverters();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
             sdf.setTimeZone(TimeZone.getDefault());
+            PreferencesInitializer prefs = new PreferencesInitializer();
+            prefs.initializeDefaultPreferences();
+            
             for (CharConverter cc : converters)
             {
-                File logDir = new File(Config.getCurrent().getLogFile());
+                File logDir = new File(prefs.getPrefStore().getString(Config.LOG_FILE));
                 if (!logDir.isDirectory())
                 {
                     IFolder logFolder = createProjectFolder("log");
@@ -149,17 +153,12 @@ public class ConversionWizard extends Wizard
                 }
                 if (parserPage.doReverseCheck())
                 {
-                    String logFileName = Config.getCurrent().getLogFile();
-                    if (logFileName != null && logFileName.length() > 0)
-                    {
-                        CharConverter reverse = 
-                            ReverseConversion.get(availableConverters, cc);
-                        ConversionTester ct = new ConversionTester(cc, reverse);
-                        ct.setLogFile(new File(logDir, 
-                            cc.getName() + sdf.format(new Date()) + ".csv"));
-                        conversion.addConverter(ct);
-                    }
-                    else conversion.addConverter(cc);
+                    CharConverter reverse = 
+                        ReverseConversion.get(availableConverters, cc);
+                    ConversionTester ct = new ConversionTester(cc, reverse);
+                    ct.setLogFile(new File(logDir, 
+                        cc.getName() + sdf.format(new Date()) + ".csv"));
+                    conversion.addConverter(ct);
                 }
                 else conversion.addConverter(cc);
             }
@@ -260,7 +259,7 @@ public class ConversionWizard extends Wizard
                     }
                 }
             }
-            if (ePart == null)
+            if (ePart == null || !(ePart instanceof ConversionInputEditor))
             {
                 ePart = wbWindow.getActivePage().openEditor(eInput,
                     "org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor");
