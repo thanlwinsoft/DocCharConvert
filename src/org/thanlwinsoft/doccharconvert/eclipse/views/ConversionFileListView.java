@@ -41,10 +41,14 @@ public class ConversionFileListView extends ViewPart
     private TableColumn outputFileCol = null;
     private TableColumn conversionStatus = null;
     private ConversionFileListProvider provider = null;
+    private BatchConversion batchConversion = null;
     //private String activeColumn = null;
     public static final String INPUT_COL = "input";
     public static final String OUTPUT_COL = "output";
     public static final String STATUS_COL = "status";
+    
+    public final static String ID = 
+        "org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView";  
     
     /* (non-Javadoc)
      * @see org.eclipse.ui.part.WorkbenchPart#createPartControl(org.eclipse.swt.widgets.Composite)
@@ -197,8 +201,12 @@ public class ConversionFileListView extends ViewPart
         tableView.refresh();
         tableView.getTable().setEnabled(true);
         tableView.getControl().redraw();
-        
+        this.batchConversion = conv;
     }
+	protected BatchConversion getConversion()
+	{
+	    return this.batchConversion;
+	}
     
     /* (non-Javadoc)
      * @see org.eclipse.ui.part.WorkbenchPart#setFocus()
@@ -239,6 +247,20 @@ public class ConversionFileListView extends ViewPart
             }
             return element.toString();
         }
+    }
+    public void resetStatus()
+    {
+        ConversionFileListProvider cflp = 
+            (ConversionFileListProvider)tableView.getContentProvider();
+        for (int i = 0; tableView.getElementAt(i) != null; i++)
+        {
+            if (tableView.getElementAt(i) instanceof RowCell)
+            {
+                RowCell row = (RowCell)tableView.getElementAt(i);
+                cflp.setStatus(row.getInput(), MessageUtil.getString("Unconverted"));
+            }
+        }
+        tableView.refresh();
     }
     public void updateStatus(File input, String status)
     {

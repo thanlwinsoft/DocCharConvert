@@ -3,6 +3,7 @@ package org.thanlwinsoft.doccharconvert.eclipse;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
+import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView;
 
 
 public class Perspective implements IPerspectiveFactory 
@@ -16,7 +17,7 @@ public class Perspective implements IPerspectiveFactory
     public final static String DEBUG_UNICODE = 
         "DocCharConvert.DebugUnicode";
     public final static String CONV_FILE_LIST = 
-        "DocCharConvert.ConversionFileList";
+        ConversionFileListView.ID;
     public void createInitialLayout(IPageLayout layout) 
     {
         String editorArea = layout.getEditorArea();

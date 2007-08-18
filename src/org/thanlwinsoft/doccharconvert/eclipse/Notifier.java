@@ -26,6 +26,14 @@ public class Notifier extends ProgressNotifier
         this.monitor = monitor;   
         this.convFileListView = view;
     }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.ProgressNotifier#beginTask(java.lang.String, int)
+     */
+    @Override
+    public void beginTask(String name, int totalWork)
+    {
+        monitor.beginTask(name, totalWork);
+    }
     public void setCancelled(boolean cancel) { monitor.setCanceled(cancel);}
     public boolean isCancelled() { return monitor.isCanceled(); }
     public void worked(int work) { monitor.worked(work); }

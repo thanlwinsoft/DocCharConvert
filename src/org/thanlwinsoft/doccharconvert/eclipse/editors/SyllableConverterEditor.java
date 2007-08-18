@@ -13,9 +13,12 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
@@ -27,6 +30,7 @@ import org.eclipse.ui.IStorageEditorInput;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.MultiPageEditorPart;
+import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverterDocument;
@@ -114,18 +118,61 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         {
             if (this.getContainer() != null)
                 parent = this.getContainer();
+            ImageDescriptor id = DocCharConvertEclipsePlugin.getImageDescriptor("/icons/ClassTable16.png");
+            Image image = null;
+            if (id != null)
+            {
+                image = id.createImage(parent.getDisplay());
+            }
             SyllableConverter sc = converterDoc.getSyllableConverter();
+            if (sc.getClasses() != null)
+            {
+                for (org.thanlwinsoft.schemas.syllableParser.Class clazz : 
+                    sc.getClasses().getClass1Array())
+                {
+                    int pageIndex;
+                    try
+                    {
+                        pageIndex = addPage(new ClassTableEditorPart(this, clazz), 
+                            this.getEditorInput());
+                        this.setPageText(pageIndex, clazz.getId());
+                        if (image != null)
+                        {
+                            this.setPageImage(pageIndex, id.createImage(parent.getDisplay()));
+                        }
+                        
+                    }
+                    catch (PartInitException e)
+                    {
+                        DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
+                            "Error loading ClassTableEditor" , e);
+                    }
+                }
+            }
+            id = DocCharConvertEclipsePlugin
+                .getImageDescriptor("/icons/ConversionTable16.png");
+            if (id != null)
+            {
+                image = id.createImage(parent.getDisplay());
+            }
+            else
+            {
+                image = null;
+            }
             for (MappingTable mt : sc.getMappingTableArray())
             {
                 try
                 {
                     int pageIndex = addPage(new MappingTableEditorPart(this, mt), this.getEditorInput());
                     this.setPageText(pageIndex, mt.getId());
+                    if (image != null)
+                    {
+                        this.setPageImage(pageIndex, id.createImage(parent.getDisplay()));
+                    }
                 }
                 catch (PartInitException e)
                 {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    DocCharConvertEclipsePlugin.log(IStatus.WARNING, "Error loading MappingTableEditor" , e);
                 }
             }
         }

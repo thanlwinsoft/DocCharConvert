@@ -22,7 +22,7 @@
  * -----------------------------------------------------------------------
  */
 
-package org.thanlwinsoft.doccharconvert;
+package org.thanlwinsoft.doccharconvert.parser;
 
 import java.io.File;
 import java.io.InputStreamReader;
@@ -35,6 +35,12 @@ import java.io.BufferedReader;
 import java.nio.charset.Charset;
 import java.util.Map;
 
+import org.thanlwinsoft.doccharconvert.ConversionMode;
+import org.thanlwinsoft.doccharconvert.DocInterface;
+import org.thanlwinsoft.doccharconvert.ProgressNotifier;
+import org.thanlwinsoft.doccharconvert.TextStyle;
+import org.thanlwinsoft.doccharconvert.DocInterface.InterfaceException;
+import org.thanlwinsoft.doccharconvert.DocInterface.WarningException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 /**

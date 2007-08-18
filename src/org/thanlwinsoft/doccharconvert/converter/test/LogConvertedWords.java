@@ -22,7 +22,9 @@ import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
+import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
+import org.thanlwinsoft.doccharconvert.eclipse.PreferencesInitializer;
 
 /**
  * @author keith
@@ -32,7 +34,7 @@ public class LogConvertedWords extends ChildConverter
 {
     private File wordFile = null;
     public final static String WORD_SEPARATOR = 
-        "[\\p{Zs}\\p{Zp}\\p{Zl}\\p{Po}\\p{Ps}\\p{Pe}\\p{Sm}\\p{So}]+";
+        "[\\p{Zs}\\p{Zp}\\p{Zl}\\p{Ps}\\p{Pe}\\p{Sm}\\p{So}]+";
     private Pattern delimiterPattern = null;
     public final static String WORD_SEPARATOR_KEY = "WordSeparator";
     public class ConvertedWord
@@ -51,8 +53,18 @@ public class LogConvertedWords extends ChildConverter
     public LogConvertedWords(CharConverter parent)
     {
         super(parent.getOldStyle(), parent.getNewStyle(), parent);
+        new PreferencesInitializer().initializeDefaultPreferences();
+        
+    }
+    
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.ChildConverter#initialize()
+     */
+    @Override
+    public void initialize() throws FatalException
+    {
         String pattern = Config.getCurrent().getPrefs()
-            .get(WORD_SEPARATOR_KEY, WORD_SEPARATOR);
+        .get(WORD_SEPARATOR_KEY, WORD_SEPARATOR);
         try
         {
             delimiterPattern = Pattern.compile(pattern);
@@ -62,8 +74,9 @@ public class LogConvertedWords extends ChildConverter
             DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
                 "Failed to compile Word separator pattern", e);
         }
+        super.initialize();
     }
-    
+
     public void setWordFile(File file)
     {
         wordFile = file;

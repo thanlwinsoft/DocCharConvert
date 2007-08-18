@@ -42,7 +42,6 @@ public class ConversionTester implements CharConverter
     {
         this.mForwards = forwards;
         this.mBackwards = backwards;
-        this.mismatches = new HashMap <String, List<MismatchContext> > ();
     }
 
     public void setLogFile(File file)
@@ -214,6 +213,7 @@ public class ConversionTester implements CharConverter
     {
         mForwards.initialize();
         mBackwards.initialize();
+        this.mismatches = new HashMap <String, List<MismatchContext> > ();
     }
 
     /* (non-Javadoc)

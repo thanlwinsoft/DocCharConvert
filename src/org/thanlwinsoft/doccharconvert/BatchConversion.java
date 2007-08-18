@@ -41,6 +41,8 @@ import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
 import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 import org.thanlwinsoft.doccharconvert.opendoc.OpenDocParser;
+import org.thanlwinsoft.doccharconvert.parser.TeXParser;
+import org.thanlwinsoft.doccharconvert.parser.TextParser;
 /**
  *
  * @author  keith

@@ -22,7 +22,7 @@
  * -----------------------------------------------------------------------
  */
 
-package org.thanlwinsoft.doccharconvert;
+package org.thanlwinsoft.doccharconvert.parser;
 
 
 import java.util.HashSet;
@@ -44,6 +44,7 @@ public class TeXParser extends TextParser
     StringBuffer convertedLine;
     String currentLine;
     String currentCommand = null;
+    int parseLength = 0;
     /** Creates a new instance of TeXParser */
     public TeXParser()
     {
@@ -65,9 +66,12 @@ public class TeXParser extends TextParser
         currentCommand = null;
         convertedLine.delete(0, convertedLine.length());
         int prevLineIndex = 0;
+        int commentIndex = line.indexOf('%');
+        parseLength = (commentIndex < 0)? currentLine.length() : commentIndex; 
         try
         {
-            while (lineIndex < currentLine.length())
+
+            while (lineIndex < parseLength)
             {
                 String part = getNextPart();
                 if (part.length() > 0)
@@ -101,6 +105,9 @@ public class TeXParser extends TextParser
                 }
                 prevLineIndex = lineIndex;
             }
+            // add comment if there is one
+            if (parseLength < currentLine.length())
+                convertedLine.append(currentLine.substring(parseLength));
             writer.write(convertedLine.toString());
             if (inputText.length() == 0)
             	writer.newLine();
@@ -133,12 +140,12 @@ public class TeXParser extends TextParser
         if (commandIndex > -1)
         {
             int endIndex = commandIndex;
-            while (++endIndex < currentLine.length() && 
+            while (++endIndex < parseLength && 
                 (Character.isLetter(currentLine.charAt(endIndex)) ||
                  ((endIndex == commandIndex + 1) && 
                   (currentLine.charAt(endIndex) == '\\'))));
             //currentLine.indexOf(' ', commandIndex);
-            if (endIndex < 0) endIndex = currentLine.length();
+            if (endIndex < 0) endIndex = parseLength;
             currentCommand = currentLine.substring(commandIndex + 1,endIndex);
             String nextPart = currentLine.substring(lineIndex,commandIndex);
             // update line index
@@ -149,7 +156,7 @@ public class TeXParser extends TextParser
         {
             currentCommand = null;
             String nextPart = currentLine.substring(lineIndex);
-            lineIndex = currentLine.length();
+            lineIndex = parseLength;
             return nextPart;
         }
     }

@@ -152,6 +152,29 @@ public class MappingTableEditorPart extends EditorPart
         menuManager.add(insertAction);
         menuManager.add(deleteAction);
         
+        menuManager.add(new Separator());
+        Action optionalAction = new Action(MessageUtil.getString("OptionalTable"), 
+            Action.AS_CHECK_BOX)
+        {
+            public void run()
+            {
+                mt.setOptional(this.isChecked());
+            }
+        };
+        optionalAction.setText(MessageUtil.getString("OptionalTable"));
+        optionalAction.setToolTipText(MessageUtil.getString("OptionalTableToolTip"));
+        if (mt.isSetOptional() && mt.getOptional())
+        {
+            optionalAction.setChecked(true);
+        }
+        else
+        {
+            optionalAction.setChecked(false);
+        }
+        menuManager.add(optionalAction);
+        
+        menuManager.add(new Separator());
+        
         final IEditorPart part = this;
         SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
         int usedIndex = 0;

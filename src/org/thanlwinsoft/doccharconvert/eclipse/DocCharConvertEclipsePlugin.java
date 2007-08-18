@@ -4,14 +4,18 @@ package org.thanlwinsoft.doccharconvert.eclipse;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.osgi.framework.BundleContext;
+import org.osgi.service.prefs.Preferences;
+import org.thanlwinsoft.eclipse.EclipseToJavaPrefAdapter;
 
 /**
  * The main plugin class to be used in the desktop.
  */
-public class DocCharConvertEclipsePlugin extends AbstractUIPlugin {
-
+public class DocCharConvertEclipsePlugin extends AbstractUIPlugin 
+{
+    public final static String ID = "org.thanlwinsoft.doccharconvert";
 	//The shared instance.
 	private static DocCharConvertEclipsePlugin plugin;
 	
@@ -27,6 +31,11 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		ConfigurationScope configScope = new ConfigurationScope();
+		Preferences configurationNode = 
+            configScope.getNode(DocCharConvertEclipsePlugin.ID);
+		new org.thanlwinsoft.doccharconvert.Config
+            (new EclipseToJavaPrefAdapter(configurationNode));
 	}
 
 	/**
@@ -52,7 +61,7 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin {
 	 * @return the image descriptor
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
-		return AbstractUIPlugin.imageDescriptorFromPlugin("DocCharConvertEclipse", path);
+		return AbstractUIPlugin.imageDescriptorFromPlugin(ID, path);
 	}
 
     public static void log(int warning, String string, Throwable exception)

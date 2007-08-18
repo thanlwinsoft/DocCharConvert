@@ -29,22 +29,22 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         configurer.setShowCoolBar(true);
         configurer.setShowStatusLine(true);
         configurer.setTitle(MessageUtil.getString("dialogTitle"));
-        IPreferencesService service = Platform.getPreferencesService();
-        if (service != null)
-        {
-            ConfigurationScope configScope = new ConfigurationScope();
-            Preferences configurationNode = 
-                configScope.getNode("org.thanlwinsoft.doccharconvert");
-            try
-            {
-                new org.thanlwinsoft.doccharconvert.Config
-                    (new EclipseToJavaPrefAdapter(configurationNode));
-                // can't initialize pref here - there is no shell yet
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
+//        IPreferencesService service = Platform.getPreferencesService();
+//        if (service != null)
+//        {
+//            ConfigurationScope configScope = new ConfigurationScope();
+//            Preferences configurationNode = 
+//                configScope.getNode(DocCharConvertEclipsePlugin.ID);
+//            try
+//            {
+//                new org.thanlwinsoft.doccharconvert.Config
+//                    (new EclipseToJavaPrefAdapter(configurationNode));
+//                // can't initialize pref here - there is no shell yet
+//            }
+//            catch (Exception e)
+//            {
+//                e.printStackTrace();
+//            }
+//        }
     }
 }

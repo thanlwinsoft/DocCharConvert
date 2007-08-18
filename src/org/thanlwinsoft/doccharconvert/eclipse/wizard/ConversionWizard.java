@@ -170,19 +170,21 @@ public class ConversionWizard extends Wizard
             else
             {
                 IWorkbenchPage page = wbWindow.getActivePage();
-                IViewPart fileList = page.showView(Perspective.CONV_FILE_LIST, 
+                IViewPart fileList = page.showView(ConversionFileListView.ID, 
                         null, IWorkbenchPage.VIEW_ACTIVATE);
                 
                 ConversionFileListView listView = null; 
                 if (fileList != null)
                 {
-                    listView = (ConversionFileListView)fileList; 
+                    listView = (ConversionFileListView)fileList;
+                    listView.resetStatus();
                     listView.setConversion(conversion);
-                    IViewReference viewRef = page.findViewReference(Perspective.CONV_FILE_LIST);
-                    if (viewRef != null && page.isPageZoomed() == false)
-                    {
-                        page.toggleZoom(viewRef);
-                    }
+                    
+//                    IViewReference viewRef = page.findViewReference(Perspective.CONV_FILE_LIST);
+//                    if (viewRef != null && page.isPageZoomed() == false)
+//                    {
+//                        page.toggleZoom(viewRef);
+//                    }
                 }
                 else
                     MessageDialog.openError(wbWindow.getShell(), "Error", 
