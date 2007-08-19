@@ -1,315 +1,813 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xml" href="SyllableConverter.xsl"?>
-<syllableConverter xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
-<script side="left" ignoreCase="true">
-<name>Mien NRM</name>
-<!-- Mien NRM -->
-<cluster side="left" id="syllable">
-  <component id="p" min="0" priority="20">pre-syllable</component>
-  <component id="c" min="0" priority="70">consonant</component>
-  <component id="sv" min="0" priority="10">semi-vowel </component>
-  <component id="v" min="0" priority="80">vowel</component>
-  <component id="f" min="0" priority="50">final</component>
-  <component id="t" min="0" priority="40">tone</component>
-  <!--<component id="sep" min="0" priority="30">separator</component>-->
-</cluster>
-</script>
-
-<script side="right">
-<name>Mien ORM</name>
-<!-- Mien Lao -->
-<cluster side="right" id="syllable">
-	<component id="op" min="0" priority="20">pre-syllable</component>
-	<component id="oc" min="0" priority="70">consonant</component>
-	<component id="osv" min="0" priority="10">semi-vowel </component>
-	<component id="ov" min="0" priority="80">vowel</component>
-	<component id="of" min="0" priority="50">final</component>
-	<component id="ot" min="0" priority="40">tone</component>
-	<!--<component id="osep" min="0" priority="30">separator</component>-->
-</cluster>
-</script>
-
-<checks>
-  <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList">
-    <arg type="file">mienNrm2OrmExceptions.txt</arg>
-    <!-- files must have path specified relative to this xml file -->
-  </checker>
-  
-  <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences">
-  </checker>
-  <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.mien.MienOrmToneChange">
-  </checker>
-  <!--<checker class="org.thanlwinsoft.doccharconvert.converter.syllable.MienSyllableSeparators">
+<syllableConverter backtrack="true" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
+  <script side="left" ignoreCase="true">
+    <name>Mien NRM</name>
+    <!--Mien NRM-->
+    <cluster side="left" id="syllable">
+      <component id="p" min="0" priority="20">pre-syllable</component>
+      <component id="c" min="0" priority="70">consonant</component>
+      <component id="sv" min="0" priority="10">semi-vowel</component>
+      <component id="v" min="0" priority="80">vowel</component>
+      <component id="f" min="0" priority="50">final</component>
+      <component id="t" min="0" priority="40">tone</component>
+      <!--<component id="sep" min="0" priority="30">separator</component>-->
+    </cluster>
+  </script>
+  <script side="right">
+    <name>Mien ORM</name>
+    <!--Mien Lao-->
+    <cluster side="right" id="syllable">
+      <component id="op" min="0" priority="20">pre-syllable</component>
+      <component id="oc" min="0" priority="70">consonant</component>
+      <component id="osv" min="0" priority="10">semi-vowel</component>
+      <component id="ov" min="0" priority="80">vowel</component>
+      <component id="of" min="0" priority="50">final</component>
+      <component id="ot" min="0" priority="40">tone</component>
+      <!--<component id="osep" min="0" priority="30">separator</component>-->
+    </cluster>
+  </script>
+  <checks>
+    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList">
+      <arg type="file">mienNrm2OrmExceptions.txt</arg>
+      <!--files must have path specified relative to this xml file-->
+    </checker>
+    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences"/>
+    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.mien.MienOrmToneChange"/>
+    <!--<checker class="org.thanlwinsoft.doccharconvert.converter.syllable.MienSyllableSeparators">
 		  <arg>^</arg><arg>-</arg><arg>1</arg>
   </checker>-->
-</checks>
-
-
-<classes>
-
-<!-- classes must be the same size on both sides -->
-<class id="anyFinal">
-<component r="f">
-  <c>k</c><c>t</c><c>p</c><c>m</c><c>n</c><c>ng</c><c/>
-</component>
-<component r="of">
-	<c>k</c><c>t</c><c>p</c><c>m</c><c>n</c><c>v</c><c/>
-</component>
-</class>
-<class id="anyTone">
-	<component r="t">
-		<c>c</c><c>h</c><c>v</c><c>x</c><c>z</c>
-	</component>
-	<component r="ot">
-		<c>g</c><c>b</c><c>q</c><c>j</c><c>d</c>
-	</component>
-</class>
-
-<class id="semivowel">
-	<component r="sv">
-		<c/><c>i</c><c>u</c>
-	</component>
-	<component r="osv">
-		<c/><c>y</c><c>w</c>
-	</component>
-</class>
-
-<class id="highLowCons">
-<component r="c">
-  <c>k</c>   <c>ng</c> <c>q</c>  <c>c</c>  <c>hng</c>
-  <c>hny</c> <c>hm</c> <c>hn</c> <c>hl</c> <c>hu</c>
-  <c>hi</c>  <c>s</c>  <c>ny</c> <c>t</c>  <c>n</c>
-  <c>p</c>   <c>f</c>  <c>m</c>  <c>l</c>  <c>w</c>
-  <c>h</c> 
-</component>
-<component r="oc">
-	<c>K</c>   <c>v</c> <c>Q</c>  <c>Z</c>  <c>V</c>
-	<c>H</c>   <c>M</c> <c>N</c>  <c>L</c>  <c>W</c>
-	<c>Y</c>  <c>s</c>  <c>E</c> <c>T</c>  <c>n</c>
-	<c>P</c>   <c>f</c>  <c>m</c>  <c>l</c>  <c>w</c>
-	<c>h</c> 
-</component>
-</class>
-
-<class id="midCons">
-<component r="c">
-  <c>g</c> <c>j</c> <c>z</c> <c>nd</c> <c>d</c>
-  <c>mb</c> <c>b</c> <c>y</c> <c>nq</c> <c>nj</c>
-  <c>nz</c> <c/>
-</component>
-<component r="oc">
-	<c>k</c> <c>J</c> <c>z</c> <c>D</c> <c>t</c>
-	<c>B</c> <c>p</c> <c>y</c> <c>G</c> <c>F</c>
-	<c>R</c> <c/>
-</component>
-</class>
-
-<class id="nouaieVowel">
-	<component r="v">
-		<c>a</c> <c>aa</c> <c>aq</c> <c>ai</c> <c>aai</c>
-		<c>au</c> <c>aau</c> <c>ae</c> <c>aeq</c> <c>e</c>
-		<c>eq</c> <c>ei</c> <c>eu</c> <c>i</c> <c>iq</c>
-		<c>ieq</c> <c>iu</c> <c>o</c> <c>oq</c>
-		<c>oi</c> <c>or</c> <c>ou</c> <c>u</c> <c>uq</c>
-		<c>uoq</c>
-	</component>
-	<component r="ov">
-		<c>a</c> <c>aa</c> <c>a'</c> <c>ai</c> <c>aai</c>
-		<c>au</c> <c>aau</c> <c>c</c> <c>c'</c> <c>e</c>
-		<c>e'</c> <c>ei</c> <c>eu</c> <c>i</c> <c>i'</c>
-		<c>ia'</c> <c>iu</c> <c>o</c> <c>o'</c>
-		<c>xi</c> <c>x</c> <c>ru</c> <c>u</c> <c>u'</c>
-		<c>ua'</c>
-	</component>
-</class>
-
-</classes>
-
-<mappingTable id="cons">
-<columns>
-	<component r="c"/>
-	<component r="oc"/>
-</columns>
-<maps>
-	<m><c r="c"/><c r="oc"/></m>
-	<m><c r="c" class="highLowCons"/><c r="oc" class="highLowCons"/></m>
-	<m><c r="c" class="midCons"/><c r="oc" class="midCons"/></m>
-	<m><c r="c">w</c><c r="oc"/></m>
-	<m><c r="c">y</c><c r="oc"/></m>
-</maps>
-</mappingTable>
-
-<mappingTable id="final">
-	<columns>
-		<component r="f"/>
-		<component r="of"/>
-	</columns>
-	<maps>
-		<m><c r="f"/><c r="of"/></m>
-		<m><c r="f" class="anyFinal"/><c r="of" class="anyFinal"/></m>
-	</maps>
-</mappingTable>
-
-<mappingTable id="tone">
-<columns>
-<component r="t"/>
-<component r="ot"/>
-</columns>
-<maps>
-	<m><c r="t"/><c r="ot"/></m>
-	<m><c r="t" class="anyTone"/><c r="ot" class="anyTone"/></m>
-</maps>
-</mappingTable>
-
-<mappingTable id="vowel">
-<columns>
-<component r="v"/>
-<component r="ov"/>
-</columns>
-<maps>
-	<m><c r="v"/><c r="ov"/></m>
-	<m><c r="v">a</c><c r="ov">a</c></m>
-	<m><c r="v">aa</c><c r="ov">aa</c></m>
-	<m><c r="v">aq</c><c r="ov">a'</c></m>
-	<m><c r="v">ai</c><c r="ov">ai</c></m>
-	<m><c r="v">aai</c><c r="ov">aai</c></m>
-	<m><c r="v">au</c><c r="ov">au</c></m>
-	<m><c r="v">aau</c><c r="ov">aau</c></m>
-	<m><c r="v">ae</c><c r="ov">c</c></m>
-	<m><c r="v">aeq</c><c r="ov">c'</c></m>
-	<m><c r="v">e</c><c r="ov">e</c></m>
-	<m><c r="v">eq</c><c r="ov">e'</c></m>
-	<m><c r="v">ei</c><c r="ov">ei</c></m>
-	<m><c r="v">eu</c><c r="ov">eu</c></m>
-	<m><c r="v">i</c><c r="ov">i</c></m>
-	<m><c r="v">iq</c><c r="ov">i'</c></m>
-	<m><c r="v">ie</c><c r="ov">ia</c></m>
-	<m><c r="v">ie</c><c r="ov">ye</c></m>
-	<m><c r="v">ieq</c><c r="ov">ia'</c></m>
-	<m><c r="v">iu</c><c r="ov">iu</c></m>
-	<m><c r="v">o</c><c r="ov">o</c></m>
-	<m><c r="v">oq</c><c r="ov">o'</c></m>
-	<m><c r="v">oi</c><c r="ov">xi</c></m>
-	<m><c r="v">or</c><c r="ov">x</c></m>
-	<m><c r="v">orq</c><c r="ov">x'</c></m>
-	<m><c r="v">ou</c><c r="ov">ru</c></m>
-	<m><c r="v">u</c><c r="ov">u</c></m>
-	<m><c r="v">uq</c><c r="ov">u'</c></m>
-	<m><c r="v">uo</c><c r="ov">ua</c></m>
-	<m><c r="v">uo</c><c r="ov">wr</c></m>
-	<m><c r="v">uoq</c><c r="ov">ua'</c></m>
-</maps>
-</mappingTable>
-
-<mappingTable id="semi-vowel">
-<columns>
-<component r="sv"/>
-<component r="osv"/>
-</columns>
-<maps>
-<m><c r="sv"/><c r="osv"/></m><!-- need to include empty map -->
-<m><c r="sv">i</c><c r="osv">y</c></m>
-<m><c r="sv">u</c><c r="osv">w</c></m>
-</maps>
-</mappingTable>
-
-<mappingTable id="pre-syllable">
-<columns>
-<component r="p"/>
-<component r="op"/>
-</columns>
-<maps>
-<m><c r="p"/><c r="op"/></m><!-- need to include empty map -->
-<m><c r="p">da'</c><c r="op">ta'</c></m>
-<m><c r="p">m'</c><c r="op">m</c></m>
-<m><c r="p">a'</c><c r="op">a'</c></m>
-<m><c r="p">ba'</c><c r="op">pa'</c></m>
-<m><c r="p">gu'</c><c r="op">kub </c></m>
-<m><c r="p">za'</c><c r="op">za'</c></m>
-<m><c r="p">ga'</c><c r="op">ka'</c></m>
-<m><c r="p">mba'</c><c r="op">Ba'</c></m>
-<m><c r="p">la'</c><c r="op">la'</c></m>
-<m><c r="p">mi'</c><c r="op">mi'</c></m>
-<m><c r="p">nza'</c><c r="op">Ra'</c></m>
-<m><c r="p">nqa'</c><c r="op">Ga'</c></m>
-<m><c r="p">ca'</c><c r="op">Za'</c></m>
-<m><c r="p">sa'</c><c r="op">sa'</c></m>
-<m><c r="p">nda'</c><c r="op">Da'</c></m>
-<m><c r="p">mbu'</c><c r="op">Bu'</c></m>
-<m><c r="p">ha'</c><c r="op">ha'</c></m>
-<m><c r="p">qa'</c><c r="op">Qa'</c></m>
-<m><c r="p">pa'</c><c r="op">Pa'</c></m>
-<m><c r="p">nza'</c><c r="op">Ra'</c></m>
-<!--
-<m><c r="p"></c><c r="op"></c></m>
--->
-</maps>
-</mappingTable>
-
-<mappingTable id="cons-vowel" optional="true">
-	<columns>
-		<component r="c"/>
-		<component r="v"/>
-		<component r="oc"/>
-		<component r="ov"/>
-	</columns>
-	<maps>
-		<m><c r="c">w</c><c r="v">uo</c><c r="oc"/><c r="ov">ua</c></m>
-		<m><c r="c">w</c><c r="v">uo</c><c r="oc"/><c r="ov">wa</c></m>
-		<m><c r="c">w</c><c r="v">ie</c><c r="oc">w</c><c r="ov">ia</c></m>
-		<m><c r="c">w</c><c r="v">ie</c><c r="oc">w</c><c r="ov">ye</c></m>
-		<m><c r="c">w</c><c r="v" class="nouaieVowel"/><c r="oc">w</c><c r="ov" class="nouaieVowel"/></m>
-		<m><c r="c">y</c><c r="v">uo</c><c r="oc">y</c><c r="ov">ua</c></m>
-		<m><c r="c">y</c><c r="v">uo</c><c r="oc">y</c><c r="ov">wa</c></m>
-		<m><c r="c">y</c><c r="v">ie</c><c r="oc">y</c><c r="ov">ie</c></m>
-		<m><c r="c">y</c><c r="v">ie</c><c r="oc"/><c r="ov">ye</c></m>
-		<m><c r="c">y</c><c r="v" class="nouaieVowel"/><c r="oc">y</c><c r="ov" class="nouaieVowel"/></m>
-	</maps>
-</mappingTable>
-
-
-<mappingTable id="vowel-final" optional="true">
-	<columns>
-		<component r="v"/>
-		<component r="f"/>
-		<component r="ov"/>
-		<component r="of"/>
-	</columns>
-	<maps>
-		<m><c r="v">uo</c><c r="f">t</c><c r="ov">wr</c><c r="of">t</c></m>
-		<m><c r="v">uo</c><c r="f">n</c><c r="ov">wr</c><c r="of">n</c></m>
-		<m><c r="v">uo</c><c r="f">k</c><c r="ov">ua</c><c r="of">k</c></m>
-		<m><c r="v">uo</c><c r="f">p</c><c r="ov">ua</c><c r="of">p</c></m>
-		<m><c r="v">uo</c><c r="f">m</c><c r="ov">ua</c><c r="of">m</c></m>
-		<m><c r="v">uo</c><c r="f">ng</c><c r="ov">ua</c><c r="of">v</c></m>
-		<m><c r="v">uo</c><c r="f"></c><c r="ov">ua</c><c r="of"></c></m>
-		
-		<m><c r="v">ie</c><c r="f">t</c><c r="ov">ye</c><c r="of">t</c></m>
-		<m><c r="v">ie</c><c r="f">n</c><c r="ov">ye</c><c r="of">n</c></m>
-		<m><c r="v">ie</c><c r="f">k</c><c r="ov">ia</c><c r="of">k</c></m>
-		<m><c r="v">ie</c><c r="f">p</c><c r="ov">ye</c><c r="of">p</c></m>
-		<m><c r="v">ie</c><c r="f">m</c><c r="ov">ye</c><c r="of">m</c></m>
-		<m><c r="v">ie</c><c r="f">ng</c><c r="ov">ia</c><c r="of">v</c></m>
-		<m><c r="v">ie</c><c r="f"></c><c r="ov">ia</c><c r="of"></c></m>
-	</maps>
-</mappingTable>
-
-<mappingTable id="cons-vowel-final" optional="true">
-	<columns>
-		<component r="c"/>
-		<component r="v"/>
-		<component r="f"/>
-		<component r="oc"/>
-		<component r="ov"/>
-		<component r="of"/>
-	</columns>
-	<maps>
-		<m><c r="c">y</c><c r="v">ie</c><c r="f">n</c><c r="oc"></c><c r="ov">ye</c><c r="of">n</c></m>
-		<m><c r="c">y</c><c r="v">ie</c><c r="f"></c><c r="oc">y</c><c r="ov">ia</c><c r="of"></c></m>
-	</maps>
-	.</mappingTable>
-<!--
-<mappingTable id="separator">
+  </checks>
+  <classes>
+    <!--classes must be the same size on both sides-->
+    <class id="anyFinal">
+      <component r="f">
+        <c>k</c>
+        <c>t</c>
+        <c>p</c>
+        <c>m</c>
+        <c>n</c>
+        <c>ng</c>
+        <c/>
+      </component>
+      <component r="of">
+        <c>k</c>
+        <c>t</c>
+        <c>p</c>
+        <c>m</c>
+        <c>n</c>
+        <c>v</c>
+        <c/>
+      </component>
+    </class>
+    <class id="anyTone">
+      <component r="t">
+        <c>c</c>
+        <c>h</c>
+        <c>v</c>
+        <c>x</c>
+        <c>z</c>
+      </component>
+      <component r="ot">
+        <c>g</c>
+        <c>b</c>
+        <c>q</c>
+        <c>j</c>
+        <c>d</c>
+      </component>
+    </class>
+    <class id="semivowel">
+      <component r="sv">
+        <c/>
+        <c>i</c>
+        <c>u</c>
+      </component>
+      <component r="osv">
+        <c/>
+        <c>y</c>
+        <c>w</c>
+      </component>
+    </class>
+    <class id="highLowCons">
+      <component r="c">
+        <c>k</c>
+        <c>ng</c>
+        <c>q</c>
+        <c>c</c>
+        <c>hng</c>
+        <c>hny</c>
+        <c>hm</c>
+        <c>hn</c>
+        <c>hl</c>
+        <c>hu</c>
+        <c>hi</c>
+        <c>s</c>
+        <c>ny</c>
+        <c>t</c>
+        <c>n</c>
+        <c>p</c>
+        <c>f</c>
+        <c>m</c>
+        <c>l</c>
+        <c>w</c>
+        <c>h</c>
+      </component>
+      <component r="oc">
+        <c>K</c>
+        <c>v</c>
+        <c>Q</c>
+        <c>Z</c>
+        <c>V</c>
+        <c>H</c>
+        <c>M</c>
+        <c>N</c>
+        <c>L</c>
+        <c>W</c>
+        <c>Y</c>
+        <c>s</c>
+        <c>E</c>
+        <c>T</c>
+        <c>n</c>
+        <c>P</c>
+        <c>f</c>
+        <c>m</c>
+        <c>l</c>
+        <c>w</c>
+        <c>h</c>
+      </component>
+    </class>
+    <class id="midCons">
+      <component r="c">
+        <c>g</c>
+        <c>j</c>
+        <c>z</c>
+        <c>nd</c>
+        <c>d</c>
+        <c>mb</c>
+        <c>b</c>
+        <c>y</c>
+        <c>nq</c>
+        <c>nj</c>
+        <c>nz</c>
+        <c/>
+      </component>
+      <component r="oc">
+        <c>k</c>
+        <c>J</c>
+        <c>z</c>
+        <c>D</c>
+        <c>t</c>
+        <c>B</c>
+        <c>p</c>
+        <c>y</c>
+        <c>G</c>
+        <c>F</c>
+        <c>R</c>
+        <c/>
+      </component>
+    </class>
+    <class id="allCons">
+      <component r="c">
+        <c>k</c>
+        <c>ng</c>
+        <c>q</c>
+        <c>c</c>
+        <c>hng</c>
+        <c>hny</c>
+        <c>hm</c>
+        <c>hn</c>
+        <c>hl</c>
+        <c>hu</c>
+        <c>hi</c>
+        <c>s</c>
+        <c>ny</c>
+        <c>t</c>
+        <c>n</c>
+        <c>p</c>
+        <c>f</c>
+        <c>m</c>
+        <c>l</c>
+        <c>h</c>
+        <c>g</c>
+        <c>j</c>
+        <c>z</c>
+        <c>nd</c>
+        <c>d</c>
+        <c>mb</c>
+        <c>b</c>
+        <c>nq</c>
+        <c>nj</c>
+        <c>nz</c>
+      </component>
+      <component r="oc">
+        <c>K</c>
+        <c>v</c>
+        <c>Q</c>
+        <c>Z</c>
+        <c>V</c>
+        <c>H</c>
+        <c>M</c>
+        <c>N</c>
+        <c>L</c>
+        <c>W</c>
+        <c>Y</c>
+        <c>s</c>
+        <c>E</c>
+        <c>T</c>
+        <c>n</c>
+        <c>P</c>
+        <c>f</c>
+        <c>m</c>
+        <c>l</c>
+        <c>h</c>
+        <c>k</c>
+        <c>J</c>
+        <c>z</c>
+        <c>D</c>
+        <c>t</c>
+        <c>B</c>
+        <c>p</c>
+        <c>G</c>
+        <c>F</c>
+        <c>R</c>
+      </component>
+    </class>
+    <class id="nouaieVowel">
+      <component r="v">
+        <c>a</c>
+        <c>aa</c>
+        <c>aq</c>
+        <c>ai</c>
+        <c>aai</c>
+        <c>au</c>
+        <c>aau</c>
+        <c>ae</c>
+        <c>aeq</c>
+        <c>e</c>
+        <c>eq</c>
+        <c>ei</c>
+        <c>eu</c>
+        <c>i</c>
+        <c>iq</c>
+        <c>ieq</c>
+        <c>iu</c>
+        <c>o</c>
+        <c>oq</c>
+        <c>oi</c>
+        <c>or</c>
+        <c>ou</c>
+        <c>u</c>
+        <c>uq</c>
+        <c>uoq</c>
+      </component>
+      <component r="ov">
+        <c>a</c>
+        <c>aa</c>
+        <c>a'</c>
+        <c>ai</c>
+        <c>aai</c>
+        <c>au</c>
+        <c>aau</c>
+        <c>c</c>
+        <c>c'</c>
+        <c>e</c>
+        <c>e'</c>
+        <c>ei</c>
+        <c>eu</c>
+        <c>i</c>
+        <c>i'</c>
+        <c>ia'</c>
+        <c>iu</c>
+        <c>o</c>
+        <c>o'</c>
+        <c>xi</c>
+        <c>x</c>
+        <c>ru</c>
+        <c>u</c>
+        <c>u'</c>
+        <c>ua'</c>
+      </component>
+    </class>
+  </classes>
+  <mappingTable id="cons">
+    <columns>
+      <component r="c"/>
+      <component r="oc"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="c"/>
+        <c r="oc"/>
+      </m>
+      <m>
+        <c r="c" class="highLowCons"/>
+        <c r="oc" class="highLowCons"/>
+      </m>
+      <m>
+        <c r="c" class="midCons"/>
+        <c r="oc" class="midCons"/>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="oc"/>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="oc"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="final">
+    <columns>
+      <component r="f"/>
+      <component r="of"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="f"/>
+        <c r="of"/>
+      </m>
+      <m>
+        <c r="f" class="anyFinal"/>
+        <c r="of" class="anyFinal"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="tone">
+    <columns>
+      <component r="t"/>
+      <component r="ot"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="t"/>
+        <c r="ot"/>
+      </m>
+      <m>
+        <c r="t" class="anyTone"/>
+        <c r="ot" class="anyTone"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="vowel">
+    <columns>
+      <component r="v"/>
+      <component r="ov"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="v"/>
+        <c r="ov"/>
+      </m>
+      <m>
+        <c r="v">a</c>
+        <c r="ov">a</c>
+      </m>
+      <m>
+        <c r="v">aa</c>
+        <c r="ov">aa</c>
+      </m>
+      <m>
+        <c r="v">aq</c>
+        <c r="ov">a'</c>
+      </m>
+      <m>
+        <c r="v">ai</c>
+        <c r="ov">ai</c>
+      </m>
+      <m>
+        <c r="v">aai</c>
+        <c r="ov">aai</c>
+      </m>
+      <m>
+        <c r="v">au</c>
+        <c r="ov">au</c>
+      </m>
+      <m>
+        <c r="v">aau</c>
+        <c r="ov">aau</c>
+      </m>
+      <m>
+        <c r="v">ae</c>
+        <c r="ov">c</c>
+      </m>
+      <m>
+        <c r="v">aeq</c>
+        <c r="ov">c'</c>
+      </m>
+      <m>
+        <c r="v">e</c>
+        <c r="ov">e</c>
+      </m>
+      <m>
+        <c r="v">eq</c>
+        <c r="ov">e'</c>
+      </m>
+      <m>
+        <c r="v">ei</c>
+        <c r="ov">ei</c>
+      </m>
+      <m>
+        <c r="v">eu</c>
+        <c r="ov">eu</c>
+      </m>
+      <m>
+        <c r="v">i</c>
+        <c r="ov">i</c>
+      </m>
+      <m>
+        <c r="v">iq</c>
+        <c r="ov">i'</c>
+      </m>
+      <m>
+        <c r="v">ie</c>
+        <c r="ov">ia</c>
+      </m>
+      <m>
+        <c r="v">ie</c>
+        <c r="ov">ye</c>
+      </m>
+      <m>
+        <c r="v">ieq</c>
+        <c r="ov">ia'</c>
+      </m>
+      <m>
+        <c r="v">iu</c>
+        <c r="ov">iu</c>
+      </m>
+      <m>
+        <c r="v">o</c>
+        <c r="ov">o</c>
+      </m>
+      <m>
+        <c r="v">oq</c>
+        <c r="ov">o'</c>
+      </m>
+      <m>
+        <c r="v">oi</c>
+        <c r="ov">xi</c>
+      </m>
+      <m>
+        <c r="v">or</c>
+        <c r="ov">x</c>
+      </m>
+      <m>
+        <c r="v">orq</c>
+        <c r="ov">x'</c>
+      </m>
+      <m>
+        <c r="v">ou</c>
+        <c r="ov">ru</c>
+      </m>
+      <m>
+        <c r="v">u</c>
+        <c r="ov">u</c>
+      </m>
+      <m>
+        <c r="v">uq</c>
+        <c r="ov">u'</c>
+      </m>
+      <m>
+        <c r="v">uo</c>
+        <c r="ov">ua</c>
+      </m>
+      <m>
+        <c r="v">uo</c>
+        <c r="ov">wr</c>
+      </m>
+      <m>
+        <c r="v">uoq</c>
+        <c r="ov">ua'</c>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="semi-vowel">
+    <columns>
+      <component r="sv"/>
+      <component r="osv"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="sv"/>
+        <c r="osv"/>
+      </m>
+      <!--need to include empty map-->
+      <m>
+        <c r="sv">i</c>
+        <c r="osv">y</c>
+      </m>
+      <m>
+        <c r="sv">u</c>
+        <c r="osv">w</c>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="pre-syllable">
+    <columns>
+      <component r="p"/>
+      <component r="op"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="p"/>
+        <c r="op"/>
+      </m>
+      <!--need to include empty map-->
+      <m>
+        <c r="p">da'</c>
+        <c r="op">ta'</c>
+      </m>
+      <m>
+        <c r="p">m'</c>
+        <c r="op">m</c>
+      </m>
+      <m>
+        <c r="p">a'</c>
+        <c r="op">a'</c>
+      </m>
+      <m>
+        <c r="p">ba'</c>
+        <c r="op">pa'</c>
+      </m>
+      <m>
+        <c r="p">gu'</c>
+        <c r="op">kub</c>
+      </m>
+      <m>
+        <c r="p">za'</c>
+        <c r="op">za'</c>
+      </m>
+      <m>
+        <c r="p">ga'</c>
+        <c r="op">ka'</c>
+      </m>
+      <m>
+        <c r="p">mba'</c>
+        <c r="op">Ba'</c>
+      </m>
+      <m>
+        <c r="p">la'</c>
+        <c r="op">la'</c>
+      </m>
+      <m>
+        <c r="p">mi'</c>
+        <c r="op">mi'</c>
+      </m>
+      <m>
+        <c r="p">nza'</c>
+        <c r="op">Ra'</c>
+      </m>
+      <m>
+        <c r="p">nqa'</c>
+        <c r="op">Ga'</c>
+      </m>
+      <m>
+        <c r="p">ca'</c>
+        <c r="op">Za'</c>
+      </m>
+      <m>
+        <c r="p">sa'</c>
+        <c r="op">sa'</c>
+      </m>
+      <m>
+        <c r="p">nda'</c>
+        <c r="op">Da'</c>
+      </m>
+      <m>
+        <c r="p">mbu'</c>
+        <c r="op">Bu'</c>
+      </m>
+      <m>
+        <c r="p">ha'</c>
+        <c r="op">ha'</c>
+      </m>
+      <m>
+        <c r="p">qa'</c>
+        <c r="op">Qa'</c>
+      </m>
+      <m>
+        <c r="p">pa'</c>
+        <c r="op">Pa'</c>
+      </m>
+      <m>
+        <c r="p">nza'</c>
+        <c r="op">Ra'</c>
+      </m>
+      <!--<m><c r="p"></c><c r="op"></c></m>-->
+    </maps>
+  </mappingTable>
+  <mappingTable id="cons-vowel" optional="true">
+    <columns>
+      <component r="c"/>
+      <component r="v"/>
+      <component r="oc"/>
+      <component r="ov"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="c"/>
+        <c r="v" class="nouaieVowel"/>
+        <c r="ov" class="nouaieVowel"/>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v">uo</c>
+        <c r="oc"/>
+        <c r="ov">ua</c>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v">uo</c>
+        <c r="oc"/>
+        <c r="ov">wa</c>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v">ie</c>
+        <c r="oc">w</c>
+        <c r="ov">ia</c>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v">ie</c>
+        <c r="oc">w</c>
+        <c r="ov">ye</c>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v" class="nouaieVowel"/>
+        <c r="oc">w</c>
+        <c r="ov" class="nouaieVowel"/>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v">uo</c>
+        <c r="oc">y</c>
+        <c r="ov">ua</c>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v">uo</c>
+        <c r="oc">y</c>
+        <c r="ov">wa</c>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v" class="nouaieVowel"/>
+        <c r="oc">y</c>
+        <c r="ov" class="nouaieVowel"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="cons-vowel-final" optional="true">
+    <columns>
+      <component r="c"/>
+      <component r="v"/>
+      <component r="f"/>
+      <component r="oc"/>
+      <component r="ov"/>
+      <component r="of"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="c" class="allCons"/>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">t</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">wr</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">t</c>
+        <c r="oc" class="allCons"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">n</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">wr</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">n</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">k</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ua</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">k</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">p</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ua</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">p</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">m</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ua</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">m</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ng</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ua</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">v</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ua</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">t</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ye</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">t</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">n</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ye</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">n</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">k</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ia</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">k</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">p</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ye</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">p</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">m</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ye</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">m</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ng</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ia</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">v</c>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="c" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="f" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ia</c>
+        <c r="of" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="oc" class="allCons" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v">ie</c>
+        <c r="f">m</c>
+        <c r="ov">ye</c>
+        <c r="of">m</c>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v">ie</c>
+        <c r="f">n</c>
+        <c r="oc"/>
+        <c r="ov">ye</c>
+        <c r="of">n</c>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v">ie</c>
+        <c r="f"/>
+        <c r="oc">y</c>
+        <c r="ov">ia</c>
+        <c r="of"/>
+      </m>
+    </maps>
+    .
+  </mappingTable>
+  <!--<mappingTable id="separator">
 	<columns>
 		<component r="sep"/>
 		<component r="osep"/>
@@ -318,7 +816,5 @@
 		<m><c r="sep"/><c r="osep"/></m>
 		<m><c r="sep">^</c><c r="osep">-</c></m>
 	</maps>
-</mappingTable>
--->
-
+</mappingTable>-->
 </syllableConverter>
