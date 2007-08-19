@@ -236,7 +236,7 @@ public class ConversionWizard extends Wizard
         {
             String filename = cc.getName() + TXT_EXT;
             tmpFile = tmpFolder.getFile(filename);
-            byte [] dummy = { '\n' };
+            byte [] dummy = { ' ' };
             // tmpFile.delete(true, false, null);
             if (tmpFile.exists() == false)
             {

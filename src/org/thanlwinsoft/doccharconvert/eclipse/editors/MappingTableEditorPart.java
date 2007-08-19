@@ -16,6 +16,7 @@ import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.SubMenuManager;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewer;
@@ -124,7 +125,7 @@ public class MappingTableEditorPart extends EditorPart
                 int mapIndex = getSelectedMapIndex();
                 if (mapIndex < 0)
                     mapIndex = mt.getMaps().sizeOfMArray();
-                int insertRowCount = table.getSelectionCount();
+                int insertRowCount =  Math.max(1, table.getSelectionCount());
                 for (int i = 0; i < insertRowCount; i++)
                     mt.getMaps().insertNewM(mapIndex);
                 viewer.refresh();
@@ -132,8 +133,8 @@ public class MappingTableEditorPart extends EditorPart
             }
         };
         insertAction.setId("Insert");
-        insertAction.setText(MessageUtil.getString("Insert"));
-        insertAction.setToolTipText(MessageUtil.getString("InsertToolTip"));
+        insertAction.setText(MessageUtil.getString("InsertRow"));
+        insertAction.setToolTipText(MessageUtil.getString("InsertRowToolTip"));
         Action deleteAction = new Action(){
             public void run()
             {
@@ -145,10 +146,38 @@ public class MappingTableEditorPart extends EditorPart
                 parentEditor.setDirty(true);
             }
         };
-        deleteAction.setId("Insert");
-        deleteAction.setText(MessageUtil.getString("Delete"));
-        deleteAction.setToolTipText(MessageUtil.getString("DeleteToolTip"));
+        deleteAction.setId("Delete");
+        deleteAction.setText(MessageUtil.getString("DeleteRow"));
+        deleteAction.setToolTipText(MessageUtil.getString("DeleteRowToolTip"));
         
+        final IEditorPart part = this; 
+        Action deleteTableAction = new Action(){
+            public void run()
+            {
+                if (MessageDialog.openConfirm(part.getSite().getShell(), 
+                    part.getTitle(), 
+                    MessageUtil.getString("ConfirmDeleteTable"))==false)
+                {
+                    return;
+                }
+                int index = parentEditor.getEditorIndex(part);
+                parentEditor.removePage(index);
+                SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                for (int i = 0; i < sc.sizeOfMappingTableArray(); i++)
+                {
+                    if (sc.getMappingTableArray(i) == mt)
+                    {
+                        sc.removeMappingTable(i);
+                        break;
+                    }
+                }
+                parentEditor.setDirty(true);
+            }
+        };
+        deleteTableAction.setId("DeleteTable");
+        deleteTableAction.setText(MessageUtil.getString("DeleteTable"));
+        deleteTableAction.setToolTipText(MessageUtil.getString("DeleteTableToolTip"));
+        menuManager.add(deleteTableAction);
         menuManager.add(insertAction);
         menuManager.add(deleteAction);
         
@@ -175,7 +204,6 @@ public class MappingTableEditorPart extends EditorPart
         
         menuManager.add(new Separator());
         
-        final IEditorPart part = this;
         SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
         int usedIndex = 0;
         MenuManager addColumns = new MenuManager(MessageUtil.getString("AddColumn"));
@@ -400,7 +428,7 @@ public class MappingTableEditorPart extends EditorPart
             final String colRef = cr.getR();
             TableColumn tc = new TableColumn(table, SWT.LEAD);
             tc.setText(cr.getR());
-            tc.setWidth(50);
+            tc.setWidth(70);
             TableViewerColumn tvc = new TableViewerColumn(viewer, tc);
             SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
             tc.setToolTipText(SyllableConverterUtils.getComponentName(sc, colRef));
@@ -432,7 +460,7 @@ public class MappingTableEditorPart extends EditorPart
         this.getEditorSite().setSelectionProvider(viewer);
         menuManager.setVisible(true);
         table.setMenu(menuManager.createContextMenu(table));
-        
+        table.setToolTipText(MessageUtil.getString("MappingTableToolTip"));
     }
 
     /* (non-Javadoc)

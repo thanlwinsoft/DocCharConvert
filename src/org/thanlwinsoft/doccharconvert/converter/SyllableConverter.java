@@ -261,13 +261,16 @@ public class SyllableConverter extends ReversibleConverter
             return previousSyllable;
         SortedSet <Syllable> conversionSet = new TreeSet<Syllable>(new SyllableSetComparator());
         conversionSet.add(previousSyllable);
+        int prevBackOffset = offset;
         do
         {
-            int backOffset = backTrack(previousSyl, offset);
+            int backOffset = backTrack(previousSyllable, offset);
             if (previousSyl == null)
                 break;
             Syllable s = findSyllables(text, backOffset, offset);
+            if (backOffset == prevBackOffset) break;
             conversionSet.add(s);
+            prevBackOffset = backOffset;
         } while (previousSyl != null);
         return conversionSet.first();
     }

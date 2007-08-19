@@ -15,14 +15,20 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.editors.text.TextEditor;
+import org.eclipse.ui.part.FileEditorInput;
 import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.ConversionHelper;
+import org.thanlwinsoft.doccharconvert.ConverterXmlParser;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
+import org.thanlwinsoft.doccharconvert.ReverseConversion;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionResult;
+import org.thanlwinsoft.doccharconvert.eclipse.wizard.ConverterUtil;
 
 /**
  * @author keith
@@ -152,7 +158,29 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
     }
     protected void showConversion(IDocument document)
     {
-        if (charConverter == null) return;
+        if (charConverter == null) 
+        {
+            // try to re-find the char converter
+            IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+            ConverterXmlParser xmlParser = 
+                ConverterUtil.parseConverters(window,this.getEditorSite().getShell());
+            
+            if (this.getEditorInput() instanceof FileEditorInput)
+            {
+                String name = ((FileEditorInput)getEditorInput()).getFile()
+                    .getLocation().removeFileExtension().lastSegment();
+                for (CharConverter cc : xmlParser.getChildConverters())
+                {
+                    if (cc.getName().equals(name))
+                    {
+                        setConversion(cc, ReverseConversion.get(xmlParser.getConverters(), cc));
+                        break;
+                    }
+                }
+            }
+            if (charConverter == null)
+                return;
+        }
         try
         {
             if (charConverter.isInitialized() == false)

@@ -96,6 +96,10 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     }
     protected boolean validatePage()
     {
+        if (combo.getSelectionIndex() > -1 && inputButton.getSelection() == false)
+        {
+            fileButton.setSelection(true);
+        }
         if (fileButton.getSelection())
         {
             combo.setEnabled(true);

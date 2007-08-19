@@ -62,8 +62,8 @@ public class EclipseMessageDisplay implements IMessageDisplay
             {
                 MessageUtil.getString("Yes"), 
                 MessageUtil.getString("No"),
-                MessageUtil.getString("Yes to all"), 
-                MessageUtil.getString("No to all")
+                MessageUtil.getString("YesToAll"), 
+                MessageUtil.getString("NoToAll")
             };
             //MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.YES | SWT.NO | SWT.CANCEL);
             MessageDialog dialog = new MessageDialog(shell, title, null,

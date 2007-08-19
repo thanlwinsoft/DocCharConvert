@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
 import org.thanlwinsoft.doccharconvert.Config;
@@ -47,7 +48,6 @@ public class ConverterPage extends WizardPage implements SelectionListener
     List converterList = null;
     ListViewer converterViewer = null;
     Shell shell = null;
-    Vector<CharConverter> availableConverters = null;
     Vector<CharConverter> selectedConverters = null;
     private BatchConversion conversion = null;
     private ConverterXmlParser xmlParser = null;
@@ -76,8 +76,8 @@ public class ConverterPage extends WizardPage implements SelectionListener
         
         converterList = new List(mainControl, SWT.MULTI | SWT.V_SCROLL);
         converterViewer = new ListViewer(converterList);
-        
-        parseConverters();
+        xmlParser = ConverterUtil.parseConverters(getWizard().getContainer(), 
+                                                  parent.getShell(), converterViewer);
         
         converterList.setLayoutData(new RowData(SWT.DEFAULT, 200));
         converterList.addSelectionListener(this);
@@ -139,68 +139,7 @@ public class ConverterPage extends WizardPage implements SelectionListener
         return false;
     }
     
-    public void parseConverters()
-    {
-        xmlParser = new ConverterXmlParser(getConverterPath());
-        
-        ParseRunnable pr = new ParseRunnable(xmlParser, 
-                                             this.getShell().getDisplay());
-        try
-        {
-            getWizard().getContainer().run(true, false, pr);
-            if (xmlParser.getErrorLog().length() > 0)
-            {
-                MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING);
-                msgBox.setMessage(MessageUtil.getString("ConverterParseError") + 
-                                  xmlParser.getErrorLog());
-                msgBox.open();
-            }
-        }
-        catch (InvocationTargetException e)
-        {
-            MessageDialog.openError(getShell(), "Error", 
-                    "Error converting: InvocationTargetException " + 
-                    e.getMessage());
-        }
-        catch (InterruptedException e)
-        {
-            MessageDialog.openError(getShell(), "Error", 
-                    "Error converting: InterruptedException " + e.getMessage());
-        }
-        
-    }
     
-    static File getConverterPath()
-    {
-        File converterConfigPath = Config.getCurrent().getConverterPath();
-        if (converterConfigPath.isDirectory() == false)
-        {
-            PreferencesInitializer initPref = new PreferencesInitializer();
-            
-            IPreferenceStore prefStore = initPref.getPrefStore();
-            
-            converterConfigPath = 
-                new File(prefStore.getString(Config.CONVERTER_CONFIG_PATH));
-            DocCharConvertEclipsePlugin.log(IStatus.WARNING,
-                            "Using pref store directly. " + 
-                            converterConfigPath, null);
-            
-        }
-        if (converterConfigPath.isDirectory() == false)
-        {
-            Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-                .getShell();
-            MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING);
-            msgBox.setMessage(MessageUtil.getString("NoConverterPath",
-                              converterConfigPath.getAbsolutePath()));
-            msgBox.open();
-        }
-        DocCharConvertEclipsePlugin.log(IStatus.INFO, "config dir:" + 
-                converterConfigPath.getAbsolutePath(), null);
-        System.out.println("Using config dir:" + 
-            converterConfigPath.getAbsolutePath());
-        return converterConfigPath;
-    }
     /* (non-Javadoc)
      * @see org.eclipse.jface.wizard.WizardPage#getNextPage()
      */
@@ -223,7 +162,7 @@ public class ConverterPage extends WizardPage implements SelectionListener
     
     public Vector<CharConverter> getConverters() 
     { 
-        return availableConverters; 
+        return xmlParser.getConverters(); 
     }
     
     public Vector<ChildConverter> getChildConverters()
@@ -233,39 +172,6 @@ public class ConverterPage extends WizardPage implements SelectionListener
     public Vector<CharConverter> getSelectedConverters()
     {
         return selectedConverters;
-    }
-    
-    public class ParseRunnable implements IRunnableWithProgress
-    {
-        ConverterXmlParser xmlParser = null;
-        Display display = null;
-        public ParseRunnable(ConverterXmlParser conv, Display display)
-        {
-            this.xmlParser = conv;
-            this.display = display;
-        }
-        
-        /* (non-Javadoc)
-         * @see org.eclipse.jface.operation.IRunnableWithProgress#run(org.eclipse.core.runtime.IProgressMonitor)
-         */
-        public void run(IProgressMonitor monitor) throws InvocationTargetException,
-                InterruptedException
-        {
-            
-            xmlParser.setProgressNotifier(new Notifier(monitor));
-            xmlParser.parse();
-            availableConverters = xmlParser.getConverters();
-            if (availableConverters != null && availableConverters.size() > 0)
-            {
-                display.asyncExec (new Runnable () {
-                    public void run () {
-                        converterViewer.add(availableConverters.toArray());
-                    }
-                });
-            }
-            monitor.done();
-        }
-
     }
 
     /* (non-Javadoc)

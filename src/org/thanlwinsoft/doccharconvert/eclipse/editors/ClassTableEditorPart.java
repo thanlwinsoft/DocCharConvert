@@ -7,6 +7,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewer;
@@ -23,6 +25,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.PartInitException;
@@ -81,6 +84,7 @@ public class ClassTableEditorPart extends EditorPart
     {
         this.setSite(site);
         clipboard = new Clipboard(site.getShell().getDisplay());
+        final IEditorPart part = this;
         menuManager = new MenuManager(parentEditor.getPartName() + ":" + classTable.getId());
         Action insertAction = new Action(){
             public void run()
@@ -88,7 +92,7 @@ public class ClassTableEditorPart extends EditorPart
                 int mapIndex = getSelectedMapIndex();
                 if (mapIndex < 0)
                     mapIndex = classTable.getComponentArray(0).sizeOfCArray();
-                int insertRowCount = table.getSelectionCount();
+                int insertRowCount = Math.max(1, table.getSelectionCount());                
                 for (int i = 0; i < insertRowCount; i++)
                 {
                     classTable.getComponentArray(0).insertNewC(mapIndex);
@@ -114,9 +118,36 @@ public class ClassTableEditorPart extends EditorPart
                 parentEditor.setDirty(true);
             }
         };
-        deleteAction.setId("Insert");
+        deleteAction.setId("Delete");
         deleteAction.setText(MessageUtil.getString("Delete"));
         deleteAction.setToolTipText(MessageUtil.getString("DeleteToolTip"));
+        Action deleteTableAction = new Action(){
+            public void run()
+            {
+                if (MessageDialog.openConfirm(part.getSite().getShell(), 
+                    part.getTitle(), 
+                    MessageUtil.getString("ConfirmDeleteTable"))==false)
+                {
+                    return;
+                }
+                int index = parentEditor.getEditorIndex(part);
+                parentEditor.removePage(index);
+                SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                for (int i = 0; i < sc.getClasses().sizeOfClass1Array(); i++)
+                {
+                    if (sc.getClasses().getClass1Array(i) == classTable)
+                    {
+                        sc.getClasses().removeClass1(i);
+                        break;
+                    }
+                }
+                parentEditor.setDirty(true);
+            }
+        };
+        deleteTableAction.setId("DeleteTable");
+        deleteTableAction.setText(MessageUtil.getString("DeleteTable"));
+        deleteTableAction.setToolTipText(MessageUtil.getString("DeleteTableToolTip"));
+        menuManager.add(deleteTableAction);
         menuManager.add(insertAction);
         menuManager.add(deleteAction);
     }
@@ -177,7 +208,7 @@ public class ClassTableEditorPart extends EditorPart
             final int col = colIndex;
             TableColumn tc = new TableColumn(table, SWT.LEAD);
             tc.setText(cr.getR());
-            tc.setWidth(50);
+            tc.setWidth(100);
             TableViewerColumn tvc = new TableViewerColumn(viewer, tc);
             SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
             tc.setToolTipText(SyllableConverterUtils.getComponentName(sc, colRef));
@@ -201,11 +232,13 @@ public class ClassTableEditorPart extends EditorPart
         viewer.setInput(classTable);
         table.setHeaderVisible(true);
         viewer.refresh();
+        menuManager.add(new Separator());
         menuManager.add(new GroupMarker (IWorkbenchActionConstants.MB_ADDITIONS));
         this.getEditorSite().registerContextMenu(menuManager, viewer);
         this.getEditorSite().setSelectionProvider(viewer);
         menuManager.setVisible(true);
         table.setMenu(menuManager.createContextMenu(table));
+        table.setToolTipText(MessageUtil.getString("ClassTableToolTip"));
     }
 
     /* (non-Javadoc)

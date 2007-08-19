@@ -17,6 +17,7 @@ public class Notifier extends ProgressNotifier
 {
     IProgressMonitor monitor = null;
     ConversionFileListView convFileListView = null;
+    int worked = 0;
     public Notifier(IProgressMonitor monitor)
     {
         this.monitor = monitor;   
@@ -32,11 +33,16 @@ public class Notifier extends ProgressNotifier
     @Override
     public void beginTask(String name, int totalWork)
     {
-        monitor.beginTask(name, totalWork);
+        monitor.beginTask(name, totalWork + 1);
+        worked = 0;
     }
     public void setCancelled(boolean cancel) { monitor.setCanceled(cancel);}
     public boolean isCancelled() { return monitor.isCanceled(); }
-    public void worked(int work) { monitor.worked(work); }
+    public void worked(int work) 
+    { 
+        monitor.worked(work - worked);
+        worked = work;
+    }
     public void subTask(String task) { monitor.subTask(task); };
     public void setFileStatus(final File file, final String status) 
     {
