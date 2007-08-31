@@ -45,6 +45,15 @@ public class Syllable
   private int newSide = 1;
   private Syllable previous = null; // previous syllable
   private SortedSet <Syllable> nextCandidates = null;
+  /**
+   * Constructor for a matched Syllable
+   * @param previous
+   * @param scripts
+   * @param oldSide
+   * @param syllable
+   * @param orig
+   * @param result
+   */
   public Syllable(Syllable previous, Script[] scripts, int oldSide, Vector<Integer> syllable, String orig, Integer [] result) 
   {
       this.previous = previous;
@@ -55,6 +64,11 @@ public class Syllable
       this.result = result;
       this.scripts = scripts;
   }
+  /**
+   * Constructor when the Syllable does not match the tables
+   * @param previous - previous Syllable
+   * @param unknown - raw contents of the Syllable
+   */
   public Syllable (Syllable previous, String unknown)
   {
       this.previous = previous;
@@ -62,6 +76,10 @@ public class Syllable
       this.known = false;
       this.syllable = new Vector<Integer>();
   }
+  /**
+   * Copy constructor
+   * @param copy
+   */
   public Syllable(Syllable copy)
   {
       this.previous = copy.previous;
@@ -98,6 +116,15 @@ public class Syllable
         return text.equalsIgnoreCase(syl.getOriginalString());
       }
       return text.equals(syl.getOriginalString());
+  }
+  public boolean isAmbiguous()
+  {
+      for (int i = 0; i< result.length; i++)
+      {
+        if (result[i] < 0)
+            return true;
+      }
+      return false;
   }
   /* 
   * Priority = sum over each component of
@@ -200,5 +227,10 @@ public class Syllable
   public int getSyllableIndex()
   {
       return (previous == null)? 0 : previous.getSyllableIndex() + 1;
+  }
+  
+  public String toString()
+  {
+      return syllable.toString() + "orig" + " > " + dumpSyllable(); 
   }
 }

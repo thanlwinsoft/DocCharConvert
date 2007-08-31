@@ -180,11 +180,13 @@ public class MienSyllableSeparators implements SyllableChecker
     int first = 0;
     Integer [] result = syllable.getConversionResult();
     // find the first non empty component
-    while (result[first] == 0)
+    while (first < result.length && result[first] == 0)
     {
       first++;
       assert(first < result.length);
     }
+    if (first >= result.length) return;
+
     Component firstComponent =script[newSide].getSyllableComponent(first);
     String oldValue = firstComponent.getComponentValue(result[first]);
     String newValue = null;

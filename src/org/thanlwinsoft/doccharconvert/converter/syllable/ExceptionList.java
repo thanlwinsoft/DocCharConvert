@@ -350,7 +350,8 @@ public class ExceptionList implements SyllableChecker
     * the exceptions.
     * @return true if initialisation succeeded
     */
-    public boolean initialize(Script [] scripts, Object [] args)
+    public boolean initialize(Script [] scripts, Object [] args) throws
+        CharConverter.FatalException
     {
       boolean initOk = false;
       files = new File[args.length];
@@ -376,15 +377,11 @@ public class ExceptionList implements SyllableChecker
           }
           catch (IOException e)
           {
-            System.out.println(e.getMessage());
-          }
-          catch (CharConverter.FatalException e)
-          {
-            System.out.println(e.getMessage());
+              throw new CharConverter.FatalException(e.getMessage());
           }
           break;
         default:
-          System.out.println("exceptionlist does not support " + args.length + " args");
+          throw new CharConverter.FatalException("exceptionlist does not support " + args.length + " args");
       }
       return initOk;
     }

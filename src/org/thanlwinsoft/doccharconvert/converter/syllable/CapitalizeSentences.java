@@ -85,11 +85,14 @@ public class CapitalizeSentences implements SyllableChecker
           int first = 0;
           Integer [] result = syllable.getConversionResult();
           // find the first non empty component
-          while (result[first] == 0)
+          while (first < result.length && result[first] == 0)
           {
             first++;
             assert(first < result.length);
           }
+          // TODO check this
+          if (first == result.length)
+              continue;
           Component firstComponent =script[newSide].getSyllableComponent(first);
           String oldValue = firstComponent.getComponentValue(result[first]);
           String newValue = null;
@@ -115,7 +118,8 @@ public class CapitalizeSentences implements SyllableChecker
       else if (isStart)
       {
         String oldResult = syllable.getResultString();
-        if (Character.isLetter(oldResult.charAt(0)))
+        if (oldResult.length() > 0 &&
+            Character.isLetter(oldResult.charAt(0)))
         {
           String newResult = oldResult.substring(0, 1).toUpperCase();
           if (oldResult.length() > 1)

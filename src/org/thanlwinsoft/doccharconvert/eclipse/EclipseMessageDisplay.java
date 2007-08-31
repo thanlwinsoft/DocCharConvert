@@ -7,6 +7,11 @@ import org.thanlwinsoft.doccharconvert.IMessageDisplay;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
@@ -26,13 +31,42 @@ public class EclipseMessageDisplay implements IMessageDisplay
      */
     public void showWarningMessage(final String message, final String title)
     {
+        final String warningMessage = message;
         shell.getDisplay().asyncExec(new Runnable() {
             public void run()
             {
-                MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
-                msgBox.setMessage(message);
-                msgBox.setText(title);
-                msgBox.open();
+                //MessageDialog.openWarning(shell, title, message);
+                MessageDialog dialog = new MessageDialog(shell, title, null, 
+                    title, MessageDialog.WARNING, new String[] {
+                    MessageUtil.getString("OK")
+                }, 0){
+
+                    /* (non-Javadoc)
+                     * @see org.eclipse.jface.dialogs.MessageDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
+                     */
+                    @Override
+                    protected Control createDialogArea(Composite parent)
+                    {
+                        //Composite c = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+                        //c.setLayout(new FillLayout());
+                        Label l = new Label(parent, SWT.WRAP | SWT.LEAD);
+                        l.setText(warningMessage);
+                        return l;
+                    }
+
+                    /* (non-Javadoc)
+                     * @see org.eclipse.jface.dialogs.MessageDialog#createCustomArea(org.eclipse.swt.widgets.Composite)
+                     */
+                    @Override
+                    protected Control createCustomArea(Composite parent)
+                    {
+                        return super.createContents(parent);
+                    }};
+               dialog.open();
+//                MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
+//                msgBox.setMessage(message);
+//                msgBox.setText(title);
+//                msgBox.open();
             }
         });
     }

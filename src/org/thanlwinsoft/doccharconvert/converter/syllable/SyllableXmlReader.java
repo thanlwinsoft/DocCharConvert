@@ -48,6 +48,7 @@ import java.util.Vector;
 import java.util.Arrays;
 
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
 
 public class SyllableXmlReader
@@ -111,7 +112,7 @@ public class SyllableXmlReader
     checkers = new Vector<SyllableChecker>();
   }
 
-  public boolean parse()
+  public boolean parse() throws CharConverter.FatalException
   {
     try 
     {
@@ -769,7 +770,7 @@ public class SyllableXmlReader
     return true;
   }
 
-  protected boolean parseChecks()
+  protected boolean parseChecks() throws CharConverter.FatalException
   {
     NodeList check = doc.getElementsByTagName(CHECKS_NODE);
     if (check.getLength() != 1)
@@ -877,11 +878,12 @@ public class SyllableXmlReader
      * @return true if class was loaded successfully
      */
   public boolean addChecker(String className, Object [] args)
+      throws CharConverter.FatalException
   {
     boolean added = false;
     try
     {
-      Class c = ClassLoader.getSystemClassLoader().loadClass(className);
+      Class c = this.getClass().getClassLoader().loadClass(className);
       Object instance = c.newInstance();
       if (instance instanceof SyllableChecker)
       {
@@ -894,8 +896,8 @@ public class SyllableXmlReader
     }
     catch (ClassNotFoundException e)
     {
-      System.out.println(e);
       errorLog.append(e.getLocalizedMessage());
+      throw new CharConverter.FatalException(e.getLocalizedMessage());
     }
     catch (InstantiationException e)
     {

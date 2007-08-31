@@ -486,8 +486,10 @@ public class ScriptsEditorPart extends EditorPart
                     {
                         name = nameText.getText();
                     }});
-                Label l2 = new Label(control, SWT.LEAD);
-                Label l3 = new Label(control, SWT.LEAD);
+                GridData nameGD = new GridData();
+                nameGD.grabExcessHorizontalSpace = true;
+                nameGD.horizontalSpan = 3;
+                nameText.setLayoutData(nameGD);
                 Label lLeft = new Label(control, SWT.LEAD);
                 lLeft.setText(MessageUtil.getString("LeftComponents"));
                 SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();

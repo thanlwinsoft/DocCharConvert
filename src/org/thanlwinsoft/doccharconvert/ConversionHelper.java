@@ -68,9 +68,9 @@ public class ConversionHelper
                     }
                     else
                     {
-                        invalidLines.append(iFile.getAbsolutePath());
+                        invalidLines.append(m.group(1));
                         invalidLines.append(' ');
-                        invalidLines.append(oFile.getAbsolutePath());
+                        invalidLines.append(m.group(2));
                         invalidLines.append(" (File not readable)\n");
                     }
                 }

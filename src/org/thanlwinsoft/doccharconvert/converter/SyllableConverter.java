@@ -32,6 +32,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayDeque;
 import java.util.Date;
 import java.util.Deque;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.Vector;
 import java.util.Iterator;
 import java.util.List;
@@ -129,6 +131,7 @@ public class SyllableConverter extends ReversibleConverter
     {
         debug = on;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd-HHmmss");
+        sdf.setTimeZone(TimeZone.getDefault());
         if (logDir != null)
         {
             File logFile = new File(logDir, getBaseName() + sdf.format(new Date()) + ".log");
@@ -161,8 +164,7 @@ public class SyllableConverter extends ReversibleConverter
         //SortedSet <Syllable> conversionSet = new TreeSet<Syllable>(new SyllableSetComparator()); 
         // case is handled inside parseSyllableComponent
         //if (scripts[oldSide].ignoreCase()) oldText = inputText.toLowerCase();
-        Deque <Syllable> backTrackPoint = new ArrayDeque<Syllable>();
-        
+       
         Syllable lastSyllable = findSyllables(oldText, 0, oldText.length());      
         Syllable s = findOptimumSyllables(oldText, lastSyllable, oldText.length()); //conversionSet.first();
 
@@ -378,7 +380,7 @@ public class SyllableConverter extends ReversibleConverter
         // choose the longest syllable
         assert(syllables.size() > 0);
         Iterator <Vector<Integer>> syl = syllables.iterator();
-        Vector <Integer> longest = syl.next(); // ignore null result
+        Vector <Integer> nullResult = syl.next(); // ignore null result
         TreeSet<Syllable> results = new TreeSet<Syllable>(new SyllableComparator());
         while (syl.hasNext())
         {
@@ -395,11 +397,26 @@ public class SyllableConverter extends ReversibleConverter
             {
               int testLength = testSyl.elementAt(0);
               if (testLength > 0)
-                results.add(new Syllable(previousSyl, scripts, oldSide, testSyl, 
-                    text.substring(offset, offset + testLength), conversion));
+              {
+                  Syllable s = new Syllable(previousSyl, scripts, oldSide, testSyl, 
+                      text.substring(offset, offset + testLength), conversion);
+                  if (s.isAmbiguous())
+                  {
+                      if (debug) debugStream.println("Ignoring" + s.toString());
+                  }
+                  else 
+                  {
+                      results.add(s);
+                  }
+              }
             }
         }
-        if (debug) debugStream.println("Chose: " + longest.toString());
+        if (debug && results.size() > 0) 
+        {
+            debugStream.println("Chose: " +
+                ((results.size() > 0)? results.first().toString():""));
+        }
+            
         return results;
     }
     

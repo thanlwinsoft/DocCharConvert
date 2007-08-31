@@ -45,6 +45,7 @@ public class TeXParser extends TextParser
     String currentLine;
     String currentCommand = null;
     int parseLength = 0;
+    private final String LINE_END = System.getProperty("line.separator");
     /** Creates a new instance of TeXParser */
     public TeXParser()
     {
@@ -67,7 +68,14 @@ public class TeXParser extends TextParser
         convertedLine.delete(0, convertedLine.length());
         int prevLineIndex = 0;
         int commentIndex = line.indexOf('%');
-        parseLength = (commentIndex < 0)? currentLine.length() : commentIndex; 
+        if (commentIndex < 0)
+        {
+            parseLength = currentLine.length();
+        }
+        else
+        {
+            parseLength = commentIndex;
+        }
         try
         {
 
@@ -107,10 +115,24 @@ public class TeXParser extends TextParser
             }
             // add comment if there is one
             if (parseLength < currentLine.length())
+            {
+                if (inputText.length() > 0)
+                {
+                    convertedLine.append(converter.convert(inputText.toString()));
+                    inputText.delete(0,inputText.length());
+                    if (parseLength == 0)
+                        convertedLine.append(LINE_END);
+                }
                 convertedLine.append(currentLine.substring(parseLength));
-            writer.write(convertedLine.toString());
-            if (inputText.length() == 0)
-            	writer.newLine();
+                writer.write(convertedLine.toString());
+                writer.newLine();
+            }
+            else
+            {
+                writer.write(convertedLine.toString());
+                if (inputText.length() == 0)
+                    writer.newLine();
+            }
         }
         catch (CharConverter.RecoverableException e)
         {
@@ -137,7 +159,7 @@ public class TeXParser extends TextParser
     private String getNextPart()
     {
         int commandIndex = currentLine.indexOf('\\', lineIndex);
-        if (commandIndex > -1)
+        if (commandIndex > -1 && commandIndex < parseLength)
         {
             int endIndex = commandIndex;
             while (++endIndex < parseLength && 
@@ -155,7 +177,7 @@ public class TeXParser extends TextParser
         else
         {
             currentCommand = null;
-            String nextPart = currentLine.substring(lineIndex);
+            String nextPart = currentLine.substring(lineIndex, parseLength);
             lineIndex = parseLength;
             return nextPart;
         }

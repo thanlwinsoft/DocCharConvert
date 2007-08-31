@@ -25,6 +25,8 @@
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 import java.util.Vector;
+
+import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 /**
  * Interface to allow Syllables to be tweaked after the main conversion
  * with SyllableConverter. This may be useful for script specific case 
@@ -47,5 +49,6 @@ public interface SyllableChecker
   * @param args
   * @return true if initialisation was successful
   */
-  public boolean initialize(Script [] scripts, Object [] args);
+  public boolean initialize(Script [] scripts, Object [] args)  
+      throws CharConverter.FatalException;
 }
