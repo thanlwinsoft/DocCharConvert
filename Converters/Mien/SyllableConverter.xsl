@@ -208,6 +208,9 @@ function fixHex()
 </tr>
 </table>
 </xsl:for-each>
+<xsl:if test="/sp:syllableConverter[@backtrack='true']">
+<br /><xsl:text>Backtrack enabled</xsl:text>
+</xsl:if>
 
 <h2 id="checkers"><a href="#contents">Syllable Checks</a></h2>
 <xsl:apply-templates select="/sp:syllableConverter/sp:checks"/>

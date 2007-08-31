@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xml" href="SyllableConverter.xsl"?>
-<syllableConverter backtrack="true" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
+<syllableConverter backtrack="false" xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
   <script side="left" ignoreCase="true">
     <name>Mien NRM</name>
     <!--Mien NRM-->
@@ -255,6 +255,7 @@
         <c>oq</c>
         <c>oi</c>
         <c>or</c>
+        <c>orq</c>
         <c>ou</c>
         <c>u</c>
         <c>uq</c>
@@ -282,10 +283,35 @@
         <c>o'</c>
         <c>xi</c>
         <c>x</c>
+        <c>x'</c>
         <c>ru</c>
         <c>u</c>
         <c>u'</c>
         <c>ua'</c>
+      </component>
+    </class>
+    <class id="ntFinal">
+      <component r="f">
+        <c>t</c>
+        <c>n</c>
+      </component>
+      <component r="of">
+        <c>t</c>
+        <c>n</c>
+      </component>
+    </class>
+    <class id="kpmngFinal">
+      <component r="f">
+        <c>ng</c>
+        <c>m</c>
+        <c>p</c>
+        <c>k</c>
+      </component>
+      <component r="of">
+        <c>v</c>
+        <c>m</c>
+        <c>p</c>
+        <c>k</c>
       </component>
     </class>
   </classes>
@@ -314,6 +340,14 @@
       <m>
         <c r="c">y</c>
         <c r="oc"/>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="oc">w</c>
+      </m>
+      <m>
+        <c r="oc">y</c>
+        <c r="c">y</c>
       </m>
     </maps>
   </mappingTable>
@@ -519,7 +553,7 @@
       </m>
       <m>
         <c r="p">m'</c>
-        <c r="op">m</c>
+        <c r="op">m'</c>
       </m>
       <m>
         <c r="p">a'</c>
@@ -590,85 +624,135 @@
         <c r="op">Pa'</c>
       </m>
       <m>
+        <c r="p">fu'</c>
+        <c r="op">fu'</c>
+      </m>
+      <m>
+        <c r="p">za'</c>
+        <c r="op">za'</c>
+      </m>
+      <m>
         <c r="p">nza'</c>
         <c r="op">Ra'</c>
       </m>
       <!--<m><c r="p"></c><c r="op"></c></m>-->
     </maps>
   </mappingTable>
-  <mappingTable id="cons-vowel" optional="true">
-    <columns>
-      <component r="c"/>
-      <component r="v"/>
-      <component r="oc"/>
-      <component r="ov"/>
-    </columns>
-    <maps>
-      <m>
-        <c r="c"/>
-        <c r="v" class="nouaieVowel"/>
-        <c r="ov" class="nouaieVowel"/>
-      </m>
-      <m>
-        <c r="c">w</c>
-        <c r="v">uo</c>
-        <c r="oc"/>
-        <c r="ov">ua</c>
-      </m>
-      <m>
-        <c r="c">w</c>
-        <c r="v">uo</c>
-        <c r="oc"/>
-        <c r="ov">wa</c>
-      </m>
-      <m>
-        <c r="c">w</c>
-        <c r="v">ie</c>
-        <c r="oc">w</c>
-        <c r="ov">ia</c>
-      </m>
-      <m>
-        <c r="c">w</c>
-        <c r="v">ie</c>
-        <c r="oc">w</c>
-        <c r="ov">ye</c>
-      </m>
-      <m>
-        <c r="c">w</c>
-        <c r="v" class="nouaieVowel"/>
-        <c r="oc">w</c>
-        <c r="ov" class="nouaieVowel"/>
-      </m>
-      <m>
-        <c r="c">y</c>
-        <c r="v">uo</c>
-        <c r="oc">y</c>
-        <c r="ov">ua</c>
-      </m>
-      <m>
-        <c r="c">y</c>
-        <c r="v">uo</c>
-        <c r="oc">y</c>
-        <c r="ov">wa</c>
-      </m>
-      <m>
-        <c r="c">y</c>
-        <c r="v" class="nouaieVowel"/>
-        <c r="oc">y</c>
-        <c r="ov" class="nouaieVowel"/>
-      </m>
-    </maps>
-  </mappingTable>
   <mappingTable id="cons-vowel-final" optional="true">
     <columns>
       <component r="c"/>
+      <component r="sv"/>
       <component r="v"/>
       <component r="f"/>
       <component r="oc"/>
+      <component r="osv"/>
       <component r="ov"/>
       <component r="of"/>
     </columns>
     <maps>
+      <m>
+        <c r="v" class="nouaieVowel"/>
+        <c r="ov" class="nouaieVowel"/>
+        <c r="f" class="anyFinal"/>
+        <c r="of" class="anyFinal"/>
+      </m>
+      <m>
+        <c r="c" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c xsi:nil="true" r="oc" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        <c r="v" class="nouaieVowel" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="ov" class="nouaieVowel" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="f"/>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v" class="nouaieVowel"/>
+        <c r="oc">w</c>
+        <c r="ov" class="nouaieVowel"/>
+        <c r="of" class="anyFinal"/>
+        <c r="f" class="anyFinal"/>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v" class="nouaieVowel"/>
+        <c r="oc">w</c>
+        <c r="ov" class="nouaieVowel"/>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v">e</c>
+        <c r="oc">y</c>
+        <c r="ov">e</c>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v" class="nouaieVowel"/>
+        <c r="oc">y</c>
+        <c r="ov" class="nouaieVowel"/>
+        <c r="of"/>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v" class="nouaieVowel"/>
+        <c r="oc">y</c>
+        <c r="ov" class="nouaieVowel"/>
+        <c r="f" class="anyFinal"/>
+        <c r="of" class="anyFinal"/>
+      </m>
+      <m>
+        <c r="c" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">w</c>
+        <c r="oc" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ua</c>
+      </m>
+      <m>
+        <c r="c">w</c>
+        <c r="v">uo</c>
+        <c r="f" class="kpmngFinal"/>
+        <c r="of" class="kpmngFinal"/>
+        <c r="ov">ua</c>
+      </m>
+      <m>
+        <c r="c" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">w</c>
+        <c r="oc" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">wr</c>
+        <c r="of" class="ntFinal"/>
+        <c r="f" class="ntFinal"/>
+      </m>
+      <m>
+        <c r="c" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">w</c>
+        <c r="oc" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">w</c>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ia</c>
+      </m>
+      <m>
+        <c r="c" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">w</c>
+        <c r="oc" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">w</c>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ie</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ye</c>
+      </m>
+      <m>
+        <c r="c" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">y</c>
+        <c r="oc" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">y</c>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">ua</c>
+      </m>
+      <m>
+        <c r="c">y</c>
+        <c r="v">uo</c>
+        <c r="f" class="kpmngFinal"/>
+        <c r="of" class="kpmngFinal"/>
+        <c r="ov">ua</c>
+        <c r="oc">y</c>
+      </m>
+      <m>
+        <c r="c" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">y</c>
+        <c r="oc" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">y</c>
+        <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>
+        <c r="ov" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">wr</c>
+        <c r="of" class="ntFinal"/>
+        <c r="f" class="ntFinal"/>
+      </m>
       <m>
         <c r="c" class="allCons"/>
         <c r="v" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">uo</c>

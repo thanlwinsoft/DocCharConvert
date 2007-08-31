@@ -17,23 +17,23 @@
     <name>Mien Tai</name>
     <!--Mien Tai-->
     <cluster side="right" id="syllable">
-      <component id="tp" min="0"/>
+      <component id="tp" min="0">pre-syllable</component>
       <!--pre-syllable-->
-      <component id="tvp" min="0"/>
+      <component id="tvp" min="0">vowel-before</component>
       <!--pre-vowel-->
-      <component id="tc" min="0"/>
+      <component id="tc" min="0">cons</component>
       <!--consonant-->
-      <component id="ts" min="0" priority="10"/>
+      <component id="ts" min="0" priority="10">semi-vowel</component>
       <!--semi-vowel-->
-      <component id="tvu" min="0"/>
+      <component id="tvu" min="0">upper-vowel</component>
       <!--vowel-above-->
-      <component id="tvd" min="0"/>
+      <component id="tvd" min="0">lower-vowel</component>
       <!--vowel-below-->
-      <component id="tt" min="0"/>
+      <component id="tt" min="0">tone</component>
       <!--tone-->
-      <component id="tva" min="0"/>
+      <component id="tva" min="0">vowel-after</component>
       <!--vowel-after-->
-      <component id="tf" min="0"/>
+      <component id="tf" min="0">final</component>
       <!--final-->
     </cluster>
   </script>
@@ -618,6 +618,10 @@
       </m>
       <m>
         <c r="v">aaq</c>
+        <c r="tva">า</c>
+      </m>
+      <m>
+        <c r="v">aa</c>
         <c r="tva">า</c>
       </m>
       <m>
