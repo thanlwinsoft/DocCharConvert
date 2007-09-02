@@ -60,7 +60,7 @@
                tooltip="%ConversionWizard"/>
          <action
                class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
-               icon="src/org/thanlwinsoft/doccharconvert/icons/Convert.png"
+               icon="src/org/thanlwinsoft/doccharconvert/icons/Convert16.png"
                id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
                label="Edit Syllable Converter"
                menubarPath="File/additions"
@@ -108,7 +108,7 @@
             class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             default="true"
             filenames="*.xml"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/Convert.png"
+            icon="icons/ConversionTable16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             name="%SyllableConverterEditor">
       </editor>
@@ -122,19 +122,19 @@
             name="%ConversionResult.view"/>
       <view
             class="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionResult"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
+            icon="icons/RoundTrip16.png"
             id="DocCharConvert.ReverseConversion"
             name="%ReverseConversion.view"/>
       <view
             class="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionResult"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
+            icon="icons/ConvertTest16.png"
             id="DocCharConvert.DebugUnicode"
             name="%DebugUnicode.view"/>
       <view
             allowMultiple="true"
             class="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.bmp"
-            id="DocCharConvert.ConversionFileList"
+            icon="icons/Convert16.png"
+            id="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView"
             name="%ConversionFileList"/>
    </extension>
    <extension
@@ -179,6 +179,50 @@
             id="org.thanlwinsoft.doccharconvert.parser.LanguageTestParser"
             name="%LanguageTestParser"
             styleSupport="true"/>
+      <parser
+            class="org.thanlwinsoft.doccharconvert.parser.ExceptionListTestParser"
+            extensions=".txt"
+            id="org.thanlwinsoft.doccharconvert.parser.ExceptionListTestParser"
+            name="%ExceptionListParser"
+            styleSupport="false">
+      </parser>
+   </extension>
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="org.thanlwinsoft.doccharconvert.eclipse.views.ReRunConversion"
+            targetID="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView">
+         <action
+               class="org.thanlwinsoft.doccharconvert.eclipse.views.ReRunConversion"
+               enablesFor="*"
+               icon="icons/Convert16.png"
+               id="org.thanlwinsoft.doccharconvert.rerunConversion"
+               label="%ReRunConversion"
+               menubarPath="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView.ReRun"
+               style="push"
+               tooltip="%ReRunConversionOnFiles">
+         </action>
+         <menu
+               id="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView.menu"
+               label="%ReRunConversion"
+               path="slot1">
+            <groupMarker
+                  name="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView.ReRun">
+            </groupMarker>
+         </menu>
+      </viewContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="org.thanlwinsoft.doccharconvert.filelist.viewerContribution1"
+            targetID="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView">
+         <action
+               class="org.thanlwinsoft.doccharconvert.eclipse.views.ReRunConversion"
+               id="org.thanlwinsoft.doccharconvert.eclipse.views.ReRunConversion"
+               label="%ReRunConversion">
+         </action>
+      </viewerContribution>
    </extension>
    <!--
    <extension

@@ -9,6 +9,7 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -47,11 +48,20 @@ public class EclipseMessageDisplay implements IMessageDisplay
                     @Override
                     protected Control createDialogArea(Composite parent)
                     {
-                        //Composite c = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
-                        //c.setLayout(new FillLayout());
-                        Label l = new Label(parent, SWT.WRAP | SWT.LEAD);
+                        ScrolledComposite sc = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+                        GridData layoutData = new GridData();
+                        layoutData.widthHint = 200;
+                        layoutData.heightHint = 100;
+                        sc.setLayoutData(layoutData);
+                        sc.setExpandHorizontal(true);
+                        sc.setExpandVertical(true);
+                        Composite c = new Composite(sc, SWT.NONE);
+                        c.setLayout(new FillLayout());
+                        sc.setContent(c);
+                        Label l = new Label(c, SWT.WRAP | SWT.LEAD);
                         l.setText(warningMessage);
-                        return l;
+                        l.setSize(l.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+                        return sc;
                     }
 
                     /* (non-Javadoc)

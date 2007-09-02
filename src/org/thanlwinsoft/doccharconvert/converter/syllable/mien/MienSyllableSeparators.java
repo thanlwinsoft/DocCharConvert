@@ -150,9 +150,25 @@ public class MienSyllableSeparators implements SyllableChecker
             syllables.get(i - 2).getConversionResult(),
             syllables.get(i).getConversionResult()) == false)
         {
-          syllables.set(i - 1, new Syllable(null, " "));
-          // capitalize second syllable since it is separated by a space
-          capitalize(syllables.get(i));
+            if (i + 1 < syllables.size() && syllables.get(i+1).getOriginalString().equals(separators[oldSide]))
+            {
+                // do nothing for 3+ syllable words
+            }
+            else if (i - 3 >= 0 && syllables.get(i - 3).getOriginalString().equals(separators[oldSide]))
+            {
+                // do nothing for 3+ syllable words
+            }
+            else
+            {
+//                syllables.remove(i - 1);
+//                capitalize(syllables.get(i - 2));
+//                --i;
+//                continue;
+            }
+            // TODO - this doesn't seem to be correct in practice
+            //syllables.set(i - 1, new Syllable(null, " "));
+            // capitalize second syllable since it is separated by a space
+            //capitalize(syllables.get(i));
         }
         else if (!separators[oldSide].equals(separators[newSide]))
         {
@@ -216,7 +232,8 @@ public class MienSyllableSeparators implements SyllableChecker
   * the one consonant), then the caret is retained.
   * 3. If a vowel ends one syllable and is followed by a syllable containing a
   * vowel as the initial letter of the second syllable then the caret must be
-  * retained.
+  * retained. NOTE: the requirement for a vowel on the next syllable seems to 
+  * have been dropped.
   */
   private boolean nrmNeedsCaret(Script nrmScript, Integer [] a, Integer [] b)
   {

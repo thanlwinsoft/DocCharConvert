@@ -13,10 +13,7 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
-import org.eclipse.jface.viewers.ColumnViewerEditor;
-import org.eclipse.jface.viewers.ColumnViewerEditorActivationEvent;
 import org.eclipse.jface.viewers.EditingSupport;
-import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
@@ -27,7 +24,6 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerCell;
-import org.eclipse.jface.viewers.CellEditor.LayoutData;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -35,14 +31,11 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Item;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
@@ -54,12 +47,13 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.forms.widgets.ColumnLayout;
+import org.eclipse.ui.forms.widgets.ColumnLayoutData;
+import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
-import org.thanlwinsoft.doccharconvert.eclipse.editors.ClassTableEditorPart.CellEditingSupport;
 import org.thanlwinsoft.schemas.syllableParser.Columns;
 import org.thanlwinsoft.schemas.syllableParser.Component;
 import org.thanlwinsoft.schemas.syllableParser.MappingTable;
@@ -137,20 +131,25 @@ public class ScriptsEditorPart extends EditorPart
         toolkit = new FormToolkit(parent.getDisplay());
         form = toolkit.createScrolledForm(parent);
         form.setText(MessageUtil.getString("SyllableParserEditor"));
-        GridLayout layout = new GridLayout();
-        layout.numColumns = 2;
+        //GridLayout layout = new GridLayout();
+        //layout.numColumns = 2;
+        ColumnLayout layout = new ColumnLayout();
+        layout.minNumColumns = 1; layout.maxNumColumns = 2;
         form.getBody().setLayout(layout);
 //        ColumnLayout layout = new ColumnLayout();
 //        form.setLayout(layout);
-        Section leftScript = toolkit.createSection(form.getBody(), SWT.LEFT);
-        Section rightScript = toolkit.createSection(form.getBody(), SWT.LEFT);
-        FormText leftName = toolkit.createFormText(form.getBody(), true);
-        leftName.setText(sc.getScriptArray(0).getName(), false, false);
-        FormText rightName = toolkit.createFormText(form.getBody(), true);
-        rightName.setText(sc.getScriptArray(1).getName(), false, false);
+        Section leftScript = toolkit.createSection(form.getBody(), SWT.LEAD | Section.DESCRIPTION);
+        Section rightScript = toolkit.createSection(form.getBody(), SWT.LEAD | Section.DESCRIPTION);
+//        FormText leftName = toolkit.createFormText(form.getBody(), true);
+//        leftName.setText(sc.getScriptArray(0).getName(), false, false);
+//        FormText rightName = toolkit.createFormText(form.getBody(), true);
+//        rightName.setText(sc.getScriptArray(1).getName(), false, false);
         
-        addScriptTable(form.getBody(), sc.getScriptArray(0));
-        addScriptTable(form.getBody(), sc.getScriptArray(1));
+        addScriptTable(leftScript, sc.getScriptArray(0));
+        addScriptTable(rightScript, sc.getScriptArray(1));
+        leftScript.setDescription(sc.getScriptArray(0).getName());
+        rightScript.setDescription(sc.getScriptArray(1).getName());
+        // TODO replace description with editable field
         
         leftScript.setText(MessageUtil.getString("LeftScript"));
         rightScript.setText(MessageUtil.getString("RightScript"));
@@ -166,9 +165,6 @@ public class ScriptsEditorPart extends EditorPart
                 parentEditor.setDirty(true);
             }
         });
-        GridData backtrackGd = new GridData();
-        backtrackGd.horizontalSpan = 2;
-        backtrack.setLayoutData(backtrackGd);
         final Button newClass = toolkit.createButton(form.getBody(), MessageUtil.getString("NewClassButton"), SWT.PUSH);
         //Button newClass = new Button(general, SWT.PUSH);
         //newClass.setText(MessageUtil.getString("NewClassButton"));
@@ -235,7 +231,7 @@ public class ScriptsEditorPart extends EditorPart
      * @param section
      * @param scriptArray
      */
-    private void addScriptTable(Composite parent, final Script scriptArray)
+    private void addScriptTable(ExpandableComposite parent, final Script scriptArray)
     {
         final Table table = new Table(parent, SWT.H_SCROLL | SWT.V_SCROLL);
         table.setHeaderVisible(true);
@@ -316,7 +312,6 @@ public class ScriptsEditorPart extends EditorPart
             col.setWidth(100);
             col.setText(columnNames[i]);
             TableViewerColumn tvc = new TableViewerColumn(viewer, col);
-            SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
             final int colNum = i;
             tvc.setEditingSupport(new EditingSupport(viewer){
                 TextCellEditor tce = null;
@@ -428,7 +423,7 @@ public class ScriptsEditorPart extends EditorPart
         menuManager.setVisible(true);
         toolkit.adapt(table);
         table.setMenu(menuManager.getMenu());
-        
+        parent.setClient(table);
         viewer.refresh();
         
     }

@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.console,
  org.eclipse.ui.intro,
  org.eclipse.ui.intro.universal,
- org.apache.xmlbeans
+ org.apache.xmlbeans,
+ org.eclipse.ui.forms
 Eclipse-LazyStart: true
 Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByteCharsetProvider
 Export-Package: org.sil.scripts.teckit,
@@ -40,3 +41,4 @@ Bundle-Vendor: ThanLwinSoft.org
 Bundle-ClassPath: lib/DocCharConvertSchema.jar,
  lib/SyllableParserSchema.jar,
  .
+Bundle-RequiredExecutionEnvironment: J2SE-1.5

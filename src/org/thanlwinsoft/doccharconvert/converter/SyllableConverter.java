@@ -29,10 +29,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
-import java.util.ArrayDeque;
 import java.util.Date;
-import java.util.Deque;
-import java.util.Locale;
 import java.util.TimeZone;
 import java.util.Vector;
 import java.util.Iterator;
@@ -52,8 +49,9 @@ import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker;
 import org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList;
 
 /**
- *
- * @author keith
+ * Convert words defined as Syllables defined in one script to another.
+ * This will be most applicable for Asian languages consisting of consonant 
+ * clusters.
  */
 public class SyllableConverter extends ReversibleConverter
 {
@@ -82,6 +80,7 @@ public class SyllableConverter extends ReversibleConverter
      * @param xmlFile XML config file
      * @param leftExceptions exceptions on the left side
      * @param rightExceptions corresponding exceptions on right side
+     * @deprecated
      */
     public SyllableConverter(File xmlFile, File leftExceptions, File rightExceptions)
     {
@@ -158,7 +157,6 @@ public class SyllableConverter extends ReversibleConverter
             oldSide = 1;
             newSide = 0;
         }
-        int maxBackTrack = 1000;
         String oldText = inputText;
         previousSyl = new Syllable(null, "");
         //SortedSet <Syllable> conversionSet = new TreeSet<Syllable>(new SyllableSetComparator()); 
@@ -380,7 +378,7 @@ public class SyllableConverter extends ReversibleConverter
         // choose the longest syllable
         assert(syllables.size() > 0);
         Iterator <Vector<Integer>> syl = syllables.iterator();
-        Vector <Integer> nullResult = syl.next(); // ignore null result
+        syl.next(); // ignore null result
         TreeSet<Syllable> results = new TreeSet<Syllable>(new SyllableComparator());
         while (syl.hasNext())
         {
@@ -675,5 +673,21 @@ public class SyllableConverter extends ReversibleConverter
         // Processing is done in unicode, so this converter ignores the charsets
     }
     
+    public File getXmlFile()
+    {
+        return xmlFile;
+    }
     
+    public void disableChecker(Class<?> clazz)
+    {
+        Iterator <SyllableChecker> iChecker = checkers.iterator();
+        while (iChecker.hasNext())
+        {
+            SyllableChecker sc = iChecker.next();
+            if (sc.getClass().equals(clazz))
+            {
+                iChecker.remove();
+            }
+        }
+    }
 }
