@@ -26,6 +26,7 @@ package org.thanlwinsoft.doccharconvert.converter.syllable.mien;
 import java.util.Vector;
 import java.util.HashSet;
 
+import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Component;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Script;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Syllable;
@@ -279,6 +280,23 @@ public class MienSyllableSeparators implements SyllableChecker
       
       return true;
     }
-    return false; 
+    return false;
   }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentDescriptions()
+     */
+    public String[] getArgumentDescriptions()
+    {
+        return new String [] {
+            MessageUtil.getString("LeftSideSyllableSeparator"),
+            MessageUtil.getString("RightSideSyllableSeparator")
+        };
+    }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentTypes()
+     */
+    public Class<?>[] getArgumentTypes()
+    {
+        return new Class<?>[] {String.class, String.class};
+    }
 }

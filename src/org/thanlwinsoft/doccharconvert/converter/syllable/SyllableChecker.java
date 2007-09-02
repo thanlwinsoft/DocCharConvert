@@ -51,4 +51,12 @@ public interface SyllableChecker
   */
   public boolean initialize(Script [] scripts, Object [] args)  
       throws CharConverter.FatalException;
+  /**
+   * Get the Class types or the arguments to initialize
+   */
+  public Class<?> [] getArgumentTypes();
+  /**
+   * Get argument descriptions to assist entry in a UI
+   */
+  public String [] getArgumentDescriptions();
 }

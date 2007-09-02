@@ -40,6 +40,7 @@ import java.nio.charset.IllegalCharsetNameException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.MessageUtil;
 
 /**
  *
@@ -427,5 +428,22 @@ public class ExceptionList implements SyllableChecker
     			return true;
     	}
     	return false;
+    }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentDescriptions()
+     */
+    public String[] getArgumentDescriptions()
+    {
+        return new String[] {
+            MessageUtil.getString("ExceptionListFile"),
+            MessageUtil.getString("WordJoiners")
+        };
+    }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentTypes()
+     */
+    public Class<?>[] getArgumentTypes()
+    {
+        return new Class<?>[] { File.class, String.class};
     }
 }

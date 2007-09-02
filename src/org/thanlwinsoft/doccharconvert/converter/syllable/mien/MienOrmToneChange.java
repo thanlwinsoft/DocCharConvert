@@ -166,4 +166,20 @@ public class MienOrmToneChange implements SyllableChecker
       return true;
 	}
 
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentDescriptions()
+     */
+    public String[] getArgumentDescriptions()
+    {
+        return new String[] {};
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentTypes()
+     */
+    public Class<?>[] getArgumentTypes()
+    {
+        return new Class<?>[] {};
+    }
+
 }

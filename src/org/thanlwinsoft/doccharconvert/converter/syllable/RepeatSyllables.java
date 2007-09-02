@@ -26,6 +26,8 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 
 import java.util.Vector;
+
+import org.thanlwinsoft.doccharconvert.MessageUtil;
 /**
  * Interface to allow Syllables to be tweaked after the main conversion
  * with SyllableConverter. This may be useful for script specific case 
@@ -120,7 +122,7 @@ public class RepeatSyllables implements SyllableChecker
   * in the checker if needed.
   * @param args may be null if the repeater settings were set direct in the xml
   * arg[0] = side that uses repeat marker 0 = left, 1 = right
-  * the other side will be assumed to visibly repat the syllable
+  * the other side will be assumed to visibly repeat the syllable
   * arg[1] = character that is used to mark a repeat or to separate syllables 
   * on left side
   * arg[2] = character that is used to mark a repeat or to separate syllables 
@@ -155,4 +157,24 @@ public class RepeatSyllables implements SyllableChecker
     
     return false;
   }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentDescriptions()
+     */
+    public String[] getArgumentDescriptions()
+    {
+        return new String [] {
+            MessageUtil.getString("RepeatMarkerSide"),
+            MessageUtil.getString("LeftSideRepeatMarker"),
+            MessageUtil.getString("RightSideRepeatMarker")
+        };
+    }
+
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentTypes()
+     */
+    public Class<?>[] getArgumentTypes()
+    {
+        return new Class<?>[]{ Integer.class, String.class, String.class};
+    }
 }

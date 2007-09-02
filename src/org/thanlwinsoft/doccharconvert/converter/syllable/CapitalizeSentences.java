@@ -27,6 +27,8 @@ import java.util.Vector;
 import java.util.Iterator;
 import java.util.HashSet;
 
+import org.thanlwinsoft.doccharconvert.MessageUtil;
+
 /**
  * Capitalises words at the beginning of sentences. 
  * useful for roman scripts converted from an Asian script which
@@ -171,4 +173,24 @@ public class CapitalizeSentences implements SyllableChecker
     }
     return true;
   }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentDescriptions()
+     */
+    public String[] getArgumentDescriptions()
+    {
+        return new String[] {
+            MessageUtil.getString("EndOfSentenceMarker"),
+            MessageUtil.getString("EndOfSentenceMarker"),
+            MessageUtil.getString("EndOfSentenceMarker"),
+            MessageUtil.getString("EndOfSentenceMarker")
+        };
+    }
+    /* (non-Javadoc)
+     * @see org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker#getArgumentTypes()
+     */
+    public Class<?>[] getArgumentTypes()
+    {
+        
+        return new Class<?>[] { String.class, String.class, String.class, String.class};
+    }
 }
