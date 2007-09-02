@@ -25,6 +25,7 @@
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Vector;
 import java.text.MessageFormat;
 import java.io.File;
@@ -49,15 +50,16 @@ public class ExceptionList implements SyllableChecker
     public final static String COMMENT_CHAR = "#";
     public final static String DELIMIT_CHAR = "\t";
     
-    HashMap<String, String> leftExceptions = null;
-    HashMap<String, String> rightExceptions = null;
-    File [] files = null; 
-    int [] maxLength = null;
-    boolean [] caseInsensitive = { false, false };
-    long loadTime = 0;
-    StringBuffer duplicates = null;
+    private HashMap<String, String> leftExceptions = null;
+    private HashMap<String, String> rightExceptions = null;
+    private HashSet<String> mWordJoiners = new HashSet<String>();
+    private File [] files = null; 
+    private int [] maxLength = null;
+    private boolean [] caseInsensitive = { false, false };
+    private long loadTime = 0;
+    private StringBuffer duplicates = null;
     /** Empty constructor for use with SyllableChecker interface 
-     * initialize will be called to set the excepions files.
+     * initialize will be called to set the exceptions files.
      */
     public ExceptionList()
     {
@@ -302,7 +304,14 @@ public class ExceptionList implements SyllableChecker
       for (int i = 0; i< parseOutput.size(); i++)
         {
             int exLength = 0;
-            if (exceptionList != null)
+            // it is sometimes incorrect to match against the exception list
+            // when we are mid word, so check against the exception separators
+            while (i > 0 &&
+                mWordJoiners.contains(parseOutput.get(i - 1).getOriginalString()))
+            {
+                i++;
+            }
+            if (exceptionList != null &&  i < parseOutput.size())
             {
                 int j = i;
                 StringBuffer exTest = new StringBuffer();
@@ -327,6 +336,13 @@ public class ExceptionList implements SyllableChecker
                     }
                 } while (exLength < exceptionList.getMaxExceptionLength(oldSide) &&
                          ++j < parseOutput.size());
+                // if the next syllable is not a word end, then we may need to
+                // ignore the match, since it has only matched mid word
+                if (j + 1 < parseOutput.size() && 
+                    mWordJoiners.contains(parseOutput.get(j + 1).getOriginal()))
+                {
+                    lastExMatch = -1;
+                }
                 // replace the syllables found in the exception list with one
                 // "unknown" syllable
                 if (lastExMatch > -1)
@@ -354,17 +370,25 @@ public class ExceptionList implements SyllableChecker
         CharConverter.FatalException
     {
       boolean initOk = false;
-      files = new File[args.length];
+      int fileCount = 0;
+      while (fileCount < args.length && args[fileCount] instanceof File)
+          fileCount++;
+      files = new File[fileCount];
       ignoreCase(scripts[0].ignoreCase(), scripts[1].ignoreCase());
       switch (args.length)
       {
         case 0:
           initOk = true;
           break;
+        case 3:
+            addWordJoiners(args[2].toString());
         case 2:
           if (args[1] instanceof File)
             files[1] = (File)args[1];
-          else files[1] = new File(args[1].toString());
+          else 
+          {
+              addWordJoiners(args[1].toString());
+          }
           // deliberate fall through
         case 1:
           if (args[0] instanceof File)
@@ -385,6 +409,16 @@ public class ExceptionList implements SyllableChecker
       }
       return initOk;
     }
+    
+    private void addWordJoiners(String separators)
+    {
+        String [] wordJoiners = separators.split("\\s+");
+        for (String s : wordJoiners)
+        {
+            mWordJoiners.add(s);
+        }
+    }
+    
     public boolean fileChanged()
     {
     	for (int i = 0; i<files.length; i++)
