@@ -170,8 +170,9 @@ public class ConversionWizard extends Wizard
             else
             {
                 IWorkbenchPage page = wbWindow.getActivePage();
+                String secondaryID = conversion.toString().replace(':', '_');
                 IViewPart fileList = page.showView(ConversionFileListView.ID, 
-                        conversion.toString(), IWorkbenchPage.VIEW_ACTIVATE);
+                    secondaryID, IWorkbenchPage.VIEW_ACTIVATE);
                 
                 ConversionFileListView listView = null; 
                 if (fileList != null)
