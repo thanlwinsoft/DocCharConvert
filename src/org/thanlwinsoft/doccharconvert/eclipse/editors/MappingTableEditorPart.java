@@ -48,6 +48,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.MultiPageEditorSite;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
+import org.thanlwinsoft.schemas.syllableParser.Maps;
 import org.thanlwinsoft.schemas.syllableParser.Script;
 import org.thanlwinsoft.schemas.syllableParser.Component;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
@@ -219,6 +220,34 @@ public class MappingTableEditorPart extends EditorPart
         pasteColumns.setParent(menuManager);
         menuManager.add(pasteColumns);
         
+        Action copyAction = new Action()
+        {
+            public void run()
+            {
+                doCopy(false);
+            }
+        };
+        copyAction.setText(MessageUtil.getString("Copy"));
+        menuManager.add(copyAction);
+        Action cutAction = new Action()
+        {
+            public void run()
+            {
+                doCopy(true);
+            }
+        };
+        cutAction.setText(MessageUtil.getString("Cut"));
+        menuManager.add(cutAction);
+        Action pasteAction = new Action()
+        {
+            public void run()
+            {
+                doPaste();
+            }
+        };
+        pasteAction.setText(MessageUtil.getString("Paste"));
+        menuManager.add(pasteAction);
+        
         for (Script script : sc.getScriptArray())
         {
             menuManager.add(new Separator());
@@ -304,6 +333,38 @@ public class MappingTableEditorPart extends EditorPart
         // TODO check table hasn't changed
     }
     
+    protected void doCopy(boolean cut)
+    {
+        if (!(viewer.getSelection() instanceof IStructuredSelection)) return;
+        IStructuredSelection ss = (IStructuredSelection)viewer.getSelection();
+        Iterator <?>i = ss.iterator();
+        Maps data = Maps.Factory.newInstance();
+        while (i.hasNext())
+        {
+            Object o = i.next();
+            if (o instanceof Map)
+            {
+                Map copy = data.addNewM();
+                copy.set((Map)o);
+                if (cut)
+                {
+                    Map m = (Map)o; 
+                    while (m.sizeOfCArray() > 0)
+                    {
+                        m.removeC(0);
+                    }
+                }
+            }
+        }
+        String xmlData = data.xmlText();
+        clipboard.setContents(new Object [] {xmlData}, new Transfer[] { TextTransfer.getInstance()});
+        if (cut)
+        {
+            parentEditor.setDirty(true);
+            viewer.refresh(ss.toList().toArray());
+        }
+    }
+    
     protected void doCopy(String ref, boolean cut)
     {
         if (!(viewer.getSelection() instanceof IStructuredSelection)) return;
@@ -323,6 +384,7 @@ public class MappingTableEditorPart extends EditorPart
                     c.unsetHex();
                     c.unsetClass1();
                     c.setStringValue("");
+                    viewer.refresh(o);
                 }
             }
         }
@@ -331,9 +393,43 @@ public class MappingTableEditorPart extends EditorPart
         if (cut)
         {
             parentEditor.setDirty(true);
-            viewer.refresh(ss.toList().toArray());
+            //viewer.refresh(ss.toList().toArray());
         }
         
+    }
+    
+    protected void doPaste()
+    {
+        if (!(viewer.getSelection() instanceof IStructuredSelection)) return;
+        IStructuredSelection ss = (IStructuredSelection)viewer.getSelection();
+        Iterator <?>i = ss.iterator();
+        String data = (String)clipboard.getContents(TextTransfer.getInstance());
+        if (data == null) return;
+        try
+        {
+            Maps maps = Maps.Factory.parse(data);
+            int iData = 0;
+            while (i.hasNext() && iData < maps.sizeOfMArray())
+            {
+                Object o = i.next();
+                if (o instanceof Map)
+                {
+                    Map m = (Map)o;
+                    m.set(maps.getMArray(iData));
+                    viewer.refresh(o);
+                    // if there is only one item do a fill down, otherwise
+                    // copy sequentially
+                    if (maps.sizeOfMArray() > 1)
+                        iData++;
+                }
+            }
+            parentEditor.setDirty(true);
+            //viewer.refresh();
+        }
+        catch (XmlException e)
+        {
+            // invalid xml
+        }
     }
     
     protected void doPaste(String ref)

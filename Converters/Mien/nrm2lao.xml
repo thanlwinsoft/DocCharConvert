@@ -31,9 +31,7 @@
   <checks>
     <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList">
       <arg type="file">mienNrm2LaoExceptions.txt</arg>
-      <!--files must have path specified relative to this xml file-->
-      <!--<arg type="file">mienNrm2LaoNrmExceptions.txt</arg>
-    <arg type="file">mienNrm2LaoLaoUExceptions.txt</arg>-->
+      <!-- <arg>^ -</arg> - this actually gives worse results -->
     </checker>
     <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.RepeatSyllables"/>
     <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.mien.MienSyllableSeparators">

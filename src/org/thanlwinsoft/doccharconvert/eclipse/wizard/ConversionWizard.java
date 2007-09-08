@@ -171,7 +171,7 @@ public class ConversionWizard extends Wizard
             {
                 IWorkbenchPage page = wbWindow.getActivePage();
                 IViewPart fileList = page.showView(ConversionFileListView.ID, 
-                        null, IWorkbenchPage.VIEW_ACTIVATE);
+                        conversion.toString(), IWorkbenchPage.VIEW_ACTIVATE);
                 
                 ConversionFileListView listView = null; 
                 if (fileList != null)

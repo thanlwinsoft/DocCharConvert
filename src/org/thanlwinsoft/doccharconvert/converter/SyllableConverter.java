@@ -230,6 +230,7 @@ public class SyllableConverter extends ReversibleConverter
                       if (backTrack == null)
                       {
                           // nowhere to backtrack
+                          previousSyl = unmatched;
                           offset++;
                           continue;
                       }

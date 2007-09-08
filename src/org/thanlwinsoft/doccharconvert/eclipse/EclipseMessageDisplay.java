@@ -51,16 +51,17 @@ public class EclipseMessageDisplay implements IMessageDisplay
                         ScrolledComposite sc = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
                         GridData layoutData = new GridData();
                         layoutData.widthHint = 200;
-                        layoutData.heightHint = 100;
+                        layoutData.heightHint = 200;
                         sc.setLayoutData(layoutData);
                         sc.setExpandHorizontal(true);
                         sc.setExpandVertical(true);
                         Composite c = new Composite(sc, SWT.NONE);
                         c.setLayout(new FillLayout());
-                        sc.setContent(c);
                         Label l = new Label(c, SWT.WRAP | SWT.LEAD);
                         l.setText(warningMessage);
-                        l.setSize(l.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+                        c.setSize(l.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+                        sc.setContent(c);
+                        sc.setAlwaysShowScrollBars(true);
                         return sc;
                     }
 

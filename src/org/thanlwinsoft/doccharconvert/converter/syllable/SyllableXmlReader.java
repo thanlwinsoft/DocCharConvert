@@ -100,6 +100,7 @@ public class SyllableXmlReader
   private boolean debug = false;
   private boolean enableBacktrack = false;
   private PrintStream debugStream = System.out;
+  private static final String namespaceURI = "http://www.thanlwinsoft.org/schemas/SyllableParser";
 
   public SyllableXmlReader(File xmlFile, boolean debug, PrintStream ps)
   {
@@ -118,6 +119,7 @@ public class SyllableXmlReader
     {
         InputStream fileStream = xmlFile.toURI().toURL().openStream();
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
+        dfactory.setNamespaceAware(true);
         DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
         InputSource inputSource = new InputSource(fileStream);
         doc = docBuilder.parse(inputSource);            
@@ -159,8 +161,8 @@ public class SyllableXmlReader
         Node topNode = doc.getFirstChild();
         while (topNode != null && topNode.getNodeType() != Node.ELEMENT_NODE)
           topNode = topNode.getNextSibling();
-        if (topNode == null || !topNode.getNodeName().equals(TOP_NODE) ||
-            topNode.getNodeType() != Node.ELEMENT_NODE) 
+        if (topNode == null || topNode.getNodeType() != Node.ELEMENT_NODE
+            || !topNode.getLocalName().equals(TOP_NODE) ) 
         {
             if (xmlFile != null) 
                 errorLog.append(xmlFile.getAbsolutePath());
@@ -202,7 +204,7 @@ public class SyllableXmlReader
   
   protected boolean parseScripts()
   {
-      NodeList scriptsList = doc.getElementsByTagName(SCRIPT_NODE);
+      NodeList scriptsList = doc.getElementsByTagNameNS(namespaceURI, SCRIPT_NODE);
       if (scriptsList.getLength() != 2)
       {
         Object [] args = { new Integer(scriptsList.getLength()) };
@@ -214,7 +216,7 @@ public class SyllableXmlReader
       for (int i = 0; i<scriptsList.getLength(); i++)
       {
         Element scriptNode = (Element)scriptsList.item(i);
-        NodeList nameNodes = scriptNode.getElementsByTagName(NAME_NODE);
+        NodeList nameNodes = scriptNode.getElementsByTagNameNS(namespaceURI, NAME_NODE);
         String name = "";
         // not a serious error
         if (nameNodes.getLength() < 1)
@@ -227,7 +229,7 @@ public class SyllableXmlReader
         {
           name = nameNodes.item(0).getTextContent();
         }
-        NodeList cluster = scriptNode.getElementsByTagName(CLUSTER_NODE);
+        NodeList cluster = scriptNode.getElementsByTagNameNS(namespaceURI, CLUSTER_NODE);
         if (cluster.getLength() != 1)
         {
           Object [] args = { new Integer(1), CLUSTER_NODE, 
@@ -255,7 +257,7 @@ public class SyllableXmlReader
         {
           Node node = clusters.item(c);
           if (node.getNodeType() == Node.ELEMENT_NODE && 
-              node.getNodeName().equals(COMPONENT_NODE))
+              node.getLocalName().equals(COMPONENT_NODE))
           {
             Node id = node.getAttributes().getNamedItem(ID_ATTR);
             if (id == null)
@@ -310,12 +312,12 @@ public class SyllableXmlReader
   
   protected boolean parseClasses()
   {
-    NodeList classList = doc.getElementsByTagName(CLASS_NODE);
+    NodeList classList = doc.getElementsByTagNameNS(namespaceURI, CLASS_NODE);
     for (int i = 0; i<classList.getLength(); i++)
     {
       Element classElement = (Element) classList.item(i);
       String id = getId(classElement);
-      NodeList componentList = classElement.getElementsByTagName(COMPONENT_NODE);
+      NodeList componentList = classElement.getElementsByTagNameNS(namespaceURI, COMPONENT_NODE);
       if (componentList.getLength() != 2)
       {
         Object [] args = { new Integer(2), COMPONENT_NODE, 
@@ -386,7 +388,7 @@ public class SyllableXmlReader
     {
       Node c = values.item(i);
       if (c.getNodeType() == Node.ELEMENT_NODE &&
-          c.getNodeName().equals(COMP_VALUE_NODE))
+          c.getLocalName().equals(COMP_VALUE_NODE))
       {
        
         // if it has a hex value use that, otherwise read it literally
@@ -410,11 +412,11 @@ public class SyllableXmlReader
         }
         vector.add(new Integer(compIndex));
       }
-//       else
-//       {
-//         Object [] args = { c.toString() };
-//         errorLog.append(mf.format(rb.getString("unexpectedNode"),args));
-//       }
+       else if (c.getNodeType() == Node.ELEMENT_NODE)
+       {
+         Object [] args = { c.toString() };
+         errorLog.append(MessageFormat.format(rb.getString("unexpectedNode"),args));
+       }
     }
     return vector;
   }
@@ -428,7 +430,7 @@ public class SyllableXmlReader
     {
       Node c = values.item(i);
       if (c.getNodeType() == Node.ELEMENT_NODE &&
-          c.getNodeName().equals(COMP_VALUE_NODE))
+          c.getLocalName().equals(COMP_VALUE_NODE))
       {
         thisComp = componentFromRefAttribute(c);
         if (thisComp == null) 
@@ -490,7 +492,7 @@ public class SyllableXmlReader
   
   protected boolean parseRepeats()
   {
-      NodeList repeatList = doc.getElementsByTagName(REPEAT_NODE);
+      NodeList repeatList = doc.getElementsByTagNameNS(namespaceURI, REPEAT_NODE);
       if (repeatList.getLength() > 1)
       {
         Object [] args = { new Integer(1), REPEAT_NODE, 
@@ -501,7 +503,7 @@ public class SyllableXmlReader
       }
       if (repeatList.getLength() == 0) return true;
       Element repeatElement = (Element)repeatList.item(0);
-      NodeList nList = repeatElement.getElementsByTagName(MARKER_NODE);
+      NodeList nList = repeatElement.getElementsByTagNameNS(namespaceURI, MARKER_NODE);
       if (nList.getLength() != 1)
       {
         Object [] args = { new Integer(1), MARKER_NODE, 
@@ -519,7 +521,7 @@ public class SyllableXmlReader
           value = nList.item(0).getTextContent();
       script[side].setRepeatChar(true, value);
       
-      nList = repeatElement.getElementsByTagName(SEPARATOR_NODE);
+      nList = repeatElement.getElementsByTagNameNS(namespaceURI, SEPARATOR_NODE);
       if (nList.getLength() != 1)
       {
         Object [] args = { new Integer(1), SEPARATOR_NODE, 
@@ -577,7 +579,7 @@ public class SyllableXmlReader
       }
       if (thisComp == null)
       {
-        Object [] args = { ref.getNodeValue(), REF_ATTR, node.getNodeName() };
+        Object [] args = { ref.getNodeValue(), REF_ATTR, node.getLocalName() };
         errorLog.append(MessageFormat.format(rb.getString("unexpectedAttribute"),args));
         errorLog.append('\n');
       }
@@ -601,13 +603,14 @@ public class SyllableXmlReader
   
   protected boolean parseMaps(boolean initialPass) throws ConflictException
   {
-    NodeList tableList = doc.getElementsByTagName(MAPPING_TABLE_NODE);
+    NodeList tableList = doc.getElementsByTagNameNS(namespaceURI, MAPPING_TABLE_NODE);
+    tableList = doc.getElementsByTagNameNS(namespaceURI, MAPPING_TABLE_NODE);
     for (int i = 0; i<tableList.getLength(); i++)
     {
       Element tableElement = (Element)tableList.item(i);
       String id = getId(tableElement);
       // read table columns
-      NodeList columns = tableElement.getElementsByTagName(COLUMNS_NODE);
+      NodeList columns = tableElement.getElementsByTagNameNS(namespaceURI, COLUMNS_NODE);
       if (columns.getLength() != 1)
       {
         Object [] args = { new Integer(1), COLUMNS_NODE, 
@@ -617,7 +620,7 @@ public class SyllableXmlReader
         return false;
       }
       Element columnsElement = (Element) columns.item(0);
-      NodeList compList = columnsElement.getElementsByTagName(COMPONENT_NODE);
+      NodeList compList = columnsElement.getElementsByTagNameNS(namespaceURI, COMPONENT_NODE);
       LinkedList <Component> components = 
         new LinkedList <Component>();
       for (int j = 0; j<compList.getLength(); j++)
@@ -625,7 +628,7 @@ public class SyllableXmlReader
         Component component = componentFromRefAttribute(compList.item(j));
         if (component != null) components.add(component); 
       }
-      NodeList mapsList = tableElement.getElementsByTagName(MAPS_NODE);
+      NodeList mapsList = tableElement.getElementsByTagNameNS(namespaceURI, MAPS_NODE);
       if (mapsList.getLength() != 1)
       {
         Object [] args = { new Integer(1), MAPS_NODE, new Integer(mapsList.getLength()) };
@@ -642,7 +645,7 @@ public class SyllableXmlReader
       }
       Element mapsElement = (Element)mapsList.item(0);
       // read table rows (maps)
-      NodeList mapList = mapsElement.getElementsByTagName(MAP_NODE);
+      NodeList mapList = mapsElement.getElementsByTagNameNS(namespaceURI, MAP_NODE);
       for (int j = 0; j<mapList.getLength(); j++)
       {
         LinkedHashMap <String, String> classMap = 
@@ -772,7 +775,7 @@ public class SyllableXmlReader
 
   protected boolean parseChecks() throws CharConverter.FatalException
   {
-    NodeList check = doc.getElementsByTagName(CHECKS_NODE);
+    NodeList check = doc.getElementsByTagNameNS(namespaceURI, CHECKS_NODE);
     if (check.getLength() != 1)
     {
       Object [] args = { 1, CHECKS_NODE, check.getLength() };
@@ -784,7 +787,7 @@ public class SyllableXmlReader
     {
       if (checks.item(i).getNodeType() != Node.ELEMENT_NODE) continue;
       Element checker = (Element)checks.item(i);
-      if (checker.getNodeName().equals(CHECKER_NODE))
+      if (checker.getLocalName().equals(CHECKER_NODE))
       {
           if (checker.hasAttribute(CLASS_ATTR))
           {
@@ -799,7 +802,7 @@ public class SyllableXmlReader
                 Node arg = argNodes.item(a);
                 if (arg.getNodeType() == Node.ELEMENT_NODE)
                 {
-                  if (arg.getNodeName().equals(ARG_NODE))
+                  if (arg.getLocalName().equals(ARG_NODE))
                   {
                     Element eArg = (Element)arg;
                     if (eArg.hasAttribute(TYPE_ATTR) && 
@@ -815,7 +818,7 @@ public class SyllableXmlReader
                   }
                   else
                   {
-                    Object [] args = { arg.getNodeName() };
+                    Object [] args = { arg.getLocalName() };
                     errorLog.append(MessageFormat.format(rb.getString("unexpectedNode"),
                                     args));
                   }
@@ -839,7 +842,7 @@ public class SyllableXmlReader
       }
       else
       {
-        Object [] args = { checker.getNodeName() };
+        Object [] args = { checker.getLocalName() };
         errorLog.append(MessageFormat.format(rb.getString("unexpectedNode"), args));
       }
     }

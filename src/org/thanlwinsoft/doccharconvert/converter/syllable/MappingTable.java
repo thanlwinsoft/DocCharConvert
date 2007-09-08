@@ -179,7 +179,7 @@ public class MappingTable
         }
         int leftOffset = getMapOffset(leftSizes, leftEntry);
         int entryIndexL = rightEntries.size();
-        // sometimes a mapping already exists, in this case it is ambigous, so
+        // sometimes a mapping already exists, in this case it is ambiguous, so
         // another table will be needed to resolve the conversion - usually this
         // only happens on one side
         List<Integer> arrayR = new ArrayList<Integer>(rightEntry.length);
@@ -206,7 +206,9 @@ public class MappingTable
         rightMap[rightOffset] = entryIndexR; 
         if (debug)
             debugStream.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
-                "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR);
+                "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR + 
+                "\t" + showEntry(0, arrayL.toArray(new Integer[leftEntry.length])) + 
+                "\t" + showEntry(1, arrayR.toArray(new Integer[rightEntry.length])));
     }
     /**
      * More than 2 lines match the same map offset on this side
@@ -266,6 +268,7 @@ public class MappingTable
         int rowOffset = 1;
         for (int i = 0; i<entries.length; i++)
         {
+            assert entries[i] >= 0;
             offset += rowOffset * entries[i];
             rowOffset *= colSizes.elementAt(i).intValue();
         }

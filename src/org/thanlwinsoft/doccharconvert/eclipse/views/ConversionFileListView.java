@@ -4,8 +4,11 @@
 package org.thanlwinsoft.doccharconvert.eclipse.views;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -202,6 +205,7 @@ public class ConversionFileListView extends ViewPart
         tableView.getTable().setEnabled(true);
         tableView.getControl().redraw();
         this.batchConversion = conv;
+        this.setPartName(MessageUtil.getString("ConvertedFiles", conv.toString()));
     }
 	protected BatchConversion getConversion()
 	{
@@ -270,5 +274,22 @@ public class ConversionFileListView extends ViewPart
         //tableView.update(modified, true);
         tableView.update(modified, null);
         //tableView.refresh(true);
+    }
+    
+    public BatchConversion getSelectedConversion()
+    {
+        final BatchConversion selectedConversion = new BatchConversion(getConversion());
+        ArrayList <RowCell> rows = new ArrayList<RowCell>();
+        assert(tableView.getSelection() instanceof IStructuredSelection);
+        IStructuredSelection s = (IStructuredSelection)tableView.getSelection();
+        for (Object o : s.toArray())
+        {
+            if (o instanceof RowCell)
+            {
+                RowCell row = (RowCell)o;
+                selectedConversion.addFilePair(row.getInput(), row.getOutput());
+            }
+        }
+        return selectedConversion;
     }
 }

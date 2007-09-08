@@ -340,7 +340,7 @@ public class ExceptionList implements SyllableChecker
                 // if the next syllable is not a word end, then we may need to
                 // ignore the match, since it has only matched mid word
                 if (j + 1 < parseOutput.size() && 
-                    mWordJoiners.contains(parseOutput.get(j + 1).getOriginal()))
+                    mWordJoiners.contains(parseOutput.get(j + 1).getOriginalString()))
                 {
                     lastExMatch = -1;
                 }

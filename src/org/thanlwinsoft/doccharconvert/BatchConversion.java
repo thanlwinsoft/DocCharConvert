@@ -80,6 +80,30 @@ public class BatchConversion implements Runnable
         inputFileList = new Vector<File>();
         converterList = new Hashtable<TextStyle,CharConverter>();
     }
+    /** Copy constructor for BatchConversion
+     *  everything except the file list is copied
+     *  
+     */
+    public BatchConversion(BatchConversion bc) 
+    {
+        inputFileList = new Vector<File>();
+        converterList = bc.converterList;
+        outputPrefix = bc.outputPrefix;
+        outputDir = bc.outputDir;
+        mode = bc.mode;
+        docInterface = bc.docInterface;
+        setPairsMode(bc.useFilePairs);
+        promptMode = bc.promptMode;
+        onlyStylesInUse = bc.onlyStylesInUse;
+        autoRetry = bc.onlyStylesInUse;
+        iCharset = bc.iCharset;
+        oCharset = bc.oCharset;
+        msgDisplay = bc.msgDisplay;
+        fileMode = bc.fileMode;
+        notifier = bc.notifier;
+    }
+    
+    
     public void setCommandLine(boolean cl)
     {
       commandLine = cl;
@@ -93,6 +117,21 @@ public class BatchConversion implements Runnable
             docInterface = null;
             this.mode = mode;
         }
+    }
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append(MessageUtil.getString("BatchConversion"));
+        for(CharConverter cc : getConverters())
+        {
+            builder.append(' ');
+            builder.append(cc.getName());
+        }
+        return builder.toString();
     }
     public void setPairsMode(boolean isPairs)
     {

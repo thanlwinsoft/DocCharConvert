@@ -210,6 +210,16 @@
                   name="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView.ReRun">
             </groupMarker>
          </menu>
+         <action
+               class="org.thanlwinsoft.doccharconvert.eclipse.views.ReconvertSelectedAction"
+               enablesFor="*"
+               icon="icons/Convert16.png"
+               id="org.thanlwinsoft.doccharconvert.eclipse.views.ReconvertSelectedAction"
+               label="%ReConvertSelected"
+               menubarPath="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView.ReRun"
+               style="push"
+               tooltip="%ReConvertSelectedToolTip">
+         </action>
       </viewContribution>
    </extension>
    <extension

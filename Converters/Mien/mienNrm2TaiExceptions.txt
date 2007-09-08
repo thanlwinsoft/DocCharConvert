@@ -94,7 +94,7 @@ Aasen	อา^เซน
 Aasor	อา^ซอ
 Aataakv	อา^ท้าก
 Aate	อา^เท
-Aaten	อะ^เทน
+#Aaten	อะ^เทน
 Aawitv	อา^วี้ด
 Aayin	อา^ยิน
 Aiyaa	ไอ^ยา
@@ -178,6 +178,7 @@ Daa^ko^ni^ditc	ตา^โค^นิ^ติด
 E^baa^fo^ndi^tatv	เอ^ปา^โฟ^ดิ^ทัด
 E^bi^ku^lien	เอ^ปิ^คู^เลียน
 E^hutv	เอ^ฮู้ด
+E^li^	เอ^ลี^
 E^li^fe^le^hu	เอ^ลี^เฟ^เล^หุ
 E^li^se^aa	เอ^ลี^เซ^อา
 E^li^se^mbaa	เอ^ลี^เซ^บา
@@ -228,7 +229,7 @@ Faalo Neko	ฟา^โล^เน^โค
 Fe^saa^tatv	เฟ^สะ^ทัด
 Felikv	เฟ^ลิก
 Fi^li^saa^die	ฟี^ลิ^สะ^เตีย
-Fi^nikv	ฟี^นิก
+#Fi^nikv	ฟี^นิก
 Fiko	ฟี^โค
 Filipv	ฟี^ลิบ
 Gaa^li^li	กา^ลิ^ลี
@@ -388,6 +389,7 @@ I^li^yaa	อิ^ลี^ยา
 I^ndaa^laa	อิ^ดา^ลา
 I^ndu^me^aa	อิ^ดู^เม^อา
 I^opc	อิ^โอบ
+I^saa^	อิ^สะ^
 I^saa^kaa^li^otc	อิ^สะ^คา^ลิ^โอด
 I^saa^laa	อิ^สะ^ลา
 I^saa^laa^en	อิ^สะ^ลา^เอน
@@ -402,18 +404,18 @@ I^tu^lie	อิ^ทู^เลีย
 I^ye Aa^mbaa^lim	อี^เย^อา^บา^ลิม
 I^ye^aa^laa^mbim	อิ^เย^อา^ลา^บิม
 I^yon	อิ^โยน
-Igaan	อิ^กาน
+I^gaan	อิ^กาน
 Ikc^ketc	อิก^เขด
 Ikc^ndaa^li^yaa	อิก^ดา^ลิ^ยา
-Ilaa	อิ^ละ
+I^laa	อิ^ละ
 Ilaa Naahaatc	อิ^ละ^นา^หาด
-Ilaam	อิ^ลาม
+I^laam	อิ^ลาม
 Ilaanc	อิ^หล่าน
-Ilaatv	อิ^ล้าด
-Ilai	อิ^ไล
+#Ilaatv	อิ^ล้าด
+I^lai	อิ^ไล
 Ilaqv	อี^ละ
-Ili	อิ^ลี
-Ilu	อิ^ลู
+I^li	อิ^ลี
+I^lu	อิ^ลู
 Imlaa	อิม^ลา
 Imli	อิม^ลี
 Imme	อิม^เม
@@ -422,21 +424,21 @@ In Semetv	อิน^เซ^เม้ด
 In^li^kum	อิน^ลี^ลิ^คุม
 Ipc^taa En	อิบ^ทา^เอน
 Isakc	อี^สัก
-Itai	อิ^ไท
+I^tai	อิ^ไท
 Itc^hotv	อิด^โฮ้ด
 Itc^mbi Mbenopv	อิด^บี^เบ^โน้บ
 Itc^saa^maa^ki^yaa	อิด^สะ^มา^คิ^ยา
 Itc^wi	อิด^วี
 Itv^hotv	อิ๊ด^โฮ้ด
 Iu-Mienh	ยิว-เมี่ยน
-Iyim	อิ^ยิม
-Iyipv	อี^ยิบ
+#Iyim	อิ^ยิม
+I^yipv	อี^ยิบ
 Jetc^si	เจียด^ซี
 Jor^laa^kev	จระเข้
 Kaa^laau^ndi^atc	คา^ลาว^ดิ^อัด
 Kaa^litv^batc	คะ^ลิด^ปัด
 Kaa^lo^e	คะ^โล^เอ
-Kaa^ndetc Mbaa^nie	คา^เดด^บา^เนีย
+#Kaa^ndetc Mbaa^nie	คา^เดด^บา^เนีย
 Kaa^si^fie	คา^สิ^เฟีย
 Kaalepv	คา^เล้บ
 Kaan^ndaa^si	คาน^ดา^สี
@@ -551,7 +553,7 @@ Limmon	ลิม^โมน
 Limmon Beletv	ลิม^โมน^เป^เล้ด
 Linnaa	ลิน^นา
 Lisiex	ลี^เสีย
-Lo^Lu^haa^maa	โล^ลุ^หะ^มา
+#Lo^Lu^haa^maa	โล^ลุ^หะ^มา
 Logaa	โล^กา
 Lomaa	โล^มา
 Lotaan	โล^ทาน
@@ -1078,7 +1080,7 @@ Tu^mban	ทู^บัน
 Tu^mban Kaa^in	ทู^บัน^คา^อิน
 Tu^ndaatc	ทุ^ดาด
 Tummim	ทุม^มิม
-U^li^aa	อุ^ลี^อา
+#U^li^aa	อุ^ลี^อา
 U^li^en	อุ^ลี^เอน
 U^li^yaa	อุ^ลี^ยา
 Ufaatv	อุ^ฟ้าด
@@ -1147,7 +1149,7 @@ Yelaa	เย^ลา
 Yeletv	เย^เล้ด
 Yelupv Mbaa^an	เย^ลุบ^บา^อัน
 Yen^ne^saa^letv	เยน^เน^ซา^เล้ด
-Yepv^taa	เยี้ยบ^ทา
+Yepv^taa	เย้บ^ทา
 Yese	เย^เซ
 Yesu	เย^ซู
 Yete	เย^เท
@@ -1181,7 +1183,6 @@ Zeletv	เฒ^เล้ด
 Zinaa	ฒี^นา
 Zisaa	ฒี^ซา
 a'ngunc	อะหงุ่น
-aa^lam^naa^haa^laa^im	อา^ลัม^นา^หะ^ลา^อิม
 aa^lon^mbaa^kutv	อา^โลน^บา^คู้ด
 aah	อ้า
 aah loc	อ้าโหล่
@@ -1233,7 +1234,7 @@ huonh huonh	ฮว่วนๆ
 huotv	ฮว้วด
 huov-jeix	ฮวั้ว-เจ๋ย
 husopc	หุ^โสบ
-jatv	จ๊ัด
+jatv	จั๊ด
 jiem-kuing	เจียม-ควีง
 ka'ndau	ขะเดา
 kou kou	โคว โคว
@@ -1329,7 +1330,7 @@ Le^hox^mbotc^i	เล^โห^โบด^อี
 Sai^ndorn	ไซ^ดอน
 Yokv^taan	โย้ก^ทาน
 He^mbo^lon	เฮ^โบ^โลน
-ziouc	ฯฒฯ
+#ziouc	ฯฒฯ
 E^fo^lon	เอ^โฟ^โลน
 mba'zorng-hiun	บะฒอง-ฮยุน
 Yokv^saan	โย้ก^ซาน
@@ -1380,7 +1381,6 @@ se gorngv ndo	เซ ก๊อง โด
 se gorngv-baeqc	เซ ก๊อง-แปะ
 Aa^lupv^mbotc	อา^ลุบ^โบด
 sou se gorngv	โซว เซ ก๊อง
-Ke^motv	เค^โม้ด
 Leson	เล^โซน
 Aa^mbi^qaa^lom	อา^บี^ชา^โลม
 Tapv^lim^mon	ทับ^ลิม^โมน
@@ -1393,16 +1393,16 @@ Hopv^ni	โฮ้บ^นี
 I^kaa^mbotc	อี^คา^โบด
 Sipc^motv	สิบ^โม้ด
 Atc^ke^lon	อัด^เค^โลน
-Aa^motv	อา^โม้ด
+#Aa^motv	อา^โม้ด
 Yaasonx	ยา^โสน
 Atc^sotc	อัด^โสด
 Ki^otc	คี^โอด
 jopv-nyeic	จ๊บ-เหญ่ย
 Lukv	ลู้ก
-Haa^mon	ฮา^โมน
+#Haa^mon	ฮา^โมน
 Gutc^go^ndaa	กุด^โก^ดา
 Yotv^mbaa^taa	โย้ด^บา^ทา
-Ndaan^fon	ดาน^โฟน
+#Ndaan^fon	ดาน^โฟน
 ndu^gong	ดู^โกง
 Hen^mbon	เฮน^โบน
 Ndi^mbon	ดี^โบน
@@ -1411,13 +1411,13 @@ E^saanx^hatv^ndon	เอ^สาน^ฮัด^โดน
 Maa^ndukc	มา^ดูก
 Ekc^lon	เอก^โลน
 Opc^faa^laa	โอบ^ฟา^ลา
-Kaa^mon	คา^โมน
+#Kaa^mon	คา^โมน
 Saax^fon	สา^โฟน
 Yokv^mbe^haa	โย้ก^เบ^ฮา
 An^naa^totv	อัน^นา^โท้ด
 Holon	โฮ^โลน
 Mbetc^me^on	เบด^เม^โอน
-Aai^non	อาย^โนน
+#Aai^non	อาย^โนน
 Gon^go^taa	โกน^โก^ทา
 Se^mbe^ndi	เส^เบ^ดี
 Mbe^he^motv	เบ^เฮ^โม้ด
@@ -1442,7 +1442,7 @@ Han^naa^ton	ฮัน^นา^โทน
 Siyon	ซี^โยน
 E^mbon	เอ^โบน
 Me Yaankon	เม^ยาน^โคน
-An^mon	อัน^โมน
+#An^mon	อัน^โมน
 Ham^motv^ndo	ฮัม^โม้ด^โด
 En^te^kon	เอน^เท^โคน
 Lakv^kon	ลัก^โคน
@@ -1457,11 +1457,11 @@ Paa^ndon	พา^โดน
 Mbakc^mbukc	บัก^บูก
 Atc^ndon	อัด^โดน
 Gin^ne^ton	กิน^เน^โทน
-Aa^mokv	อา^โม้ก
+#Aa^mokv	อา^โม้ก
 Helon	เฮ^โลน
 O^mbotc	โอ^โบด
-Mbaa^motv	บา^โม้ด
-Bu^non	ปู^โนน
+#Mbaa^motv	บา^โม้ด
+#Bu^non	ปู^โนน
 Qitv^lon	ชิด^โลน
 Yokv^li	โย้ก^ลี
 Kotv^mbi	โค้ด^บี
@@ -1484,3 +1484,165 @@ Maa^laa^yotv	มา^ลา^โย้ด
 Qi^me^on	ชี^เม^โอน
 Otc^naa^baa	โอด^นา^ปา
 saa^fon	ซา^โฟน
+Da'yietv	ตะเยี้ยด
+Haa^saan^maa^wetv	ฮา^ซาน^มา^เว้ด
+Hetv	เฮ้ด
+Aan^bakc^saatv	อาน^ปัก^ซ้าด
+Aa^maa^lekv	อา^มา^เล้ก
+Maa^naa^haatv	มา^นา^ฮ้าด
+Matv^letv	มัด^เล้ด
+da'cietv	ตะเธี้ยด
+Se^le^letv	เซ^เล^เล้ด
+He^letv^te	เฮ^เล้ด^เท
+letv	เล้ด
+Se^naatv^saa	เซ^น้าด^ซา
+Laa^haatv	ลา^ฮ้าด
+cuotv	ธ้วด
+cuotv-cuotv	ธ้วดๆ
+Atc^ke^natv	อัด^เค^นัด
+Mitv^le^am	มิด^เล^อัม
+Napv^tu^him	นับ^ทู^ฮิม
+Katv^lu^him	คัด^ลู^ฮิม
+nzepv	เฑ้บ
+Saax^laapv	สา^ล้าบ
+Zizaa	ฒี^ฒา
+miev-ciangv	เมี้ย-เธี้ยง
+#cietv	เธี้ยด
+Ko^haatv	โค^ฮ้าด
+Yaatv^ti	ย้าด^ที
+Aa^le^metv	อา^เล^เม้ด
+#ziangx	เหฒียง
+Belaetv	เป^แล้ด
+Ham^mo^le^ketv	ฮัม^โม^เล^เค้ด
+Taa^aa^naakv	ทา^อา^น้าก
+Atc^waatv	อัด^ว้าด
+Aaman	อา^มัน
+setv	เซ้ด
+yietv	เยี้ยด
+#ndiangx	เดี๋ยง
+jiem-ba'gen-nyaapv	เจียม-ปะเกน-ญ้าบ
+Atc^maa^wetv	อัด^มา^เว้ด
+San^le^ketv	ซัน^เล^เค้ด
+Yaatv^ni^en	ย้าด^นี^เอน
+nqaapv	ฆ้าบ
+Hapc^bitc^setv	หับ^ปิด^เซ้ด
+#Siang-Hlaax	เซียง-หฮลา
+#nziang	เฑียง
+#ciangv	เธี้ยง
+hluotv	ฮล้วด
+Aalam Naa^haa^laa^im	อา^ลัม^นา^หะ^ลา^อิม
+kuotv-norm	ค้วด-นอม
+zepv	เฒ้บ
+Ke^i^laa	เค^อี^ลา
+sekv	เซ้ก
+sekv-sekv	เซ้กๆ
+Ne^mbu^katv^netv^saa	เน^บู^คัด^เน้ด^ซา
+Maa^haatv	มา^ฮ้าด
+Qeletv	เช^เล้ด
+Lotc	โหลด
+#siang	เซียง
+mbaengx-kuotv	แบ๋ง-ค้วด
+wuom-kuotv	ววม-ค้วด
+kuotv	ค้วด
+siepv	เซี้ยบ
+#siang-ngongh	เซียง-ง่ง
+Pen^te^kortv	เพน^เท^ค้อด
+nziepv	เฑี้ยบ
+Ke^faatv	เค^ฟ้าด
+#ciepv	เธี้ยบ
+nqaatv	ฆ้าด
+#liangx-ndeic	เหลียง-เด่ย
+#ziangv	เฒี้ยง
+#ziang	เฒียง
+E^li^ho^lepv	เอ^ลี^โฮ^เล้บ
+#biangh	เปี้ยง
+Kemotv	เค^โม้ด
+Taa^be^netv	ทา^เป^เน้ด
+Be^nu^en	เป^นู^เอน
+Ginatv	กี^นัด
+wetv	เว้ด
+siepv-siepv	เซี้ยบๆ
+E^ko^lon	เอ^โค^โลน
+E^fetv Ndam^mim	เอ^เฟ้ด^ดัม^มิม
+Holetv	โฮ^เล้ด
+Aaten	อา^เทน
+Aa^lekv^saan^nde	อา^เล้ก^ซาน^เด
+Aa^saa^li^yaa^hu	อา^ซา^ลี^ยา^ฮู
+Aamortv	อา^ม้อด
+Aamotv	อา^โม้ด
+Atc^lam^me^lekv	อัด^ลัม^เม^เล้ก
+Aa^nam^me^lekv	อา^นัม^เม^เล้ก
+Sepv^naa	เซ้บ^นา
+Henaa	เฮ^นา
+Me^sun^le^metv	เม^ซุน^เล^เม้ด
+Tikv^waa	ที้ก^วา
+#Topv	โท้บ
+U^li^aa	อุ^ลี^อา
+Yelupv Mbesetv	เย^ลุบ^เบ^เซ้ด
+He^lepv	เฮ^เล้บ
+Yun^itv	ยู^นิด
+He^mo^ge^netv	เฮ^โม^เก^เน้ด
+#Ndem^aatv	เด^ม้าด
+Lin^atv	ลี^นัด
+Ndi^o^de^fetv	ดี^โอ^เต^เฟ้ด
+#Tom^atv	โท^มัด
+Sinaai	ซี^นาย
+Hemetv	เฮ^เม้ด
+Mben^itv	เบ^นิด
+Finikv	ฟี^นิก
+Haamon	ฮา^โมน
+Kaa^ndetc Mbaanie	คา^เดด^บา^เนีย
+Emim	เอ^มิม
+Ndaanfon	ดาน^โฟน
+#ziouc	เหฒี่ยว
+ziouc	ฯฒฯ
+nekv	เน้ก
+Ndopv-Liuh	ด๊บ-ลิ่ว
+m'zai	มะไฒ
+Mbaamaa	บา^มา
+Ba'likv	ปะลี้ก
+Ndaamv-metv	ด๊าม-เม้ด
+Haasaa Enon	ฮา^ซา^เอ^โนน
+I^laatv	อิ^ล้าด
+Sinaapv	ซี^น้าบ
+Aa^mbi^me^lekv	อา^บี^เม^เล้ก
+Ndinaa	ดี^นา
+Hemam	เฮ^มัม
+Suni	ซู^นี
+Kuqan	คู^ชัน
+Lo Lu^haa^maa	โล^ลุ^หะ^มา
+Haanetv	ฮา^เน้ด
+Sinim	ซี^นิม
+Meni	เม^นี
+Olepv	โอ^เล้บ
+Aanaatv	อา^น้าด
+Kaamon	คา^โมน
+Topv Deic-Bung	โท้บ เต่ย-ปูง
+Tomatv	โท^มัด
+Aainon	อาย^โนน
+tekv	เท้ก
+Nepv^to^aa	เน้บ^โท^อา
+Ke^saa^	เค^สะ^
+I^yim	อิ^ยิม
+Enaam	เอ^นาม
+Yaanim	ยา^นิม
+En^te^ko^lon	เอน^เท^โค^โลน
+Helekv	เฮ^เล้ก
+Hammotv Ndo^aa	ฮัม^โม้ด^โด^อา
+Anmon	อัน^โมน
+Yonaam	โย^นาม
+Kainaan	ไค^นาน
+Saanan	ซา^นัน
+Aanan	อา^นัน
+Aamokv	อา^โม้ก
+Enan	เอ^นัน
+Waa^hepv	วา^เฮ้บ
+Mbaamotv	บา^โม้ด
+E^le^aa^	เอ^เล^อา^
+Bi Haa^hi^	ปี^หะ^หิ^
+Bunon	ปู^โนน
+Yiem Bunon	เยียม ปู^โนน
+Baanaakv	ปา^น้าก
+Ndemaatv	เด^ม้าด
+Hemaatv	เฮ^ม้าด
+E^li^me^lekv	เอ^ลี^เม^เล้ก

@@ -62,7 +62,7 @@
         <c>p</c>
       </component>
       <component r="tf">
-        <c hex="0e01"/>
+        <syl:c hex="0e01" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
         <c hex="0e14"/>
         <c hex="0e1a"/>
       </component>
@@ -409,13 +409,22 @@
         <c r="tt"/>
         <c r="tf"/>
       </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <!--v tone, stop-->
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
       <m>
         <!--v tone, stop-->
         <c r="c" class="lowCons"/>
         <c r="t">v</c>
         <c r="f" class="kptFinal"/>
         <c r="tc" class="lowCons"/>
-        <c r="tt"/>
+        <c r="tt" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">้</c>
         <c r="tf" class="kptFinal"/>
       </m>
       <m>
@@ -791,13 +800,30 @@
         <c r="tf"/>
       </m>
       <m>
+        <c r="v">ia</c>
+        <c r="f">ng</c>
+        <c r="tf">ง</c>
+        <c r="tvp">เ</c>
+        <c r="tvu">ี</c>
+        <c r="tva">ย</c>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="v">ie</syl:c>
+        <syl:c r="f"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu" hex="0e35"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e22"/>
+        <syl:c r="tf"/>
+      </m>
+      <m>
         <c r="v">ie</c>
-        <c r="f" class="anyFinal"/>
+        <c r="f" class="ktpnmFinal"/>
         <c r="tvp" hex="0e40"/>
         <c r="tvu" hex="0e35"/>
         <c r="tvd"/>
         <c r="tva" hex="0e22"/>
-        <c r="tf" class="anyFinal"/>
+        <c r="tf" class="ktpnmFinal"/>
       </m>
       <!--<m>
 <c r="v">ie</c> <c r="f"/> 
@@ -1059,14 +1085,14 @@
         <c r="tva"/>
         <c r="tf"/>
       </m>
-      <m>
-        <c r="v">eq</c>
-        <c r="f"/>
-        <c r="tvp" hex="0e40"/>
-        <c r="tvu"/>
-        <c r="tvd"/>
-        <c r="tva" hex="0e30"/>
-        <c r="tf"/>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="v">eq</syl:c>
+        <syl:c r="f"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e30"/>
+        <syl:c r="tf"/>
       </m>
     </maps>
   </mappingTable>
@@ -1108,7 +1134,7 @@
       </m>
       <m>
         <c r="p">m'</c>
-        <c r="tp" hex="0e21"/>
+        <c r="tp">ม</c>
       </m>
       <m>
         <c r="p">a'</c>
@@ -1235,19 +1261,6 @@
         <c r="tvu"/>
         <c r="tvd"/>
         <c r="tva" hex="0e30"/>
-      </m>
-      <m>
-        <c r="c" class="highCons"/>
-        <c r="v">a</c>
-        <c r="t">c</c>
-        <c r="tc" class="highCons"/>
-        <c r="tt" hex="0e48"/>
-        <c r="tvp"/>
-        <c r="tvu" hex="0e31"/>
-        <c r="tvd"/>
-        <c r="tva"/>
-        <c r="f" class="-mnngFinal"/>
-        <c r="tf" class="-mnngFinal"/>
       </m>
       <m>
         <c r="c" class="highCons"/>
@@ -1830,19 +1843,6 @@
       </m>
       <m>
         <c r="c" class="midCons"/>
-        <c r="v">a</c>
-        <c r="t">c</c>
-        <c r="tc" class="midCons"/>
-        <c r="tt" hex="0e48"/>
-        <c r="tvp"/>
-        <c r="tvu" hex="0e31"/>
-        <c r="tvd"/>
-        <c r="tva"/>
-        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
-        <c r="tf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
-      </m>
-      <m>
-        <c r="c" class="midCons"/>
         <c r="tc" class="midCons"/>
         <c r="v">aaq</c>
         <c r="t">c</c>
@@ -2383,6 +2383,318 @@
       <!--<c r="tvd" />-->
       <!--<c r="tva" />-->
       <!--</m>-->
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">a</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu" hex="0e31"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">e</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">u</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd" hex="0e38"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">i</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu" hex="0e35"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">o</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">aa</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e32"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">ai</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e44"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">aai</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e32 0e22"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">au</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e32"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">aau</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e32 0e27"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">ei</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e22"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">eu</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e27"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">iou</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu" hex="0e35"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e22 0e27"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">oi</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e2d 0e22"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">ou</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e42"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e27"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">iu</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu" hex="0e34"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e27"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">ui</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd" hex="0e38"/>
+        <syl:c r="tva" hex="0e22"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">ae</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e41"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">ue</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu" hex="0e37"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">er</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu" hex="0e35"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">ie</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu" hex="0e35"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e22"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">or</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e2d"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">uea</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp" hex="0e40"/>
+        <syl:c r="tvu" hex="0e37"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e2d"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
+      <m xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+        <syl:c r="c" class="lowCons"/>
+        <syl:c r="v">uo</syl:c>
+        <syl:c r="t">v</syl:c>
+        <syl:c r="tc" class="lowCons"/>
+        <syl:c r="tt" hex="0e49"/>
+        <syl:c r="tvp"/>
+        <syl:c r="tvu" hex="0e31"/>
+        <syl:c r="tvd"/>
+        <syl:c r="tva" hex="0e27"/>
+        <syl:c r="f" class="kptFinal"/>
+        <syl:c r="tf" class="kptFinal"/>
+      </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">aq</c>
@@ -2393,19 +2705,6 @@
         <c r="tvu"/>
         <c r="tvd"/>
         <c r="tva" hex="0e30"/>
-      </m>
-      <m>
-        <c r="c" class="lowCons"/>
-        <c r="v">a</c>
-        <c r="t">v</c>
-        <c r="tc" class="lowCons"/>
-        <c r="tt"/>
-        <c r="tvp"/>
-        <c r="tvu" hex="0e31"/>
-        <c r="tvd"/>
-        <c r="tva"/>
-        <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
-        <c r="tf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
       </m>
       <m>
         <c r="c" class="lowCons"/>
@@ -2898,17 +3197,6 @@
       </m>
       <m>
         <c r="c" class="highCons"/>
-        <c r="v">a</c>
-        <c r="t">x</c>
-        <c r="tc" class="highCons"/>
-        <c r="tt"/>
-        <c r="tvp"/>
-        <c r="tvu" hex="0e31"/>
-        <c r="tvd"/>
-        <c r="tva"/>
-      </m>
-      <m>
-        <c r="c" class="highCons"/>
         <c r="v">aa</c>
         <c r="t">x</c>
         <c r="tc" class="highCons"/>
@@ -3261,17 +3549,6 @@
       </m>
       <m>
         <c r="c" class="midCons"/>
-        <c r="v">a</c>
-        <c r="t"/>
-        <c r="tc" class="midCons"/>
-        <c r="tt"/>
-        <c r="tvp"/>
-        <c r="tvu" hex="0e31"/>
-        <c r="tvd"/>
-        <c r="tva"/>
-      </m>
-      <m>
-        <c r="c" class="midCons"/>
         <c r="v">aa</c>
         <c r="t"/>
         <c r="tc" class="midCons"/>
@@ -3611,17 +3888,6 @@
 				<c r="tvd" />
 				<c r="tva"/>
 			</m>-->
-      <m>
-        <c r="c" class="lowCons"/>
-        <c r="v">a</c>
-        <c r="t"/>
-        <c r="tc" class="lowCons"/>
-        <c r="tt"/>
-        <c r="tvp"/>
-        <c r="tvu" hex="0e31"/>
-        <c r="tvd"/>
-        <c r="tva"/>
-      </m>
       <m>
         <c r="c" class="lowCons"/>
         <c r="v">a</c>
