@@ -40,8 +40,6 @@ import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.DocInterface;
 import org.thanlwinsoft.doccharconvert.ProgressNotifier;
 import org.thanlwinsoft.doccharconvert.TextStyle;
-import org.thanlwinsoft.doccharconvert.DocInterface.InterfaceException;
-import org.thanlwinsoft.doccharconvert.DocInterface.WarningException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 
 /**
@@ -51,8 +49,8 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 public class OOMainInterface implements DocInterface
 {
     public final static String OO_PATH = "soffice";
-    public final static String UNO_URL = Config.OO_DEFAULT_UNO;
-    public final static String RUN_OO = Config.OO_DEFAULT_OPTIONS;
+    public final static String UNO_URL = OOConfig.OO_DEFAULT_UNO;
+    public final static String RUN_OO = OOConfig.OO_DEFAULT_OPTIONS;
     private XComponentContext xRemoteContext = null;
 
     private XMultiComponentFactory xRemoteServiceManager = null;
@@ -65,6 +63,7 @@ public class OOMainInterface implements DocInterface
     private OODocParser parser = null;
     private boolean abort = false;
     private ConversionMode mode =  ConversionMode.OO_MODE;
+    private OOConfig ooConfig = new OOConfig();
     /** Creates a new instance of OOMainInterface */
     public OOMainInterface()
     {
@@ -106,7 +105,7 @@ public class OOMainInterface implements DocInterface
             {
                 // not yet terminated so don't do anything
                 System.out.println(
-                    "\"" + Config.getCurrent().getOOPath() + 
+                    "\"" + ooConfig.getOOPath() + 
                     "\" is still running. Killing...");
                 // forcibly destroy it
                 ooProcess.destroy();
@@ -202,7 +201,7 @@ public class OOMainInterface implements DocInterface
         sleepCount = 0;
         try 
         {    
-            xRemoteServiceManager = this.getRemoteServiceManager(Config.getCurrent().getOOUNO());
+            xRemoteServiceManager = this.getRemoteServiceManager(ooConfig.getOOUNO());
         }
         
         catch (com.sun.star.connection.NoConnectException e) 
@@ -215,7 +214,7 @@ public class OOMainInterface implements DocInterface
         {
             try
             {
-                xRemoteServiceManager = this.getRemoteServiceManager(Config.getCurrent().getOOUNO());                
+                xRemoteServiceManager = this.getRemoteServiceManager(ooConfig.getOOUNO());                
             }
             catch (com.sun.star.connection.NoConnectException e1)
             {   
@@ -237,7 +236,7 @@ public class OOMainInterface implements DocInterface
             if ((eValue = ooProcess.exitValue()) != 0)
             {
                 ooProcess = null;
-                throw new InterfaceException(Config.getCurrent().getOOPath() + " exited with " + eValue);
+                throw new InterfaceException(ooConfig.getOOPath() + " exited with " + eValue);
             }
             else
             {
@@ -269,18 +268,18 @@ public class OOMainInterface implements DocInterface
         // try to start OO ourselves
         if (ooProcess == null)
         {
-            System.err.println("Executing: " + Config.getCurrent().getOOPath() + " -headless " +
-                Config.getCurrent().getOOOptions());
+        	System.err.println("Executing: " + ooConfig.getOOPath() + " -headless " +
+                ooConfig.getOOOptions());
             try
             {
                 // oo dir is grand father of program
-                File ooDir = (new File(Config.getCurrent().getOOPath()))
+                File ooDir = (new File(ooConfig.getOOPath()))
                     .getParentFile();
                 if (ooDir != null) ooDir = ooDir.getParentFile();
                 //ooProcess = Runtime.getRuntime().exec(args, null, ooDir);
                 ProcessBuilder pb = new ProcessBuilder(
-                        Config.getCurrent().getOOPath(), //"-headless", 
-                        Config.getCurrent().getOOOptions());
+                		ooConfig.getOOPath(), //"-headless", 
+                		ooConfig.getOOOptions());
                 pb.redirectErrorStream(true);
                 pb.directory(ooDir);
                 
@@ -395,7 +394,7 @@ public class OOMainInterface implements DocInterface
     public XMultiComponentFactory getRemoteServiceManager() 
         throws InterfaceException, com.sun.star.connection.NoConnectException
     {
-        return getRemoteServiceManager(Config.getCurrent().getOOUNO());
+        return getRemoteServiceManager(ooConfig.getOOUNO());
     }
     public XComponentContext getRemoteContext()
     {

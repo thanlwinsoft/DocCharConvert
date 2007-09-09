@@ -1,4 +1,4 @@
-package org.thanlwinsoft.doccharconvert;
+package org.thanlwinsoft.doccharconvert.openoffice;
 
 /*
  *  Copyright (C) 2005 Keith Stribley <doccharconvert@thanlwinsoft.org>
@@ -26,6 +26,9 @@ package org.thanlwinsoft.doccharconvert;
  
 import java.util.Hashtable;
 import java.io.File;
+
+import org.thanlwinsoft.doccharconvert.FontStyle;
+import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.DummyConverter;
 import org.thanlwinsoft.doccharconvert.openoffice.OOMainInterface;
