@@ -31,7 +31,7 @@ public class Perspective implements IPerspectiveFactory
         IFolderLayout folderA = layout.createFolder(FOLDER_A, 
             IPageLayout.RIGHT, 0.7f, editorArea);
         folderA.addPlaceholder(DEBUG_UNICODE);
-        folderA.addPlaceholder(CONV_FILE_LIST);
+        folderA.addPlaceholder(CONV_FILE_LIST + ":*");
         folderA.addPlaceholder("org.eclipse.ui.internal.intro");
         
         layout.addStandaloneViewPlaceholder(CONVERSION_RESULT,  

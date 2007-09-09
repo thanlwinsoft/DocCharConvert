@@ -1184,7 +1184,7 @@ Zinaa	ฒี^นา
 Zisaa	ฒี^ซา
 a'ngunc	อะหงุ่น
 aa^lon^mbaa^kutv	อา^โลน^บา^คู้ด
-aah	อ้า
+#aah	อ้า
 aah loc	อ้าโหล่
 aqc mangc	อะหมั่ง
 biuih	ปยุ้ย
@@ -1646,3 +1646,11 @@ Baanaakv	ปา^น้าก
 Ndemaatv	เด^ม้าด
 Hemaatv	เฮ^ม้าด
 E^li^me^lekv	เอ^ลี^เม^เล้ก
+muangv	มวั้ง
+muangh	มวั่ง
+muangz	มวั์ง
+janx-muangz	จั๋น-มวั์ง
+yoqepv	โยะ^เอ๊บ
+da'naix	ตะไหน
+dorn-da'naix	ตอน-ตะไหน
+Aaqh	อ้า

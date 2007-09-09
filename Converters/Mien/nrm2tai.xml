@@ -626,10 +626,6 @@
         <c r="tf" class="kptnngFinal"/>
       </m>
       <m>
-        <c r="v">aaq</c>
-        <c r="tva">า</c>
-      </m>
-      <m>
         <c r="v">aa</c>
         <c r="tva">า</c>
       </m>
@@ -1277,13 +1273,6 @@
       </m>
       <m>
         <c r="c" class="highCons"/>
-        <c r="v">aaq</c>
-        <c r="t">c</c>
-        <c r="tva">า</c>
-        <c r="tc" class="highCons"/>
-      </m>
-      <m>
-        <c r="c" class="highCons"/>
         <c r="v">aa</c>
         <c r="t">c</c>
         <c r="tc" class="highCons"/>
@@ -1840,13 +1829,6 @@
         <c r="tva"/>
         <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
         <c r="tf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
-      </m>
-      <m>
-        <c r="c" class="midCons"/>
-        <c r="tc" class="midCons"/>
-        <c r="v">aaq</c>
-        <c r="t">c</c>
-        <c r="tva">า</c>
       </m>
       <m>
         <c r="c" class="midCons"/>
@@ -2718,13 +2700,6 @@
         <c r="tva"/>
         <c r="f" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
         <c r="tf" class="-mnngFinal" xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser"/>
-      </m>
-      <m>
-        <c r="c" class="lowCons"/>
-        <c r="tc" class="lowCons"/>
-        <c r="t">v</c>
-        <c r="v">aaq</c>
-        <c r="tva">า</c>
       </m>
       <m>
         <c r="c" class="lowCons"/>
