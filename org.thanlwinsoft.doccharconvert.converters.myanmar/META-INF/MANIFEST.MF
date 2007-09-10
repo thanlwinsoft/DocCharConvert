@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Myanmar Plug-in for DocCharConvert
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanmar;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: www.thanlwinsoft.org
+Require-Bundle: org.thanlwinsoft.doccharconvert
