@@ -2,6 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension-point id="org.thanlwinsoft.doccharconvert.parser" name="org.thanlwinsoft.doccharconvert.parser" schema="schema/org.thanlwinsoft.doccharconvert.parser.exsd"/>
+   <extension-point id="org.thanlwinsoft.doccharconvert.converters" name="org.thanlwinsoft.doccharconvert.converters" schema="schema/org.thanlwinsoft.doccharconvert.converters.exsd"/>
 
    <extension
          id="DocCharConvertApp"
