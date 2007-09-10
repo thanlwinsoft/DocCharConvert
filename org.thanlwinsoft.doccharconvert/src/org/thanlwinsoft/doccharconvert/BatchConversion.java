@@ -37,8 +37,6 @@ import java.nio.charset.Charset;
 import java.util.Hashtable;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
-import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
-import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
 import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 import org.thanlwinsoft.doccharconvert.opendoc.OpenDocParser;
 import org.thanlwinsoft.doccharconvert.parser.TeXParser;
@@ -54,7 +52,7 @@ public class BatchConversion implements Runnable
     Hashtable <TextStyle,CharConverter>converterList;
     String outputPrefix = "";
     File outputDir = null;
-    ConversionMode mode = ConversionMode.OO_MODE;
+    ConversionMode mode = ConversionMode.TEXT_MODE;
     int currentFileIndex = 0;
     int fileCount = 0;
     //boolean stop = false;
@@ -301,11 +299,11 @@ public class BatchConversion implements Runnable
         {
             switch (mode.getId())
             {
-                case ConversionMode.OO_ID:
-                    OOMainInterface ooInterface = new OOMainInterface();
-                    ooInterface.setOnlyStylesInUse(onlyStylesInUse);
-                    docInterface = ooInterface;
-                    break;
+//                case ConversionMode.OO_ID:
+//                    OOMainInterface ooInterface = new OOMainInterface();
+//                    ooInterface.setOnlyStylesInUse(onlyStylesInUse);
+//                    docInterface = ooInterface;
+//                    break;
                 case ConversionMode.TEXT_ID:
                     docInterface = new TextParser();
                     break;

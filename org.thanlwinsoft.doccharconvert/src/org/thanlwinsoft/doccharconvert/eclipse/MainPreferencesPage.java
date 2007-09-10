@@ -3,19 +3,14 @@
  */
 package org.thanlwinsoft.doccharconvert.eclipse;
 
-import java.io.File;
-import java.net.URISyntaxException;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.preference.DirectoryFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.util.PropertyChangeEvent;
-import org.eclipse.osgi.service.datalocation.Location;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
@@ -50,17 +45,7 @@ public class MainPreferencesPage extends FieldEditorPreferencePage
         addField(new IntegerFieldEditor(Config.TEST_FONT_SIZE,
                 MessageUtil.getString("DefaultFontSize"), 
                 getFieldEditorParent()));
-        DirectoryFieldEditor ooPathFE = new DirectoryFieldEditor(Config.OOPATH,
-                MessageUtil.getString("OOoPath"),
-                getFieldEditorParent());
-        // TODO: validate oo path
-        addField(ooPathFE);
-        addField(new StringFieldEditor(Config.OOOPTIONS,
-                MessageUtil.getString("OOoOptions"),
-                this.getFieldEditorParent()));
-        addField(new StringFieldEditor(Config.OOUNO,
-                MessageUtil.getString("OOoUNO"),
-                this.getFieldEditorParent()));
+        
         addField(new DirectoryFieldEditor(Config.LOG_FILE,
                 MessageUtil.getString("LogFile"),
                 getFieldEditorParent()));
@@ -107,20 +92,6 @@ public class MainPreferencesPage extends FieldEditorPreferencePage
     public void propertyChange(PropertyChangeEvent event)
     {
         super.propertyChange(event);
-        if (event.getProperty().equals(Config.OOPATH))
-        {
-            Location l = Platform.getInstallLocation();
-            try
-            {
-                File base = new File(l.getURL().toURI());
-                Config.getCurrent().setBasePath(base);
-            }
-            catch (URISyntaxException e)
-            {
-                e.printStackTrace();
-            }
-            Config.getCurrent().setOOPath(event.getNewValue().toString());
-        }
     }
     
     

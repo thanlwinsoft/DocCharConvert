@@ -44,9 +44,10 @@ public class ConfigDialog extends javax.swing.JDialog
     {
         super(parent, modal);
         initComponents();
-        ooPath.setText(Config.getCurrent().getOOPath());
-        ooOptionsField.setText(Config.getCurrent().getOOOptions());
-        unoField.setText(Config.getCurrent().getOOUNO());
+//        ooPath.setText(Config.getCurrent().getOOPath());
+//        ooOptionsField.setText(Config.getCurrent().getOOOptions());
+//        unoField.setText(Config.getCurrent().getOOUNO());
+//        
         try 
         {
             converterPath.setText(Config.getCurrent().getConverterPath().getCanonicalPath());
@@ -165,29 +166,29 @@ public class ConfigDialog extends javax.swing.JDialog
 
         ooButtonPanel.add(ooPathButton);
 
-        ooDefaultOpt.setText("Default");
-        ooDefaultOpt.setToolTipText("restore default value");
-        ooDefaultOpt.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                ooDefaultOptActionPerformed(evt);
-            }
-        });
-
-        ooButtonPanel.add(ooDefaultOpt);
-
-        ooDefaultUno.setText("Default");
-        ooDefaultUno.setToolTipText("restore default value");
-        ooDefaultUno.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                ooDefaultUnoActionPerformed(evt);
-            }
-        });
-
-        ooButtonPanel.add(ooDefaultUno);
+//        ooDefaultOpt.setText("Default");
+//        ooDefaultOpt.setToolTipText("restore default value");
+//        ooDefaultOpt.addActionListener(new java.awt.event.ActionListener()
+//        {
+//            public void actionPerformed(java.awt.event.ActionEvent evt)
+//            {
+//                ooDefaultOptActionPerformed(evt);
+//            }
+//        });
+//
+//        ooButtonPanel.add(ooDefaultOpt);
+//
+//        ooDefaultUno.setText("Default");
+//        ooDefaultUno.setToolTipText("restore default value");
+//        ooDefaultUno.addActionListener(new java.awt.event.ActionListener()
+//        {
+//            public void actionPerformed(java.awt.event.ActionEvent evt)
+//            {
+//                ooDefaultUnoActionPerformed(evt);
+//            }
+//        });
+//
+//        ooButtonPanel.add(ooDefaultUno);
 
         jPanel4.add(ooButtonPanel);
 
@@ -288,16 +289,16 @@ public class ConfigDialog extends javax.swing.JDialog
         pack();
     }//GEN-END:initComponents
 
-    private void ooDefaultUnoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ooDefaultUnoActionPerformed
-    {//GEN-HEADEREND:event_ooDefaultUnoActionPerformed
-        // TODO add your handling code here:
-        unoField.setText(Config.OO_DEFAULT_UNO);
-    }//GEN-LAST:event_ooDefaultUnoActionPerformed
-
-    private void ooDefaultOptActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ooDefaultOptActionPerformed
-    {//GEN-HEADEREND:event_ooDefaultOptActionPerformed
-        ooOptionsField.setText(Config.OO_DEFAULT_OPTIONS);
-    }//GEN-LAST:event_ooDefaultOptActionPerformed
+//    private void ooDefaultUnoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ooDefaultUnoActionPerformed
+//    {//GEN-HEADEREND:event_ooDefaultUnoActionPerformed
+//        // TODO add your handling code here:
+//        unoField.setText(Config.OO_DEFAULT_UNO);
+//    }//GEN-LAST:event_ooDefaultUnoActionPerformed
+//
+//    private void ooDefaultOptActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ooDefaultOptActionPerformed
+//    {//GEN-HEADEREND:event_ooDefaultOptActionPerformed
+//        ooOptionsField.setText(Config.OO_DEFAULT_OPTIONS);
+//    }//GEN-LAST:event_ooDefaultOptActionPerformed
 
     private void convPathButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_convPathButtonActionPerformed
     {//GEN-HEADEREND:event_convPathButtonActionPerformed
@@ -382,9 +383,9 @@ public class ConfigDialog extends javax.swing.JDialog
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_okButtonActionPerformed
     {//GEN-HEADEREND:event_okButtonActionPerformed
-        Config.getCurrent().setOOPath(ooPath.getText());
-        Config.getCurrent().setOOOptions(ooOptionsField.getText());
-        Config.getCurrent().setOOUNO(unoField.getText());
+//        Config.getCurrent().setOOPath(ooPath.getText());
+//        Config.getCurrent().setOOOptions(ooOptionsField.getText());
+//        Config.getCurrent().setOOUNO(unoField.getText());
         Config.getCurrent().setConverterPath(new File(converterPath.getText()));
         Number num = (Number)testFontSpinner.getValue();
         Config.getCurrent().setTestFontSize(num.intValue());

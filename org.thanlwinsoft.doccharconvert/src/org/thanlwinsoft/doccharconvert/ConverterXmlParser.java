@@ -27,6 +27,9 @@ package org.thanlwinsoft.doccharconvert;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 import java.io.File;
 import java.io.IOException;
@@ -65,16 +68,33 @@ public class ConverterXmlParser
     public final static String OLD = "old";
     public final static String NEW = "new";
     public final static String EXT = ".dccx";
-    File converterDir = null;
+    List <File> converterDir = null;
     File currentXmlFile = null;
     Vector<CharConverter> rawConverters = null;
     Vector<ChildConverter> converters = null;
     StringBuffer errorLog = null;
     ProgressNotifier notifier = new ProgressNotifier();
-    /** Creates a new instance of ConverterXmlParser */
+    /** Creates a new instance of ConverterXmlParser 
+     * @param conveterDirs 
+     */
+    public ConverterXmlParser(File [] converterDirs)
+    {
+        this.converterDir = new ArrayList<File>();
+        for (File dir : converterDirs)
+        {
+        	this.converterDir.add(dir);
+        }
+        this.converters = new Vector<ChildConverter>();
+        this.rawConverters = new Vector<CharConverter>();
+        this.errorLog = new StringBuffer();
+    }
+    /** Creates a new instance of ConverterXmlParser 
+     * @param converterDir
+     */
     public ConverterXmlParser(File converterDir)
     {
-        this.converterDir = converterDir;
+        this.converterDir = new ArrayList<File>();
+        this.converterDir.add(converterDir);
         this.converters = new Vector<ChildConverter>();
         this.rawConverters = new Vector<CharConverter>();
         this.errorLog = new StringBuffer();
@@ -100,20 +120,26 @@ public class ConverterXmlParser
     }
     public boolean parse()
     {
-        File [] files = getConverterFiles(converterDir);
-        if (files == null) 
-        {
-            errorLog.append(Config.getCurrent().getMsgResource().getString("noConvDir"));
-            return false;
-        }
+    	List <File> files = new ArrayList<File>();
+    	for (File dir : converterDir)
+    	{
+	        File [] dirFiles = getConverterFiles(dir);
+	        if (files == null) 
+	        {
+	            errorLog.append(Config.getCurrent().getMsgResource().getString("noConvDir"));
+	            continue;
+	        }
+	        for (File f : dirFiles)
+	        	files.add(f);
+    	}
         notifier.beginTask(MessageUtil.getString("ConverterXmlParser_parsing"),
-                           files.length);
-        for (int i = 0; i<files.length; i++)
+                           files.size());
+        for (int i = 0; i<files.size(); i++)
         {
-            if (files[i].canRead())
+            if (files.get(i).canRead())
             {
-                notifier.subTask(files[i].getName());
-                parseFile(files[i]);
+                notifier.subTask(files.get(i).getName());
+                parseFile(files.get(i));
                 notifier.worked(i);
             }
             if (notifier.isCancelled()) break;

@@ -39,10 +39,10 @@ public class ConversionMode
     private FileFilter fileFilter = null;
     private static FileFilter allFilesFilter = null;
     public final static int TEXT_ID = 0;
-    public final static int OO_ID = 1;// openoffice api
+    //public final static int OO_ID = 1;// openoffice api
     public final static int TEX_ID = 2;
-    public final static int OD_ID = 3;/*< opendocument format */
-    public final static int NUM_MODES = 4;
+    public final static int OD_ID = 1;/*< opendocument format */
+    public final static int NUM_MODES = 3;
     
     /** Creates a new instance of ConversionMode */
     protected ConversionMode(int id, String name, boolean styleSupport)
@@ -56,8 +56,8 @@ public class ConversionMode
     public boolean hasStyleSupport() { return styleSupport; }
     public static final ConversionMode TEXT_MODE = 
         new ConversionMode(TEXT_ID,"Plain Text",false);
-    public static final ConversionMode OO_MODE = 
-        new ConversionMode(OO_ID,"OpenOffice",true);
+//    public static final ConversionMode OO_MODE = 
+//        new ConversionMode(OO_ID,"OpenOffice",true);
     public static final ConversionMode TEX_MODE = 
         new ConversionMode(TEX_ID,"TeX",false);
     public static final ConversionMode OD_MODE = 
@@ -68,8 +68,8 @@ public class ConversionMode
         {
             case TEXT_ID:
                 return TEXT_MODE;
-            case OO_ID:
-                return OO_MODE;
+//            case OO_ID:
+//                return OO_MODE;
             case TEX_ID:
                 return TEX_MODE;
             case OD_ID:
@@ -102,24 +102,24 @@ public class ConversionMode
                         public String getDescription() { return name; }
                     };
                     break;
-                case OO_ID:
-                    fileFilter = new FileFilter() {
-                        public boolean accept(java.io.File f)
-                        {
-                            String lcn = f.getName().toLowerCase();
-                            if (lcn.endsWith(".doc") ||
-                                lcn.endsWith(".rtf") ||
-                                lcn.endsWith(".sxw") ||
-                                lcn.endsWith(".txt") ||
-                                lcn.endsWith(".html") ||
-                                lcn.endsWith(".htm")) return true;
-                            // need to add directory to allow directory browsing
-                            if (f.isDirectory()) return true;
-                            return false;
-                        }
-                        public String getDescription() { return name; }
-                    };
-                    break;
+//                case OO_ID:
+//                    fileFilter = new FileFilter() {
+//                        public boolean accept(java.io.File f)
+//                        {
+//                            String lcn = f.getName().toLowerCase();
+//                            if (lcn.endsWith(".doc") ||
+//                                lcn.endsWith(".rtf") ||
+//                                lcn.endsWith(".sxw") ||
+//                                lcn.endsWith(".txt") ||
+//                                lcn.endsWith(".html") ||
+//                                lcn.endsWith(".htm")) return true;
+//                            // need to add directory to allow directory browsing
+//                            if (f.isDirectory()) return true;
+//                            return false;
+//                        }
+//                        public String getDescription() { return name; }
+//                    };
+//                    break;
                 case TEX_ID:
                     fileFilter = new FileFilter() {
                         public boolean accept(java.io.File f)

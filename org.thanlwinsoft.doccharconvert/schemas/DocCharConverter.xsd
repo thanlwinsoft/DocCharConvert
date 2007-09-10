@@ -2,7 +2,7 @@
 <xsd:schema targetNamespace="http://www.thanlwinsoft.org/schemas/DocCharConvert" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xml:lang="en">
 <xsd:annotation>
   <xsd:documentation xml:lang="en">
-DocCharConvert: A schema for definining a conversion using a specific converter and configuration file. Currently the conversion is usually between one text encoding to another. Font styles are used to match the text to be converted.
+DocCharConvert: A schema for defining a conversion using a specific converter and configuration file. Currently the conversion is usually between one text encoding to another. Font styles are used to match the text to be converted.
 Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:documentation>
 </xsd:annotation>

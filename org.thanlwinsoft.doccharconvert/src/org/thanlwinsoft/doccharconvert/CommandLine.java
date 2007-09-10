@@ -151,9 +151,9 @@ public class CommandLine
                   case FILE_LIST:
                     fileList = new File(args[a]);
                     break;
-                  case OOO_SETUP:
-                    Config.getCurrent().setOOPath(args[a]);
-                    return 0;
+//                  case OOO_SETUP:
+//                    Config.getCurrent().setOOPath(args[a]);
+//                    return 0;
                   case CONV_PATH:
                       File path = new File(args[a]);
                       if (path.isDirectory())

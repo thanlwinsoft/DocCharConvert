@@ -5,12 +5,10 @@ package org.thanlwinsoft.doccharconvert.eclipse.wizard;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.TimeZone;
 import java.util.Vector;
 

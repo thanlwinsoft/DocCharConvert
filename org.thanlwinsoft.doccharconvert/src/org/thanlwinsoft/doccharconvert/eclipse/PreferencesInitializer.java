@@ -1,7 +1,6 @@
 package org.thanlwinsoft.doccharconvert.eclipse;
 
 import java.io.File;
-import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
@@ -10,7 +9,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -98,9 +96,6 @@ public class PreferencesInitializer extends AbstractPreferenceInitializer
         
         prefStore.setDefault(Config.CONVERTER_CONFIG_PATH, path);
         prefStore.setDefault(Config.TEST_FONT_SIZE, Config.DEFAULT_FONT_SIZE);
-        prefStore.setDefault(Config.OOPATH, Config.DEFAULT_WIN_INSTALL);
-        prefStore.setDefault(Config.OOUNO, Config.OO_DEFAULT_UNO);
-        prefStore.setDefault(Config.OOOPTIONS, Config.OO_DEFAULT_OPTIONS);
         IWorkspaceRoot myWorkspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
         IProject myProject = myWorkspaceRoot.getProject(ConversionWizard.DEFAULT_PROJECT);
         

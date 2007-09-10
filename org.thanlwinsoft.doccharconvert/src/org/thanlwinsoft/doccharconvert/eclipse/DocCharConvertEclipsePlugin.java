@@ -73,4 +73,14 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
                         "org.thanlwinsoft.doccharconvert",
                         IStatus.OK, string,exception));
     }
+
+    public static void log(int warning, String string)
+    {
+        if (getDefault() == null)
+            System.out.println("Error " + warning + ": " + string);
+        else
+            getDefault().getLog().log(new Status(warning,
+                        "org.thanlwinsoft.doccharconvert",
+                        IStatus.OK, string, null));
+    }
 }

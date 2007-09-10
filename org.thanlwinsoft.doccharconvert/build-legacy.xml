@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<project name="DocCharConvert" basedir=".">
+    <description>Builds TecKitJni header</description>
+
+    <target name="-post-compile">
+            <exec dir="${build.dir}" executable="javah">
+                <arg value="-classpath"/>
+                <arg file="${build.dir}/classes"/>
+                <arg value="-d"/>
+                <arg file="${dist.dir}"/>
+                <arg value="org.sil.scripts.teckit.TecKitJni"/>
+            </exec>
+           <mkdir dir="${dist.dir}"/>
+            <copy todir="${work.dir}">
+                <fileset dir="${dist.dir}" excludes="**/*.h"/>
+            </copy>
+            <copy todir="${build.dir}/classes">
+              <fileset file="${src.dir}/META-INF/services/*" excludes="**/*~"/>
+            </copy>
+    </target>
+</project>
