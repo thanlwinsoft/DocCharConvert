@@ -62,7 +62,7 @@ public class OOMainInterface implements DocInterface
     private boolean onlyStylesInUse = false;
     private OODocParser parser = null;
     private boolean abort = false;
-    private ConversionMode mode =  ConversionMode.OO_MODE;
+    private ConversionMode mode =  null;
     private OOConfig ooConfig = new OOConfig();
     /** Creates a new instance of OOMainInterface */
     public OOMainInterface()

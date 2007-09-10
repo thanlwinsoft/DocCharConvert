@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Openoffice Plug-in
-Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.openoffice
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.openoffice;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Activator: org.thanlwinsoft.doccharconvert.openoffice.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.thanlwinsoft.doccharconvert,
- org.eclipse.core.resources
+ org.eclipse.core.resources,
+ org.thanlwinsoft.doccharconvert
 Eclipse-LazyStart: true
