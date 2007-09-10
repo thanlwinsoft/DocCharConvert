@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mien Plug-in
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: org.thanlwinsoft.doccharconvert
+Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mien

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Mien:NRM=>ORM" rname="Mien:ORM=>NRM">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
+<Argument value="Mien/nrm2orm.xml" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Arial" type="old" />
+<Font name="Arial" type="new" />
+</Style>
+</Styles>
+</DocCharConverter>
