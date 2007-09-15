@@ -31,16 +31,15 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.swt.widgets.Composite;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
-import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
 import org.thanlwinsoft.doccharconvert.converter.test.LogConvertedWords;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionRunnable;
+import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.EclipseMessageDisplay;
 import org.thanlwinsoft.doccharconvert.eclipse.Perspective;
 import org.thanlwinsoft.doccharconvert.eclipse.PreferencesInitializer;
@@ -87,6 +86,7 @@ public class ConversionWizard extends Wizard
     @Override
     public void addPages()
     {
+        DocCharConvertEclipsePlugin.getDefault().getPreferenceStore();
         conversion = new BatchConversion();
         conversion.setMessageDisplay(new EclipseMessageDisplay(wbWindow.getShell()));
         parserPage = new DocumentParserPage(conversion);
@@ -275,10 +275,6 @@ public class ConversionWizard extends Wizard
             IWorkbenchPart part = wbWindow.getActivePage().getActivePart();
             if (part != null)
             {
-                if (part instanceof IViewPart)
-                {
-                    IViewPart vp = (IViewPart)part;
-                }
                 IViewReference [] viewRefs = wbWindow.getActivePage().getViewReferences();
                 for (IViewReference ref : viewRefs)
                 {

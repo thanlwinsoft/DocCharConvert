@@ -28,6 +28,7 @@ import java.nio.charset.Charset;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.FontStyle;
+import org.thanlwinsoft.util.IClassLoaderUtil;
 
 /**
  * THIS SHOULD ONLY BE USED FOR TESTING!
@@ -79,5 +80,12 @@ public class DummyConverter implements CharConverter
     public void setEncodings(Charset iCharset, Charset oCharset)
     {
         // ignore        
+    }
+
+    @Override
+    public void setClassLoader(IClassLoaderUtil loader)
+    {
+        // TODO Auto-generated method stub
+        
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.parser">
+      <parser
+            class="org.thanlwinsoft.doccharconvert.parsers.languagetest.LanguageTestParser"
+            extensions="*.xml"
+            id="org.thanlwinsoft.doccharconvert.parsers.languagetest.LanguageTestParser"
+            name="%LanguageTestParser"
+            styleSupport="true">
+      </parser>
+   </extension>
+
+</plugin>

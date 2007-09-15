@@ -1,24 +1,21 @@
 /*
- *  Copyright (C) 2005 Keith Stribley <doccharconvert@thanlwinsoft.org>
- *
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ * Copyright (C) 2005 Keith Stribley <doccharconvert@thanlwinsoft.org>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation; either version 2 of the License, or (at your option) any later
+ * version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU General Public License along with
+ * this program; if not, write to the Free Software Foundation, Inc., 675 Mass
+ * Ave, Cambridge, MA 02139, USA.
  * -----------------------------------------------------------------------
- * $HeadURL: $
- * $LastChangedBy: keith $
- * $LastChangedDate: $
- * $LastChangedRevision: $
+ * $HeadURL: $ $LastChangedBy: keith $ $LastChangedDate: $ $LastChangedRevision: $
  * -----------------------------------------------------------------------
  */
 
@@ -27,8 +24,9 @@ package org.thanlwinsoft.doccharconvert;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 import java.io.File;
@@ -43,20 +41,24 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import java.io.InputStream;
+
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
 import org.thanlwinsoft.doccharconvert.opendoc.ScriptType;
+import org.thanlwinsoft.util.IClassLoaderUtil;
+import org.thanlwinsoft.util.SimpleClassLoaderUtil;
+
 /**
- *
- * @author  keith
+ * 
+ * @author keith
  */
 public class ConverterXmlParser
 {
     public final static String TOP_NODE = "DocCharConverter";
     public final static String CLASS_NODE = "ConverterClass";
-    public final static String NAME_ATTRIB = "name"; 
-    public final static String REVERSE_NAME_ATTRIB = "rname"; 
+    public final static String NAME_ATTRIB = "name";
+    public final static String REVERSE_NAME_ATTRIB = "rname";
     public final static String PARAMETER_NODE = "Parameter";
     public final static String ARGUMENT_NODE = "Argument";
     public final static String TYPE_ATTRIB = "type";
@@ -68,27 +70,51 @@ public class ConverterXmlParser
     public final static String OLD = "old";
     public final static String NEW = "new";
     public final static String EXT = ".dccx";
-    List <File> converterDir = null;
-    File currentXmlFile = null;
+    List<File> converterDir = null;
+    List<URL> converterUrls = null;
+    // File currentXmlFile = null;
+    URL currentXmlUrl = null;
     Vector<CharConverter> rawConverters = null;
     Vector<ChildConverter> converters = null;
     StringBuffer errorLog = null;
     ProgressNotifier notifier = new ProgressNotifier();
-    /** Creates a new instance of ConverterXmlParser 
-     * @param conveterDirs 
+    private IClassLoaderUtil mLoaderUtil = null;
+
+    /**
+     * Creates a new instance of ConverterXmlParser
+     * 
+     * @param conveterDirs
      */
-    public ConverterXmlParser(File [] converterDirs)
+    public ConverterXmlParser(File[] converterDirs, IClassLoaderUtil loader)
     {
         this.converterDir = new ArrayList<File>();
         for (File dir : converterDirs)
         {
-        	this.converterDir.add(dir);
+            this.converterDir.add(dir);
         }
         this.converters = new Vector<ChildConverter>();
         this.rawConverters = new Vector<CharConverter>();
         this.errorLog = new StringBuffer();
+        this.mLoaderUtil = loader;
     }
-    /** Creates a new instance of ConverterXmlParser 
+
+    public ConverterXmlParser(URL[] converterUrls, IClassLoaderUtil loader)
+    {
+        this.converterDir = new ArrayList<File>();
+        this.converterUrls = new ArrayList<URL>();
+        for (URL url : converterUrls)
+        {
+            this.converterUrls.add(url);
+        }
+        this.converters = new Vector<ChildConverter>();
+        this.rawConverters = new Vector<CharConverter>();
+        this.errorLog = new StringBuffer();
+        this.mLoaderUtil = loader;
+    }
+
+    /**
+     * Creates a new instance of ConverterXmlParser
+     * 
      * @param converterDir
      */
     public ConverterXmlParser(File converterDir)
@@ -98,43 +124,49 @@ public class ConverterXmlParser
         this.converters = new Vector<ChildConverter>();
         this.rawConverters = new Vector<CharConverter>();
         this.errorLog = new StringBuffer();
+        this.mLoaderUtil = new SimpleClassLoaderUtil();
     }
+
     public ConverterXmlParser()
     {
         this.converters = new Vector<ChildConverter>();
         this.errorLog = new StringBuffer();
     }
-    public static File [] getConverterFiles(File converterDir)
+
+    public static File[] getConverterFiles(File converterDir)
     {
-        FilenameFilter filter = new FilenameFilter() {
+        FilenameFilter filter = new FilenameFilter()
+        {
             public boolean accept(File dir, String name)
             {
                 return name.toLowerCase().endsWith(EXT);
             }
         };
-        if (converterDir == null) 
+        if (converterDir == null)
         {
             return null;
         }
         return converterDir.listFiles(filter);
     }
+
     public boolean parse()
     {
-    	List <File> files = new ArrayList<File>();
-    	for (File dir : converterDir)
-    	{
-	        File [] dirFiles = getConverterFiles(dir);
-	        if (files == null) 
-	        {
-	            errorLog.append(Config.getCurrent().getMsgResource().getString("noConvDir"));
-	            continue;
-	        }
-	        for (File f : dirFiles)
-	        	files.add(f);
-    	}
+        List<File> files = new ArrayList<File>();
+        for (File dir : converterDir)
+        {
+            File[] dirFiles = getConverterFiles(dir);
+            if (files == null)
+            {
+                errorLog.append(Config.getCurrent().getMsgResource().getString(
+                        "noConvDir"));
+                continue;
+            }
+            for (File f : dirFiles)
+                files.add(f);
+        }
         notifier.beginTask(MessageUtil.getString("ConverterXmlParser_parsing"),
-                           files.size());
-        for (int i = 0; i<files.size(); i++)
+                files.size());
+        for (int i = 0; i < files.size(); i++)
         {
             if (files.get(i).canRead())
             {
@@ -142,29 +174,67 @@ public class ConverterXmlParser
                 parseFile(files.get(i));
                 notifier.worked(i);
             }
-            if (notifier.isCancelled()) break;
+            if (notifier.isCancelled())
+                break;
+        }
+        for (URL url : converterUrls)
+        {
+            if (notifier.isCancelled())
+                break;
+            InputStream is = null;
+            try
+            {
+                notifier.subTask(url.getFile());
+                currentXmlUrl = url;
+                is = url.openStream();
+                if (is != null)
+                    parseStream(is);
+                notifier.worked(1);
+            }
+            catch (IOException e)
+            {
+                errorLog.append(MessageUtil.getString("FailedOpenConverter", e
+                        .getLocalizedMessage()));
+            }
+            finally
+            {
+                try
+                {
+                    is.close();
+                }
+                catch (IOException e)
+                {
+                    errorLog.append(MessageUtil.getString(
+                            "FailedClsoeConverter", e.getLocalizedMessage()));
+                }
+            }
         }
         notifier.done();
-        if (errorLog.length() > 0) return false;        
+        if (errorLog.length() > 0)
+            return false;
         return true;
     }
+
     public Vector<CharConverter> getConverters()
     {
         return rawConverters;
     }
+
     public Vector<ChildConverter> getChildConverters()
     {
         return converters;
     }
+
     public String getErrorLog()
     {
         return errorLog.toString();
     }
+
     public boolean parseFile(File xmlFile)
     {
         try
         {
-            currentXmlFile = xmlFile;
+            currentXmlUrl = xmlFile.toURI().toURL();
             return parseStream(xmlFile.toURI().toURL().openStream());
         }
         catch (IOException ioe)
@@ -173,18 +243,19 @@ public class ConverterXmlParser
             errorLog.append(ioe.getLocalizedMessage());
             errorLog.append('\n');
             return false;
-        }   
+        }
     }
-    
-    public boolean parseStream(InputStream fileStream)   
+
+    public boolean parseStream(InputStream fileStream)
     {
         org.w3c.dom.Document doc = null;
-        try 
+        try
         {
-            DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilderFactory dfactory = DocumentBuilderFactory
+                    .newInstance();
             DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
             InputSource inputSource = new InputSource(fileStream);
-            doc = docBuilder.parse(inputSource);            
+            doc = docBuilder.parse(inputSource);
         }
         catch (ParserConfigurationException pce)
         {
@@ -214,48 +285,52 @@ public class ConverterXmlParser
         {
             doc.normalize();
             Node topNode = doc.getFirstChild();
-            if (!topNode.getNodeName().equals(TOP_NODE) ||
-                topNode.getNodeType() != Node.ELEMENT_NODE) 
+            if (!topNode.getNodeName().equals(TOP_NODE)
+                    || topNode.getNodeType() != Node.ELEMENT_NODE)
             {
-                if (currentXmlFile != null) 
-                    errorLog.append(currentXmlFile.getAbsolutePath());
-                errorLog.append(": DocCharConverter Element is not first node in file.\n");
+                if (currentXmlUrl != null)
+                    errorLog.append(currentXmlUrl.toExternalForm());
+                errorLog
+                        .append(": DocCharConverter Element is not first node in file.\n");
                 return false;
             }
-            Element topElement = (Element)topNode;
+            Element topElement = (Element) topNode;
             String converterName = topElement.getAttribute(NAME_ATTRIB);
-            if ((converterName == null || converterName.length() == 0) &&
-                currentXmlFile != null)
-                converterName = currentXmlFile.getName();
+            if ((converterName == null || converterName.length() == 0)
+                    && currentXmlUrl != null)
+                converterName = currentXmlUrl.getFile();
             String reverseName = converterName
-                + Config.messageResource().getString("reversed");
+                    + Config.messageResource().getString("reversed");
             if (topElement.hasAttribute(REVERSE_NAME_ATTRIB))
             {
-                if (topElement.getAttribute(REVERSE_NAME_ATTRIB) != null &&
-                    topElement.getAttribute(REVERSE_NAME_ATTRIB).length() > 0)
+                if (topElement.getAttribute(REVERSE_NAME_ATTRIB) != null
+                        && topElement.getAttribute(REVERSE_NAME_ATTRIB)
+                                .length() > 0)
                 {
-                  reverseName = topElement.getAttribute(REVERSE_NAME_ATTRIB);
+                    reverseName = topElement.getAttribute(REVERSE_NAME_ATTRIB);
                 }
             }
-            
+
             NodeList classList = doc.getElementsByTagName(CLASS_NODE);
             if (classList.getLength() != 1)
             {
-                if (currentXmlFile != null) 
-                    errorLog.append(currentXmlFile.getAbsolutePath());
-                errorLog.append(": You must have one ConverterClass Element per file\n");
+                if (currentXmlUrl != null)
+                    errorLog.append(currentXmlUrl.toExternalForm());
+                errorLog
+                        .append(": You must have one ConverterClass Element per file\n");
                 return false;
             }
-            Element classElement = (Element)classList.item(0);
+            Element classElement = (Element) classList.item(0);
             String className = classElement.getAttribute(NAME_ATTRIB);
             // find the constructor arguments
-            NodeList parameters = classElement.getElementsByTagName(ARGUMENT_NODE);
-            Class [] argumentTypes = new Class[parameters.getLength()];
-            Object [] arguments = new Object[parameters.getLength()];
-            for (int p = 0; p<parameters.getLength(); p++)
+            NodeList parameters = classElement
+                    .getElementsByTagName(ARGUMENT_NODE);
+            Class<?>[] argumentTypes = new Class[parameters.getLength()];
+            Object[] arguments = new Object[parameters.getLength()];
+            for (int p = 0; p < parameters.getLength(); p++)
             {
-                Element parameter = (Element)parameters.item(p);
-                arguments[p] = createParameter(parameter, currentXmlFile);
+                Element parameter = (Element) parameters.item(p);
+                arguments[p] = createParameter(parameter, currentXmlUrl);
                 if (arguments[p] == null)
                 {
                     argumentTypes[p] = null;
@@ -265,8 +340,17 @@ public class ConverterXmlParser
                     argumentTypes[p] = getClassFromParameter(arguments[p]);
                 }
             }
-            Class ccc = Class.forName(className);
-            Constructor constructor = ccc.getConstructor(argumentTypes);
+            Class<?> ccc = null;
+            try
+            {
+                ccc = Class.forName(className);
+            }
+            catch (ClassNotFoundException e)
+            {
+                ccc = mLoaderUtil.loadClass(className);
+            }
+            
+            Constructor<?> constructor = ccc.getConstructor(argumentTypes);
             Object cco = constructor.newInstance(arguments);
             if (!(cco instanceof CharConverter))
             {
@@ -274,15 +358,15 @@ public class ConverterXmlParser
                 errorLog.append(" is not a CharConverter!\n");
                 return false;
             }
-                
+
             CharConverter masterConverter = (CharConverter) cco;
             masterConverter.setName(converterName);
             rawConverters.add(masterConverter);
             ReversibleConverter reverseConverter = null;
             if (masterConverter instanceof ReversibleConverter)
             {
-                reverseConverter = (ReversibleConverter)
-                    constructor.newInstance(arguments);
+                reverseConverter = (ReversibleConverter) constructor
+                        .newInstance(arguments);
                 reverseConverter.setDirection(false);
                 reverseConverter.setName(converterName);
                 reverseConverter.setReverseName(reverseName);
@@ -290,25 +374,26 @@ public class ConverterXmlParser
             }
             // now find the parameter arguments
             parameters = classElement.getElementsByTagName(PARAMETER_NODE);
-            for (int p = 0; p<parameters.getLength(); p++)
+            for (int p = 0; p < parameters.getLength(); p++)
             {
-                Element parameter = (Element)parameters.item(p);
+                Element parameter = (Element) parameters.item(p);
                 String fieldName = parameter.getAttribute(NAME_ATTRIB);
                 // put a check in that no one is messing with the direction
                 if (fieldName.equals("direction"))
                 {
-                    errorLog.append("direction parameter ignored for reversible converters");
+                    errorLog
+                            .append("direction parameter ignored for reversible converters");
                     continue;
                 }
-                String setterName = "set" +
-                    fieldName.substring(0,1).toUpperCase() +
-                    fieldName.substring(1);
-                Object value = createParameter(parameter, currentXmlFile);
+                String setterName = "set"
+                        + fieldName.substring(0, 1).toUpperCase()
+                        + fieldName.substring(1);
+                Object value = createParameter(parameter, currentXmlUrl);
                 if (value != null)
                 {
-                    Class [] argClass = {getClassFromParameter(value)};
+                    Class<?>[] argClass = { getClassFromParameter(value) };
                     Method method = ccc.getMethod(setterName, argClass);
-                    Object [] arg = {value};
+                    Object[] arg = { value };
                     method.invoke(masterConverter, arg);
                     if (reverseConverter != null)
                     {
@@ -320,23 +405,23 @@ public class ConverterXmlParser
             NodeList styles = topElement.getElementsByTagName(STYLES_NODE);
             if (styles.getLength() != 1)
             {
-                if (currentXmlFile != null) 
-                    errorLog.append(currentXmlFile.getAbsolutePath());
+                if (currentXmlUrl != null)
+                    errorLog.append(currentXmlUrl.toExternalForm());
                 errorLog.append(": You must have one Style Element per file\n");
                 return false;
             }
-            NodeList styleList = ((Element)styles.item(0))
-                .getElementsByTagName(STYLE_NODE);
-            for (int s=0; s<styleList.getLength(); s++)
+            NodeList styleList = ((Element) styles.item(0))
+                    .getElementsByTagName(STYLE_NODE);
+            for (int s = 0; s < styleList.getLength(); s++)
             {
-                addConverter((Element)styleList.item(s), masterConverter,
-                    reverseConverter);
+                addConverter((Element) styleList.item(s), masterConverter,
+                        reverseConverter);
             }
         }
         catch (InvocationTargetException e)
         {
             System.out.println(e.getLocalizedMessage());
-            errorLog.append(currentXmlFile.getAbsolutePath());
+            errorLog.append(currentXmlUrl.toExternalForm());
             errorLog.append('\n');
             errorLog.append(e.getLocalizedMessage());
             errorLog.append('\n');
@@ -344,7 +429,7 @@ public class ConverterXmlParser
         catch (InstantiationException e)
         {
             System.out.println(e.getLocalizedMessage());
-            errorLog.append(currentXmlFile.getAbsolutePath());
+            errorLog.append(currentXmlUrl.toExternalForm());
             errorLog.append('\n');
             errorLog.append(e.getLocalizedMessage());
             errorLog.append('\n');
@@ -368,41 +453,48 @@ public class ConverterXmlParser
             errorLog.append(e.getLocalizedMessage());
             errorLog.append('\n');
         }
-        if (errorLog.length()>0) return false;
+        if (errorLog.length() > 0)
+            return false;
         return true;
     }
+
     protected void addConverter(Element sElement, CharConverter master,
-        CharConverter reverseMaster)
+            CharConverter reverseMaster)
     {
         TextStyle oldStyle = null;
         TextStyle newStyle = null;
         NodeList fonts = sElement.getElementsByTagName(FONT_NODE);
-        for (int f = 0; f<fonts.getLength(); f++)
+        for (int f = 0; f < fonts.getLength(); f++)
         {
-            Element e = (Element)fonts.item(f);
+            Element e = (Element) fonts.item(f);
             String sTypeName = e.getAttribute(SCRIPT_ATTRIB);
             ScriptType.Type scriptType = ScriptType.Type.LATIN;
-            if (sTypeName.equals("ctl")) scriptType = ScriptType.Type.COMPLEX;
-            else if (sTypeName.equals("cjk")) scriptType = ScriptType.Type.CJK;
+            if (sTypeName.equals("ctl"))
+                scriptType = ScriptType.Type.COMPLEX;
+            else
+                if (sTypeName.equals("cjk"))
+                    scriptType = ScriptType.Type.CJK;
             if (e.getAttribute(TYPE_ATTRIB).equals(OLD))
             {
                 oldStyle = new FontStyle(e.getAttribute(NAME_ATTRIB));
                 oldStyle.setScriptType(scriptType);
             }
-            else if (e.getAttribute(TYPE_ATTRIB).equals(NEW))
-            {
-                newStyle = new FontStyle(e.getAttribute(NAME_ATTRIB));
-                newStyle.setScriptType(scriptType);
-            }
-            else 
-            {
-                errorLog.append(e.getAttribute(TYPE_ATTRIB));
-                errorLog.append(" Font type attribute must be \"old\" or \"new\"");
-                errorLog.append('\n');
-            }
+            else
+                if (e.getAttribute(TYPE_ATTRIB).equals(NEW))
+                {
+                    newStyle = new FontStyle(e.getAttribute(NAME_ATTRIB));
+                    newStyle.setScriptType(scriptType);
+                }
+                else
+                {
+                    errorLog.append(e.getAttribute(TYPE_ATTRIB));
+                    errorLog
+                            .append(" Font type attribute must be \"old\" or \"new\"");
+                    errorLog.append('\n');
+                }
         }
         ChildConverter cc = new ChildConverter(oldStyle, newStyle, master);
-        if (!(converters.add(cc))) 
+        if (!(converters.add(cc)))
             errorLog.append("Failed to add converter.");
         if (reverseMaster != null)
         {
@@ -411,74 +503,109 @@ public class ConverterXmlParser
                 errorLog.append("Failed to add converter.");
         }
     }
-    
-    Object createParameter(Element parameter, File xmlFile)
+
+    Object createParameter(Element parameter, URL xmlFile)
     {
         String type = parameter.getAttribute(TYPE_ATTRIB);
         if (type.equals("String"))
         {
             return new String(parameter.getAttribute(VALUE_ATTRIB));
         }
-        else if (type.equals("File"))
-        {
-            if (xmlFile == null) return null;
-            File testFile = 
-                new File(parameter.getAttribute(VALUE_ATTRIB));
-            // if file does not exist, see if it is in the 
-            // current directory
-            if (!testFile.exists())
+        else
+            if (type.equals("File"))
             {
-                testFile = 
-                    new File(xmlFile.getParentFile(),parameter.getAttribute(VALUE_ATTRIB));
-            }
-            if (!testFile.exists())
-            {
-                // warn if file does not exist, but carry on anyway
-                errorLog.append(testFile.getAbsolutePath());
-                errorLog.append(" does not exist.\n");
-            }
-            return testFile;
+                if (xmlFile == null)
+                    return null;
+                File testFile = new File(parameter.getAttribute(VALUE_ATTRIB));
+                // if file does not exist, see if it is in the
+                // current directory
+                if (!testFile.exists())
+                {
+                    if (xmlFile.getProtocol().equals("file"))
+                    {
+                        testFile = new File(new File(xmlFile.getPath())
+                                .getParentFile(), parameter
+                                .getAttribute(VALUE_ATTRIB));
+                    }
+                    else
+                    {
+                        String basePath = xmlFile.getPath();
+                        if (!xmlFile.getPath().endsWith("/"))
+                        {
+                            basePath = basePath.substring(0, basePath
+                                    .lastIndexOf('/') + 1);
+                        }
+                        try
+                        {
+                            URL url = new URL(xmlFile, basePath
+                                    + parameter.getAttribute(VALUE_ATTRIB));
+                            return url;
+                        }
+                        catch (MalformedURLException e)
+                        {
+                            errorLog.append("URL Error "
+                                    + parameter.getAttribute(VALUE_ATTRIB)
+                                    + e.getLocalizedMessage());
+                        }
+                    }
+                }
+                if (!testFile.exists())
+                {
+                    // warn if file does not exist, but carry on anyway
+                    errorLog.append(testFile.getAbsolutePath());
+                    errorLog.append(" does not exist.\n");
+                }
+                return testFile;
 
-        }
-        else if (type.equals("int"))
-        {
-            
-            return new Integer(parameter.getAttribute(VALUE_ATTRIB));
-        }
-        else if (type.equals("double"))
-        {
-            
-            return new Double(parameter.getAttribute(VALUE_ATTRIB));
-        }
-        else if (type.equals("boolean"))
-        {
-            
-            return new Boolean(parameter.getAttribute(VALUE_ATTRIB));
-        }    
-        else 
-        {
-            System.out.println("Invalid parameter type "  + type);
-            return null;
-        }
+            }
+            else
+                if (type.equals("int"))
+                {
+
+                    return new Integer(parameter.getAttribute(VALUE_ATTRIB));
+                }
+                else
+                    if (type.equals("double"))
+                    {
+
+                        return new Double(parameter.getAttribute(VALUE_ATTRIB));
+                    }
+                    else
+                        if (type.equals("boolean"))
+                        {
+
+                            return new Boolean(parameter
+                                    .getAttribute(VALUE_ATTRIB));
+                        }
+                        else
+                        {
+                            System.out
+                                    .println("Invalid parameter type " + type);
+                            return null;
+                        }
     }
-    Class getClassFromParameter(Object obj)
+
+    Class<?> getClassFromParameter(Object obj)
     {
-        Class type = obj.getClass();
+        Class<?> type = obj.getClass();
         // change primitive types
         if (type == Integer.class)
         {
             type = int.class;
         }
-        else if (type == Boolean.class)
-        {
-            type = boolean.class;
-        }
-        else if (type == Double.class)
-        {
-            type = double.class;
-        }
-        return type; 
+        else
+            if (type == Boolean.class)
+            {
+                type = boolean.class;
+            }
+            else
+                if (type == Double.class)
+                {
+                    type = double.class;
+                }
+        return type;
     }
+
     public void setProgressNotifier(ProgressNotifier pn)
     {
         this.notifier = pn;

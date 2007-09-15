@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.thanlwinsoft.doccharconvert.Config;
@@ -120,6 +121,12 @@ public class PreferencesInitializer extends AbstractPreferenceInitializer
         prefStore.setDefault(Config.LOG_FILE, projectFullPath.toOSString());
         prefStore.setDefault(LogConvertedWords.WORD_SEPARATOR_KEY, 
             LogConvertedWords.WORD_SEPARATOR);
+        IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+        // HACK
+        page.hideActionSet("org.eclipse.ui.edit.text.actionSet.navigation");
+        page.hideActionSet("org.eclipse.ui.WorkingSetActionSet");
+        page.hideActionSet("org.eclipse.ui.edit.text.actionSet.annotationNavigation");
+        
     }
 
 }

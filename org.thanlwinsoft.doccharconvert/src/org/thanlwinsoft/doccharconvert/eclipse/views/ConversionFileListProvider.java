@@ -109,7 +109,7 @@ public class ConversionFileListProvider implements IStructuredContentProvider
                 Object [] elements = new Object[fileCount];
                 for (int i = 0; i < fileCount; i++)
                 {
-                    Map.Entry me = (Map.Entry)batchConversion.getInputFileList()[i];
+                    Map.Entry<?,?> me = (Map.Entry<?,?>)batchConversion.getInputFileList()[i];
                     if (me.getKey() instanceof File)
                     {
                         elements[i] = new RowCell(batchConversion, statusMap, 
@@ -159,7 +159,7 @@ public class ConversionFileListProvider implements IStructuredContentProvider
                 TableItem ti = new TableItem(tv.getTable(), SWT.LEFT, i);
                 if (entries[i] instanceof Map.Entry)
                 {
-                    Map.Entry entry = (Map.Entry)entries[i];
+                    Map.Entry<?,?> entry = (Map.Entry<?,?>)entries[i];
                     if (entry.getKey() instanceof File)
                     {
                         RowCell rc = new RowCell(batchConversion,

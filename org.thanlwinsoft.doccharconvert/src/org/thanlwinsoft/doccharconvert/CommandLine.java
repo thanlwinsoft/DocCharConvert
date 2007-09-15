@@ -28,7 +28,7 @@ public class CommandLine
             System.out.println("Warning: You are recommended to use the Eclipse GUI instead.");
             // This is to try to allow the CommandLine to be used in a non-gui
             // environment such as an SSH shell on Linux.
-            Class mainFormClass = ClassLoader.getSystemClassLoader()
+            Class<?> mainFormClass = ClassLoader.getSystemClassLoader()
                 .loadClass("org.thanlwinsoft.doccharconvert.MainForm");
             Method guiMain = mainFormClass.getMethod("main", String[].class);
             guiMain.invoke(null, (Object)args);
@@ -252,7 +252,7 @@ public class CommandLine
             }
             else
             {
-                MainForm.loadFileList(conv, fileList);
+                ConversionHelper.loadFileList(conv, fileList);
             }
             new Thread(conv).start();
             do 

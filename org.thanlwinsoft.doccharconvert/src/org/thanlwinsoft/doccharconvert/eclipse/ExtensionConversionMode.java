@@ -27,7 +27,7 @@ public class ExtensionConversionMode extends ConversionMode
 {
     private static TreeMap <String,ConversionMode>map = new TreeMap <String,ConversionMode>();
     private String extId = null;
-    private HashSet <String> fileExtensions = new HashSet(); 
+    private HashSet <String> fileExtensions = new HashSet<String>(); 
     /**
      * @param id
      * @param name

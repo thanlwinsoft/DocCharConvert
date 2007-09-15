@@ -24,8 +24,6 @@
 
 package org.thanlwinsoft.doccharconvert.converter;
 import org.thanlwinsoft.doccharconvert.TextStyle;
-import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
-import org.thanlwinsoft.doccharconvert.converter.CharConverter.RecoverableException;
 import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
 
 /**

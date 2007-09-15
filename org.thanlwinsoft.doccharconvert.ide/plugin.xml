@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.parser">
+      <parser
+            class="org.thanlwinsoft.doccharconvert.parser.ExceptionListTestParser"
+            extensions=".txt"
+            id="org.thanlwinsoft.doccharconvert.ide.parser2"
+            name="%ExceptionListParser"
+            styleSupport="false">
+      </parser>
+   </extension>
+
+</plugin>

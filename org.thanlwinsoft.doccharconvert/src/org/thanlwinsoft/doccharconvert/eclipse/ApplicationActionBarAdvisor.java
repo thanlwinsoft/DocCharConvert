@@ -10,7 +10,9 @@ import org.eclipse.jface.action.ToolBarContributionItem;
 import org.eclipse.jface.action.ToolBarManager;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.eclipse.swt.SWT;
+import org.eclipse.ui.IPageListener;
 import org.eclipse.ui.IWorkbenchActionConstants;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
@@ -79,8 +81,25 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         register(preferencesAction);
         //newWindowAction = ActionFactory.OPEN_NEW_WINDOW.create(window);
         //register(newWindowAction);
-        
+        window.addPageListener(new IPageListener(){
 
+            @Override
+            public void pageActivated(IWorkbenchPage page)
+            {
+                DocCharConvertEclipsePlugin.getDefault().getPluginPreferences();
+                
+            }
+
+            @Override
+            public void pageClosed(IWorkbenchPage page)
+            {
+                //noop
+            }
+
+            @Override
+            public void pageOpened(IWorkbenchPage page)
+            {
+            }});
         //conversionWizardAction = new ConversionWizardAction();
         // Open the wizard dialog
         //wizardDialog.open();

@@ -12,7 +12,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
-import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard;
 

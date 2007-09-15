@@ -80,8 +80,8 @@ public class ConfigDialog extends javax.swing.JDialog
         unoField = new javax.swing.JTextField();
         ooButtonPanel = new javax.swing.JPanel();
         ooPathButton = new javax.swing.JButton();
-        ooDefaultOpt = new javax.swing.JButton();
-        ooDefaultUno = new javax.swing.JButton();
+        //ooDefaultOpt = new javax.swing.JButton();
+        //ooDefaultUno = new javax.swing.JButton();
         ooPadPanel = new javax.swing.JPanel();
         converterPanel = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -425,8 +425,8 @@ public class ConfigDialog extends javax.swing.JDialog
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton okButton;
     private javax.swing.JPanel ooButtonPanel;
-    private javax.swing.JButton ooDefaultOpt;
-    private javax.swing.JButton ooDefaultUno;
+    //private javax.swing.JButton ooDefaultOpt;
+    //private javax.swing.JButton ooDefaultUno;
     private javax.swing.JPanel ooFieldPanel;
     private javax.swing.JPanel ooLabelPanel;
     private javax.swing.JTextField ooOptionsField;

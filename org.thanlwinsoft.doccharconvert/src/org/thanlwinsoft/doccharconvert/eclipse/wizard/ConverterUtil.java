@@ -4,11 +4,12 @@
 package org.thanlwinsoft.doccharconvert.eclipse.wizard;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
@@ -20,9 +21,6 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ListViewer;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
@@ -34,6 +32,8 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.PreferencesInitializer;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.ParseRunnable;
+import org.thanlwinsoft.util.BundleClassLoaderUtil;
+import org.thanlwinsoft.util.Pair;
 
 /**
  * @author keith
@@ -43,6 +43,7 @@ public class ConverterUtil
 {
     private static final String CONVERTER_DIR_ELEMENT = "converterDir";
     private static final String PATH_ATTR = "path";
+    private static final String SEARCH_PATTERN = "*" + ConverterXmlParser.EXT;
 
     public static ConverterXmlParser parseConverters(IRunnableContext rc,
             Shell shell)
@@ -53,9 +54,9 @@ public class ConverterUtil
     public static ConverterXmlParser parseConverters(IRunnableContext rc,
             Shell shell, ListViewer viewer)
     {
-
-        ConverterXmlParser xmlParser = new ConverterXmlParser(
-                getConverterPaths());
+        Pair<URL[], Bundle[]> paths = getConverterPaths();
+        ConverterXmlParser xmlParser = new ConverterXmlParser(paths.first,
+                new BundleClassLoaderUtil(paths.second));
 
         ParseRunnable pr = new ParseRunnable(xmlParser, shell.getDisplay(),
                 viewer);
@@ -84,10 +85,31 @@ public class ConverterUtil
         return xmlParser;
     }
 
-    private static File[] getConverterPaths()
+    private static Pair<URL[], Bundle[]> getConverterPaths()
     {
-        ArrayList<File> files = new ArrayList<File>();
-        files.add(getConverterPath());
+        ArrayList<URL> files = new ArrayList<URL>();
+        ArrayList<Bundle> bundles = new ArrayList<Bundle>();
+        try
+        {
+            File userDir = getConverterPath();
+            File[] converters = userDir.listFiles(new FilenameFilter()
+            {
+                @Override
+                public boolean accept(File dir, String name)
+                {
+                    return name.endsWith(ConverterXmlParser.EXT);
+                }
+            });
+            for (File f : converters)
+            {
+                files.add(f.toURI().toURL());
+            }
+        }
+        catch (MalformedURLException e)
+        {
+            DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                    "getConverterPaths()", e);
+        }
         IExtensionRegistry registry = Platform.getExtensionRegistry();
         IExtensionPoint point = registry
                 .getExtensionPoint("org.thanlwinsoft.doccharconvert.converters");
@@ -105,35 +127,47 @@ public class ConverterUtil
                     String path = ce[i].getAttribute(PATH_ATTR);
                     String plugin = extensions[i].getContributor().getName();
                     Bundle b = Platform.getBundle(plugin);
-                    URL url = b.getResource(path);
-                    if (url.getProtocol().equals("file"))
+                    Enumeration<?> converters = b.findEntries(path,
+                            SEARCH_PATTERN, true);
+                    while (converters.hasMoreElements())
                     {
-                        try
+                        Object o = converters.nextElement();
+                        if (o instanceof URL)
                         {
-                            File f = new File(url.toURI());
-                            if (f.canRead())
-                            {
-                                files.add(f);
-                            }
-                            else
-                            {
-                                DocCharConvertEclipsePlugin.log(
-                                        IStatus.WARNING, "File "
-                                                + f.getAbsolutePath()
-                                                + " can't be read.");
-                            }
+                            files.add((URL) o);
+                            if (!bundles.contains(b))
+                                bundles.add(b);
                         }
-                        catch (URISyntaxException e)
-                        {
-                            DocCharConvertEclipsePlugin.log(IStatus.WARNING,
-                                    "URISyntaxException for " + path, e);
-                        }
-
                     }
+                    // if (url.getProtocol().equals("file"))
+                    // {
+                    // try
+                    // {
+                    // File f = new File(url.toURI());
+                    // if (f.canRead())
+                    // {
+                    // files.add(f);
+                    // }
+                    // else
+                    // {
+                    // DocCharConvertEclipsePlugin.log(
+                    // IStatus.WARNING, "File "
+                    // + f.getAbsolutePath()
+                    // + " can't be read.");
+                    // }
+                    // }
+                    // catch (URISyntaxException e)
+                    // {
+                    // DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                    // "URISyntaxException for " + path, e);
+                    // }
+                    //
+                    // }
                 }
             }
         }
-        return files.toArray(new File[files.size()]);
+        return new Pair<URL[], Bundle[]>(files.toArray(new URL[files.size()]), 
+                bundles.toArray(new Bundle[bundles.size()]));
     }
 
     static File getConverterPath()

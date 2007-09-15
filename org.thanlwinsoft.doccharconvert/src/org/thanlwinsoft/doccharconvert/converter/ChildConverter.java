@@ -27,6 +27,7 @@ import java.io.File;
 import java.nio.charset.Charset;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
+import org.thanlwinsoft.util.IClassLoaderUtil;
 
 /**
  * This is used as a light weight wrapper around another converter
@@ -114,5 +115,12 @@ public class ChildConverter implements CharConverter
     public void setEncodings(Charset iCharset, Charset oCharset)
     {
         getParent().setEncodings(iCharset, oCharset);
+    }
+
+    @Override
+    public void setClassLoader(IClassLoaderUtil loader)
+    {
+        // TODO Auto-generated method stub
+        
     }
 }

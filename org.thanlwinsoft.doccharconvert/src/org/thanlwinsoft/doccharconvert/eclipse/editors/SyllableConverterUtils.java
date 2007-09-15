@@ -3,8 +3,6 @@
  */
 package org.thanlwinsoft.doccharconvert.eclipse.editors;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
 import org.thanlwinsoft.schemas.syllableParser.C;

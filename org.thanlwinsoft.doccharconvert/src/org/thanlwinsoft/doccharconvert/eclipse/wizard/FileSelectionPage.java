@@ -158,7 +158,7 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
 				{
 					if (rows[i].getData() instanceof Map.Entry)
 					{
-						Map.Entry row = (Map.Entry)rows[i].getData();
+						Map.Entry<?,?> row = (Map.Entry<?,?>)rows[i].getData();
 						conversion.removeFilePair(row);
 					}
 				}
@@ -281,7 +281,7 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
 			if (element instanceof Map.Entry)
 			{
 				File f = null;
-				Map.Entry entry = (Map.Entry)element;
+				Map.Entry<?,?> entry = (Map.Entry<?,?>)element;
 				switch (columnIndex)
 				{
 				case 0:

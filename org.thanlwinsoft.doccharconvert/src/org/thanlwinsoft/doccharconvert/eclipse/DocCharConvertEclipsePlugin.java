@@ -5,6 +5,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.prefs.Preferences;
@@ -17,7 +18,8 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
 {
     public final static String ID = "org.thanlwinsoft.doccharconvert";
 	//The shared instance.
-	private static DocCharConvertEclipsePlugin plugin;
+	private static DocCharConvertEclipsePlugin plugin = null;
+	private PreferencesInitializer mPrefsInitializer = null;
 	
 	/**
 	 * The constructor.
@@ -38,7 +40,16 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
             (new EclipseToJavaPrefAdapter(configurationNode));
 	}
 
-	/**
+	@Override
+    public IPreferenceStore getPreferenceStore()
+    {
+	    if (mPrefsInitializer == null)
+	        mPrefsInitializer = new PreferencesInitializer();
+	    mPrefsInitializer.initializeDefaultPreferences();
+	    return mPrefsInitializer.getPrefStore();
+    }
+
+    /**
 	 * This method is called when the plug-in is stopped
 	 */
 	public void stop(BundleContext context) throws Exception {

@@ -138,7 +138,7 @@ public class OOMainInterface implements DocInterface
                 parser.openDoc(inputFile);
                 parser.setOnlyStylesInUse(onlyStylesInUse);
                 parser.parse(converters);
-                parser.saveDocAs(outputFile.toURL().toExternalForm());
+                parser.saveDocAs(outputFile.toURI().toURL().toExternalForm());
                 parser.closeDoc();
                 String warnings = parser.getWarnings();
                 if (warnings.length()>0)

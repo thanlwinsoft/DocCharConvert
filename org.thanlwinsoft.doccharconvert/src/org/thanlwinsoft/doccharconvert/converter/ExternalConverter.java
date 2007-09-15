@@ -37,6 +37,7 @@ import java.nio.charset.Charset;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.util.IClassLoaderUtil;
 
 /**
  * Implements conversion by calling an external program.
@@ -423,5 +424,11 @@ public class ExternalConverter implements CharConverter, Runnable
     public String toString()
     {
         return getName();
+    }
+    @Override
+    public void setClassLoader(IClassLoaderUtil loader)
+    {
+        // TODO Auto-generated method stub
+        
     }
 }

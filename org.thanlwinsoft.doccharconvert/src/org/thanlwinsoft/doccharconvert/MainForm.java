@@ -53,7 +53,7 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
 /**
- *
+ * @deprecated
  * @author  keith
  */
 public class MainForm extends javax.swing.JFrame
@@ -63,7 +63,7 @@ public class MainForm extends javax.swing.JFrame
 	 */
 	private static final long serialVersionUID = 3143912382434841346L;
 	private BatchConversion conversion = null;
-    private Vector availableConverters = null;
+    private Vector<CharConverter> availableConverters = null;
     private DefaultListModel aModel = null;
     private DefaultListModel sModel = null;
     private Timer timer = null;
@@ -138,7 +138,7 @@ public class MainForm extends javax.swing.JFrame
             mode = ConversionMode.getById(++cid);
         }
         
-        SortedMap charsets = Charset.availableCharsets();
+        SortedMap<String,Charset> charsets = Charset.availableCharsets();
         // must use separate models, otherwise a change in one combo also
         // changes the other
         DefaultComboBoxModel iCharsetModel = 
@@ -814,7 +814,7 @@ public class MainForm extends javax.swing.JFrame
             if (individualOutput.isSelected())
             {
                 assert (files[j] instanceof Map.Entry);
-                conversion.removeFilePair((Map.Entry)files[j]);
+                conversion.removeFilePair((Map.Entry<?,?>)files[j]);
             }
             else
             {

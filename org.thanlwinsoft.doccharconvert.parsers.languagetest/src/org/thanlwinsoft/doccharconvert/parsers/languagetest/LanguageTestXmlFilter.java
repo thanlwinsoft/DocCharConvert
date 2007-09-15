@@ -1,7 +1,5 @@
-/**
- * 
- */
-package org.thanlwinsoft.doccharconvert.parser;
+package org.thanlwinsoft.doccharconvert.parsers.languagetest;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +31,6 @@ public class LanguageTestXmlFilter extends XMLFilterImpl
     private static final String FONT_ATTR = "font";
     private CharConverter currentConverter = null;
     private static final String NAMESPACE = "http://www.thanlwinsoft.org/schemas/languagetest";
-    private String prefix = "";
     private String prefixMapUri = null;
     public LanguageTestXmlFilter(Map<TextStyle, CharConverter> converters)
     {

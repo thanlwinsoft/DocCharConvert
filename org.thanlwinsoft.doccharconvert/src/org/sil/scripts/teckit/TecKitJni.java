@@ -106,6 +106,15 @@ public class TecKitJni
      */
     public native long createConverter(String path, boolean toUnicode);
     /**
+     * Creates a converter for a given tec file.
+     * @param the bytes from the .tec file
+     * @param toUnicode true if the direction is from bytes to Unicode
+     * false if the direction is from Unicode to bytes
+     * @return id of the converter created. This must be used in subsequent 
+     * invocations to convert.
+     */
+    public native long createConverter(byte [] tec, boolean toUnicode);
+    /**
      * Converts the input byte array using the specified converter, which must
      * have already be created with #createConverter.
      * @param convId returned by #createConverter

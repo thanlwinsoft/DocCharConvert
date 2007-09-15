@@ -39,7 +39,7 @@ import javax.swing.AbstractAction;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
 /**
- *
+ * @deprecated
  * @author  keith
  */
 public class TestDialog extends javax.swing.JDialog

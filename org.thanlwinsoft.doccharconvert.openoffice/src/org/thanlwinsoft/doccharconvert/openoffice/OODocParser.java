@@ -123,7 +123,6 @@ import com.sun.star.uno.UnoRuntime;
 import org.thanlwinsoft.doccharconvert.DocInterface;
 import org.thanlwinsoft.doccharconvert.FontStyle;
 import org.thanlwinsoft.doccharconvert.TextStyle;
-import org.thanlwinsoft.doccharconvert.DocInterface.InterfaceException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 
 import java.util.HashSet;
@@ -338,11 +337,11 @@ public class OODocParser
         }
     }
     
-    protected void updateUsedStyles(XNameContainer xFamily, HashSet names)
+    protected void updateUsedStyles(XNameContainer xFamily, HashSet<String> names)
     {
         XNameAccess xI = (XNameAccess) UnoRuntime.queryInterface(
             XNameAccess.class, xFamily);
-        java.util.Iterator i = names.iterator();
+        java.util.Iterator<String> i = names.iterator();
         while (i.hasNext())
         {
             XPropertySet xSet = null;

@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
 
 /**
  * @author keith
- *
  */
 public class ConversionHelper
 {
@@ -37,7 +36,7 @@ public class ConversionHelper
             Pattern qp = Pattern.compile("\"([^\"]*?)\"\\s+\"(.*)\"");
             StringBuffer invalidLines = new StringBuffer();
             String line = reader.readLine();
-            // if we have got this far without an excpetion, 
+            // if we have got this far without an exception, 
             // then we assume file is OK
 
             while (line != null)
@@ -133,11 +132,11 @@ public class ConversionHelper
           if (iFiles.length > 0)
           {
               if (iFiles[0] instanceof java.util.Map.Entry &&
-                  ((Map.Entry)iFiles[0]).getKey() instanceof File)
+                  ((Map.Entry<?,?>)iFiles[0]).getKey() instanceof File)
               {
                   for (int i = 0; i< iFiles.length; i++)
                   {
-                    Map.Entry pair = (Map.Entry)iFiles[i];
+                    Map.Entry<?,?> pair = (Map.Entry<?,?>)iFiles[i];
                     if (pair.getKey() instanceof File && 
                         pair.getValue() instanceof File)
                     {

@@ -149,7 +149,7 @@ public class BatchConversion implements Runnable
         }
         else throw new IllegalArgumentException("Pairs mode is not enabled");
     }
-    public void removeFilePair(Map.Entry entry)
+    public void removeFilePair(Map.Entry<?,?> entry)
     {
         removeFilePair((File)entry.getKey()/*,
                        (File)entry.getValue()*/);
@@ -335,7 +335,7 @@ public class BatchConversion implements Runnable
     
     public void run()
     {
-        Iterator i;
+        Iterator <File>i;
         //stop = false;
         synchronized (this)
         {
@@ -357,7 +357,7 @@ public class BatchConversion implements Runnable
             notifier.worked(0);
         }
         //promptMode = PROMPT_NO;
-        Iterator c = converterList.values().iterator();
+        Iterator<CharConverter> c = converterList.values().iterator();
         if (docInterface != null)
         {
             if (docInterface.getMode() != mode)
@@ -372,7 +372,7 @@ public class BatchConversion implements Runnable
             // initialise converters
             while (c.hasNext())
             {
-                CharConverter cc = (CharConverter)c.next();
+                CharConverter cc = c.next();
                 cc.initialize();
             }
             

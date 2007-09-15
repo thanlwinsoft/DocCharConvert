@@ -39,8 +39,6 @@ import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.DocInterface;
 import org.thanlwinsoft.doccharconvert.ProgressNotifier;
 import org.thanlwinsoft.doccharconvert.TextStyle;
-import org.thanlwinsoft.doccharconvert.DocInterface.InterfaceException;
-import org.thanlwinsoft.doccharconvert.DocInterface.WarningException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 /**
@@ -51,7 +49,7 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
 {
     protected BufferedReader reader;
     protected BufferedWriter writer;
-    protected java.util.Map converterMap;
+    protected java.util.Map<TextStyle, CharConverter> converterMap;
     protected org.thanlwinsoft.doccharconvert.converter.CharConverter converter;
     protected Charset inputCharset;
     protected Charset outputCharset;
@@ -106,8 +104,8 @@ public class TextParser implements org.thanlwinsoft.doccharconvert.DocInterface
                 System.out.println(converterMap.size() + " CharConverter");
                 throw new DocInterface.WarningException("One converter must be specified");
             }
-            java.util.Iterator i = converterMap.values().iterator();
-            converter = (CharConverter)i.next();
+            java.util.Iterator<CharConverter> i = converterMap.values().iterator();
+            converter = i.next();
 
             try
             {

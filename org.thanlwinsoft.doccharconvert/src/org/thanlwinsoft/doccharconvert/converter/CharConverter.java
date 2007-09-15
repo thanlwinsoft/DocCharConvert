@@ -25,6 +25,7 @@
 package org.thanlwinsoft.doccharconvert.converter;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
+import org.thanlwinsoft.util.IClassLoaderUtil;
 
 import java.io.File;
 import java.nio.charset.Charset;
@@ -115,4 +116,6 @@ public interface CharConverter
             super(desc);
         }
     }
+    
+    public void setClassLoader(IClassLoaderUtil loader);
 }

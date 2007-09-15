@@ -27,10 +27,12 @@
       <solaris/>
       <win useIco="false">
          <bmp
-            winSmallHigh="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.bmp"
-            winSmallLow="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16-256.bmp"
-            winMediumHigh="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert32.bmp"
-            winMediumLow="/DocCharConvert/src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert32-256.bmp"/>
+            winSmallHigh="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert16.bmp"
+            winSmallLow="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert16-256.bmp"
+            winMediumHigh="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert32.bmp"
+            winMediumLow="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert32-256.bmp"
+            winLargeHigh="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert48.bmp"
+            winLargeLow="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert48-256.bmp"/>
       </win>
    </launcher>
 
@@ -105,7 +107,7 @@
       <plugin id="org.eclipse.update.ui"/>
       <plugin id="org.mortbay.jetty"/>
       <plugin id="org.thanlwinsoft.doccharconvert"/>
-      <plugin id="org.thanlwinsoft.doccharconvert.fragment" fragment="true"/>
+      <plugin id="org.thanlwinsoft.doccharconvert.fragment"/>
       <plugin id="org.w3c.dom"/>
    </plugins>
 

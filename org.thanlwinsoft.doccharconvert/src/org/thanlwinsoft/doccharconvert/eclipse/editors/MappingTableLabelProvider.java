@@ -4,14 +4,10 @@
 package org.thanlwinsoft.doccharconvert.eclipse.editors;
 
 import org.eclipse.jface.viewers.ITableLabelProvider;
-import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.BaseLabelProvider;
 import org.eclipse.swt.graphics.Image;
-import org.thanlwinsoft.schemas.syllableParser.C;
-import org.thanlwinsoft.schemas.syllableParser.Component;
 import org.thanlwinsoft.schemas.syllableParser.Map;
 import org.thanlwinsoft.schemas.syllableParser.MappingTable;
-import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 /**
  * @author keith
  *

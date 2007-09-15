@@ -9,20 +9,13 @@ import java.io.InputStream;
 
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlOptions;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -34,7 +27,6 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
-import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverterDocument;
 import org.thanlwinsoft.schemas.syllableParser.MappingTable;
@@ -112,13 +104,13 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         return super.createPageContainer(parent);
     }
 
-    private void removePages()
-    {
-        for (int i = getPageCount(); i > -1; i--)
-        {
-            this.removePage(i);
-        }
-    }
+//    private void removePages()
+//    {
+//        for (int i = getPageCount(); i > -1; i--)
+//        {
+//            this.removePage(i);
+//        }
+//    }
     
     /* (non-Javadoc)
      * @see org.eclipse.ui.part.MultiPageEditorPart#createPages()

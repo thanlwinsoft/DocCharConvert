@@ -4,8 +4,6 @@
 package org.thanlwinsoft.doccharconvert.eclipse.views;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -279,7 +277,6 @@ public class ConversionFileListView extends ViewPart
     public BatchConversion getSelectedConversion()
     {
         final BatchConversion selectedConversion = new BatchConversion(getConversion());
-        ArrayList <RowCell> rows = new ArrayList<RowCell>();
         assert(tableView.getSelection() instanceof IStructuredSelection);
         IStructuredSelection s = (IStructuredSelection)tableView.getSelection();
         for (Object o : s.toArray())

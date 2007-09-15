@@ -1,4 +1,5 @@
-package org.thanlwinsoft.doccharconvert.parser;
+package org.thanlwinsoft.doccharconvert.parsers.languagetest;
+
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

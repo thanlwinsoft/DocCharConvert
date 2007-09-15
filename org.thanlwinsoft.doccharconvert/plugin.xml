@@ -61,10 +61,12 @@
                tooltip="%ConversionWizard"/>
          <action
                class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
+               enablesFor="+"
                icon="src/org/thanlwinsoft/doccharconvert/icons/Convert16.png"
                id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
                label="Edit Syllable Converter"
                menubarPath="File/additions"
+               state="false"
                toolbarPath="Bar/additions">
          </action>
       </actionSet>
@@ -76,6 +78,33 @@
             application="org.thanlwinsoft.doccharconvert.DocCharConvertApp"
             description="%DocCharConvert.desc"
             name="%DocCharConvert.name">
+         <property
+               name="aboutText"
+               value="%aboutText"/>
+         <property
+               name="aboutImage"
+               value="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"/>
+         <property
+               name="windowImages"
+               value="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"/>
+         <property
+               name="startupMessageRect"
+               value="0,0,0,0"/>
+         <property
+               name="startupForegroundColor"
+               value="000000"/>
+         <property
+               name="startupProgressRect"
+               value="0,0,0,0"/>
+      </product>
+   </extension>
+   <extension
+         id="DocCharConvertIDEProduct"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            description="%DocCharConvertIDE.desc"
+            name="%DocCharConvertIDE.name">
          <property
                name="aboutText"
                value="%aboutText"/>
@@ -174,19 +203,6 @@
    </extension>
    <extension
          point="org.thanlwinsoft.doccharconvert.parser">
-      <parser
-            class="org.thanlwinsoft.doccharconvert.parser.LanguageTestParser"
-            extensions=".xml"
-            id="org.thanlwinsoft.doccharconvert.parser.LanguageTestParser"
-            name="%LanguageTestParser"
-            styleSupport="true"/>
-      <parser
-            class="org.thanlwinsoft.doccharconvert.parser.ExceptionListTestParser"
-            extensions=".txt"
-            id="org.thanlwinsoft.doccharconvert.parser.ExceptionListTestParser"
-            name="%ExceptionListParser"
-            styleSupport="false">
-      </parser>
    </extension>
    <extension
          point="org.eclipse.ui.viewActions">
@@ -235,6 +251,17 @@
          </action>
       </viewerContribution>
    </extension>
+   <extension
+         point="org.eclipse.ui.elementFactories">
+      <factory
+            class="org.eclipse.ui.part.FileEditorInputFactory"
+            id="org.eclipse.ui.part.FileEditorInputFactory">
+      </factory>
+      <factory
+            class="org.eclipse.ui.internal.WorkingSetFactory"
+            id="org.eclipse.ui.internal.WorkingSetFactory">
+      </factory>
+	</extension>
    <!--
    <extension
          point="org.eclipse.ui.intro.configExtension">

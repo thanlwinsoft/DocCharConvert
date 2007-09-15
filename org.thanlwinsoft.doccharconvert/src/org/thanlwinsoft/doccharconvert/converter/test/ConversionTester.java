@@ -5,10 +5,8 @@ package org.thanlwinsoft.doccharconvert.converter.test;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
@@ -17,14 +15,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
-import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
-import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
-import org.thanlwinsoft.doccharconvert.converter.CharConverter.RecoverableException;
+import org.thanlwinsoft.util.IClassLoaderUtil;
 
 /**
  * @author keith
@@ -247,5 +242,12 @@ public class ConversionTester implements CharConverter
     public void setName(String newName)
     {
         mForwards.setName(newName);
+    }
+
+    @Override
+    public void setClassLoader(IClassLoaderUtil loader)
+    {
+        // TODO Auto-generated method stub
+        
     }
 }

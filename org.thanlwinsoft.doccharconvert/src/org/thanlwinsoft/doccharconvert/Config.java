@@ -25,16 +25,10 @@
 package org.thanlwinsoft.doccharconvert;
 
 import java.io.File;
-import javax.swing.JOptionPane;
-
-import org.eclipse.core.runtime.IStatus;
-import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
-//import org.thanlwinsoft.doccharconvert.openoffice.OOMainInterface;
 
 import java.net.URL;
 import java.util.prefs.Preferences;
 import java.util.ResourceBundle;
-import java.text.MessageFormat;
 /**
  *
  * @author  keith

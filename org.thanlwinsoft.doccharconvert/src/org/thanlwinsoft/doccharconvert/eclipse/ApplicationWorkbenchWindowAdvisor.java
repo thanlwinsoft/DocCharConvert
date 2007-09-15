@@ -1,17 +1,12 @@
 package org.thanlwinsoft.doccharconvert.eclipse;
 
 
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.preferences.ConfigurationScope;
-import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
-import org.osgi.service.prefs.Preferences;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
-import org.thanlwinsoft.eclipse.EclipseToJavaPrefAdapter;
 
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
@@ -29,6 +24,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         configurer.setShowCoolBar(true);
         configurer.setShowStatusLine(true);
         configurer.setTitle(MessageUtil.getString("dialogTitle"));
+
 //        IPreferencesService service = Platform.getPreferencesService();
 //        if (service != null)
 //        {
