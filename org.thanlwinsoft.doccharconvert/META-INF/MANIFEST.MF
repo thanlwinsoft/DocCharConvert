@@ -38,4 +38,4 @@ Bundle-Vendor: ThanLwinSoft.org
 Bundle-ClassPath: lib/DocCharConvertSchema.jar,
  lib/SyllableParserSchema.jar,
  .
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

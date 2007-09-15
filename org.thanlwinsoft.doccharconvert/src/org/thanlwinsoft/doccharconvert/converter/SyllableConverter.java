@@ -754,7 +754,6 @@ public class SyllableConverter extends ReversibleConverter
         }
     }
 
-    @Override
     public void setClassLoader(IClassLoaderUtil loader)
     {
         mLoader  = loader;

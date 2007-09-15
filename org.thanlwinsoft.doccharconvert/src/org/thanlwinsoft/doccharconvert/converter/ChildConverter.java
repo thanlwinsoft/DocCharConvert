@@ -117,7 +117,6 @@ public class ChildConverter implements CharConverter
         getParent().setEncodings(iCharset, oCharset);
     }
 
-    @Override
     public void setClassLoader(IClassLoaderUtil loader)
     {
         // TODO Auto-generated method stub

@@ -83,20 +83,17 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         //register(newWindowAction);
         window.addPageListener(new IPageListener(){
 
-            @Override
             public void pageActivated(IWorkbenchPage page)
             {
                 DocCharConvertEclipsePlugin.getDefault().getPluginPreferences();
                 
             }
 
-            @Override
             public void pageClosed(IWorkbenchPage page)
             {
                 //noop
             }
 
-            @Override
             public void pageOpened(IWorkbenchPage page)
             {
             }});

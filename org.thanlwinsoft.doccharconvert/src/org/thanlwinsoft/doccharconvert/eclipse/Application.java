@@ -39,54 +39,46 @@ public class Application implements IApplicationContext
         }
     }
 
-    @Override
     public void applicationRunning()
     {
         //TODO
     }
 
     @SuppressWarnings("unchecked")
-    @Override
     public Map getArguments()
     {
         // TODO Auto-generated method stub
         return null;
     }
 
-    @Override
     public String getBrandingApplication()
     {
         
         return "org.thanlwinsoft.doccharconvert.eclipse.Application";
     }
 
-    @Override
     public Bundle getBrandingBundle()
     {
         return Platform.getBundle(DocCharConvertEclipsePlugin.ID);
     }
 
-    @Override
     public String getBrandingDescription()
     {
         // TODO Auto-generated method stub
         return null;
     }
 
-    @Override
     public String getBrandingId()
     {
         // TODO Auto-generated method stub
         return "DocCharConvertProduct";
     }
 
-    @Override
     public String getBrandingName()
     {
         return MessageUtil.getString("BrandingName");
     }
 
-    @Override
     public String getBrandingProperty(String key)
     {
         return MessageUtil.getString(key);

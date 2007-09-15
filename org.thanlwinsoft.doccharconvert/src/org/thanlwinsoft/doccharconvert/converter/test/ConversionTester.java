@@ -244,7 +244,6 @@ public class ConversionTester implements CharConverter
         mForwards.setName(newName);
     }
 
-    @Override
     public void setClassLoader(IClassLoaderUtil loader)
     {
         // TODO Auto-generated method stub

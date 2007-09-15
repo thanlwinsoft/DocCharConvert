@@ -388,7 +388,6 @@ public class TecKitConverter extends ReversibleConverter
                 + afterCharset);
     }
 
-    @Override
     public void setClassLoader(IClassLoaderUtil loader)
     {
         // not needed

@@ -82,7 +82,6 @@ public class DummyConverter implements CharConverter
         // ignore        
     }
 
-    @Override
     public void setClassLoader(IClassLoaderUtil loader)
     {
         // TODO Auto-generated method stub
