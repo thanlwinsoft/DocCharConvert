@@ -19,7 +19,6 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
@@ -46,7 +45,7 @@ public class ClassTableEditorPart extends EditorPart
     private TableViewer viewer;
     private final SyllableConverterEditor parentEditor;
     private org.thanlwinsoft.schemas.syllableParser.Class classTable;
-    private Clipboard clipboard;
+    //private Clipboard clipboard;
     private MenuManager menuManager;
     public ClassTableEditorPart(SyllableConverterEditor parentEditor, 
         org.thanlwinsoft.schemas.syllableParser.Class clazz)
@@ -81,7 +80,7 @@ public class ClassTableEditorPart extends EditorPart
         throws PartInitException
     {
         this.setSite(site);
-        clipboard = new Clipboard(site.getShell().getDisplay());
+        //clipboard = new Clipboard(site.getShell().getDisplay());
         final IEditorPart part = this;
         menuManager = new MenuManager(parentEditor.getPartName() + ":" + classTable.getId());
         Action insertAction = new Action(){

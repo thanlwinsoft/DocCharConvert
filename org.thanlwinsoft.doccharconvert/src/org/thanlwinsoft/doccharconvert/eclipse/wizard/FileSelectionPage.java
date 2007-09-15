@@ -249,6 +249,7 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
             conversion.addFilePair(iFile, oFile);
             Config.getCurrent().setInputPath(iFile.getParentFile());
             Config.getCurrent().setOutputPath(oFile.getParentFile());
+            Config.getCurrent().save();
             oldInputFile = iFile;
             tViewer.setInput(conversion.getInputFileList());
             tViewer.refresh();

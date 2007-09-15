@@ -24,7 +24,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
         configurer.setShowCoolBar(true);
         configurer.setShowStatusLine(true);
         configurer.setTitle(MessageUtil.getString("dialogTitle"));
-
+        configurer.setShowProgressIndicator(true);
 //        IPreferencesService service = Platform.getPreferencesService();
 //        if (service != null)
 //        {

@@ -360,6 +360,7 @@ public class ConverterXmlParser
             }
 
             CharConverter masterConverter = (CharConverter) cco;
+            masterConverter.setClassLoader(mLoaderUtil);
             masterConverter.setName(converterName);
             rawConverters.add(masterConverter);
             ReversibleConverter reverseConverter = null;
@@ -370,6 +371,7 @@ public class ConverterXmlParser
                 reverseConverter.setDirection(false);
                 reverseConverter.setName(converterName);
                 reverseConverter.setReverseName(reverseName);
+                reverseConverter.setClassLoader(mLoaderUtil);
                 rawConverters.add(reverseConverter);
             }
             // now find the parameter arguments
