@@ -1,6 +1,10 @@
 Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.6.0-b105 (Sun Microsystems Inc.)
 Bundle-ManifestVersion: 2
 Bundle-Name: Language Test Plug-in
-Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.parsers.languagetest;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.parsers.languaget
+ est;singleton:=true
+Bundle-Version: 1.0.0.svn991m
 Require-Bundle: org.thanlwinsoft.doccharconvert
+

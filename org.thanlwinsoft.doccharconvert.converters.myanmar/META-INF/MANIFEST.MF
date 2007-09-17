@@ -1,7 +1,11 @@
 Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.6.0-b105 (Sun Microsystems Inc.)
 Bundle-ManifestVersion: 2
 Bundle-Name: Myanmar Plug-in for DocCharConvert
-Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanmar;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanma
+ r;singleton:=true
+Bundle-Version: 1.0.0.svn991m
 Bundle-Vendor: www.thanlwinsoft.org
 Require-Bundle: org.thanlwinsoft.doccharconvert
+
