@@ -91,6 +91,7 @@ public class TecKitConverter extends ReversibleConverter
 
     public TecKitConverter(URL mapURL, String encoding)
     {
+        this.mapUrl = mapURL;
         try
         {
             if (encoding.equals(RawByteCharset.CHARSET_NAME))
@@ -109,6 +110,7 @@ public class TecKitConverter extends ReversibleConverter
 
     public TecKitConverter(URL mapURL)
     {
+        this.mapUrl = mapURL;
         name = "TECKit<" + mapURL.getPath() + ">";
         TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
         construct(null, null);
