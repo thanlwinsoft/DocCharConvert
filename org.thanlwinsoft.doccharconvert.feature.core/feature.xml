@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.thanlwinsoft.doccharconvert.feature.core"
+      label="Doccharconvert Core Feature"
+      version="1.0.0"
+      provider-name="www.thanlwinsoft.org">
+
+   <description url="http://www.thanlwinsoft.org/ThanLwinSoft/DocCharConvert/">
+      The main DocCharConvert feature.
+   </description>
+
+   <copyright url="http://www.thanlwinsoft.org/ThanLwinSoft/DocCharConvert/">
+      Copyright (C) 2007 Keith Stribley &lt;devel@thanlwinsoft.org&gt;
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+   </copyright>
+
+   <license url="http://www.gnu.org/licenses/lgpl.html">
+      LGPL
+   </license>
+
+   <url>
+      <update label="ThanLwinSoft.org" url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ui" version="3.3.0" match="compatible"/>
+      <import plugin="org.eclipse.core.runtime" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.ide" version="3.3.0" match="compatible"/>
+      <import plugin="org.eclipse.jface.text" version="3.3.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.views" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.core.resources" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.intro" version="3.2.0" match="compatible"/>
+      <import plugin="org.eclipse.ui.intro.universal"/>
+      <import plugin="org.eclipse.ui.forms" version="3.3.0" match="compatible"/>
+      <import plugin="org.w3c.dom"/>
+   </requires>
+
+   <plugin
+         id="org.apache.xmlbeans"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.thanlwinsoft.doccharconvert"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.thanlwinsoft.doccharconvert.converters.mien"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
