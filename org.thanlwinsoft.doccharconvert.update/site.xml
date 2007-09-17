@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/">
+      Plugins for DocCharConvert hosted on ThanLwinSoft.org
+   </description>
+   <feature url="features/org.thanlwinsoft.doccharconvert.feature.core_1.0.0.jar" id="org.thanlwinsoft.doccharconvert.feature.core" version="1.0.0">
+      <category name="org.thanlwinsoft.doccharconvert"/>
+   </feature>
+   <feature url="features/org.thanlwinsoft.doccharconvert.feature.mien_1.0.0.jar" id="org.thanlwinsoft.doccharconvert.feature.mien" version="1.0.0">
+      <category name="org.thanlwinsoft.doccharconvert"/>
+   </feature>
+   <category-def name="org.thanlwinsoft.doccharconvert" label="DocCharConvert">
+      <description>
+         Document Character Converter - convert documents between different encodings and scripts.
+      </description>
+   </category-def>
+</site>
