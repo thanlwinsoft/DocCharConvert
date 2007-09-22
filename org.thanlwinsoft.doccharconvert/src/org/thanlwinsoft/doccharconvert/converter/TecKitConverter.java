@@ -35,11 +35,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
+
+import org.eclipse.core.runtime.Platform;
+import org.osgi.framework.Bundle;
 import org.sil.scripts.teckit.TecKitJni;
 
 // import org.thanlwinsoft.doccharconvert.RawByteCharset;
@@ -66,7 +70,7 @@ public class TecKitConverter extends ReversibleConverter
     /** Creates a new instance of TecKitConverter */
     public TecKitConverter(File mapFile)
     {
-        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+        loadLibrary();
         setMapFilePath(mapFile);
         construct(null, null);
     }
@@ -84,7 +88,7 @@ public class TecKitConverter extends ReversibleConverter
         {
             System.out.println(e);
         }
-        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+        loadLibrary();
         setMapFilePath(mapFile);
         construct(null, null);
     }
@@ -104,7 +108,7 @@ public class TecKitConverter extends ReversibleConverter
             System.out.println(e);
         }
         name = "TECKit<" + mapURL.getPath() + ">";
-        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+        loadLibrary();
         construct(null, null);
     }
 
@@ -112,8 +116,44 @@ public class TecKitConverter extends ReversibleConverter
     {
         this.mapUrl = mapURL;
         name = "TECKit<" + mapURL.getPath() + ">";
-        TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+        loadLibrary();
         construct(null, null);
+    }
+    
+    private void loadLibrary()
+    {
+        boolean loaded = false;
+        String arch = System.getProperty("osgi.arch");
+        if (arch == null)
+        {
+            TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+            return;
+        }
+        Bundle b = Platform.getBundle("org.thanlwinsoft.doccharconvert.teckit");
+        if (b != null)
+        {
+            String location = b.getLocation();
+            if (location.indexOf('@') > -1)
+                location = location.substring(location.indexOf('@') + 1);
+            URL installLocation = Platform.getInstallLocation().getURL();
+
+            try
+            {
+                File installDir = new File(installLocation.toURI());
+                File bundleDir = new File(installDir, location);
+                File libDir = new File(bundleDir, arch);
+                loaded = TecKitJni.loadLibrary(libDir);
+            }
+            catch (URISyntaxException e)
+            {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+           
+        }
+        if (!loaded)
+            loaded = TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
     }
 
     private void setMapFilePath(File mapFile)
@@ -193,7 +233,7 @@ public class TecKitConverter extends ReversibleConverter
                     }
                     mapBytesOs.close();
                     byte[] mapBytes = mapBytesOs.toByteArray();
-                    converterInstance = jni.createConverter(mapBytes,
+                    converterInstance = jni.createConverterFromBuffer(mapBytes,
                             isForwards());
                 }
                 finally

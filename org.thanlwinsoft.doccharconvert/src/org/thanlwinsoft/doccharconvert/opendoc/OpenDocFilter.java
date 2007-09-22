@@ -12,6 +12,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.helpers.XMLFilterImpl;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.xml.ElementProperties;
@@ -20,6 +22,7 @@ import org.thanlwinsoft.doccharconvert.opendoc.ScriptType.Type;
 
 public class OpenDocFilter extends XMLFilterImpl
 {
+    private final static Logger logger = Logger.getLogger(OpenDocFilter.class);
     public enum FileType { STYLE, CONTENT };
     FileType fileType = null;
     /** manager to store all the styles for different families */
@@ -109,7 +112,7 @@ public class OpenDocFilter extends XMLFilterImpl
                     String result = converter.converter.convert(toConvert);
                     OpenDocStyle activeStyle = converter.style;
                     if (activeStyle != null)
-                        System.out.println(converter.converter.getName() + 
+                        logger.log(Level.DEBUG, converter.converter.getName() + 
                             " on " + activeStyle.getName() + " > " + 
                             activeStyle.convertedStyle.getName());
                     if (activeStyle != null && (l != length ||
@@ -143,7 +146,7 @@ public class OpenDocFilter extends XMLFilterImpl
                 }
                 catch (CharConverter.RecoverableException re)
                 {
-                    System.out.println(re);
+                    logger.log(Level.WARN, "OpenDocFilter::characters", re);
                     super.characters(ch, start, length);
                 }
             }
@@ -375,7 +378,7 @@ public class OpenDocFilter extends XMLFilterImpl
             {
                 column += Integer.parseInt(repeats);
             }
-            catch (NumberFormatException e) {System.out.println(e);}
+            catch (NumberFormatException e) {logger.log(Level.WARN, "Number format error", e);}
         }
         currentConv = new EnumMap<Type, OOStyleConverter>(Type.class);
         resolveActiveStyles();
@@ -405,7 +408,7 @@ public class OpenDocFilter extends XMLFilterImpl
                   columnStyles.add(column, colStyle);
                 }
             }
-            catch (NumberFormatException e) {System.out.println(e);}
+            catch (NumberFormatException e) {logger.log(Level.WARN, "Number format error", e);}
         }
         startElement(currentElement);
     }
@@ -441,14 +444,14 @@ public class OpenDocFilter extends XMLFilterImpl
                 if (sNameIndex > -1)
                 {
                     styleName = pep.getAttributes().getValue(sNameIndex); 
-                    System.out.println(styleName + "[" + i + "] " + st);
+                    logger.log(Level.DEBUG, styleName + "[" + i + "] " + st);
                     ods = styles.getStyle(psf, styleName);
                     // find face for style
                     ods = resolveFace(st, ods);
                     if (ods != null)
                     {
                         faceName = ods.getFaceName(st);
-                        System.out.println(faceName);
+                        logger.log(Level.DEBUG, faceName);
                     }
                 }
                 
@@ -472,14 +475,14 @@ public class OpenDocFilter extends XMLFilterImpl
                         if (ods != null) 
                         {
                             faceName = ods.resolveFaceName(st);
-                            System.out.println("Default-para: " + faceName);
+                            logger.log(Level.DEBUG, "Default-para: " + faceName);
                         }
                     }
                 }
                 if (addCurrentConvIfMatches(st, faceName, ods))
                 {
-                    System.out.print(styleName + " " + st + " " + ods.getName());
-                    System.out.println(" / " + ods.getConvertedStyle().getName());
+                    logger.log(Level.DEBUG, styleName + " " + st + " " + ods.getName());
+                    logger.log(Level.DEBUG, " / " + ods.getConvertedStyle().getName());
                 }
             }
             currentStyle.put(st, ods);
@@ -518,7 +521,7 @@ public class OpenDocFilter extends XMLFilterImpl
                 if (cc.getOldStyle().getScriptType().equals(type))
                 {
                     currentConv.put(type, new OOStyleConverter(ofc, ods));
-                    System.out.println(type.toString() + " " + faceName);
+                    logger.log(Level.DEBUG, type.toString() + " " + faceName);
                     convMatches = true;
                 }
             }
@@ -530,7 +533,7 @@ public class OpenDocFilter extends XMLFilterImpl
                     OOStyleConverter oosc = new OOStyleConverter( 
                         new OOFaceConverter(faceName, cc), ods);
                     currentConv.put(type, oosc);
-                    System.out.println(type.toString() + " " + faceName);
+                    logger.log(Level.DEBUG, type.toString() + " " + faceName);
                     convMatches = true;
                 }
             }
@@ -587,13 +590,13 @@ public class OpenDocFilter extends XMLFilterImpl
                 
                 if (currentStyleDef != null)
                 {
-                    System.out.println(currentStyleDef.getName() + " " + 
+                    logger.log(Level.DEBUG, currentStyleDef.getName() + " " + 
                         currentStyleDef.getFamily().name() + " " + 
                         newFaceName);
                 }
                 else
                 {
-                    System.out.println("No style: " + 
+                    logger.log(Level.DEBUG, "No style: " + 
                                        newFaceName);
                 }
                 if (oldType.equals(sType))
@@ -603,7 +606,7 @@ public class OpenDocFilter extends XMLFilterImpl
                     if (newType.equals(oldType))
                     {
                         ai.setValue(faceIndex, newFaceName);
-                        System.out.println("");
+                        logger.log(Level.DEBUG, "");
                     }
                     else
                     {
@@ -696,7 +699,7 @@ public class OpenDocFilter extends XMLFilterImpl
         {
             CharConverter cc = converterMap.get(fontFamily);
             faceMap.put(ooFaceName, new OOFaceConverter(ooFaceName,cc));
-            System.out.println("matched face " + fontFamily);
+            logger.log(Level.DEBUG, "matched face " + fontFamily);
         }
     }
 

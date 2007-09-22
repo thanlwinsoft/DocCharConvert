@@ -5,7 +5,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DocCharConvert Ide Plug-in
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.ide;singleton:=tr
  ue
-Bundle-Version: 1.0.0.svn991m
+Bundle-Version: 1.0.0.svn997m
 Require-Bundle: org.thanlwinsoft.doccharconvert
 Eclipse-LazyStart: true
 Export-Package: org.thanlwinsoft.doccharconvert.parser

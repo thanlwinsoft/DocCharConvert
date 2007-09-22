@@ -121,16 +121,24 @@
                value="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"/>
          <property
                name="windowImages"
-               value="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"/>
+               value="icons/DocCharConvert16.png,icons/DocCharConvert32.png"/>
          <property
                name="startupMessageRect"
-               value="0,0,0,0"/>
+               value="0,280,455,10"/>
          <property
                name="startupForegroundColor"
                value="000000"/>
          <property
                name="startupProgressRect"
-               value="0,0,0,0"/>
+               value="0,295,455,10"/>
+         <property
+               name="appName"
+               value="%DocCharConvertIDE.name">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
       </product>
    </extension>
    <extension

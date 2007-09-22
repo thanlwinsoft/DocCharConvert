@@ -63,7 +63,7 @@ public class JoinTextRuns extends XMLFilterImpl
         if (textBuffer.length() > 0)
         {
             super.characters(textBuffer.toString().toCharArray(), 0, textBuffer.length());
-            System.out.println(textBuffer.toString());
+            //System.out.println(textBuffer.toString());
             textBuffer.delete(0, textBuffer.length());
         }
     }

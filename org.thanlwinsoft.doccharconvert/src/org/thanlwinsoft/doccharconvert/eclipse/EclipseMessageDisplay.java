@@ -6,112 +6,146 @@ package org.thanlwinsoft.doccharconvert.eclipse;
 import org.thanlwinsoft.doccharconvert.IMessageDisplay;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
+
 /**
  * @author keith
- *
+ * 
  */
 public class EclipseMessageDisplay implements IMessageDisplay
 {
     Shell shell = null;
+
     public EclipseMessageDisplay(Shell shell)
     {
         this.shell = shell;
     }
-    /* (non-Javadoc)
-     * @see org.thanlwinsoft.doccharconvert.IMessageDisplay#showWarningMessage(java.lang.String, java.lang.String)
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.thanlwinsoft.doccharconvert.IMessageDisplay#showWarningMessage(java.lang.String,
+     *      java.lang.String)
      */
     public void showWarningMessage(final String message, final String title)
     {
         final String warningMessage = message;
-        shell.getDisplay().asyncExec(new Runnable() {
+        shell.getDisplay().asyncExec(new Runnable()
+        {
             public void run()
             {
-                //MessageDialog.openWarning(shell, title, message);
-                MessageDialog dialog = new MessageDialog(shell, title, null, 
-                    title, MessageDialog.WARNING, new String[] {
-                    MessageUtil.getString("OK")
-                }, 0){
+                if (message.length() < 80)
+                {
+                    MessageDialog.openWarning(shell, title, message);
+                    return;
+                }
+                MessageDialog dialog = new MessageDialog(shell, title, null,
+                        title, MessageDialog.WARNING,
+                        new String[] { MessageUtil.getString("OK") }, 0)
+                {
 
-                    /* (non-Javadoc)
-                     * @see org.eclipse.jface.dialogs.MessageDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
-                     */
-                    @Override
-                    protected Control createDialogArea(Composite parent)
-                    {
-                        ScrolledComposite sc = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
-                        GridData layoutData = new GridData();
-                        layoutData.widthHint = 200;
-                        layoutData.heightHint = 200;
-                        sc.setLayoutData(layoutData);
-                        sc.setExpandHorizontal(true);
-                        sc.setExpandVertical(true);
-                        Composite c = new Composite(sc, SWT.NONE);
-                        c.setLayout(new FillLayout());
-                        Label l = new Label(c, SWT.WRAP | SWT.LEAD);
-                        l.setText(warningMessage);
-                        c.setSize(l.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-                        sc.setContent(c);
-                        sc.setAlwaysShowScrollBars(true);
-                        return sc;
-                    }
+//                    /*
+//                     * (non-Javadoc)
+//                     * 
+//                     * @see org.eclipse.jface.dialogs.MessageDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
+//                     */
+//                    @Override
+//                    protected Control createMessageArea(Composite parent)
+//                    {
+//                        final ScrolledComposite sc1 = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+//                        GridData outerData = new GridData(500, 200);
+//                        sc1.setLayoutData(outerData);
+//                        final Composite c1 = new Composite(sc1, SWT.NONE);
+//                        sc1.setContent(c1);
+//                        GridLayout layout = new GridLayout();
+//                        c1.setLayout(layout);
+//                        Label l = new Label(c1, SWT.LEAD);
+//                        l.setText(warningMessage);
+//                        c1.setSize(c1.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+//                        return sc1;
+//                    }
 
-                    /* (non-Javadoc)
+                    /*
+                     * (non-Javadoc)
+                     * 
                      * @see org.eclipse.jface.dialogs.MessageDialog#createCustomArea(org.eclipse.swt.widgets.Composite)
                      */
                     @Override
                     protected Control createCustomArea(Composite parent)
                     {
-                        return super.createContents(parent);
-                    }};
-               dialog.open();
-//                MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
-//                msgBox.setMessage(message);
-//                msgBox.setText(title);
-//                msgBox.open();
+                        final ScrolledComposite sc1 = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+                        GridData outerData = new GridData(500, 200);
+                        sc1.setLayoutData(outerData);
+                        final Composite c1 = new Composite(sc1, SWT.NONE);
+                        sc1.setContent(c1);
+                        GridLayout layout = new GridLayout();
+                        c1.setLayout(layout);
+                        Label l = new Label(c1, SWT.LEAD);
+                        l.setText(warningMessage);
+                        c1.setSize(c1.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+                        return sc1;
+                    }
+                };
+                dialog.open();
+                // MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING |
+                // SWT.OK);
+                // msgBox.setMessage(message);
+                // msgBox.setText(title);
+                // msgBox.open();
             }
         });
     }
 
-    /* (non-Javadoc)
-     * @see org.thanlwinsoft.doccharconvert.IMessageDisplay#showYesNoMessage(java.lang.String, java.lang.String)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.thanlwinsoft.doccharconvert.IMessageDisplay#showYesNoMessage(java.lang.String,
+     *      java.lang.String)
      */
     public Option showYesNoMessage(final String message, final String title)
     {
-        MessageRunnable runnable = new MessageRunnable(message, title);        
+        MessageRunnable runnable = new MessageRunnable(message, title);
         shell.getDisplay().syncExec(runnable);
         return runnable.status;
     }
+
     protected class MessageRunnable implements Runnable
     {
         Option status;
         String message;
         String title;
+
         public MessageRunnable(final String message, final String title)
         {
             this.message = message;
             this.title = title;
         }
+
         public void run()
         {
-            String [] labels = 
-            {
-                MessageUtil.getString("Yes"), 
-                MessageUtil.getString("No"),
-                MessageUtil.getString("YesToAll"), 
-                MessageUtil.getString("NoToAll")
-            };
-            //MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING | SWT.YES | SWT.NO | SWT.CANCEL);
+            String[] labels = { MessageUtil.getString("Yes"),
+                    MessageUtil.getString("No"),
+                    MessageUtil.getString("YesToAll"),
+                    MessageUtil.getString("NoToAll") };
+            // MessageBox msgBox = new MessageBox(shell, SWT.ICON_WARNING |
+            // SWT.YES | SWT.NO | SWT.CANCEL);
             MessageDialog dialog = new MessageDialog(shell, title, null,
-                message, MessageDialog.QUESTION, labels, Option.NO.ordinal());
+                    message, MessageDialog.QUESTION, labels, Option.NO
+                            .ordinal());
             switch (dialog.open())
             {
             case 0:
@@ -127,9 +161,13 @@ public class EclipseMessageDisplay implements IMessageDisplay
                 status = Option.NO_ALL;
                 break;
             default:
-                 status = Option.NO;
+                status = Option.NO;
             }
         }
-        public Option getStatus() { return status; }
+
+        public Option getStatus()
+        {
+            return status;
+        }
     }
 }

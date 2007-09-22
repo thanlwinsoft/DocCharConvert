@@ -113,7 +113,7 @@ public class TecKitJni
      * @return id of the converter created. This must be used in subsequent 
      * invocations to convert.
      */
-    public native long createConverter(byte [] tec, boolean toUnicode);
+    public native long createConverterFromBuffer(byte [] tec, boolean toUnicode);
     /**
      * Converts the input byte array using the specified converter, which must
      * have already be created with #createConverter.
