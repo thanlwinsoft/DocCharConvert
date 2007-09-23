@@ -6,45 +6,68 @@
 			<include name="**/*.jar"/>
 		</fileset>
 	</path>
+	<target name="properties" if="eclipse.running">
+			<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+
+	</target>
 	
 	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" 
 		classpathref="svnant.class.path" />
 	
-	<target name="default" description="update All Projects">
+	<target name="default" depends="properties" description="update All Projects">
 
 		<antcall target="update" >
+			<param name="svnCheckDir" value="src"/>
 			<param name="projectName" value="org.thanlwinsoft.doccharconvert"/>
 		</antcall>
 
 		<antcall target="update" >
+			<param name="svnCheckDir" value="converters"/>
 			<param name="projectName" value="org.thanlwinsoft.doccharconvert.converters.mien"/>
 		</antcall>
 
 		<antcall target="update" >
+			<param name="svnCheckDir" value="converters"/>
 			<param name="projectName" value="org.thanlwinsoft.doccharconvert.converters.myanmar"/>
 		</antcall>
 		
 		<antcall target="update" >
+			<param name="svnCheckDir" value="src"/>
 			<param name="projectName" value="org.thanlwinsoft.doccharconvert.ide"/>
 		</antcall>
 
 		<antcall target="update" >
+			<param name="svnCheckDir" value="src"/>
 			<param name="projectName" value="org.thanlwinsoft.doccharconvert.parsers.languagetest"/>
 		</antcall>
 		
+		<antcall target="update" >
+			<param name="svnCheckDir" value="src"/>
+			<param name="projectName" value="org.thanlwinsoft.doccharconvert.teckit"/>
+		</antcall>
+				
 	</target>
 	
 	<target name="update">
 		<antcall target="update-manifest" >
 		</antcall>
-		<!--<eclipse.buildScript elements="bundle@${projectName}" buildDirectory="../${projectName}"/>-->
+		<property name="plugin.destination" value="${basedir}/../${projectName}"/>
+		<!--
+		<eclipse.buildScript elements="bundle@${projectName}" 
+			buildDirectory="." pluginpath=".." />-->
+		<delete>
+		    <fileset dir="../${projectName}" includes="${projectName}_*.jar"/>
+		</delete>
 		<ant dir="../${projectName}" target="build.update.jar"/>
 	</target>
 
 <target name="update-manifest" description="Update SVN version in Manifest">
+		<!-- backup manifest before we do anything -->
+		<copy file="../${projectName}/META-INF/MANIFEST.MF" tofile="../${projectName}/META-INF/MANIFEST.MF.bak"/>
 		<svn>
-			<info target="../${projectName}"/>
-			<wcVersion path="../${projectName}" prefix="svn."/>
+			<!--<revert file="../${projectName}/META-INF/MANIFEST.MF"/>-->
+			<info target="../${projectName}/${svnCheckDir}"/>
+			<wcVersion path="../${projectName}/${svnCheckDir}" prefix="svn."/>
 		</svn>
 		<condition property="modified.flag" value="m" else="">
 			<isset property="svn.modified"/>
@@ -54,7 +77,6 @@
 		<manifest file="../${projectName}/META-INF/MANIFEST.MF" mode="update">
 		<attribute name="Bundle-Version" value="${plugin.version}.svn${svn.info.lastRev}${modified.flag}"/>
 		</manifest>
-		
 		
 </target>
 

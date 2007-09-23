@@ -9,6 +9,9 @@
    <feature url="features/org.thanlwinsoft.doccharconvert.feature.mien_1.0.0.jar" id="org.thanlwinsoft.doccharconvert.feature.mien" version="1.0.0">
       <category name="org.thanlwinsoft.doccharconvert"/>
    </feature>
+   <feature url="features/org.thanlwinsoft.doccharconvert.feature.myanmar_1.0.0.jar" id="org.thanlwinsoft.doccharconvert.feature.myanmar" version="1.0.0">
+      <category name="org.thanlwinsoft.doccharconvert"/>
+   </feature>
    <category-def name="org.thanlwinsoft.doccharconvert" label="DocCharConvert">
       <description>
          Document Character Converter - convert documents between different encodings and scripts.
