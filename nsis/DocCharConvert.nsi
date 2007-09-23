@@ -4,7 +4,7 @@
 
 ; Some useful definitions that may need changing for different font versions
 !ifndef VERSION
-  !define VERSION '1.0.2'
+  !define VERSION '1.1.0'
 !endif
 
 !define APP_NAME 'DocCharConvert'
@@ -43,7 +43,7 @@
 ;Pages
 
   !insertmacro MUI_PAGE_WELCOME
-  !insertmacro MUI_PAGE_LICENSE "../license.txt"
+  !insertmacro MUI_PAGE_LICENSE "lgpl-2.1.txt"
   !insertmacro MUI_PAGE_COMPONENTS
   !insertmacro MUI_PAGE_DIRECTORY
   !insertmacro MUI_PAGE_INSTFILES
@@ -81,7 +81,7 @@ Function findJavaHome
 	
 	noJava:
 	  StrCpy $1 ""
-	  MessageBox MB_YESNO|MB_ICONSTOP "No Java 1.5 Runtime was found. ${APP_NAME} will not work unless a Java is installed. Please download a Java Runtime Environment from http://java.com/en/download/ and rerun this installer. Do you want to proceed anyway?" IDYES done IDNO quit
+	  MessageBox MB_YESNO|MB_ICONSTOP "No Java 1.5 Runtime was found. ${APP_NAME} will not work unless Java 1.5 or later is installed. Please download a Java Runtime Environment from http://java.com/en/download/ and rerun this installer. Do you want to proceed anyway?" IDYES done IDNO quit
 	quit: 
 	Quit
 	done:
@@ -110,16 +110,20 @@ NoOverwrite:
   
   SetOutPath "$INSTDIR"
   
-  File /r "${APP_NAME}"
+  File /r "..\eclipseplugins\win32.win32.x86\${APP_NAME}"
   
   SetOutPath "$INSTDIR\${APP_NAME}"
-  File /oname=license.txt "..\license.txt"
+  File /oname=license.txt "lgpl-2.1.txt"
   File DocCharConvert.bat
   File "DocCharConvert32.ico"
   File "UninstallDCC16.ico"
   
-  SetOutPath "$INSTDIR\${APP_NAME}\configuration\org.thanlwinsoft.doccharconvert\Converters"
-  File "/oname=TecKitJni.dll" "..\Converters\TecKitJni.dll" 
+  CreateDirectory "$INSTDIR\${APP_NAME}\features"
+  SetOutPath "$INSTDIR\${APP_NAME}\features"
+  File ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.core_*.jar
+  
+  ;SetOutPath "$INSTDIR\${APP_NAME}\configuration\org.thanlwinsoft.doccharconvert\Converters"
+  ;File "/oname=TecKitJni.dll" "..\Converters\TecKitJni.dll" 
   
   ClearErrors
   ; write a batch file that sets the Java home
@@ -137,16 +141,20 @@ NoOverwrite:
   ; set up shortcuts
   CreateDirectory "$SMPROGRAMS\${APP_NAME}"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe"' \
+	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertProduct' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
+	CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk" \
+	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe"' \
+	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
+	"" "${APP_NAME} - developer IDE"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}Uninstall.lnk" \
 	"$INSTDIR\${APP_NAME}\Uninstall.exe" "" \
 	"$INSTDIR\${APP_NAME}\UninstallDCC16.ico" 0 SW_SHOWNORMAL \
 	"" "Uninstall ${APP_NAME}"
 
   CreateShortCut "$DESKTOP\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe"' \
+	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertProduct' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
 	
@@ -167,33 +175,19 @@ NoOverwrite:
 
 SectionEnd
 
-Section "Myanmar" SecMyanmar
-	SetOutPath "$INSTDIR\${APP_NAME}\configuration\org.thanlwinsoft.doccharconvert\Converters"
-	SetOverwrite on
-	
-	File "..\Converters\Academy.dccx" 
-	File "..\Converters\academy.tec"
-	File "..\Converters\academy.xml"
-	File "..\Converters\WinMyanmar.tec"
-	File "..\Converters\WinMyanmar.xml"
-	File "..\Converters\Winnwa.dccx" 
-	File "..\Converters\Wwin_burmese.tec" 
-	File "..\Converters\Wwin_burmese.xml" 
-	File "..\Converters\Wwin_burmese.dccx" 
-	File "..\Converters\IwinMedium.dccx" 
-	File "..\Converters\IWinMedi.xml" 
-	File "..\Converters\IWinMedi.tec" 
-	File "..\Converters\MyanmarUni4ToUni5.dccx" 
-	File "..\Converters\myUni4ToUni5.xml" 
+Section /o "Myanmar" SecMyanmar
+	SetOutPath "$INSTDIR\${APP_NAME}\plugins"
+	File ..\org.thanlwinsoft.doccharconvert.update\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*.jar
+	SetOutPath "$INSTDIR\${APP_NAME}\features"
+	File ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*.jar
 SectionEnd
 
 ;Optional source - as a compressed archive
-Section /o "Source code" SecSrc
-
-  SetOutPath "$INSTDIR"
-  SetOverwrite on
-  ;ADD YOUR OWN FILES HERE...
-  ;File "${SRC_ARCHIVE}"
+Section /o "Mien" SecMien
+	SetOutPath "$INSTDIR\${APP_NAME}\plugins"
+	File ..\org.thanlwinsoft.doccharconvert.update\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*.jar
+	SetOutPath "$INSTDIR\${APP_NAME}\features"
+	File ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.mien_*.jar
   
 SectionEnd
 
@@ -203,15 +197,15 @@ SectionEnd
 
   ;Language strings
   LangString DESC_SecApp ${LANG_ENGLISH} "Install the ${APP_NAME} (version ${VERSION})."
-  LangString DESC_SecMyanmar ${LANG_ENGLISH} "Myanmar Font Encoding Converters"
-  LangString DESC_SecSrc ${LANG_ENGLISH} "Install the source code for ${APP_NAME} (version ${VERSION}). You only need this if you are a software developer."
+  LangString DESC_SecMyanmar ${LANG_ENGLISH} "Myanmar (Burmese) Font Encoding Converters"
+  LangString DESC_SecMien ${LANG_ENGLISH} "Mien Language Script / Encoding Converters"
 
 
   ;Assign language strings to sections
   !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
     !insertmacro MUI_DESCRIPTION_TEXT ${SecApp} $(DESC_SecApp)
 	!insertmacro MUI_DESCRIPTION_TEXT ${SecMyanmar} $(DESC_SecMyanmar)
-    !insertmacro MUI_DESCRIPTION_TEXT ${SecSrc} $(DESC_SecSrc)
+    !insertmacro MUI_DESCRIPTION_TEXT ${SecMien} $(DESC_SecMien)
   !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Function .onInstFailed
@@ -243,7 +237,7 @@ AppFound:
   Delete /REBOOTOK "$INSTDIR\DocCharConvert*.*"
   Delete /REBOOTOK "$INSTDIR\UninstallDCC16.ico"
   Delete /REBOOTOK "$INSTDIR\setJavaHome.bat"
-  Delete /REBOOTOK "$INSTDIR\license.txt"
+  Delete /REBOOTOK "$INSTDIR\lgpl-2.1.txt"
   
   ;Delete "$INSTDIR\${SRC_ARCHIVE}"
   Delete /REBOOTOK "$INSTDIR\Uninstall.exe"
