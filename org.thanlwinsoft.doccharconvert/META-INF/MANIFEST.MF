@@ -5,7 +5,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DocCharConvertEclipse Plug-in
 Bundle-Group: org.thanlwinsoft.doccharconvert
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true
-Bundle-Version: 1.1.0.svn998
+Bundle-Version: 1.1.0.svn1002
 Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConve
  rtEclipsePlugin
 Bundle-Localization: plugin
