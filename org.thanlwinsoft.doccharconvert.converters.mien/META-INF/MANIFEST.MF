@@ -5,7 +5,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Mien Plug-in
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;s
  ingleton:=true
-Bundle-Version: 1.0.0.svn997m
+Bundle-Version: 1.0.0.svn981
 Require-Bundle: org.thanlwinsoft.doccharconvert
 Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mie
  n
