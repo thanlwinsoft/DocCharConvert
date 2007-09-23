@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Teckit
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.teckit
+Bundle-Version: 1.0.0
