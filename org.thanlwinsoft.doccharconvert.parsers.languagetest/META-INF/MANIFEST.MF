@@ -5,6 +5,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Language Test Plug-in
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.parsers.languaget
  est;singleton:=true
-Bundle-Version: 1.0.0.svn991m
+Bundle-Version: 1.0.0.svn984
 Require-Bundle: org.thanlwinsoft.doccharconvert
 
