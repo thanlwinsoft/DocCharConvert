@@ -123,6 +123,7 @@ public class TecKitConverter extends ReversibleConverter
     private void loadLibrary()
     {
         boolean loaded = false;
+        String os = System.getProperty("osgi.os");
         String arch = System.getProperty("osgi.arch");
         if (arch == null)
         {
@@ -140,8 +141,12 @@ public class TecKitConverter extends ReversibleConverter
             try
             {
                 File installDir = new File(installLocation.toURI());
-                File bundleDir = new File(installDir, location);
-                File libDir = new File(bundleDir, arch);
+                File bundleDir = new File(location);
+                if (!bundleDir.isDirectory())
+                {
+                    bundleDir = new File(installDir, location);
+                }
+                File libDir = new File(bundleDir, os + File.separator + arch);
                 loaded = TecKitJni.loadLibrary(libDir);
             }
             catch (URISyntaxException e)

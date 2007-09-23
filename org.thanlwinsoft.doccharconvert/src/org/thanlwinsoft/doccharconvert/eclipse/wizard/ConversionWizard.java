@@ -155,7 +155,7 @@ public class ConversionWizard extends Wizard
                         ReverseConversion.get(availableConverters, cc);
                     ConversionTester ct = new ConversionTester(cc, reverse);
                     ct.setLogFile(new File(logDir, 
-                        cc.getName() + sdf.format(new Date()) + ".csv"));
+                            cononicalizeName(cc.getName()) + sdf.format(new Date()) + ".csv"));
                     conversion.addConverter(ct);
                 }
                 else conversion.addConverter(cc);
@@ -220,6 +220,12 @@ public class ConversionWizard extends Wizard
         return runnable;
     }
     
+    private String cononicalizeName(String name)
+    {
+        // what about unicode characters?
+        return name.replaceAll("[=:></\\$&*?]*", "");
+    }
+    
     protected boolean directInput() throws PartInitException, CoreException
     {
         Collection <CharConverter> converters = conversion.getConverters();
@@ -233,7 +239,7 @@ public class ConversionWizard extends Wizard
         IFolder tmpFolder = createProjectFolder("tmp");
         if (tmpFolder.exists())
         {
-            String filename = cc.getName() + TXT_EXT;
+            String filename = cononicalizeName(cc.getName()) + TXT_EXT;
             tmpFile = tmpFolder.getFile(filename);
             byte [] dummy = { ' ' };
             // tmpFile.delete(true, false, null);

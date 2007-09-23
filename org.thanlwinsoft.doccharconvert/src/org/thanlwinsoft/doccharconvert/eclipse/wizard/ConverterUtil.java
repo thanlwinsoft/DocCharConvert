@@ -121,9 +121,9 @@ public class ConverterUtil
                     .getConfigurationElements();
             for (int j = 0; j < ce.length; j++)
             {
-                if (ce[i].getName().equals(CONVERTER_DIR_ELEMENT))
+                if (ce[j].getName().equals(CONVERTER_DIR_ELEMENT))
                 {
-                    String path = ce[i].getAttribute(PATH_ATTR);
+                    String path = ce[j].getAttribute(PATH_ATTR);
                     String plugin = extensions[i].getContributor().getName();
                     Bundle b = Platform.getBundle(plugin);
                     Enumeration<?> converters = b.findEntries(path,
@@ -138,30 +138,6 @@ public class ConverterUtil
                                 bundles.add(b);
                         }
                     }
-                    // if (url.getProtocol().equals("file"))
-                    // {
-                    // try
-                    // {
-                    // File f = new File(url.toURI());
-                    // if (f.canRead())
-                    // {
-                    // files.add(f);
-                    // }
-                    // else
-                    // {
-                    // DocCharConvertEclipsePlugin.log(
-                    // IStatus.WARNING, "File "
-                    // + f.getAbsolutePath()
-                    // + " can't be read.");
-                    // }
-                    // }
-                    // catch (URISyntaxException e)
-                    // {
-                    // DocCharConvertEclipsePlugin.log(IStatus.WARNING,
-                    // "URISyntaxException for " + path, e);
-                    // }
-                    //
-                    // }
                 }
             }
         }
