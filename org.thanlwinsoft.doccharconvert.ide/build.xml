@@ -6,7 +6,7 @@
 	<property name="basearch" value="${arch}"/>
 	<property name="basenl" value="${nl}"/>
 	<property name="bundleId" value="org.thanlwinsoft.doccharconvert.ide"/>
-	<property name="bundleVersion" value="1.0.0.svn997"/>
+	<property name="bundleVersion" value="1.0.0.svn997m"/>
 
 	<!-- Compiler settings. -->
 	<property name="javacFailOnError" value="false"/>
@@ -35,7 +35,7 @@
 			<isset property="buildTempFolder"/>
 		</condition>
 		<property name="pluginTemp" value="${basedir}"/>
-		<condition property="build.result.folder" value="${pluginTemp}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997">
+		<condition property="build.result.folder" value="${pluginTemp}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m">
 			<isset property="buildTempFolder"/>
 		</condition>
 		<property name="build.result.folder" value="${basedir}"/>
@@ -55,7 +55,7 @@
 		<antcall target="gather.bin.parts">
 			<param name="destination.temp.folder" value="${temp.folder}/"/>
 		</antcall>
-		<jar destfile="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997.jar" basedir="${temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997" filesetmanifest="merge"/>
+		<jar destfile="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m.jar" basedir="${temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m" filesetmanifest="merge"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
@@ -167,6 +167,9 @@
 			<pathelement path="../../LanguageTestWorkspace/trunk/org.apache.xmlbeans/lib/xmlbeans-qname.jar"/>
 			<pathelement path="../../LanguageTestWorkspace/trunk/org.apache.xmlbeans/lib/xmlpublic.jar"/>
 			<pathelement path="../../../../../opt/eclipse/plugins/org.w3c.dom_1.3.3.v200704190547.jar"/>
+			<pathelement path="../org.thanlwinsoft.doccharconvert.teckit/bin"/>
+			<pathelement path="../org.thanlwinsoft.doccharconvert.teckit/@dot"/>
+			<pathelement path="../../../../../opt/eclipse/plugins/org.apache.log4j_1.2.13.v200706111418.jar"/>
 		</path>
 		<!-- compile the source code -->
 		<javac destdir="${temp.folder}/@dot.bin" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}"		>
@@ -211,13 +214,13 @@
 	</target>
 
 	<target name="gather.bin.parts" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997"/>
-		<copy todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997" failonerror="true" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m"/>
+		<copy todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m" failonerror="true" overwrite="false">
 			<fileset dir="${build.result.folder}/@dot">
 				<include name="**"/>
 			</fileset>
 		</copy>
-		<copy todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997" failonerror="true" overwrite="false">
+		<copy todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m" failonerror="true" overwrite="false">
 			<fileset dir="${basedir}">
 				<include name="META-INF/"/>
 				<include name="plugin.xml"/>
@@ -229,13 +232,13 @@
 	</target>
 
 	<target name="gather.sources" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997"/>
-		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997" failonerror="false" overwrite="false"/>
+		<mkdir dir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m"/>
+		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m" failonerror="false" overwrite="false"/>
 	</target>
 
 	<target name="gather.logs" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997"/>
-		<copy todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997" failonerror="false" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m"/>
+		<copy todir="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m" failonerror="false" overwrite="false">
 			<fileset dir="${temp.folder}">
 				<include name="@dot.bin${logExtension}"/>
 			</fileset>
@@ -245,8 +248,8 @@
 	<target name="clean" depends="init" description="Clean the plug-in: org.thanlwinsoft.doccharconvert.ide of all the zips, jars and logs created.">
 		<delete dir="${build.result.folder}/@dot"/>
 		<delete file="${build.result.folder}/src.zip"/>
-		<delete file="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997.jar"/>
-		<delete file="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997.zip"/>
+		<delete file="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m.jar"/>
+		<delete file="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m.zip"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
@@ -271,7 +274,7 @@
 				<include name="**/*.bin${logExtension}"/>
 			</fileset>
 		</delete>
-		<zip destfile="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${plugin.destination}/org.thanlwinsoft.doccharconvert.ide_1.0.0.svn997m.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
