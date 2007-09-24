@@ -138,11 +138,11 @@ public class TecKitConverter extends ReversibleConverter
             String location = b.getLocation();
             if (location.indexOf('@') > -1)
                 location = location.substring(location.indexOf('@') + 1);
-            URL installLocation = Platform.getInstallLocation().getURL();
-
-            try
+            //URL installLocation = Platform.getInstallLocation().getURL().toExternalForm();
+            String installLocation = Platform.getInstallLocation().getURL().toExternalForm().substring(5);
+            //try
             {
-                File installDir = new File(installLocation.toURI());
+                File installDir = new File(installLocation);
                 File bundleDir = new File(location);
                 if (!bundleDir.isDirectory())
                 {
@@ -154,13 +154,13 @@ public class TecKitConverter extends ReversibleConverter
                     DocCharConvertEclipsePlugin.log(IStatus.WARNING,
                             "Error loading TecKIT " + installLocation);
             }
-            catch (URISyntaxException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                DocCharConvertEclipsePlugin.log(IStatus.WARNING,
-                        "Error loading TecKIT " + installLocation, e);
-            }
+//            catch (URISyntaxException e)
+//            {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//                DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+//                        "Error loading TecKIT " + installLocation, e);
+//            }
 
         }
         if (!loaded)
