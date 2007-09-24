@@ -216,7 +216,8 @@ public class Config
         //outputPath = file;
         try
         {
-            packagePref.put(OUTPUT_PATH, file.getCanonicalPath());
+            if (file != null)
+                packagePref.put(OUTPUT_PATH, file.getCanonicalPath());
         }
         catch (java.io.IOException e) 
         {

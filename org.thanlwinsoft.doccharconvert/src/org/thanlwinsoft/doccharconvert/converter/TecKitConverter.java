@@ -24,6 +24,7 @@ package org.thanlwinsoft.doccharconvert.converter;
 import org.thanlwinsoft.doccharconvert.RawByteCharset;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.util.IClassLoaderUtil;
 
 import java.io.IOException;
@@ -42,6 +43,7 @@ import java.nio.charset.IllegalCharsetNameException;
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
 import org.sil.scripts.teckit.TecKitJni;
@@ -119,7 +121,7 @@ public class TecKitConverter extends ReversibleConverter
         loadLibrary();
         construct(null, null);
     }
-    
+
     private void loadLibrary()
     {
         boolean loaded = false;
@@ -148,17 +150,24 @@ public class TecKitConverter extends ReversibleConverter
                 }
                 File libDir = new File(bundleDir, os + File.separator + arch);
                 loaded = TecKitJni.loadLibrary(libDir);
+                if (!loaded)
+                    DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                            "Error loading TecKIT " + installLocation);
             }
             catch (URISyntaxException e)
             {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                        "Error loading TecKIT " + installLocation, e);
             }
-            
-           
+
         }
         if (!loaded)
-            loaded = TecKitJni.loadLibrary(Config.getCurrent().getConverterPath());
+        {
+            loaded = TecKitJni.loadLibrary(Config.getCurrent()
+                    .getConverterPath());
+        }
     }
 
     private void setMapFilePath(File mapFile)

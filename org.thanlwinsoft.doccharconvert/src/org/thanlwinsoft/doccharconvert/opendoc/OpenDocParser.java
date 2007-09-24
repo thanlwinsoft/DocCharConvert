@@ -10,15 +10,12 @@
 
 package org.thanlwinsoft.doccharconvert.opendoc;
 
-// import org.thanlwinsoft.doccharconvert.DocInterface;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.apache.log4j.Priority;
 import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.Config;
-import org.thanlwinsoft.doccharconvert.ProgressNotifier; // import
-                                                            // org.thanlwinsoft.doccharconvert.DocInterface.InterfaceException;
-// import org.thanlwinsoft.doccharconvert.DocInterface.WarningException;
+import org.thanlwinsoft.doccharconvert.ProgressNotifier; 
+
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.xml.XmlWriteFilter;

@@ -14,6 +14,7 @@ import java.util.Vector;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -168,7 +169,7 @@ public class ConversionWizard extends Wizard
             else
             {
                 IWorkbenchPage page = wbWindow.getActivePage();
-                String secondaryID = conversion.toString().replace(':', '_');
+                String secondaryID = cononicalizeName(conversion.toString());
                 IViewPart fileList = page.showView(ConversionFileListView.ID, 
                     secondaryID, IWorkbenchPage.VIEW_ACTIVATE);
                 
@@ -203,13 +204,17 @@ public class ConversionWizard extends Wizard
         } 
         catch (PartInitException e) 
         {
-            MessageDialog.openError(wbWindow.getShell(), "Error", 
-                    "Error opening view:" + e.getMessage());
+            MessageDialog.openError(wbWindow.getShell(), MessageUtil.getString("ErrorTitle"), 
+                    MessageUtil.getString("ErrorOpeningView", e.getMessage()));
+            DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
+                    "Error opening view:" + e.getMessage(), e);
         }
         catch (CoreException e)
         {
-            MessageDialog.openError(wbWindow.getShell(), "Error", 
-                    "Error opening view:" + e.getMessage());
+            MessageDialog.openError(wbWindow.getShell(), MessageUtil.getString("ErrorTitle"), 
+                    MessageUtil.getString("ErrorOpeningView", e.getMessage()));
+            DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
+                    "Error opening view:" + e.getMessage(), e);
         }
         
         return true;
