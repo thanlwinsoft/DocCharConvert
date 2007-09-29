@@ -9,4 +9,5 @@ Bundle-Version: 1.0.0.svn981
 Require-Bundle: org.thanlwinsoft.doccharconvert
 Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mie
  n
-
+Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
+Bundle-Vendor: www.thanlwinsoft.org
