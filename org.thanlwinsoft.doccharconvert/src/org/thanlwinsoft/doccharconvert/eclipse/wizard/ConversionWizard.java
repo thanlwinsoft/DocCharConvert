@@ -204,17 +204,17 @@ public class ConversionWizard extends Wizard
         } 
         catch (PartInitException e) 
         {
-            MessageDialog.openError(wbWindow.getShell(), MessageUtil.getString("ErrorTitle"), 
-                    MessageUtil.getString("ErrorOpeningView", e.getMessage()));
             DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
                     "Error opening view:" + e.getMessage(), e);
+            MessageDialog.openError(wbWindow.getShell(), MessageUtil.getString("ErrorTitle"), 
+                    MessageUtil.getString("ErrorOpeningView", e.getMessage()));
         }
         catch (CoreException e)
         {
-            MessageDialog.openError(wbWindow.getShell(), MessageUtil.getString("ErrorTitle"), 
-                    MessageUtil.getString("ErrorOpeningView", e.getMessage()));
             DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
                     "Error opening view:" + e.getMessage(), e);
+            MessageDialog.openError(wbWindow.getShell(), MessageUtil.getString("ErrorTitle"), 
+                    MessageUtil.getString("ErrorOpeningView", e.getMessage()));
         }
         
         return true;

@@ -278,6 +278,16 @@
             id="org.eclipse.ui.internal.WorkingSetFactory">
       </factory>
 	</extension>
+   <extension
+         id="DocCharConvert"
+         name="%DocCharConvert.name"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.thanlwinsoft.doccharconvert.DocCharConvertApp"
+            description="%DocCharConvert.desc"
+            name="%DocCharConvert.name">
+      </product>
+   </extension>
    <!--
    <extension
          point="org.eclipse.ui.intro.configExtension">
