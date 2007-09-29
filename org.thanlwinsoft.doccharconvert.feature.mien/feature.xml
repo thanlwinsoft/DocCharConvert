@@ -28,6 +28,10 @@ version 2.1 of the License, or (at your option) any later version.
       <update label="ThanLwinSoft.org" url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/"/>
    </url>
 
+   <includes
+         id="org.thanlwinsoft.doccharconvert.feature.core"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.thanlwinsoft.doccharconvert"/>
       <import feature="org.thanlwinsoft.doccharconvert.feature.core" version="1.0.0"/>
