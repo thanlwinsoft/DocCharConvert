@@ -5,7 +5,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DocCharConvertEclipse Plug-in
 Bundle-Group: org.thanlwinsoft.doccharconvert
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true
-Bundle-Version: 1.1.0.svn1017
+Bundle-Version: 1.1.0.svn1023
 Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConve
  rtEclipsePlugin
 Bundle-Localization: plugin
@@ -44,6 +44,8 @@ Bundle-Vendor: ThanLwinSoft.org
 Bundle-ClassPath: lib/DocCharConvertSchema.jar,lib/SyllableParserSchem
  a.jar,.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
+ ads/updates/
 Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByte
  CharsetProvider
-Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
+
