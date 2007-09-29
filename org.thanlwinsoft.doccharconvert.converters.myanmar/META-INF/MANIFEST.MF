@@ -8,4 +8,5 @@ Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanma
 Bundle-Version: 1.0.0.svn982
 Bundle-Vendor: www.thanlwinsoft.org
 Require-Bundle: org.thanlwinsoft.doccharconvert
+Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
 
