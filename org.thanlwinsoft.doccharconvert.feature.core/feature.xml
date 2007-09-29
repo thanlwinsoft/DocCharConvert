@@ -37,7 +37,6 @@ version 2.1 of the License, or (at your option) any later version.
       <import plugin="org.eclipse.ui.intro" version="3.2.0" match="compatible"/>
       <import plugin="org.eclipse.ui.intro.universal"/>
       <import plugin="org.eclipse.ui.forms" version="3.3.0" match="compatible"/>
-      <import plugin="org.w3c.dom"/>
    </requires>
 
    <plugin
@@ -54,10 +53,10 @@ version 2.1 of the License, or (at your option) any later version.
          unpack="false"/>
 
    <plugin
-         id="org.thanlwinsoft.doccharconvert.converters.mien"
+         id="org.thanlwinsoft.doccharconvert.teckit"
          download-size="0"
          install-size="0"
          version="0.0.0"
-         unpack="false"/>
+         unpack="true"/>
 
 </feature>
