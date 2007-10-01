@@ -3,7 +3,8 @@
       id="org.thanlwinsoft.doccharconvert.feature.myanmar"
       label="Myanmar Converters Feature"
       version="1.0.0"
-      provider-name="www.thanlwinsoft.org">
+      provider-name="www.thanlwinsoft.org"
+      plugin="org.thanlwinsoft.doccharconvert">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -17,6 +18,10 @@
       [Enter License Description here.]
    </license>
 
+   <url>
+      <update label="ThanLwinSoft" url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/"/>
+   </url>
+
    <includes
          id="org.thanlwinsoft.doccharconvert.feature.core"
          version="0.0.0"/>
@@ -25,7 +30,6 @@
          id="org.thanlwinsoft.doccharconvert.converters.myanmar"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+         version="0.0.0"/>
 
 </feature>
