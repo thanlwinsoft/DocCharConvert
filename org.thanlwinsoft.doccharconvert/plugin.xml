@@ -286,6 +286,38 @@
             application="org.thanlwinsoft.doccharconvert.DocCharConvertApp"
             description="%DocCharConvert.desc"
             name="%DocCharConvert.name">
+         <property
+               name="appName"
+               value="%DocCharConvert.name">
+         </property>
+         <property
+               name="aboutImage"
+               value="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png">
+         </property>
+         <property
+               name="aboutText"
+               value="%aboutText">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/DocCharConvert16.png,icons/DocCharConvert32.png">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="E6E6FA">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="0,270,455,10">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,295,455,10">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
       </product>
    </extension>
    <!--

@@ -27,6 +27,7 @@ import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.util.IClassLoaderUtil;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.File;
 import java.io.BufferedReader;
@@ -36,7 +37,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
@@ -231,35 +231,34 @@ public class TecKitConverter extends ReversibleConverter
         }
         try
         {
-            if (mapFilePath == null)
+            InputStream is = null;
+            try
             {
-                InputStream is = null;
-                try
+                if (mapFilePath == null)
                 {
                     is = mapUrl.openStream();
-                    ByteArrayOutputStream mapBytesOs = new ByteArrayOutputStream();
-                    byte[] buffer = new byte[1024];
-                    int bytesRead = is.read(buffer);
-                    while (bytesRead > -1)
-                    {
-                        mapBytesOs.write(buffer, 0, bytesRead);
-                        bytesRead = is.read(buffer);
-                    }
-                    mapBytesOs.close();
-                    byte[] mapBytes = mapBytesOs.toByteArray();
-                    converterInstance = jni.createConverterFromBuffer(mapBytes,
-                            isForwards());
                 }
-                finally
+                else
                 {
-                    if (is != null)
-                        is.close();
+                    is = new FileInputStream(mapFilePath);
                 }
-            }
-            else
-            {
-                converterInstance = jni.createConverter(mapFilePath,
+                ByteArrayOutputStream mapBytesOs = new ByteArrayOutputStream();
+                byte[] buffer = new byte[1024];
+                int bytesRead = is.read(buffer);
+                while (bytesRead > -1)
+                {
+                    mapBytesOs.write(buffer, 0, bytesRead);
+                    bytesRead = is.read(buffer);
+                }
+                mapBytesOs.close();
+                byte[] mapBytes = mapBytesOs.toByteArray();
+                converterInstance = jni.createConverterFromBuffer(mapBytes,
                         isForwards());
+            }
+            finally
+            {
+                if (is != null)
+                    is.close();
             }
             if (converterInstance == 0)
                 initOk = false;
