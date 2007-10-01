@@ -110,9 +110,9 @@
          id="DocCharConvertIDEProduct"
          point="org.eclipse.core.runtime.products">
       <product
-            application="org.eclipse.ui.ide.workbench"
+            application="org.thanlwinsoft.doccharconvert.DocCharConvertApp"
             description="%DocCharConvertIDE.desc"
-            name="%DocCharConvertIDE.name">
+            name="%DocCharConvert.name">
          <property
                name="aboutText"
                value="%aboutText"/>
@@ -124,16 +124,16 @@
                value="icons/DocCharConvert16.png,icons/DocCharConvert32.png"/>
          <property
                name="startupMessageRect"
-               value="0,280,455,10"/>
+               value="0,270,455,10"/>
          <property
                name="startupForegroundColor"
-               value="000000"/>
+               value="E6E6FA"/>
          <property
                name="startupProgressRect"
                value="0,295,455,10"/>
          <property
                name="appName"
-               value="%DocCharConvertIDE.name">
+               value="%DocCharConvert.name">
          </property>
          <property
                name="preferenceCustomization"

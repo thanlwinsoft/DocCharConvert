@@ -13,6 +13,10 @@
    <configIni use="custom" path="/DocCharConvert/config.ini"/>
 
    <launcherArgs>
+      <programArgsLin>-data
+@user.home/DocCharConvert</programArgsLin>
+      <programArgsWin>-data
+@user.home/Application Data/DocCharConvert</programArgsWin>
       <vmArgs>-Xms40m
 -Xmx256m</vmArgs>
    </launcherArgs>
@@ -37,7 +41,6 @@
             winLargeLow="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert48-256.bmp"/>
       </win>
    </launcher>
-
 
    <vm>
    </vm>
@@ -127,7 +130,8 @@
 
    <features>
       <feature id="org.thanlwinsoft.doccharconvert.feature.core" version="1.0.0"/>
-      <feature id="org.thanlwinsoft.doccharconvert.feature.mien" version="1.0.0"/>
+      <feature id="org.eclipse.rcp" version="3.3.0.v20070607-8y8eE8NEbsN3X_fjWS8HPNG"/>
+      <feature id="org.eclipse.platform" version="3.3.0.v20070612-_19UEkLEzwsdF9jSqQ-G"/>
    </features>
 
 </product>

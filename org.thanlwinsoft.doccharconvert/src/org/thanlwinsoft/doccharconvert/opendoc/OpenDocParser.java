@@ -10,8 +10,6 @@
 
 package org.thanlwinsoft.doccharconvert.opendoc;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.ProgressNotifier; 
@@ -36,6 +34,8 @@ import java.util.Map;
 import java.util.jar.JarFile;
 import java.util.jar.JarOutputStream;
 import java.util.jar.JarEntry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.text.MessageFormat;
@@ -61,7 +61,7 @@ public class OpenDocParser implements
     protected OpenDocFilter odFilterStyles = null;
     protected OpenDocFilter odFilterContent = null;
     private ConversionMode mode = ConversionMode.OD_MODE;
-    private final static Logger logger = Logger.getLogger(OpenDocParser.class);
+    private final static Logger logger = Logger.getLogger(OpenDocParser.class.getCanonicalName());
 
     /** Creates a new instance of OpenDocParser */
     public OpenDocParser()
@@ -191,17 +191,17 @@ public class OpenDocParser implements
         }
         catch (ZipException e)
         {
-            logger.log(Level.WARN, "Error parsing OpenDoc", e);
+            logger.log(Level.WARNING, "Error parsing OpenDoc", e);
             throw new CharConverter.FatalException(e.getMessage());
         }
         catch (SAXException e)
         {
-            logger.log(Level.WARN, "Error parsing OpenDoc", e);
+            logger.log(Level.WARNING, "Error parsing OpenDoc", e);
             throw new CharConverter.FatalException(e.getMessage());
         }
         catch (IOException e)
         {
-            logger.log(Level.WARN, "Error parsing OpenDoc", e);
+            logger.log(Level.WARNING, "Error parsing OpenDoc", e);
             throw new CharConverter.FatalException(e.getMessage());
         }
     }
