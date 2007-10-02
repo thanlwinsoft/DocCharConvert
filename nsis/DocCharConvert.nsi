@@ -110,17 +110,17 @@ NoOverwrite:
   
   SetOutPath "$INSTDIR"
   
-  File /r "..\eclipseplugins\win32.win32.x86\${APP_NAME}"
+  File /r "..\release\win32.win32.x86\${APP_NAME}"
   
   SetOutPath "$INSTDIR\${APP_NAME}"
   File /oname=license.txt "lgpl-2.1.txt"
   File DocCharConvert.bat
+  File ..\org.thanlwinsoft.doccharconvert.teckit\win32\x86\TecKitJni.dll
   File "DocCharConvert32.ico"
   File "UninstallDCC16.ico"
   
   CreateDirectory "$INSTDIR\${APP_NAME}\features"
   SetOutPath "$INSTDIR\${APP_NAME}\features"
-  File ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.core_*.jar
   
   ;SetOutPath "$INSTDIR\${APP_NAME}\configuration\org.thanlwinsoft.doccharconvert\Converters"
   ;File "/oname=TecKitJni.dll" "..\Converters\TecKitJni.dll" 
@@ -141,11 +141,11 @@ NoOverwrite:
   ; set up shortcuts
   CreateDirectory "$SMPROGRAMS\${APP_NAME}"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertProduct' \
+	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
-	CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe"' \
+	CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}IDE.lnk" \
+	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertIDEProduct' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME} - developer IDE"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}Uninstall.lnk" \
@@ -154,7 +154,7 @@ NoOverwrite:
 	"" "Uninstall ${APP_NAME}"
 
   CreateShortCut "$DESKTOP\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertProduct' \
+	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
 	
@@ -175,20 +175,23 @@ NoOverwrite:
 
 SectionEnd
 
-Section /o "Myanmar" SecMyanmar
-	SetOutPath "$INSTDIR\${APP_NAME}\plugins"
-	File ..\org.thanlwinsoft.doccharconvert.update\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*.jar
-	SetOutPath "$INSTDIR\${APP_NAME}\features"
-	File ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*.jar
-SectionEnd
-
 ;Optional source - as a compressed archive
 Section /o "Mien" SecMien
 	SetOutPath "$INSTDIR\${APP_NAME}\plugins"
-	File ..\org.thanlwinsoft.doccharconvert.update\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*.jar
+	File /r ..\release\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*
 	SetOutPath "$INSTDIR\${APP_NAME}\features"
-	File ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.mien_*.jar
-  
+	File /r ..\release\features\org.thanlwinsoft.doccharconvert.feature.mien_*
+	SetOutPath "$INSTDIR\${APP_NAME}"
+	File DocCharConvertMien.bat
+SectionEnd
+
+Section /o "Myanmar" SecMyanmar
+	SetOutPath "$INSTDIR\${APP_NAME}\plugins"
+	File /r ..\release\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*
+	SetOutPath "$INSTDIR\${APP_NAME}\features"
+	File /r ..\release\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*
+	SetOutPath "$INSTDIR\${APP_NAME}"
+	File DocCharConvertMyanmar.bat
 SectionEnd
 
 
@@ -215,7 +218,7 @@ FunctionEnd
 
 Function .onInstSuccess
 
-	Exec '"$INSTDIR\${APP_NAME}\eclipse.exe" -vm "$JAVA_HOME\bin\javaw.exe"'
+	Exec '"$INSTDIR\${APP_NAME}\eclipse.exe" -initialize -vm "$JAVA_HOME\bin\javaw.exe"  -product org.thanlwinsoft.doccharconvert.DocCharConvert'
 
 FunctionEnd
 
@@ -231,6 +234,7 @@ Section "Uninstall"
 AppFound:
   RMDir /r "$INSTDIR\configuration"
   RMDir /REBOOTOK /r "$INSTDIR\plugins"
+  RMDir /REBOOTOK /r "$INSTDIR\features"
   Delete /REBOOTOK "$INSTDIR\eclipse.exe"
   Delete /REBOOTOK "$INSTDIR\startup.jar"
   Delete /REBOOTOK "$INSTDIR\.eclipseproduct"
