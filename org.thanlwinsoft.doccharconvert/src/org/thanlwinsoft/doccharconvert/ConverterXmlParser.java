@@ -25,6 +25,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -525,9 +526,21 @@ public class ConverterXmlParser
                 {
                     if (xmlFile.getProtocol().equals("file"))
                     {
-                        testFile = new File(new File(xmlFile.getPath())
+                        //testFile = new File(new File(xmlFile.getPath())
+                        
+                        try
+                        {
+                            testFile = new File(new File(xmlFile.toURI())
+                                    .getParentFile(), parameter
+                                    .getAttribute(VALUE_ATTRIB));
+                        }
+                        catch (URISyntaxException e)
+                        {
+                            // try using the raw path
+                            testFile = new File(new File(xmlFile.getPath())
                                 .getParentFile(), parameter
                                 .getAttribute(VALUE_ATTRIB));
+                        }
                     }
                     else
                     {
