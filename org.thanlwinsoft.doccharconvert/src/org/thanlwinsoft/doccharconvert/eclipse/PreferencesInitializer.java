@@ -126,7 +126,7 @@ public class PreferencesInitializer extends AbstractPreferenceInitializer
         page.hideActionSet("org.eclipse.ui.edit.text.actionSet.navigation");
         page.hideActionSet("org.eclipse.ui.WorkingSetActionSet");
         page.hideActionSet("org.eclipse.ui.edit.text.actionSet.annotationNavigation");
-        
+        page.hideActionSet("org.eclipse.ui.externaltools.ExternalToolsSet");
     }
 
 }
