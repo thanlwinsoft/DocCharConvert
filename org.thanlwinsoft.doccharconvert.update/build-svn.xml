@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="org.thanlwinsoft.doccharconvert.udpate" default="default" basedir=".">
 
+	<property name="release.path" value="../release"/>
 	<path id="svnant.class.path">
 		<fileset dir="../org.tigris.subversion.svnant/libs">
 			<include name="**/*.jar"/>
@@ -15,6 +16,8 @@
 		classpathref="svnant.class.path" />
 	
 	<target name="default" depends="properties" description="update All Projects">
+		<mkdir dir="${release.path}/features"/>
+		<mkdir dir="${release.path}/plugins"/>
 
 		<antcall target="update" >
 			<param name="svnCheckDir" value="src"/>
@@ -46,8 +49,19 @@
 			<param name="projectName" value="org.thanlwinsoft.doccharconvert.teckit"/>
 		</antcall>
 		
-		<ant dir="../org.thanlwinsoft.doccharconvert.feature.core" 
-			antfile="build-feature.xml" target="build.update.jar"/>
+		<antcall target="update-feature" >
+			<param name="featureName" 
+				value="org.thanlwinsoft.doccharconvert.feature.core" />
+		</antcall>
+		<antcall target="update-feature" >
+			<param name="featureName" 
+				value="org.thanlwinsoft.doccharconvert.feature.mien" />
+		</antcall>
+		<antcall target="update-feature" >
+			<param name="featureName" 
+				value="org.thanlwinsoft.doccharconvert.feature.myanmar" />
+		</antcall>
+
 		<ant dir="../org.thanlwinsoft.doccharconvert.feature.mien" 
 					antfile="build-feature.xml" target="build.update.jar"/>
 		<ant dir="../org.thanlwinsoft.doccharconvert.feature.myanmar" 
@@ -57,8 +71,28 @@
 			<fileset dir="../org.thanlwinsoft.doccharconvert.feature.mien" includes="org.thanlwinsoft.doccharconvert.feature*_*.jar"/>
 			<fileset dir="../org.thanlwinsoft.doccharconvert.feature.myanmar" includes="org.thanlwinsoft.doccharconvert.feature*_*.jar"/>
 		</copy>
+		
 	</target>
 	
+	<target name="update-feature">
+		<ant dir="../${featureName}" antfile="build-feature.xml" target="build.update.jar"/>
+		<pathconvert property="feature.dir">
+			<chainedmapper>
+				<mapper type="flatten"/>
+				<mapper type="glob" from="*.jar" to="*"/>
+			</chainedmapper>
+			<fileset dir="../${featureName}">
+		        <include name="${featureName}_*.jar"/>
+		    </fileset>
+		</pathconvert>
+		<mkdir dir="${release.path}/features/${feature.dir}"/>
+		<unjar dest="${release.path}/features/${feature.dir}">
+			<fileset dir="../${featureName}">
+				<include name="${featureName}_*.jar"/>
+			</fileset>
+		</unjar>
+	</target>
+
 	<target name="update">
 		<antcall target="update-manifest" >
 		</antcall>
@@ -74,6 +108,22 @@
 		<copy todir="plugins">
 			<fileset dir="../${projectName}" includes="${projectName}_*.jar"/>
 		</copy>
+		
+		<pathconvert property="plugin.dir">
+			<chainedmapper>
+				<mapper type="flatten"/>
+				<mapper type="glob" from="*.jar" to="*"/>
+			</chainedmapper>
+			<fileset dir="../${projectName}">
+		        <include name="${projectName}_*.jar"/>
+		    </fileset>
+		</pathconvert>
+		<mkdir dir="${release.path}/plugins/${plugin.dir}"/>
+		<unjar dest="${release.path}/plugins/${plugin.dir}">
+			<fileset dir="../${projectName}">
+				<include name="${projectName}_*.jar"/>
+			</fileset>
+		</unjar>
 	</target>
 
 <target name="update-manifest" description="Update SVN version in Manifest">
