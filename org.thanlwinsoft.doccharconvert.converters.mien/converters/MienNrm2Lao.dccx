@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Mien:NRM=>Lao[Unicode]" rname="Mien:Lao=>NRM[Unicode]">
+<DocCharConverter name="Mien:NRM=&gt;Lao[Unicode]" rname="Mien:Lao=&gt;NRM[Unicode]" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
 <Argument value="Mien/nrm2lao.xml" type="File" />
 </ConverterClass>
@@ -7,6 +7,10 @@
 <Style>
 <Font name="Arial" type="old" />
 <Font name="Saysettha OT" type="new" />
+</Style>
+<Style>
+<Font name="Arial" type="old" />
+<Font name="Saysettha Unicode" type="new" />
 </Style>
 </Styles>
 </DocCharConverter>

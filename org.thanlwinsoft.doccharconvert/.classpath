@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="**/.svn/|.svn/|DocCharConvert/|DocCharConvert/Converter/|DocCharConvert/Converter/syllable/|org/.svn/|org/sil/.svn/|org/sil/scripts/.svn/|org/thanlwinsoft/.svn/|org/thanlwinsoft/doccharconvert/.svn/|org/thanlwinsoft/doccharconvert/converter/.svn/|org/thanlwinsoft/doccharconvert/converter/syllable/.svn/|org/thanlwinsoft/doccharconvert/icons/.svn/" kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="lib/DocCharConvertSchema.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/DocCharConvertSchema.jar" sourcepath="schemas/src"/>
 	<classpathentry exported="true" kind="lib" path="lib/SyllableParserSchema.jar"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>

@@ -4,7 +4,7 @@
 <product name="%DocCharConvert.name" id="org.thanlwinsoft.doccharconvert.DocCharConvert" application="org.thanlwinsoft.doccharconvert.DocCharConvertApp" useFeatures="true">
 
    <aboutInfo>
-      <image path="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"/>
+      <image path="icons/DocCharConvert16.png"/>
       <text>
          %aboutText
       </text>
@@ -16,7 +16,7 @@
       <programArgsLin>-data
 @user.home/DocCharConvert</programArgsLin>
       <programArgsWin>-data
-@user.home/Application Data/DocCharConvert</programArgsWin>
+&quot;@user.home/Application Data/DocCharConvert&quot;</programArgsWin>
       <vmArgs>-Xms40m
 -Xmx256m</vmArgs>
    </launcherArgs>
@@ -41,6 +41,8 @@
             winLargeLow="/org.thanlwinsoft.doccharconvert/icons/DocCharConvert48-256.bmp"/>
       </win>
    </launcher>
+
+   <intro introId="org.thanlwinsoft.doccharconvert.intro"/>
 
    <vm>
    </vm>

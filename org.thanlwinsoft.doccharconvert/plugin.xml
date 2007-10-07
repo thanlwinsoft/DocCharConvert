@@ -3,6 +3,7 @@
 <plugin>
    <extension-point id="org.thanlwinsoft.doccharconvert.parser" name="org.thanlwinsoft.doccharconvert.parser" schema="schema/org.thanlwinsoft.doccharconvert.parser.exsd"/>
    <extension-point id="org.thanlwinsoft.doccharconvert.converters" name="org.thanlwinsoft.doccharconvert.converters" schema="schema/org.thanlwinsoft.doccharconvert.converters.exsd"/>
+   <extension-point id="org.thanlwinsoft.doccharconvert.converter" name="org.thanlwinsoft.doccharconvert.converter" schema="schema/org.thanlwinsoft.doccharconvert.converter.exsd"/>
 
    <extension
          id="DocCharConvertApp"
@@ -17,7 +18,7 @@
          point="org.eclipse.ui.perspectives">
       <perspective
             class="org.thanlwinsoft.doccharconvert.eclipse.Perspective"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
+            icon="icons/DocCharConvert16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.Perspective"
             name="DocCharConvert Eclipse Perspective">
       </perspective>
@@ -36,7 +37,7 @@
             name="org.thanlwinsoft.doccharconvert.conversion"/>
       <wizard
             class="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
+            icon="icons/DocCharConvert16.png"
             id="org.thanlwinsoft.doccharconvert.wizard"
             name="org.thanlwinsoft.doccharconvert.wizard"/>
    </extension>
@@ -53,7 +54,7 @@
          </menu>
          <action
                class="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizardAction"
-               icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
+               icon="icons/DocCharConvert16.png"
                id="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizardAction"
                label="%ConversionWizard"
                menubarPath="File/additions"
@@ -62,7 +63,7 @@
          <action
                class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
                enablesFor="+"
-               icon="src/org/thanlwinsoft/doccharconvert/icons/Convert16.png"
+               icon="icons/Convert16.png"
                id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
                label="Edit Syllable Converter"
                menubarPath="File/additions"
@@ -83,7 +84,7 @@
                value="%aboutText"/>
          <property
                name="aboutImage"
-               value="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"/>
+               value="icons/DocCharConvert16.png"/>
          <property
                name="windowImages"
                value="icons/DocCharConvert16.png,icons/DocCharConvert32.png"/>
@@ -110,9 +111,9 @@
          id="DocCharConvertIDEProduct"
          point="org.eclipse.core.runtime.products">
       <product
-            application="org.thanlwinsoft.doccharconvert.DocCharConvertApp"
+            application="org.eclipse.ui.ide.workbench"
             description="%DocCharConvertIDE.desc"
-            name="%DocCharConvert.name">
+            name="%DocCharConvertIDE.name">
          <property
                name="aboutText"
                value="%aboutText"/>
@@ -124,16 +125,16 @@
                value="icons/DocCharConvert16.png,icons/DocCharConvert32.png"/>
          <property
                name="startupMessageRect"
-               value="0,270,455,10"/>
+               value="0,280,455,10"/>
          <property
                name="startupForegroundColor"
-               value="E6E6FA"/>
+               value="000000"/>
          <property
                name="startupProgressRect"
                value="0,295,455,10"/>
          <property
                name="appName"
-               value="%DocCharConvert.name">
+               value="%DocCharConvertIDE.name">
          </property>
          <property
                name="preferenceCustomization"
@@ -147,7 +148,7 @@
             class="org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor"
             default="false"
             filenames="*.txt"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
+            icon="icons/DocCharConvert16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor"
             name="%ConversionInputEditor.editor"/>
       <editor
@@ -158,12 +159,20 @@
             id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             name="%SyllableConverterEditor">
       </editor>
+      <editor
+            class="org.thanlwinsoft.doccharconvert.eclipse.editors.DccxEditor"
+            default="true"
+            filenames="*.dccx"
+            icon="icons/Convert16.png"
+            id="org.thanlwinsoft.doccharconvert.DccxEditor"
+            name="%DccxEditor">
+      </editor>
    </extension>
    <extension
          point="org.eclipse.ui.views">
       <view
             class="org.thanlwinsoft.doccharconvert.eclipse.views.ConversionResult"
-            icon="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png"
+            icon="icons/DocCharConvert16.png"
             id="DocCharConvert.ConversionResult"
             name="%ConversionResult.view"/>
       <view
@@ -191,14 +200,27 @@
             name="%MainPreferencesPage"/>
    </extension>
 	<extension
-         point="org.eclipse.ui.intro">
+       id="org.thanlwinsoft.doccharconvert.introduction"
+       point="org.eclipse.ui.intro">
       <intro
             class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            id="org.thanlwinsoft.doccharconvert.intro">
+            icon="icons/Convert16.png"
+            id="org.thanlwinsoft.doccharconvert.intro"
+            label="%aboutText">
       </intro>
       <introProductBinding
             introId="org.thanlwinsoft.doccharconvert.intro"
             productId="org.thanlwinsoft.doccharconvert.DocCharConvertProduct">
+      </introProductBinding>
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="icons/Convert16.png"
+            id="org.thanlwinsoft.doccharconvert.intro"
+            label="%aboutText">
+      </intro>
+      <introProductBinding
+            introId="org.thanlwinsoft.doccharconvert.intro"
+            productId="org.thanlwinsoft.doccharconvert.DocCharConvert">
       </introProductBinding>
    </extension>
    <extension
@@ -212,7 +234,8 @@
                >
             <implementation
                   kind="html"
-                  os="win32,linux,macosx">
+                  os="win32,linux,macosx"
+                  style="styles/DocCharConvert.css">
             </implementation>
          </presentation>
       </config>
@@ -292,7 +315,7 @@
          </property>
          <property
                name="aboutImage"
-               value="src/org/thanlwinsoft/doccharconvert/icons/DocCharConvert16.png">
+               value="icons/DocCharConvert16.png">
          </property>
          <property
                name="aboutText"
@@ -319,6 +342,23 @@
                value="plugin_customization.ini">
          </property>
       </product>
+   </extension>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.converter">
+      <converter
+            class="org.thanlwinsoft.doccharconvert.converter.TecKitConverter"
+            help="This converter uses the SIL TecKIT library to perform the conversion. There is 1 parameter, the relative path to the compiled tec file."
+            name="TecKIT">
+      </converter>
+      <converter
+            class="org.thanlwinsoft.doccharconvert.converter.SyllableConverter"
+            help="This converter has one parameter: the relative path to the XML configuration file that defines the mapping tables between syllables in one script and syllables in another."
+            name="Syllable Converter">
+      </converter>
+      <converter
+            class="org.thanlwinsoft.doccharconvert.converter.ExternalConverter"
+            name="External Converter">
+      </converter>
    </extension>
    <!--
    <extension
