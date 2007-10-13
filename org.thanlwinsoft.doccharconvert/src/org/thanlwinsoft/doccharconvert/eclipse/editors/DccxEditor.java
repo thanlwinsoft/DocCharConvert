@@ -61,6 +61,7 @@ import org.eclipse.ui.forms.widgets.ColumnLayout;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 
@@ -68,6 +69,7 @@ import java.io.InputStream;
 import org.osgi.framework.Bundle;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
+import org.thanlwinsoft.eclipse.EditorUtils;
 import org.thanlwinsoft.eclipse.FileCellEditor;
 import org.thanlwinsoft.eclipse.FontCellEditor;
 import org.thanlwinsoft.schemas.docCharConvert.Age;
@@ -90,33 +92,43 @@ public class DccxEditor extends EditorPart
     private boolean mDirty = false;
     private DocCharConverter mConverter = null;
     private TableViewer mParameterViewer = null;
+    private DocCharConverterDocument mDoc;
+    public static String ID = "org.thanlwinsoft.doccharconvert.DccxEditor";
 
     @Override
     public void doSave(IProgressMonitor monitor)
     {
-        if (getEditorInput() instanceof FileEditorInput)
+        File f = null;
+        IFile wsFile = null;
+        if (getEditorInput() instanceof FileStoreEditorInput)
         {
-            IFile wsFile = ((FileEditorInput) getEditorInput()).getFile();
-            File f = wsFile.getRawLocation().toFile();
-            XmlOptions options = new XmlOptions();
-            options.setCharacterEncoding("UTF-8");
-            options.setSavePrettyPrint();
-            options.setSavePrettyPrintIndent(2);
-            try
-            {
-                mConverter.save(f, options);
-                wsFile.refreshLocal(1, monitor);
-            }
-            catch (IOException e)
-            {
-                DocCharConvertEclipsePlugin.log(IStatus.WARNING,
-                        "Error saving DCCX", e);
-            }
-            catch (CoreException e)
-            {
-                DocCharConvertEclipsePlugin.log(IStatus.WARNING,
-                        "Error after saving DCCX", e);
-            }
+            FileStoreEditorInput fsei = (FileStoreEditorInput)getEditorInput();
+            f = new File(fsei.getURI());           
+        }
+        else if (getEditorInput() instanceof FileEditorInput)
+        {
+            wsFile = ((FileEditorInput) getEditorInput()).getFile();
+            f = wsFile.getRawLocation().toFile();
+        }
+        XmlOptions options = new XmlOptions();
+        options.setCharacterEncoding("UTF-8");
+        options.setSavePrettyPrint();
+        options.setSavePrettyPrintIndent(2);
+        try
+        {
+            mDoc.save(f, options);
+            setDirty(false);
+            if (wsFile != null) wsFile.refreshLocal(1, monitor);
+        }
+        catch (IOException e)
+        {
+            DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                    "Error saving DCCX", e);
+        }
+        catch (CoreException e)
+        {
+            DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                    "Error after saving DCCX", e);
         }
     }
 
@@ -163,25 +175,22 @@ public class DccxEditor extends EditorPart
     @Override
     protected void setInput(IEditorInput input)
     {
-        if (input instanceof IStorageEditorInput)
-        {
-            IStorageEditorInput sei = (IStorageEditorInput) input;
-
-            InputStream is = null;
+        super.setInput(input);
+        InputStream is = null;
             try
             {
-                is = sei.getStorage().getContents();
+                is = EditorUtils.getInputStream(this);
+                
                 XmlOptions options = new XmlOptions();
                 options.setCharacterEncoding("UTF-8");
                 options.setSavePrettyPrint();
                 options.setSavePrettyPrintIndent(2);
 
-                // options.setDocumentType(DocCharConverterDocument.type);
-                DocCharConverterDocument doc = DocCharConverterDocument.Factory
+                mDoc = DocCharConverterDocument.Factory
                         .parse(is, options);
-                mConverter = doc.getDocCharConverter();
+                mConverter = mDoc.getDocCharConverter();
                 if (mConverter == null)
-                    mConverter = doc.addNewDocCharConverter();
+                    mConverter = mDoc.addNewDocCharConverter();
             }
             catch (XmlException e)
             {
@@ -212,12 +221,11 @@ public class DccxEditor extends EditorPart
                 }
                 if (mConverter == null)
                 {
-                    mConverter = DocCharConverterDocument.Factory.newInstance()
-                            .addNewDocCharConverter();
+                    mDoc = DocCharConverterDocument.Factory.newInstance();
+                    mConverter = mDoc.addNewDocCharConverter();
                 }
             }
-        }
-        super.setInput(input);
+        
     }
 
     @Override
@@ -406,11 +414,19 @@ public class DccxEditor extends EditorPart
                     if (getEditorInput() instanceof FileEditorInput)
                     {
                         FileEditorInput fei = (FileEditorInput)getEditorInput();
-                        IResource fr = fei.getFile().getParent().findMember(arg.getValue());
+                        String value = "";
+                        if (arg.isSetValue())
+                            value = arg.getValue();
+                        IResource fr = fei.getFile().getParent().findMember(value);
                         if (fr instanceof IFile)
                         {
                             IFile file = (IFile)fr;
                             fce = new FileCellEditor(table, SWT.NONE, file, new String[]{"*"});
+                            return fce;
+                        }
+                        else
+                        {
+                            fce = new FileCellEditor(table, SWT.NONE, fr, new String[]{"*"});
                             return fce;
                         }
                     }
@@ -430,7 +446,9 @@ public class DccxEditor extends EditorPart
             @Override
             protected void setValue(Object element, Object value)
             {
-                String oldValue = getValue(element).toString();
+                String oldValue = "";
+                if (getValue(element) != null)
+                    oldValue = getValue(element).toString();
                 if (value == null || value.toString().equals(oldValue))
                     return;
                 try
@@ -618,6 +636,7 @@ public class DccxEditor extends EditorPart
                 s.addNewFont().setType(Age.NEW);
                 viewer.setInput(mConverter.getStyles());
                 viewer.refresh();
+                form.reflow(true);
             }
         });
         deleteFontPair.addSelectionListener(new SelectionListener()
@@ -890,6 +909,8 @@ public class DccxEditor extends EditorPart
                         }
                         mParameterViewer.setInput(cClass);
                         mParameterViewer.refresh();
+                        form.reflow(true);
+                        setDirty(true);
                     }
                 }
             }

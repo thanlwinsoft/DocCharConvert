@@ -173,4 +173,10 @@ public class ConverterUtil
                 + converterConfigPath.getAbsolutePath(), null);
         return converterConfigPath;
     }
+    
+    public static String cononicalizeName(String name)
+    {
+        // what about unicode characters?
+        return name.replaceAll("[=:></\\$&*?]*", "");
+    }
 }

@@ -24,6 +24,7 @@
 
 package org.thanlwinsoft.doccharconvert.converter.syllable;
 
+import java.util.Arrays;
 import java.util.SortedSet;
 import java.util.Vector;
 //import java.util.Arrays;
@@ -88,7 +89,7 @@ public class Syllable
     this.newSide = copy.newSide;
     this.text = new String(copy.text);
     this.syllable = new Vector<Integer>(copy.syllable);
-    this.result = copy.result;
+    this.result = Arrays.copyOf(copy.result, copy.result.length);
     this.scripts = copy.scripts;
   }
   public boolean isKnown() { return known; }

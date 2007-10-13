@@ -5,6 +5,15 @@ package org.thanlwinsoft.doccharconvert.eclipse.views;
 
 import java.io.File;
 
+import org.eclipse.core.filesystem.EFS;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ITableLabelProvider;
@@ -18,17 +27,24 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.IPersistableElement;
 import org.eclipse.ui.ISharedImages;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.ide.ResourceUtil;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ViewPart;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
+import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListProvider.RowCell;
 
 /**
@@ -168,27 +184,100 @@ public class ConversionFileListView extends ViewPart
 
             public void widgetDefaultSelected(SelectionEvent event)
             {
-                doDefaultFileAction(getSelectedFiles());
+                doDefaultFileAction(getSelectedFiles(), -1);
             }
 
-            private RowCell[] getSelectedFiles()
-            {
-                final TableItem[] items = tableView.getTable().getSelection();
-                final RowCell[] row = new RowCell[items.length];
-
-                for (int i = 0; i < items.length; ++i)
-                {
-                    Object o = items[i].getData();
-                    if (o instanceof RowCell)
-                        row[i] = (RowCell) o;
-                }
-                return row;
-            }
+            
         });
         tableView.getTable().setEnabled(true);
+        MenuManager menuManager = new MenuManager(getClass().getCanonicalName());
+        Action openInput = new Action(){
+
+            @Override
+            public void run()
+            {
+                doDefaultFileAction(getSelectedFiles(), 0);
+            }
+        };
+        openInput.setText(MessageUtil.getString("OpenInputFile"));
+        Action openOutput = new Action(){
+
+            @Override
+            public void run()
+            {
+                doDefaultFileAction(getSelectedFiles(), 1);
+            }
+        };
+        openOutput.setText(MessageUtil.getString("OpenOutputFile"));
+        menuManager.add(openInput);
+        menuManager.add(openOutput);
+        
+        Action openInputEditor = new Action(){
+
+            @Override
+            public void run()
+            {
+                doFileEditorAction(getSelectedFiles(), 0);
+            }
+        };
+        openInputEditor.setText(MessageUtil.getString("OpenInputEditor"));
+        Action openOutputEditor = new Action(){
+
+            @Override
+            public void run()
+            {
+                doFileEditorAction(getSelectedFiles(), 1);
+            }
+        };
+        openOutputEditor.setText(MessageUtil.getString("OpenOutputEditor"));
+        menuManager.add(openInputEditor);
+        menuManager.add(openOutputEditor);
+        tableView.getTable().setMenu(menuManager.createContextMenu(tableView.getTable()));
+    }
+    
+    private RowCell[] getSelectedFiles()
+    {
+        final TableItem[] items = tableView.getTable().getSelection();
+        final RowCell[] row = new RowCell[items.length];
+
+        for (int i = 0; i < items.length; ++i)
+        {
+            Object o = items[i].getData();
+            if (o instanceof RowCell)
+                row[i] = (RowCell) o;
+        }
+        return row;
     }
 
-    protected void doDefaultFileAction(RowCell[] selectedFiles)
+    private void doFileEditorAction(RowCell[] selectedFiles, int inOut)
+    {
+        for (int i = 0; i < selectedFiles.length; i++)
+        {
+            IPath p = null;
+            switch (inOut)
+            {
+            case 0:
+                p = new Path(selectedFiles[i].getInput().getAbsolutePath());
+                break;
+            case 1:
+                p = new Path(selectedFiles[i].getOutput().getAbsolutePath());
+                break;
+            default:
+                return;
+            }
+            try
+            {
+                IFileStore fileStore =  EFS.getLocalFileSystem().getStore(p);
+                IDE.openEditorOnFileStore(getSite().getPage(), fileStore);
+            }
+            catch (PartInitException e)
+            {
+                DocCharConvertEclipsePlugin.log(IStatus.WARNING, "Error openning editor", e);
+            }
+        }
+    }
+    
+    protected void doDefaultFileAction(RowCell[] selectedFiles, int inOut)
     {
         for (int i = 0; i < selectedFiles.length; i++)
         {
@@ -197,6 +286,7 @@ public class ConversionFileListView extends ViewPart
             fileName[1] = selectedFiles[i].getOutput().getAbsolutePath();
             for (int j = 0; j < 2; j++)
             {
+                if (inOut > -1 && inOut != j) continue;
                 if (Program.launch(fileName[j]) == false)
                 {
                     MessageBox msgBox = new MessageBox(this.getSite()

@@ -171,7 +171,7 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
                     .getLocation().removeFileExtension().lastSegment();
                 for (CharConverter cc : xmlParser.getChildConverters())
                 {
-                    if (cc.getName().equals(name))
+                    if (ConverterUtil.cononicalizeName(cc.getName()).equals(name))
                     {
                         setConversion(cc, ReverseConversion.get(xmlParser.getConverters(), cc));
                         break;

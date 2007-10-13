@@ -9,6 +9,7 @@ import java.io.InputStream;
 
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlOptions;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -22,11 +23,11 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IStorageEditorInput;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
+import org.thanlwinsoft.eclipse.EditorUtils;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverterDocument;
 import org.thanlwinsoft.schemas.syllableParser.MappingTable;
@@ -56,40 +57,36 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         throws PartInitException
     {
         super.init(site, input);
-        if (input instanceof IStorageEditorInput)
+        
+        IStorageEditorInput sei = (IStorageEditorInput)input;
+        this.setPartName(sei.getName());
+        try
         {
-            IStorageEditorInput sei = (IStorageEditorInput)input;
-            this.setPartName(sei.getName());
-            try
+            if (input instanceof FileEditorInput)
             {
-                if (input instanceof FileEditorInput)
-                {
-                    ((FileEditorInput)input).getFile().refreshLocal(1, null);
-                }
-                InputStream is = sei.getStorage().getContents();
+                ((FileEditorInput)input).getFile().refreshLocal(1, null);
+            }
+            InputStream is = EditorUtils.getInputStream(this);
+            if (is != null)
                 converterDoc = SyllableConverterDocument.Factory.parse(is);
-                //removePages();
-                
-                //createPages();
-            }
-            catch (CoreException e)
-            {
-                MessageDialog.openWarning(site.getShell(), 
-                    MessageUtil.getString("SyllableConverterEditor"), 
-                    e.getLocalizedMessage());
-            }
-            catch (XmlException e)
-            {
-                MessageDialog.openWarning(site.getShell(), 
-                    MessageUtil.getString("SyllableConverterEditor"), 
-                    e.getLocalizedMessage());
-            }
-            catch (IOException e)
-            {
-                MessageDialog.openWarning(site.getShell(), 
-                    MessageUtil.getString("SyllableConverterEditor"), 
-                    e.getLocalizedMessage());
-            }
+        }
+        catch (CoreException e)
+        {
+            MessageDialog.openWarning(site.getShell(), 
+                MessageUtil.getString("SyllableConverterEditor"), 
+                e.getLocalizedMessage());
+        }
+        catch (XmlException e)
+        {
+            MessageDialog.openWarning(site.getShell(), 
+                MessageUtil.getString("SyllableConverterEditor"), 
+                e.getLocalizedMessage());
+        }
+        catch (IOException e)
+        {
+            MessageDialog.openWarning(site.getShell(), 
+                MessageUtil.getString("SyllableConverterEditor"), 
+                e.getLocalizedMessage());
         }
         
     }
@@ -221,21 +218,21 @@ public class SyllableConverterEditor extends MultiPageEditorPart
     @Override
     public void doSave(IProgressMonitor monitor)
     {
+        
         if (this.getEditorInput() instanceof IFileEditorInput)
         {
-            IFileEditorInput input = (IFileEditorInput)this.getEditorInput();
-            File f = input.getFile().getRawLocation().toFile();
             XmlOptions options = new XmlOptions();
             options.setCharacterEncoding("UTF-8");
             options.setSavePrettyPrint();
             try
             {
+                File f = EditorUtils.getFileFromInput(this);
                 converterDoc.save(f, options);
-                input.getFile().refreshLocal(1, monitor);
+                IFile wsFile = EditorUtils.getWsFileFromInput(this);
+                if (wsFile != null)
+                    wsFile.refreshLocal(1, monitor);
                 monitor.done();
                 this.setDirty(false);
-                PlatformUI.getWorkbench();
-                
             }
             catch (IOException e)
             {

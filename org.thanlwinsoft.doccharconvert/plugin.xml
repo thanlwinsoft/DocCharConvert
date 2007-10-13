@@ -40,6 +40,16 @@
             icon="icons/DocCharConvert16.png"
             id="org.thanlwinsoft.doccharconvert.wizard"
             name="org.thanlwinsoft.doccharconvert.wizard"/>
+      <primaryWizard
+            id="org.thanlwinsoft.doccharconvert.primaryWizard1">
+      </primaryWizard>
+      <wizard
+            class="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewDccxWizard"
+            hasPages="true"
+            icon="icons/Convert16.png"
+            id="org.thanlwinsoft.doccharconvert.NewDccxWizard"
+            name="%NewDccxWizard">
+      </wizard>
    </extension>
    <extension
          point="org.eclipse.ui.actionSets">
@@ -62,7 +72,6 @@
                tooltip="%ConversionWizard"/>
          <action
                class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
-               enablesFor="+"
                icon="icons/Convert16.png"
                id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
                label="Edit Syllable Converter"

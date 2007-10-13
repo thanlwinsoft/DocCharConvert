@@ -21,13 +21,15 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IViewReference;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -54,17 +56,15 @@ import org.thanlwinsoft.doccharconvert.ReverseConversion;
  * @author keith
  *
  */
-public class ConversionWizard extends Wizard
+public class ConversionWizard extends Wizard implements INewWizard
 {
-    StructuredSelection iSelection;
-    StructuredSelection oSelection;
-    BatchConversion conversion = null;
-    DocumentParserPage parserPage = null;
-    ConverterPage converterPage = null;
-    FontConversionPage fontPage = null;
+    private BatchConversion conversion = null;
+    private DocumentParserPage parserPage = null;
+    private ConverterPage converterPage = null;
+    private FontConversionPage fontPage = null;
     private IWorkbenchWindow wbWindow;
     private WizardDialog dialog;
-    ConversionRunnable runnable = null;
+    private ConversionRunnable runnable = null;
     
     public final static String DEFAULT_PROJECT = "DocCharConvertData";
     public final static String TXT_EXT = ".txt";
@@ -156,7 +156,7 @@ public class ConversionWizard extends Wizard
                         ReverseConversion.get(availableConverters, cc);
                     ConversionTester ct = new ConversionTester(cc, reverse);
                     ct.setLogFile(new File(logDir, 
-                            cononicalizeName(cc.getName()) + sdf.format(new Date()) + ".csv"));
+                            ConverterUtil.cononicalizeName(cc.getName()) + sdf.format(new Date()) + ".csv"));
                     conversion.addConverter(ct);
                 }
                 else conversion.addConverter(cc);
@@ -169,7 +169,7 @@ public class ConversionWizard extends Wizard
             else
             {
                 IWorkbenchPage page = wbWindow.getActivePage();
-                String secondaryID = cononicalizeName(conversion.toString());
+                String secondaryID = ConverterUtil.cononicalizeName(conversion.toString());
                 IViewPart fileList = page.showView(ConversionFileListView.ID, 
                     secondaryID, IWorkbenchPage.VIEW_ACTIVATE);
                 
@@ -225,11 +225,7 @@ public class ConversionWizard extends Wizard
         return runnable;
     }
     
-    private String cononicalizeName(String name)
-    {
-        // what about unicode characters?
-        return name.replaceAll("[=:></\\$&*?]*", "");
-    }
+    
     
     protected boolean directInput() throws PartInitException, CoreException
     {
@@ -244,7 +240,7 @@ public class ConversionWizard extends Wizard
         IFolder tmpFolder = createProjectFolder("tmp");
         if (tmpFolder.exists())
         {
-            String filename = cononicalizeName(cc.getName()) + TXT_EXT;
+            String filename = ConverterUtil.cononicalizeName(cc.getName()) + TXT_EXT;
             tmpFile = tmpFolder.getFile(filename);
             byte [] dummy = { ' ' };
             // tmpFile.delete(true, false, null);
@@ -345,6 +341,12 @@ public class ConversionWizard extends Wizard
     public void setDialog(WizardDialog dialog)
     {
         this.dialog = dialog;
+    }
+
+    @Override
+    public void init(IWorkbench workbench, IStructuredSelection selection)
+    {
+        // TODO use selection to initialise file 
     }
     
 }

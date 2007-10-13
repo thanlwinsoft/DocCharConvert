@@ -50,8 +50,6 @@ public class ConversionWizardAction implements IWorkbenchWindowActionDelegate
                 wizard);
         wizardDialog.setMinimumPageSize(400, 300);
         wizard.setDialog(wizardDialog);
-        //wizardDialog.getWizard().init(window.getWorkbench(), 
-        //                              window.getActivePage().getSelection());
         wizardDialog.open();
         
 //        try
