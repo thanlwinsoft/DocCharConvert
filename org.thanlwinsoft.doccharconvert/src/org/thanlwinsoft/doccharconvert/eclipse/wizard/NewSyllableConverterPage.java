@@ -13,12 +13,13 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.schemas.syllableParser.Cluster;
 import org.thanlwinsoft.schemas.syllableParser.Script;
+import org.thanlwinsoft.schemas.syllableParser.Side;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverterDocument;
 
 public class NewSyllableConverterPage extends WizardNewFileCreationPage
 {
-    public static final String EXTENSION = "sylx";
+    public static final String EXTENSION = "xml";
     final private NewDccxWizardPage mConfigPage;
     
     public NewSyllableConverterPage(IStructuredSelection s, NewDccxWizardPage configPage)
@@ -41,10 +42,12 @@ public class NewSyllableConverterPage extends WizardNewFileCreationPage
         SyllableConverterDocument doc = SyllableConverterDocument.Factory.newInstance();
         SyllableConverter converter = doc.addNewSyllableConverter();
         Script scriptA = converter.addNewScript();
+        scriptA.setSide(Side.LEFT);
         scriptA.setName(MessageUtil.getString("ScriptAName"));
         Cluster cA = scriptA.addNewCluster();
         cA.addNewComponent().setId(MessageUtil.getString("LeftComponent","1"));
         Script scriptB = converter.addNewScript();
+        scriptB.setSide(Side.RIGHT);
         scriptB.setName(MessageUtil.getString("ScriptBName"));
         Cluster cB = scriptB.addNewCluster();
         cB.addNewComponent().setId(MessageUtil.getString("RightComponent","1"));

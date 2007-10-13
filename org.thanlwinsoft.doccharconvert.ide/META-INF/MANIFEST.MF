@@ -11,4 +11,4 @@ Eclipse-LazyStart: true
 Export-Package: org.thanlwinsoft.doccharconvert.parser
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
 Bundle-Vendor: www.thanlwinsoft.org
-
+Bundle-Localization: plugin

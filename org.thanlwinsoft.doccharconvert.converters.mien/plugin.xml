@@ -7,5 +7,16 @@
             path="converters/">
       </converterDir>
    </extension>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.converter.syllable.checker">
+      <checker
+            class="org.thanlwinsoft.doccharconvert.converter.syllable.mien.MienOrmToneChange"
+            name="%MienOrmToneChange">
+      </checker>
+      <checker
+            class="org.thanlwinsoft.doccharconvert.converter.syllable.mien.MienSyllableSeparators"
+            name="%MienSyllableSeparators">
+      </checker>
+   </extension>
 
 </plugin>

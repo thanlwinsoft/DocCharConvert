@@ -458,6 +458,6 @@ public class ExceptionList implements SyllableChecker
      */
     public Class<?>[] getArgumentTypes()
     {
-        return new Class<?>[] { File.class, String.class };
+        return new Class<?>[] { URL.class, String.class };
     }
 }

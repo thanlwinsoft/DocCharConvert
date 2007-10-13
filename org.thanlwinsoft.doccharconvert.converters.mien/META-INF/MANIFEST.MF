@@ -3,11 +3,11 @@ Ant-Version: Apache Ant 1.7.0
 Created-By: 1.6.0-b105 (Sun Microsystems Inc.)
 Bundle-ManifestVersion: 2
 Bundle-Name: Mien Plug-in
-Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;s
- ingleton:=true
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;singleton:=true
 Bundle-Version: 1.0.0.svn981
 Require-Bundle: org.thanlwinsoft.doccharconvert
-Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mie
- n
+Bundle-Localization: plugin
+Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mien
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
 Bundle-Vendor: www.thanlwinsoft.org
+Eclipse-LazyStart: true

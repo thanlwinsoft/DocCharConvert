@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="IWIN Medium">
+<DocCharConverter name="IWIN Medium" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="IWinMedi.tec" type="File" />
 </ConverterClass>

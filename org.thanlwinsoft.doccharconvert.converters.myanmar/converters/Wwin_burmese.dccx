@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Wwin_Burmese">
+<DocCharConverter name="Wwin_Burmese" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="Wwin_burmese.tec" type="File" />
 </ConverterClass>

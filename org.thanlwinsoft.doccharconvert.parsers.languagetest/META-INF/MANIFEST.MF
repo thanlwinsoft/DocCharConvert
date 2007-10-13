@@ -9,4 +9,4 @@ Bundle-Version: 1.0.0.svn984
 Require-Bundle: org.thanlwinsoft.doccharconvert
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
 Bundle-Vendor: www.thanlwinsoft.org
-
+Bundle-Localization: plugin

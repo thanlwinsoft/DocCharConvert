@@ -47,7 +47,10 @@
       <arg>^</arg>
       <arg>^</arg>
     </checker>
-    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences"/>
+    <checker class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences">
+        <arg>.</arg>
+        <arg>?</arg>
+    </checker>
   </checks>
   <repeat>
     <marker side="right" hex="0e46"/>

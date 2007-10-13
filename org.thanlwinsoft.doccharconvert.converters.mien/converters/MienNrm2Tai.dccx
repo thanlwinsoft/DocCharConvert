@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Mien:NRM=>Tai[Unicode]" rname="Mien:Tai=>NRM[Unicode]"  xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
-<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
-<Argument value="Mien/nrm2tai.xml" type="File" />
-</ConverterClass>
-<Styles>
-<Style>
-<Font name="Arial" type="old" />
-<Font name="Cordia New" type="new" />
-</Style>
-<Style>
-<Font name="Arial" type="old" />
-<Font name="Garuda" type="new" />
-</Style>
-<Style>
-<Font name="Arial" type="old" />
-<Font name="Tahoma" type="new" />
-</Style>
-</Styles>
+<DocCharConverter name="Mien:NRM=>Tai[Unicode]" rname="Mien:Tai=>NRM[Unicode]" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+  <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
+    <Argument value="Mien/nrm2tai.xml" type="File"/>
+  </ConverterClass>
+  <Styles>
+    <Style>
+      <Font name="Arial" type="old"/>
+      <Font name="Cordia New" type="new"/>
+    </Style>
+    <Style>
+      <Font name="Arial" type="old"/>
+      <Font name="Garuda" type="new"/>
+    </Style>
+    <Style>
+      <Font name="Arial" type="old"/>
+      <Font name="Tahoma" type="new"/>
+    </Style>
+    <Style>
+      <Font type="old" name="Times New Roman"/>
+      <Font type="new" name="Angsana New"/>
+    </Style>
+  </Styles>
 </DocCharConverter>

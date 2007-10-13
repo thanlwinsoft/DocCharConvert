@@ -4,6 +4,7 @@
    <extension-point id="org.thanlwinsoft.doccharconvert.parser" name="org.thanlwinsoft.doccharconvert.parser" schema="schema/org.thanlwinsoft.doccharconvert.parser.exsd"/>
    <extension-point id="org.thanlwinsoft.doccharconvert.converters" name="org.thanlwinsoft.doccharconvert.converters" schema="schema/org.thanlwinsoft.doccharconvert.converters.exsd"/>
    <extension-point id="org.thanlwinsoft.doccharconvert.converter" name="org.thanlwinsoft.doccharconvert.converter" schema="schema/org.thanlwinsoft.doccharconvert.converter.exsd"/>
+   <extension-point id="org.thanlwinsoft.doccharconvert.converter.syllable.checker" name="org.thanlwinsoft.doccharconvert.converter.syllable.checker" schema="schema/org.thanlwinsoft.doccharconvert.converter.syllable.checker.exsd"/>
 
    <extension
          id="DocCharConvertApp"
@@ -174,7 +175,7 @@
       <editor
             class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             default="true"
-            filenames="*.sylx"
+            filenames="*.xml"
             icon="icons/ConversionTable16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             name="%SyllableConverterEditor">
@@ -379,6 +380,21 @@
             class="org.thanlwinsoft.doccharconvert.converter.ExternalConverter"
             name="External Converter">
       </converter>
+   </extension>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.converter.syllable.checker">
+      <checker
+            class="org.thanlwinsoft.doccharconvert.converter.syllable.CapitalizeSentences"
+            name="%CapitalizeSentences">
+      </checker>
+      <checker
+            class="org.thanlwinsoft.doccharconvert.converter.syllable.RepeatSyllables"
+            name="%RepeatSyllables">
+      </checker>
+      <checker
+            class="org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList"
+            name="%ExceptionList">
+      </checker>
    </extension>
    <!--
    <extension
