@@ -145,9 +145,43 @@ public class ScriptsEditorPart extends EditorPart
         
         addScriptTable(leftScript, sc.getScriptArray(0));
         addScriptTable(rightScript, sc.getScriptArray(1));
-        leftScript.setDescription(sc.getScriptArray(0).getName());
-        rightScript.setDescription(sc.getScriptArray(1).getName());
-        // TODO replace description with editable field
+        String leftName = sc.getScriptArray(0).getName();
+        String rightName = sc.getScriptArray(1).getName();
+        if (leftName == null)
+            leftName = "";
+        if (rightName == null)
+            rightName = "";
+        leftScript.setDescription(leftName);
+        final Control leftScriptDesc = leftScript.getDescriptionControl();
+        if (leftScriptDesc instanceof Text)
+        {
+            final Text leftScriptNameText = (Text)leftScriptDesc;
+            leftScriptNameText.setEditable(true);
+            leftScriptNameText.setEnabled(true);
+            leftScriptNameText.addModifyListener(new ModifyListener(){
+
+                @Override
+                public void modifyText(ModifyEvent e)
+                {
+                    sc.getScriptArray(0).setName(leftScriptNameText.getText());
+                    parentEditor.setDirty(true);
+                }});
+        }
+        rightScript.setDescription(rightName);
+        if (rightScript.getDescriptionControl() instanceof Text)
+        {
+            final Text rightScriptNameText = (Text)rightScript.getDescriptionControl();
+            rightScriptNameText.setEditable(true);
+            rightScriptNameText.setEnabled(true);
+            rightScriptNameText.addModifyListener(new ModifyListener(){
+
+                @Override
+                public void modifyText(ModifyEvent e)
+                {
+                    sc.getScriptArray(1).setName(rightScriptNameText.getText());
+                    parentEditor.setDirty(true);
+                }});
+        }
         
         leftScript.setText(MessageUtil.getString("LeftScript"));
         rightScript.setText(MessageUtil.getString("RightScript"));

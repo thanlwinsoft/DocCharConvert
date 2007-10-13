@@ -34,8 +34,9 @@
       <primaryWizard id="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard"/>
       <category
             id="org.thanlwinsoft.doccharconvert.conversion"
-            name="org.thanlwinsoft.doccharconvert.conversion"/>
+            name="%org.thanlwinsoft.doccharconvert.conversion.category"/>
       <wizard
+            category="org.thanlwinsoft.doccharconvert.conversion"
             class="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard"
             icon="icons/DocCharConvert16.png"
             id="org.thanlwinsoft.doccharconvert.wizard"
@@ -44,11 +45,21 @@
             id="org.thanlwinsoft.doccharconvert.primaryWizard1">
       </primaryWizard>
       <wizard
+            category="org.thanlwinsoft.doccharconvert.conversion"
             class="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewDccxWizard"
             hasPages="true"
             icon="icons/Convert16.png"
             id="org.thanlwinsoft.doccharconvert.NewDccxWizard"
             name="%NewDccxWizard">
+      </wizard>
+      <wizard
+            category="org.thanlwinsoft.doccharconvert.conversion"
+            class="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewSyllableConverterWizard"
+            hasPages="true"
+            icon="icons/ConversionTable16.png"
+            id="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewSyllableConverterWizard"
+            name="%NewSyllableConverterWizard"
+            project="false">
       </wizard>
    </extension>
    <extension
@@ -163,7 +174,7 @@
       <editor
             class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             default="true"
-            filenames="*.xml"
+            filenames="*.sylx"
             icon="icons/ConversionTable16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             name="%SyllableConverterEditor">
