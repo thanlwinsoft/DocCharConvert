@@ -32,6 +32,7 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.ITreeSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.TableViewer;
@@ -70,11 +71,9 @@ import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
-import org.osgi.framework.Bundle;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
-import org.thanlwinsoft.doccharconvert.eclipse.editors.DccxEditor.ConverterProperties;
 import org.thanlwinsoft.schemas.syllableParser.Argument;
 import org.thanlwinsoft.schemas.syllableParser.Checker;
 import org.thanlwinsoft.schemas.syllableParser.Checks;
@@ -574,6 +573,115 @@ public class ScriptsEditorPart extends EditorPart
             newChecker.setText(MessageUtil.getString("AddChecker", mCheckerNameMap.get(className)));
             menuManager.add(newChecker);
         }
+        Action deleteChecker = new Action()
+        {
+
+            @Override
+            public void run()
+            {
+                Checks checks = parentEditor.getDocument().getSyllableConverter().getChecks();
+                
+                ITreeSelection selection = (ITreeSelection)viewer.getSelection();
+                Object s = selection.getFirstElement();
+                if (s instanceof Argument)
+                {
+                    s = contentProvider.getParent(s);
+                }
+                if (s instanceof Checker)
+                {
+                    Checker c = (Checker)s;
+                    for (int i = 0; i < checks.sizeOfCheckerArray(); i++)
+                    {
+                        if (checks.getCheckerArray(i) == c)
+                        {
+                            checks.removeChecker(i);
+                            viewer.refresh();
+                            parentEditor.setDirty(true);
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+        deleteChecker.setText(MessageUtil.getString("DeleteChecker"));
+        menuManager.add(deleteChecker);
+        
+        Action moveUpAction = new Action()
+        {
+            public void run()
+            {
+                Checks checks = parentEditor.getDocument().getSyllableConverter().getChecks();
+                ITreeSelection selection = (ITreeSelection)viewer.getSelection();
+                Object s = selection.getFirstElement();
+                if (s instanceof Argument)
+                {
+                    s = contentProvider.getParent(s);
+                }
+                if (s instanceof Checker)
+                {
+                    Checker c = (Checker)s;
+                    int mapIndex = -1;
+                    for (int i = 0; i < checks.sizeOfCheckerArray(); i++)
+                    {
+                        if (checks.getCheckerArray(i) == c)
+                            mapIndex = i;
+                    }
+                    if (mapIndex > 0)
+                    {
+                        XmlObject toMove = checks.getCheckerArray(mapIndex).copy();
+                        checks.removeChecker(mapIndex);
+                        Checker moved = checks.insertNewChecker(mapIndex - 1);
+                        moved.set(toMove);
+                        viewer.refresh();
+                        parentEditor.setDirty(true);
+                    }
+                }
+            }
+        };
+        moveUpAction.setId("moveUp");
+        moveUpAction.setText(MessageUtil.getString("MoveUp"));
+        moveUpAction.setToolTipText(MessageUtil.getString("MoveUpToolTip"));
+
+        Action moveDownAction = new Action()
+        {
+            public void run()
+            {
+                Checks checks = parentEditor.getDocument().getSyllableConverter().getChecks();
+                ITreeSelection selection = (ITreeSelection)viewer.getSelection();
+                Object s = selection.getFirstElement();
+                if (s instanceof Argument)
+                {
+                    s = contentProvider.getParent(s);
+                }
+                if (s instanceof Checker)
+                {
+                    Checker c = (Checker)s;
+                    int mapIndex = -1;
+                    for (int i = 0; i < checks.sizeOfCheckerArray(); i++)
+                    {
+                        if (checks.getCheckerArray(i) == c)
+                            mapIndex = i;
+                    }
+                    if (mapIndex > -1 && mapIndex + 1 < checks.sizeOfCheckerArray())
+                    {
+                        XmlObject toMove = checks.getCheckerArray(mapIndex).copy();
+                        checks.removeChecker(mapIndex);
+                        Checker moved = checks.insertNewChecker(mapIndex + 1);
+                        moved.set(toMove);
+                    
+                        viewer.refresh();
+                        parentEditor.setDirty(true);
+                    }
+                }
+            }
+        };
+        moveDownAction.setId("moveDown");
+        moveDownAction.setText(MessageUtil.getString("MoveDown"));
+        moveDownAction.setToolTipText(MessageUtil.getString("MoveDownToolTip"));
+
+        menuManager.add(moveUpAction);
+        menuManager.add(moveDownAction);
+        
         toolkit.adapt(tree);
         tree.setMenu(menuManager.createContextMenu(tree));
         parent.setClient(tree);
