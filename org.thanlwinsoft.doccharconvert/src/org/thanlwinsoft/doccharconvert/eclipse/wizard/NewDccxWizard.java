@@ -6,10 +6,12 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.editors.DccxEditor;
@@ -20,12 +22,21 @@ public class NewDccxWizard extends Wizard implements INewWizard
     private IStructuredSelection mSelection = null;
     private NewDccxWizardPage mPage = null;
     private IWorkbench mWorkbench;
+    
+    public NewDccxWizard() 
+    {
+        
+    }
 
     @Override
     public boolean performFinish()
     {
         IPath filePath = mPage.getContainerFullPath().append(mPage.getFileName());
         IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(filePath);
+        if (mWorkbench == null)
+        {
+            mWorkbench = PlatformUI.getWorkbench();
+        }
         try
         {
             file.create(mPage.getInitialContents(), IFile.NONE, null);
@@ -54,6 +65,8 @@ public class NewDccxWizard extends Wizard implements INewWizard
     @Override
     public void addPages()
     {
+        if (mSelection == null)
+            mSelection = new StructuredSelection();
         mPage = new NewDccxWizardPage(mSelection);
         addPage(mPage);
     }

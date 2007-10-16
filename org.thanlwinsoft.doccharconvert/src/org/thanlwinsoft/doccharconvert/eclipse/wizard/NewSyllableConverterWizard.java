@@ -6,12 +6,13 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
@@ -32,6 +33,10 @@ public class NewSyllableConverterWizard extends Wizard implements INewWizard
     @Override
     public boolean performFinish()
     {
+        if (mWorkbench == null)
+        {
+            mWorkbench = PlatformUI.getWorkbench();
+        }
         IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
         IPath syllableFilePath = mSyllablePage.getContainerFullPath().append(
                 mSyllablePage.getFileName());
@@ -81,6 +86,8 @@ public class NewSyllableConverterWizard extends Wizard implements INewWizard
     @Override
     public void addPages()
     {
+        if (mSelection == null)
+            mSelection = new StructuredSelection();
         mDccxPage = new NewDccxWizardPage(mSelection);
         mSyllablePage = new NewSyllableConverterPage(mSelection, mDccxPage);
         addPage(mSyllablePage);

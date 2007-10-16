@@ -79,17 +79,24 @@
                icon="icons/DocCharConvert16.png"
                id="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizardAction"
                label="%ConversionWizard"
-               menubarPath="File/additions"
+               menubarPath="File/new"
                toolbarPath="Bar/additions"
                tooltip="%ConversionWizard"/>
          <action
-               class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
+               class="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewDccxAction"
                icon="icons/Convert16.png"
                id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditorAction"
-               label="Edit Syllable Converter"
-               menubarPath="File/additions"
-               state="false"
-               toolbarPath="Bar/additions">
+               label="%NewDccxWizard"
+               menubarPath="File/new"
+               tooltip="%NewDccxWizard">
+         </action>
+         <action
+               class="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewSyllableConverterAction"
+               icon="icons/ConversionTable16.png"
+               id="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewSyllableConverterWizard"
+               label="%NewSyllableConverterWizard"
+               menubarPath="File/new"
+               tooltip="%NewSyllableConverterWizard">
          </action>
       </actionSet>
    </extension>
