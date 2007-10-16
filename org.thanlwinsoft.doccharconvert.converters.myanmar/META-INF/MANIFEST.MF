@@ -5,8 +5,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Myanmar Plug-in for DocCharConvert
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanma
  r;singleton:=true
-Bundle-Version: 1.0.0.svn982
+Bundle-Version: 1.0.0.svn1049
 Bundle-Vendor: www.thanlwinsoft.org
 Require-Bundle: org.thanlwinsoft.doccharconvert
-Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
+Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
+ ads/updates/
 
