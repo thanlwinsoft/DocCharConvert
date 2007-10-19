@@ -626,6 +626,10 @@ END OF TERMS AND CONDITIONS
          id="org.thanlwinsoft.doccharconvert.feature.core"
          version="0.0.0"/>
 
+   <requires>
+      <import plugin="org.thanlwinsoft.doccharconvert"/>
+   </requires>
+
    <plugin
          id="org.thanlwinsoft.doccharconvert.converters.myanmar"
          download-size="0"
