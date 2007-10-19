@@ -10,7 +10,7 @@
       </text>
    </aboutInfo>
 
-   <configIni use="custom" path="/DocCharConvert/config.ini"/>
+   <configIni use="default" path="/DocCharConvert/config.ini"/>
 
    <launcherArgs>
       <programArgsLin>-data
