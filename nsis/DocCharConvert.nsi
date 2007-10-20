@@ -4,7 +4,7 @@
 
 ; Some useful definitions that may need changing for different font versions
 !ifndef VERSION
-  !define VERSION '1.1.0'
+  !define VERSION '1.1.1'
 !endif
 
 !define APP_NAME 'DocCharConvert'
@@ -111,6 +111,7 @@ NoOverwrite:
   SetOutPath "$INSTDIR"
   
   File /r "..\release\win32.win32.x86\${APP_NAME}"
+  ;File /r "..\release\${APP_NAME}"
   
   SetOutPath "$INSTDIR\${APP_NAME}"
   File /oname=license.txt "lgpl-2.1.txt"
@@ -144,10 +145,10 @@ NoOverwrite:
 	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
-	CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}IDE.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertIDEProduct' \
-	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
-	"" "${APP_NAME} - developer IDE"
+;  CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}IDE.lnk" \
+;	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertIDEProduct' \
+;	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
+;	"" "${APP_NAME} - developer IDE"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}Uninstall.lnk" \
 	"$INSTDIR\${APP_NAME}\Uninstall.exe" "" \
 	"$INSTDIR\${APP_NAME}\UninstallDCC16.ico" 0 SW_SHOWNORMAL \
@@ -218,7 +219,7 @@ FunctionEnd
 
 Function .onInstSuccess
 
-	Exec '"$INSTDIR\${APP_NAME}\eclipse.exe" -initialize -vm "$JAVA_HOME\bin\javaw.exe"  -product org.thanlwinsoft.doccharconvert.DocCharConvert'
+	Exec '"$INSTDIR\${APP_NAME}\eclipse.exe" -vm "$JAVA_HOME\bin\javaw.exe"  -product org.thanlwinsoft.doccharconvert.DocCharConvert'
 
 FunctionEnd
 
@@ -235,13 +236,16 @@ AppFound:
   RMDir /r "$INSTDIR\configuration"
   RMDir /REBOOTOK /r "$INSTDIR\plugins"
   RMDir /REBOOTOK /r "$INSTDIR\features"
+  Delete /REBOOTOK "$INSTDIR\eclipse.ini"
   Delete /REBOOTOK "$INSTDIR\eclipse.exe"
+  Delete /REBOOTOK "$INSTDIR\TecKitJni.dll"
   Delete /REBOOTOK "$INSTDIR\startup.jar"
   Delete /REBOOTOK "$INSTDIR\.eclipseproduct"
   Delete /REBOOTOK "$INSTDIR\DocCharConvert*.*"
   Delete /REBOOTOK "$INSTDIR\UninstallDCC16.ico"
   Delete /REBOOTOK "$INSTDIR\setJavaHome.bat"
   Delete /REBOOTOK "$INSTDIR\lgpl-2.1.txt"
+  Delete /REBOOTOK "$INSTDIR\license.txt"
   
   ;Delete "$INSTDIR\${SRC_ARCHIVE}"
   Delete /REBOOTOK "$INSTDIR\Uninstall.exe"
