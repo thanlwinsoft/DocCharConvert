@@ -5,11 +5,13 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DocCharConvert Ide Plug-in
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.ide;singleton:=tr
  ue
-Bundle-Version: 1.0.0.svn991
-Require-Bundle: org.thanlwinsoft.doccharconvert,
- org.eclipse.ui.ide.application
+Bundle-Version: 1.0.0.svn1058
+Require-Bundle: org.thanlwinsoft.doccharconvert,org.eclipse.ui.ide.app
+ lication
 Eclipse-LazyStart: true
 Export-Package: org.thanlwinsoft.doccharconvert.parser
-Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
+Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
+ ads/updates/
 Bundle-Vendor: www.thanlwinsoft.org
 Bundle-Localization: plugin
+
