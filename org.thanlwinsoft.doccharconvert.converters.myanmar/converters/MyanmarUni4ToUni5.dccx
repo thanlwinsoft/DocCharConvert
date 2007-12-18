@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Myanmar Unicode 4UTN11 to Unicode 5">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
+<Argument value="myUni4ToUni5.xml" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Padauk Uni4" type="old"  script="ctl"/>
+<Font name="Padauk" type="new"  script="ctl"/>
+</Style>
+<Style>
+<Font name="Padauk Uni4" type="old"  script="ctl"/>
+<Font name="PadaukOT" type="new"  script="ctl"/>
+</Style>
+</Styles>
+</DocCharConverter>
