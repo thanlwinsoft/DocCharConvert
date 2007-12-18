@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="org.thanlwinsoft.doccharconvert.udpate" default="default" basedir=".">
+<project name="org.thanlwinsoft.doccharconvert.update" default="default" basedir=".">
 
 	<property name="release.path" value="../release"/>
+	<property name="javahl" value="false"/>
 	<path id="svnant.class.path">
 		<fileset dir="../org.tigris.subversion.svnant/libs">
 			<include name="**/*.jar"/>
@@ -13,9 +14,11 @@
 	</target>
 	
 	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" 
-		classpathref="svnant.class.path" />
+		classpathref="svnant.class.path" onerror="fail"/>
 	
 	<target name="default" depends="properties" description="update All Projects">
+	    <delete dir="${release.path}/features"/>
+		<delete dir="${release.path}/plugins"/>
 		<mkdir dir="${release.path}/features"/>
 		<mkdir dir="${release.path}/plugins"/>
 
@@ -97,13 +100,14 @@
 		<antcall target="update-manifest" >
 		</antcall>
 		<property name="plugin.destination" value="${basedir}/../${projectName}"/>
-		<!--
+		
 		<eclipse.buildScript elements="bundle@${projectName}" 
-			buildDirectory="." pluginpath=".." />-->
+			buildDirectory="." pluginpath=".." />
 		<delete>
 		    <fileset dir="../${projectName}" includes="${projectName}_*.jar"/>
 			<fileset dir="plugins" includes="${projectName}_*.jar"/>
 		</delete>
+		<!--<ant dir="../${projectName}" target="build.update.jar" antfile="build-plugin.xml"/>-->
 		<ant dir="../${projectName}" target="build.update.jar" antfile="build-plugin.xml"/>
 		<copy todir="plugins">
 			<fileset dir="../${projectName}" includes="${projectName}_*.jar"/>
@@ -129,18 +133,21 @@
 <target name="update-manifest" description="Update SVN version in Manifest">
 		<!-- backup manifest before we do anything -->
 		<copy file="../${projectName}/META-INF/MANIFEST.MF" tofile="../${projectName}/META-INF/MANIFEST.MF.bak"/>
-		<svn>
-			<!--<revert file="../${projectName}/META-INF/MANIFEST.MF"/>-->
+		<svn javahl="${javahl}">
+			<!--<revert file="../${projectName}/META-INF/MANIFEST.MF"/>
 			<info target="../${projectName}/${svnCheckDir}"/>
-			<wcVersion path="../${projectName}/${svnCheckDir}" prefix="svn."/>
+			<wcVersion path="../${projectName}/${svnCheckDir}" prefix="svn."/>-->
+			<status path="../${projectName}/${svnCheckDir}" lastChangedRevisionProperty="svn.lastRev" textStatusProperty="svn.textStatus"/>
 		</svn>
 		<condition property="modified.flag" value="m" else="">
-			<isset property="svn.modified"/>
+			<not>
+			  <equals arg1="${svn.textStatus}" arg2="normal"/>
+			</not>
 		</condition>
 		<property file="../${projectName}/plugin.properties" prefix="plugin"/>
 
 		<manifest file="../${projectName}/META-INF/MANIFEST.MF" mode="update">
-		<attribute name="Bundle-Version" value="${plugin.version}.svn${svn.info.lastRev}${modified.flag}"/>
+		<attribute name="Bundle-Version" value="${plugin.version}.svn${svn.lastRev}${modified.flag}"/>
 		</manifest>
 		
 </target>

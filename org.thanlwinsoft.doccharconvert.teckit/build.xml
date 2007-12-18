@@ -121,6 +121,7 @@
 				<include name="about.html"/>
 			</fileset>
 		</copy>
+		<eclipse.versionReplacer path="${destination.temp.folder}/org.thanlwinsoft.doccharconvert.teckit_0.1.0.svn999" version="0.1.0.svn999"/>
 	</target>
 
 	<target name="build.zips" depends="init">
@@ -149,7 +150,7 @@
 	</target>
 
 	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
-		<eclipse.convertPath fileSystemPath="H:/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.teckit" property="resourcePath"/>
+		<eclipse.convertPath fileSystemPath="/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.update/headless-build/tmp/plugins/org.thanlwinsoft.doccharconvert.teckit" property="resourcePath"/>
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 
