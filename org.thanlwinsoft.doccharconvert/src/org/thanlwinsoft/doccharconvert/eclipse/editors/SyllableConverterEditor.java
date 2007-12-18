@@ -36,7 +36,6 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.IStorageEditorInput;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
@@ -73,8 +72,7 @@ public class SyllableConverterEditor extends MultiPageEditorPart
     {
         super.init(site, input);
         
-        IStorageEditorInput sei = (IStorageEditorInput)input;
-        this.setPartName(sei.getName());
+        this.setPartName(input.getName());
         try
         {
             if (input instanceof FileEditorInput)
