@@ -8,24 +8,7 @@ export SVN_BASE=https://thanlwinmyit/svn/krs/DocCharConvert/trunk/DocCharConvert
 if ! test -d tmp
 then
 mkdir tmp
-mkdir tmp/plugins
-cd tmp/plugins
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.converters.mien
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.converters.myanmar
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.ide
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.parsers.languagetest
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.teckit
-svn checkout https://thanlwinmyit/svn/krs/LanguageTest/trunk/org.apache.xmlbeans
-cd org.thanlwinsoft.doccharconvert
-./genSchemaJar.sh
-cd ../../../
-mkdir tmp/features
-cd tmp/features
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.feature.core
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.feature.mien
-svn checkout $SVN_BASE/org.thanlwinsoft.doccharconvert.feature.myanmar 
-cd -
+cp -r maps tmp/
 fi
 #java -jar $EQUINOX_JAR -application org.eclipse.ant.core.antRunner -buildfile build-svn.xml
 

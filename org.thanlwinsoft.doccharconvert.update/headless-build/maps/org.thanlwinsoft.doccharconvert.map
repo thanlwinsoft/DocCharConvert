@@ -1,0 +1,9 @@
+feature@org.thanlwinsoft.doccharconvert.feature.core=SVN,trunk,https://thanlwinmyit/svn/krs,DocCharConvert,DocCharConvert/org.thanlwinsoft.doccharconvert.feature.core
+plugin@org.thanlwinsoft.doccharconvert=SVN,trunk,https://thanlwinmyit/svn/krs,DocCharConvert,DocCharConvert/org.thanlwinsoft.doccharconvert
+plugin@org.thanlwinsoft.doccharconvert.teckit=SVN,trunk,https://thanlwinmyit/svn/krs,DocCharConvert,DocCharConvert/org.thanlwinsoft.doccharconvert.teckit
+plugin@org.apache.xmlbeans=SVN,trunk,https://thanlwinmyit/svn/krs,LanguageTest,org.apache.xmlbeans
+feature@org.thanlwinsoft.doccharconvert.feature.mien=SVN,trunk,https://thanlwinmyit/svn/krs,DocCharConvert,DocCharConvert/org.thanlwinsoft.doccharconvert.feature.mien
+feature@org.thanlwinsoft.doccharconvert.feature.myanmar=SVN,trunk,https://thanlwinmyit/svn/krs,DocCharConvert,DocCharConvert/org.thanlwinsoft.doccharconvert.feature.myanmar
+plugin@org.thanlwinsoft.doccharconvert.converters.myanmar=SVN,trunk,https://thanlwinmyit/svn/krs,DocCharConvert,DocCharConvert/org.thanlwinsoft.doccharconvert.converters.myanmar
+plugin@org.thanlwinsoft.doccharconvert.converters.mien=SVN,trunk,https://thanlwinmyit/svn/krs,DocCharConvert,DocCharConvert/org.thanlwinsoft.doccharconvert.converters.mien
+
