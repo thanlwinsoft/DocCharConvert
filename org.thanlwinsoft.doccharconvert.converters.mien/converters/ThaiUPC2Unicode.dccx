@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="Thai:UPC => Unicode" rname="Thai:Unicode => UPC"  xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
-<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
-<Argument value="thaiupc.tec" type="File" />
-</ConverterClass>
-<Styles>
-<Style>
-<Font name="Tag Doisuthep" type="old" />
-<Font name="Tahoma" type="new" />
-</Style>
-<Style>
-<Font name="Tag Doisuthep" type="old" />
-<Font name="Garuda" type="new" />
-</Style>
-<Style>
-<Font name="Tag Doisuthep" type="old" />
-<Font name="Cordia New" type="new" />
-</Style>
-</Styles>
+<DocCharConverter name="Thai:UPC => Unicode" rname="Thai:Unicode => UPC" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+  <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
+    <Argument value="thaiupc.tec" type="File"/>
+  </ConverterClass>
+  <Styles>
+    <Style>
+      <Font name="Tag Doisuthep" type="old"/>
+      <Font name="Tahoma" type="new"/>
+    </Style>
+    <Style>
+      <Font name="Tag Doisuthep" type="old"/>
+      <Font name="Garuda" type="new"/>
+    </Style>
+    <Style>
+      <Font name="Tag Doisuthep" type="old"/>
+      <Font name="Cordia New" type="new"/>
+    </Style>
+    <Style>
+      <Font type="old" name="DilleniaUPC"/>
+      <Font type="new" name="Tahoma"/>
+    </Style>
+    <Style>
+      <Font type="old" name="CordiaUPC"/>
+      <Font type="new" name="Tahoma"/>
+    </Style>
+  </Styles>
 </DocCharConverter>
