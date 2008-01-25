@@ -68,6 +68,8 @@ public class ConverterXmlParser
     public final static String OLD = "old";
     public final static String NEW = "new";
     public final static String EXT = ".dccx";
+    public final static String NAMESPACE = 
+        "http://www.thanlwinsoft.org/schemas/DocCharConvert";
     List<File> converterDir = null;
     List<URL> converterUrls = null;
     // File currentXmlFile = null;
@@ -251,6 +253,7 @@ public class ConverterXmlParser
         {
             DocumentBuilderFactory dfactory = DocumentBuilderFactory
                     .newInstance();
+            dfactory.setNamespaceAware(true);
             DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
             InputSource inputSource = new InputSource(fileStream);
             doc = docBuilder.parse(inputSource);
@@ -283,7 +286,7 @@ public class ConverterXmlParser
         {
             doc.normalize();
             Node topNode = doc.getFirstChild();
-            if (!topNode.getNodeName().equals(TOP_NODE)
+            if (!topNode.getLocalName().equals(TOP_NODE)
                     || topNode.getNodeType() != Node.ELEMENT_NODE)
             {
                 if (currentXmlUrl != null)
@@ -309,7 +312,7 @@ public class ConverterXmlParser
                 }
             }
 
-            NodeList classList = doc.getElementsByTagName(CLASS_NODE);
+            NodeList classList = doc.getElementsByTagNameNS(NAMESPACE, CLASS_NODE);
             if (classList.getLength() != 1)
             {
                 if (currentXmlUrl != null)
@@ -322,7 +325,7 @@ public class ConverterXmlParser
             String className = classElement.getAttribute(NAME_ATTRIB);
             // find the constructor arguments
             NodeList parameters = classElement
-                    .getElementsByTagName(ARGUMENT_NODE);
+                    .getElementsByTagNameNS(NAMESPACE, ARGUMENT_NODE);
             Class<?>[] argumentTypes = new Class[parameters.getLength()];
             Object[] arguments = new Object[parameters.getLength()];
             for (int p = 0; p < parameters.getLength(); p++)
@@ -373,7 +376,7 @@ public class ConverterXmlParser
                 rawConverters.add(reverseConverter);
             }
             // now find the parameter arguments
-            parameters = classElement.getElementsByTagName(PARAMETER_NODE);
+            parameters = classElement.getElementsByTagNameNS(NAMESPACE, PARAMETER_NODE);
             for (int p = 0; p < parameters.getLength(); p++)
             {
                 Element parameter = (Element) parameters.item(p);
@@ -402,7 +405,7 @@ public class ConverterXmlParser
                 }
             }
             // now we are ready to create the style options
-            NodeList styles = topElement.getElementsByTagName(STYLES_NODE);
+            NodeList styles = topElement.getElementsByTagNameNS(NAMESPACE, STYLES_NODE);
             if (styles.getLength() != 1)
             {
                 if (currentXmlUrl != null)
@@ -411,7 +414,7 @@ public class ConverterXmlParser
                 return false;
             }
             NodeList styleList = ((Element) styles.item(0))
-                    .getElementsByTagName(STYLE_NODE);
+                    .getElementsByTagNameNS(NAMESPACE, STYLE_NODE);
             for (int s = 0; s < styleList.getLength(); s++)
             {
                 addConverter((Element) styleList.item(s), masterConverter,
@@ -463,7 +466,7 @@ public class ConverterXmlParser
     {
         TextStyle oldStyle = null;
         TextStyle newStyle = null;
-        NodeList fonts = sElement.getElementsByTagName(FONT_NODE);
+        NodeList fonts = sElement.getElementsByTagNameNS(NAMESPACE, FONT_NODE);
         for (int f = 0; f < fonts.getLength(); f++)
         {
             Element e = (Element) fonts.item(f);
