@@ -263,7 +263,8 @@ public class ConversionWizard extends Wizard implements INewWizard
               
               tmpFile.create(new ByteArrayInputStream(dummy), true, null);
             }
-            tmpFile.setCharset("UTF-8", null);   
+            
+            tmpFile.setCharset(conversion.getInputEncoding().name(), null);
             eInput = new FileEditorInput(tmpFile);
         }
         if (eInput != null)

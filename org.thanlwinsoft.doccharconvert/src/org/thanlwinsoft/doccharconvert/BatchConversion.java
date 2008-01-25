@@ -548,6 +548,7 @@ public class BatchConversion implements Runnable
             converterList.get(i.next()).setEncodings(iCharset, oCharset);
         }
     }
+    public Charset getInputEncoding() { return iCharset; }
     public void setOutputEncoding(Charset oEnc) 
     { 
         oCharset = oEnc; 
@@ -557,6 +558,7 @@ public class BatchConversion implements Runnable
             converterList.get(i.next()).setEncodings(iCharset, oCharset);
         }
     }
+    public Charset getOutputEncoding() { return oCharset; }
     public synchronized String getProgressDesc()
     {
       if (docInterface != null)

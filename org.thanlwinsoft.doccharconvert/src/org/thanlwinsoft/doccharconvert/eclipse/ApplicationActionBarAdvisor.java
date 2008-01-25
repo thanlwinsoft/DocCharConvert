@@ -44,6 +44,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
     // when fillActionBars is called with FILL_PROXY.
     private IWorkbenchAction exitAction;
     private IWorkbenchAction aboutAction;
+    private IWorkbenchAction saveAction;
     private IWorkbenchAction cutAction;
     private IWorkbenchAction copyAction;
     private IWorkbenchAction pasteAction;
@@ -84,6 +85,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         
         pasteAction = ActionFactory.PASTE.create(window);
         register(pasteAction);
+        
+        saveAction = ActionFactory.SAVE.create(window);
+        register(saveAction);
         
         newWizardAction = ActionFactory.NEW_WIZARD_DROP_DOWN.create(window);
         register(newWizardAction);
@@ -150,6 +154,7 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
         //fileMenu.add(openViewAction);
         fileMenu.add(newWizardAction);
         fileMenu.add(new Separator());
+        fileMenu.add(saveAction);
         fileMenu.add(exitAction);
         
         editMenu.add(undoAction);

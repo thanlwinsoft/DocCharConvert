@@ -235,8 +235,8 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
             ConversionHelper.debugDump(converted, hexCodes);
             hexCodes.append("\n");
             ConversionHelper.debugDump(reversed, hexCodes);
-            
-            unicode.setResult(JFaceResources.getTextFont(), hexCodes.toString());
+            if (unicode != null)
+                unicode.setResult(JFaceResources.getTextFont(), hexCodes.toString());
         }
         catch (CharConverter.RecoverableException e)
         {

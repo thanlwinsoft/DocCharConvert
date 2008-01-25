@@ -66,6 +66,7 @@ public interface CharConverter
      * @param oCharset Output Encoding
      */
     public void setEncodings(Charset iCharset, Charset oCharset);
+    
     /**
      * Some converters may need to preinitialise some things
      */

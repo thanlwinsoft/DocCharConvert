@@ -387,6 +387,11 @@
             class="org.thanlwinsoft.doccharconvert.converter.ExternalConverter"
             name="External Converter">
       </converter>
+      <converter
+            class="org.thanlwinsoft.doccharconvert.converter.NoChangeConverter"
+            help="Useful for conversions, where the only changed needed is a change of encoding."
+            name="No Change Converter">
+      </converter>
    </extension>
    <extension
          point="org.thanlwinsoft.doccharconvert.converter.syllable.checker">
@@ -402,6 +407,12 @@
             class="org.thanlwinsoft.doccharconvert.converter.syllable.ExceptionList"
             name="%ExceptionList">
       </checker>
+   </extension>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.converters">
+      <converterDir
+            path="converters">
+      </converterDir>
    </extension>
    <!--
    <extension
