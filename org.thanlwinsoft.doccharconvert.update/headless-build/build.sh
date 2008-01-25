@@ -9,9 +9,9 @@ then
 mkdir tmp
 cp -r maps tmp/
 fi
-#java -jar $EQUINOX_JAR -application org.eclipse.ant.core.antRunner -buildfile build-svn.xml
 
 if java -cp $CLASSPATH -jar $EQUINOX_JAR -application org.eclipse.ant.core.antRunner -buildfile /opt/eclipse/plugins/org.eclipse.pde.build_3.3.2.R331_v20071019/scripts/build.xml -Dcomponent=svn-pde-build -Dbuilder=`pwd` $@
 then
-java -cp $CLASSPATH -jar $EQUINOX_JAR -application org.eclipse.ant.core.antRunner -buildfile /opt/eclipse/plugins/org.eclipse.pde.build_3.3.2.R331_v20071019/scripts/productBuild/productBuild.xml -Dbuilder=`pwd` $@
+echo Building product.
+#java -cp $CLASSPATH -jar $EQUINOX_JAR -application org.eclipse.ant.core.antRunner -buildfile /opt/eclipse/plugins/org.eclipse.pde.build_3.3.2.R331_v20071019/scripts/productBuild/productBuild.xml -Dbuilder=`pwd` $@
 fi

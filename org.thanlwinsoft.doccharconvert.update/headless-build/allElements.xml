@@ -10,17 +10,20 @@
  	<!-- ===================================================================== -->
  	<target name="allElementsDelegator">
  		<ant antfile="${genericTargets}" target="${target}">
-	 		<property name="type" value="feature" />
- 			<property name="id" value="org.thanlwinsoft.doccharconvert.feature.core" />
- 		</ant>
-        <ant antfile="${genericTargets}" target="${target}">
+            <property name="type" value="feature" />
+            <property name="id" value="org.thanlwinsoft.doccharconvert.feature.myanmar" />
+        </ant>
+ 		<ant antfile="${genericTargets}" target="${target}">
             <property name="type" value="feature" />
             <property name="id" value="org.thanlwinsoft.doccharconvert.feature.mien" />
         </ant>
         <ant antfile="${genericTargets}" target="${target}">
-            <property name="type" value="feature" />
-            <property name="id" value="org.thanlwinsoft.doccharconvert.feature.myanmar" />
-        </ant>
+	 		<property name="type" value="feature" />
+ 			<property name="id" value="org.thanlwinsoft.doccharconvert.feature.core" />
+ 		</ant>
+ 		<!--
+        feature.core seems to need to be last for some reason
+        -->
  	</target>
  
  	<!-- ===================================================================== -->

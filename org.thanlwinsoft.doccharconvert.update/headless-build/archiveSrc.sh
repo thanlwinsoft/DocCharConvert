@@ -1,10 +1,11 @@
 #!/bin/bash
 
 export SVN_BASE=https://thanlwinmyit/svn/krs/DocCharConvert/trunk/DocCharConvert
-svn checkout $SVN_BASE
+# use export, so there are't .svn directories
+svn export $SVN_BASE
 cd DocCharConvert
-svn checkout https://thanlwinmyit/svn/krs/LanguageTest/trunk/org.apache.xmlbeans
-find . -name .svn -exec rm -rf {} \;
+svn export https://thanlwinmyit/svn/krs/LanguageTest/trunk/org.apache.xmlbeans
+#find . -name .svn -exec rm -rf {} \;
 cd -
 
 SVN_REV=`svn info | grep "Last Changed Rev:" | sed 's/Last Changed Rev: //'`
