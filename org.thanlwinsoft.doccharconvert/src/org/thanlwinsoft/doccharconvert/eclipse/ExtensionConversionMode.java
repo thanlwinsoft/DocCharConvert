@@ -18,6 +18,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 package org.thanlwinsoft.doccharconvert.eclipse;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.HashSet;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -31,6 +34,7 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.osgi.framework.Bundle;
 import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.DocInterface;
 
@@ -42,17 +46,19 @@ public class ExtensionConversionMode extends ConversionMode
 {
     private static TreeMap <String,ConversionMode>map = new TreeMap <String,ConversionMode>();
     private String extId = null;
-    private HashSet <String> fileExtensions = new HashSet<String>(); 
+    private HashSet <String> mFileExtensions = new HashSet<String>();
+    private String mOptions;
+    private String mPlugin;
     /**
      * @param id
      * @param name
      * @param styleSupport
      */
-    protected ExtensionConversionMode(String extId, int id, String name, boolean styleSupport)
+    protected ExtensionConversionMode(String plugin, String extId, int id, String name, boolean styleSupport)
     {
         super(id, name, styleSupport);
         this.extId = extId;
-        
+        this.mPlugin = plugin;
     }
     
     private void setExtensions(String extensions)
@@ -60,7 +66,7 @@ public class ExtensionConversionMode extends ConversionMode
         StringTokenizer st = new StringTokenizer(", ");
         while (st.hasMoreTokens())
         {
-            fileExtensions.add(st.nextToken());
+            mFileExtensions.add(st.nextToken());
         }
     }
     
@@ -78,7 +84,7 @@ public class ExtensionConversionMode extends ConversionMode
                 String lcn = f.getName().toLowerCase();
                 int extStart = lcn.lastIndexOf('.');
                 if (extStart > -1 && 
-                    fileExtensions.contains(lcn.substring(extStart)))
+                    mFileExtensions.contains(lcn.substring(extStart)))
                     return true;
                 // need to add directory to allow directory browsing
                 if (f.isDirectory()) return true;
@@ -110,17 +116,43 @@ public class ExtensionConversionMode extends ConversionMode
                 
                 boolean hasStyles = Boolean.parseBoolean(hasStylesText);
                 String fileExtensions = ce[j].getAttribute("extensions");
+                String options = ce[j].getAttribute("options");
                 int numericId = ConversionMode.NUM_MODES + i;
+                String plugin = extensions[i].getContributor().getName();
                 ExtensionConversionMode mode =
-                    new ExtensionConversionMode(id, numericId, name, hasStyles);
+                    new ExtensionConversionMode(plugin, id, numericId, name, hasStyles);
                 if (fileExtensions != null)
                     mode.setExtensions(fileExtensions);
+                if (options != null)
+                    mode.setOptions(options);
                 map.put(id, mode);
             }
         }
         return map.values().toArray(new ConversionMode[map.size()]);
     }
     
+    private void setOptions(String options)
+    {
+        this.mOptions = options;
+    }
+    public String getOptions() { return mOptions; }
+    
+    /** opens an input stream on a path from the plugin that defined this 
+     * extension.
+     * @param path
+     * @return stream or null, if the path wasn't found.
+     * @throws IOException
+     */
+    public InputStream getPath(String path) throws IOException
+    {
+        Bundle b = Platform.getBundle(mPlugin);
+        if (b == null) return null;
+        URL url = b.getEntry(path);
+        if (url != null)
+            return url.openStream();
+        return null;
+    }
+
     public DocInterface getDocInterface()
     {
         DocInterface doc = null;
@@ -139,6 +171,7 @@ public class ExtensionConversionMode extends ConversionMode
                     try
                     {
                         doc = (DocInterface)ce[j].createExecutableExtension("class");
+                        doc.setMode(this);
                     }
                     catch (CoreException e)
                     {

@@ -39,7 +39,8 @@ Bundle-Vendor: ThanLwinSoft.org
 Bundle-ClassPath: lib/DocCharConvertSchema.jar,
  lib/SyllableParserSchema.jar,
  ../org.apache.xmlbeans/lib/xbean.jar,
- .
+ .,
+ lib/rawcharsetspi.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
  ads/updates/

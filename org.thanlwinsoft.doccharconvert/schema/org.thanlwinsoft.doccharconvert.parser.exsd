@@ -13,7 +13,7 @@
    <element name="extension">
       <complexType>
          <sequence minOccurs="0" maxOccurs="unbounded">
-           <element ref="parser" />
+            <element ref="parser"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -98,6 +98,13 @@
                <documentation>
                   Specify the file extensions that the parser understands.
 e.g. .xml, .txt
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="options" type="string">
+            <annotation>
+               <documentation>
+                  
                </documentation>
             </annotation>
          </attribute>

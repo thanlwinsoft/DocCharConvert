@@ -19,6 +19,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 package org.thanlwinsoft.doccharconvert.converter;
 
 import org.thanlwinsoft.doccharconvert.RawByteCharset;
+import org.thanlwinsoft.doccharconvert.RawByteCharsetProvider;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
@@ -411,33 +412,36 @@ public class TecKitConverter extends ReversibleConverter
     {
         // assume that the TecKit encoding is the same as the input encoding
         // The Unicode side of TecKit is always UTF-8
-        // if (isForwards())
-        // {
-        // if (iCharset == null || iCharset == Charset.forName("UTF-8"))
-        // {
-        // beforeCharset = Charset.forName(RawByteCharset.CHARSET_NAME);
-        // System.out.println("Warning: TECkit input encoding " +
-        // beforeCharset.name());
-        // }
-        // else
-        // beforeCharset = iCharset;
-        // afterCharset = Charset.forName("UTF-8");
-        // }
-        // else
-        // {
-        // if (oCharset == null || oCharset == Charset.forName("UTF-8"))
-        // {
-        // afterCharset = Charset.forName(RawByteCharset.CHARSET_NAME);
-        // System.out.println("Warning: TECkit input encoding " +
-        // afterCharset.name());
-        // }
-        // else
-        // afterCharset = oCharset;
-        // beforeCharset = Charset.forName("UTF-8");
-        // }
-
+        /*
+         if (isForwards())
+         {
+             if (iCharset == null || iCharset == Charset.forName("UTF-8"))
+             {
+                 beforeCharset = new RawByteCharset();//Charset.forName(RawByteCharset.CHARSET_NAME);
+                 System.out.println("Warning: TECkit input encoding " +
+                         beforeCharset.name());
+                 charEncoding = beforeCharset;
+             }
+             else
+                 beforeCharset = iCharset;
+             afterCharset = Charset.forName("UTF-8");
+         }
+         else
+         {
+             if (oCharset == null || oCharset == Charset.forName("UTF-8"))
+             {
+                 afterCharset = new RawByteCharset();//Charset.forName(RawByteCharset.CHARSET_NAME);
+                 System.out.println("Warning: TECkit input encoding " +
+                 afterCharset.name());
+                 charEncoding = afterCharset;
+             }
+             else
+                 afterCharset = oCharset;
+             beforeCharset = Charset.forName("UTF-8");
+         }
         System.out.println("TecKIT encodings: " + beforeCharset + " > "
                 + afterCharset);
+*/
     }
 
     public void setClassLoader(IClassLoaderUtil loader)

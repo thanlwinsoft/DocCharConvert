@@ -16,6 +16,13 @@
 </xmlbean>
 
 </target>
+	
+<target name="build.spi" description="Build RawByteCharsetProvider">
+    <jar destfile="lib/rawcharsetspi.jar" basedir="bin" includes="org/thanlwinsoft/doccharconvert/RawByteCharset*.class">
+        <service type="java.nio.charset.spi.CharsetProvider" 
+    	   provider="org.thanlwinsoft.doccharconvert.RawByteCharsetProvider"/>
+    </jar>	
+</target>
 
 </project>
 

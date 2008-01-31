@@ -268,9 +268,7 @@
          </presentation>
       </config>
    </extension>
-   <extension
-         point="org.thanlwinsoft.doccharconvert.parser">
-   </extension>
+   
    <extension
          point="org.eclipse.ui.viewActions">
       <viewContribution
