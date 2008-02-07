@@ -60,7 +60,7 @@
   !insertmacro MUI_LANGUAGE "English"
 
 ;--------------------------------
-  Icon "DocCharConvert32.ico"
+  Icon "InstallDCC32.ico"
   UninstallIcon "UninstallDCC16.ico"
 ;Installer Sections
 

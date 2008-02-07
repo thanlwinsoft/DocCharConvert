@@ -14,6 +14,9 @@
 >
 
 <history>
+    <modified version="16" date="2008-01-11">
+        KRS: Fix bug with W/H
+    </modified>
     <modified version="15" date="2007-03-26">
         KRS: Updated to latest Unicode proposal N3043.
     </modified>
@@ -353,9 +356,9 @@
         <context-ref name="reorder-bytes-b/r"/>
         <context-ref name="reorder-bytes-b/y1"/>
         <context-ref name="reorder-bytes-b/y2"/>
-        <context-ref name="reorder-bytes-b/h"/>
         <context-ref name="reorder-bytes-b/w1"/>
         <context-ref name="reorder-bytes-b/w2"/>
+        <context-ref name="reorder-bytes-b/h"/>
         <context-ref name="reorder-bytes-b/e"/>
 		<context-ref name="reorder-bytes-b/vu2"/>
 		<context-ref name="reorder-bytes-b/vu1"/>

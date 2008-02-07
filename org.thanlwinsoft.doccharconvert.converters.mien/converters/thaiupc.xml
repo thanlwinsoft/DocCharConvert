@@ -13,6 +13,9 @@
     byte-font="DilleniaUPC98"
 >
 <history>
+    <modified version="4" date="2008-01025">
+        Use alternatives to avoid win-1252 problem characters in reverse conversion
+    </modified>
     <modified version="3" date="2001-07-17">
         Tidy up and conform to DTD
     </modified>
@@ -28,7 +31,7 @@
     <range uFirst="0000" uLast="007F" bFirst="00" bLast="7F"/>
 
     <a b="80" u="0E10" uactxt="ldia"/>
-    <a b="81" u="0E34" ubctxt="tall"/>
+    <fbu b="81" u="0E34" ubctxt="tall"/><!--problematic in win-1252-->
     <a b="82" u="0E35" ubctxt="tall"/>
     <a b="83" u="0E36" ubctxt="tall"/>
     <a b="84" u="0E37" ubctxt="tall"/>
@@ -40,11 +43,13 @@
     <a b="8A" u="0E4C" ubctxt="tall"/>
     <a b="8B" u="0E48"/>
     <a b="8C" u="0E49"/>
-    <a b="8D" u="0E4A"/>
+<!--    <a b="8D" u="0E4A"/>problematic in win-1252-->
+    <fbu b="8D" u="0E4A"/>
     <a b="8E" u="0E4B"/>
-    <a b="8F" u="0E4C"/>
+    <fbu b="8F" u="0E4C"/><!--problematic in win-1252-->
 
-    <a b="90" u="0E0D" uactxt="ldia"/>
+    <!--<a b="90" u="0E0D" uactxt="ldia"/> problematic in win-1252-->
+    <fbu b="90" u="0E0D" uactxt="ldia"/>
     <a b="91" u="2018"/>
     <a b="92" u="2019"/>
     <a b="93" u="201C"/>
@@ -60,8 +65,11 @@
     <fub b="9B" u="0E48" ubctxt="tall" uactxt="am"/>
     <a b="9C" u="0E49" ubctxt="tall_u"/>
     <fub b="9C" u="0E49" ubctxt="tall" uactxt="am"/>
+    <!--9D is problematic in win-1252
     <a b="9D" u="0E4A" ubctxt="tall_u"/>
     <fub b="9D" u="0E4A" ubctxt="tall" uactxt="am"/>
+-->
+    <fbu b="9D" u="0E4A" />
     <a b="9E" u="0E4B" ubctxt="tall_u"/>
     <fub b="9E" u="0E4B" ubctxt="tall" uactxt="am"/>
     <a b="9F" u="0E4C" ubctxt="tall_u"/>
@@ -96,11 +104,14 @@
     <fub b="E8" u="0E48" uactxt="am"/>
     <a b="E9" u="0E49" ubctxt="udia"/>
     <fub b="E9" u="0E49" uactxt="am"/>
+<!--
     <a b="EA" u="0E4A" ubctxt="udia"/>
-    <fub b="EA" u="0E4A" uactxt="am"/>
+    <fub b="EA" u="0E4A" uactxt="am"/>-->
+    <a b="EA" u="0E4A"/>
     <a b="EB" u="0E4B" ubctxt="udia"/>
     <fub b="EB" u="0E4B" uactxt="am"/>
-    <a b="EC" u="0E4C" ubctxt="udia"/>
+    <a b="EC" u="0E4C" />
+<!--    <a b="EC" u="0E4C" ubctxt="udia"/>-->
     <fub b="EC" u="0E4C" uactxt="am"/>
 
     <range uFirst="0E4D" uLast="0E5B" bFirst="ED" bLast="FB"/>
