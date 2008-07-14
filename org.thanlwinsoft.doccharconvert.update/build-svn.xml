@@ -88,6 +88,9 @@
 		        <include name="${featureName}_*.jar"/>
 		    </fileset>
 		</pathconvert>
+		<delete>
+		    <fileset dir="../${featureName}" includes="${featureName}_*.jar"/>
+		</delete>
 		<mkdir dir="${release.path}/features/${feature.dir}"/>
 		<unjar dest="${release.path}/features/${feature.dir}">
 			<fileset dir="../${featureName}">
