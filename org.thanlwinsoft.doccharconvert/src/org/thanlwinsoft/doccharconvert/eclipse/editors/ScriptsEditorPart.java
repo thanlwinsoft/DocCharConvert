@@ -333,6 +333,8 @@ public class ScriptsEditorPart extends EditorPart
                 int open = dialog.open();
                 if (open != Window.CANCEL && dialog.name != null
                         && dialog.name.length() > 0
+                        && dialog.leftComponents != null
+                        && dialog.rightComponents != null
                         && dialog.leftComponents.length > 0
                         && dialog.rightComponents.length > 0)
                 {

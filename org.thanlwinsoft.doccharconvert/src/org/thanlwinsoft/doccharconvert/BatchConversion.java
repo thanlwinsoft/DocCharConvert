@@ -483,6 +483,7 @@ public class BatchConversion implements Runnable
         catch (Exception e)
         {
             System.out.println(e.getMessage());
+            e.printStackTrace();
             showWarning(e.getLocalizedMessage());
         }
         finally

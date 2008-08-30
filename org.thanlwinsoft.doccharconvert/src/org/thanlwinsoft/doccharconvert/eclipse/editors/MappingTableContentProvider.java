@@ -21,6 +21,7 @@ package org.thanlwinsoft.doccharconvert.eclipse.editors;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.thanlwinsoft.schemas.syllableParser.MappingTable;
+import org.thanlwinsoft.schemas.syllableParser.Maps;
 
 /**
  * @author keith
@@ -36,7 +37,12 @@ public class MappingTableContentProvider implements IStructuredContentProvider
     {
         if (inputElement instanceof MappingTable)
         {
-            return ((MappingTable)inputElement).getMaps().getMArray();
+            MappingTable mt = (MappingTable)inputElement;
+            Maps maps = mt.getMaps();
+        	if (maps == null) maps = mt.addNewMaps();
+        	if (maps != null && maps.sizeOfMArray() > 0)
+        		return maps.getMArray();
+        	return new Object[0];
         }
         return null;
     }

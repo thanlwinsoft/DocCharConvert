@@ -53,8 +53,9 @@ public class FontCellEditor extends DialogCellEditor {
             dialog.setFontList(oldFont);
         }
 		FontData fontData = dialog.open(); 
-		
-		return fontData.getName();
+		if (fontData != null)
+		    return fontData.getName();
+		return "";
 	}
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.DialogCellEditor#doSetValue(java.lang.Object)

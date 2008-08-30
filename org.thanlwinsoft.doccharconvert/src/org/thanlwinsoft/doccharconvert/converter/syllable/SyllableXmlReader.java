@@ -274,9 +274,12 @@ public class SyllableXmlReader
                 return false;
             }
 
-            int sideId = getSideForNode(cluster.item(0));
+            int sideId = getSideForNode(scriptNode);
             if (sideId == -1)
+            {
+                sideId = getSideForNode(cluster.item(0));
                 return false;
+            }
             script[sideId] = new Script(name);
             Node caseNode = scriptNode.getAttributes().getNamedItem(
                     IGNORE_CASE_ATTR);
@@ -344,21 +347,28 @@ public class SyllableXmlReader
     {
         Node sideNode = node.getAttributes().getNamedItem(SIDE_ATTR);
         String side = null;
-        if (sideNode != null)
-            side = sideNode.getNodeValue();
         int sideId = -1;
-        if (side.equals(LEFT))
-            sideId = SyllableConverter.LEFT;
-        else
-            if (side.equals(RIGHT))
-                sideId = SyllableConverter.RIGHT;
+        if (sideNode != null)
+        {
+            side = sideNode.getNodeValue();
+            if (side.equals(LEFT))
+                sideId = SyllableConverter.LEFT;
             else
-            {
-                Object[] args = { side, SIDE_ATTR, CLUSTER_NODE };
-                errorLog.append(MessageFormat.format(rb
-                        .getString("unexpectedAttribute"), args));
-                errorLog.append('\n');
-            }
+                if (side.equals(RIGHT))
+                    sideId = SyllableConverter.RIGHT;
+                else
+                {
+                    Object[] args = { side, SIDE_ATTR, node.getLocalName() };
+                    errorLog.append(MessageFormat.format(rb
+                            .getString("unexpectedAttribute"), args));
+                    errorLog.append('\n');
+                }
+        }
+        else
+        {
+            Object[] args = { SIDE_ATTR, CLUSTER_NODE };
+            errorLog.append(MessageFormat.format(rb.getString("missingAttribute"), args));
+        }
         return sideId;
     }
 

@@ -62,12 +62,15 @@ public class NewSyllableConverterPage extends WizardNewFileCreationPage
         scriptA.setSide(Side.LEFT);
         scriptA.setName(MessageUtil.getString("ScriptAName"));
         Cluster cA = scriptA.addNewCluster();
+        cA.setSide(Side.LEFT);
         cA.addNewComponent().setId(MessageUtil.getString("LeftComponent","1"));
         Script scriptB = converter.addNewScript();
         scriptB.setSide(Side.RIGHT);
         scriptB.setName(MessageUtil.getString("ScriptBName"));
         Cluster cB = scriptB.addNewCluster();
+        cB.setSide(Side.RIGHT);
         cB.addNewComponent().setId(MessageUtil.getString("RightComponent","1"));
+        converter.addNewChecks();
         converter.addNewClasses();
         String name = this.getFileName();
         int dot = name.indexOf('.');

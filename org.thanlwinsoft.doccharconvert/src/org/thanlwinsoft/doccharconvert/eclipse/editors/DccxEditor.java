@@ -100,6 +100,7 @@ import org.thanlwinsoft.schemas.docCharConvert.Styles;
 public class DccxEditor extends EditorPart
 {
     private static final String HELP = "help";
+    private static final int NAME_LIMIT = 50;
     private FormToolkit toolkit;
     private ScrolledForm form;
     private String CONVERTER_ELEMENT = "converter";
@@ -267,6 +268,7 @@ public class DccxEditor extends EditorPart
                 .getString("ConverterName"));
         final Text name = toolkit.createText(form.getBody(), mConverter
                 .getName());
+        name.setTextLimit(NAME_LIMIT);
         name.addVerifyListener(new VerifyListener()
         {
 
@@ -274,14 +276,17 @@ public class DccxEditor extends EditorPart
             public void verifyText(VerifyEvent e)
             {
                 if (name.getText().equals(mConverter.getName()) == false)
+                {
                     mConverter.setName(name.getText());
-
+                    setDirty(true);
+                }
             }
         });
         toolkit.createLabel(form.getBody(), MessageUtil
                 .getString("ReverseName"));
         final Text rName = toolkit.createText(form.getBody(), mConverter
                 .getRname());
+        rName.setTextLimit(NAME_LIMIT);
         rName.addVerifyListener(new VerifyListener()
         {
 
@@ -289,10 +294,12 @@ public class DccxEditor extends EditorPart
             public void verifyText(VerifyEvent e)
             {
                 if (rName.getText().equals(mConverter.getRname()) == false)
+                {
                     mConverter.setRname(rName.getText());
+                    setDirty(true);
+                }
             }
         });
-
         ColumnLayout layout = new ColumnLayout();
         layout.minNumColumns = 1;
         layout.maxNumColumns = 3;
