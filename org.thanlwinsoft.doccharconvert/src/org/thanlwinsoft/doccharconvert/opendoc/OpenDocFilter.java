@@ -18,6 +18,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 package org.thanlwinsoft.doccharconvert.opendoc;
 
 import java.util.HashMap;
+import java.util.StringTokenizer;
 import java.util.Vector;
 import java.util.EnumMap;
 import java.util.Map;
@@ -148,15 +149,17 @@ public class OpenDocFilter extends XMLFilterImpl
                             currentElement.getLocalName(), 
                             "text:span",
                             spanAttr);
-                    
+
                         super.characters(result.toCharArray(), 0, result.length());
-                    
+
                         super.endElement(currentElement.getUri(), 
                             currentElement.getLocalName(), 
                             "text:span");
                     }
                     else
                     {
+                        if (!result.equals(toConvert))
+                            logger.log(Level.FINE, "Converted: " + toConvert + "/" + result);
                         super.characters(result.toCharArray(), 0, result.length());
                     }
                 }
@@ -528,33 +531,47 @@ public class OpenDocFilter extends XMLFilterImpl
     }
     
     private boolean addCurrentConvIfMatches(ScriptType.Type type, 
-            String faceName,
+            String ooFaceName,
             OpenDocStyle ods)
     {
         boolean convMatches = false;
-        if (faceName != null)
+        if (ooFaceName != null)
         {
-            if (faceMap.containsKey(faceName))
+            Vector <String> faceAlternates = new Vector<String>();
+            faceAlternates.add(ooFaceName);
+            StringTokenizer tokenizer = new StringTokenizer(ooFaceName, ";,");
+            while (tokenizer.hasMoreTokens())
             {
-                OOFaceConverter ofc = faceMap.get(faceName);
-                CharConverter cc = ofc.converter;
-                if (cc.getOldStyle().getScriptType().equals(type))
-                {
-                    currentConv.put(type, new OOStyleConverter(ofc, ods));
-                    logger.log(Level.FINE, type.toString() + " " + faceName);
-                    convMatches = true;
-                }
+                String altName = tokenizer.nextToken();
+                faceAlternates.add(altName);
+                // @see startTextProperties() 
+                if (altName.indexOf("_") != -1)
+                    faceAlternates.add(altName.replace('_', ' '));
             }
-            else if (converterMap.containsKey(faceName))
+            for (String faceName : faceAlternates)
             {
-                CharConverter cc = converterMap.get(faceName);
-                if (cc.getOldStyle().getScriptType().equals(type))
+                if (faceMap.containsKey(faceName))
                 {
-                    OOStyleConverter oosc = new OOStyleConverter( 
-                        new OOFaceConverter(faceName, cc), ods);
-                    currentConv.put(type, oosc);
-                    logger.log(Level.FINE, type.toString() + " " + faceName);
-                    convMatches = true;
+                    OOFaceConverter ofc = faceMap.get(faceName);
+                    CharConverter cc = ofc.converter;
+                    if (cc.getOldStyle().getScriptType().equals(type))
+                    {
+                        currentConv.put(type, new OOStyleConverter(ofc, ods));
+                        logger.log(Level.FINE, type.toString() + " " + faceName);
+                        convMatches = true;
+                    }
+                }
+                else if (converterMap.containsKey(faceName))
+                {
+                    CharConverter cc = converterMap.get(faceName);
+                    if (cc.getOldStyle().getScriptType().equals(type))
+                    {
+                        OOStyleConverter oosc = new OOStyleConverter( 
+                            new OOFaceConverter(ooFaceName, cc), ods);
+                        currentConv.put(type, oosc);
+                        logger.log(Level.FINE, type.toString() + " " + faceName);
+                        convMatches = true;
+                    }
                 }
             }
         }
@@ -587,88 +604,103 @@ public class OpenDocFilter extends XMLFilterImpl
                 attrib = scriptFamilyAttrib;
             }
             else attrib = scriptAttrib;
-            String faceName = ai.getValue(faceIndex);
-            if (currentStyleDef != null && faceName != null)
-                currentStyleDef.setFaceName(sType, faceName);
-            if (faceMap.containsKey(faceName) || 
-                (faceName != null && converterMap.containsKey(faceName)))
-            { 
-                OOFaceConverter oofc = faceMap.get(faceName);
-                CharConverter cc = null;
-                String newFaceName = null;
-                if (oofc != null) 
+            String ooFaceName = ai.getValue(faceIndex);
+            if (currentStyleDef != null && ooFaceName != null)
+                currentStyleDef.setFaceName(sType, ooFaceName);
+            Vector<String>faceAlternates = new Vector<String>();
+            if (ooFaceName != null)
+            {
+                StringTokenizer tokenizer = new StringTokenizer(ooFaceName, ";,");
+                while (tokenizer.hasMoreTokens())
                 {
-                    cc = oofc.converter;
-                    newFaceName = oofc.getNewOOFaceName();
+                    String altName = tokenizer.nextToken();
+                    faceAlternates.add(altName);
+                    if (altName.indexOf("_") != -1)
+                        faceAlternates.add(altName.replace('_', ' '));
                 }
-                else
+            }
+            for (String faceName : faceAlternates)
+            {
+                if (faceMap.containsKey(faceName) || 
+                    (faceName != null && converterMap.containsKey(faceName)))
                 {
-                    cc = converterMap.get(faceName);
-                    newFaceName = cc.getNewStyle().getFontName();
-                }
-                Type oldType =  cc.getOldStyle().getScriptType();
-                
-                if (currentStyleDef != null)
-                {
-                    logger.log(Level.FINE, currentStyleDef.getName() + " " + 
-                        currentStyleDef.getFamily().name() + " " + 
-                        newFaceName);
-                }
-                else
-                {
-                    logger.log(Level.FINE, "No style: " + 
-                                       newFaceName);
-                }
-                if (oldType.equals(sType))
-                {
-                    Type newType =  cc.getNewStyle().getScriptType();
-                    // simple case, there is no change of script type
-                    if (newType.equals(oldType))
+                    OOFaceConverter oofc = faceMap.get(faceName);
+                    CharConverter cc = null;
+                    String newFaceName = null;
+                    if (oofc != null)
                     {
-                        ai.setValue(faceIndex, newFaceName);
-                        logger.log(Level.FINE, "");
+                        cc = oofc.converter;
+                        newFaceName = oofc.getNewOOFaceName();
                     }
                     else
                     {
-                        // the script type has changed, so we need to preserve
-                        // this style for the new script type in case there is 
-                        // text in the new script type which shouldn't be 
-                        // converted create a new span style, that just has the
-                        //  relevant script type's font changed
-                        AttributesImpl styleAttrib = new AttributesImpl();
-                        AttributesImpl tpAttrib = new AttributesImpl();
-                        final String styleType = 
-                            OpenDocStyle.StyleFamily.TEXT.toString();
-                        String newStyleName = 
-                            getUniqueStyleName(styleType, 
-                                    currentStyleDef.getName() + "_conv");
-      
-                        styleAttrib.addAttribute(STYLE_URI, "name", 
-                                "style:name", ATTRIB_TYPE, newStyleName);
-                        styleAttrib.addAttribute(STYLE_URI, "family", 
-                                "style:family", ATTRIB_TYPE, styleType);
-                        
-                        tpAttrib.addAttribute(STYLE_URI, "style", 
-                                attrib.get(newType), ATTRIB_TYPE,
-                                newFaceName);
-                        pendingStyle = new ElementProperties(
-                                STYLE_URI, "style", "style:style",
-                                styleAttrib);
-                        ElementProperties pendingTP = new ElementProperties(
-                                STYLE_URI, "style", "style:text-properties",
-                                tpAttrib);
-                        pendingStyle.addChild(pendingTP);
-                        OpenDocStyle convStyle = 
-                            new OpenDocStyle(styleType, newStyleName);
-                        currentStyleDef.setConvertedStyle(convStyle);
+                        cc = converterMap.get(faceName);
+                        newFaceName = cc.getNewStyle().getFontName();
                     }
-                }
-                else
-                {
+                    Type oldType =  cc.getOldStyle().getScriptType();
                     
+                    if (currentStyleDef != null)
+                    {
+                        logger.log(Level.FINE, currentStyleDef.getName() + " " + 
+                            currentStyleDef.getFamily().name() + " " + 
+                            newFaceName);
+                    }
+                    else
+                    {
+                        logger.log(Level.FINE, "No style: " + 
+                                           newFaceName);
+                    }
+                    if (oldType.equals(sType))
+                    {
+                        Type newType =  cc.getNewStyle().getScriptType();
+                        // simple case, there is no change of script type
+                        if (newType.equals(oldType))
+                        {
+                            ai.setValue(faceIndex, newFaceName);
+                            logger.log(Level.FINE, "");
+                        }
+                        else
+                        {
+                            // the script type has changed, so we need to preserve
+                            // this style for the new script type in case there is 
+                            // text in the new script type which shouldn't be 
+                            // converted create a new span style, that just has the
+                            //  relevant script type's font changed
+                            AttributesImpl styleAttrib = new AttributesImpl();
+                            AttributesImpl tpAttrib = new AttributesImpl();
+                            final String styleType = 
+                                OpenDocStyle.StyleFamily.TEXT.toString();
+                            String newStyleName = 
+                                getUniqueStyleName(styleType, 
+                                        currentStyleDef.getName() + "_conv");
+
+                            styleAttrib.addAttribute(STYLE_URI, "name", 
+                                    "style:name", ATTRIB_TYPE, newStyleName);
+                            styleAttrib.addAttribute(STYLE_URI, "family", 
+                                    "style:family", ATTRIB_TYPE, styleType);
+                            
+                            tpAttrib.addAttribute(STYLE_URI, "style", 
+                                    attrib.get(newType), ATTRIB_TYPE,
+                                    newFaceName);
+                            pendingStyle = new ElementProperties(
+                                    STYLE_URI, "style", "style:style",
+                                    styleAttrib);
+                            ElementProperties pendingTP = new ElementProperties(
+                                    STYLE_URI, "style", "style:text-properties",
+                                    tpAttrib);
+                            pendingStyle.addChild(pendingTP);
+                            OpenDocStyle convStyle = 
+                                new OpenDocStyle(styleType, newStyleName);
+                            currentStyleDef.setConvertedStyle(convStyle);
+                        }
+                    }
+                    else
+                    {
+                        
+                    }
+                    break;
                 }
             }
-                
         }
         startElement(currentElement);
     }
@@ -720,6 +752,17 @@ public class OpenDocFilter extends XMLFilterImpl
             CharConverter cc = converterMap.get(fontFamily);
             faceMap.put(ooFaceName, new OOFaceConverter(ooFaceName,cc));
             logger.log(Level.FINE, "matched face " + fontFamily);
+        }
+        // check for _ being substituted for space @see startTextProperties, @see addCurrentConvIfMatches
+        if (fontFamily.indexOf("_") > -1)
+        {
+            String altFamily = fontFamily.replace('_', ' ');
+            if (converterMap.containsKey(altFamily))
+            {
+                CharConverter cc = converterMap.get(altFamily);
+                faceMap.put(ooFaceName, new OOFaceConverter(ooFaceName,cc));
+                logger.log(Level.FINE, "matched face " + fontFamily);
+            }
         }
     }
 
