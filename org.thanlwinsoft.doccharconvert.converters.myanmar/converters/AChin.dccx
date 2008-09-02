@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc:DocCharConverter name="AChin to Unicod" rname="Unicode toAChin" xmlns:doc="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+  <doc:ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
+    <doc:Argument type="File" value="AChin.xml"/>
+  </doc:ConverterClass>
+  <doc:Styles>
+    <doc:Style>
+      <doc:Font type="old" name="A Chin"/>
+      <doc:Font type="new" name="Tahoma"/>
+    </doc:Style>
+    
+    <doc:Style>
+      <doc:Font type="old" name="A_Chin"/>
+      <doc:Font type="new" name="Tahoma"/>
+    </doc:Style>
+  </doc:Styles>
+</doc:DocCharConverter>

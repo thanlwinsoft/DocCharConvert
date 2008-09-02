@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syl:syllableConverter xmlns:syl="http://www.thanlwinsoft.org/schemas/SyllableParser">
+  <syl:script side="left">
+    <syl:name>AChin</syl:name>
+    <syl:cluster>
+      <syl:component id="Left1" priority="50">asciiDots</syl:component>
+    </syl:cluster>
+  </syl:script>
+  <syl:script side="right">
+    <syl:name>Unicode</syl:name>
+    <syl:cluster>
+      <syl:component id="Right1" priority="50">uniDots</syl:component>
+    </syl:cluster>
+  </syl:script>
+  <syl:checks/>
+  <syl:classes>
+    <syl:class id="dots">
+      <syl:component r="Left1">
+        <syl:c>~</syl:c>
+        <syl:c>`</syl:c>
+      </syl:component>
+      <syl:component r="Right1">
+        <syl:c>Ṭ</syl:c>
+        <syl:c>ṭ</syl:c>
+      </syl:component>
+    </syl:class>
+  </syl:classes>
+  <syl:mappingTable id="dotMap">
+    <syl:columns>
+      <syl:component r="Left1"/>
+      <syl:component r="Right1"/>
+    </syl:columns>
+    <syl:maps>
+      <syl:m>
+        <syl:c r="Left1" class="dots"/>
+        <syl:c r="Right1" class="dots"/>
+      </syl:m>
+    </syl:maps>
+  </syl:mappingTable>
+</syl:syllableConverter>
