@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Sawmu" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
+<Argument value="Sawmu.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Sawmu" type="old" script="latin" />
+<Font name="Padauk" type="new" script="ctl"/>
+</Style>
+</Styles>
+</DocCharConverter>
