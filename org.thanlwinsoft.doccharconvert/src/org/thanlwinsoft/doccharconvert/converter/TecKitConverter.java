@@ -55,6 +55,7 @@ public class TecKitConverter extends ReversibleConverter
 {
     private TecKitJni jni = null;
     private boolean initOk = false;
+    private long mLoadTime = -1;
     private URL mapUrl = null;
     private String mapFilePath = null;
     private String name = "TECKit";
@@ -209,8 +210,8 @@ public class TecKitConverter extends ReversibleConverter
 
     public void initialize() throws CharConverter.FatalException
     {
-        if (initOk)
-            return;
+        //if (initOk)
+        //    return;
         // System.out.println(this + "initialize");
         if (!TecKitJni.isLibraryLoaded())
         {
@@ -380,6 +381,8 @@ public class TecKitConverter extends ReversibleConverter
 
     public boolean isInitialized()
     {
+        if (mapFilePath != null && new File(mapFilePath).lastModified() > mLoadTime)
+            initOk = false;
         return initOk;
     }
 
