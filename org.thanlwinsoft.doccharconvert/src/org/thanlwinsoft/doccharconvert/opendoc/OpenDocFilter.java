@@ -37,6 +37,7 @@ import org.xml.sax.helpers.XMLFilterImpl;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.xml.ElementProperties;
+import org.thanlwinsoft.doccharconvert.opendoc.OpenDocStyle.StyleFamily;
 import org.thanlwinsoft.doccharconvert.opendoc.ScriptType.Type;
 //import org.thanlwinsoft.xml.XmlWriteFilter;
 
@@ -145,16 +146,33 @@ public class OpenDocFilter extends XMLFilterImpl
                                 currentElement.getLocalName(), 
                                 "text:style-name", "UNAME",
                                 activeStyle.convertedStyle.getName());
-                        super.startElement(currentElement.getUri(), 
-                            currentElement.getLocalName(), 
+                        if (activeStyle.styleFamily.equals(StyleFamily.TEXT))
+                        {
+                            super.endElement(currentElement.getUri(),
+                                    currentElement.getLocalName(),
+                                    "text:span");
+                        }
+                        super.startElement(currentElement.getUri(),
+                            currentElement.getLocalName(),
                             "text:span",
                             spanAttr);
 
                         super.characters(result.toCharArray(), 0, result.length());
 
-                        super.endElement(currentElement.getUri(), 
-                            currentElement.getLocalName(), 
+                        super.endElement(currentElement.getUri(),
+                            currentElement.getLocalName(),
                             "text:span");
+                        if (activeStyle.styleFamily.equals(StyleFamily.TEXT))
+                        {
+                            spanAttr = new AttributesImpl();
+                            spanAttr.addAttribute(currentElement.getUri(),
+                                    currentElement.getLocalName(),
+                                    "text:style-name", "UNAME",
+                                    activeStyle.getName());
+                            super.startElement(currentElement.getUri(),
+                                    currentElement.getLocalName(),
+                                    "text:span", spanAttr);
+                        }
                     }
                     else
                     {
@@ -664,7 +682,7 @@ public class OpenDocFilter extends XMLFilterImpl
                             // the script type has changed, so we need to preserve
                             // this style for the new script type in case there is 
                             // text in the new script type which shouldn't be 
-                            // converted create a new span style, that just has the
+                            // converted create a new span style, that has the
                             //  relevant script type's font changed
                             AttributesImpl styleAttrib = new AttributesImpl();
                             AttributesImpl tpAttrib = new AttributesImpl();
@@ -682,6 +700,17 @@ public class OpenDocFilter extends XMLFilterImpl
                             tpAttrib.addAttribute(STYLE_URI, "style", 
                                     attrib.get(newType), ATTRIB_TYPE,
                                     newFaceName);
+                            for (int i = 0; i < ai.getLength(); i++)
+                            {
+                                String ln = ai.getQName(i);
+                                if (scriptAttrib.values().contains(ai.getQName(i)) ||
+                                    scriptFamilyAttrib.values().contains(ai.getQName(i)))
+                                {
+                                    continue;
+                                }
+                                tpAttrib.addAttribute(ai.getURI(i), ai.getLocalName(i),
+                                        ai.getQName(i), ai.getType(i), ai.getValue(i));
+                            }
                             pendingStyle = new ElementProperties(
                                     STYLE_URI, "style", "style:style",
                                     styleAttrib);

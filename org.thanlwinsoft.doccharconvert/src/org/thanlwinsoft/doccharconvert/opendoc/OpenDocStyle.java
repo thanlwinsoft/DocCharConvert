@@ -124,7 +124,8 @@ public class OpenDocStyle
     {
       ods = ods.parent;
     }
-    if (ods == null) return null;
+    if (ods == null)
+        return null;
     return ods.normalFace;
   }
   
