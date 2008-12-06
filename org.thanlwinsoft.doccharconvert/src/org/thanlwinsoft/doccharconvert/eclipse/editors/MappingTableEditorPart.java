@@ -58,6 +58,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.EditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.schemas.syllableParser.C;
+import org.thanlwinsoft.schemas.syllableParser.Classes;
 import org.thanlwinsoft.schemas.syllableParser.Component;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
 import org.thanlwinsoft.schemas.syllableParser.Map;
@@ -174,6 +175,46 @@ public class MappingTableEditorPart extends EditorPart
         deleteAction.setText(MessageUtil.getString("DeleteRow"));
         deleteAction.setToolTipText(MessageUtil.getString("DeleteRowToolTip"));
 
+        Action moveUpAction = new Action()
+        {
+            @Override
+            public void run()
+            {
+                int mapIndex = getSelectedMapIndex();
+                if (mapIndex < 1)
+                    return;
+                Map toMove = (Map)mt.getMaps().getMArray(mapIndex).copy();
+                mt.getMaps().removeM(mapIndex);
+                Map newMap = mt.getMaps().insertNewM(mapIndex-1);
+                newMap.setCArray(toMove.getCArray());
+                viewer.refresh();
+                parentEditor.setDirty(true);
+            }
+        };
+        moveUpAction.setId("MoveUp");
+        moveUpAction.setText(MessageUtil.getString("MoveUp"));
+        moveUpAction.setToolTipText(MessageUtil.getString("MoveUpToolTip"));
+
+        Action moveDownAction = new Action()
+        {
+            @Override
+            public void run()
+            {
+                int mapIndex = getSelectedMapIndex();
+                if (mapIndex < 0 || mapIndex + 1 >= table.getItemCount())
+                    return;
+                Map toMove = (Map)mt.getMaps().getMArray(mapIndex).copy();
+                mt.getMaps().removeM(mapIndex);
+                Map newMap = mt.getMaps().insertNewM(mapIndex+1);
+                newMap.setCArray(toMove.getCArray());
+                viewer.refresh();
+                parentEditor.setDirty(true);
+            }
+        };
+        moveDownAction.setId("MoveDown");
+        moveDownAction.setText(MessageUtil.getString("MoveDown"));
+        moveDownAction.setToolTipText(MessageUtil.getString("MoveDownToolTip"));
+
         final IEditorPart part = this;
         Action deleteTableAction = new Action()
         {
@@ -208,6 +249,8 @@ public class MappingTableEditorPart extends EditorPart
         menuManager.add(deleteTableAction);
         menuManager.add(insertAction);
         menuManager.add(deleteAction);
+        menuManager.add(moveUpAction);
+        menuManager.add(moveDownAction);
 
         menuManager.add(new Separator());
         Action optionalAction = new Action(MessageUtil
@@ -780,7 +823,7 @@ public class MappingTableEditorPart extends EditorPart
                 if (SyllableConverterUtils.getCText(c).isEmpty()
                         || c.isSetClass1())
                 {
-                    Vector<String> classes = SyllableConverterUtils
+                    Vector<String> classNames = SyllableConverterUtils
                             .getApplicableClasses(sc, c.getR());
                     if (value instanceof Integer)
                     {
@@ -804,8 +847,65 @@ public class MappingTableEditorPart extends EditorPart
                             }
                             return;
                         }
-                        if (classIndex < classes.size())
-                            c.setClass1(classes.get(classIndex));
+                        if (classIndex < classNames.size())
+                        {
+                            String oldClassName = c.getClass1();
+                            c.setClass1(classNames.get(classIndex));
+                            String otherRef = "";
+                            String oldRef = "";
+                            // set the corresponding column at the same time
+                            Classes classes = parentEditor.getDocument().getSyllableConverter().getClasses();
+                            for (org.thanlwinsoft.schemas.syllableParser.Class cEntry : classes.getClass1Array())
+                            {
+                                if (cEntry.getId().equals(classNames.get(classIndex)))
+                                {
+                                    if (cEntry.getComponentArray(0).getR().equals(c.getR()))
+                                    {
+                                        otherRef = cEntry.getComponentArray(1).getR();
+                                    }
+                                    else if (cEntry.getComponentArray(1).getR().equals(c.getR()))
+                                    {
+                                        otherRef = cEntry.getComponentArray(0).getR();
+                                    }
+                                }
+                                else if (cEntry.getId().equals(oldClassName))
+                                {
+                                    if (cEntry.getComponentArray(0).getR().equals(c.getR()))
+                                    {
+                                        oldRef = cEntry.getComponentArray(1).getR();
+                                    }
+                                    else if (cEntry.getComponentArray(1).getR().equals(c.getR()))
+                                    {
+                                        oldRef = cEntry.getComponentArray(0).getR();
+                                    }
+                                }
+                                if (oldRef.length() > 0 && otherRef.length() > 0)
+                                    break;
+                            }
+                            // clear the old class column and set the new
+                            boolean setCol = false;
+                            for (C otherC : m.getCArray())
+                            {
+                                if (otherC.getR() == null) continue;
+                                if (otherC.getR().equals(otherRef))
+                                {
+                                    otherC.setNil();
+                                    otherC.setClass1(classNames.get(classIndex));
+                                    setCol = true;
+                                }
+                                else if (otherC.getR().equals(oldRef))
+                                {
+                                    otherC.unsetClass1();
+                                    // should we remove this C?
+                                }
+                            }
+                            if (!setCol)
+                            {
+                                C otherC = m.addNewC();
+                                otherC.setR(otherRef);
+                                otherC.setClass1(classNames.get(classIndex));
+                            }
+                        }
                         else
                         {
                             if (c.isSetClass1())

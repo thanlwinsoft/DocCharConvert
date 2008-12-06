@@ -42,6 +42,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
+import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -89,11 +90,13 @@ import org.thanlwinsoft.eclipse.EditorUtils;
 import org.thanlwinsoft.eclipse.FileCellEditor;
 import org.thanlwinsoft.eclipse.FontCellEditor;
 import org.thanlwinsoft.schemas.docCharConvert.Age;
+import org.thanlwinsoft.schemas.docCharConvert.ArgType;
 import org.thanlwinsoft.schemas.docCharConvert.Argument;
 import org.thanlwinsoft.schemas.docCharConvert.ConverterClass;
 import org.thanlwinsoft.schemas.docCharConvert.DocCharConverter;
 import org.thanlwinsoft.schemas.docCharConvert.DocCharConverterDocument;
 import org.thanlwinsoft.schemas.docCharConvert.Font;
+import org.thanlwinsoft.schemas.docCharConvert.Script;
 import org.thanlwinsoft.schemas.docCharConvert.Style;
 import org.thanlwinsoft.schemas.docCharConvert.Styles;
 
@@ -371,7 +374,7 @@ public class DccxEditor extends EditorPart
                     switch (columnIndex)
                     {
                     case 0:
-                        return a.getType();
+                        return a.getType().toString();
                     case 1:
                         return a.getValue();
                     }
@@ -536,9 +539,15 @@ public class DccxEditor extends EditorPart
         TableColumn oldColumn = new TableColumn(table, SWT.LEAD);
         oldColumn.setText(MessageUtil.getString("OldFont"));
         oldColumn.setWidth(150);
+        TableColumn oldTypeColumn = new TableColumn(table, SWT.LEAD);
+        oldTypeColumn.setText(MessageUtil.getString("OldFontType"));
+        oldTypeColumn.setWidth(150);
         TableColumn newColumn = new TableColumn(table, SWT.LEAD);
         newColumn.setText(MessageUtil.getString("NewFont"));
         newColumn.setWidth(150);
+        TableColumn newTypeColumn = new TableColumn(table, SWT.LEAD);
+        newTypeColumn.setText(MessageUtil.getString("NewFontType"));
+        newTypeColumn.setWidth(150);
         final TableViewer viewer = new TableViewer(table);
         viewer.setContentProvider(new IStructuredContentProvider()
         {
@@ -579,9 +588,11 @@ public class DccxEditor extends EditorPart
                     switch (columnIndex)
                     {
                     case 0:
+                    case 1:
                         side = Age.OLD;
                         break;
-                    case 1:
+                    case 3:
+                    case 2:
                         side = Age.NEW;
                         break;
                     default:
@@ -591,7 +602,19 @@ public class DccxEditor extends EditorPart
                     {
                         if (f.getType().equals(side))
                         {
-                            String name = f.getName();
+                            String name = "";
+                            switch (columnIndex)
+                            {
+                            case 0:
+                            case 2:
+                                name = f.getName();
+                                break;
+                            case 1:
+                            case 3:
+                                if (f.isSetScript())
+                                    name =  MessageUtil.getString("Script_" + f.getScript().toString());
+                                break;
+                            }
                             if (name == null)
                                 name = "";
                             return name;
@@ -631,7 +654,9 @@ public class DccxEditor extends EditorPart
         };
         viewer.setLabelProvider(labelProvider);
         addFontEditorSupport(table, viewer, labelProvider, 0, oldColumn);
-        addFontEditorSupport(table, viewer, labelProvider, 1, newColumn);
+        addFontEditorSupport(table, viewer, labelProvider, 1, oldTypeColumn);
+        addFontEditorSupport(table, viewer, labelProvider, 2, newColumn);
+        addFontEditorSupport(table, viewer, labelProvider, 3, newTypeColumn);
         if (mConverter != null)
             viewer.setInput(mConverter.getStyles());
         viewer.refresh();
@@ -702,7 +727,7 @@ public class DccxEditor extends EditorPart
         tvc.setEditingSupport(new EditingSupport(viewer)
         {
             FontCellEditor tce = null;
-
+            ComboBoxCellEditor typeEditor = null;
             @Override
             protected boolean canEdit(Object element)
             {
@@ -712,6 +737,18 @@ public class DccxEditor extends EditorPart
             @Override
             protected CellEditor getCellEditor(Object element)
             {
+                if (colNum == 1 || colNum == 3)
+                {
+                    if (typeEditor == null)
+                    {
+                        String scriptTypes[] = new String[3];
+                        scriptTypes[0] = MessageUtil.getString("Script_" + Script.LATIN.toString());
+                        scriptTypes[1] = MessageUtil.getString("Script_" + Script.CTL.toString());
+                        scriptTypes[2] = MessageUtil.getString("Script_" + Script.CJK.toString());
+                        typeEditor = new ComboBoxCellEditor(table, scriptTypes);
+                    }
+                    return typeEditor;
+                }
                 if (tce == null)
                     tce = new FontCellEditor(table, SWT.NONE);
                 return tce;
@@ -720,7 +757,24 @@ public class DccxEditor extends EditorPart
             @Override
             protected Object getValue(Object element)
             {
-                return labelProvider.getColumnText(element, colNum);
+                switch (colNum)
+                {
+                case 1:
+                case 3:
+                {
+                    if (element instanceof Style)
+                    {
+                        Style s = (Style)element;
+                        Script.Enum script = s.getFontArray((colNum == 1)? 0 : 1).getScript();
+                        if (script == Script.LATIN) return new Integer(0);
+                        else if (script == Script.CTL) return new Integer(1);
+                        else if (script == Script.CJK) return new Integer(2);
+                        return new Integer(-1);
+                    }
+                }
+                default:
+                    return labelProvider.getColumnText(element, colNum);
+                }
             }
 
             @Override
@@ -743,9 +797,49 @@ public class DccxEditor extends EditorPart
                         f.setName(value.toString());
                         break;
                     case 1:
+                        f = style.getFontArray(0);
+                        f.setType(Age.OLD);
+                        if (value instanceof Integer)
+                        {
+                            switch (((Integer)value).intValue())
+                            {
+                                case 0:
+                                    f.setScript(Script.LATIN);
+                                    break;
+                                case 1:
+                                    f.setScript(Script.CTL);
+                                    break;
+                                case 2:
+                                    f.setScript(Script.CJK);
+                                    break;
+                            }
+                        }
+                        else f.setScript(Script.Enum.forString(value.toString()));
+                        break;
+                    case 2:
                         f = style.getFontArray(1);
                         f.setType(Age.NEW);
                         f.setName(value.toString());
+                        break;
+                    case 3:
+                        f = style.getFontArray(1);
+                        f.setType(Age.NEW);
+                        if (value instanceof Integer)
+                        {
+                            switch (((Integer)value).intValue())
+                            {
+                                case 0:
+                                    f.setScript(Script.LATIN);
+                                    break;
+                                case 1:
+                                    f.setScript(Script.CTL);
+                                    break;
+                                case 2:
+                                    f.setScript(Script.CJK);
+                                    break;
+                            }
+                        }
+                        else f.setScript(Script.Enum.forString(value.toString()));
                         break;
                     }
                     setDirty(true);
@@ -924,11 +1018,11 @@ public class DccxEditor extends EditorPart
                         {
                             Argument arg = cClass.addNewArgument();
                             if (param.equals(String.class))
-                                arg.setType("String");
+                                arg.setType(ArgType.STRING);
                             else
                                 if (param.equals(File.class)
                                         || param.equals(URL.class))
-                                    arg.setType("File");
+                                    arg.setType(ArgType.FILE);
                         }
                         mParameterViewer.setInput(cClass);
                         mParameterViewer.refresh();

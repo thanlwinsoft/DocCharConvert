@@ -47,6 +47,7 @@ import org.eclipse.ui.part.EditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
+import org.thanlwinsoft.schemas.syllableParser.Map;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.util.Pair;
 
@@ -133,6 +134,72 @@ public class ClassTableEditorPart extends EditorPart
         deleteAction.setId("Delete");
         deleteAction.setText(MessageUtil.getString("Delete"));
         deleteAction.setToolTipText(MessageUtil.getString("DeleteToolTip"));
+        
+        Action moveUpAction = new Action()
+        {
+            @Override
+            public void run()
+            {
+                int mapIndex = getSelectedMapIndex();
+                if (mapIndex < 1)
+                    return;
+                C cA = (C)classTable.getComponentArray(0).getCArray(mapIndex).copy();
+                C cB = (C)classTable.getComponentArray(1).getCArray(mapIndex).copy();
+                classTable.getComponentArray(0).removeC(mapIndex);
+                classTable.getComponentArray(1).removeC(mapIndex);
+                C cNewA = classTable.getComponentArray(0).insertNewC(mapIndex-1);
+                C cNewB = classTable.getComponentArray(1).insertNewC(mapIndex-1);
+                if (cA.isSetHex())
+                    cNewA.setHex(cA.getHex());
+                else
+                    cNewA.setStringValue(cA.getStringValue());
+                if (cB.isSetHex())
+                    cNewB.setHex(cB.getHex());
+                else
+                    cNewB.setStringValue(cB.getStringValue());
+                assert (!cA.isSetR());
+                assert (!cB.isSetR());
+                viewer.refresh();
+                parentEditor.setDirty(true);
+            }
+        };
+        moveUpAction.setId("MoveUp");
+        moveUpAction.setText(MessageUtil.getString("MoveUp"));
+        moveUpAction.setToolTipText(MessageUtil.getString("MoveUpToolTip"));
+
+        Action moveDownAction = new Action()
+        {
+            @Override
+            public void run()
+            {
+                int mapIndex = getSelectedMapIndex();
+                if (mapIndex < 0 || mapIndex + 1 >= table.getItemCount())
+                    return;
+                C cA = (C)classTable.getComponentArray(0).getCArray(mapIndex).copy();
+                C cB = (C)classTable.getComponentArray(1).getCArray(mapIndex).copy();
+                classTable.getComponentArray(0).removeC(mapIndex);
+                classTable.getComponentArray(1).removeC(mapIndex);
+                C cNewA = classTable.getComponentArray(0).insertNewC(mapIndex+1);
+                C cNewB = classTable.getComponentArray(1).insertNewC(mapIndex+1);
+                if (cA.isSetHex())
+                    cNewA.setHex(cA.getHex());
+                else
+                    cNewA.setStringValue(cA.getStringValue());
+                if (cB.isSetHex())
+                    cNewB.setHex(cB.getHex());
+                else
+                    cNewB.setStringValue(cB.getStringValue());
+                assert (!cA.isSetR());
+                assert (!cB.isSetR());
+                viewer.refresh();
+                parentEditor.setDirty(true);
+            }
+        };
+        moveDownAction.setId("MoveDown");
+        moveDownAction.setText(MessageUtil.getString("MoveDown"));
+        moveDownAction.setToolTipText(MessageUtil.getString("MoveDownToolTip"));
+
+        
         Action deleteTableAction = new Action(){
             public void run()
             {
@@ -162,6 +229,8 @@ public class ClassTableEditorPart extends EditorPart
         menuManager.add(deleteTableAction);
         menuManager.add(insertAction);
         menuManager.add(deleteAction);
+        menuManager.add(moveUpAction);
+        menuManager.add(moveDownAction);
     }
 
     /**
