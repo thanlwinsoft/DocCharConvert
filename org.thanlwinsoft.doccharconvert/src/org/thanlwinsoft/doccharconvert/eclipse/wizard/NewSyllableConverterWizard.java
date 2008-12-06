@@ -37,6 +37,7 @@ import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.editors.DccxEditor;
 import org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor;
 import org.thanlwinsoft.eclipse.PathUtil;
+import org.thanlwinsoft.schemas.docCharConvert.ArgType;
 import org.thanlwinsoft.schemas.docCharConvert.Argument;
 import org.thanlwinsoft.schemas.docCharConvert.ConverterClass;
 
@@ -68,7 +69,7 @@ public class NewSyllableConverterWizard extends Wizard implements INewWizard
             ConverterClass cc = ConverterClass.Factory.newInstance();
             cc.setName(SyllableConverter.class.getCanonicalName());
             Argument arg = cc.addNewArgument();
-            arg.setType("file");
+            arg.setType(ArgType.FILE);
             arg.setValue(relative.toString());
             mDccxPage.setConverterClass(cc);
             dccxFile.create(mDccxPage.getInitialContents(), IFile.NONE, null);
