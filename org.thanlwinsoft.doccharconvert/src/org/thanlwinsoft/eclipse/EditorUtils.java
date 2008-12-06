@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.eclipse.core.internal.resources.ResourceException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IEditorInput;
@@ -66,7 +67,19 @@ public class EditorUtils
         if (input instanceof IStorageEditorInput)
         {
             IStorageEditorInput sei = (IStorageEditorInput) input;
-            is = sei.getStorage().getContents();
+            try
+            {
+                is = sei.getStorage().getContents();
+            }
+            catch (ResourceException e)
+            {
+                if (sei instanceof FileEditorInput)
+                {
+                    FileEditorInput fei = (FileEditorInput)sei;
+                    fei.getFile().refreshLocal(1, null);
+                    is = sei.getStorage().getContents();
+                }
+            }
         }
         else if (input instanceof FileStoreEditorInput)
         {
