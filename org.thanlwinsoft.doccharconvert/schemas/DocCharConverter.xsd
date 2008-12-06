@@ -26,7 +26,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
 
 <xsd:complexType name="Argument">
   <xsd:attribute name="value" type="xsd:string"/>
-  <xsd:attribute name="type" type="xsd:string"/>
+  <xsd:attribute name="type" type="argType"/>
 </xsd:complexType>
 
 <xsd:complexType name="Styles">
