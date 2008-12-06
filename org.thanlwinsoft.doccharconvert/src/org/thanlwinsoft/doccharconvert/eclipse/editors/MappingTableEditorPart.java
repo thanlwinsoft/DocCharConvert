@@ -614,9 +614,8 @@ public class MappingTableEditorPart extends EditorPart
                         {
                             if (c.getR().equals(colRef))
                             {
-                                cell
-                                        .setText(SyllableConverterUtils
-                                                .getCText(c));
+                                cell.setText(SyllableConverterUtils
+                                             .getCTextWithCodes(c));
                                 c.getR();
                             }
                         }
@@ -794,7 +793,7 @@ public class MappingTableEditorPart extends EditorPart
                                 String newValue = cc.getText();
                                 if (newValue != null)
                                 {
-                                    c.setStringValue(newValue);
+                                    c.setStringValue(SyllableConverterUtils.parseUniInput(newValue));
                                     if (c.isSetClass1())
                                         c.unsetClass1();
                                     if (c.isSetHex())
@@ -819,7 +818,8 @@ public class MappingTableEditorPart extends EditorPart
                     }
                     else
                     {
-                        c.setStringValue(value.toString());
+                        String newValue = SyllableConverterUtils.parseUniInput(value.toString());
+                        c.setStringValue(newValue);
                         if (c.isSetClass1())
                             c.unsetClass1();
                         if (c.isSetHex())
@@ -832,7 +832,8 @@ public class MappingTableEditorPart extends EditorPart
                 {
                     if (value.toString().equals(oldValue) == false)
                     {
-                        c.setStringValue(value.toString());
+                        String newValue = SyllableConverterUtils.parseUniInput(value.toString());
+                        c.setStringValue(newValue);
                         if (c.isSetHex())
                             c.unsetHex();
                         parentEditor.setDirty(true);

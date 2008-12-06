@@ -850,6 +850,8 @@ public class ScriptsEditorPart extends EditorPart
                             org.w3c.dom.Text t = c.getDomNode()
                                     .getOwnerDocument().createTextNode(
                                             value.toString());
+                            while (c.getDomNode().hasChildNodes())
+                                c.getDomNode().removeChild(c.getDomNode().getFirstChild());
                             c.getDomNode().appendChild(t);
                             break;
                         case 2:
@@ -895,8 +897,11 @@ public class ScriptsEditorPart extends EditorPart
                 int insertRowCount = Math.max(1, table.getSelectionCount());
                 for (int i = 0; i < insertRowCount; i++)
                 {
-                    Component c = scriptArray.getCluster()
-                            .insertNewComponent(i);
+                    Component c;
+                    if (mapIndex + i < scriptArray.getCluster().sizeOfComponentArray())
+                        c = scriptArray.getCluster()
+                            .insertNewComponent(mapIndex + i);
+                    else c= scriptArray.getCluster().addNewComponent();
                     int numComponents = scriptArray.getCluster()
                             .sizeOfComponentArray();
                     String id = "Side" + scriptArray.getSide() + numComponents;

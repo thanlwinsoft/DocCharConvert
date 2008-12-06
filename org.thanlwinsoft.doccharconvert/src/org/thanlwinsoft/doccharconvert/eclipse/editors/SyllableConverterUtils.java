@@ -19,6 +19,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 package org.thanlwinsoft.doccharconvert.eclipse.editors;
 
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.Component;
@@ -75,6 +77,26 @@ public class SyllableConverterUtils
         return c.getStringValue();
     }
     
+    public static String getCTextWithCodes(C c)
+    {
+        StringBuilder sb = new StringBuilder();
+        String text = getCText(c);
+        sb.append(text);
+
+        if (text.length() > 0 && !c.isSetClass1())
+        {
+            sb.append(" [");
+            for (int i = 0; i < text.length(); i++)
+            {
+                if (i > 0) sb.append(" ");
+                sb.append("u");
+                sb.append(Integer.toHexString(text.charAt(i)));
+            }
+            sb.append("]");
+        }
+        return sb.toString();
+    }
+    
     public static C getCFromMap(Map m, String ref)
     {
         for (C c : m.getCArray())
@@ -103,5 +125,31 @@ public class SyllableConverterUtils
         }
         //return classRefs.toArray(new String[classRefs.size()]);
         return classRefs;
+    }
+    static Pattern sUniInputPattern = Pattern.compile("u([0-9a-fA-F]{4})(\\s+u([0-9a-fA-F]{4}))*");
+    
+    public static String parseUniInput(String input)
+    {
+        String modifiedInput = input;
+        Matcher m = sUniInputPattern.matcher(input);
+        if (m.matches())
+        {
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 1; i <= m.groupCount(); i+=2)
+                {
+                    if (m.group(i) == null) break;
+                    int codePoint = Integer.parseInt(m.group(i), 16);
+                    sb.append(Character.toChars(codePoint));
+                }
+                modifiedInput = sb.toString();
+            }
+            catch (NumberFormatException e)
+            {
+                // do nothing
+            }
+        }
+        return modifiedInput;
     }
 }

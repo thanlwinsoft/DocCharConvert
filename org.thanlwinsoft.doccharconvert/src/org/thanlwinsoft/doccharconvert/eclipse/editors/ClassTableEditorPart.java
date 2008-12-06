@@ -236,7 +236,8 @@ public class ClassTableEditorPart extends EditorPart
                         Object cValue = ((Pair<?,?>)o).get(col);
                         if (cValue instanceof C)
                         {
-                            cell.setText(SyllableConverterUtils.getCText((C)cValue));
+                            //cell.setText(SyllableConverterUtils.getCText((C)cValue));
+                            cell.setText(SyllableConverterUtils.getCTextWithCodes((C)cValue));
                         }
                     }
                 }});
@@ -327,7 +328,9 @@ public class ClassTableEditorPart extends EditorPart
                 String oldValue = SyllableConverterUtils.getCText(c);
                 if (value != null && !oldValue.equals(value))
                 {
-                    c.setStringValue(value.toString());
+                    String newValue = 
+                        SyllableConverterUtils.parseUniInput(value.toString());
+                    c.setStringValue(newValue);
                     viewer.refresh(element);
                 }
                 else c.setStringValue("");
