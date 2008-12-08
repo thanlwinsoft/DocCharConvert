@@ -22,6 +22,7 @@ package org.thanlwinsoft.doccharconvert.opendoc;
 //import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.HashMap;
+import java.util.Vector;
 /**
  * A class to represent an OpenDocument style
  * @author keith
@@ -37,6 +38,7 @@ public class OpenDocStyle
   protected String complexFace = null;
   protected String cjkFace = null;
   protected OpenDocStyle convertedStyle;
+  protected Vector <OpenDocStyle> altStyles = null;
   protected static HashMap <String, StyleFamily> tag2StyleFamily = null;
   
   protected static final Pattern normalizeRegEx = Pattern.compile("[0-9 ]");
@@ -48,6 +50,16 @@ public class OpenDocStyle
   {
     this.name = name;
     this.styleFamily = StyleFamily.getType(family);
+    this.convertedStyle = this;
+  }
+  /** Creates a new instance of OpenDocStyle 
+   * @param name from style:name attribute
+   * @param family as enum
+   */
+  public OpenDocStyle(StyleFamily family, String name)
+  {
+    this.name = name;
+    this.styleFamily = family;
     this.convertedStyle = this;
   }
   public String getName() { return name; }
@@ -193,6 +205,23 @@ public class OpenDocStyle
   public void  setCjkFaceName(String faceName)
   {
     this.cjkFace = normalizeFace(faceName);
+  }
+  public void addAltStyle(OpenDocStyle altStyle)
+  {
+      if (altStyles == null)
+          altStyles = new Vector<OpenDocStyle>();
+      altStyles.add(altStyle);
+  }
+  public OpenDocStyle getAltStyle(ScriptType.Type script, String face)
+  {
+      if (altStyles == null) return null;
+      for (OpenDocStyle s : altStyles)
+      {
+          String styleFace = s.getFaceName(script);
+          if (styleFace != null && styleFace.equals(face))
+              return s;
+      }
+      return null;
   }
   public static String normalizeFace(String faceName)
   {
