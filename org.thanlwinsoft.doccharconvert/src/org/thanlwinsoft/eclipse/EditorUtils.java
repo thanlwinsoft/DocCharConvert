@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.eclipse.core.internal.resources.ResourceException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IEditorInput;
@@ -71,7 +70,7 @@ public class EditorUtils
             {
                 is = sei.getStorage().getContents();
             }
-            catch (ResourceException e)
+            catch (CoreException e)
             {
                 if (sei instanceof FileEditorInput)
                 {

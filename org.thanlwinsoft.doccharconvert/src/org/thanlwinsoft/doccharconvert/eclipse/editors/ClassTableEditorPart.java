@@ -18,6 +18,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
 package org.thanlwinsoft.doccharconvert.eclipse.editors;
 
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Vector;
+
+import org.apache.xmlbeans.XmlException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.GroupMarker;
@@ -34,8 +39,12 @@ import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.Clipboard;
+import org.eclipse.swt.dnd.TextTransfer;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.ui.IEditorInput;
@@ -61,7 +70,7 @@ public class ClassTableEditorPart extends EditorPart
     private TableViewer viewer;
     private final SyllableConverterEditor parentEditor;
     private org.thanlwinsoft.schemas.syllableParser.Class classTable;
-    //private Clipboard clipboard;
+    private Clipboard clipboard;
     private MenuManager menuManager;
     public ClassTableEditorPart(SyllableConverterEditor parentEditor, 
         org.thanlwinsoft.schemas.syllableParser.Class clazz)
@@ -96,7 +105,7 @@ public class ClassTableEditorPart extends EditorPart
         throws PartInitException
     {
         this.setSite(site);
-        //clipboard = new Clipboard(site.getShell().getDisplay());
+        clipboard = new Clipboard(site.getShell().getDisplay());
         final IEditorPart part = this;
         menuManager = new MenuManager(parentEditor.getPartName() + ":" + classTable.getId());
         Action insertAction = new Action(){
@@ -122,10 +131,16 @@ public class ClassTableEditorPart extends EditorPart
             public void run()
             {
                 int mapIndex = getSelectedMapIndex();
+                Integer [] indices = getSelectedMapIndices();
+                Arrays.sort(indices);
                 if (mapIndex < 0)
                     return;
-                classTable.getComponentArray(0).removeC(mapIndex);
-                classTable.getComponentArray(1).removeC(mapIndex);
+                // remove in reverse order so indices remain valid
+                for (int i = indices.length - 1; i >= 0; i--)
+                {
+                    classTable.getComponentArray(0).removeC(mapIndex);
+                    classTable.getComponentArray(1).removeC(mapIndex);
+                }
                 
                 viewer.refresh();
                 parentEditor.setDirty(true);
@@ -231,6 +246,137 @@ public class ClassTableEditorPart extends EditorPart
         menuManager.add(deleteAction);
         menuManager.add(moveUpAction);
         menuManager.add(moveDownAction);
+        for (ComponentRef comp : classTable.getComponentArray())
+        {
+            final String r = comp.getR();
+            Action copyColumn = new Action()
+            {
+                @Override
+                public void run()
+                {
+                    doCopy(r, false);
+                }
+            };
+            copyColumn.setText(MessageUtil.getString("CopyCol", comp.getR()));
+            menuManager.add(copyColumn);
+            Action pasteColumn = new Action()
+            {
+                @Override
+                public void run()
+                {
+                    doPaste(r);
+                }
+            };
+            pasteColumn.setText(MessageUtil.getString("PasteCol", comp.getR()));
+            menuManager.add(pasteColumn);
+        }
+    }
+
+    /* (non-Javadoc)
+     * @see org.eclipse.ui.part.WorkbenchPart#dispose()
+     */
+    @Override
+    public void dispose()
+    {
+        if (clipboard != null && !clipboard.isDisposed())
+        {
+            clipboard.clearContents();
+            clipboard.dispose();
+        }
+        super.dispose();
+    }
+
+    /**
+     * @param r
+     * @param b
+     */
+    protected void doCopy(String r, boolean b)
+    {
+        int side = 0;
+        if (!classTable.getComponentArray(side).getR().equals(r))
+            side = 1;
+        assert(classTable.getComponentArray(side).getR().equals(r));
+        ComponentRef copyContainer = ComponentRef.Factory.newInstance();
+        copyContainer.setR(r);
+        if (!(viewer.getSelection() instanceof IStructuredSelection))
+            return;
+        IStructuredSelection ss = (IStructuredSelection) viewer.getSelection();
+        Iterator<?> i = ss.iterator();
+        while (i.hasNext())
+        {
+            Object o = i.next();
+            if (o instanceof Pair<?,?>)
+            {
+                Pair<?,?> pair = (Pair<?,?>)o;
+                C cCopy = copyContainer.addNewC();
+                C orig = null;
+                if (side == 0)
+                    orig = (C)pair.first;
+                else orig = (C)pair.second;
+                if (cCopy.isSetHex())
+                    cCopy.setHex(orig.getHex());
+                else
+                    cCopy.setStringValue(orig.getStringValue());
+            }
+        }
+        String xmlData = copyContainer.xmlText();
+        clipboard.setContents(new Object[] { xmlData },
+                new Transfer[] { TextTransfer.getInstance() });
+    }
+
+    /**
+     * @param r
+     */
+    protected void doPaste(String r)
+    {
+        int side = 0;
+        if (!classTable.getComponentArray(side).getR().equals(r))
+            side = 1;
+        assert(classTable.getComponentArray(side).getR().equals(r));
+        
+        String data = (String) clipboard
+        .getContents(TextTransfer.getInstance());
+        if (data == null)
+            return;
+        try
+        {
+            ComponentRef cData = ComponentRef.Factory.parse(data);
+            if (!(viewer.getSelection() instanceof IStructuredSelection))
+                return;
+            IStructuredSelection ss = (IStructuredSelection) viewer.getSelection();
+            Iterator<?> iSelection = ss.iterator();
+            int i = 0;
+            while (iSelection.hasNext() && i < cData.sizeOfCArray())
+            {
+                Object o = iSelection.next();
+                if (o instanceof Pair<?,?>)
+                {
+                    Pair<?,?> pair = (Pair<?,?>)o;
+                    C cCopy = cData.getCArray(i++);
+                    C target = null;
+                    if (side == 0)
+                        target = (C)pair.first;
+                    else target = (C)pair.second;
+                    if (cCopy.isSetHex())
+                    {
+                        target.setNil();
+                        target.setHex(cCopy.getHex());
+                    }
+                    else
+                    {
+                        if (target.isSetHex())
+                            target.unsetHex();
+                        target.setStringValue(cCopy.getStringValue());
+                    }
+                }
+            }
+            parentEditor.setDirty(true);
+            viewer.refresh();
+        }
+        catch (XmlException e)
+        {
+            // ignore for now
+        }
     }
 
     /**
@@ -252,6 +398,32 @@ public class ClassTableEditorPart extends EditorPart
             }
         }
         return -1;
+    }
+    
+    /**
+     * @return
+     */
+    protected Integer[] getSelectedMapIndices()
+    {
+        Vector <Integer> indices = new Vector<Integer>();
+        if (!(viewer.getSelection() instanceof IStructuredSelection)) return indices.toArray(new Integer[0]);
+        IStructuredSelection s = (IStructuredSelection)viewer.getSelection();
+
+        for (Object o : s.toArray())
+        {
+            if (o instanceof Pair<?,?>)
+            {
+                Pair<?,?> selectedPair = (Pair<?,?>)o;
+                for (int i = 0; i < classTable.getComponentArray(0).sizeOfCArray(); i++)
+                {
+                    if (classTable.getComponentArray(0).getCArray(i) == selectedPair.first)
+                    {
+                        indices.add(i);
+                    }
+                }
+            }
+        }
+        return indices.toArray(new Integer[indices.size()]);
     }
 
     /* (non-Javadoc)
@@ -307,6 +479,7 @@ public class ClassTableEditorPart extends EditorPart
                         {
                             //cell.setText(SyllableConverterUtils.getCText((C)cValue));
                             cell.setText(SyllableConverterUtils.getCTextWithCodes((C)cValue));
+                            cell.setFont(parentEditor.getFont(col));
                         }
                     }
                 }});
@@ -367,6 +540,8 @@ public class ClassTableEditorPart extends EditorPart
         protected CellEditor getCellEditor(Object element)
         {
             if (editor == null) editor = new TextCellEditor(table);
+            Control control = editor.getControl();
+            control.setFont(parentEditor.getFont(colIndex));
             return editor;
         }
 
@@ -395,14 +570,23 @@ public class ClassTableEditorPart extends EditorPart
             {
                 C c = (C)o;
                 String oldValue = SyllableConverterUtils.getCText(c);
-                if (value != null && !oldValue.equals(value))
+                if (value != null)
                 {
-                    String newValue = 
-                        SyllableConverterUtils.parseUniInput(value.toString());
-                    c.setStringValue(newValue);
-                    viewer.refresh(element);
+                    if (!value.equals(oldValue))
+                    {
+                        String newValue = 
+                            SyllableConverterUtils.parseUniInput(value.toString());
+                        c.setStringValue(newValue);
+                        viewer.refresh(element);
+                        parentEditor.setDirty(true);
+                    }
                 }
-                else c.setStringValue("");
+                else
+                {
+                    c.setStringValue("");
+                    viewer.refresh(element);
+                    parentEditor.setDirty(true);
+                }
             }
         }
 

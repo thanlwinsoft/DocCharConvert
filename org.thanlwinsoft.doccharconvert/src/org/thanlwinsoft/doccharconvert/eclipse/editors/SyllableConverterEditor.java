@@ -25,13 +25,21 @@ import java.io.InputStream;
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlOptions;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
@@ -42,6 +50,10 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.eclipse.EditorUtils;
+import org.thanlwinsoft.schemas.docCharConvert.DocCharConverterDocument;
+import org.thanlwinsoft.schemas.docCharConvert.Style;
+import org.thanlwinsoft.schemas.docCharConvert.Styles;
+import org.thanlwinsoft.schemas.syllableParser.Script;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverterDocument;
 import org.thanlwinsoft.schemas.syllableParser.MappingTable;
@@ -58,6 +70,8 @@ public class SyllableConverterEditor extends MultiPageEditorPart
     private boolean dirty;
     private Image classImage = null;
     private Image mappingImage = null;
+    private FileEditorInput mFileInput = null;
+    private Font [] mFonts = new Font[2];
     public SyllableConverterEditor()
     {
         
@@ -71,13 +85,16 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         throws PartInitException
     {
         super.init(site, input);
-        
+        mFileInput = null;
+        mFonts[0] = null;
+        mFonts[1] = null;
         this.setPartName(input.getName());
         try
         {
             if (input instanceof FileEditorInput)
             {
-                ((FileEditorInput)input).getFile().refreshLocal(1, null);
+                mFileInput = (FileEditorInput)input;
+                mFileInput.getFile().refreshLocal(1, null);
             }
             InputStream is = EditorUtils.getInputStream(this);
             if (is != null)
@@ -101,7 +118,6 @@ public class SyllableConverterEditor extends MultiPageEditorPart
                 MessageUtil.getString("SyllableConverterEditor"), 
                 e.getLocalizedMessage());
         }
-        
     }
 
     /* (non-Javadoc)
@@ -330,6 +346,58 @@ public class SyllableConverterEditor extends MultiPageEditorPart
                 break;
         }
         return i;
+    }
+    
+    protected Font getFont(int side)
+    {
+        if (mFonts[side] != null)
+            return mFonts[side];
+        Script s = converterDoc.getSyllableConverter().getScriptArray(side);
+        String faceName = s.getFont();
+        Font font = JFaceResources.getFont(JFaceResources.TEXT_FONT);
+        if (faceName == null)
+        {
+            IPath dccxPath = mFileInput.getFile().getFullPath().removeFileExtension().addFileExtension("dccx");
+            IResource dccxRes = ResourcesPlugin.getWorkspace().getRoot().findMember(dccxPath);
+            if (dccxRes instanceof IFile)
+            {
+                IFile dccxFile = (IFile)dccxRes;
+                try
+                {
+                    InputStream is = dccxFile.getContents(true);
+                    DocCharConverterDocument doc = DocCharConverterDocument.Factory.parse(is);
+                    Styles styles = doc.getDocCharConverter().getStyles();
+                    if (styles.sizeOfStyleArray() > 0)
+                    {
+                        Style style = styles.getStyleArray(0);
+                        faceName = style.getFontArray(side).getName();
+                    }
+                }
+                catch (CoreException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                catch (XmlException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                catch (IOException e)
+                {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+        if (faceName != null)
+        {
+            FontData fd = new FontData(faceName, font.getFontData()[0].getHeight(), SWT.NORMAL);
+            font = new Font(parent.getDisplay(), fd);
+            mFonts[side] = font;
+        }
+
+        return font;
     }
 
 }

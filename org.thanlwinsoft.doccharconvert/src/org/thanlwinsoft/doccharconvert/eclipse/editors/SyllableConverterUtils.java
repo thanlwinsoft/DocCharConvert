@@ -28,6 +28,7 @@ import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
 import org.thanlwinsoft.schemas.syllableParser.Classes;
 import org.thanlwinsoft.schemas.syllableParser.Map;
 import org.thanlwinsoft.schemas.syllableParser.Script;
+import org.thanlwinsoft.schemas.syllableParser.Side;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.w3c.dom.Node;
 
@@ -58,6 +59,23 @@ public class SyllableConverterUtils
         }
         return ref;
     }
+    public static int getSide(SyllableConverter sc, String ref)
+    {
+        for (Script s : sc.getScriptArray())
+        {
+            for (Component c : s.getCluster().getComponentArray())
+            {
+                if (c.getId().equals(ref))
+                {
+                    if (s.getSide() == Side.LEFT)
+                        return 0;
+                    else if (s.getSide() == Side.RIGHT)
+                        return 1;
+                }
+            }
+        }
+        return -1;
+    }
     public static String getCText(C c)
     {
         if (c == null)
@@ -79,11 +97,14 @@ public class SyllableConverterUtils
     
     public static String getCTextWithCodes(C c)
     {
-        StringBuilder sb = new StringBuilder();
         String text = getCText(c);
+        if (c.isSetClass1())
+            return text;
+        StringBuilder sb = new StringBuilder();
+        sb.append(" ");// HACK: for diacritics with no width
         sb.append(text);
 
-        if (text.length() > 0 && !c.isSetClass1())
+        if (text.length() > 0)
         {
             sb.append(" [");
             for (int i = 0; i < text.length(); i++)

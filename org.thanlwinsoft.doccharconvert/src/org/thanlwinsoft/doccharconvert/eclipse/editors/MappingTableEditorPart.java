@@ -44,6 +44,7 @@ import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -630,8 +631,9 @@ public class MappingTableEditorPart extends EditorPart
         table = new Table(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
         viewer = new TableViewer(table);
         viewer.setContentProvider(new MappingTableContentProvider());
-        MappingTableLabelProvider mtlp = new MappingTableLabelProvider(mt);
+        MappingTableLabelProvider mtlp = new MappingTableLabelProvider(mt, parentEditor);
         viewer.setLabelProvider(mtlp);
+
         for (ComponentRef cr : mt.getColumns().getComponentArray())
         {
             final String colRef = cr.getR();
@@ -646,6 +648,24 @@ public class MappingTableEditorPart extends EditorPart
             tvc.setEditingSupport(new CellEditingSupport(viewer, colRef));
             tvc.setLabelProvider(new CellLabelProvider()
             {
+                @Override
+                public String getToolTipText(Object element)
+                {
+                    if (element instanceof Map)
+                    {
+                        C c = SyllableConverterUtils.getCFromMap((Map)element, colRef);
+                        return SyllableConverterUtils.getCTextWithCodes(c);
+                    }
+                    return "";
+                }
+
+                @Override
+                public Font getToolTipFont(Object element)
+                {
+                    SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                    int side = SyllableConverterUtils.getSide(sc, colRef);
+                    return parentEditor.getFont(side);
+                }
 
                 @Override
                 public void update(ViewerCell cell)
@@ -660,6 +680,9 @@ public class MappingTableEditorPart extends EditorPart
                                 cell.setText(SyllableConverterUtils
                                              .getCTextWithCodes(c));
                                 c.getR();
+                                SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                                int side = SyllableConverterUtils.getSide(sc, colRef);
+                                cell.setFont(parentEditor.getFont(side));
                             }
                         }
                     }
@@ -761,6 +784,9 @@ public class MappingTableEditorPart extends EditorPart
                 {
                     editor = new TextCellEditor(composite);
                 }
+                int side = SyllableConverterUtils.getSide(sc, colRef);
+                Font font = parentEditor.getFont(side);
+                editor.getControl().setFont(font);
             }
             return editor;
         }

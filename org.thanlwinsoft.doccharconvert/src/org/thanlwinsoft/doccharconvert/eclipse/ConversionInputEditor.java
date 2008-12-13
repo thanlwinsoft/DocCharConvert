@@ -197,7 +197,7 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
         }
         try
         {
-            //if (charConverter.isInitialized() == false)
+            if (charConverter.isInitialized() == false)
             {
                 charConverter.initialize();
             }
