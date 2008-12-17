@@ -134,6 +134,7 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
   </xsd:sequence>
   <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
   <xsd:attribute name="optional" type="xsd:boolean" use="optional"/>
+  <xsd:attribute name="firstEntryWins" type="xsd:boolean" use="optional"/>
 </xsd:complexType>
 
 <!-- Columns provides a header for a MappingTable defining which components

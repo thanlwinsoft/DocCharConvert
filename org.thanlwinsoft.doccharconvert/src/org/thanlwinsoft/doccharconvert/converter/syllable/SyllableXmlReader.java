@@ -82,6 +82,7 @@ public class SyllableXmlReader
     private final String PRIORITY_ATTR = "priority";
     private final String IGNORE_CASE_ATTR = "ignoreCase";
     private final String OPTIONAL_ATTR = "optional";
+    private final String FIRST_ENTRY_WINS_ATTR = "firstEntryWins";
     private final String TYPE_ATTR = "type";
     private final String BACKTRACK_ATTR = "backtrack";
 
@@ -752,6 +753,11 @@ public class SyllableXmlReader
                     && tableElement.getAttribute(OPTIONAL_ATTR).equals(TRUE))
             {
                 table.setOptional(true);
+            }
+            if (tableElement.hasAttribute(FIRST_ENTRY_WINS_ATTR)
+                    && tableElement.getAttribute(FIRST_ENTRY_WINS_ATTR).equals(TRUE))
+            {
+                table.setFirstEntryWins(true);
             }
             Element mapsElement = (Element) mapsList.item(0);
             // read table rows (maps)

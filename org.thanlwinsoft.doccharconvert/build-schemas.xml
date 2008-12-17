@@ -5,6 +5,7 @@
      classpath="../org.apache.xmlbeans/lib/xbean.jar:../org.apache.xmlbeans/lib/jsr173_1.0_api.jar" />
 
 <target name="build.schemas" description="build schemas">
+	<delete dir="schemas/src"/>
 <xmlbean destfile="lib/DocCharConvertSchema.jar" 
 	srcgendir="schemas/src" failonerror="true" classpath="../org.apache.xmlbeans/lib/xbean.jar">
   <fileset dir="schemas" includes="DocCharConverter.xsd"/>

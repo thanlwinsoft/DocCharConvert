@@ -274,8 +274,32 @@ public class MappingTableEditorPart extends EditorPart
         {
             optionalAction.setChecked(false);
         }
+        
         menuManager.add(optionalAction);
+        Action firstWinsAction = new Action(MessageUtil
+                .getString("FirstWins"), IAction.AS_CHECK_BOX)
+        {
+            @Override
+            public void run()
+            {
+                mt.setFirstEntryWins(this.isChecked());
+            }
+        };
+        firstWinsAction.setText(MessageUtil.getString("FirstWins"));
+        firstWinsAction.setToolTipText(MessageUtil
+                .getString("FirstWinsToolTip"));
+        if (mt.isSetOptional() && mt.getOptional())
+        {
+            firstWinsAction.setChecked(true);
+        }
+        else
+        {
+            firstWinsAction.setChecked(false);
+        }
+        
+        menuManager.add(firstWinsAction);
 
+        
         menuManager.add(new Separator());
 
         SyllableConverter sc = parentEditor.getDocument()

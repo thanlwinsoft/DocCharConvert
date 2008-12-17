@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
 /**
  * The MappingTable represents how one or more components from one
@@ -60,6 +61,7 @@ public class MappingTable
     Component [] columns = null;
     boolean debug = false;
     boolean optional = false;
+    boolean firstEntryWins = false;// ambiguous resolution mode
     public static final int UNKNOWN = -1;
     public static final int AMBIGUOUS = -3;
     ResourceBundle rb = null;
@@ -173,31 +175,50 @@ public class MappingTable
         }
         int leftOffset = getMapOffset(leftSizes, leftEntry);
         int entryIndexL = rightEntries.size();
+        int rightOffset = getMapOffset(rightSizes, rightEntry);
+        int entryIndexR = leftEntries.size();
         // sometimes a mapping already exists, in this case it is ambiguous, so
         // another table will be needed to resolve the conversion - usually this
         // only happens on one side
         List<Integer> arrayR = new ArrayList<Integer>(rightEntry.length);
         for (int i = 0; i<rightEntry.length; i++) arrayR.add(i,rightEntry[i]);
+
         if (leftMap[leftOffset] != UNKNOWN)
         {
-            arrayR = setAmbiguousFlag(arrayR, 
-                                      rightEntries.get(leftMap[leftOffset]));   
+            if (debug) debugStream.println(
+                    MessageUtil.getString("ambiguousForwards"));
+            if (!firstEntryWins)
+            {
+                arrayR = setAmbiguousFlag(arrayR, 
+                                      rightEntries.get(leftMap[leftOffset]));
+                leftMap[leftOffset] = entryIndexL;
+            }
+        }
+        else
+        {
+            leftMap[leftOffset] = entryIndexL;
         }
         rightEntries.add(arrayR);
-        leftMap[leftOffset] = entryIndexL;
-        
-        int rightOffset = getMapOffset(rightSizes, rightEntry);
-        int entryIndexR = leftEntries.size();
         
         List<Integer> arrayL = new ArrayList<Integer>(leftEntry.length);
         for (int i = 0; i<leftEntry.length; i++) arrayL.add(i,leftEntry[i]);
+
         if (rightMap[rightOffset] != UNKNOWN)
         {
-            arrayL = setAmbiguousFlag(arrayL, 
-                                      leftEntries.get(rightMap[rightOffset]));            
+            if (debug) debugStream.println(
+                    MessageUtil.getString("ambiguousBackwards"));
+            if (!firstEntryWins)
+            {
+                arrayL = setAmbiguousFlag(arrayL, 
+                                      leftEntries.get(rightMap[rightOffset]));
+                rightMap[rightOffset] = entryIndexR;
+            }
+        }
+        else
+        {
+            rightMap[rightOffset] = entryIndexR;
         }
         leftEntries.add(arrayL);
-        rightMap[rightOffset] = entryIndexR; 
         if (debug)
             debugStream.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
                 "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR + 
@@ -378,5 +399,7 @@ public class MappingTable
     public void setDebug(boolean on, PrintStream ps) { debug = on; debugStream = ps; }
     public void setOptional(boolean yes) { optional = yes; }
     public boolean isOptional() { return optional; }
+    public void setFirstEntryWins(boolean use) { firstEntryWins = use; }
+    public boolean firstEntryWins() { return firstEntryWins; }
 }
 
