@@ -47,8 +47,10 @@ import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
  */
 public class MappingTable
 {
-    int [] leftMap;
-    int [] rightMap;
+    //int [] leftMap;
+    //int [] rightMap;
+    HashMap<Integer,Integer>leftMap = null;
+    HashMap<Integer,Integer>rightMap = null;
     int leftMapSize = 1; 
     int rightMapSize = 1;
     Vector <Integer> leftSizes;
@@ -117,14 +119,16 @@ public class MappingTable
         {
             leftMapSize *= leftSizes.elementAt(j).intValue();
         }
-        leftMap = new int[leftMapSize];
-        Arrays.fill(leftMap, -1);
+        //leftMap = new int[leftMapSize];
+        //Arrays.fill(leftMap, -1);
+        leftMap = new HashMap<Integer,Integer>();
         for (int j =0; j<rightSizes.size(); j++)
         {
             rightMapSize *= rightSizes.elementAt(j).intValue();
         }
-        rightMap = new int[rightMapSize];
-        Arrays.fill(rightMap, -1);
+        //rightMap = new int[rightMapSize];
+        //Arrays.fill(rightMap, -1);
+        rightMap = new HashMap<Integer,Integer>();
     }
     /** 
     * get the index of the specified component in the left hand map
@@ -183,40 +187,41 @@ public class MappingTable
         List<Integer> arrayR = new ArrayList<Integer>(rightEntry.length);
         for (int i = 0; i<rightEntry.length; i++) arrayR.add(i,rightEntry[i]);
 
-        if (leftMap[leftOffset] != UNKNOWN)
+        //if (leftMap[leftOffset] != UNKNOWN)
+        if (leftMap.containsKey(leftOffset))
         {
             if (debug) debugStream.println(
                     MessageUtil.getString("ambiguousForwards"));
             if (!firstEntryWins)
             {
                 arrayR = setAmbiguousFlag(arrayR, 
-                                      rightEntries.get(leftMap[leftOffset]));
-                leftMap[leftOffset] = entryIndexL;
+                                      rightEntries.get(leftMap.get(leftOffset)));
+                leftMap.put(leftOffset, entryIndexL);
             }
         }
         else
         {
-            leftMap[leftOffset] = entryIndexL;
+            leftMap.put(leftOffset, entryIndexL);
         }
         rightEntries.add(arrayR);
         
         List<Integer> arrayL = new ArrayList<Integer>(leftEntry.length);
         for (int i = 0; i<leftEntry.length; i++) arrayL.add(i,leftEntry[i]);
 
-        if (rightMap[rightOffset] != UNKNOWN)
+        if (rightMap.containsKey(rightOffset))
         {
             if (debug) debugStream.println(
                     MessageUtil.getString("ambiguousBackwards"));
             if (!firstEntryWins)
             {
                 arrayL = setAmbiguousFlag(arrayL, 
-                                      leftEntries.get(rightMap[rightOffset]));
-                rightMap[rightOffset] = entryIndexR;
+                                      leftEntries.get(rightMap.get(rightOffset)));
+                rightMap.put(rightOffset, entryIndexR);
             }
         }
         else
         {
-            rightMap[rightOffset] = entryIndexR;
+            rightMap.put(rightOffset, entryIndexR);
         }
         leftEntries.add(arrayL);
         if (debug)
@@ -297,7 +302,7 @@ public class MappingTable
     public List<Integer> mapLeft2Right(Integer[] leftEntry)
     {
         int leftOffset = getMapOffset(leftSizes, leftEntry);
-        int rightIndex = leftMap[leftOffset];
+        int rightIndex = leftMap.containsKey(leftOffset)? leftMap.get(leftOffset) : -1;
         if (rightIndex == -1 || rightIndex >= rightEntries.size()) return null;
         List<Integer> result = rightEntries.elementAt(rightIndex);
         if (debug)
@@ -313,7 +318,7 @@ public class MappingTable
     public List<Integer> mapRight2Left(Integer[] rightEntry)
     {
         int rightOffset = getMapOffset(rightSizes, rightEntry);
-        int leftIndex = rightMap[rightOffset];
+        int leftIndex = rightMap.containsKey(rightOffset)? rightMap.get(rightOffset) : -1;
         if (leftIndex == -1 || leftIndex >= leftEntries.size()) return null;
         List<Integer> result = leftEntries.elementAt(leftIndex);
         if (debug)
@@ -401,5 +406,10 @@ public class MappingTable
     public boolean isOptional() { return optional; }
     public void setFirstEntryWins(boolean use) { firstEntryWins = use; }
     public boolean firstEntryWins() { return firstEntryWins; }
+    public String getId() { return id; }
+    public String toString() 
+    {
+        return id + " " + getNumLeftColumns() + "|" + getNumRightColumns();
+    }
 }
 
