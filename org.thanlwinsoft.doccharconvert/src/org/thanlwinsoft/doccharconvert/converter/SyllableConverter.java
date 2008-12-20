@@ -538,6 +538,8 @@ public class SyllableConverter extends ReversibleConverter
             List<Integer> newValues = table.map(oldSide, oldValues);
             if (newValues == null)
             {
+                if (debug)
+                    debugStream.println("Null mapping for table " + table.getId());
                 if (table.isOptional())
                     continue;
                 else

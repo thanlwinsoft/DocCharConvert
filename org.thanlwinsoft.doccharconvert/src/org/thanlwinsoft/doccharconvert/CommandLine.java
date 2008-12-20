@@ -77,6 +77,7 @@ public class CommandLine
             final int CONV_PATH = 5;
             Charset inEnc = null;
             Charset outEnc = null;
+            boolean debug = false;
             int normalArgCount = 0;
             int state = NORMAL;
             String converter = null;
@@ -123,6 +124,11 @@ public class CommandLine
                 else if (args[a].equals("--converters")) 
                 {
                   state = CONV_PATH;
+                  continue;
+                }
+                else if (args[a].equals("--debug")) 
+                {
+                  debug = true;
                   continue;
                 }
                 else if (args[a].startsWith("-"))
@@ -239,26 +245,36 @@ public class CommandLine
                 ChildConverter cccc = (ChildConverter)cc;
                 if (cccc.getParent() instanceof ReversibleConverter)
                 {
-                  if (((ReversibleConverter)cccc.getParent()).isForwards())
-                  {
+                    ReversibleConverter rc = (ReversibleConverter)cccc.getParent();
                     if (!isReverse) 
                     {
                         conv.addConverter(cc);
-                        System.out.println(cc);  
+                        System.out.println(cc);
                     }
-                  }
-                  else
-                  {
-                    if (isReverse) 
+                    else
                     {
-                        conv.addConverter(cc);     
-                        System.out.println(cc);  
-                    } 
-                  }
+                        rc.setDirection(false);
+                        conv.addConverter(rc);
+                        System.out.println(rc);
+                    }
                 }
-                else conv.addConverter(cc);
+                else 
+                {
+                    conv.addConverter(cc);
+                }
               }
-              else conv.addConverter(cc);
+              else
+              {
+                  conv.addConverter(cc);
+                  if (debug)
+                      cc.setDebug(true, new File("."));
+                  if (cc instanceof ReversibleConverter)
+                  {
+                      ReversibleConverter rc = (ReversibleConverter)cc;
+                      rc.setDirection(!isReverse);
+                      System.out.println(rc.getName());
+                  }
+              }
             }
             conv.setPairsMode(true);
             if (fileList == null)
@@ -271,6 +287,7 @@ public class CommandLine
             {
                 ConversionHelper.loadFileList(conv, fileList);
             }
+
             new Thread(conv).start();
             do 
             {

@@ -261,6 +261,7 @@ public class MappingTableEditorPart extends EditorPart
             public void run()
             {
                 mt.setOptional(this.isChecked());
+                parentEditor.setDirty(true);
             }
         };
         optionalAction.setText(MessageUtil.getString("OptionalTable"));
@@ -283,6 +284,7 @@ public class MappingTableEditorPart extends EditorPart
             public void run()
             {
                 mt.setFirstEntryWins(this.isChecked());
+                parentEditor.setDirty(true);
             }
         };
         firstWinsAction.setText(MessageUtil.getString("FirstWins"));
@@ -328,7 +330,7 @@ public class MappingTableEditorPart extends EditorPart
                 doCopy(false);
             }
         };
-        copyAction.setText(MessageUtil.getString("Copy"));
+        copyAction.setText(MessageUtil.getString("CopyRow"));
         menuManager.add(copyAction);
         Action cutAction = new Action()
         {
@@ -338,7 +340,7 @@ public class MappingTableEditorPart extends EditorPart
                 doCopy(true);
             }
         };
-        cutAction.setText(MessageUtil.getString("Cut"));
+        cutAction.setText(MessageUtil.getString("CutRow"));
         menuManager.add(cutAction);
         Action pasteAction = new Action()
         {
@@ -348,7 +350,7 @@ public class MappingTableEditorPart extends EditorPart
                 doPaste();
             }
         };
-        pasteAction.setText(MessageUtil.getString("Paste"));
+        pasteAction.setText(MessageUtil.getString("PasteRow"));
         menuManager.add(pasteAction);
 
         for (Script script : sc.getScriptArray())

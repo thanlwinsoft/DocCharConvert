@@ -103,6 +103,8 @@ public class SyllableConverterUtils
         StringBuilder sb = new StringBuilder();
         sb.append(" ");// HACK: for diacritics with no width
         sb.append(text);
+        if (text == null)
+            return "";
 
         if (text.length() > 0)
         {
