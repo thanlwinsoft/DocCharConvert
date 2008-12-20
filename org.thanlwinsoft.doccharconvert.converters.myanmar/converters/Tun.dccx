@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="Tun" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
+<Argument value="Tun.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Tun" type="old" script="latin" />
+<Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style><!-- Daff may need a separate converter -->
+<Font name="Daffnew" type="old" script="latin" />
+<Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style><!-- Daff may need a separate converter -->
+<Font name="Daffnew Bold" type="old" script="latin" />
+<Font name="Padauk" type="new" script="ctl"/>
+</Style>
+</Styles>
+</DocCharConverter>

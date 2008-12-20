@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="utr_display.xsl"?>
+<!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
+ 
+<characterMapping
+    id="Tun" 
+    version="0"
+    description="Tun and other Pwo Karen fonts"
+    contact="mailto:devel@thanlwinsoft.org"
+    registrationAuthority="none"
+    registrationName=""
+    byte-font="Tun"
+    normalization="NFD"
+>
+
+<history>
+    <modified version="0" date="2008-11-28">
+        
+    </modified>
+</history>
+
+<assignments sub="2D">
+    <range bFirst="00" bLast="1F" uFirst="0000" uLast="001F"/>
+
+    <a b="20" u="0020"/><!-- space -->
+    <a b="21" u="1064"/><!-- ! -->
+    <a b="22" u="1013"/><!-- " -->
+    <a b="23" u="1062 103A"/><!-- # -->
+    <a b="24" u="1065 103A"/><!-- $ -->
+    <a b="25" u="1063 103A"/><!-- % -->
+    <a b="26" u="101b"/><!-- & -->
+    <a b="27" u="1012"/><!-- ' -->
+    <a b="28" u="0028"/><!-- ( -->
+    <a b="29" u="0029"/><!-- ) -->
+    <a b="2A" u="1002"/><!-- * -->
+    <a b="2B" u="1062"/><!-- + -->
+    <a b="2C" u="101A"/><!-- , -->
+    <a b="2D" u="002D"/><!-- - -->
+    <a b="2E" u="002E"/><!-- . -->
+    <a b="2F" u="104A"/><!-- / -->
+    <!-- wa and 0 are the same in the old encoding 
+    Assume that it is wa unless another number comes
+    before or after.
+    -->
+    <a b="30" u="101d" bactxt="med-vowel-tone"/>
+    <fbu b="30" u="101d" bactxt="rmed"/>
+    <a b="30" u="1040"/><!-- 0 -->
+    <fbu b="30" u="1040" bactxt="numbers"/><!-- 0 -->
+    <fbu b="30" u="1040" bbctxt="space" bactxt="space"/><!-- 0 -->
+    <a b="31" u="1065" bactxt="med-vowel-tone"/>
+    <fbu b="31" u="1065" bactxt="rmed"/>
+    <a b="31" u="1041"/><!-- 1 -->
+    <fbu b="31" u="1041" bactxt="numbers"/><!-- 0 -->
+    <fbu b="31" u="1041" bbctxt="space" bactxt="space"/><!-- 0 -->
+    <a b="32" u="1042"/><!-- 2 -->
+    <a b="33" u="1043"/><!-- 3 -->
+    <!-- it is common to be lazy and type aforementioned like this -->
+    <fbu b="34 69 66 3b" u="104e 1004 103A 1038"/>
+    <a b="34" u="1044"/><!-- 4 -->
+    <a b="35" u="1045"/><!-- 5 -->
+    <a b="36" u="1046"/><!-- 6 -->
+    <a b="37" u="1047"/><!-- 7 -->
+    <a b="38" u="1048"/><!-- 8 -->
+    <a b="39" u="1049"/><!-- 9 -->
+    <a b="3A" u="102C 103A"/><!-- : -->
+    <a b="3B" u="1038"/><!-- ; -->
+    <a b="3C" u="002C"/><!-- < -->
+    <a b="3D" u="003D"/><!-- = -->
+    <a b="3E" u="1027"/><!-- -->
+    <a b="3F" u="003F"/><!-- ? -->
+
+    <a b="40" u="104F"/><!-- @ -->
+    <a b="41" u="1017"/><!-- A -->
+    <a b="42" u="1066"/><!-- B -->
+    <a b="43" u="1003"/><!-- C -->
+    <a b="44" u="102E"/><!-- D -->
+    <a b="45" u="106b"/><!-- E -->
+    <a b="46" u="1060"/><!-- F -->
+    <a b="47" u="103D"/><!-- G -->
+    <a b="48" u="1036"/><!-- H -->
+    <a b="49" u="1037"/><!-- I -->
+    <a b="4A" u="1032"/><!-- J -->
+    <a b="4B" u="102F" ubctxt="tall-u"/><!-- K -->
+    <a b="4C" u="1030" ubctxt="tall-u"/><!-- L -->
+    <a b="4D" u="103D 1037"/><!-- M -->
+    <a b="4E" u="1061"/><!-- N -->
+    <a b="4F" u="103D 1037"/><!-- O -->
+
+    <a b="50" u="1025"/><!-- P -->
+    <a b="51" u="1069"/><!-- Q -->
+    <a b="52" u="106C"/><!-- R -->
+    <a b="53" u="103E"/><!-- S -->
+    <a b="54" u="1069 1037"/><!-- T -->
+    <a b="55" u="106A 1037"/><!-- U -->
+    <a b="56" u="1014" uactxt="lower-vowel"/><!-- V -->
+    <a b="57" u="106A"/><!-- W -->
+    <a b="58" u="100C"/><!-- X -->
+    <a b="59" u="106B 1037"/><!-- Y -->
+    <a b="5A" u="1007"/><!-- Z -->
+    <a b="5B" u="100E"/><!-- [ -->
+    <a b="5C" u="103C" ubctxt="cons-narrow" uactxt="upper-vowel"/><!-- \ cons-narrow -->
+    <a b="5D" u="106D"/><!-- ] -->
+    <a b="5E" u="1024"/><!-- ^ -->
+    <a b="5F" u="104D"/><!-- _ -->
+
+    <a b="60" u="103E 1030"/><!-- ` -->
+    <a b="61" u="1031"/><!-- a -->
+    <a b="62" u="1018"/><!-- b -->
+    <a b="63" u="1001"/><!-- c -->
+    <a b="64" u="102D"/><!-- d -->
+    <a b="65" u="1014"/><!-- e -->
+    <a b="66" u="103A"/><!-- f -->
+    <a b="67" u="102B"/><!-- g -->
+    <a b="68" u="1037" ubctxt="ldot-right"/><!-- h -->
+    <a b="69" u="1004"/><!-- i -->
+
+    <a b="6A" u="103C" ubctxt="cons-wide"/><!-- j -->
+    <a b="6B" u="102F"/><!-- k -->
+    <a b="6C" u="1030"/><!-- l -->
+    <a b="6D" u="1067"/><!-- m -->
+    <a b="6E" u="100A"/><!-- n -->
+    <fbu b="6F" u="1067"/><!-- o -->
+    <!-- I don't think these are stand alone vowels in Karen -->
+    <!-- <a b="6F 4d" u="1029"/> -->
+    <!-- <a b="6F 4d 61 6d 66" u="102a"/> -->
+    
+    <a b="70" u="1005"/><!-- p -->
+    <a b="71" u="1006"/><!-- q -->
+    <a b="72" u="1019"/><!-- r -->
+    <a b="73" u="103B"/><!-- s -->
+    <a b="74" u="1021"/><!-- t -->
+    <a b="75" u="1000"/><!-- u -->
+    <a b="76" u="101C"/><!-- v -->
+    <a b="77" u="1010"/><!-- w -->
+    <a b="78" u="1011"/><!-- x -->
+    <a b="79" u="1015"/><!-- y -->
+    <a b="7A" u="1016"/><!-- z -->
+    <a b="7B" u="101F"/><!-- { -->
+    <a b="7C" u="101B" uactxt="lower-vowel"/><!-- | -->
+    <!-- check from here -->
+    <a b="7D" u="1068"/>
+    <!--<a b="7D" u="2019"/> } -->
+    <a b="7E" u="103E 102F"/><!-- ~ -->
+    <!-- <a b="80" u="1023"/>windows-1252 20AC-->
+    <a b="81" u="1039 1019"/><!-- windows-1252 Not defined -->
+    <a b="82" u="1039 1001"/><!-- windows-1252 201a  -->
+    <a b="83" u="1039 1012"/><!-- windows-1252 0192 -->
+    <a b="84" u="1039 1013"/><!-- windows-1252 201e -->
+    <a b="85" u="1039 1010"/><!-- windows-1252 2026 -->
+    <a b="86" u="1039 101C"/><!-- windows-1252 2020 -->
+    <a b="87" u="1039 1011"/><!-- windows-1252 2021 -->
+    <fbu b="88" u="103C"/><!-- windows-1252 02c6 -->
+    <a b="89" u="103C" uactxt="lower-vowel"/><!-- windows-1252 2030 -->
+    <a b="8a" u="103C" ubctxt="cons-narrow" uactxt="upper-vowel"/><!-- windows-1252 0160 -->
+    <a b="8b" u="103C" uactxt="upper-vowel"/><!-- windows-1252 2039 -->
+    <a b="8c" u="1039 1018"/><!-- windows-1252 0152 -->
+    <!-- <a b="8d" u="1039 100F"/>windows-1252 not defined -->
+    <a b="8e" u="1039 100C"/><!-- windows-1252 017D -->
+    <a b="8f" u="1039 1014"/><!--  windows 1252 not defined -->
+
+    <a b="90" u="1039 1005"/><!-- windows-1252 NA -->
+    <a b="91" u="201C"/><!-- windows-1252 2018 -->
+    <a b="92" u="201D"/><!-- windows-1252 2019 -->
+    <a b="93" u="002F"/><!-- windows-1252 201C -->
+    <a b="94" u="103E 1030"/><!-- windows-1252 201D -->
+    <a b="95" u="103B 103D"/><!-- windows-1252 2022 -->
+    <fbu b="96" u="1002"/><!-- windows-1252 2013 -->
+    <a b="97" u="2665"/><!-- windows-1252 2014 -->
+    <a b="98" u="103B 103E"/><!-- windows-1252 02DC -->
+    <a b="99" u="27A1"/><!-- windows-1252 2122 -->
+    <a b="9A" u="002A"/><!-- windows-1252 0161 -->
+    <a b="9B" u="1004 103A 1039"/><!-- windows-1252 203A -->
+    <a b="9C" u="102C"/><!-- windows-1252 0153 -->
+    <fbu b="9D" u="103C" ubctxt="cons-narrow"/><!-- 1252 undefined -->
+    <!--
+    9E 017E
+    9F 0178 
+     -->
+    <a b="A0" u="00A0"/><!--  -->
+    <range bFirst="A1" bLast="FF" uFirst="00A1" uLast="00FF"/>
+    <ordering side="unicode"><!---->
+        <order b="reorder-kinzi-b" u="reorder-kinzi-u"/>
+    </ordering>
+    <ordering side="bytes">
+        <order b="reorder-bytes-b" u="reorder-bytes-u"/>
+    </ordering>
+
+</assignments>
+
+<contexts>
+
+<!-- byte side re-ordering contexts -->
+
+    <group id="reorder-bytes-b">
+        <class-ref name="evowel-b" id="e" min="0"/>
+        <class-ref name="rmed-b" id="r" min="0"/>
+        <class-ref name="cons-b" id="c" />
+        <class-ref name="upper-vowel-b" id="vu1" min="0"/>
+        <class-ref name="upper-dot-b" id="udot1" min="0"/>
+        <class-ref name="consm-b" id="cm" min="0"/>
+        <class-ref name="lower-dot-b" id="ldot0" min="0"/>
+        <class-ref name="wmed-b" id="w1" min="0"/>
+        <class-ref name="hmed-b" id="h" min="0"/>
+        <class-ref name="wmed-b" id="w2" min="0"/>
+        <class-ref name="nga-b" id="ng1" min="0"/>
+        <class-ref name="lower-vowel-dia-b" id="vul1" min="0"/>
+        <class-ref name="ymed-b" id="y1" min="0"/>
+        <class-ref name="nga-b" id="ng2" min="0"/>
+        <class-ref name="kill-b" id="contract1" min="0"/><!---->
+        <class-ref name="ymed-b" id="y2" min="0"/>
+        <class-ref name="kill-b" id="contract2" min="0"/>
+        <class-ref name="lower-vowel-tall-b" id="vl" min="0"/>
+        <class-ref name="nga-b" id="ng3" min="0"/>
+        <class-ref name="lower-dot-b" id="ldot1" min="0"/>
+        <class-ref name="upper-vowel-b" id="vu2" min="0"/>
+        <class-ref name="lower-vowel-dia-b" id="vul2" min="0"/>
+        <class-ref name="upper-dot-b" id="udot2" min="0"/>
+        <class-ref name="lower-vowel-dia-b" id="vul3" min="0"/>
+        <class-ref name="lower-vowel-tall-b" id="vlf" min="0"/>
+        <class-ref name="avowel-b" id="a" min="0"/>
+        <class-ref name="lower-dot-b" id="ldot2" min="0"/>
+        <class-ref name="colon-b" id="colon" min="0"/>
+        <class-ref name="kill-b" id="kill" min="0"/>
+        <class-ref name="lower-dot-b" id="ldot3" min="0"/>
+    </group>
+
+    <group id="reorder-bytes-u">
+        <context-ref name="reorder-bytes-b/ng1"/>
+        <context-ref name="reorder-bytes-b/ng2"/>
+        <context-ref name="reorder-bytes-b/ng3"/>
+        <context-ref name="reorder-bytes-b/c"/>
+        <context-ref name="reorder-bytes-b/cm"/>
+        <context-ref name="reorder-bytes-b/contract2"/>
+        <context-ref name="reorder-bytes-b/contract1"/>
+        <context-ref name="reorder-bytes-b/r"/>
+        <context-ref name="reorder-bytes-b/y1"/>
+        <context-ref name="reorder-bytes-b/y2"/>
+        <context-ref name="reorder-bytes-b/h"/>
+        <context-ref name="reorder-bytes-b/w1"/>
+        <context-ref name="reorder-bytes-b/w2"/>
+        <context-ref name="reorder-bytes-b/e"/>
+		<context-ref name="reorder-bytes-b/vu2"/>
+		<context-ref name="reorder-bytes-b/vu1"/>
+        <context-ref name="reorder-bytes-b/vul1"/>
+        <context-ref name="reorder-bytes-b/vul2"/>
+        <context-ref name="reorder-bytes-b/vul3"/>
+        <context-ref name="reorder-bytes-b/vl"/>
+        <context-ref name="reorder-bytes-b/vlf"/>
+        <context-ref name="reorder-bytes-b/a"/>
+        <context-ref name="reorder-bytes-b/udot2"/>
+        <context-ref name="reorder-bytes-b/udot1"/>
+        <context-ref name="reorder-bytes-b/kill"/>
+        <context-ref name="reorder-bytes-b/ldot3"/>
+        <context-ref name="reorder-bytes-b/ldot2"/>
+        <context-ref name="reorder-bytes-b/ldot1"/>
+        <context-ref name="reorder-bytes-b/ldot0"/>
+        <context-ref name="reorder-bytes-b/colon"/> 
+        <!--<context-ref name="reorder-bytes-b/section"/>    -->
+    </group>
+    
+    <group id="reorder-kinzi-u">
+        <class-ref name="nga" id="kinzi-nga"/>
+        <class-ref name="killer" id="kinzi-killer"/>
+        <class-ref name="virama" id="kinzi-virama"/>
+        <class-ref name="cons" id="kinzi-cons"/>
+    </group>
+
+    <group id="reorder-kinzi-b">
+        <context-ref name="reorder-kinzi-u/kinzi-cons" />
+        <context-ref name="reorder-kinzi-u/kinzi-nga" />
+        <context-ref name="reorder-kinzi-u/kinzi-killer" />
+        <context-ref name="reorder-kinzi-u/kinzi-virama" />
+    </group>
+    
+    <group id="numbers">
+      <class-ref name="numbers-b"/>
+    </group>
+    
+    <group id="med-vowel-tone">
+      <class-ref name="med-vowel-tone-b"/>
+    </group>
+    
+    <group id="rmed">
+        <class-ref name="rmed-b"/>
+    </group>
+    
+    <group id="space">
+      <class-ref name="space-b"/>
+    </group>
+
+    <group id="tall-u">
+        <class-ref name="cons-tall-u"/>
+    </group>
+    
+    <group id="lower-vowel">
+        <class-ref name="w" min="0"/>
+        <class-ref name="h" min="0"/>
+        <class-ref name="vowel-up" min="0"/>
+        <class-ref name="vowel-dn"/>
+    </group>
+    
+    <group id="upper-vowel">
+        <class-ref name="y" min="0"/>
+        <class-ref name="r" min="0"/>
+        <class-ref name="w" min="0"/>
+        <class-ref name="h" min="0"/>
+        <class-ref name="vowel-all-up"/>
+    </group>
+
+    <group id="ldot-right">
+        <class-ref name="w" min="0"/>
+        <class-ref name="h" min="0"/>
+        <class-ref name="vowel-up" min="0"/>
+        <class-ref name="vowel-dn"/>
+    </group>
+
+    <group id="cons"><class-ref name="cons"/></group>
+    <group id="cons-narrow"><class-ref name="cons-narrow"/></group>
+    <group id="cons-wide"><class-ref name="cons-wide"/></group>
+
+<!-- classes -->
+
+    <class name="cons">
+        1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 100A 100B 100C 100D 100E 100F
+        1010 1011 1012 1013 1014 1015 1016 1017 1018 1019 101A 101B 101C 101D 101E 101F
+        1020 1021 1061 1065 1066
+    </class>
+    <class name="consf"><!-- all cons except nga -->
+        1000 1001 1002 1003      1005 1006 1007 1008 1009 100A 100B 100C 100D 100E 100F
+        1010 1011 1012 1013 1014 1015 1016 1017 1018 1019           101C      101E     
+        1020 1021 1061 1065 1066
+    </class>
+    <class name="cons-narrow">
+             1001 1002      1004 1005      1007 1008 1009      100B 100C 100D 100E     
+                  1012 1013 1014 1015 1016 1017      1019      101B      101D      101F
+        1020 1065
+    </class>
+    <class name="cons-wide">
+        1000           1003           1006                100A                     100F
+        1010 1011                               1018      101A      101C      101E     
+             1021
+    </class>
+    <class name="cons-tall-u">
+        1008 100B 100C 100D 1020 1061 1066
+    </class>
+    <class name="cons-short-u">
+        1000 1001 1002 1003 1004 1005 1006 1007           100A                100E 100F
+        1010 1011 1012 1013 1014 1015 1016 1017 1018 1019 101A      101C 101D 101E 101F
+        1021
+    </class>
+    <class name="cons-long">101B</class>
+    <class name="cons-nldot">
+        1000 1001 1002 1003 1004 1005 1006 1007 1008 1009 100A 100B 100C 100D 100E 100F
+        1010 1011 1012 1013      1015 1016 1017 1018 1019 101A 101B 101C 101D 101E 101F
+        1020 1021
+    </class>
+
+    <class name="virama">1039</class>
+	<class name="killer">103A</class>
+    <class name="nga">1004</class>
+    <class name="y">103B</class>
+    <class name="r">103C</class>
+    <class name="w">103D</class>
+    <class name="h">103E</class>
+    <class name="th">101e</class>
+	<class name="aa">102B 102C</class>
+    <class name="vowel-all-up">102D 102E 1032 1036</class>
+    <class name="vowel-up">102D 102E 1032</class>
+    <class name="uvowel">102D 102E</class>
+    <class name="vowel-dn">102F 1030</class>
+    <class name="vowel-ii">102E</class>
+    <class name="vowel-u">102F</class>
+    <class name="e">1031</class>
+    <class name="udot">1036</class>
+    <class name="ldot">1037</class>
+    <class name="colon">1038</class>
+    <class name="kinzi-lig">102d 102e 1036</class><!-- combines with Kinzi into ligature -->
+    <class name="udia">102D 102E 1032 1036</class>
+    <class name="ldia">102F 1030 1037</class>
+
+<!-- byte classes -->
+    <!-- kinzi, kinzi+102e, kinzi+102d, kinzi+1036 -->
+    <class name="nga-b" size="bytes">9b</class>
+    <!-- 0 is included as a consonant, because it is often wa-->
+    <class name="cons-b" size="bytes">
+        22 26 27 2a 2c 30 31 3e 41 42 43 4e 50 56 5a 5b 62 63 65 69 
+        70 71 72 74 75 76 77 78 79 7a 7b 7c 8d
+        <!-- these are cons/medial ligatures, but it allows reordering --> 
+        
+    </class>
+    <class name="consm-b" size="bytes">81 8c 83 82 84 85 86 87 8e 8f 90 9d</class>
+    <class name="ymed-b" size="bytes">73 98 95</class>
+    <class name="rmed-b" size="bytes">5c 6a 9d 8a 88 89 8b</class>
+    <!-- don't include ligatures with y or r in the w or h classes -->
+    <class name="wmed-b" size="bytes">47 4d 4f 46</class>
+    <class name="hmed-b" size="bytes">53</class>
+    <class name="evowel-b" size="bytes">61</class>
+    <!-- note lig with kinzi excluded -->
+    <class name="upper-vowel-b" size="bytes">44 64 4a</class>
+    <class name="upper-dot-b" size="bytes">48</class>
+    <class name="lower-vowel-b" size="bytes">4b 4c 6b 6c</class>
+    <class name="lower-vowel-dia-b" size="bytes">6b 6c</class>
+    <class name="lower-vowel-tall-b" size="bytes">4b 4c</class>
+    <class name="avowel-b" size="bytes">9C</class>
+    <class name="kill-b" size="bytes">66</class>
+    <class name="lower-dot-b" size="bytes">68</class>
+    <class name="colon-b" size="bytes">3b</class>
+    <class name="section-b" size="bytes">2f</class>
+    <class name="med-vowel-tone-b" size="bytes">
+        21 23 24 25 2b 2e 3b 44 45 46 47 48 49 4a 4b 4c 4d 4f 51 52 53 54 55 57 59 
+        5d 60 64 66 67 68 6b 6c 6d 6f 73 7d 7e 
+        9c 98 94 95 9c 9d
+    </class>
+    <class name="numbers-b" size="bytes">
+      30 31 32 33 34 35 36 37 38 39
+    </class>
+    <!--  =+-.| || / -->
+    <class name="space-b" size="bytes">
+      20 91 92 93
+    </class>
+</contexts>
+
+</characterMapping>
+

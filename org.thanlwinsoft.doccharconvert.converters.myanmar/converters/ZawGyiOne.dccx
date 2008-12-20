@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc:DocCharConverter name="ZawGyiOne to Unicode5.1" rname="Unicode 5.1 to ZawGyiOne" xmlns:doc="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+  <doc:ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
+    <doc:Argument type="File" value="ZawGyiOne.xml"/>
+  </doc:ConverterClass>
+  <doc:Styles>
+    <doc:Style>
+      <doc:Font type="old" name="Zawgyi-One" script="ctl"/>
+      <doc:Font type="new" name="Padauk" script="ctl"/>
+    </doc:Style>
+    <doc:Style>
+      <doc:Font type="old" name="Zawgyi-One" script="ctl"/>
+      <doc:Font type="new" name="Myanmar3" script="ctl"/>
+    </doc:Style>
+    <doc:Style>
+      <doc:Font type="old" name="Zawgyi-One" script="ctl"/>
+      <doc:Font type="new" name="MyMyanmar Unicode" script="ctl"/>
+    </doc:Style>
+  </doc:Styles>
+</doc:DocCharConverter>
