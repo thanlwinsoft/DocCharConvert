@@ -2,7 +2,7 @@
 <feature
       id="org.thanlwinsoft.doccharconvert.feature.myanmar"
       label="Myanmar Converters Feature"
-      version="1.0.0"
+      version="1.1.0"
       provider-name="www.thanlwinsoft.org"
       plugin="org.thanlwinsoft.doccharconvert">
 
