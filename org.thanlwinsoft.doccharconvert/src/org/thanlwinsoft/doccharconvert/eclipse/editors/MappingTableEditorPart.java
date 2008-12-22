@@ -290,7 +290,7 @@ public class MappingTableEditorPart extends EditorPart
         firstWinsAction.setText(MessageUtil.getString("FirstWins"));
         firstWinsAction.setToolTipText(MessageUtil
                 .getString("FirstWinsToolTip"));
-        if (mt.isSetOptional() && mt.getOptional())
+        if (mt.isSetFirstEntryWins() && mt.getFirstEntryWins())
         {
             firstWinsAction.setChecked(true);
         }

@@ -90,10 +90,13 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.schemas.syllableParser.Argument;
+import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.Checker;
 import org.thanlwinsoft.schemas.syllableParser.Checks;
+import org.thanlwinsoft.schemas.syllableParser.Class;
 import org.thanlwinsoft.schemas.syllableParser.Columns;
 import org.thanlwinsoft.schemas.syllableParser.Component;
+import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
 import org.thanlwinsoft.schemas.syllableParser.MappingTable;
 import org.thanlwinsoft.schemas.syllableParser.Script;
 import org.thanlwinsoft.schemas.syllableParser.Side;
@@ -569,7 +572,7 @@ public class ScriptsEditorPart extends EditorPart
                     Checker checker = checks.addNewChecker();
                     checker.setClass1(clazzName);
                     SyllableChecker theChecker = mCheckerMap.get(clazzName);
-                    for (Class<?> argType : theChecker.getArgumentTypes())
+                    for (java.lang.Class<?> argType : theChecker.getArgumentTypes())
                     {
                         if (argType.equals(File.class) || argType.equals(URL.class))
                         {
@@ -844,7 +847,14 @@ public class ScriptsEditorPart extends EditorPart
                         switch (colNum)
                         {
                         case 0:
-                            c.setId(value.toString());
+                            if (c.getId() == null || !c.getId().equals(value.toString()))
+                            {
+                                if (isUniqueComponentId(value.toString()))
+                                {
+                                    switchComponentId(c.getId(), value.toString());
+                                    c.setId(value.toString());
+                                }
+                            }
                             break;
                         case 1:
                             org.w3c.dom.Text t = c.getDomNode()
@@ -1023,6 +1033,65 @@ public class ScriptsEditorPart extends EditorPart
         parent.setClient(table);
         viewer.refresh();
 
+    }
+
+    /**
+     * @param string
+     * @return
+     */
+    protected boolean isUniqueComponentId(String string)
+    {
+        if (string == null || string.length() == 0) return false;
+        SyllableConverter sc = parentEditor.getDocument().getSyllableConverter(); 
+        for (Script s : sc.getScriptArray())
+        {
+            for (Component c : s.getCluster().getComponentArray())
+            {
+                if (c.getId() != null && c.getId().equals(string))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @param id
+     * @param string
+     */
+    protected void switchComponentId(String oldId, String newId)
+    {
+        if (oldId == null || oldId.length() == 0) return;
+        SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+        // parse the classes
+        for (Class clazz : sc.getClasses().getClass1Array())
+        {
+            for (ComponentRef comp : clazz.getComponentArray())
+            {
+                if (comp.getR() != null && comp.getR().equals(oldId))
+                        comp.setR(newId);
+            }
+        }
+        // parse the maps
+        for (MappingTable mt : sc.getMappingTableArray())
+        {
+            for (ComponentRef cols : mt.getColumns().getComponentArray())
+            {
+                if (cols.getR() != null && cols.getR().equals(oldId))
+                {
+                    cols.setR(newId);
+                }
+            }
+            for (org.thanlwinsoft.schemas.syllableParser.Map m : mt.getMaps().getMArray())
+            {
+                for (C c : m.getCArray())
+                {
+                    if (c.getR() != null && c.getR().equals(oldId))
+                    {
+                        c.setR(newId);
+                    }
+                }
+            }
+        }
     }
 
     /*
