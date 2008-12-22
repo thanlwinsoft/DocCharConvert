@@ -19,7 +19,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 package org.thanlwinsoft.doccharconvert.converter;
 
 import org.thanlwinsoft.doccharconvert.RawByteCharset;
-import org.thanlwinsoft.doccharconvert.RawByteCharsetProvider;
 import org.thanlwinsoft.doccharconvert.TextStyle;
 import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;

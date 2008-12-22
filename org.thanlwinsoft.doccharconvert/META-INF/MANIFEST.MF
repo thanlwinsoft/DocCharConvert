@@ -5,7 +5,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DocCharConvertEclipse Plug-in
 Bundle-Group: org.thanlwinsoft.doccharconvert
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true
-Bundle-Version: 1.1.0.svn1151
+Bundle-Version: 1.2.0.qualifier
 Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConve
  rtEclipsePlugin
 Bundle-Localization: plugin
@@ -22,7 +22,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.filesystem,
  org.apache.xmlbeans,
  org.eclipse.core.runtime.compatibility;bundle-version="3.2.0"
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert
  ,org.thanlwinsoft.doccharconvert.converter,org.thanlwinsoft.doccharco
  nvert.converter.syllable,org.thanlwinsoft.doccharconvert.converter.te
@@ -37,11 +37,11 @@ Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert
  rg.thanlwinsoft.xml
 Bundle-Vendor: ThanLwinSoft.org
 Bundle-ClassPath: lib/DocCharConvertSchema.jar,lib/SyllableParserSchem
- a.jar,../org.apache.xmlbeans/lib/xbean.jar,.,lib/rawcharsetspi.jar
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+ a.jar,../org.apache.xmlbeans/lib/xbean.jar,.
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
  ads/updates/
 Import-Package: org.w3c.dom
 Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByte
  CharsetProvider
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 

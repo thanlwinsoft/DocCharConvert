@@ -40,11 +40,8 @@
             category="org.thanlwinsoft.doccharconvert.conversion"
             class="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard"
             icon="icons/DocCharConvert16.png"
-            id="org.thanlwinsoft.doccharconvert.wizard"
+            id="org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard"
             name="org.thanlwinsoft.doccharconvert.wizard"/>
-      <primaryWizard
-            id="org.thanlwinsoft.doccharconvert.primaryWizard1">
-      </primaryWizard>
       <wizard
             category="org.thanlwinsoft.doccharconvert.conversion"
             class="org.thanlwinsoft.doccharconvert.eclipse.wizard.NewDccxWizard"
@@ -321,10 +318,6 @@
       <factory
             class="org.eclipse.ui.part.FileEditorInputFactory"
             id="org.eclipse.ui.part.FileEditorInputFactory">
-      </factory>
-      <factory
-            class="org.eclipse.ui.internal.WorkingSetFactory"
-            id="org.eclipse.ui.internal.WorkingSetFactory">
       </factory>
 	</extension>
    <extension

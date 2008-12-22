@@ -5,7 +5,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Mien Plug-in
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;s
  ingleton:=true
-Bundle-Version: 1.0.0.svn1049
+Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.thanlwinsoft.doccharconvert
 Bundle-Localization: plugin
 Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mie
@@ -14,4 +14,6 @@ Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
  ads/updates/
 Bundle-Vendor: www.thanlwinsoft.org
 Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 

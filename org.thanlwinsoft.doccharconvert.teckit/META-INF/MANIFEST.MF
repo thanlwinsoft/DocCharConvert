@@ -4,7 +4,8 @@ Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)
 Bundle-ManifestVersion: 2
 Bundle-Name: Teckit
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.teckit; singleton:=true
-Bundle-Version: 0.1.0.svn999
+Bundle-Version: 0.1.0.qualifier
 Bundle-NativeCode: /linux/x86/libTecKitJni.so; osname=linux; processor=x86, /linux/x86_64/libTecKitJni.so; osname=linux; processor=x86_64, /win32/x86/TecKitJni.dll; osname=win32; processor=x86
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/
 Bundle-Vendor: www.thanlwinsoft.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

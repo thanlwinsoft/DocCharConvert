@@ -56,7 +56,6 @@ import org.eclipse.ui.part.EditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
-import org.thanlwinsoft.schemas.syllableParser.Map;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.util.Pair;
 
