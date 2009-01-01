@@ -32,6 +32,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewer;
+import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -663,13 +664,31 @@ public class MappingTableEditorPart extends EditorPart
         table = new Table(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
         viewer = new TableViewer(table);
         viewer.setContentProvider(new MappingTableContentProvider());
-        MappingTableLabelProvider mtlp = new MappingTableLabelProvider(mt, parentEditor);
+        final MappingTableLabelProvider mtlp = new MappingTableLabelProvider(mt, parentEditor);
         viewer.setLabelProvider(mtlp);
-        
         TableColumn tcNum = new TableColumn(table, SWT.TRAIL);
         //tcNum.setText("");
         tcNum.setWidth(35);
-//        TableViewerColumn tvc = new TableViewerColumn(viewer, tc);
+        TableViewerColumn tvcNum = new TableViewerColumn(viewer, tcNum);
+        tvcNum.setLabelProvider(new CellLabelProvider()
+        {
+            @Override
+            public String getToolTipText(Object element)
+            {
+                return mtlp.getToolTipText(element);
+            }
+
+            /* (non-Javadoc)
+             * @see org.eclipse.jface.viewers.CellLabelProvider#update(org.eclipse.jface.viewers.ViewerCell)
+             */
+            @Override
+            public void update(ViewerCell cell)
+            {
+                cell.setText(mtlp.getColumnText(cell.getElement(), 0));
+                cell.setBackground(mtlp.getBackground(cell.getElement(), 0));
+            }
+            
+        });
 
         for (ComponentRef cr : mt.getColumns().getComponentArray())
         {
@@ -692,17 +711,22 @@ public class MappingTableEditorPart extends EditorPart
                     if (element instanceof Map)
                     {
                         C c = SyllableConverterUtils.getCFromMap((Map)element, colRef);
-                        return SyllableConverterUtils.getCTextWithCodes(c);
+                        if ((c != null) && (SyllableConverterUtils.getCText(c).length() > 0))
+                            return SyllableConverterUtils.getCTextWithCodes(c);
                     }
-                    return "";
+                    return MessageUtil.getString("MappingTableToolTip");
                 }
 
                 @Override
                 public Font getToolTipFont(Object element)
                 {
                     SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
+                    C c = SyllableConverterUtils.getCFromMap((Map)element, colRef);
+                    
                     int side = SyllableConverterUtils.getSide(sc, colRef);
-                    return parentEditor.getFont(side);
+                    if (c != null || SyllableConverterUtils.getCText(c).length() > 0)
+                        return parentEditor.getFont(side);
+                    return null;
                 }
 
                 /* (non-Javadoc)
@@ -711,8 +735,7 @@ public class MappingTableEditorPart extends EditorPart
                 @Override
                 public int getToolTipDisplayDelayTime(Object object)
                 {
-                    // TODO Auto-generated method stub
-                    return 2000;//super.getToolTipDisplayDelayTime(object);
+                    return super.getToolTipDisplayDelayTime(object);
                 }
 
                 /* (non-Javadoc)
@@ -747,6 +770,7 @@ public class MappingTableEditorPart extends EditorPart
                 }
             });
         }
+        ColumnViewerToolTipSupport.enableFor(viewer);
         viewer.setInput(mt);
         table.setHeaderVisible(true);
         viewer.refresh();

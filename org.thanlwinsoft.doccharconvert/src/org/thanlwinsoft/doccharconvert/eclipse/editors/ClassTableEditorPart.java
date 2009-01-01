@@ -32,6 +32,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewer;
+import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
@@ -549,6 +550,7 @@ public class ClassTableEditorPart extends EditorPart
                     }
                 }});
         }
+        ColumnViewerToolTipSupport.enableFor(viewer);
         viewer.setInput(classTable);
         table.setHeaderVisible(true);
         viewer.refresh();
