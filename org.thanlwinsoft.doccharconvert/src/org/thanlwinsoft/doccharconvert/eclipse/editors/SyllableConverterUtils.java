@@ -53,7 +53,9 @@ public class SyllableConverterUtils
                         sb.append(n.getNodeValue());
                         n = n.getNextSibling();
                     }
-                    return sb.toString();
+                    if (sb.length() > 0)
+                        return sb.toString();
+                    else return ref;
                 }
             }
         }
@@ -149,7 +151,7 @@ public class SyllableConverterUtils
         //return classRefs.toArray(new String[classRefs.size()]);
         return classRefs;
     }
-    static Pattern sUniInputPattern = Pattern.compile("u([0-9a-fA-F]{4})(\\s+u([0-9a-fA-F]{4}))*");
+    static Pattern sUniInputPattern = Pattern.compile("\\s*u([0-9a-fA-F]{4})((\\s+u([0-9a-fA-F]{4}))*)");
     
     public static String parseUniInput(String input)
     {
@@ -160,11 +162,24 @@ public class SyllableConverterUtils
             try
             {
                 StringBuilder sb = new StringBuilder();
-                for (int i = 1; i <= m.groupCount(); i+=2)
+                for (int i = 1; i <= m.groupCount();)
                 {
                     if (m.group(i) == null) break;
                     int codePoint = Integer.parseInt(m.group(i), 16);
                     sb.append(Character.toChars(codePoint));
+                    if (m.group(3) != null &&
+                        m.group(3).length() < m.group(2).length())
+                    {
+                        String subCodes = input.substring(m.start(2));
+                        m = sUniInputPattern.matcher(subCodes);
+                        i = 1;
+                        if (!m.matches())
+                            break;
+                    }
+                    else
+                    {
+                        i += 3;
+                    }
                 }
                 modifiedInput = sb.toString();
             }

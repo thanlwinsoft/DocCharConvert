@@ -42,6 +42,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -57,7 +58,7 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
-import org.thanlwinsoft.util.Pair;
+import org.thanlwinsoft.util.Triple;
 
 /**
  * @author keith
@@ -71,6 +72,7 @@ public class ClassTableEditorPart extends EditorPart
     private org.thanlwinsoft.schemas.syllableParser.Class classTable;
     private Clipboard clipboard;
     private MenuManager menuManager;
+    public final static int COL_OFFSET = 1; 
     public ClassTableEditorPart(SyllableConverterEditor parentEditor, 
         org.thanlwinsoft.schemas.syllableParser.Class clazz)
     {
@@ -304,14 +306,15 @@ public class ClassTableEditorPart extends EditorPart
         while (i.hasNext())
         {
             Object o = i.next();
-            if (o instanceof Pair<?,?>)
+            if (o instanceof Triple<?,?,?>)
             {
-                Pair<?,?> pair = (Pair<?,?>)o;
+                Triple<?,?,?> pair = (Triple<?,?,?>)o;
                 C cCopy = copyContainer.addNewC();
                 C orig = null;
+                // first is the row number
                 if (side == 0)
-                    orig = (C)pair.first;
-                else orig = (C)pair.second;
+                    orig = (C)pair.second;
+                else orig = (C)pair.third;
                 if (cCopy.isSetHex())
                     cCopy.setHex(orig.getHex());
                 else
@@ -348,14 +351,15 @@ public class ClassTableEditorPart extends EditorPart
             while (iSelection.hasNext() && i < cData.sizeOfCArray())
             {
                 Object o = iSelection.next();
-                if (o instanceof Pair<?,?>)
+                if (o instanceof Triple<?,?,?>)
                 {
-                    Pair<?,?> pair = (Pair<?,?>)o;
+                    Triple<?,?,?> pair = (Triple<?,?,?>)o;
                     C cCopy = cData.getCArray(i++);
                     C target = null;
+                    // first is the row number
                     if (side == 0)
-                        target = (C)pair.first;
-                    else target = (C)pair.second;
+                        target = (C)pair.second;
+                    else target = (C)pair.third;
                     if (cCopy.isSetHex())
                     {
                         target.setNil();
@@ -385,12 +389,12 @@ public class ClassTableEditorPart extends EditorPart
     {
         if (!(viewer.getSelection() instanceof IStructuredSelection)) return -1;
         IStructuredSelection s = (IStructuredSelection)viewer.getSelection();
-        if (s.getFirstElement() instanceof Pair<?,?>)
+        if (s.getFirstElement() instanceof Triple<?,?,?>)
         {
-            Pair<?,?> selectedPair = (Pair<?,?>)s.getFirstElement();
+            Triple<?,?,?> selectedPair = (Triple<?,?,?>)s.getFirstElement();
             for (int i = 0; i < classTable.getComponentArray(0).sizeOfCArray(); i++)
             {
-                if (classTable.getComponentArray(0).getCArray(i) == selectedPair.first)
+                if (classTable.getComponentArray(0).getCArray(i) == selectedPair.second)
                 {
                     return i;
                 }
@@ -410,12 +414,12 @@ public class ClassTableEditorPart extends EditorPart
 
         for (Object o : s.toArray())
         {
-            if (o instanceof Pair<?,?>)
+            if (o instanceof Triple<?,?,?>)
             {
-                Pair<?,?> selectedPair = (Pair<?,?>)o;
+                Triple<?,?,?> selectedPair = (Triple<?,?,?>)o;
                 for (int i = 0; i < classTable.getComponentArray(0).sizeOfCArray(); i++)
                 {
-                    if (classTable.getComponentArray(0).getCArray(i) == selectedPair.first)
+                    if (classTable.getComponentArray(0).getCArray(i) == selectedPair.second)
                     {
                         indices.add(i);
                     }
@@ -453,9 +457,30 @@ public class ClassTableEditorPart extends EditorPart
         table = new Table(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.MULTI);
         viewer = new TableViewer(table);
         viewer.setContentProvider(new ClassTableContentProvider());
-        for (int colIndex = 0; colIndex < classTable.sizeOfComponentArray(); colIndex++)
+        TableColumn tcNum = new TableColumn(table, SWT.TRAIL);
+        tcNum.setWidth(35);
+        TableViewerColumn tvcNum = new TableViewerColumn(viewer, tcNum);
+        tvcNum.setLabelProvider(new CellLabelProvider(){
+            
+            @Override
+            public void update(ViewerCell cell)
+            {
+                Object o = cell.getViewerRow().getElement();
+                if (o instanceof Triple<?,?,?>)
+                {
+                    Object cValue = ((Triple<?,?,?>)o).get(0);
+                    if (cValue instanceof Integer)
+                    {
+                        int row = ((Integer)cValue).intValue() + 1;
+                        cell.setText(Integer.toString(row));
+                    }
+                }
+            }
+        });
+        for (int colIndex = COL_OFFSET; colIndex <
+             classTable.sizeOfComponentArray() + COL_OFFSET; colIndex++)
         {
-            ComponentRef cr = classTable.getComponentArray(colIndex);
+            ComponentRef cr = classTable.getComponentArray(colIndex-COL_OFFSET);
             final String colRef = cr.getR();
             final int col = colIndex;
             TableColumn tc = new TableColumn(table, SWT.LEAD);
@@ -467,18 +492,59 @@ public class ClassTableEditorPart extends EditorPart
             tvc.setEditingSupport(new CellEditingSupport(viewer, colRef, colIndex));
             tvc.setLabelProvider(new CellLabelProvider(){
                 
+                /* (non-Javadoc)
+                 * @see org.eclipse.jface.viewers.CellLabelProvider#getToolTipFont(java.lang.Object)
+                 */
+                @Override
+                public Font getToolTipFont(Object object)
+                {
+                    if (object instanceof Triple<?,?,?>)
+                    {
+                        Object cValue = ((Triple<?,?,?>)object).get(col);
+                        if (cValue instanceof C)
+                        {
+                            return (parentEditor.getFont(col-COL_OFFSET));
+                        }
+                    }
+                    return super.getToolTipFont(object);
+                }
+
+                /* (non-Javadoc)
+                 * @see org.eclipse.jface.viewers.CellLabelProvider#getToolTipText(java.lang.Object)
+                 */
+                @Override
+                public String getToolTipText(Object element)
+                {
+                    if (element instanceof Triple<?,?,?>)
+                    {
+                        Object cValue = ((Triple<?,?,?>)element).get(col);
+                        if (cValue instanceof C)
+                        {
+                            //cell.setText(SyllableConverterUtils.getCText((C)cValue));
+                            String text = SyllableConverterUtils.getCTextWithCodes((C)cValue);
+                            return text;
+                        }
+                    }
+                    return super.getToolTipText(element);
+                }
+
                 @Override
                 public void update(ViewerCell cell)
                 {
                     Object o = cell.getViewerRow().getElement();
-                    if (o instanceof Pair<?,?>)
+                    if (o instanceof Triple<?,?,?>)
                     {
-                        Object cValue = ((Pair<?,?>)o).get(col);
+                        Object cValue = ((Triple<?,?,?>)o).get(col);
                         if (cValue instanceof C)
                         {
                             //cell.setText(SyllableConverterUtils.getCText((C)cValue));
-                            cell.setText(SyllableConverterUtils.getCTextWithCodes((C)cValue));
-                            cell.setFont(parentEditor.getFont(col));
+                            String text = SyllableConverterUtils.getCTextWithCodes((C)cValue);
+                            cell.setText(text);
+                            cell.setFont(parentEditor.getFont(col-COL_OFFSET));
+                        }
+                        else if (cValue instanceof Integer)
+                        {
+                            cell.setText(cValue.toString());
                         }
                     }
                 }});
@@ -525,7 +591,7 @@ public class ClassTableEditorPart extends EditorPart
         @Override
         protected boolean canEdit(Object element)
         {
-            if (element instanceof Pair<?,?>)
+            if (element instanceof Triple<?,?,?> && this.colIndex >= COL_OFFSET)
             {
                 return true;
             }
@@ -540,7 +606,7 @@ public class ClassTableEditorPart extends EditorPart
         {
             if (editor == null) editor = new TextCellEditor(table);
             Control control = editor.getControl();
-            control.setFont(parentEditor.getFont(colIndex));
+            control.setFont(parentEditor.getFont(colIndex-COL_OFFSET));
             return editor;
         }
 
@@ -550,9 +616,9 @@ public class ClassTableEditorPart extends EditorPart
         @Override
         protected Object getValue(Object element)
         {
-            if (element instanceof Pair<?,?>)
+            if (element instanceof Triple<?,?,?>)
             {
-                C c = (C)((Pair<?,?>)element).get(colIndex);
+                C c = (C)((Triple<?,?,?>)element).get(colIndex);
                 return SyllableConverterUtils.getCText(c);
             }
             return null;
@@ -564,7 +630,7 @@ public class ClassTableEditorPart extends EditorPart
         @Override
         protected void setValue(Object element, Object value)
         {
-            Object o = ((Pair<?,?>)element).get(colIndex);
+            Object o = ((Triple<?,?,?>)element).get(colIndex);
             if (o instanceof C)
             {
                 C c = (C)o;

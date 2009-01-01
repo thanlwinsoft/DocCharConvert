@@ -164,9 +164,10 @@ public class MappingTable
     * @param rightEntry array of integers representing the component values
     * on the right hand side of the map
     */
-    public void addMap(Integer [] leftEntry, Integer [] rightEntry)
+    public int addMap(Integer [] leftEntry, Integer [] rightEntry, int rowNum)
         throws ConflictException, IllegalArgumentException
     {
+        int status = 0;
         if (leftEntry == null || rightEntry == null || leftEntry.length != leftSizes.size() ||
              rightEntry.length != rightSizes.size())
         {
@@ -176,6 +177,7 @@ public class MappingTable
                 MessageFormat.format(rb.getString("wrongMapSize"), 
                 		             args));            
         }
+        boolean ambiguous = false;
         int leftOffset = getMapOffset(leftSizes, leftEntry);
         int entryIndexL = rightEntries.size();
         int rightOffset = getMapOffset(rightSizes, rightEntry);
@@ -189,8 +191,10 @@ public class MappingTable
         //if (leftMap[leftOffset] != UNKNOWN)
         if (leftMap.containsKey(leftOffset))
         {
-            if (debug) debugStream.println(
+            if (debug) debugStream.println(id + ":" + rowNum + "\t" +
                     MessageUtil.getString("ambiguousForwards"));
+            status |= MappingStatus.AMBIGUOUS_FORWARDS.bit();
+            ambiguous = true;
             if (!firstEntryWins)
             {
                 arrayR = setAmbiguousFlag(arrayR, 
@@ -209,8 +213,10 @@ public class MappingTable
 
         if (rightMap.containsKey(rightOffset))
         {
-            if (debug) debugStream.println(
+            if (debug) debugStream.println(id + ":" + rowNum + "\t" +
                     MessageUtil.getString("ambiguousBackwards"));
+            status |= MappingStatus.AMBIGUOUS_BACKWARDS.bit();
+            ambiguous = true;
             if (!firstEntryWins)
             {
                 arrayL = setAmbiguousFlag(arrayL, 
@@ -223,11 +229,13 @@ public class MappingTable
             rightMap.put(rightOffset, entryIndexR);
         }
         leftEntries.add(arrayL);
-        if (debug)
-            debugStream.println(showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
+        if (debug && ambiguous)
+            debugStream.println(id + ":" + rowNum + "\t" +
+                    showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
                 "\t" + showEntry(1,rightEntry) + rightOffset + ":" + entryIndexR + 
                 "\t" + showEntry(0, arrayL.toArray(new Integer[leftEntry.length])) + 
                 "\t" + showEntry(1, arrayR.toArray(new Integer[rightEntry.length])));
+        return status;
     }
     /**
      * More than 2 lines match the same map offset on this side
@@ -406,7 +414,7 @@ public class MappingTable
     public void setFirstEntryWins(boolean use) { firstEntryWins = use; }
     public boolean firstEntryWins() { return firstEntryWins; }
     public String getId() { return id; }
-    public String toString() 
+    public String toString()
     {
         return id + " " + getNumLeftColumns() + "|" + getNumRightColumns();
     }

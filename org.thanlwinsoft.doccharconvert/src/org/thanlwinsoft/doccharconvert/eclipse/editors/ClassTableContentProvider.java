@@ -25,7 +25,7 @@ import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
-import org.thanlwinsoft.util.Pair;
+import org.thanlwinsoft.util.Triple;
 /**
  * @author keith
  *
@@ -63,12 +63,12 @@ public class ClassTableContentProvider implements IContentProvider,
                 (org.thanlwinsoft.schemas.syllableParser.Class)inputElement;
             ComponentRef a = clazz.getComponentArray(0);
             ComponentRef b = clazz.getComponentArray(1);
-            ArrayList<Pair<C,C> > elements = new ArrayList<Pair<C,C>> ();
+            ArrayList<Triple<Integer,C,C> > elements = new ArrayList<Triple<Integer,C,C>> ();
             for (int i = 0; i < a.sizeOfCArray() && i < b.sizeOfCArray(); i++)
             {
-                elements.add(new Pair<C,C>(a.getCArray(i), b.getCArray(i)));
+                elements.add(new Triple<Integer,C,C>(i,a.getCArray(i), b.getCArray(i)));
             }
-            return elements.toArray(new Pair<?,?>[elements.size()]);
+            return elements.toArray(new Triple<?,?,?>[elements.size()]);
         }
         return null;
     }

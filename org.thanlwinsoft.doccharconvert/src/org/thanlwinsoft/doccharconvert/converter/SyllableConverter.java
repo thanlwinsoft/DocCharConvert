@@ -26,6 +26,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.TimeZone;
 import java.util.Vector;
 import java.util.Iterator;
@@ -66,6 +67,8 @@ public class SyllableConverter extends ReversibleConverter
     private int INVALID_COMP = -2;
     private long filetime = -1;
     private boolean debug = false;
+    private boolean mDoLogStatus = false;
+    private Map<String,Map<Integer,Integer> > mMapStatus = null;
     private boolean backtrackEnabled = false;
     private Vector<SyllableChecker> checkers = null;
     private PrintStream debugStream = System.out;
@@ -707,6 +710,7 @@ public class SyllableConverter extends ReversibleConverter
         
         SyllableXmlReader reader = new SyllableXmlReader(xmlURL, mLoader, debug,
                 debugStream);
+        if (mDoLogStatus) reader.logMapStatus();
         if (reader.parse())
         {
             scripts = reader.getScripts();
@@ -714,6 +718,7 @@ public class SyllableConverter extends ReversibleConverter
             checkers = reader.getCheckers();
             backtrackEnabled = reader.isBacktrackEnabled();
             initOk = true;
+            if (mDoLogStatus) mMapStatus = reader.getLogMapStatus();
         }
         else
         {
@@ -757,4 +762,11 @@ public class SyllableConverter extends ReversibleConverter
     {
         mLoader  = loader;
     }
+    public int getMapStatus(String mapId, int line)
+    {
+        if (mMapStatus == null || !mMapStatus.containsKey(mapId) ||
+            !mMapStatus.get(mapId).containsKey(line)) return 0;
+        return mMapStatus.get(mapId).get(line);
+    }
+    public void logMapStatus() { mDoLogStatus = true; }
 }

@@ -405,6 +405,21 @@
             path="converters">
       </converterDir>
    </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="org.thanlwinsoft.doccharconvert.ConversionInputEditorContribution"
+            targetID="org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor">
+         <action
+               class="org.thanlwinsoft.doccharconvert.eclipse.editors.ReinitConversionInputEditorAction"
+               icon="icons/ReinitConversion16.png"
+               id="org.thanlwinsoft.doccharconvert.eclipse.editors.ReinitConversionInputEditorAction"
+               label="%ReinitConversionInputEditorAction"
+               menubarPath="File/additions"
+               toolbarPath="Bar/additions">
+         </action>
+      </editorContribution>
+   </extension>
    <!--
    <extension
          point="org.eclipse.ui.intro.configExtension">

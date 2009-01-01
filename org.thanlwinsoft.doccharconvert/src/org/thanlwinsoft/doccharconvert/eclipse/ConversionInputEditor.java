@@ -53,6 +53,7 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
     private CharConverter charConverter = null;
     private CharConverter reverseConverter = null;
     private int fontSize = 12;
+    private boolean reinit = false;
     public ConversionInputEditor()
     {
         super();
@@ -170,8 +171,18 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
     {
         showConversion(event.getDocument());
     }
+    public void reinit()
+    {
+        reinit = true;
+        if (getSourceViewer() != null && 
+                getSourceViewer().getDocument() != null)
+        {
+            showConversion(getSourceViewer().getDocument());
+        }
+    }
     protected void showConversion(IDocument document)
     {
+        // TODO move the conversion parsing / initialization into a separate thread
         if (charConverter == null) 
         {
             // try to re-find the char converter
@@ -197,7 +208,7 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
         }
         try
         {
-            if (charConverter.isInitialized() == false)
+            if (reinit || (charConverter.isInitialized() == false))
             {
                 charConverter.initialize();
             }
@@ -221,7 +232,8 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
             String reversed = "";
             if (reverseConverter != null)
             {
-                reverseConverter.initialize();
+                if (reinit || (!reverseConverter.isInitialized()))
+                    reverseConverter.initialize();
                 if (reverseConverter.isInitialized())
                     reversed = reverseConverter.convert(converted);
             }
@@ -237,6 +249,8 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
             ConversionHelper.debugDump(reversed, hexCodes);
             if (unicode != null)
                 unicode.setResult(JFaceResources.getTextFont(), hexCodes.toString());
+
+            reinit = false;
         }
         catch (CharConverter.RecoverableException e)
         {

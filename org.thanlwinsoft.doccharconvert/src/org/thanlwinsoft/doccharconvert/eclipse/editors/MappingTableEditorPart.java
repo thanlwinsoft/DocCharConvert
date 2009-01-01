@@ -80,6 +80,7 @@ public class MappingTableEditorPart extends EditorPart
     private TableViewer viewer = null;
     private MenuManager menuManager;
     private Clipboard clipboard;
+    public final static String NUM_REF = "_NUM_";
 
     /*
      * (non-Javadoc)
@@ -95,6 +96,11 @@ public class MappingTableEditorPart extends EditorPart
             clipboard.dispose();
         }
         super.dispose();
+    }
+
+    public void refresh()
+    {
+        viewer.refresh(true);
     }
 
     MappingTableEditorPart(SyllableConverterEditor parentEditor, MappingTable mt)
@@ -659,11 +665,17 @@ public class MappingTableEditorPart extends EditorPart
         viewer.setContentProvider(new MappingTableContentProvider());
         MappingTableLabelProvider mtlp = new MappingTableLabelProvider(mt, parentEditor);
         viewer.setLabelProvider(mtlp);
+        
+        TableColumn tcNum = new TableColumn(table, SWT.TRAIL);
+        //tcNum.setText("");
+        tcNum.setWidth(35);
+//        TableViewerColumn tvc = new TableViewerColumn(viewer, tc);
 
         for (ComponentRef cr : mt.getColumns().getComponentArray())
         {
             final String colRef = cr.getR();
             TableColumn tc = new TableColumn(table, SWT.LEAD);
+            tc.setToolTipText(cr.getR());
             tc.setText(cr.getR());
             tc.setWidth(70);
             TableViewerColumn tvc = new TableViewerColumn(viewer, tc);
@@ -691,6 +703,26 @@ public class MappingTableEditorPart extends EditorPart
                     SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
                     int side = SyllableConverterUtils.getSide(sc, colRef);
                     return parentEditor.getFont(side);
+                }
+
+                /* (non-Javadoc)
+                 * @see org.eclipse.jface.viewers.CellLabelProvider#getToolTipDisplayDelayTime(java.lang.Object)
+                 */
+                @Override
+                public int getToolTipDisplayDelayTime(Object object)
+                {
+                    // TODO Auto-generated method stub
+                    return 2000;//super.getToolTipDisplayDelayTime(object);
+                }
+
+                /* (non-Javadoc)
+                 * @see org.eclipse.jface.viewers.CellLabelProvider#getToolTipStyle(java.lang.Object)
+                 */
+                @Override
+                public int getToolTipStyle(Object object)
+                {
+                    // TODO Auto-generated method stub
+                    return super.getToolTipStyle(object);
                 }
 
                 @Override

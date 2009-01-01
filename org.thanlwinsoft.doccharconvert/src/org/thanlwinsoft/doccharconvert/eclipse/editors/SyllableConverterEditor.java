@@ -21,6 +21,7 @@ package org.thanlwinsoft.doccharconvert.eclipse.editors;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlOptions;
@@ -47,6 +48,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
+import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.eclipse.EditorUtils;
 import org.thanlwinsoft.schemas.docCharConvert.DocCharConverterDocument;
@@ -64,6 +66,7 @@ import org.thanlwinsoft.schemas.syllableParser.MappingTable;
 public class SyllableConverterEditor extends MultiPageEditorPart
 {
     private Composite parent;
+    private org.thanlwinsoft.doccharconvert.converter.SyllableConverter mConverter = null;
     public final static String ID = "org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor";
     private SyllableConverterDocument converterDoc;
     private boolean dirty;
@@ -94,10 +97,15 @@ public class SyllableConverterEditor extends MultiPageEditorPart
             {
                 mFileInput = (FileEditorInput)input;
                 mFileInput.getFile().refreshLocal(1, null);
+                URL fileUrl = mFileInput.getFile().getLocationURI().toURL();
+                mConverter = new org.thanlwinsoft.doccharconvert.converter.SyllableConverter(fileUrl);
+                mConverter.logMapStatus();
+                mConverter.initialize();
             }
             InputStream is = EditorUtils.getInputStream(this);
             if (is != null)
                 converterDoc = SyllableConverterDocument.Factory.parse(is);
+
         }
         catch (CoreException e)
         {
@@ -116,6 +124,12 @@ public class SyllableConverterEditor extends MultiPageEditorPart
             MessageDialog.openWarning(site.getShell(), 
                 MessageUtil.getString("SyllableConverterEditor"), 
                 e.getLocalizedMessage());
+        }
+        catch (FatalException e)
+        {
+            MessageDialog.openWarning(site.getShell(), 
+                    MessageUtil.getString("SyllableConverterEditor"), 
+                    e.getLocalizedMessage());
         }
     }
 
@@ -259,6 +273,20 @@ public class SyllableConverterEditor extends MultiPageEditorPart
                 IFile wsFile = EditorUtils.getWsFileFromInput(this);
                 if (wsFile != null)
                     wsFile.refreshLocal(1, monitor);
+                URL fileUrl = wsFile.getLocationURI().toURL();
+                mConverter = new org.thanlwinsoft.doccharconvert.converter.SyllableConverter(fileUrl);
+                monitor.beginTask(MessageUtil.getString("CompilingSyllableConverter"), 1);
+                mConverter.logMapStatus();
+                mConverter.initialize();
+                for (int i = 0; i < getPageCount(); i++)
+                {
+                    IEditorPart part = this.getEditor(i);
+                    if (part instanceof MappingTableEditorPart)
+                    {
+                        ((MappingTableEditorPart)part).refresh();
+                    }
+                }
+                monitor.worked(1);
                 monitor.done();
                 this.setDirty(false);
             }
@@ -269,6 +297,14 @@ public class SyllableConverterEditor extends MultiPageEditorPart
             catch (CoreException e)
             {
                 monitor.setCanceled(true);
+            }
+            catch (FatalException e)
+            {
+                monitor.worked(1);
+                monitor.done();
+                MessageDialog.openWarning(parent.getShell(),
+                        MessageUtil.getString("SyllableConverterEditor"),
+                        e.getLocalizedMessage());
             }
         }
     }
@@ -323,6 +359,7 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         if (this.dirty != dirty)
         {
             this.dirty = dirty;
+            this.mConverter = null;// needs to await a recompile on save
             this.firePropertyChange(PROP_DIRTY);
         }
     }
@@ -398,5 +435,8 @@ public class SyllableConverterEditor extends MultiPageEditorPart
 
         return font;
     }
-
+    protected org.thanlwinsoft.doccharconvert.converter.SyllableConverter getConverter()
+    {
+        return mConverter;
+    }
 }

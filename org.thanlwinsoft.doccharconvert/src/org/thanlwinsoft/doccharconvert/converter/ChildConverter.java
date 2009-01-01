@@ -74,7 +74,6 @@ public class ChildConverter implements CharConverter
     
     public void initialize() throws CharConverter.FatalException
     {
-      if (!parent.isInitialized())
         parent.initialize();
     }
     public String getName()

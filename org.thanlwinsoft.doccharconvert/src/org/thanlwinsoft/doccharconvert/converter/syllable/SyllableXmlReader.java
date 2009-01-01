@@ -35,6 +35,7 @@ import org.w3c.dom.NodeList;
 import java.io.InputStream;
 import java.util.ResourceBundle;
 import java.text.MessageFormat;
+import java.util.HashMap;
 import java.util.StringTokenizer;
 import java.util.Map;
 import java.util.Iterator;
@@ -100,6 +101,7 @@ public class SyllableXmlReader
     private boolean enableBacktrack = false;
     private PrintStream debugStream = System.out;
     private IClassLoaderUtil mLoader = null;
+    private Map <String,Map<Integer,Integer> > mMapStatus = null;
     private static final String namespaceURI = "http://www.thanlwinsoft.org/schemas/SyllableParser";
 
     public SyllableXmlReader(File xmlFile, IClassLoaderUtil loader, boolean debug, PrintStream ps)
@@ -881,6 +883,7 @@ public class SyllableXmlReader
                 Iterator<Integer[]> iLeftArray = leftValues.iterator();
                 Iterator<Integer[]> iRightArray = rightValues.iterator();
                 assert (leftValues.size() == rightValues.size());
+                int status = 0;
                 // generate the table entries for this map line
                 while (iLeftArray.hasNext() && iRightArray.hasNext())
                 {
@@ -894,7 +897,13 @@ public class SyllableXmlReader
                         errorLog.append('\n');
                         return false;
                     }
-                    table.addMap(tempL, tempR);
+                    status |= table.addMap(tempL, tempR, j);
+                }
+                if (status > 0 && mMapStatus != null)
+                {
+                    if (!mMapStatus.containsKey(id))
+                        mMapStatus.put(id, new HashMap<Integer,Integer>());
+                    mMapStatus.get(id).put(j, status);
                 }
             } // for (int j = 0; j<mapList.getLength(); j++)
             if (!initialPass)
@@ -1115,5 +1124,13 @@ public class SyllableXmlReader
             errorLog.append(e.getLocalizedMessage());
         }
         return added;
+    }
+    public void logMapStatus()
+    {
+        mMapStatus = new HashMap <String,Map<Integer,Integer> >();
+    }
+    public Map <String,Map<Integer,Integer> > getLogMapStatus()
+    {
+        return mMapStatus;
     }
 }
