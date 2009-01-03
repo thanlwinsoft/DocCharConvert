@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Teckit Win32 Fragment for x86
+Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.teckit.win32.x86;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: www.thanlwinsoft.org
+Fragment-Host: org.thanlwinsoft.doccharconvert;bundle-version="1.2.1"
+Eclipse-PlatformFilter: (& (osgi.os=win32) (osgi.arch=x86))
