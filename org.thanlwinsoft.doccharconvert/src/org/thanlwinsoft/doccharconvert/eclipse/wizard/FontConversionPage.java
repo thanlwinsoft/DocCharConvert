@@ -108,7 +108,9 @@ public class FontConversionPage extends WizardPage
         });
         setPageComplete(false);
     }
-    
+    /**
+     * checks the users choices are valid
+     */
     public void validatePage()
     {
         if (conversion.getConversionMode().hasStyleSupport() || 
@@ -122,6 +124,9 @@ public class FontConversionPage extends WizardPage
         }
     }
 
+    /**
+     * populates the font list from the ChildConverter styles
+     */
     public void populateFontList()
     {
         Vector <ChildConverter> childConverters = converterPage.getChildConverters();
@@ -178,6 +183,10 @@ public class FontConversionPage extends WizardPage
         return super.getNextPage();
     }
     
+    /**
+     * 
+     * @return selected converters
+     */
     public Vector<CharConverter> getSelectedConverters()
     {
         return selectedConverters;

@@ -40,7 +40,13 @@ import org.thanlwinsoft.util.IClassLoaderUtil;
  */
 public class ExternalConverter implements CharConverter, Runnable
 {
+    /**
+     * flag for using Standard Input/output
+     */
     public final static int USE_STDINOUT = 0;
+    /**
+     * flag for using arguments to determine input/output
+     */
     public final static int USE_ARGSINOUT = 1;
     private final static String UTF8= "UTF-8";
     private String programPath = "";
@@ -58,8 +64,8 @@ public class ExternalConverter implements CharConverter, Runnable
     private TextStyle oldStyle = null;
     private File inFile = null;
     private File outFile = null;
-    public final String INTAG = "INFILE";
-    public final String OUTTAG = "OUTFILE";
+    protected final String INTAG = "INFILE";
+    protected final String OUTTAG = "OUTFILE";
     protected String eol = "\n";
     private String name = "";
     private File execDir = null;
@@ -68,12 +74,23 @@ public class ExternalConverter implements CharConverter, Runnable
     private Charset inCharset = Charset.forName(UTF8);
     private Charset outCharset = Charset.forName(UTF8);
     /** Creates a new instance of ExternalConverter 
-     * This should be used when wrapped in a ChildConverter     
+     * This should be used when wrapped in a ChildConverter
+     * @param program 
+     * @param arguments 
+     * @param mode 
      */
     public ExternalConverter(String program, String arguments, int mode)
     {
         construct(program,arguments,mode,null,null);
     }
+    /**
+     * Constructor with styles
+     * @param program
+     * @param arguments
+     * @param mode
+     * @param oldStyle
+     * @param newStyle
+     */
     public ExternalConverter(String program, String arguments, int mode, 
         TextStyle oldStyle, TextStyle newStyle)
     {
@@ -95,6 +112,9 @@ public class ExternalConverter implements CharConverter, Runnable
     }
     public String getName() { return name; }
     public void setName(String aName) { this.name =aName; }
+    /**
+     * @param anEol
+     */
     public void setEndOfLine(String anEol)
     {
         this.eol = anEol;
@@ -106,6 +126,10 @@ public class ExternalConverter implements CharConverter, Runnable
      * cause problems.
      * Each call to convert will cause at least
      * one newline to be sent to the external program.
+     * @param oldText 
+     * @return conversion result
+     * @throws CharConverter.RecoverableException 
+     * @throws CharConverter.FatalException 
      */
     public String convert(String oldText) throws CharConverter.RecoverableException,
         CharConverter.FatalException

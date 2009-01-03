@@ -27,24 +27,55 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter;
  */
 public interface DocInterface
 {
+    /**
+     * @throws InterfaceException
+     */
     void initialise() throws InterfaceException;
+    /**
+     * dispose any OS resources
+     */
     void destroy();
+    /**
+     * @param input
+     * @param output
+     * @param converters
+     * @param notifier
+     * @throws CharConverter.FatalException
+     * @throws InterfaceException
+     * @throws WarningException
+     */
     void parse(File input, File output, java.util.Map<TextStyle,CharConverter> converters, ProgressNotifier notifier) 
         throws CharConverter.FatalException, InterfaceException,
         WarningException;
+    /**
+     * @return descriptio of status
+     */
     String getStatusDesc();
+    /**
+     * @author keith
+     *
+     */
     public class InterfaceException extends Exception
     {
         /**
-		 * 
-		 */
-		private static final long serialVersionUID = 5240937337192021874L;
+         * 
+         */
+        private static final long serialVersionUID = 5240937337192021874L;
 
-		public InterfaceException(String msg)
+        /**
+         * 
+         * @param msg
+         */
+        public InterfaceException(String msg)
         {
             super(msg);
         }
     }
+    /**
+     * 
+     * @author keith
+     * Warning Exception - non fatal, Conversion can proceed but may be incorrect
+     */
     public class WarningException extends Exception
     {
         /**
@@ -52,15 +83,33 @@ public interface DocInterface
 		 */
 		private static final long serialVersionUID = 2860752860816168163L;
 
+		/**
+		 * @param msg
+		 */
 		public WarningException(String msg)
         {
             super(msg);
         }
     }
+    /**
+     * @return mode
+     */
     public ConversionMode getMode();
+    /**
+     * @param mode
+     */
     public void setMode(ConversionMode mode);
     
+    /**
+     * @param iEnc
+     */
     public void setInputEncoding(Charset iEnc);
+    /**
+     * @param oEnc
+     */
     public void setOutputEncoding(Charset oEnc);
+    /**
+     * 
+     */
     public void abort();
 }

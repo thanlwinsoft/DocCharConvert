@@ -41,6 +41,10 @@ import org.thanlwinsoft.schemas.docCharConvert.ArgType;
 import org.thanlwinsoft.schemas.docCharConvert.Argument;
 import org.thanlwinsoft.schemas.docCharConvert.ConverterClass;
 
+/**
+ * @author keith
+ * Wizard to create a new SyllableConverter
+ */
 public class NewSyllableConverterWizard extends Wizard implements INewWizard
 {
 

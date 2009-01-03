@@ -74,6 +74,12 @@ public class ConversionResult extends ViewPart
         copyAction.setEnabled(false);
     }
 
+    /**
+     * 
+     * @param faceName
+     * @param fontSize
+     * @param result
+     */
     public void setResult(String faceName, int fontSize, String result)
     {
         //int fontSize = JFaceResources.getDialogFont().getFontData()[0].getHeight();
@@ -81,7 +87,12 @@ public class ConversionResult extends ViewPart
         Font font = new Font(parent.getDisplay(), fd);
         setResult(font, result);
     }
-    
+
+    /**
+     * 
+     * @param font
+     * @param result
+     */
     public void setResult(Font font, String result)
     {
         textViewer.getTextWidget().setFont(font);

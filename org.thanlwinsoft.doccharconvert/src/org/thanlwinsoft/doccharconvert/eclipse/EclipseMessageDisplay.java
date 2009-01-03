@@ -30,7 +30,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.SWT;
 
-/**
+/** Implementation of IMessageDisplay for use within Eclipse
  * @author keith
  * 
  */
@@ -38,6 +38,9 @@ public class EclipseMessageDisplay implements IMessageDisplay
 {
     Shell shell = null;
 
+    /**
+     * @param shell
+     */
     public EclipseMessageDisplay(Shell shell)
     {
         this.shell = shell;

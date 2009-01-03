@@ -80,7 +80,13 @@ public class ConversionWizard extends Wizard implements INewWizard
     private WizardDialog dialog;
     private ConversionRunnable runnable = null;
     
+    /**
+     * name of default project to create
+     */
     public final static String DEFAULT_PROJECT = "DocCharConvertData";
+    /**
+     * extension of input data file
+     */
     public final static String TXT_EXT = ".txt";
     
     static final String DOC_PARSER_PAGE = "DOC_PARSER_PAGE";
@@ -88,7 +94,10 @@ public class ConversionWizard extends Wizard implements INewWizard
     static final String FONT_CONVERTER_PAGE = "FONT_CONVERTER_PAGE";
     static final String ENCODING_PAGE = "ENCODING_PAGE";
     static final String FILE_SELECT_PAGE = "FILE_SELECT_PAGE";
-    
+    /**
+     * 
+     * @param window
+     */
     public ConversionWizard(IWorkbenchWindow window)
     {
         this.wbWindow = window;
@@ -233,7 +242,10 @@ public class ConversionWizard extends Wizard implements INewWizard
         
         return true;
     }
-    
+    /**
+     * 
+     * @return runnable to perform the conversion
+     */
     public ConversionRunnable getRunnable()
     {
         return runnable;
@@ -353,6 +365,10 @@ public class ConversionWizard extends Wizard implements INewWizard
         super.createPageControls(pageContainer);
     }
 
+    /**
+     * 
+     * @param dialog
+     */
     public void setDialog(WizardDialog dialog)
     {
         this.dialog = dialog;

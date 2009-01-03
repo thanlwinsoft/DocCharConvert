@@ -63,7 +63,13 @@ public class MappingTable
     boolean debug = false;
     boolean optional = false;
     boolean firstEntryWins = false;// ambiguous resolution mode
+    /**
+     * unknown mapping - initial value
+     */
     public static final int UNKNOWN = -1;
+    /**
+     * ambigous mapping - more than one map entry was specified for this syllable entry
+     */
     public static final int AMBIGUOUS = -3;
     ResourceBundle rb = null;
     PrintStream debugStream = System.out;
@@ -71,6 +77,8 @@ public class MappingTable
     * @param id name of table identifier used in XML file
     * @param columns array of components in the table
     * there must be components present from 2 scripts
+     * @throws IllegalArgumentException 
+     * @throws ConflictException 
     * 
     */
     public MappingTable(String id, Component [] columns) 
@@ -163,6 +171,10 @@ public class MappingTable
     * on the left hand side of the map
     * @param rightEntry array of integers representing the component values
     * on the right hand side of the map
+     * @param rowNum 
+     * @return status
+     * @throws ConflictException 
+     * @throws IllegalArgumentException 
     */
     public int addMap(Integer [] leftEntry, Integer [] rightEntry, int rowNum)
         throws ConflictException, IllegalArgumentException
@@ -358,14 +370,27 @@ public class MappingTable
         }
         return result;
     }
+    /**
+     * 
+     * @return number of columns
+     */
     public int getNumLeftColumns()
     {
       return leftColumnMap.size();
     }
+    /**
+     * 
+     * @return number of columns
+     */
     public int getNumRightColumns()
     {
       return rightColumnMap.size();
     }
+    /**
+     * 
+     * @param side
+     * @return number of columns
+     */
     public int getNumColumns(int side)
     {
         int result = 0;
@@ -383,6 +408,12 @@ public class MappingTable
         }
         return result;
     }
+    /**
+     * 
+     * @param side
+     * @param index
+     * @return ID of column at given index
+     */
     public String getColumnId(int side, int index)
     {
         String result = null;
@@ -400,20 +431,56 @@ public class MappingTable
         }
         return result;
     }
+    /**
+     * 
+     * @param index
+     * @return ID
+     */
     public String getRightColumnId(int index)
     {
       return rightColumnMap.keySet().toArray(new String[0])[index];
     }
+    /**
+     * 
+     * @param index
+     * @return ID
+     */
     public String getLeftColumnId(int index)
     {
       return leftColumnMap.keySet().toArray(new String[0])[index];
     }
+    /**
+     * 
+     * @param on
+     * @param ps
+     */
     public void setDebug(boolean on, PrintStream ps) { debug = on; debugStream = ps; }
+    /**
+     * 
+     * @param yes
+     */
     public void setOptional(boolean yes) { optional = yes; }
+    /**
+     * 
+     * @return true if optional
+     */
     public boolean isOptional() { return optional; }
+    /**
+     * 
+     * @param use
+     */
     public void setFirstEntryWins(boolean use) { firstEntryWins = use; }
+    /**
+     * 
+     * @return first mapping for a given entry will be used any subsequent mappings will be ignored
+     */
     public boolean firstEntryWins() { return firstEntryWins; }
+    /**
+     * 
+     * @return id of table
+     */
     public String getId() { return id; }
+    @Override
     public String toString()
     {
         return id + " " + getNumLeftColumns() + "|" + getNumRightColumns();

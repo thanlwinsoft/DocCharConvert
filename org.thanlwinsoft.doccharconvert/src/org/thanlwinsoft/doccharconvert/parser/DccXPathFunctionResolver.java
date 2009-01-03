@@ -31,6 +31,11 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.RecoverableException;
 
+/**
+ * 
+ * @author keith
+ * XPath function resolver for DocCharConvert converters
+ */
 public class DccXPathFunctionResolver implements XPathFunctionResolver
 {
     final Map<TextStyle, CharConverter> mConverters;
@@ -47,6 +52,7 @@ public class DccXPathFunctionResolver implements XPathFunctionResolver
             return new XPathFunction() {
 
                 @Override
+                @SuppressWarnings(value={"unchecked"})
                 public Object evaluate(List args) throws XPathFunctionException
                 {
                     CharConverter cc = mConverters.values().iterator().next();

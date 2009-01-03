@@ -34,11 +34,22 @@ import org.thanlwinsoft.schemas.syllableParser.Side;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.schemas.syllableParser.SyllableConverterDocument;
 
+/**
+ * @author keith
+ * Page to create a new Syllable Converter
+ */
 public class NewSyllableConverterPage extends WizardNewFileCreationPage
 {
+    /**
+     * file extension of SyllableConverter configuration
+     */
     public static final String EXTENSION = "xml";
     final private NewDccxWizardPage mConfigPage;
     
+    /**
+     * @param s
+     * @param configPage
+     */
     public NewSyllableConverterPage(IStructuredSelection s, NewDccxWizardPage configPage)
     {
         super("NewSyllableConverterPage", s);

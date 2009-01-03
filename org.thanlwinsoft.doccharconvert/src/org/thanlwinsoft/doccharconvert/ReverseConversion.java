@@ -30,6 +30,11 @@ import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
  */
 public class ReverseConversion
 {
+    /**
+     * @param availableConverters
+     * @param conv
+     * @return corresponding reverse conversion
+     */
     public static CharConverter get(Vector<CharConverter>availableConverters,
         CharConverter conv)
     {

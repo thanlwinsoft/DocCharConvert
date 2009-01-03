@@ -37,7 +37,12 @@ public class OpenDocStyleManager
     familyMap = new HashMap <OpenDocStyle.StyleFamily, HashMap<String,OpenDocStyle>>();
     pendingStyles = new Stack<ElementProperties>();
   }
-  
+  /**
+   * 
+   * @param family
+   * @param name
+   * @return style for family,name pair
+   */
   public OpenDocStyle getStyle(String family, String name)
   {
     OpenDocStyle.StyleFamily sFamily = OpenDocStyle.StyleFamily.getType(family);
@@ -48,6 +53,12 @@ public class OpenDocStyleManager
     }
     return null;
   }
+  /**
+   * 
+   * @param sFamily
+   * @param name
+   * @return style for specified family,name
+   */
   public OpenDocStyle getStyle(OpenDocStyle.StyleFamily sFamily, String name)
   {
     if (familyMap.containsKey(sFamily))
@@ -57,6 +68,10 @@ public class OpenDocStyleManager
     }
     return null;
   }
+  /**
+   * 
+   * @param style
+   */
   public void addStyle(OpenDocStyle style)
   {
     if (familyMap.containsKey(style.getFamily()))
@@ -71,10 +86,18 @@ public class OpenDocStyleManager
       familyMap.put(style.getFamily(), styleMap);
     }
   }
+  /**
+   * 
+   * @param pendingStyle
+   */
   public void addPendingStyle(ElementProperties pendingStyle)
   {
       pendingStyles.add(pendingStyle);
   }
+  /**
+   * 
+   * @return stack of styles to add to xml file
+   */
   public Stack<ElementProperties> getPendingStyles()
   {
       return pendingStyles;

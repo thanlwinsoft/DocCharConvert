@@ -45,7 +45,7 @@ public class MappingTableLabelProvider extends CellLabelProvider implements
 {
     private MappingTable mappingTable;
     private SyllableConverterEditor mParentEditor;
-    public static final int COL_OFFSET = 1;
+    private static final int COL_OFFSET = 1;
     private static final int STATUS_COLOR = 255;
     private static final int NO_STATUS_COLOR = 172;
     private static Color mForwardsColor = null;
@@ -68,6 +68,11 @@ public class MappingTableLabelProvider extends CellLabelProvider implements
         super.dispose(viewer, column);
     }
 
+    /**
+     * 
+     * @param mappingTable
+     * @param parent
+     */
     public MappingTableLabelProvider(MappingTable mappingTable,
             SyllableConverterEditor parent)
     {

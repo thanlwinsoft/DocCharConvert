@@ -5,13 +5,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: DocCharConvertEclipse Plug-in
 Bundle-Group: org.thanlwinsoft.doccharconvert
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true
-Bundle-Version: 1.2.0.qualifier
+Bundle-Version: 1.2.1.qualifier
 Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConve
  rtEclipsePlugin
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.ui.ide,
  org.eclipse.jface.text,
  org.eclipse.ui.views,
  org.eclipse.ui.editors,
@@ -21,7 +20,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.forms,
  org.eclipse.core.filesystem,
  org.apache.xmlbeans,
- org.eclipse.core.runtime.compatibility;bundle-version="3.2.0"
+ org.eclipse.core.runtime.compatibility;bundle-version="3.2.0",
+ org.eclipse.ui.ide;bundle-version="3.4.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert
  ,org.thanlwinsoft.doccharconvert.converter,org.thanlwinsoft.doccharco
@@ -36,8 +36,9 @@ Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert
  ,org.thanlwinsoft.schemas.syllableParser.impl,org.thanlwinsoft.util,o
  rg.thanlwinsoft.xml
 Bundle-Vendor: ThanLwinSoft.org
-Bundle-ClassPath: lib/DocCharConvertSchema.jar,lib/SyllableParserSchem
- a.jar,../org.apache.xmlbeans/lib/xbean.jar,.
+Bundle-ClassPath: lib/DocCharConvertSchema.jar,
+ lib/SyllableParserSchema.jar,
+ .
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
  ads/updates/
 Import-Package: org.w3c.dom

@@ -26,7 +26,10 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
  */
 public class SyllableComparator implements java.util.Comparator<Syllable>
 {
-  public SyllableComparator()
+  /**
+ * Compares 2 Syllables
+ */
+public SyllableComparator()
   {
 
   }

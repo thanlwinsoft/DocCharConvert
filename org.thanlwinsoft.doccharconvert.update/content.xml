@@ -3,13 +3,13 @@
 <repository name='file:/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.update/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1229966379130'/>
+    <property name='p2.timestamp' value='1230893428546'/>
   </properties>
   <references size='2'>
     <repository url='http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/' type='0' options='0'/>
     <repository url='http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/' type='1' options='0'/>
   </references>
-  <units size='42'>
+  <units size='46'>
     <unit id='tooling.source.default' version='1.0.0' singleton='false'>
       <hostRequirements size='1'>
         <required namespace='org.eclipse.equinox.p2.eclipse.type' name='source' range='0.0.0' optional='true' multiple='true' greedy='false'/>
@@ -1539,7 +1539,7 @@
       <touchpointData size='1'>
         <instructions size='2'>
           <instruction key='manifest'>
-            Bundle-Vendor: www.thanlwinsoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: Teckit&#xA;Bundle-NativeCode: /linux/x86/libTecKitJni.so; osname=linux; processor=x86, /linux/x86_64/libTecKitJni.so; osname=linux; processor=x86_64, /win32/x86/TecKitJni.dll; osname=win32; processor=x86&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.teckit; singleton:=true&#xA;Bundle-Version: 0.1.0.200812222349&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)&#xA;Ant-Version: Apache Ant 1.7.0&#xA;
+            Bundle-Vendor: www.thanlwinsoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: Teckit&#xA;Bundle-NativeCode: /linux/x86/libTecKitJni.so; osname=linux; processor=x86, /linux/x86_64/libTecKitJni.so; osname=linux; processor=x86_64, /win32/x86/TecKitJni.dll; osname=win32; processor=x86&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.teckit; singleton:=true&#xA;Bundle-Version: 0.1.0.200812222349&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)&#xA;Ant-Version: Apache Ant 1.7.0
           </instruction>
           <instruction key='zipped'>
             true
@@ -1601,7 +1601,7 @@
       <touchpointData size='1'>
         <instructions size='2'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-ActivationPolicy: lazy&#xA;Ant-Version: Apache Ant 1.7.0&#xA;Bundle-Name: Mien Plug-in&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Require-Bundle: org.thanlwinsoft.doccharconvert&#xA;Bundle-Vendor: www.thanlwinsoft.org&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.0.0.200812222349&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mien&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;singleton:=true&#xA;Eclipse-LazyStart: true&#xA;
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-ActivationPolicy: lazy&#xA;Ant-Version: Apache Ant 1.7.0&#xA;Bundle-Name: Mien Plug-in&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Require-Bundle: org.thanlwinsoft.doccharconvert&#xA;Bundle-Vendor: www.thanlwinsoft.org&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.0.0.200812222349&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mien&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;singleton:=true&#xA;Eclipse-LazyStart: true
           </instruction>
           <instruction key='zipped'>
             true
@@ -1630,7 +1630,7 @@
       <touchpointData size='1'>
         <instructions size='2'>
           <instruction key='manifest'>
-            Bundle-Vendor: www.thanlwinsoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Require-Bundle: org.thanlwinsoft.doccharconvert&#xA;Bundle-Name: Myanmar Plug-in for DocCharConvert&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanmar;singleton:=true&#xA;Bundle-Version: 1.1.0.200812222349&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Ant-Version: Apache Ant 1.7.0&#xA;
+            Bundle-Vendor: www.thanlwinsoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Require-Bundle: org.thanlwinsoft.doccharconvert&#xA;Bundle-Name: Myanmar Plug-in for DocCharConvert&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanmar;singleton:=true&#xA;Bundle-Version: 1.1.0.200812222349&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Ant-Version: Apache Ant 1.7.0
           </instruction>
           <instruction key='zipped'>
             true
@@ -1729,7 +1729,151 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-Name: DocCharConvertEclipse Plug-in&#xA;Import-Package: org.w3c.dom&#xA;Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert,org.thanlwinsoft.doccharconvert.converter,org.thanlwinsoft.doccharconvert.converter.syllable,org.thanlwinsoft.doccharconvert.converter.test,org.thanlwinsoft.doccharconvert.eclipse,org.thanlwinsoft.doccharconvert.eclipse.editors,org.thanlwinsoft.doccharconvert.eclipse.views,org.thanlwinsoft.doccharconvert.eclipse.wizard,org.thanlwinsoft.doccharconvert.icons,org.thanlwinsoft.doccharconvert.opendoc,org.thanlwinsoft.doccharconvert.parser,org.thanlwinsoft.eclipse,org.thanlwinsoft.eclipse.widgets,org.thanlwinsoft.schemas.docCharConvert,org.thanlwinsoft.schemas.docCharConvert.impl,org.thanlwinsoft.schemas.syllableParser,org.thanlwinsoft.schemas.syllableParser.impl,org.thanlwinsoft.util,org.thanlwinsoft.xml&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Bundle-ClassPath: lib/DocCharConvertSchema.jar,lib/SyllableParserSchema.jar,../org.apache.xmlbeans/lib/xbean.jar,.&#xA;Bundle-Group: org.thanlwinsoft.doccharconvert&#xA;Bundle-ActivationPolicy: lazy&#xA;Ant-Version: Apache Ant 1.7.0&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Bundle-Vendor: ThanLwinSoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.2.0.200812222349&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ui.ide,org.eclipse.jface.text,org.eclipse.ui.views,org.eclipse.ui.editors,org.eclipse.core.resources,org.eclipse.ui.intro,org.eclipse.ui.intro.universal,org.eclipse.ui.forms,org.eclipse.core.filesystem,org.apache.xmlbeans,org.eclipse.core.runtime.compatibility;bundle-version=&quot;3.2.0&quot;&#xA;Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByteCharsetProvider&#xA;Bundle-Localization: plugin&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true&#xA;
+            Bundle-Name: DocCharConvertEclipse Plug-in&#xA;Import-Package: org.w3c.dom&#xA;Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert,org.thanlwinsoft.doccharconvert.converter,org.thanlwinsoft.doccharconvert.converter.syllable,org.thanlwinsoft.doccharconvert.converter.test,org.thanlwinsoft.doccharconvert.eclipse,org.thanlwinsoft.doccharconvert.eclipse.editors,org.thanlwinsoft.doccharconvert.eclipse.views,org.thanlwinsoft.doccharconvert.eclipse.wizard,org.thanlwinsoft.doccharconvert.icons,org.thanlwinsoft.doccharconvert.opendoc,org.thanlwinsoft.doccharconvert.parser,org.thanlwinsoft.eclipse,org.thanlwinsoft.eclipse.widgets,org.thanlwinsoft.schemas.docCharConvert,org.thanlwinsoft.schemas.docCharConvert.impl,org.thanlwinsoft.schemas.syllableParser,org.thanlwinsoft.schemas.syllableParser.impl,org.thanlwinsoft.util,org.thanlwinsoft.xml&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Bundle-ClassPath: lib/DocCharConvertSchema.jar,lib/SyllableParserSchema.jar,../org.apache.xmlbeans/lib/xbean.jar,.&#xA;Bundle-Group: org.thanlwinsoft.doccharconvert&#xA;Bundle-ActivationPolicy: lazy&#xA;Ant-Version: Apache Ant 1.7.0&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Bundle-Vendor: ThanLwinSoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.2.0.200812222349&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ui.ide,org.eclipse.jface.text,org.eclipse.ui.views,org.eclipse.ui.editors,org.eclipse.core.resources,org.eclipse.ui.intro,org.eclipse.ui.intro.universal,org.eclipse.ui.forms,org.eclipse.core.filesystem,org.apache.xmlbeans,org.eclipse.core.runtime.compatibility;bundle-version=&quot;3.2.0&quot;&#xA;Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByteCharsetProvider&#xA;Bundle-Localization: plugin&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.200901021718'>
+      <update id='org.thanlwinsoft.doccharconvert.converters.mien' range='[0.0.0,1.0.0.200901021718)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Mien Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='www.thanlwinsoft.org'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.200901021718'/>
+        <provided namespace='osgi.bundle' name='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.200901021718'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.converter.syllable.mien' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.thanlwinsoft.doccharconvert' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.200901021718'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-ActivationPolicy: lazy&#xA;Ant-Version: Apache Ant 1.7.0&#xA;Bundle-Name: Mien Plug-in&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Require-Bundle: org.thanlwinsoft.doccharconvert&#xA;Bundle-Vendor: www.thanlwinsoft.org&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.0.0.200901021718&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.thanlwinsoft.doccharconvert.converter.syllable.mien&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.mien;singleton:=true&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200901021718'>
+      <update id='org.thanlwinsoft.doccharconvert.converters.myanmar' range='[0.0.0,1.1.0.200901021718)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Myanmar Plug-in for DocCharConvert'/>
+        <property name='org.eclipse.equinox.p2.provider' value='www.thanlwinsoft.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200901021718'/>
+        <provided namespace='osgi.bundle' name='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200901021718'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.thanlwinsoft.doccharconvert' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200901021718'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-Vendor: www.thanlwinsoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Require-Bundle: org.thanlwinsoft.doccharconvert&#xA;Bundle-Name: Myanmar Plug-in for DocCharConvert&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.converters.myanmar;singleton:=true&#xA;Bundle-Version: 1.1.0.200901021718&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Ant-Version: Apache Ant 1.7.0&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.thanlwinsoft.doccharconvert.teckit' version='0.1.0.200901021718'>
+      <update id='org.thanlwinsoft.doccharconvert.teckit' range='[0.0.0,0.1.0.200901021718)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='Teckit'/>
+        <property name='org.eclipse.equinox.p2.provider' value='www.thanlwinsoft.org'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.thanlwinsoft.doccharconvert.teckit' version='0.1.0.200901021718'/>
+        <provided namespace='osgi.bundle' name='org.thanlwinsoft.doccharconvert.teckit' version='0.1.0.200901021718'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.teckit' version='0.1.0.200901021718'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-Vendor: www.thanlwinsoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: Teckit&#xA;Bundle-NativeCode: /linux/x86/libTecKitJni.so; osname=linux; processor=x86, /linux/x86_64/libTecKitJni.so; osname=linux; processor=x86_64, /win32/x86/TecKitJni.dll; osname=win32; processor=x86&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.teckit; singleton:=true&#xA;Bundle-Version: 0.1.0.200901021718&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)&#xA;Ant-Version: Apache Ant 1.7.0&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.thanlwinsoft.doccharconvert' version='1.2.1.200901021718'>
+      <update id='org.thanlwinsoft.doccharconvert' range='[0.0.0,1.2.1.200901021718)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='DocCharConvertEclipse Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='ThanLwinSoft.org'/>
+      </properties>
+      <provides size='23'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.thanlwinsoft.doccharconvert' version='1.2.1.200901021718'/>
+        <provided namespace='osgi.bundle' name='org.thanlwinsoft.doccharconvert' version='1.2.1.200901021718'/>
+        <provided namespace='java.package' name='org.sil.scripts.teckit' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.converter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.converter.syllable' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.converter.test' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.eclipse' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.eclipse.editors' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.eclipse.views' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.eclipse.wizard' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.icons' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.opendoc' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.doccharconvert.parser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.eclipse' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.eclipse.widgets' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.schemas.docCharConvert' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.schemas.docCharConvert.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.schemas.syllableParser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.schemas.syllableParser.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.thanlwinsoft.xml' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='14'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro.universal' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filesystem' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.apache.xmlbeans' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime.compatibility' range='3.2.0'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert' version='1.2.1.200901021718'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Name: DocCharConvertEclipse Plug-in&#xA;Import-Package: org.w3c.dom&#xA;Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert,org.thanlwinsoft.doccharconvert.converter,org.thanlwinsoft.doccharconvert.converter.syllable,org.thanlwinsoft.doccharconvert.converter.test,org.thanlwinsoft.doccharconvert.eclipse,org.thanlwinsoft.doccharconvert.eclipse.editors,org.thanlwinsoft.doccharconvert.eclipse.views,org.thanlwinsoft.doccharconvert.eclipse.wizard,org.thanlwinsoft.doccharconvert.icons,org.thanlwinsoft.doccharconvert.opendoc,org.thanlwinsoft.doccharconvert.parser,org.thanlwinsoft.eclipse,org.thanlwinsoft.eclipse.widgets,org.thanlwinsoft.schemas.docCharConvert,org.thanlwinsoft.schemas.docCharConvert.impl,org.thanlwinsoft.schemas.syllableParser,org.thanlwinsoft.schemas.syllableParser.impl,org.thanlwinsoft.util,org.thanlwinsoft.xml&#xA;Created-By: 1.6.0-b105 (Sun Microsystems Inc.)&#xA;Bundle-ClassPath: lib/DocCharConvertSchema.jar,lib/SyllableParserSchema.jar,../org.apache.xmlbeans/lib/xbean.jar,.&#xA;Bundle-Group: org.thanlwinsoft.doccharconvert&#xA;Bundle-ActivationPolicy: lazy&#xA;Ant-Version: Apache Ant 1.7.0&#xA;Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/&#xA;Bundle-Vendor: ThanLwinSoft.org&#xA;Bundle-ManifestVersion: 2&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.2.1.200901021718&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ui.ide,org.eclipse.jface.text,org.eclipse.ui.views,org.eclipse.ui.editors,org.eclipse.core.resources,org.eclipse.ui.intro,org.eclipse.ui.intro.universal,org.eclipse.ui.forms,org.eclipse.core.filesystem,org.apache.xmlbeans,org.eclipse.core.runtime.compatibility;bundle-version=&quot;3.2.0&quot;&#xA;Class-Path: DocCharConvert.jar org.thanlwinsoft.doccharconvert.RawByteCharsetProvider&#xA;Bundle-Localization: plugin&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Activator: org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin&#xA;Bundle-SymbolicName: org.thanlwinsoft.doccharconvert; singleton:=true&#xA;
           </instruction>
         </instructions>
       </touchpointData>

@@ -67,7 +67,8 @@ public class TecKitConverter extends ReversibleConverter
     private boolean debug = false;
     private Charset charEncoding = Charset.forName("windows-1252");
 
-    /** Creates a new instance of TecKitConverter */
+    /** Creates a new instance of TecKitConverter 
+     * @param mapFile */
     public TecKitConverter(File mapFile)
     {
         loadLibrary();
@@ -75,6 +76,11 @@ public class TecKitConverter extends ReversibleConverter
         construct(null, null);
     }
 
+    /**
+     * 
+     * @param mapFile
+     * @param encoding
+     */
     public TecKitConverter(File mapFile, String encoding)
     {
         try
@@ -93,6 +99,11 @@ public class TecKitConverter extends ReversibleConverter
         construct(null, null);
     }
 
+    /**
+     * 
+     * @param mapURL
+     * @param encoding
+     */
     public TecKitConverter(URL mapURL, String encoding)
     {
         this.mapUrl = mapURL;
@@ -112,6 +123,10 @@ public class TecKitConverter extends ReversibleConverter
         construct(null, null);
     }
 
+    /**
+     * 
+     * @param mapURL
+     */
     public TecKitConverter(URL mapURL)
     {
         this.mapUrl = mapURL;

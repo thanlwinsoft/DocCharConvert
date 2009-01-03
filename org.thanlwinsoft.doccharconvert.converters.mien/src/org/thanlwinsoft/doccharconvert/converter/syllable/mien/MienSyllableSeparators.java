@@ -33,6 +33,9 @@ import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker;
 */
 public class MienSyllableSeparators implements SyllableChecker
 {
+    /**
+     * Constructor
+     */
   public MienSyllableSeparators()
   { 
     script = new Script[2]; 
@@ -53,8 +56,9 @@ public class MienSyllableSeparators implements SyllableChecker
 /**
   * Checks the specified syllables, assuming that the first syllable 
   * starts a sentence.
+  * @param oldSide
   * @param syllables Vector of converted Syllables
-  * @param boolean flag to enable debug logging
+  * @param debug flag to enable debug logging
   * @return corrected Syllable Vector
   */
   public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, 
@@ -248,8 +252,10 @@ public class MienSyllableSeparators implements SyllableChecker
     return false;
   }
   /** Initialize does nothing in this implementation 
+ * @param scripts 
   * @param args separators on left / right sides, optional flag for changing all
   * separators
+ * @return true on success
   */
   public boolean initialize(Script [] scripts, Object [] args) 
   { 

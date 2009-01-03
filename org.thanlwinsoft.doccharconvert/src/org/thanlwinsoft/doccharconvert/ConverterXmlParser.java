@@ -53,21 +53,27 @@ import org.thanlwinsoft.util.SimpleClassLoaderUtil;
  */
 public class ConverterXmlParser
 {
-    public final static String TOP_NODE = "DocCharConverter";
-    public final static String CLASS_NODE = "ConverterClass";
-    public final static String NAME_ATTRIB = "name";
-    public final static String REVERSE_NAME_ATTRIB = "rname";
-    public final static String PARAMETER_NODE = "Parameter";
-    public final static String ARGUMENT_NODE = "Argument";
-    public final static String TYPE_ATTRIB = "type";
-    public final static String VALUE_ATTRIB = "value";
-    public final static String SCRIPT_ATTRIB = "script";
-    public final static String STYLES_NODE = "Styles";
-    public final static String STYLE_NODE = "Style";
-    public final static String FONT_NODE = "Font";
-    public final static String OLD = "old";
-    public final static String NEW = "new";
+    protected final static String TOP_NODE = "DocCharConverter";
+    protected final static String CLASS_NODE = "ConverterClass";
+    protected final static String NAME_ATTRIB = "name";
+    protected final static String REVERSE_NAME_ATTRIB = "rname";
+    protected final static String PARAMETER_NODE = "Parameter";
+    protected final static String ARGUMENT_NODE = "Argument";
+    protected final static String TYPE_ATTRIB = "type";
+    protected final static String VALUE_ATTRIB = "value";
+    protected final static String SCRIPT_ATTRIB = "script";
+    protected final static String STYLES_NODE = "Styles";
+    protected final static String STYLE_NODE = "Style";
+    protected final static String FONT_NODE = "Font";
+    protected final static String OLD = "old";
+    protected final static String NEW = "new";
+    /**
+     * DocCharConvert configuration file extension
+     */
     public final static String EXT = ".dccx";
+    /**
+     * namespace for Dccx files
+     */
     public final static String NAMESPACE = 
         "http://www.thanlwinsoft.org/schemas/DocCharConvert";
     List<File> converterDir = null;
@@ -82,6 +88,8 @@ public class ConverterXmlParser
 
     /**
      * Creates a new instance of ConverterXmlParser
+     * @param converterDirs 
+     * @param loader 
      * 
      * @param conveterDirs
      */
@@ -98,6 +106,11 @@ public class ConverterXmlParser
         this.mLoaderUtil = loader;
     }
 
+    /**
+     * 
+     * @param converterUrls
+     * @param loader
+     */
     public ConverterXmlParser(URL[] converterUrls, IClassLoaderUtil loader)
     {
         this.converterDir = new ArrayList<File>();
@@ -127,12 +140,20 @@ public class ConverterXmlParser
         this.mLoaderUtil = new SimpleClassLoaderUtil();
     }
 
+    /**
+     * default constructor
+     */
     public ConverterXmlParser()
     {
         this.converters = new Vector<ChildConverter>();
         this.errorLog = new StringBuffer();
     }
 
+    /**
+     * 
+     * @param converterDir
+     * @return array of files
+     */
     public static File[] getConverterFiles(File converterDir)
     {
         FilenameFilter filter = new FilenameFilter()
@@ -149,6 +170,10 @@ public class ConverterXmlParser
         return converterDir.listFiles(filter);
     }
 
+    /**
+     * 
+     * @return true on successful parse
+     */
     public boolean parse()
     {
         List<File> files = new ArrayList<File>();
@@ -161,8 +186,11 @@ public class ConverterXmlParser
                         "noConvDir"));
                 continue;
             }
-            for (File f : dirFiles)
-                files.add(f);
+            if (dirFiles != null)
+            {
+                for (File f : dirFiles)
+                    files.add(f);
+            }
         }
         notifier.beginTask(MessageUtil.getString("ConverterXmlParser_parsing"),
                 files.size());
@@ -177,35 +205,38 @@ public class ConverterXmlParser
             if (notifier.isCancelled())
                 break;
         }
-        for (URL url : converterUrls)
+        if (converterUrls != null)
         {
-            if (notifier.isCancelled())
-                break;
-            InputStream is = null;
-            try
+            for (URL url : converterUrls)
             {
-                notifier.subTask(url.getFile());
-                currentXmlUrl = url;
-                is = url.openStream();
-                if (is != null)
-                    parseStream(is);
-                notifier.worked(1);
-            }
-            catch (IOException e)
-            {
-                errorLog.append(MessageUtil.getString("FailedOpenConverter", e
-                        .getLocalizedMessage()));
-            }
-            finally
-            {
+                if (notifier.isCancelled())
+                    break;
+                InputStream is = null;
                 try
                 {
-                    is.close();
+                    notifier.subTask(url.getFile());
+                    currentXmlUrl = url;
+                    is = url.openStream();
+                    if (is != null)
+                        parseStream(is);
+                    notifier.worked(1);
                 }
                 catch (IOException e)
                 {
-                    errorLog.append(MessageUtil.getString(
-                            "FailedClsoeConverter", e.getLocalizedMessage()));
+                    errorLog.append(MessageUtil.getString("FailedOpenConverter", e
+                            .getLocalizedMessage()));
+                }
+                finally
+                {
+                    try
+                    {
+                        is.close();
+                    }
+                    catch (IOException e)
+                    {
+                        errorLog.append(MessageUtil.getString(
+                                "FailedClsoeConverter", e.getLocalizedMessage()));
+                    }
                 }
             }
         }
@@ -215,21 +246,38 @@ public class ConverterXmlParser
         return true;
     }
 
+    /**
+     * 
+     * @return converters without styles
+     */
     public Vector<CharConverter> getConverters()
     {
         return rawConverters;
     }
 
+    /**
+     * 
+     * @return ChildConverter vector
+     */
     public Vector<ChildConverter> getChildConverters()
     {
         return converters;
     }
 
+    /**
+     * 
+     * @return log as String
+     */
     public String getErrorLog()
     {
         return errorLog.toString();
     }
 
+    /**
+     * 
+     * @param xmlFile
+     * @return true i file parsed successfully
+     */
     public boolean parseFile(File xmlFile)
     {
         try
@@ -246,6 +294,11 @@ public class ConverterXmlParser
         }
     }
 
+    /**
+     * 
+     * @param fileStream
+     * @return true if stream was parsed successfully
+     */
     public boolean parseStream(InputStream fileStream)
     {
         org.w3c.dom.Document doc = null;
@@ -621,6 +674,10 @@ public class ConverterXmlParser
         return type;
     }
 
+    /**
+     * 
+     * @param pn
+     */
     public void setProgressNotifier(ProgressNotifier pn)
     {
         this.notifier = pn;

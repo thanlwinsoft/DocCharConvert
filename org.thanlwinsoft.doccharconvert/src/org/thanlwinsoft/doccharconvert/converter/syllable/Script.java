@@ -92,7 +92,9 @@ public class Script
     {
         return name + " " + componentVector.size() + " components";
     }
-    /** name of script */
+    /** name of script 
+     * @return name
+     */
     public String getName()
     {
         return new String(name);
@@ -106,11 +108,23 @@ public class Script
     {
         return componentVector.elementAt(index);
     }
+    /**
+     * 
+     * @return number of components in Script
+     */
     public int getNumComponents()
     {
          return componentVector.size();
     }
+    /**
+     * 
+     * @return uses a repeater character e.g. for Thai
+     */
     public boolean usesRepeater() { return repeater; }
+    /**
+     * 
+     * @return repeat character
+     */
     public String getRepeatChar() { return repeatChar; }
     /** sets the repeater (isRepeater == true) 
      *  or separator character (isRepeater == false)
@@ -124,11 +138,16 @@ public class Script
     } 
     /**
      * Should the conversion convert to lower case before conversion proceeds?
+     * @return false if case sensitive
      */
     public boolean ignoreCase()
     {
       return caseInsensitive;
     }
+    /**
+     * 
+     * @param ignore
+     */
     public void setIgnoreCase(boolean ignore)
     {
       caseInsensitive = ignore;

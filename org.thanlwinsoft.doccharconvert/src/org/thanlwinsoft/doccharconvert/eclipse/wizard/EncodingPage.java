@@ -43,6 +43,10 @@ public class EncodingPage extends WizardPage implements SelectionListener
     Combo inputCombo;
     Combo outputCombo;
     private BatchConversion conversion = null;
+    /**
+     * 
+     * @param conversion
+     */
     public EncodingPage(BatchConversion conversion)
     {
         super(ConversionWizard.ENCODING_PAGE, 

@@ -24,9 +24,19 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 import java.nio.charset.CoderResult;
 
+/**
+ * @author keith
+ *
+ */
 public class RawByteCharset extends Charset
 {
+    /**
+     * name
+     */
     public static final String CHARSET_NAME = "RawBytes";
+    /**
+     * 
+     */
     public RawByteCharset()
     {
         super(CHARSET_NAME, null);
@@ -88,6 +98,10 @@ public class RawByteCharset extends Charset
             
         };
     }
+    /**
+     * 
+     * @return name of Character Set
+     */
     public String getName()
     {
         return CHARSET_NAME;

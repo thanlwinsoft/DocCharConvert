@@ -60,8 +60,8 @@ import java.nio.charset.Charset;
 public class OpenDocParser implements
         org.thanlwinsoft.doccharconvert.DocInterface
 {
-    public final static String STYLES_XML = "styles.xml";
-    public final static String CONTENT_XML = "content.xml";
+    protected final static String STYLES_XML = "styles.xml";
+    protected final static String CONTENT_XML = "content.xml";
     private java.util.ResourceBundle mr = null;
     private final static int BUFFER_LEN = 1024;
     private OpenDocParseStatus status = OpenDocParseStatus.UNINIT;

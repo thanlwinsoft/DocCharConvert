@@ -60,8 +60,10 @@ public class CapitalizeSentences implements SyllableChecker
   /**
   * Checks the specified syllables, assuming that the first syllable 
   * starts a sentence.
+ * @param oldSide 
   * @param syllables Vector of converted Syllables
-  * @param boolean flag to enable debug logging
+ * @param debug flag to enable debug logging
+ * @return potential Syllable matches
   */
   public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, boolean debug)
   {
@@ -148,6 +150,7 @@ public class CapitalizeSentences implements SyllableChecker
   public boolean getLastState() { return lastState; }
 
   /** Initialize the end of sentence markers.
+  * @param scripts 
   * @param args assumed to be an array of strings containing end of 
   * sentence markers (Object.toString() is used to retrieve them)
   * @return true if succeeded

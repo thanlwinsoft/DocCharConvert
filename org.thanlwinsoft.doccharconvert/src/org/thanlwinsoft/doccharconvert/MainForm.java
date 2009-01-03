@@ -125,11 +125,11 @@ public class MainForm extends javax.swing.JFrame
         int cid = 0;
         conversion = new BatchConversion();
         conversion.setMessageDisplay(new SwingMessageDisplay(this));
-        Object mode = ConversionMode.getById(cid);
+        Object mode = ConversionMode.getById(cid, false);
         while (mode != null)
         {
             modeCombo.addItem(mode);
-            mode = ConversionMode.getById(++cid);
+            mode = ConversionMode.getById(++cid, false);
         }
         
         SortedMap<String,Charset> charsets = Charset.availableCharsets();
@@ -148,7 +148,9 @@ public class MainForm extends javax.swing.JFrame
         setOutputMode();
         
     }
-    
+    /**
+     * parse converters in convert directory
+     */
     public void parseConverters()
     {
         ConverterXmlParser xmlParser = 
@@ -533,15 +535,19 @@ public class MainForm extends javax.swing.JFrame
     {//GEN-HEADEREND:event_testButtonActionPerformed
         if (sModel.size() > 0)
         {
-            if (sModel.getElementAt(0) instanceof ChildConverter)
+            if (sModel.getElementAt(0) instanceof CharConverter)
             {
                 Charset inCharset = Charset.forName(iEncCombo.getSelectedItem()
                                                     .toString());
                 Charset outCharset = Charset.forName(oEncCombo.getSelectedItem()
                                                      .toString());
                 
-                ChildConverter cc = (ChildConverter)sModel.getElementAt(0);
-                ChildConverter rcc = getReverseConverter(cc);
+                CharConverter cc = (CharConverter)sModel.getElementAt(0);
+                CharConverter rcc = null;
+                if (cc instanceof ReversibleConverter)
+                    rcc = getReverseConverter((ReversibleConverter)cc);
+                else if (cc instanceof ChildConverter)
+                    rcc = getReverseConverter((ChildConverter)cc);
                 cc.setEncodings(inCharset, outCharset);
                 rcc.setEncodings(outCharset, inCharset);
                 new TestDialog(this, true, cc, rcc).setVisible(true);
@@ -558,6 +564,38 @@ public class MainForm extends javax.swing.JFrame
             
         }
     }//GEN-LAST:event_testButtonActionPerformed
+
+    /**
+     * @param cc
+     * @return
+     */
+    private CharConverter getReverseConverter(ReversibleConverter cc)
+    {
+     // try to find the reverse converter
+        ReversibleConverter rcc = null;
+        int i = 0;
+        while (rcc == null && i<availableConverters.size())
+        {
+            if (availableConverters.elementAt(i) != null)
+            {
+                Object rco = availableConverters.elementAt(i);
+                if (rco instanceof ReversibleConverter)
+                {
+                    ReversibleConverter tempCc = null;
+                    tempCc = (ReversibleConverter)rco;
+                    
+                    if (tempCc.getBaseName().equals(cc.getBaseName()) 
+                       && (tempCc.isForwards() != cc.isForwards()))
+                    {
+                        rcc = tempCc;
+                        break;
+                    }
+                }
+            }
+            i++;
+        }
+        return rcc;
+    }
 
     protected ChildConverter getReverseConverter(ChildConverter cc)
     {
@@ -1071,6 +1109,10 @@ public class MainForm extends javax.swing.JFrame
         iEncCombo.setEnabled(false);
         outputPanel.setEnabled(false);
     }
+    /**
+     * 
+     * @return resource bundle for GUI strings
+     */
     public ResourceBundle getResource() { return guiResource; }
     
     

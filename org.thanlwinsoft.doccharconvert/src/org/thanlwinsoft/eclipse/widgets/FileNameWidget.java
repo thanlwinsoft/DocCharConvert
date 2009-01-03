@@ -47,6 +47,11 @@ public class FileNameWidget extends Composite
     private Text fileName = null;
     private String defaultPath = null;
     private int fileDialogType = 0;
+    /**
+     * @param parent
+     * @param labelText
+     * @param type
+     */
     public FileNameWidget(Composite parent, String labelText, int type)
     {
         super(parent, 0);
@@ -75,19 +80,31 @@ public class FileNameWidget extends Composite
         });
         this.fileDialogType = type;
     }
-    public void setLabelWidth(int width)
+    /**
+     * @param width
+     */
+    public void setLabelWidth(final int width)
     {
     	((RowData)(label.getLayoutData())).width = width;
     }
+    /**
+     * @return file name as string
+     */
     public String getFileName()
     {
         return fileName.getText();
     }
-    public void setFileName(String name)
+    /**
+     * @param name
+     */
+    public void setFileName(final String name)
     {
         fileName.setText(name);
         fileName.setSelection(name.length());
     }
+    /**
+     * @param path
+     */
     public void setDefaultPath(String path)
     {
         defaultPath = path;
@@ -116,11 +133,17 @@ public class FileNameWidget extends Composite
             //dialog.setFilterPath(new File(filePath).getParent() + "/*");
         }
     }
-    public void    addModifyListener(ModifyListener listener)
+    /**
+     * @param listener
+     */
+    public void    addModifyListener(final ModifyListener listener)
     {
         fileName.addModifyListener(listener);
     }
-    public void    removeModifyListener(ModifyListener listener)
+    /**
+     * @param listener
+     */
+    public void    removeModifyListener(final ModifyListener listener)
     {
         fileName.removeModifyListener(listener);
     }

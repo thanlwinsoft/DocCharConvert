@@ -22,9 +22,16 @@ import java.nio.charset.spi.CharsetProvider;
 import java.util.Iterator;
 import java.util.Vector;
 
+/**
+ * @author keith
+ * dump character set that changes nothing
+ */
 public class RawByteCharsetProvider extends CharsetProvider
 {
     Vector <Charset> charsetList = null;
+    /**
+     * 
+     */
     public RawByteCharsetProvider()
     {
         charsetList = new Vector<Charset> (1);
@@ -46,5 +53,5 @@ public class RawByteCharsetProvider extends CharsetProvider
         if (charsetName.equalsIgnoreCase(RawByteCharset.CHARSET_NAME))
             return new RawByteCharset();
         return null;
-    }        
+    }
 }

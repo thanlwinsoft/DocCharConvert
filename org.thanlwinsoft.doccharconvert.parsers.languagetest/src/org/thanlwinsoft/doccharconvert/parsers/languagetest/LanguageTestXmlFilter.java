@@ -49,6 +49,10 @@ public class LanguageTestXmlFilter extends XMLFilterImpl
     private CharConverter currentConverter = null;
     private static final String NAMESPACE = "http://www.thanlwinsoft.org/schemas/languagetest";
     private String prefixMapUri = null;
+    /**
+     * 
+     * @param converters
+     */
     public LanguageTestXmlFilter(Map<TextStyle, CharConverter> converters)
     {
         this.converters = converters;

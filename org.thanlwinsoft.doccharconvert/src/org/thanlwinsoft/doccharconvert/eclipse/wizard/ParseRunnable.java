@@ -30,7 +30,7 @@ import org.thanlwinsoft.doccharconvert.eclipse.Notifier;
 
 /**
  * @author keith
- *
+ * Runnable to compile a list of available CharConverter
  */
 public class ParseRunnable implements IRunnableWithProgress
 {
@@ -38,6 +38,12 @@ public class ParseRunnable implements IRunnableWithProgress
     Display display = null;
     Vector <CharConverter> availableConverters = null;
     ListViewer viewer = null;
+    /**
+     * 
+     * @param conv
+     * @param display
+     * @param viewer
+     */
     public ParseRunnable(ConverterXmlParser conv, Display display, ListViewer viewer)
     {
         this.xmlParser = conv;

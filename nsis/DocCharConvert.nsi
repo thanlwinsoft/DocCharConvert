@@ -4,7 +4,7 @@
 
 ; Some useful definitions that may need changing for different font versions
 !ifndef VERSION
-  !define VERSION '1.1.1'
+  !define VERSION '1.2.1'
 !endif
 
 !define APP_NAME 'DocCharConvert'
@@ -70,18 +70,18 @@ Function findJavaHome
 	  StrCmp $1 "" 0 done
 	ReadRegStr $1 HKLM "Software\JavaSoft\Java Runtime Environment\1.6" "JavaHome"
 	  StrCmp $1 "" 0 done
-	ReadRegStr $1 HKLM "Software\JavaSoft\Java Runtime Environment\1.5" "JavaHome"
-	  StrCmp $1 "" 0 done
+;	ReadRegStr $1 HKLM "Software\JavaSoft\Java Runtime Environment\1.5" "JavaHome"
+;	  StrCmp $1 "" 0 done
 	ReadRegStr $1 HKLM "Software\JavaSoft\Java Development Kit\1.7" "JavaHome"
 	  StrCmp $1 "" 0 done
 	ReadRegStr $1 HKLM "Software\JavaSoft\Java Development Kit\1.6" "JavaHome"
 	  StrCmp $1 "" 0 done
-	ReadRegStr $1 HKLM "Software\JavaSoft\Java Development Kit\1.5" "JavaHome"
-	  StrCmp $1 "" noJava done
+;	ReadRegStr $1 HKLM "Software\JavaSoft\Java Development Kit\1.5" "JavaHome"
+;	  StrCmp $1 "" noJava done
 	
 	noJava:
 	  StrCpy $1 ""
-	  MessageBox MB_YESNO|MB_ICONSTOP "No Java 1.5 Runtime was found. ${APP_NAME} will not work unless Java 1.5 or later is installed. Please download a Java Runtime Environment from http://java.com/en/download/ and rerun this installer. Do you want to proceed anyway?" IDYES done IDNO quit
+	  MessageBox MB_YESNO|MB_ICONSTOP "No Java 1.6 Runtime was found. ${APP_NAME} will not work unless Java 1.6 or later is installed. Please download a Java Runtime Environment from http://java.com/en/download/ and rerun this installer. Do you want to proceed anyway?" IDYES done IDNO quit
 	quit: 
 	Quit
 	done:
@@ -179,18 +179,18 @@ SectionEnd
 ;Optional source - as a compressed archive
 Section /o "Mien" SecMien
 	SetOutPath "$INSTDIR\${APP_NAME}\plugins"
-	File /r ..\release\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*
+	File /r ..\org.thanlwinsoft.doccharconvert.update\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*
 	SetOutPath "$INSTDIR\${APP_NAME}\features"
-	File /r ..\release\features\org.thanlwinsoft.doccharconvert.feature.mien_*
+	File /r ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.mien_*
 	SetOutPath "$INSTDIR\${APP_NAME}"
 	File DocCharConvertMien.bat
 SectionEnd
 
 Section /o "Myanmar" SecMyanmar
 	SetOutPath "$INSTDIR\${APP_NAME}\plugins"
-	File /r ..\release\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*
+	File /r ..\org.thanlwinsoft.doccharconvert.update\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*
 	SetOutPath "$INSTDIR\${APP_NAME}\features"
-	File /r ..\release\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*
+	File /r ..\org.thanlwinsoft.doccharconvert.update\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*
 	SetOutPath "$INSTDIR\${APP_NAME}"
 	File DocCharConvertMyanmar.bat
 SectionEnd

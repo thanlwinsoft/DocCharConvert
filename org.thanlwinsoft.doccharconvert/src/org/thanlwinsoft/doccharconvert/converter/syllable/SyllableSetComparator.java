@@ -25,6 +25,9 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
  */
 public class SyllableSetComparator implements java.util.Comparator<Syllable>
 {
+    /**
+     * Compares 2 syllables
+     */
     public SyllableSetComparator()
     {
         // NOOP

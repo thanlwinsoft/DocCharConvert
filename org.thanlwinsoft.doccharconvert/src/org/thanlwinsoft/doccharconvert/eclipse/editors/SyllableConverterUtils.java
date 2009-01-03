@@ -38,6 +38,12 @@ import org.w3c.dom.Node;
  */
 public class SyllableConverterUtils
 {
+    /**
+     * 
+     * @param sc
+     * @param ref
+     * @return name
+     */
     public static String getComponentName(SyllableConverter sc, String ref)
     {
         for (Script s : sc.getScriptArray())
@@ -61,6 +67,12 @@ public class SyllableConverterUtils
         }
         return ref;
     }
+    /**
+     * 
+     * @param sc
+     * @param ref
+     * @return side - 0 or 1
+     */
     public static int getSide(SyllableConverter sc, String ref)
     {
         for (Script s : sc.getScriptArray())
@@ -78,6 +90,11 @@ public class SyllableConverterUtils
         }
         return -1;
     }
+    /**
+     * 
+     * @param c
+     * @return Component's value
+     */
     public static String getCText(C c)
     {
         if (c == null)
@@ -96,7 +113,11 @@ public class SyllableConverterUtils
             return "<" + c.getClass1() + ">";
         return c.getStringValue();
     }
-    
+    /**
+     * 
+     * @param c
+     * @return Component's value with the hexadecimal Unicodes appended
+     */
     public static String getCTextWithCodes(C c)
     {
         String text = getCText(c);
@@ -121,7 +142,12 @@ public class SyllableConverterUtils
         }
         return sb.toString();
     }
-    
+    /**
+     * 
+     * @param m
+     * @param ref
+     * @return C
+     */
     public static C getCFromMap(Map m, String ref)
     {
         for (C c : m.getCArray())
@@ -133,7 +159,12 @@ public class SyllableConverterUtils
         }
         return null;
     }
-    
+    /**
+     * 
+     * @param sc
+     * @param colRef
+     * @return ids of classes applicable to this column
+     */
     public static Vector<String> getApplicableClasses(SyllableConverter sc, String colRef)
     {
         Classes classes =  sc.getClasses();
@@ -152,7 +183,11 @@ public class SyllableConverterUtils
         return classRefs;
     }
     static Pattern sUniInputPattern = Pattern.compile("\\s*u([0-9a-fA-F]{4})((\\s+u([0-9a-fA-F]{4}))*)");
-    
+    /**
+     * checks input for uXXXX codes and converts them to real code points if needed
+     * @param input
+     * @return unicode text without uXXXX
+     */
     public static String parseUniInput(String input)
     {
         String modifiedInput = input;

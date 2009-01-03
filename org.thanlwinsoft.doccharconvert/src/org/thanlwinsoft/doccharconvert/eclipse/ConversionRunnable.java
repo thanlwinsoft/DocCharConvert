@@ -30,6 +30,7 @@ import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard;
 
 /**
+ * Runnable to perform conversions, while allowing the GUI to still function
  * @author keith
  *
  */
@@ -37,6 +38,10 @@ public class ConversionRunnable implements IRunnableWithProgress
 {
     private BatchConversion conversion = null;
     ConversionFileListView listView = null;
+    /**
+     * @param conv
+     * @param listView
+     */
     public ConversionRunnable(BatchConversion conv, ConversionFileListView listView)
     {
         this.conversion = conv;

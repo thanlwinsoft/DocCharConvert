@@ -11,4 +11,5 @@ Require-Bundle: org.thanlwinsoft.doccharconvert
 Bundle-UpdateLocation: http://www.thanlwinsoft.org/ThanLwinSoft/Downlo
  ads/updates/
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: converters/
 

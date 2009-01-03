@@ -81,7 +81,6 @@ public class MappingTableEditorPart extends EditorPart
     private TableViewer viewer = null;
     private MenuManager menuManager;
     private Clipboard clipboard;
-    public final static String NUM_REF = "_NUM_";
 
     /*
      * (non-Javadoc)
@@ -99,6 +98,9 @@ public class MappingTableEditorPart extends EditorPart
         super.dispose();
     }
 
+    /**
+     * refresh the table viewer
+     */
     public void refresh()
     {
         viewer.refresh(true);
@@ -794,6 +796,11 @@ public class MappingTableEditorPart extends EditorPart
 
     }
 
+    /**
+     * 
+     * @author keith
+     * Cell editing for the mapping table
+     */
     public class CellEditingSupport extends EditingSupport
     {
         final String colRef;
@@ -801,6 +808,7 @@ public class MappingTableEditorPart extends EditorPart
 
         /**
          * @param viewer
+         * @param colRef 
          */
         public CellEditingSupport(ColumnViewer viewer, String colRef)
         {

@@ -52,6 +52,10 @@ public class ConverterPage extends WizardPage implements SelectionListener
     private BatchConversion conversion = null;
     private ConverterXmlParser xmlParser = null;
 
+    /**
+     * 
+     * @param conversion
+     */
     public ConverterPage(BatchConversion conversion)
     {
         super(ConversionWizard.CONVERTER_PAGE, MessageUtil
@@ -90,11 +94,19 @@ public class ConverterPage extends WizardPage implements SelectionListener
         converterList.setFocus();
     }
 
+    /**
+     * 
+     * @param sl
+     */
     public void addSelectionListener(SelectionListener sl)
     {
         converterList.addSelectionListener(sl);
     }
 
+    /**
+     * 
+     * @param sl
+     */
     public void removeSelectionListener(SelectionListener sl)
     {
         converterList.removeSelectionListener(sl);
@@ -174,16 +186,28 @@ public class ConverterPage extends WizardPage implements SelectionListener
             }
     }
 
+    /**
+     * 
+     * @return vector of converters
+     */
     public Vector<CharConverter> getConverters()
     {
         return xmlParser.getConverters();
     }
 
+    /**
+     * 
+     * @return vector of child converters
+     */
     public Vector<ChildConverter> getChildConverters()
     {
         return xmlParser.getChildConverters();
     }
 
+    /**
+     * 
+     * @return vector of selected converters
+     */
     public Vector<CharConverter> getSelectedConverters()
     {
         return selectedConverters;

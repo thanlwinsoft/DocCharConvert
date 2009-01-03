@@ -38,14 +38,27 @@ import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.converter.test.LogConvertedWords;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.ConversionWizard;
 
+/**
+ * @author keith
+ *
+ */
 public class PreferencesInitializer extends AbstractPreferenceInitializer
 {
+    /**
+     * Converter Configuration Path Constant
+     */
     public static final String CONVERTERS = Config.CONVERTER_CONFIG_PATH;
     private ScopedPreferenceStore prefStore = null;
+    /**
+     * Constructor
+     */
     public PreferencesInitializer()
     {
         
     }
+    /**
+     * @return preferences store from workspace
+     */
     public IPreferenceStore getPrefStore()
     {
         if (prefStore == null) initializeDefaultPreferences();

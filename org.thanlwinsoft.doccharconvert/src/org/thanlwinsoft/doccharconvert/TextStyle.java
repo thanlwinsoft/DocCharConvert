@@ -25,13 +25,34 @@ import org.thanlwinsoft.doccharconvert.opendoc.ScriptType;
  */
 public interface TextStyle
 {
+    /**
+     * @return description of style
+     */
     public String getDescription();
+    /**
+     * @return font name
+     */
     public String getFontName();
+    /**
+     * @param aFontName
+     */
     public void setFontName(String aFontName);
+    /**
+     * @return style's name
+     */
     public String getStyleName();
+    /**
+     * @param newName
+     */
     public void setStyleName(String newName);
     public boolean equals(Object obj);
     public int hashCode();
+    /**
+     * @return type of script
+     */
     public ScriptType.Type getScriptType();
+    /**
+     * @param type
+     */
     public void setScriptType(ScriptType.Type type);
 }

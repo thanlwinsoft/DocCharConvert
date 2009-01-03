@@ -32,10 +32,22 @@ public class ConversionMode
     private boolean styleSupport = false;
     private FileFilter fileFilter = null;
     private static FileFilter allFilesFilter = null;
+    /**
+     * text file mode
+     */
     public final static int TEXT_ID = 0;
     //public final static int OO_ID = 1;// openoffice api
+    /**
+     * TeX file
+     */
     public final static int TEX_ID = 2;
+    /**
+     * OpenDocument file
+     */
     public final static int OD_ID = 1;/*< opendocument format */
+    /**
+     * Number of hard coded modes (excluding extension modes)
+     */
     public final static int NUM_MODES = 3;
     
     /** Creates a new instance of ConversionMode */
@@ -45,18 +57,42 @@ public class ConversionMode
         this.name = name;
         this.styleSupport = styleSupport;
     }
+    /**
+     * 
+     * @return ID
+     */
     public int getId() { return id; }
+    @Override
     public String toString() { return name; }
+    /**
+     * 
+     * @return true if mode supports styles
+     */
     public boolean hasStyleSupport() { return styleSupport; }
+    /**
+     * plain text
+     */
     public static final ConversionMode TEXT_MODE = 
         new ConversionMode(TEXT_ID,"Plain Text",false);
 //    public static final ConversionMode OO_MODE = 
 //        new ConversionMode(OO_ID,"OpenOffice",true);
+    /**
+     * TeX file
+     */
     public static final ConversionMode TEX_MODE = 
         new ConversionMode(TEX_ID,"TeX",false);
+    /**
+     * OpenDocument file
+     */
     public static final ConversionMode OD_MODE = 
         new ConversionMode(OD_ID,"OpenDocument",true);
-    public static ConversionMode getById(int id)
+    /**
+     * 
+     * @param id
+     * @param inEclipse
+     * @return mode
+     */
+    public static ConversionMode getById(int id, boolean inEclipse)
     {
         switch (id)
         {
@@ -69,14 +105,21 @@ public class ConversionMode
             case OD_ID:
                 return OD_MODE;
             default:
-                ConversionMode [] extModes = ExtensionConversionMode.getExtensionModes();
-                if (extModes.length > id - NUM_MODES)
+                if (inEclipse)
                 {
-                    return extModes[id - NUM_MODES];
+                    ConversionMode [] extModes = ExtensionConversionMode.getExtensionModes();
+                    if (extModes.length > id - NUM_MODES)
+                    {
+                        return extModes[id - NUM_MODES];
+                    }
                 }
         }
         return null;
     }
+    /**
+     * 
+     * @return file filter
+     */
     public FileFilter getFileFilter()
     {
         if (fileFilter == null)
@@ -148,6 +191,10 @@ public class ConversionMode
         }
         return fileFilter;
     }
+    /**
+     * 
+     * @return filter for any file type
+     */
     public static FileFilter getAllFilesFilter()
     {
         if (allFilesFilter == null)

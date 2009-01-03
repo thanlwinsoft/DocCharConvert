@@ -21,13 +21,25 @@ package org.thanlwinsoft.util;
 
 /**
  * @author keith
+ * @param <TA> 
+ * @param <TB> 
  *
  */
 
 public class Pair<TA,TB>
 {
+    /**
+     * 1st of pair
+     */
     final public TA first;
+    /**
+     * 2nd of pair
+     */
     final public TB second;
+    /**
+     * @param a
+     * @param b
+     */
     public Pair(TA a, TB b)
     {
         this.first = a;
@@ -41,6 +53,10 @@ public class Pair<TA,TB>
         }
         return false;
     }
+    /**
+     * @param c
+     * @return true if all fields are equal in both pairs
+     */
     public boolean equals(Pair<?,?> c)
     {
         if ((c.first == first || (c.first != null && c.first.equals(first))) &&
@@ -54,6 +70,10 @@ public class Pair<TA,TB>
     {
         return "(" + first.toString() + " : " + second.toString() + ")";
     }
+    /**
+     * @param i
+     * @return value of specified field
+     */
     public Object get(int i)
     {
         switch (i)

@@ -26,15 +26,26 @@ You should have received a copy of the GNU Lesser General Public
 License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 ------------------------------------------------------------------------------*/
+/**
+ * @author keith
+ *
+ */
 public class Notifier extends ProgressNotifier
 {
     IProgressMonitor monitor = null;
     ConversionFileListView convFileListView = null;
     int worked = 0;
+    /**
+     * @param monitor
+     */
     public Notifier(IProgressMonitor monitor)
     {
         this.monitor = monitor;   
     }
+    /**
+     * @param monitor
+     * @param view
+     */
     public Notifier(IProgressMonitor monitor, ConversionFileListView view)
     {
         this.monitor = monitor;   

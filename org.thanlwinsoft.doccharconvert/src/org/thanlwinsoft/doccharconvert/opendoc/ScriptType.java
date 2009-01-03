@@ -19,6 +19,10 @@ package org.thanlwinsoft.doccharconvert.opendoc;
 
 
 
+/**
+ * @author keith
+ * Class to process ScriptTypes
+ */
 public class ScriptType
 {
     /** Script Types used in OpenDocument. Fonts are selected based on which
@@ -27,7 +31,19 @@ public class ScriptType
      * font selection will depend on the surrounding characters. */
     public enum Type 
     {   
-        LATIN, COMPLEX, CJK, WEAK ;
+        /**
+         * Latin, European scripts
+         */
+        LATIN, /**
+         * SE Asian, Arabic scripts
+         */
+        COMPLEX, /**
+         * Chinese/Japanese/Korean
+         */
+        CJK, /**
+         * Weak script type e.g. for punctuation characters used by all scripts
+         */
+        WEAK ;
         public String toString() {return this.name(); }
     }
     

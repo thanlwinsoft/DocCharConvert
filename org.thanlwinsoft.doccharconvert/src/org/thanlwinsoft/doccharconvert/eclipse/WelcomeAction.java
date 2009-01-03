@@ -26,9 +26,17 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.intro.IIntroManager;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 
+/**
+ * Action to show welcome page
+ * @author keith
+ *
+ */
 public class WelcomeAction extends Action implements IWorkbenchWindowActionDelegate
 {
     private IWorkbenchWindow window = null;
+    /**
+     * Constructor
+     */
     public WelcomeAction()
     {
         this.setId("org.thanlwinsoft.doccharconvert.Welcome");

@@ -29,8 +29,19 @@ import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 
+/**
+ * Utility methods to assist with working with JFace editors
+ * @author keith
+ *
+ */
 public class EditorUtils
 {
+    /**
+     * 
+     * @param editor
+     * @return file for editor input
+     * @throws CoreException
+     */
     public static File getFileFromInput(EditorPart editor) throws CoreException
     {
         File f = null;
@@ -48,7 +59,11 @@ public class EditorUtils
         }
         return f;
     }
-    
+    /**
+     * 
+     * @param editor
+     * @return workspace file
+     */
     public static IFile getWsFileFromInput(EditorPart editor)
     {
         IFile wsFile = null;
@@ -59,6 +74,12 @@ public class EditorUtils
         return wsFile;
     }
     
+    /**
+     * @param editor
+     * @return input stream for the editor input
+     * @throws IOException
+     * @throws CoreException
+     */
     public static InputStream getInputStream(EditorPart editor) throws IOException, CoreException
     {
         InputStream is = null;

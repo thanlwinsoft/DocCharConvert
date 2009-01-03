@@ -59,12 +59,26 @@ public class ConverterUtil
     private static final String PATH_ATTR = "path";
     private static final String SEARCH_PATTERN = "*" + ConverterXmlParser.EXT;
 
+    /**
+     * 
+     * @param rc
+     * @param shell
+     * @return ConverterXmlParser
+     */
     public static ConverterXmlParser parseConverters(IRunnableContext rc,
             Shell shell)
     {
         return parseConverters(rc, shell, null);
     }
 
+
+    /**
+     * 
+     * @param rc
+     * @param shell
+     * @param viewer
+     * @return ConverterXmlParser
+     */
     public static ConverterXmlParser parseConverters(IRunnableContext rc,
             Shell shell, ListViewer viewer)
     {
@@ -188,6 +202,11 @@ public class ConverterUtil
         return converterConfigPath;
     }
     
+    /**
+     * 
+     * @param name
+     * @return name without characters that can't be used in a file name
+     */
     public static String cononicalizeName(String name)
     {
         // what about unicode characters?

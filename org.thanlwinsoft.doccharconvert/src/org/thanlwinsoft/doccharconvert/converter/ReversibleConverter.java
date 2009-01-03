@@ -26,11 +26,30 @@ import org.thanlwinsoft.doccharconvert.converter.test.ConversionTester;
  */
 public abstract class ReversibleConverter implements CharConverter
 {
+    /**
+     * @param isForwards
+     */
     public void setDirection(boolean isForwards) { this.forwards = isForwards; }
+    /**
+     * @return true if in forwards direction
+     */
     public boolean isForwards() { return forwards; }
+    /**
+     * 
+     * @param aName
+     */
     public void setOriginalStyle(TextStyle aName) { this.originalStyle = aName; }
+    /**
+     * @param aName
+     */
     public void setTargetStyle(TextStyle aName) { this.targetStyle = aName; }
+    /**
+     * @return base name of converter - common to both directions
+     */
     public abstract String getBaseName();
+    /**
+     * @param rName
+     */
     public abstract void setReverseName(String rName);
     public TextStyle getOldStyle() 
     { 

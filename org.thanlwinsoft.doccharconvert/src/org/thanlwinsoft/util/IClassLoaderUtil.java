@@ -17,7 +17,16 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 ------------------------------------------------------------------------------*/
 package org.thanlwinsoft.util;
 
+/**
+ * @author keith
+ *
+ */
 public interface IClassLoaderUtil
 {
+    /**
+     * @param className
+     * @return Class
+     * @throws ClassNotFoundException
+     */
     public Class<?> loadClass(String className) throws ClassNotFoundException;
 }

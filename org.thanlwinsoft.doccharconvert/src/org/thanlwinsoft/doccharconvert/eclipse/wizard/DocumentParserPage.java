@@ -45,6 +45,10 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     Button wordLog = null;
     Button checkReverse = null;
     private BatchConversion conversion = null;
+    /**
+     * 
+     * @param conversion
+     */
     public DocumentParserPage(BatchConversion conversion)
     {
         super(ConversionWizard.DOC_PARSER_PAGE, 
@@ -74,7 +78,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
         combo = new Combo(pageComposite, SWT.DROP_DOWN | SWT.READ_ONLY);
         for (int i = 0; i < ConversionMode.NUM_MODES; i++)
         {
-            combo.add(ConversionMode.getById(i).toString());
+            combo.add(ConversionMode.getById(i, true).toString());
         }
         ConversionMode [] extMode = ExtensionConversionMode.getExtensionModes();
         for (int i = 0; i < extMode.length; i++)
@@ -96,14 +100,28 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
         this.setControl(pageComposite);
         setPageComplete(validatePage());
     }
+    /**
+     * 
+     * @return true if enabled
+     */
     public boolean isDebugEnabled()
     {
         return debug.getSelection();
     }
+    /**
+     * 
+     * @return true if logging enabled
+     */
     public boolean logWords()
     {
         return wordLog.getSelection();
     }
+    /**
+     * Reverse checking means that the conversion is performed
+     * forwards and backwards to check that the end result is the same as the
+     * input. 
+     * @return true if reverse checking is enabled 
+     */
     public boolean doReverseCheck()
     {
         return checkReverse.getSelection();
@@ -120,7 +138,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
             if (combo.getSelectionIndex() > -1)
             {
                 conversion.setFileMode(true);
-                conversion.setConversionMode(ConversionMode.getById(combo.getSelectionIndex()));
+                conversion.setConversionMode(ConversionMode.getById(combo.getSelectionIndex(), true));
                 IWizardPage fileSelectPage = 
                     getWizard().getPage(ConversionWizard.FILE_SELECT_PAGE);
                 if (fileSelectPage instanceof FileSelectionPage)

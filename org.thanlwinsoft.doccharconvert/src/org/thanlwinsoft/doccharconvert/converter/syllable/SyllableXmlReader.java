@@ -50,6 +50,10 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
 import org.thanlwinsoft.util.IClassLoaderUtil;
 
+/**
+ * @author keith
+ * Reads in the data from the SyllableConverter configuration XML file
+ */
 public class SyllableXmlReader
 {
     private URL xmlFile = null;
@@ -104,6 +108,13 @@ public class SyllableXmlReader
     private Map <String,Map<Integer,Integer> > mMapStatus = null;
     private static final String namespaceURI = "http://www.thanlwinsoft.org/schemas/SyllableParser";
 
+    /**
+     * 
+     * @param xmlFile
+     * @param loader
+     * @param debug
+     * @param ps
+     */
     public SyllableXmlReader(File xmlFile, IClassLoaderUtil loader, boolean debug, PrintStream ps)
     {
         this.errorLog = new StringBuffer();
@@ -122,7 +133,13 @@ public class SyllableXmlReader
         mappingTable = new Vector<MappingTable>();
         checkers = new Vector<SyllableChecker>();
     }
-
+    /**
+     * 
+     * @param xmlFile
+     * @param loader
+     * @param debug
+     * @param ps
+     */
     public SyllableXmlReader(URL xmlFile, IClassLoaderUtil loader, boolean debug, PrintStream ps)
     {
         this.errorLog = new StringBuffer();
@@ -135,6 +152,11 @@ public class SyllableXmlReader
         checkers = new Vector<SyllableChecker>();
     }
 
+    /**
+     * 
+     * @return true on successful parse
+     * @throws CharConverter.FatalException
+     */
     public boolean parse() throws CharConverter.FatalException
     {
         try
@@ -1019,11 +1041,19 @@ public class SyllableXmlReader
         return script;
     }
 
+    /**
+     * 
+     * @return mapping tables as vector
+     */
     public Vector<MappingTable> getMappingTables()
     {
         return mappingTable;
     }
 
+    /**
+     * 
+     * @return error log as a string
+     */
     public String getErrorLog()
     {
         String error = errorLog.toString();
@@ -1031,11 +1061,20 @@ public class SyllableXmlReader
         return error;
     }
 
+    /**
+     * Backtracking allows shorter syllables to be chosen if a previous
+     * choice results in an unknown match later in the string.
+     * @return true if backtracking is enabled
+     */
     public boolean isBacktrackEnabled()
     {
         return enableBacktrack;
     }
 
+    /**
+     * 
+     * @return vector of checkers
+     */
     public Vector<SyllableChecker> getCheckers()
     {
         return checkers;
@@ -1048,7 +1087,9 @@ public class SyllableXmlReader
      * 
      * @param className
      *            full binary class name
+     * @param args 
      * @return true if class was loaded successfully
+     * @throws CharConverter.FatalException 
      */
     public boolean addChecker(String className, Object[] args)
             throws CharConverter.FatalException
@@ -1125,10 +1166,17 @@ public class SyllableXmlReader
         }
         return added;
     }
+    /**
+     * Call to enable mapping of ambiguous Maps
+     */
     public void logMapStatus()
     {
         mMapStatus = new HashMap <String,Map<Integer,Integer> >();
     }
+    /**
+     * Maps a MappingTable id to a map of line numbers to MappingStatus
+     * @return Map of mapping status results
+     */
     public Map <String,Map<Integer,Integer> > getLogMapStatus()
     {
         return mMapStatus;

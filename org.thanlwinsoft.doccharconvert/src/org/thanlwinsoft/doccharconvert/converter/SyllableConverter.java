@@ -54,8 +54,17 @@ public class SyllableConverter extends ReversibleConverter
 {
     Script[] scripts = null;
     Vector<MappingTable> mappingTables = null;
+    /**
+     * left side index
+     */
     public static final int LEFT = 0;
+    /**
+     * right side index
+     */
     public static final int RIGHT = 1;
+    /**
+     * String to substitute for unknown characters
+     */
     public static final String UNKNOWN_CHAR = "??";
     private String name = null;
     private String reverseName = null;
@@ -93,6 +102,10 @@ public class SyllableConverter extends ReversibleConverter
         }
     }
 
+    /**
+     * 
+     * @param xmlFile
+     */
     public SyllableConverter(URL xmlFile)
     {
         construct(xmlFile);
@@ -169,6 +182,8 @@ public class SyllableConverter extends ReversibleConverter
      * @param inputText
      *            original text
      * @return converted text
+     * @throws FatalException 
+     * @throws RecoverableException 
      */
     public String convert(String inputText) throws FatalException,
             RecoverableException
@@ -702,6 +717,7 @@ public class SyllableConverter extends ReversibleConverter
 
     /**
      * Some converters may need to preinitialise some things
+     * @throws FatalException 
      */
     public void initialize() throws FatalException
     {
@@ -740,11 +756,19 @@ public class SyllableConverter extends ReversibleConverter
         // Processing is done in unicode, so this converter ignores the charsets
     }
 
+    /**
+     * 
+     * @return URL of XML file
+     */
     public URL getXmlFile()
     {
         return xmlURL;
     }
 
+    /**
+     * 
+     * @param clazz
+     */
     public void disableChecker(Class<?> clazz)
     {
         Iterator<SyllableChecker> iChecker = checkers.iterator();
@@ -762,11 +786,20 @@ public class SyllableConverter extends ReversibleConverter
     {
         mLoader  = loader;
     }
+    /**
+     * 
+     * @param mapId
+     * @param line
+     * @return map status for given MappingTable and row number
+     */
     public int getMapStatus(String mapId, int line)
     {
         if (mMapStatus == null || !mMapStatus.containsKey(mapId) ||
             !mMapStatus.get(mapId).containsKey(line)) return 0;
         return mMapStatus.get(mapId).get(line);
     }
+    /**
+     * enable logging of map status during initialize
+     */
     public void logMapStatus() { mDoLogStatus = true; }
 }

@@ -74,7 +74,7 @@ public class BatchConversion implements Runnable
     }
     /** Copy constructor for BatchConversion
      *  everything except the file list is copied
-     *  
+     *  @param bc
      */
     public BatchConversion(BatchConversion bc) 
     {
@@ -96,10 +96,16 @@ public class BatchConversion implements Runnable
     }
     
     
+    /**
+     * @param cl
+     */
     public void setCommandLine(boolean cl)
     {
       commandLine = cl;
     }
+    /**
+     * @param mode
+     */
     public void setConversionMode(ConversionMode mode)
     {
         if (mode != this.mode)
@@ -125,16 +131,29 @@ public class BatchConversion implements Runnable
         }
         return builder.toString();
     }
+    /**
+     * 
+     * @param isPairs
+     */
     public void setPairsMode(boolean isPairs)
     {
         useFilePairs = isPairs;
         if (useFilePairs == true && filePairList == null)
             filePairList = new TreeMap<File,File>();
     }
+    /**
+     * 
+     * @param onlyConvertStylesInUse
+     */
     public void setOnlyStylesInUse(boolean onlyConvertStylesInUse)
     {
         this.onlyStylesInUse = onlyConvertStylesInUse;
     }
+    /**
+     * 
+     * @param oldF
+     * @param newF
+     */
     public void addFilePair(File oldF, File newF)
     {
         if (useFilePairs)
@@ -143,11 +162,19 @@ public class BatchConversion implements Runnable
         }
         else throw new IllegalArgumentException("Pairs mode is not enabled");
     }
+    /**
+     * 
+     * @param entry
+     */
     public void removeFilePair(Map.Entry<?,?> entry)
     {
         removeFilePair((File)entry.getKey()/*,
                        (File)entry.getValue()*/);
     }
+    /**
+     * 
+     * @param oldF
+     */
     public void removeFilePair(File oldF)
     {
         if (useFilePairs)
@@ -156,10 +183,18 @@ public class BatchConversion implements Runnable
         }
         else throw new IllegalArgumentException("Pairs mode is not enabled");
     }
+    /**
+     * 
+     * @return mode
+     */
     public ConversionMode getConversionMode()
     {
         return mode;
     }
+    /**
+     * 
+     * @param f
+     */
     public void addInputFile(File f)
     {
         fileMode = true;
@@ -168,6 +203,10 @@ public class BatchConversion implements Runnable
             inputFileList.add(f);
         }
     }
+    /**
+     * 
+     * @param fs
+     */
     public void addInputFiles(File [] fs)
     {
         for (int i = 0; i< fs.length; i++)
@@ -175,6 +214,10 @@ public class BatchConversion implements Runnable
             addInputFile(fs[i]);
         }
     }
+    /**
+     * 
+     * @param f
+     */
     public void removeInputFile(File f)
     {
         if (!inputFileList.contains(f))
@@ -182,6 +225,10 @@ public class BatchConversion implements Runnable
             inputFileList.remove(f);
         }
     }
+    /**
+     * 
+     * @return input/output file pairs
+     */
     public Object [] getInputFileList()
     {
         if (useFilePairs)
@@ -190,6 +237,10 @@ public class BatchConversion implements Runnable
         }
         return inputFileList.toArray();
     }
+    /**
+     * 
+     * @param prefix
+     */
     public void setOutputPrefix(String prefix)
     {
         outputPrefix = prefix;
@@ -199,11 +250,20 @@ public class BatchConversion implements Runnable
             outputDir = null;
         }
     }
+    /**
+     * 
+     * @param input
+     * @return true if input file list contains input
+     */
     public boolean hasInputFile(File input)
     {
         return filePairList.containsKey(input);
     }
-    
+    /**
+     * 
+     * @param input
+     * @return output file for specified input file
+     */
     public File getOutputFile(File input)
     {
         File outputFile = null;
@@ -255,6 +315,10 @@ public class BatchConversion implements Runnable
             converterList.put(cc.getOldStyle(),cc);
         }
     }
+    /**
+     * 
+     * @param cc
+     */
     public void removeConverter(CharConverter cc)
     {
         if (!converterList.containsValue(cc))
@@ -262,14 +326,24 @@ public class BatchConversion implements Runnable
             converterList.remove(cc.getOldStyle());
         }
     }
+    /**
+     * remove all converters
+     */
     public void removeAllConverters()
     {
         converterList.clear();
     }
+    /**
+     * @return converter list
+     */
     public Collection<CharConverter> getConverters()
     {
         return converterList.values();
     }
+    /**
+     * 
+     * @return true if conversion can be performed
+     */
     public boolean isValid()
     {
         boolean valid = true;
@@ -285,6 +359,10 @@ public class BatchConversion implements Runnable
         }
         return valid;
     }
+    /**
+     * 
+     * @return true if conversion is in progress
+     */
     synchronized public boolean isRunning() { return running; }
     
     protected void initDocInterface() throws org.thanlwinsoft.doccharconvert.DocInterface.InterfaceException
@@ -504,21 +582,38 @@ public class BatchConversion implements Runnable
                                       getFileBeingConverted(), warningMsg), 
                 MessageUtil.getString("Msg_ConversionError"));
     }
+    /**
+     * 
+     * @return index of file being processed
+     */
     public synchronized int getCurrentFileIndex() { return currentFileIndex; }
+    /**
+     * 
+     * @return number of input files
+     */
     public synchronized int getFileCount() 
     {
         return fileCount;
     }
+    /**
+     * 
+     * @return name of file being converted
+     */
     public synchronized String getFileBeingConverted()
     {
         return status;
     }
-    
+    /**
+     * request the conversion to stop
+     */
     public synchronized void stopConversion()
     {
         notifier.setCancelled(true);
         if (docInterface != null) docInterface.abort();
     }
+    /**
+     * stop conversion if necessary and clean up converters
+     */
     public void destroy()
     {
         stopConversion();
@@ -540,6 +635,10 @@ public class BatchConversion implements Runnable
             docInterface = null;
         }
     }
+    /**
+     * 
+     * @param iEnc
+     */
     public void setInputEncoding(Charset iEnc) 
     {
         iCharset = iEnc;
@@ -549,7 +648,15 @@ public class BatchConversion implements Runnable
             converterList.get(i.next()).setEncodings(iCharset, oCharset);
         }
     }
+    /**
+     * 
+     * @return input character set
+     */
     public Charset getInputEncoding() { return iCharset; }
+    /**
+     * 
+     * @param oEnc
+     */
     public void setOutputEncoding(Charset oEnc) 
     { 
         oCharset = oEnc; 
@@ -559,25 +666,49 @@ public class BatchConversion implements Runnable
             converterList.get(i.next()).setEncodings(iCharset, oCharset);
         }
     }
+    /**
+     * 
+     * @return output character set
+     */
     public Charset getOutputEncoding() { return oCharset; }
+    /**
+     * 
+     * @return description of progress
+     */
     public synchronized String getProgressDesc()
     {
       if (docInterface != null)
         return docInterface.getStatusDesc();
       else return new String("");
     }
+    /**
+     * 
+     * @param newMsgDisplay
+     */
     public void setMessageDisplay(IMessageDisplay newMsgDisplay)
     {
         msgDisplay = newMsgDisplay;
     }
+    /**
+     * 
+     * @param fm
+     */
     public void setFileMode(boolean fm)
     {
         fileMode = fm;
     }
+    /**
+     * 
+     * @return true if in file mode
+     */
     public boolean isFileMode()
     {
         return fileMode;
     }
+    /**
+     * 
+     * @param pn
+     */
     public void setProgressNotifier(ProgressNotifier pn)
     {
         notifier = pn;

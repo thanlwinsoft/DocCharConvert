@@ -20,11 +20,36 @@ package org.thanlwinsoft.doccharconvert;
 
 /**
  * @author keith
- *
+ * abstracts out dialog display for different GUI implementations
  */
 public interface IMessageDisplay
 {
-    public enum Option { YES, NO, YES_ALL, NO_ALL };
+    /**
+     * @author keith
+     * Option enumeration
+     */
+    public enum Option { /**
+     * yes
+     */
+    YES, /**
+     * no
+     */
+    NO, /**
+     * yes to all
+     */
+    YES_ALL, /**
+     * no to all
+     */
+    NO_ALL };
+    /**
+     * @param message
+     * @param title
+     */
     public void showWarningMessage(String message, String title);
+    /**
+     * @param message
+     * @param title
+     * @return option chosen
+     */
     public Option showYesNoMessage(String message, String title);
 }

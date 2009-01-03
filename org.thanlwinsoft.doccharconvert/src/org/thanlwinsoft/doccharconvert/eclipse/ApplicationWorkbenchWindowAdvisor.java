@@ -25,8 +25,15 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 
+/**
+ * @author keith
+ *
+ */
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
+    /**
+     * @param configurer
+     */
     public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
         super(configurer);
     }

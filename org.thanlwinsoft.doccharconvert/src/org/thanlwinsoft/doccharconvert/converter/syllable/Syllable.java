@@ -86,23 +86,59 @@ public class Syllable
     this.result = Arrays.copyOf(copy.result, copy.result.length);
     this.scripts = copy.scripts;
   }
+  /**
+   * 
+   * @return true if Syllable was recognized
+   */
   public boolean isKnown() { return known; }
+  /**
+   * 
+   * @return length of original syllable
+   */
   public int originalLength() { return text.length(); }
+  /**
+   * 
+   * @return length of result
+   */
   public int resultLength() { return getResultString().length(); }
+  /**
+   * 
+   * @return result as integer array of ids
+   */
   public Integer [] getConversionResult() { return result; }
+  /**
+   * 
+   * @return original Syllable as integer array ids
+   */
   public Integer [] getOriginal() 
   { 
     java.util.List <Integer> subList = syllable.subList(1, syllable.size());
     return subList.toArray(new Integer[syllable.size() - 1]); 
   }
+  /**
+   * 
+   * @param newResult
+   */
   public void setConversionResult(Integer [] newResult) { result = newResult; }
+  /**
+   * 
+   * @return original string
+   */
   public String getOriginalString() { return text; }
+  /**
+   * 
+   * @return result of conversion
+   */
   public String getResultString() 
   {
     if (known)
       return dumpSyllable(); 
     return text;
   }
+  /**
+ * @param syl
+ * @return true if equal
+ */
   public boolean equals(Syllable syl)
   {
       if (syl == null) return false;
@@ -112,6 +148,9 @@ public class Syllable
       }
       return text.equals(syl.getOriginalString());
   }
+  /**
+  * @return true if there were ambiguous mappings
+  */
   public boolean isAmbiguous()
   {
       for (int i = 0; i< result.length; i++)
@@ -121,11 +160,12 @@ public class Syllable
       }
       return false;
   }
-  /* 
+  /** 
   * Priority = sum over each component of
   * number of char matched in component * priority of component
-  */
-  public int getPriority()
+ * @return priority
+ */
+public int getPriority()
   {
     int p = 0;
     for (int i = 1; i<syllable.size(); i++)
@@ -141,14 +181,17 @@ public class Syllable
   }
   /**
    * Sum of syllable priorities from first syllable to this one
-   * @return
+   * @return sum
    */
   public int sumPriorities()
   {
       return ((previous == null)? 0 : previous.getPriority()) + getPriority();
   }
   
-  public String dumpSyllables()
+  /**
+ * @return debug description of the syllable
+ */
+public String dumpSyllables()
   {
       return ((previous == null)? "" : previous.dumpSyllables()) + dumpSyllable();
   }
@@ -193,6 +236,7 @@ public class Syllable
   }
   /**
    * Set the previous syllable to a different value
+ * @param p 
    * @param previous Syllable
    */
   public void setPrevious(Syllable p)
@@ -217,13 +261,13 @@ public class Syllable
   }
   /**
    * Index of this syllable from the start
-   * @return
+   * @return index
    */
   public int getSyllableIndex()
   {
       return (previous == null)? 0 : previous.getSyllableIndex() + 1;
   }
-  
+  @Override
   public String toString()
   {
       return syllable.toString() + "orig" + " > " + dumpSyllable(); 

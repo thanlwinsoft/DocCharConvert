@@ -70,19 +70,22 @@ public class Component
         return entries.indexOf(entry);
     }
     /** Description of component
+     * @return description
     */
     public String getDescripton()
     {
         return desc;
     }
     /** ID of component used in XML
+     * @return ID of Component
     */
     public String getId()
     {
         return id;
     }
     /**
-    * script of this component 
+    * script of this component
+    * @return script
     */
     public Script getScript()
     {
@@ -90,6 +93,7 @@ public class Component
     }
     /**
     * Number of values that this component can take
+    * @return number of values
     */
     public int size()
     {
@@ -106,26 +110,51 @@ public class Component
       entries.add(value);
       return index;
     }
+    /**
+     * 
+     * @param id
+     * @return class with given id
+     */
     public ComponentClass getClass(String id)
     {
       return classMap.get(id);
     }
+    /**
+     * 
+     * @param theClass
+     */
     public void addClass(ComponentClass theClass)
     {
       classMap.put(theClass.getId(), theClass);
     }
+    /**
+     * 
+     * @return iterator over class ids
+     */
     public Iterator <String> getClassIdIterator()
     {
       return classMap.keySet().iterator();
     }
+    /**
+     * 
+     * @return max length of any component
+     */
     public int getMaxLength()
     {
         return maxLength;
     }
+    /**
+     * 
+     * @param p
+     */
     public void setPriority(int p)
     {
         priority = p;
     }
+    /**
+     * 
+     * @return priority
+     */
     public int getPriority()
     {
         return priority;

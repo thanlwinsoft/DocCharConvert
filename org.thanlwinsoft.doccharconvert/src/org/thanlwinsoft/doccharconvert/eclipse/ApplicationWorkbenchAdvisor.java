@@ -21,6 +21,11 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
+/**
+ * Workbench advisor and Perspective ID
+ * @author keith
+ *
+ */
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
 	private static final String PERSPECTIVE_ID = "org.thanlwinsoft.doccharconvert.eclipse.Perspective";

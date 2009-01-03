@@ -62,19 +62,24 @@ import org.thanlwinsoft.schemas.syllableParser.SyllableConverter;
 import org.thanlwinsoft.util.Triple;
 
 /**
+ * Editor for SyllableConverter classes
  * @author keith
  *
  */
 public class ClassTableEditorPart extends EditorPart
 {
-    private Table table; 
+    private Table table;
     private TableViewer viewer;
     private final SyllableConverterEditor parentEditor;
     private org.thanlwinsoft.schemas.syllableParser.Class classTable;
     private Clipboard clipboard;
     private MenuManager menuManager;
-    public final static int COL_OFFSET = 1; 
-    public ClassTableEditorPart(SyllableConverterEditor parentEditor, 
+    protected final static int COL_OFFSET = 1;
+    /**
+     * @param parentEditor
+     * @param clazz
+     */
+    public ClassTableEditorPart(SyllableConverterEditor parentEditor,
         org.thanlwinsoft.schemas.syllableParser.Class clazz)
     {
         this.classTable = clazz;
@@ -572,7 +577,7 @@ public class ClassTableEditorPart extends EditorPart
         table.setFocus();
     }
     
-    public class CellEditingSupport extends EditingSupport
+    protected class CellEditingSupport extends EditingSupport
     {
         final String colRef;
         final int colIndex;
@@ -580,7 +585,7 @@ public class ClassTableEditorPart extends EditorPart
         /**
          * @param viewer
          */
-        public CellEditingSupport(ColumnViewer viewer, String colRef, int colIndex)
+        protected CellEditingSupport(ColumnViewer viewer, String colRef, int colIndex)
         {
             super(viewer);
             this.colRef = colRef;

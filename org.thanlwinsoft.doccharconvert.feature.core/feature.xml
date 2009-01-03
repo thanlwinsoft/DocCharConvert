@@ -500,6 +500,7 @@ DAMAGES.
       <import plugin="org.eclipse.ui.intro.universal"/>
       <import plugin="org.eclipse.ui.forms" version="3.3.0" match="compatible"/>
       <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.eclipse.core.runtime.compatibility" version="3.2.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -517,9 +518,20 @@ DAMAGES.
 
    <plugin
          id="org.thanlwinsoft.doccharconvert.teckit"
-         os="linux,win32"
+         os="linux"
+         arch="x86,x86_64"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="org.thanlwinsoft.doccharconvert.teckit.win32"
+         os="win32"
+         ws="win32"
+         arch="x86"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
 
 </feature>

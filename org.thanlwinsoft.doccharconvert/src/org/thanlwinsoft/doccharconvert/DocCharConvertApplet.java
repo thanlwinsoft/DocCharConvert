@@ -102,6 +102,7 @@ public class DocCharConvertApplet extends javax.swing.JApplet
      * strings 
      * @param input string to convert
      * @param outputId id of html element to insert the result into or null
+     * @param reverseId 
      * @param reverseid id of html element to insert result of a forward + 
      * reverse round trip conversion or null
      */

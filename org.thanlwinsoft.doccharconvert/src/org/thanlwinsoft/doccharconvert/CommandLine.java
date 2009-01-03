@@ -25,6 +25,10 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
 import org.thanlwinsoft.doccharconvert.converter.ReversibleConverter;
 
+/**
+ * @author keith
+ * CommandLine interface to DocCharConvert
+ */
 public class CommandLine
 {
 
@@ -48,7 +52,8 @@ public class CommandLine
             Class<?> mainFormClass = ClassLoader.getSystemClassLoader()
                 .loadClass("org.thanlwinsoft.doccharconvert.MainForm");
             Method guiMain = mainFormClass.getMethod("main", String[].class);
-            guiMain.invoke(null, (Object)args);
+            Object [] objArgs = new Object[] { args };
+            guiMain.invoke(null, objArgs);
         }
         catch (Exception e)
         {
@@ -212,7 +217,7 @@ public class CommandLine
             BatchConversion conv = new BatchConversion();
             try 
             {
-              conv.setConversionMode(ConversionMode.getById(Integer.parseInt(mode)));
+              conv.setConversionMode(ConversionMode.getById(Integer.parseInt(mode), false));
               conv.setCommandLine(true);
             }
             catch (NumberFormatException e)
@@ -313,7 +318,7 @@ public class CommandLine
       System.out.println("Modes:");
       for (int m = 0; m<ConversionMode.NUM_MODES; m++)
       {
-          System.out.println("\t" + m + "\t" + ConversionMode.getById(m));
+          System.out.println("\t" + m + "\t" + ConversionMode.getById(m, false));
       }
       System.out.println("Optional Arguments:");
       System.out.println("\t--help display this help");

@@ -32,11 +32,19 @@ import org.thanlwinsoft.schemas.docCharConvert.ConverterClass;
 import org.thanlwinsoft.schemas.docCharConvert.DocCharConverter;
 import org.thanlwinsoft.schemas.docCharConvert.DocCharConverterDocument;
 
+/**
+ * @author keith
+ * Wizard page to specifiy the DocCharConvert configuration XML file
+ */
 public class NewDccxWizardPage extends WizardNewFileCreationPage
 {
 
     private ConverterClass mCC = null;
 
+    /**
+     * Construct the page
+     * @param s
+     */
     public NewDccxWizardPage(IStructuredSelection s)
     {
         super("NewDccxPage", s);
@@ -50,6 +58,9 @@ public class NewDccxWizardPage extends WizardNewFileCreationPage
         return MessageUtil.getString("NewConversionConfigurationFile");
     }
     
+    /**
+     * @param cc
+     */
     public void setConverterClass(ConverterClass cc)
     {
         mCC = cc;

@@ -30,6 +30,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.XMLFilterImpl;
 
+/**
+ * XMLFilterImpl to write out to a File or OutputStream
+ * @author keith
+ *
+ */
 public class XmlWriteFilter extends XMLFilterImpl
 {
     Writer out = null;
@@ -39,22 +44,44 @@ public class XmlWriteFilter extends XMLFilterImpl
     String stylesheet = null;
     boolean prettyPrint = false;
     String endOfLine = System.getProperty("line.separator");
+    /**
+     * 
+     * @param filename
+     * @throws FileNotFoundException
+     */
     public XmlWriteFilter(String filename) throws FileNotFoundException
     {
         initialise(new FileOutputStream(new File(filename)));
     }
+    /**
+     * 
+     * @param file
+     * @throws FileNotFoundException
+     */
     public XmlWriteFilter(File file) throws FileNotFoundException
     {
         initialise(new FileOutputStream(file));
     }
+    /**
+     * 
+     * @param os
+     */
     public XmlWriteFilter(OutputStream os)
     {
         initialise(os);
     }
+    /**
+     * 
+     * @param stylesheet
+     */
     public void setStylesheet(String stylesheet)
     {
         this.stylesheet = stylesheet;
     }
+    /**
+     * 
+     * @param isPretty
+     */
     public void setPrettyPrint(boolean isPretty)
     {
         prettyPrint = isPretty;
@@ -246,7 +273,9 @@ public class XmlWriteFilter extends XMLFilterImpl
         //System.out.println("StartPrefixMapping: " + prefix + ":" + uri);
         //System.out.println(namespaces);
     }
-    
+    /**
+     * Create an XML comment
+     */
     public void startComment()
     {
         try
@@ -264,6 +293,9 @@ public class XmlWriteFilter extends XMLFilterImpl
             e.printStackTrace();
         }
     }
+    /**
+     * end an XML comment
+     */
     public void endComment()
     {
         try

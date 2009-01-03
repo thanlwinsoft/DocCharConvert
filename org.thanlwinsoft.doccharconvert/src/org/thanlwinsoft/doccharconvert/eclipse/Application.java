@@ -32,10 +32,10 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
  */
 public class Application implements IApplicationContext
 {
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.eclipse.core.runtime.IPlatformRunnable#run(java.lang.Object)
+    /**
+     * @param args
+     * @return Integer return code
+     * @throws Exception
      */
     public Object run(Object args) throws Exception
     {
@@ -56,11 +56,17 @@ public class Application implements IApplicationContext
         }
     }
 
+    /* (non-Javadoc)
+     * @see org.eclipse.equinox.app.IApplicationContext#applicationRunning()
+     */
     public void applicationRunning()
     {
         //TODO
     }
 
+    /* (non-Javadoc)
+     * @see org.eclipse.equinox.app.IApplicationContext#getArguments()
+     */
     @SuppressWarnings("unchecked")
     public Map getArguments()
     {
@@ -68,34 +74,55 @@ public class Application implements IApplicationContext
         return null;
     }
 
+    /**
+     * @see org.eclipse.equinox.app.IApplicationContext#getBrandingApplication()
+     */
+    @Override
     public String getBrandingApplication()
     {
         
         return "org.thanlwinsoft.doccharconvert.eclipse.Application";
     }
 
+    /**
+     * @see org.eclipse.equinox.app.IApplicationContext#getBrandingBundle()
+     */
+    @Override
     public Bundle getBrandingBundle()
     {
         return Platform.getBundle(DocCharConvertEclipsePlugin.ID);
     }
 
+    /**
+     * @see org.eclipse.equinox.app.IApplicationContext#getBrandingDescription()
+     */
+    @Override
     public String getBrandingDescription()
     {
         // TODO Auto-generated method stub
         return null;
     }
 
+    /**
+     * @see org.eclipse.equinox.app.IApplicationContext#getBrandingId()
+     */
+    @Override
     public String getBrandingId()
     {
         // TODO Auto-generated method stub
         return "DocCharConvertProduct";
     }
 
+    /**
+     * @see org.eclipse.equinox.app.IApplicationContext#getBrandingName()
+     */
+    @Override
     public String getBrandingName()
     {
         return MessageUtil.getString("BrandingName");
     }
 
+    @Override
     public String getBrandingProperty(String key)
     {
         return MessageUtil.getString(key);

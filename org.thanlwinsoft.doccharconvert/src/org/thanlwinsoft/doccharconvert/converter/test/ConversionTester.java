@@ -47,6 +47,10 @@ public class ConversionTester implements CharConverter
     final CharConverter mForwards;
     final CharConverter mBackwards;
     private File logFile = null;
+    /**
+     * @param forwards
+     * @param backwards
+     */
     public ConversionTester(CharConverter forwards, 
                             CharConverter backwards)
     {
@@ -54,6 +58,9 @@ public class ConversionTester implements CharConverter
         this.mBackwards = backwards;
     }
 
+    /**
+     * @param file
+     */
     public void setLogFile(File file)
     {
         logFile = file;
@@ -144,12 +151,22 @@ public class ConversionTester implements CharConverter
         writer.close();
     }
     
+    /**
+     * @author keith
+     * Records the surrounding context of a reverse conversion mismatch
+     */
     public class MismatchContext
     {
         final String converted;
         final String before;
         final String after;
         final String wrong;
+        /**
+         * @param before
+         * @param after
+         * @param wrong
+         * @param converted
+         */
         public MismatchContext(String before, String after, String wrong, String converted)
         {
             this.before = new String(before);

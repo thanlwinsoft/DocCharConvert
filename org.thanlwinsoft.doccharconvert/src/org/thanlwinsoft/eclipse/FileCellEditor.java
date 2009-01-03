@@ -32,12 +32,18 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 
 /**
  * @author keith
- *
+ * A Cell editor giving a browse to a file button
  */
 public class FileCellEditor extends DialogCellEditor {
 
 	final String [] extensions;
 	IResource moduleFile = null;
+	/**
+	 * @param parent
+	 * @param styles
+	 * @param file
+	 * @param extensions
+	 */
 	public FileCellEditor(Composite parent, int styles, IResource file, String [] extensions)
 	{
 		super(parent, styles);

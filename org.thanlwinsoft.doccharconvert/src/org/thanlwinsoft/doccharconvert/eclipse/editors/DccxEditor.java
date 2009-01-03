@@ -100,6 +100,10 @@ import org.thanlwinsoft.schemas.docCharConvert.Script;
 import org.thanlwinsoft.schemas.docCharConvert.Style;
 import org.thanlwinsoft.schemas.docCharConvert.Styles;
 
+/**
+ * @author keith
+ * Editor for the DocCharConvert configuration XML file
+ */
 public class DccxEditor extends EditorPart
 {
     private static final String HELP = "help";
@@ -113,6 +117,9 @@ public class DccxEditor extends EditorPart
     private DocCharConverter mConverter = null;
     private TableViewer mParameterViewer = null;
     private DocCharConverterDocument mDoc;
+    /**
+     * editor id
+     */
     public static String ID = "org.thanlwinsoft.doccharconvert.DccxEditor";
 
     @Override

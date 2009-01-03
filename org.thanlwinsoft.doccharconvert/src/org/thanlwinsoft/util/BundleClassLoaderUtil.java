@@ -19,9 +19,16 @@ package org.thanlwinsoft.util;
 
 import org.osgi.framework.Bundle;
 
+/**
+ * @author keith
+ *
+ */
 public class BundleClassLoaderUtil implements IClassLoaderUtil
 {
     private Bundle [] mBundles;
+    /**
+     * @param bundles
+     */
     public BundleClassLoaderUtil(Bundle [] bundles)
     {
         mBundles = bundles;

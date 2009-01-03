@@ -30,7 +30,7 @@ public interface CharConverter
 {
     /**
      * A name to identify the converter
-     * @return
+     * @return name
      */
     public String getName();
     /**
@@ -43,6 +43,8 @@ public interface CharConverter
      * Convert text using the converter
      * @param oldText original text
      * @return converted text
+     * @throws FatalException 
+     * @throws RecoverableException 
      */
     public String convert(String oldText) 
         throws FatalException, RecoverableException;
@@ -58,7 +60,15 @@ public interface CharConverter
      * @param logDir 
      */
     public void setDebug(boolean on, File logDir);
+    /**
+     * 
+     * @return style
+     */
     public TextStyle getOldStyle();
+    /**
+     * 
+     * @return style
+     */
     public TextStyle getNewStyle();
     /**
      * Set the input and output encodings.
@@ -69,6 +79,7 @@ public interface CharConverter
     
     /**
      * Some converters may need to preinitialise some things
+     * @throws FatalException 
      */
     public void initialize() throws FatalException;
     /**
@@ -83,11 +94,15 @@ public interface CharConverter
     public class FatalException extends Exception
     {
         /**
-		 * 
-		 */
-		private static final long serialVersionUID = -2260785362431150554L;
+         * 
+         */
+        private static final long serialVersionUID = -2260785362431150554L;
 
-		public FatalException(String desc)
+        /**
+         * 
+         * @param desc
+         */
+        public FatalException(String desc)
         {
             super(desc);
         }
@@ -111,6 +126,9 @@ public interface CharConverter
             super(desc);
         }
     }
-    
+    /**
+     * 
+     * @param loader
+     */
     public void setClassLoader(IClassLoaderUtil loader);
 }

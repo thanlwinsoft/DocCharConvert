@@ -25,6 +25,10 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
+/**
+ * @author keith
+ * Create a new SyllableConverter
+ */
 public class NewSyllableConverterAction extends Action implements
 IWorkbenchWindowActionDelegate
 {

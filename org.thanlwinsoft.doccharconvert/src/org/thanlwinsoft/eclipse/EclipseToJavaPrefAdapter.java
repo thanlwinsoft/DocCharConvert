@@ -32,6 +32,9 @@ import java.util.prefs.Preferences;
 public class EclipseToJavaPrefAdapter extends Preferences
 {
     org.osgi.service.prefs.Preferences eclipsePrefs = null;
+    /**
+     * @param prefs
+     */
     public EclipseToJavaPrefAdapter(org.osgi.service.prefs.Preferences prefs)
     {
         eclipsePrefs = prefs;

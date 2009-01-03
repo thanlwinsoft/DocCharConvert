@@ -54,6 +54,7 @@ public class ConversionWizardAction implements IWorkbenchWindowActionDelegate
 	 * The action has been activated. The argument of the
 	 * method represents the 'real' action sitting
 	 * in the workbench UI.
+	 * @param action 
 	 * @see IWorkbenchWindowActionDelegate#run
 	 */
 	public void run(IAction action) 
@@ -120,6 +121,8 @@ public class ConversionWizardAction implements IWorkbenchWindowActionDelegate
 	 * can change the state of the 'real' action here
 	 * if we want, but this can only happen after 
 	 * the delegate has been created.
+	 * @param action 
+	 * @param selection 
 	 * @see IWorkbenchWindowActionDelegate#selectionChanged
 	 */
 	public void selectionChanged(IAction action, ISelection selection) 
@@ -138,6 +141,7 @@ public class ConversionWizardAction implements IWorkbenchWindowActionDelegate
 	/**
 	 * We will cache window object in order to
 	 * be able to provide parent shell for the message dialog.
+	 * @param window 
 	 * @see IWorkbenchWindowActionDelegate#init
 	 */
 	public void init(IWorkbenchWindow window) 

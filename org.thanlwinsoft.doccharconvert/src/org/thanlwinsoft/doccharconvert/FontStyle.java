@@ -30,7 +30,8 @@ public class FontStyle implements TextStyle
     String fontName = null;
     String styleName = null;
     ScriptType.Type type = ScriptType.Type.LATIN;
-    /** Creates a new instance of FontStyle */
+    /** Creates a new instance of FontStyle 
+     * @param aFontName */
     public FontStyle(String aFontName)
     {
         this.fontName = aFontName;

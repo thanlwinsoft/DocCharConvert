@@ -3,14 +3,14 @@
 <repository name='file:/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.update/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1229966379111'/>
+    <property name='p2.timestamp' value='1230893428484'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='40'>
+  <artifacts size='46'>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert' version='1.2.0.200812221933'>
       <properties size='3'>
         <property name='artifact.size' value='635896'/>
@@ -39,6 +39,12 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.myanmar' version='1.1.0'>
+      <properties size='2'>
+        <property name='artifact.size' value='18881'/>
+        <property name='download.size' value='18881'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.teckit' version='0.1.0.200812222348'>
       <properties size='3'>
         <property name='artifact.size' value='424826'/>
@@ -46,17 +52,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.mien' version='1.0.0'>
+      <properties size='2'>
+        <property name='artifact.size' value='18889'/>
+        <property name='download.size' value='18889'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert' version='1.2.0.200812221930'>
       <properties size='3'>
         <property name='artifact.size' value='635896'/>
         <property name='download.size' value='635896'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.mien' version='1.0.0'>
-      <properties size='2'>
-        <property name='artifact.size' value='18889'/>
-        <property name='download.size' value='18889'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert' version='1.2.0.200812222348'>
@@ -73,6 +79,13 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.200901021718'>
+      <properties size='3'>
+        <property name='artifact.size' value='151761'/>
+        <property name='download.size' value='151761'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200812221930'>
       <properties size='3'>
         <property name='artifact.size' value='97712'/>
@@ -80,17 +93,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.myanmar' version='1.0.0'>
+      <properties size='2'>
+        <property name='artifact.size' value='18884'/>
+        <property name='download.size' value='18884'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.200812221930'>
       <properties size='3'>
         <property name='artifact.size' value='151758'/>
         <property name='download.size' value='151758'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.myanmar' version='1.0.0'>
-      <properties size='2'>
-        <property name='artifact.size' value='18884'/>
-        <property name='download.size' value='18884'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.myanmar' version='1.1.0'>
@@ -188,6 +201,20 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert' version='1.2.1.200901021718'>
+      <properties size='3'>
+        <property name='artifact.size' value='664403'/>
+        <property name='download.size' value='664403'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200901021718'>
+      <properties size='3'>
+        <property name='artifact.size' value='98496'/>
+        <property name='download.size' value='98496'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.teckit' version='0.1.0.200812221930'>
       <properties size='3'>
         <property name='artifact.size' value='424824'/>
@@ -214,36 +241,16 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.core' version='1.1.2'>
+      <properties size='2'>
+        <property name='artifact.size' value='19121'/>
+        <property name='download.size' value='19121'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.svn1162'>
       <properties size='3'>
         <property name='artifact.size' value='151703'/>
         <property name='download.size' value='151703'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.core' version='1.1.2'>
-      <properties size='2'>
-        <property name='artifact.size' value='19120'/>
-        <property name='download.size' value='19120'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.0.0.svn1162'>
-      <properties size='3'>
-        <property name='artifact.size' value='97679'/>
-        <property name='download.size' value='97679'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.core' version='1.1.1'>
-      <properties size='2'>
-        <property name='artifact.size' value='19119'/>
-        <property name='download.size' value='19119'/>
-      </properties>
-    </artifact>
-    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.0.0.svn1162'>
-      <properties size='3'>
-        <property name='artifact.size' value='60079'/>
-        <property name='download.size' value='60079'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -254,16 +261,42 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.0.0.svn1162'>
+      <properties size='3'>
+        <property name='artifact.size' value='60079'/>
+        <property name='download.size' value='60079'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.core' version='1.1.1'>
+      <properties size='2'>
+        <property name='artifact.size' value='19119'/>
+        <property name='download.size' value='19119'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.0.0.svn1162'>
+      <properties size='3'>
+        <property name='artifact.size' value='97679'/>
+        <property name='download.size' value='97679'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.core' version='1.1.2'>
+      <properties size='2'>
+        <property name='artifact.size' value='19120'/>
+        <property name='download.size' value='19120'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='org.thanlwinsoft.doccharconvert.feature.core' version='1.1.2'>
       <properties size='2'>
         <property name='artifact.size' value='19119'/>
         <property name='download.size' value='19119'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200812222349'>
+    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.teckit' version='0.1.0.200901021718'>
       <properties size='3'>
-        <property name='artifact.size' value='98211'/>
-        <property name='download.size' value='98211'/>
+        <property name='artifact.size' value='424823'/>
+        <property name='download.size' value='424823'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -271,6 +304,13 @@
       <properties size='2'>
         <property name='artifact.size' value='19118'/>
         <property name='download.size' value='19118'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.myanmar' version='1.1.0.200812222349'>
+      <properties size='3'>
+        <property name='artifact.size' value='98211'/>
+        <property name='download.size' value='98211'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='org.thanlwinsoft.doccharconvert.converters.mien' version='1.0.0.200812222345'>

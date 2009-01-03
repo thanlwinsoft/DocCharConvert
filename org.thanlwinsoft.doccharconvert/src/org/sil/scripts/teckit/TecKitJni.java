@@ -28,6 +28,11 @@ public class TecKitJni
     	"/usr/local/lib/"
     };
     private static boolean libraryLoaded = false;
+    /**
+     * 
+     * @param libraryPath
+     * @return true if library loaded successfully
+     */
     public static boolean loadLibrary(File libraryPath)
     {
         if (!libraryLoaded) 
@@ -107,6 +112,7 @@ public class TecKitJni
     public native long createConverter(String path, boolean toUnicode);
     /**
      * Creates a converter for a given tec file.
+     * @param tec data
      * @param the bytes from the .tec file
      * @param toUnicode true if the direction is from bytes to Unicode
      * false if the direction is from Unicode to bytes

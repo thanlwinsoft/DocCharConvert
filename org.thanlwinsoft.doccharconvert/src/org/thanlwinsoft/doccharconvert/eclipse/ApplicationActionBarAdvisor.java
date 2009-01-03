@@ -37,6 +37,10 @@ import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 
 
+/**
+ * @author keith
+ *
+ */
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor 
 {
     //  Actions - important to allocate these only in makeActions, and then use them
@@ -58,6 +62,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
     //private Action messagePopupAction;
     //private Action conversionWizardAction;
     
+    /**
+     * @param configurer
+     */
     public ApplicationActionBarAdvisor(IActionBarConfigurer configurer) {
         super(configurer);
     }

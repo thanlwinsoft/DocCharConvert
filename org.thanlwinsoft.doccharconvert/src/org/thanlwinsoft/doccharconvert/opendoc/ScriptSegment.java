@@ -43,8 +43,20 @@ public class ScriptSegment
     int start;
     int length;
     final ScriptType.Type type;
+    /**
+     * @return type of script
+     */
     public ScriptType.Type getType() { return type; }
+    /**
+     * @return array of characters
+     */
     public char [] getArray() { return cArray; }
+    /**
+     * @return start of segment
+     */
     public int getStart() { return start; }
+    /**
+     * @return length of segment
+     */
     public int getLength() { return length; }
 }

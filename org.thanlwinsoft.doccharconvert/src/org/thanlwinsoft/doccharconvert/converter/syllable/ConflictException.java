@@ -29,7 +29,8 @@ public class ConflictException extends Exception
 	 */
 	private static final long serialVersionUID = -1999084359790925605L;
 
-	/** Creates a new instance of ConflictException */
+	/** Creates a new instance of ConflictException 
+	 * @param msg */
     public ConflictException(String msg)
     {
         super(msg);

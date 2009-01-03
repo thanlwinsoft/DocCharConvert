@@ -41,11 +41,15 @@ import org.thanlwinsoft.doccharconvert.opendoc.OpenDocStyle.StyleFamily;
 import org.thanlwinsoft.doccharconvert.opendoc.ScriptType.Type;
 //import org.thanlwinsoft.xml.XmlWriteFilter;
 
+/**
+ * @author keith
+ * Filter an Open Document Format file for text to convert
+ */
 public class OpenDocFilter extends XMLFilterImpl
 {
     private final static Logger logger = Logger.getLogger(OpenDocFilter.class.getCanonicalName());
         //Logger.getLogger(OpenDocFilter.class);
-    public enum FileType { STYLE, CONTENT };
+    protected enum FileType { STYLE, CONTENT };
     FileType fileType = null;
     /** manager to store all the styles for different families */
     OpenDocStyleManager styles = null;
@@ -110,9 +114,7 @@ public class OpenDocFilter extends XMLFilterImpl
         columnStyles = new Vector <OpenDocStyle> ();
         this.fileType = fileType;
     }
-    /**
-    * @Override
-    */
+    @Override
     public void characters(char[] ch, int start, int length) throws SAXException
     {
         int s = start;

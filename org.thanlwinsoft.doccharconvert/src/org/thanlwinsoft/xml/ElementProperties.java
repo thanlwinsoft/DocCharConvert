@@ -36,6 +36,12 @@ public class ElementProperties
     AttributesImpl attributes = null; 
     ElementProperties parent = null;
     Vector <ElementProperties> children = null;
+    /**
+     * @param uri
+     * @param lName
+     * @param qName
+     * @param atts
+     */
     public ElementProperties(String uri, String lName, String qName, Attributes atts)
     {
        this.uri = new String(uri);
@@ -44,20 +50,50 @@ public class ElementProperties
        this.attributes = new AttributesImpl(atts);
        this.children = new Vector<ElementProperties>();
     }
+    /**
+     * 
+     * @param child
+     */
     public void addChild(ElementProperties child)
     {
         this.children.add(child);
     }
+    /**
+     * 
+     * @return children
+     */
     public Vector<ElementProperties> getChildren() {return children;}
+    /**
+     * 
+     * @return URI as string
+     */
     public String getUri() { return uri; }
+    /**
+     * 
+     * @return local name (without prefix)
+     */
     public String getLocalName() {return localName; }
+    /**
+     * 
+     * @return qualified name
+     */
     public String getQName() { return qName; }
+    /**
+     * 
+     * @return attributes
+     */
     public AttributesImpl getAttributes() { return attributes; }
-    
+    /**
+     * 
+     * @param ep
+     */
     public void setParent(ElementProperties ep)
     {
         this.parent = ep;
     }
+    /**
+     * @return parent
+    */
     public ElementProperties getParent()
     {
         return parent;

@@ -62,10 +62,15 @@ public class OpenDocStyle
     this.styleFamily = family;
     this.convertedStyle = this;
   }
+  /**
+   * 
+   * @return style name
+   */
   public String getName() { return name; }
   /** Creates a new instance of OpenDocStyle 
    * @param name from style:name attribute
    * @param family from style:family attribute
+   * @param parent 
    */
   public OpenDocStyle(String family, String name, String parent)
   {
@@ -78,6 +83,7 @@ public class OpenDocStyle
   /** Creates a new instance of OpenDocStyle 
    * @param name from style:name attribute
    * @param family from style:family attribute
+ * @param parent 
    */
   public OpenDocStyle(String family, String name, OpenDocStyle parent)
   {
@@ -87,14 +93,27 @@ public class OpenDocStyle
     this.parent = parent;
     this.convertedStyle = this;
   }
+  /**
+   * 
+   * @return style family name
+   */
   public StyleFamily getFamily() 
   {
     return styleFamily;
   }
+  /**
+   * 
+   * @return latin script face name
+   */
   public String getFaceName()
   {
     return this.normalFace;
   }
+  /**
+   * 
+   * @param type
+   * @return resolve name from parent styles
+   */
   public String resolveFaceName(ScriptType.Type type)
   {
       String name;
@@ -112,6 +131,11 @@ public class OpenDocStyle
       }
       return name;
   }
+  /**
+   * 
+   * @param type
+   * @return face name for specified script type
+   */
   public String getFaceName(ScriptType.Type type)
   {
       String name;
@@ -129,6 +153,10 @@ public class OpenDocStyle
       }
       return name;
   }
+  /**
+   * find face name looking at parent styles if necessary
+   * @return face name
+   */
   public String resolveFaceName()
   {
     OpenDocStyle ods = this;
@@ -140,11 +168,18 @@ public class OpenDocStyle
         return null;
     return ods.normalFace;
   }
-  
+  /**
+   * 
+   * @return face name for SE Asian scripts/Arabic
+   */
   public String getComplexFaceName()
   {
     return this.complexFace;
   }
+  /**
+   * 
+   * @return parent style
+   */
   public OpenDocStyle getParentStyle()
   {
       if (parent == null && parentName != null && manager != null)
@@ -153,6 +188,10 @@ public class OpenDocStyle
       }
       return parent;
   }
+  /**
+   * 
+   * @return complex face name resolved using parent styles if needed
+   */
   public String resolveComplexFaceName()
   {
     OpenDocStyle ods = this;
@@ -167,11 +206,18 @@ public class OpenDocStyle
     if (ods == null) return null;//getFaceName();
     return ods.complexFace;
   }
-  
+  /**
+   * Chinese/Japanese/Korean face name
+   * @return face name
+   */
   public String getCjkFaceName()
   {
     return this.cjkFace;
   }
+  /**
+   * 
+   * @return Chinese/Japanese/Korean face name resolved using parent styles if needed
+   */
   public String resolveCjkFaceName()
   {
     OpenDocStyle ods = this;
@@ -182,6 +228,11 @@ public class OpenDocStyle
     if (ods == null) return null;//getFaceName();
     return ods.cjkFace;
   }
+  /**
+   * 
+   * @param type
+   * @param faceName
+   */
   public void setFaceName(ScriptType.Type type, String faceName)
   {
       if (type.equals(ScriptType.Type.CJK))
@@ -191,27 +242,46 @@ public class OpenDocStyle
       else
           this.normalFace = faceName;
   }
-  
+  /**
+   * 
+   * @param faceName
+   */
   public void setFaceName(String faceName)
   {
     this.normalFace = normalizeFace(faceName);
   }
-  
+  /**
+   * SE Asian, arabic face
+   * @param faceName
+   */
   public void  setComplexFaceName(String faceName)
   {
     this.complexFace = normalizeFace(faceName);
   }
-  
+  /**
+   * Chinese/Japanese/Korean
+   * @param faceName
+   */
   public void  setCjkFaceName(String faceName)
   {
     this.cjkFace = normalizeFace(faceName);
   }
+  /**
+   * 
+   * @param altStyle
+   */
   public void addAltStyle(OpenDocStyle altStyle)
   {
       if (altStyles == null)
           altStyles = new Vector<OpenDocStyle>();
       altStyles.add(altStyle);
   }
+  /**
+   * 
+   * @param script
+   * @param face
+   * @return styles that may be used if a conversion is performed
+   */
   public OpenDocStyle getAltStyle(ScriptType.Type script, String face)
   {
       if (altStyles == null) return null;
@@ -223,6 +293,11 @@ public class OpenDocStyle
       }
       return null;
   }
+  /**
+   * 
+   * @param faceName
+   * @return face name without bad characters
+   */
   public static String normalizeFace(String faceName)
   {
     String normalized = faceName.toLowerCase();
@@ -280,22 +355,40 @@ public class OpenDocStyle
       tag2StyleFamily.put("draw:path",StyleFamily.GRAPHIC);
       
   }
+  /**
+   * 
+   * @param tag
+   * @return family
+   */
   public static StyleFamily getStyleForTag(String tag)
   {
       return tag2StyleFamily.get(tag);
   }
+  /**
+   * 
+   * @param m
+   */
   public void setManager(OpenDocStyleManager m)
   {
       this.manager = m;
   }
+  /**
+   * 
+   * @return style to use for converted text
+   */
   public OpenDocStyle getConvertedStyle()
   {
       return convertedStyle;
   }
+  /**
+   * 
+   * @param converted
+   */
   public void setConvertedStyle(OpenDocStyle converted)
   {
       this.convertedStyle = converted;
   }
+  @Override
   public String toString()
   {
       return new String(this.name + ">" + this.convertedStyle);

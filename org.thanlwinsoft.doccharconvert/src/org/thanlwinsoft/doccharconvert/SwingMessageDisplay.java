@@ -29,10 +29,10 @@ import javax.swing.SwingUtilities;
  */
 public class SwingMessageDisplay implements IMessageDisplay
 {
-    public final static int PROMPT_YES = 0;
-    public final static int PROMPT_NO = 1;
-    public final static int OVERWRITE_ALL = 2;
-    public final static int SKIP_ALL = 3;
+    protected final static int PROMPT_YES = 0;
+    protected final static int PROMPT_NO = 1;
+    protected final static int OVERWRITE_ALL = 2;
+    protected final static int SKIP_ALL = 3;
     private final static String [] OPTIONS = {"Yes","No","Yes to all","No to all"};
     private int promptMode = PROMPT_NO;
     
@@ -91,11 +91,15 @@ public class SwingMessageDisplay implements IMessageDisplay
         }
         return Option.NO;
     }
-    public synchronized void setPromptMode(int mode)
+    /**
+     * 
+     * @param mode
+     */
+    protected synchronized void setPromptMode(int mode)
     {
         promptMode = mode;
     }
-    public synchronized int getPromptMode(int mode)
+    protected synchronized int getPromptMode(int mode)
     {
         return promptMode;
     }

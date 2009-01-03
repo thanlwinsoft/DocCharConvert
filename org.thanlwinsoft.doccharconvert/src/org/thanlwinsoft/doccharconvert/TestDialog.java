@@ -31,24 +31,24 @@ import javax.swing.JMenuItem;
 import javax.swing.AbstractAction;
 
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
-import org.thanlwinsoft.doccharconvert.converter.ChildConverter;
 /**
  * @deprecated
  * @author  keith
  */
 public class TestDialog extends javax.swing.JDialog
 {
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 3152816015516734437L;
-	private ChildConverter converter = null;
-    private ChildConverter reverseConverter = null;
+	private CharConverter converter = null;
+    private CharConverter reverseConverter = null;
     private int DEBUG_FONT_SIZE = 12;
     private String DEBUG_FONT = "Courier";
     private ResourceBundle guiResource = null;
-    /** Creates new form TestDialog */
-    public TestDialog(MainForm parent, boolean modal, ChildConverter cc, ChildConverter rcc)
+    /** Creates new form TestDialog 
+     * @param parent 
+     * @param modal 
+     * @param cc 
+     * @param rcc */
+    public TestDialog(MainForm parent, boolean modal, CharConverter cc, CharConverter rcc)
     {
         super(parent, modal);
         guiResource = parent.getResource();
@@ -72,15 +72,18 @@ public class TestDialog extends javax.swing.JDialog
         cc.setDebug(false, null);
         rcc.setDebug(false, null);
         int fontSize = Config.getCurrent().getTestFontSize();
+        if (cc.getNewStyle() != null && cc.getOldStyle() != null)
+        {
         jTextArea1.setFont(new Font(cc.getOldStyle().getFontName(),
                            Font.PLAIN,fontSize));
         jTextArea2.setFont(new Font(cc.getNewStyle().getFontName(),
                            Font.PLAIN,fontSize));
         jTextArea3.setFont(new Font(cc.getOldStyle().getFontName(),
                            Font.PLAIN,fontSize));
+        }
         jTextArea4.setFont(new Font(DEBUG_FONT,
                            Font.PLAIN,DEBUG_FONT_SIZE));
-        this.setSize(600,500);
+       this.setSize(600,500);
         this.setTitle(guiResource.getString("test_dialog_title"));
         converterLabel.setText(cc.getName());
         initContextMenu();
@@ -265,7 +268,7 @@ public class TestDialog extends javax.swing.JDialog
         // TODO add your handling code here:
         
         StringBuffer debugText = new StringBuffer();
-        ChildConverter cc = converter;
+        CharConverter cc = converter;
         try
         {
             cc.initialize();

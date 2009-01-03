@@ -41,6 +41,10 @@ import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.RecoverableException;
 import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 
+/**
+ * @author keith
+ * Conversion parser which is invoked from within an XSL transformation
+ */
 public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocInterface
 {
     private ConversionMode mMode = null;
@@ -50,6 +54,9 @@ public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocI
     private static XslConversionParser theParser = null;
     private Map<TextStyle, CharConverter> mConverters;
 
+    /**
+     * Constructor
+     */
     public XslConversionParser()
     {
         
@@ -146,7 +153,7 @@ public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocI
     /**
      * Convert using first CharConverter
      * @param in
-     * @return
+     * @return conversion result
      */
     public static String convert(String in)
     {

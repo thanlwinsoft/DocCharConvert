@@ -33,6 +33,11 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.editors.DccxEditor;
 
+/**
+ * 
+ * @author keith
+ * Wizard to create a new DocCharConvert XML configuration
+ */
 public class NewDccxWizard extends Wizard implements INewWizard
 {
 
@@ -40,6 +45,9 @@ public class NewDccxWizard extends Wizard implements INewWizard
     private NewDccxWizardPage mPage = null;
     private IWorkbench mWorkbench;
     
+    /**
+     * constructor
+     */
     public NewDccxWizard() 
     {
         

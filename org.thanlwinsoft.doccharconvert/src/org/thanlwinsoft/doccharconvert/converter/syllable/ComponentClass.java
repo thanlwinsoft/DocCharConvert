@@ -35,7 +35,10 @@ public class ComponentClass
     private Vector <Integer> leftVector =null;
     private Vector <Integer> rightVector = null;
     private String id = null;
-    /** Creates a new instance of ComponentClass */
+    /** Creates a new instance of ComponentClass 
+     * @param left 
+     * @param right 
+     * @param id */
     public ComponentClass(Component left, Component right, String id)
     {
         components = new Component [2];
@@ -45,12 +48,22 @@ public class ComponentClass
         rightVector = new Vector<Integer>();
         this.id = id;
     }
+    /**
+     * 
+     * @param leftValues
+     * @param rightValues
+     */
     public void addAll(Collection <Integer> leftValues, Collection <Integer> rightValues)
     {
       assert(leftValues.size() == rightValues.size());
       leftVector.addAll(leftValues);
       rightVector.addAll(rightValues);
     }
+    /**
+     * 
+     * @param side
+     * @param refIndex
+     */
     public void add(int side, int refIndex)
     {
         switch (side)
@@ -65,6 +78,11 @@ public class ComponentClass
                 throw new IllegalArgumentException("Invalid side: " + side);
         }        
     }
+    /**
+     * 
+     * @param side
+     * @return iterator over syllable components
+     */
     public Iterator <Integer> getIterator(int side)
     {
         Iterator <Integer> i = null;
@@ -81,14 +99,26 @@ public class ComponentClass
         }
         return i;
     }
+    /**
+     * 
+     * @return true if validation successful
+     */
     public boolean validate()
     {
         if (leftVector.size() == rightVector.size())
               return true;
         return false;
     }
+    /**
+     * Class id
+     * @return id
+     */
     public String getId() { return id; }
-    
+    /**
+     * 
+     * @param side
+     * @return components on specified side
+     */
     public Component getComponent(int side)
     {
       assert(side == 0 || side == 1);
@@ -99,6 +129,12 @@ public class ComponentClass
     {
       return "Class: " + id + " (" + leftVector.size() + ")";
     }
+    /**
+     * 
+     * @param side
+     * @param ref
+     * @return index of component of given ref ID in the vector
+     */
     public int getCorrespondingRef(int side, int ref)
     {
         int index = 0;

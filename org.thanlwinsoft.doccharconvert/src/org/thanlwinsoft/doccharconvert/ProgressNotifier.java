@@ -22,7 +22,7 @@ import java.io.File;
 
 /**
  * @author keith
- *
+ * Progress Notifier which doesn't depend on Eclipse
  */
 public class ProgressNotifier 
 {
@@ -30,15 +30,41 @@ public class ProgressNotifier
     int progress = 0;
     int workLength = 0;
     String taskName = null;
+    /**
+     * 
+     */
     public ProgressNotifier(){}
+    /**
+     * @param name
+     * @param totalWork
+     */
     public void beginTask(String name, int totalWork) 
     { 
         taskName = name; workLength = totalWork; 
     }
+    /**
+     * @param cancel
+     */
     public void setCancelled(boolean cancel) { this.cancelled = cancel; }
+    /**
+     * @return true if cancelled
+     */
     public boolean isCancelled() { return cancelled; }
+    /**
+     * @param work
+     */
     public void worked(int work) { progress = work; }
+    /**
+     * @param task
+     */
     public void subTask(String task) { taskName = task; };
+    /**
+     * 
+     */
     public void done() {};
+    /**
+     * @param file
+     * @param status
+     */
     public void setFileStatus(File file, String status) {}
 }

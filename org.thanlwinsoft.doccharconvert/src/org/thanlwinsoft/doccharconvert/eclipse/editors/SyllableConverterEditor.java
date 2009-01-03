@@ -21,15 +21,13 @@ package org.thanlwinsoft.doccharconvert.eclipse.editors;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlOptions;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -44,8 +42,8 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IURIEditorInput;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter.FatalException;
@@ -67,13 +65,19 @@ public class SyllableConverterEditor extends MultiPageEditorPart
 {
     private Composite parent;
     private org.thanlwinsoft.doccharconvert.converter.SyllableConverter mConverter = null;
+    /**
+     * editor ID
+     */
     public final static String ID = "org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor";
     private SyllableConverterDocument converterDoc;
     private boolean dirty;
     private Image classImage = null;
     private Image mappingImage = null;
-    private FileEditorInput mFileInput = null;
+    private IURIEditorInput mFileInput = null;
     private Font [] mFonts = new Font[2];
+    /**
+     * Constructor
+     */
     public SyllableConverterEditor()
     {
         
@@ -93,11 +97,10 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         this.setPartName(input.getName());
         try
         {
-            if (input instanceof FileEditorInput)
+            if (input instanceof IURIEditorInput)
             {
-                mFileInput = (FileEditorInput)input;
-                mFileInput.getFile().refreshLocal(1, null);
-                URL fileUrl = mFileInput.getFile().getLocationURI().toURL();
+                mFileInput = (IURIEditorInput)input;
+                URL fileUrl = mFileInput.getURI().toURL();
                 mConverter = new org.thanlwinsoft.doccharconvert.converter.SyllableConverter(fileUrl);
                 mConverter.logMapStatus();
                 mConverter.initialize();
@@ -349,6 +352,9 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         return super.getEditorSite();
     }
     
+    /**
+     * @return XmlBeans SyllableConverterDocument
+     */
     public SyllableConverterDocument getDocument()
     {
         return this.converterDoc;
@@ -393,14 +399,73 @@ public class SyllableConverterEditor extends MultiPageEditorPart
         Font font = JFaceResources.getFont(JFaceResources.TEXT_FONT);
         if (faceName == null)
         {
-            IPath dccxPath = mFileInput.getFile().getFullPath().removeFileExtension().addFileExtension("dccx");
-            IResource dccxRes = ResourcesPlugin.getWorkspace().getRoot().findMember(dccxPath);
-            if (dccxRes instanceof IFile)
+            InputStream is = null;
+            try
             {
-                IFile dccxFile = (IFile)dccxRes;
+                URL fileUrl = mFileInput.getURI().toURL();
+                String filename = fileUrl.getPath();
+                int dot = filename.lastIndexOf(".");
+                if (dot > -1)
+                {
+                    filename = filename.substring(0, dot + 1) + "dccx";
+                    fileUrl.getHost();
+                    fileUrl = new URL(fileUrl, filename);
+                    is = fileUrl.openStream();
+                }
+            }
+            catch (MalformedURLException e)
+            {
+                DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                        e.getLocalizedMessage(), e);
+            }
+            catch (IOException e)
+            {
+                DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                        e.getLocalizedMessage(), e);
+            }
+
+//            if (inputFile != null)
+//            {
+//                IPath dccxPath = inputFile.getFullPath();
+//                
+//                if (dccxPath != null)
+//                {
+//                    dccxPath = dccxPath.removeFileExtension().addFileExtension("dccx");
+//                    IResource dccxRes = ResourcesPlugin.getWorkspace().getRoot().findMember(dccxPath);
+//                    if (dccxRes instanceof IFile)
+//                    {
+//                        IFile dccxFile = (IFile)dccxRes;
+//                        try
+//                        {
+//                            is = dccxFile.getContents(true);
+//                        }
+//                        catch (CoreException e)
+//                        {
+//                            DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+//                                    e.getLocalizedMessage(), e);
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//                    dccxPath = inputFile.getLocation().removeFileExtension().addFileExtension("dccx");
+//                    File file = dccxPath.toFile();
+//                    try
+//                    {
+//                        is = new FileInputStream(file);
+//                    }
+//                    catch (FileNotFoundException e)
+//                    {
+//                        DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+//                                e.getLocalizedMessage(), e);
+//                    }
+//                }
+                
+            if (is != null)
+            {
+                
                 try
                 {
-                    InputStream is = dccxFile.getContents(true);
                     DocCharConverterDocument doc = DocCharConverterDocument.Factory.parse(is);
                     Styles styles = doc.getDocCharConverter().getStyles();
                     if (styles.sizeOfStyleArray() > 0)
@@ -409,20 +474,15 @@ public class SyllableConverterEditor extends MultiPageEditorPart
                         faceName = style.getFontArray(side).getName();
                     }
                 }
-                catch (CoreException e)
-                {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
                 catch (XmlException e)
                 {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                            e.getLocalizedMessage(), e);
                 }
                 catch (IOException e)
                 {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    DocCharConvertEclipsePlugin.log(IStatus.WARNING,
+                            e.getLocalizedMessage(), e);
                 }
             }
         }

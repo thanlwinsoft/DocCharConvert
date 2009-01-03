@@ -23,13 +23,17 @@ import java.util.regex.Pattern;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Script;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Syllable;
 import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker;
-
+/**
+ * Handle Old Roman Tone changes
+ * @author keith
+ *
+ */
 public class MienOrmToneChange implements SyllableChecker 
 {
-    public int MNR_SIDE = 0;
-    public int MOR_SIDE = 1;
-    public Pattern nrmFinal_mnng;
-    public Pattern nrmStop_kpt;
+    protected int MNR_SIDE = 0;
+    protected int MOR_SIDE = 1;
+    protected Pattern nrmFinal_mnng;
+    protected Pattern nrmStop_kpt;
     private Script [] scripts = null;
     int hToneMnrId = 0;
     int cToneMnrId = 0;

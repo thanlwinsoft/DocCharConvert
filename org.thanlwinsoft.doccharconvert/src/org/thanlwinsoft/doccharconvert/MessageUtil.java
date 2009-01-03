@@ -27,6 +27,11 @@ import java.util.ResourceBundle;
  */
 public class MessageUtil
 {
+    /**
+     * 
+     * @param id
+     * @return string with given id
+     */
     static public String getString(String id)
     {
         ResourceBundle r = Config.getCurrent().getMsgResource();
@@ -41,16 +46,35 @@ public class MessageUtil
             return id;
         }
     }
+    /**
+     * 
+     * @param id
+     * @param argA
+     * @return string with args substituted
+     */
     static public String getString(String id, String argA)
     {
         Object [] args = {argA};
         return getString(id, args);
     }
+    /**
+     * 
+     * @param id
+     * @param argA
+     * @param argB
+     * @return string with args substituted
+     */
     static public String getString(String id, String argA, String argB)
     {
         Object [] args = {argA, argB };
         return getString(id, args);
     }
+    /**
+     * 
+     * @param id
+     * @param args
+     * @return string with args substituted
+     */
     static public String getString(String id, Object [] args)
     {
         ResourceBundle r = Config.getCurrent().getMsgResource();

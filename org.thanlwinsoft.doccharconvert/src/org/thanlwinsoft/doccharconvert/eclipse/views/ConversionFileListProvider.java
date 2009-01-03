@@ -39,11 +39,11 @@ public class ConversionFileListProvider implements IStructuredContentProvider
     BatchConversion batchConversion = null;
     HashMap <File, String>statusMap = null;
     
-    public static final int COLUMN_INPUT = 0; 
-    public static final int COLUMN_OUTPUT = 1; 
-    public static final int COLUMN_STATUS = 2; 
-    public static final int COLUMN_COUNT = 3; 
-    public class RowCell
+    protected static final int COLUMN_INPUT = 0; 
+    protected static final int COLUMN_OUTPUT = 1; 
+    protected static final int COLUMN_STATUS = 2; 
+    protected static final int COLUMN_COUNT = 3; 
+    protected class RowCell
     {
         File input;
         BatchConversion conversion;

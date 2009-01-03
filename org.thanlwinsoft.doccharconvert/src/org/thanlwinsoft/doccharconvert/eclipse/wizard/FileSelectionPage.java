@@ -64,6 +64,10 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
     private BatchConversion conversion = null;
     private TableViewer tViewer = null;
     private Button checkBox = null;
+    /**
+     * 
+     * @param conversion
+     */
     public FileSelectionPage(BatchConversion conversion)
     {
         super(ConversionWizard.FILE_SELECT_PAGE, 

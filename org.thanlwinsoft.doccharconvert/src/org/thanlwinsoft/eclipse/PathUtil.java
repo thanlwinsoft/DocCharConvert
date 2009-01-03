@@ -20,8 +20,20 @@ package org.thanlwinsoft.eclipse;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 
+/**
+ * Utility methods for handling relative paths to workspace files
+ * @author keith
+ *
+ */
 public class PathUtil
 {
+    /**
+     * relative path between a and b if possible otherwise the full path to a
+     * B is a file
+     * @param a
+     * @param b
+     * @return path of a with respect to b, or a's full path
+     */
     public static IPath relativePathOfAwrtFileB(IPath a, IPath b)
     {
         if (a.getDevice() == null)
@@ -43,7 +55,13 @@ public class PathUtil
         IPath relative = new Path(relativePrefix).append(relativeSuffix);
         return relative;
     }
-    
+    /**
+     * relative path between a and b if possible otherwise the full path to a
+     * B is a directory
+     * @param a
+     * @param b
+     * @return path of a with respect to b, or a's full path
+     */
     public static IPath relativePathOfAwrtDirB(IPath a, IPath b)
     {
         if (!a.getDevice().equals(b.getDevice()))

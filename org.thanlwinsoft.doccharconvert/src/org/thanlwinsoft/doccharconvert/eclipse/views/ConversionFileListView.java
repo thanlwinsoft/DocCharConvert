@@ -71,10 +71,13 @@ public class ConversionFileListView extends ViewPart
     private ConversionFileListProvider provider = null;
     private BatchConversion batchConversion = null;
     // private String activeColumn = null;
-    public static final String INPUT_COL = "input";
-    public static final String OUTPUT_COL = "output";
-    public static final String STATUS_COL = "status";
+    protected static final String INPUT_COL = "input";
+    protected static final String OUTPUT_COL = "output";
+    protected static final String STATUS_COL = "status";
 
+    /**
+     * view ID
+     */
     public final static String ID = "org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView";
 
     /*
@@ -309,6 +312,10 @@ public class ConversionFileListView extends ViewPart
         }
     }
 
+    /**
+     * 
+     * @param conv
+     */
     public void setConversion(BatchConversion conv)
     {
         tableView.setInput(conv);
@@ -341,7 +348,7 @@ public class ConversionFileListView extends ViewPart
         tableView.getControl().setFocus();
     }
 
-    public class ConversionFileListColumns extends LabelProvider implements
+    protected class ConversionFileListColumns extends LabelProvider implements
             ITableLabelProvider
 
     {
@@ -379,6 +386,9 @@ public class ConversionFileListView extends ViewPart
         }
     }
 
+    /**
+     * reset status of each row to unconverted
+     */
     public void resetStatus()
     {
         ConversionFileListProvider cflp = (ConversionFileListProvider) tableView
@@ -395,6 +405,11 @@ public class ConversionFileListView extends ViewPart
         tableView.refresh();
     }
 
+    /**
+     * 
+     * @param input
+     * @param status
+     */
     public void updateStatus(File input, String status)
     {
         ConversionFileListProvider cflp = (ConversionFileListProvider) tableView
@@ -405,6 +420,10 @@ public class ConversionFileListView extends ViewPart
         // tableView.refresh(true);
     }
 
+    /**
+     * 
+     * @return BatchConversion
+     */
     public BatchConversion getSelectedConversion()
     {
         final BatchConversion selectedConversion = new BatchConversion(

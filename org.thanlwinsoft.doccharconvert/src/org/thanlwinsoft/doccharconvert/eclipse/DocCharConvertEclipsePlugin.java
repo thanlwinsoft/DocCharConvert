@@ -33,6 +33,9 @@ import org.thanlwinsoft.eclipse.EclipseToJavaPrefAdapter;
  */
 public class DocCharConvertEclipsePlugin extends AbstractUIPlugin 
 {
+    /**
+     * ID for DocCharConvertEclipsePlugin plugin
+     */
     public final static String ID = "org.thanlwinsoft.doccharconvert";
 	//The shared instance.
 	private static DocCharConvertEclipsePlugin plugin = null;
@@ -47,6 +50,8 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
 
 	/**
 	 * This method is called upon plug-in activation
+	 * @param context 
+	 * @throws Exception 
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -57,6 +62,9 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
             (new EclipseToJavaPrefAdapter(configurationNode));
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#getPreferenceStore()
+	 */
 	@Override
     public IPreferenceStore getPreferenceStore()
     {
@@ -68,6 +76,8 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
 
     /**
 	 * This method is called when the plug-in is stopped
+     * @param context 
+     * @throws Exception 
 	 */
 	public void stop(BundleContext context) throws Exception {
 		super.stop(context);
@@ -76,6 +86,7 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
 
 	/**
 	 * Returns the shared instance.
+	 * @return plugin instance
 	 */
 	public static DocCharConvertEclipsePlugin getDefault() {
 		return plugin;
@@ -92,6 +103,12 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
 		return AbstractUIPlugin.imageDescriptorFromPlugin(ID, path);
 	}
 
+	/**
+	 * Append to the workspace log
+	 * @param warning
+	 * @param string
+	 * @param exception
+	 */
     public static void log(int warning, String string, Throwable exception)
     {
         if (getDefault() == null)
@@ -102,6 +119,11 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
                         IStatus.OK, string,exception));
     }
 
+    /**
+     * Append to the workspace log
+     * @param warning
+     * @param string
+     */
     public static void log(int warning, String string)
     {
         if (getDefault() == null)

@@ -48,7 +48,7 @@ public class RepeatSyllables implements SyllableChecker
      *            0=left, 1=right
      * @param syllables
      *            Vector of converted Syllables
-     * @param boolean
+     * @param debug
      *            flag to enable debug logging
      * @return corrected syllable Vector
      */
@@ -134,7 +134,7 @@ public class RepeatSyllables implements SyllableChecker
     /**
      * Generic initializer that may be used to set initialization variables in
      * the checker if needed.
-     * 
+     * @param scripts array
      * @param args
      *            may be null if the repeater settings were set direct in the
      *            xml arg[0] = side that uses repeat marker 0 = left, 1 = right

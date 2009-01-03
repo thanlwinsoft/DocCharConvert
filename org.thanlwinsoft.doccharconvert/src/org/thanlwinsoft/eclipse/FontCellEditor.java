@@ -29,11 +29,15 @@ import org.thanlwinsoft.doccharconvert.MessageUtil;
 
 /**
  * @author keith
- *
+ * Cell editor for choosing a font in a table cell
  */
 public class FontCellEditor extends DialogCellEditor {
 
 	IFile moduleFile = null;
+	/**
+	 * @param parent
+	 * @param styles
+	 */
 	public FontCellEditor(Composite parent, int styles)
 	{
 		super(parent, styles);

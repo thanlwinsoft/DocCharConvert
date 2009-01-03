@@ -34,23 +34,28 @@ public interface SyllableChecker
   * starts a sentence.
   * @param oldSide 0=left, 1=right
   * @param syllables Vector of converted Syllables
-  * @param boolean flag to enable debug logging
+  * @param debug flag to enable debug logging
+ * @return viable syllables
   */
   public Vector <Syllable> checkSyllables(int oldSide, Vector <Syllable> syllables, boolean debug);
   /**
   * Generic initializer that may be used to set initialization variables
   * in the checker if needed.
+ * @param scripts 
   * @param args
   * @return true if initialisation was successful
+ * @throws CharConverter.FatalException 
   */
   public boolean initialize(Script [] scripts, Object [] args)  
       throws CharConverter.FatalException;
   /**
    * Get the Class types or the arguments to initialize
+ * @return types of arguments
    */
   public Class<?> [] getArgumentTypes();
   /**
    * Get argument descriptions to assist entry in a UI
+   * @return descriptions of arguments
    */
   public String [] getArgumentDescriptions();
 }

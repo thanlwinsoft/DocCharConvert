@@ -39,12 +39,18 @@ import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 
 /**
- * 
+ * Class to handle exception lists that are applied after a SyllableChecker conversion
  * @author keith
  */
 public class ExceptionList implements SyllableChecker
 {
+    /**
+     * comment character
+     */
     public final static String COMMENT_CHAR = "#";
+    /**
+     * delimiter character
+     */
     public final static String DELIMIT_CHAR = "\t";
 
     private HashMap<String, String> leftExceptions = null;
@@ -70,6 +76,10 @@ public class ExceptionList implements SyllableChecker
         duplicates = new StringBuffer();
     }
 
+    /**
+     * 
+     * @param exceptionsFile
+     */
     public ExceptionList(URL exceptionsFile)
     {
         files = new URL[1];
@@ -82,6 +92,12 @@ public class ExceptionList implements SyllableChecker
         duplicates = new StringBuffer();
     }
 
+    /**
+     * 
+     * @throws IOException
+     * @throws CharConverter.FatalException
+     * @throws URISyntaxException
+     */
     public void load() throws IOException, CharConverter.FatalException,
             URISyntaxException
     {
@@ -246,6 +262,10 @@ public class ExceptionList implements SyllableChecker
 
     /**
      * apply the exceptions to the given Syllable list
+     * @param oldSide 
+     * @param syllables 
+     * @param debug 
+     * @return syllables modified by exception list
      */
     public Vector<Syllable> checkSyllables(int oldSide,
             Vector<Syllable> syllables, boolean debug)
@@ -341,11 +361,14 @@ public class ExceptionList implements SyllableChecker
 
     /**
      * Initialisation using SyllableChecker interface method.
+     * @param scripts 
+     * @param args 
      * 
      * @param array
      *            that is assumed to specify the files containing the
      *            exceptions.
      * @return true if initialisation succeeded
+     * @throws CharConverter.FatalException 
      */
     public boolean initialize(Script[] scripts, Object[] args)
             throws CharConverter.FatalException
@@ -419,6 +442,9 @@ public class ExceptionList implements SyllableChecker
         }
     }
 
+    /**
+     * @return true if exception list file has been modified since it was loaded
+     */
     public boolean fileChanged()
     {
         for (int i = 0; i < files.length; i++)

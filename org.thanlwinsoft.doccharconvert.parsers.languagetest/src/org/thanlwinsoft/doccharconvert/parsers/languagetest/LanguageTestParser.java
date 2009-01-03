@@ -42,12 +42,20 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+/**
+ * 
+ * @author keith
+ * Interface to convert LanguageTest XML files
+ */
 public class LanguageTestParser implements DocInterface
 {
     private final static String PARSING_MSG = "Parsing";
     private final static String IDLE_MSG = "Idle";
     private String message = IDLE_MSG;
     private ConversionMode mode = null;
+    /**
+     * 
+     */
     public LanguageTestParser()
     {
         

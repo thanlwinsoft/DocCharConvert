@@ -45,10 +45,20 @@ import org.thanlwinsoft.doccharconvert.eclipse.PreferencesInitializer;
 public class LogConvertedWords extends ChildConverter
 {
     private File wordFile = null;
+    /**
+     * Default Regular expression for word separators
+     */
     public final static String WORD_SEPARATOR = 
         "[\\p{Zs}\\p{Zp}\\p{Zl}\\p{Ps}\\p{Pe}\\p{Sm}\\p{So}]+";
     private Pattern delimiterPattern = null;
+    /**
+     * Configuration key for the word separator regular expression
+     */
     public final static String WORD_SEPARATOR_KEY = "WordSeparator";
+    /**
+     * @author keith
+     * Class to record information about a converted word
+     */
     public class ConvertedWord
     {
         final String converted;
@@ -57,11 +67,23 @@ public class LogConvertedWords extends ChildConverter
         {
             this.converted = converted;
         }
+        /**
+         * @return word count
+         */
         public int getCount() { return count; }
+        /**
+         * increments the count of words
+         */
         public void increment() { ++count; }
+        /**
+         * @return converted word
+         */
         public final String getConverted() { return converted; }
     }
     private HashMap<String, ConvertedWord> wordMap = new HashMap<String, ConvertedWord> ();
+    /**
+     * @param parent
+     */
     public LogConvertedWords(CharConverter parent)
     {
         super(parent.getOldStyle(), parent.getNewStyle(), parent);
@@ -89,6 +111,9 @@ public class LogConvertedWords extends ChildConverter
         super.initialize();
     }
 
+    /**
+     * @param file
+     */
     public void setWordFile(File file)
     {
         wordFile = file;

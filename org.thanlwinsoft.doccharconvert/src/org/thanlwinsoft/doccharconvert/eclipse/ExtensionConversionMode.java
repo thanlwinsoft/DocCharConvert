@@ -95,6 +95,9 @@ public class ExtensionConversionMode extends ConversionMode
         return fileFilter;
     }
 
+    /**
+     * @return array of modes
+     */
     public static ConversionMode [] getExtensionModes()
     {
         if (map.size() > 0) 
@@ -135,6 +138,9 @@ public class ExtensionConversionMode extends ConversionMode
     {
         this.mOptions = options;
     }
+    /**
+     * @return description of options
+     */
     public String getOptions() { return mOptions; }
     
     /** opens an input stream on a path from the plugin that defined this 
@@ -153,6 +159,9 @@ public class ExtensionConversionMode extends ConversionMode
         return null;
     }
 
+    /**
+     * @return the document interface implemented by the extension
+     */
     public DocInterface getDocInterface()
     {
         DocInterface doc = null;

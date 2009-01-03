@@ -23,16 +23,39 @@ import org.eclipse.ui.IPerspectiveFactory;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView;
 
 
+/**
+ * The main DocCharConvert perspective
+ * @author keith
+ *
+ */
 public class Perspective implements IPerspectiveFactory 
 {
+    /**
+     * View folder A
+     */
     public final static String FOLDER_A = "DocCharConvert.FolderA";
+    /**
+     * View folder B
+     */
     public final static String FOLDER_B = "DocCharConvert.FolderB";
+    /**
+     * view ID for showing conversion result
+     */
     public final static String CONVERSION_RESULT = 
         "DocCharConvert.ConversionResult";
+    /**
+     * Conversion result view id
+     */
     public final static String REVERSE_CONVERSION = 
         "DocCharConvert.ReverseConversion";
+    /**
+     * Debug view id
+     */
     public final static String DEBUG_UNICODE = 
         "DocCharConvert.DebugUnicode";
+    /**
+     * ConversionFileListView id
+     */
     public final static String CONV_FILE_LIST = 
         ConversionFileListView.ID;
     public void createInitialLayout(IPageLayout layout) 

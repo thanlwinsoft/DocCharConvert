@@ -35,7 +35,10 @@ public class ChildConverter implements CharConverter
     TextStyle oldStyle = null;
     TextStyle newStyle = null;
     String name = "Unknown";
-    /** Creates a new instance of ChildConverter */
+    /** Creates a new instance of ChildConverter 
+     * @param oldStyle 
+     * @param newStyle 
+     * @param parent */
     public ChildConverter(TextStyle oldStyle, TextStyle newStyle,
         CharConverter parent)
     {
@@ -92,6 +95,9 @@ public class ChildConverter implements CharConverter
     {
       return parent.isInitialized();
     }
+    /**
+     * @return the parent converter
+     */
     public CharConverter getParent()
     {
         if (parent instanceof ChildConverter)

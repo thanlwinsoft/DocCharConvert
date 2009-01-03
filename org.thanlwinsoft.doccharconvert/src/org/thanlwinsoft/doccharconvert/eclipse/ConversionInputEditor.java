@@ -45,6 +45,7 @@ import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionResult;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.ConverterUtil;
 
 /**
+ * Input editor for testing a converter by typing or cut and pasting text
  * @author keith
  *
  */
@@ -54,6 +55,9 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
     private CharConverter reverseConverter = null;
     private int fontSize = 12;
     private boolean reinit = false;
+    /**
+     * Default constructor
+     */
     public ConversionInputEditor()
     {
         super();
@@ -105,6 +109,10 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
         super.dispose();
     }
 
+    /**
+     * @param cc
+     * @param rcc
+     */
     public void setConversion(CharConverter cc, CharConverter rcc)
     {
         if (charConverter != null)
@@ -171,6 +179,10 @@ public class ConversionInputEditor extends TextEditor implements IDocumentListen
     {
         showConversion(event.getDocument());
     }
+    /**
+     * Force the converters to be reinitialized.
+     * This is useful if the converter source has been modified.
+     */
     public void reinit()
     {
         reinit = true;

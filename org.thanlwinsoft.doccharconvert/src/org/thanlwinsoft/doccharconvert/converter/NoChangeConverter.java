@@ -22,6 +22,10 @@ import java.nio.charset.Charset;
 
 import org.thanlwinsoft.util.IClassLoaderUtil;
 
+/**
+ * @author keith
+ *
+ */
 public class NoChangeConverter extends ReversibleConverter
 {
     private String name = "No Change Converter";

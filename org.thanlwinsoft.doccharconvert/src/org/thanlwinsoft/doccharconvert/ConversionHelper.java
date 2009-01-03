@@ -36,11 +36,18 @@ public class ConversionHelper
 {
     private static IMessageDisplay msgDisplay = new NoGuiMessageDisplay();
     
+    /**
+     * @param md
+     */
     public static void setMsgDisplay(IMessageDisplay md)
     {
         msgDisplay = md;
     }
     
+    /**
+     * @param conv
+     * @param fileList
+     */
     public static void loadFileList(BatchConversion conv, File fileList)
     {
         try
@@ -138,6 +145,11 @@ public class ConversionHelper
         }
     }
     
+    /**
+     * @param conversion
+     * @param listFile
+     * @throws IOException
+     */
     public static void saveFileList(BatchConversion conversion, File listFile) throws IOException
     {
         BufferedWriter bw = new BufferedWriter(new FileWriter(listFile));
@@ -167,6 +179,10 @@ public class ConversionHelper
         bw.close();
     }
     
+    /**
+     * @param text
+     * @param buffer
+     */
     public static void debugDump(String text, StringBuilder buffer)
     {
         for (int i = 0; i<text.length(); i++)

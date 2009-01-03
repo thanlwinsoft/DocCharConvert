@@ -39,9 +39,15 @@ import org.thanlwinsoft.doccharconvert.converter.test.LogConvertedWords;
 public class MainPreferencesPage extends FieldEditorPreferencePage 
     implements IWorkbenchPreferencePage
 {
+    /**
+     * Converter configuration path
+     */
     public static final String CONVERTERS = Config.CONVERTER_CONFIG_PATH;
     private ScopedPreferenceStore prefStore = null;
     
+    /**
+     * Constructor
+     */
     public MainPreferencesPage()
     {
         super(FieldEditorPreferencePage.FLAT);

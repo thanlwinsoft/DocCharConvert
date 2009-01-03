@@ -121,6 +121,10 @@ public class ScriptsEditorPart extends EditorPart
     
     private final static int COL_WIDTH = 150;
 
+    /**
+     * Constructor
+     * @param parent
+     */
     public ScriptsEditorPart(SyllableConverterEditor parent)
     {
         this.parentEditor = parent;
@@ -1105,6 +1109,11 @@ public class ScriptsEditorPart extends EditorPart
         form.setFocus();
     }
 
+    /**
+     * Dialog to create a new Mapping Table editor part
+     * @author keith
+     *
+     */
     public class NewTableDialog extends MessageDialog
     {
 
@@ -1115,6 +1124,7 @@ public class ScriptsEditorPart extends EditorPart
          * @param dialogTitle
          * @param dialogTitleImage
          * @param dialogMessage
+         * @param style 
          * @param dialogImageType
          * @param dialogButtonLabels
          * @param defaultIndex

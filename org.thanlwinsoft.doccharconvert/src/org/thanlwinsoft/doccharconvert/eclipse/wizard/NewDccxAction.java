@@ -27,10 +27,17 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PlatformUI;
 
+/**
+ * @author keith
+ * Crate a new Dccx XML configuration
+ */
 public class NewDccxAction extends Action implements
 IWorkbenchWindowActionDelegate
 {
     private IWorkbenchWindow mWindow = null;
+    /**
+     * 
+     */
     public NewDccxAction()
     {
         
