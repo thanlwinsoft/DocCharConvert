@@ -106,7 +106,10 @@ public class SyllableXmlReader
     private PrintStream debugStream = System.out;
     private IClassLoaderUtil mLoader = null;
     private Map <String,Map<Integer,Integer> > mMapStatus = null;
-    private static final String namespaceURI = "http://www.thanlwinsoft.org/schemas/SyllableParser";
+    /**
+     * Syllable Converter Schema Namespace
+     */
+    public static final String NAMESPACE_URI = "http://www.thanlwinsoft.org/schemas/SyllableParser";
 
     /**
      * 
@@ -257,7 +260,7 @@ public class SyllableXmlReader
 
     protected boolean parseScripts()
     {
-        NodeList scriptsList = doc.getElementsByTagNameNS(namespaceURI,
+        NodeList scriptsList = doc.getElementsByTagNameNS(NAMESPACE_URI,
                 SCRIPT_NODE);
         if (scriptsList.getLength() != 2)
         {
@@ -272,7 +275,7 @@ public class SyllableXmlReader
         {
             Element scriptNode = (Element) scriptsList.item(i);
             NodeList nameNodes = scriptNode.getElementsByTagNameNS(
-                    namespaceURI, NAME_NODE);
+                    NAMESPACE_URI, NAME_NODE);
             String name = "";
             // not a serious error
             if (nameNodes.getLength() < 1)
@@ -287,7 +290,7 @@ public class SyllableXmlReader
                 {
                     name = nameNodes.item(0).getTextContent();
                 }
-            NodeList cluster = scriptNode.getElementsByTagNameNS(namespaceURI,
+            NodeList cluster = scriptNode.getElementsByTagNameNS(NAMESPACE_URI,
                     CLUSTER_NODE);
             if (cluster.getLength() != 1)
             {
@@ -399,14 +402,14 @@ public class SyllableXmlReader
 
     protected boolean parseClasses()
     {
-        NodeList classList = doc.getElementsByTagNameNS(namespaceURI,
+        NodeList classList = doc.getElementsByTagNameNS(NAMESPACE_URI,
                 CLASS_NODE);
         for (int i = 0; i < classList.getLength(); i++)
         {
             Element classElement = (Element) classList.item(i);
             String id = getId(classElement);
             NodeList componentList = classElement.getElementsByTagNameNS(
-                    namespaceURI, COMPONENT_NODE);
+                    NAMESPACE_URI, COMPONENT_NODE);
             if (componentList.getLength() != 2)
             {
                 Object[] args = { new Integer(2), COMPONENT_NODE,
@@ -604,7 +607,7 @@ public class SyllableXmlReader
 
     protected boolean parseRepeats()
     {
-        NodeList repeatList = doc.getElementsByTagNameNS(namespaceURI,
+        NodeList repeatList = doc.getElementsByTagNameNS(NAMESPACE_URI,
                 REPEAT_NODE);
         if (repeatList.getLength() > 1)
         {
@@ -618,7 +621,7 @@ public class SyllableXmlReader
         if (repeatList.getLength() == 0)
             return true;
         Element repeatElement = (Element) repeatList.item(0);
-        NodeList nList = repeatElement.getElementsByTagNameNS(namespaceURI,
+        NodeList nList = repeatElement.getElementsByTagNameNS(NAMESPACE_URI,
                 MARKER_NODE);
         if (nList.getLength() != 1)
         {
@@ -638,7 +641,7 @@ public class SyllableXmlReader
             value = nList.item(0).getTextContent();
         script[side].setRepeatChar(true, value);
 
-        nList = repeatElement.getElementsByTagNameNS(namespaceURI,
+        nList = repeatElement.getElementsByTagNameNS(NAMESPACE_URI,
                 SEPARATOR_NODE);
         if (nList.getLength() != 1)
         {
@@ -727,17 +730,17 @@ public class SyllableXmlReader
 
     protected boolean parseMaps(boolean initialPass) throws ConflictException
     {
-        NodeList tableList = doc.getElementsByTagNameNS(namespaceURI,
+        NodeList tableList = doc.getElementsByTagNameNS(NAMESPACE_URI,
                 MAPPING_TABLE_NODE);
         tableList = doc
-                .getElementsByTagNameNS(namespaceURI, MAPPING_TABLE_NODE);
+                .getElementsByTagNameNS(NAMESPACE_URI, MAPPING_TABLE_NODE);
         for (int i = 0; i < tableList.getLength(); i++)
         {
             Element tableElement = (Element) tableList.item(i);
             String id = getId(tableElement);
             // read table columns
             NodeList columns = tableElement.getElementsByTagNameNS(
-                    namespaceURI, COLUMNS_NODE);
+                    NAMESPACE_URI, COLUMNS_NODE);
             if (columns.getLength() != 1)
             {
                 Object[] args = { new Integer(1), COLUMNS_NODE,
@@ -749,7 +752,7 @@ public class SyllableXmlReader
             }
             Element columnsElement = (Element) columns.item(0);
             NodeList compList = columnsElement.getElementsByTagNameNS(
-                    namespaceURI, COMPONENT_NODE);
+                    NAMESPACE_URI, COMPONENT_NODE);
             LinkedList<Component> components = new LinkedList<Component>();
             for (int j = 0; j < compList.getLength(); j++)
             {
@@ -759,7 +762,7 @@ public class SyllableXmlReader
                     components.add(component);
             }
             NodeList mapsList = tableElement.getElementsByTagNameNS(
-                    namespaceURI, MAPS_NODE);
+                    NAMESPACE_URI, MAPS_NODE);
             if (mapsList.getLength() != 1)
             {
                 Object[] args = { new Integer(1), MAPS_NODE,
@@ -785,7 +788,7 @@ public class SyllableXmlReader
             }
             Element mapsElement = (Element) mapsList.item(0);
             // read table rows (maps)
-            NodeList mapList = mapsElement.getElementsByTagNameNS(namespaceURI,
+            NodeList mapList = mapsElement.getElementsByTagNameNS(NAMESPACE_URI,
                     MAP_NODE);
             for (int j = 0; j < mapList.getLength(); j++)
             {
@@ -936,7 +939,7 @@ public class SyllableXmlReader
 
     protected boolean parseChecks() throws CharConverter.FatalException
     {
-        NodeList check = doc.getElementsByTagNameNS(namespaceURI, CHECKS_NODE);
+        NodeList check = doc.getElementsByTagNameNS(NAMESPACE_URI, CHECKS_NODE);
         if (check.getLength() != 1)
         {
             Object[] args = { 1, CHECKS_NODE, check.getLength() };

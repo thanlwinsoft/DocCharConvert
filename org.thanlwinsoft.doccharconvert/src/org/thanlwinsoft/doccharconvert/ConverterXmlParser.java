@@ -682,4 +682,12 @@ public class ConverterXmlParser
     {
         this.notifier = pn;
     }
+    /**
+     * 
+     * @return Class Loader Utility
+     */
+    public IClassLoaderUtil getLoaderUtil()
+    {
+        return mLoaderUtil;
+    }
 }

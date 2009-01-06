@@ -22,19 +22,9 @@ import java.io.File;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import org.apache.xmlbeans.XmlObject;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.IExtensionPoint;
-import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.InvalidRegistryObjectException;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
@@ -88,7 +78,6 @@ import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableChecker;
-import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.schemas.syllableParser.Argument;
 import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.Checker;
@@ -113,11 +102,6 @@ public class ScriptsEditorPart extends EditorPart
     private final SyllableConverterEditor parentEditor;
     private FormToolkit toolkit;
     private ScrolledForm form;
-    private Map<String, SyllableChecker> mCheckerMap = null;
-    private Map<String, String> mCheckerNameMap = null;
-    private final static String CHECKER_ELEMENT = "checker";
-    private final static String CLASS_NAME = "class";
-    private final static String NAME = "name";
     
     private final static int COL_WIDTH = 150;
 
@@ -368,7 +352,7 @@ public class ScriptsEditorPart extends EditorPart
 
     private void addCheckerTable(ExpandableComposite parent)
     {
-        findSyllableCheckers();
+        //findSyllableCheckers();
         final Tree tree = new Tree(parent, SWT.H_SCROLL | SWT.V_SCROLL);
         tree.setHeaderVisible(true);
         final TreeViewer viewer = new TreeViewer(tree);
@@ -463,8 +447,8 @@ public class ScriptsEditorPart extends EditorPart
                 if (element instanceof Checker)
                 {
                     Checker c = (Checker)element;
-                    if (mCheckerNameMap.containsKey(c.getClass1()))
-                        return mCheckerNameMap.get(c.getClass1());
+                    if (parentEditor.getCheckerNameMap().containsKey(c.getClass1()))
+                        return parentEditor.getCheckerNameMap().get(c.getClass1());
                     return c.getClass1();
                 }
                 if (element instanceof Argument)
@@ -475,10 +459,10 @@ public class ScriptsEditorPart extends EditorPart
                         for (int i = 0; i < c.sizeOfArgArray(); i++)
                         {
                             if (c.getArgArray(i) == element)
-                            {                               
-                                if (mCheckerMap.containsKey(c.getClass1()))
+                            {
+                                if (parentEditor.getCheckerMap().containsKey(c.getClass1()))
                                 {
-                                    SyllableChecker sc = mCheckerMap.get(c.getClass1());
+                                    SyllableChecker sc = parentEditor.getCheckerMap().get(c.getClass1());
                                     String [] argDesc = sc.getArgumentDescriptions();
                                     if (argDesc.length > i)
                                         return argDesc[i];
@@ -563,7 +547,7 @@ public class ScriptsEditorPart extends EditorPart
         
         MenuManager menuManager = new MenuManager(parentEditor.getPartName()
                 + ":" + this.getPartName() + "Checkers");
-        for (String className : mCheckerNameMap.keySet())
+        for (String className : parentEditor.getCheckerNameMap().keySet())
         {
             final String clazzName = className;
             Action newChecker = new Action(){
@@ -575,7 +559,7 @@ public class ScriptsEditorPart extends EditorPart
                         checks = parentEditor.getDocument().getSyllableConverter().addNewChecks();
                     Checker checker = checks.addNewChecker();
                     checker.setClass1(clazzName);
-                    SyllableChecker theChecker = mCheckerMap.get(clazzName);
+                    SyllableChecker theChecker = parentEditor.getCheckerMap().get(clazzName);
                     for (java.lang.Class<?> argType : theChecker.getArgumentTypes())
                     {
                         if (argType.equals(File.class) || argType.equals(URL.class))
@@ -594,7 +578,8 @@ public class ScriptsEditorPart extends EditorPart
                 }
                 
             };
-            newChecker.setText(MessageUtil.getString("AddChecker", mCheckerNameMap.get(className)));
+            newChecker.setText(MessageUtil.getString("AddChecker",
+                    parentEditor.getCheckerNameMap().get(className)));
             menuManager.add(newChecker);
         }
         Action deleteChecker = new Action()
@@ -1223,52 +1208,4 @@ public class ScriptsEditorPart extends EditorPart
 
     }
     
-    private void findSyllableCheckers()
-    {
-        IExtensionRegistry registry = Platform.getExtensionRegistry();
-        IExtensionPoint point = registry
-                .getExtensionPoint("org.thanlwinsoft.doccharconvert.converter.syllable.checker");
-        if (point == null)
-            return;
-        mCheckerMap = new LinkedHashMap<String, SyllableChecker>();
-        mCheckerNameMap = new LinkedHashMap<String, String>();
-        IExtension[] extensions = point.getExtensions();
-        for (int i = 0; i < extensions.length; i++)
-        {
-            IConfigurationElement ce[] = extensions[i]
-                    .getConfigurationElements();
-            for (int j = 0; j < ce.length; j++)
-            {
-                if (ce[j].getName().equals(CHECKER_ELEMENT))
-                {
-                    String className = ce[j].getAttribute(CLASS_NAME);
-                    //String plugin = extensions[i].getContributor().getName();
-                    //Bundle b = Platform.getBundle(plugin);
-                    try
-                    {
-                        Object o = ce[j].createExecutableExtension(CLASS_NAME);
-                        if (o instanceof SyllableChecker)
-                        {
-                            mCheckerMap.put(className, (SyllableChecker)o);
-                            String name = ce[j].getAttribute(NAME);
-                            if (name == null)
-                                name = className;
-                            mCheckerNameMap.put(className, name);
-                        }
-                    }
-                    catch (CoreException e)
-                    {
-                        DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
-                                "error loading SyllableChecker " + className, e);
-                    }
-                    catch (InvalidRegistryObjectException e)
-                    {
-                        DocCharConvertEclipsePlugin.log(IStatus.WARNING, 
-                                "error loading SyllableChecker " + className, e);
-                    }
-                }
-            }
-        }
-        
-    }
 }

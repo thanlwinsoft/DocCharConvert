@@ -179,9 +179,10 @@
       <editor
             class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             default="true"
-            filenames="*.xml"
+            extensions="xml"
             icon="icons/ConversionTable16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
+            matchingStrategy="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterMatchingStrategy"
             name="%SyllableConverterEditor">
       </editor>
       <editor
