@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>org.thanlwinsoft.doccharconvert.update</name>
-	<comment></comment>
+	<comment>DocCharConvert Update Site</comment>
 	<projects>
+		<project>org.apache.xmlbeans</project>
+		<project>org.apache.xmlbeans.feature</project>
+		<project>org.thanlwinsoft.doccharconvert</project>
+		<project>org.thanlwinsoft.doccharconvert.converters.mien</project>
+		<project>org.thanlwinsoft.doccharconvert.converters.myanmar</project>
+		<project>org.thanlwinsoft.doccharconvert.feature.core</project>
+		<project>org.thanlwinsoft.doccharconvert.feature.mien</project>
+		<project>org.thanlwinsoft.doccharconvert.feature.myanmar</project>
+		<project>org.thanlwinsoft.doccharconvert.teckit.linux.x86</project>
+		<project>org.thanlwinsoft.doccharconvert.teckit.linux.x86_64</project>
+		<project>org.thanlwinsoft.doccharconvert.teckit.win32.x86</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

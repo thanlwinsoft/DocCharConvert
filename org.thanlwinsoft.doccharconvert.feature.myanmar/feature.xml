@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.thanlwinsoft.doccharconvert.feature.myanmar"
-      label="Myanmar Converters Feature"
+      label="DocCharConvert - Myanmar Converters"
       version="1.1.0"
       provider-name="www.thanlwinsoft.org"
       plugin="org.thanlwinsoft.doccharconvert">

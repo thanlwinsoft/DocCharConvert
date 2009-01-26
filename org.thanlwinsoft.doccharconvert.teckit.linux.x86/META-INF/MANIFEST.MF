@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: X86 Fragment
+Bundle-Name: TecKIT X86 Fragment
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.teckit.linux.x86
 Bundle-Version: 1.0.0
 Bundle-Vendor: www.thanlwinsoft.org

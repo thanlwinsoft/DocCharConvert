@@ -12,6 +12,9 @@
    <feature url="features/org.thanlwinsoft.doccharconvert.feature.myanmar_1.1.0.jar" id="org.thanlwinsoft.doccharconvert.feature.myanmar" version="1.1.0">
       <category name="Document Converters"/>
    </feature>
+   <feature url="features/org.apache.xmlbeans.feature_2.3.0.jar" id="org.apache.xmlbeans.feature" version="2.3.0">
+      <category name="Document Converters"/>
+   </feature>
    <category-def name="Document Converters" label="DocCharConvert">
       <description>
          Document Character Converter - convert documents between different encodings and scripts.

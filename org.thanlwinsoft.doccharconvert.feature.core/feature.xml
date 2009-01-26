@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.thanlwinsoft.doccharconvert.feature.core"
-      label="Doccharconvert Core Feature"
+      label="DocCharConvert Core"
       version="1.1.2"
       provider-name="www.thanlwinsoft.org"
       plugin="org.thanlwinsoft.doccharconvert">
@@ -487,11 +487,14 @@ DAMAGES.
       <discovery label="ThanLwinSoft.org" url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/"/>
    </url>
 
+   <includes
+         id="org.apache.xmlbeans.feature"
+         version="0.0.0"
+         name="Apache XML Beans"/>
+
    <requires>
-      <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.ui" version="3.3.0" match="compatible"/>
       <import plugin="org.eclipse.core.runtime" version="3.2.0" match="compatible"/>
-      <import plugin="org.eclipse.ui.ide" version="3.3.0" match="compatible"/>
       <import plugin="org.eclipse.jface.text" version="3.3.0" match="compatible"/>
       <import plugin="org.eclipse.ui.views" version="3.2.0" match="compatible"/>
       <import plugin="org.eclipse.ui.editors"/>
@@ -500,14 +503,12 @@ DAMAGES.
       <import plugin="org.eclipse.ui.intro.universal"/>
       <import plugin="org.eclipse.ui.forms" version="3.3.0" match="compatible"/>
       <import plugin="org.eclipse.core.filesystem"/>
+      <import plugin="org.apache.xmlbeans"/>
       <import plugin="org.eclipse.core.runtime.compatibility" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.thanlwinsoft.doccharconvert" version="1.2.1" match="greaterOrEqual"/>
    </requires>
-
-   <plugin
-         id="org.apache.xmlbeans"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
 
    <plugin
          id="org.thanlwinsoft.doccharconvert"
@@ -525,7 +526,7 @@ DAMAGES.
          version="0.0.0"
          fragment="true"/>
 
-    <plugin
+   <plugin
          id="org.thanlwinsoft.doccharconvert.teckit.linux.x86"
          os="linux"
          arch="x86"
@@ -534,7 +535,7 @@ DAMAGES.
          version="0.0.0"
          fragment="true"/>
 
-    <plugin
+   <plugin
          id="org.thanlwinsoft.doccharconvert.teckit.linux.x86_64"
          os="linux"
          arch="x86_64"
@@ -542,5 +543,11 @@ DAMAGES.
          install-size="0"
          version="0.0.0"
          fragment="true"/>
+
+   <plugin
+         id="org.apache.xmlbeans"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
 
 </feature>

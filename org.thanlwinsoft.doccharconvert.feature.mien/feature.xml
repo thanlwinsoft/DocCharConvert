@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.thanlwinsoft.doccharconvert.feature.mien"
-      label="Document converters for the Mien Language"
+      label="DocCharConvert - Mien Converters"
       version="1.0.0"
+      provider-name="www.thanlwinsoft.org"
       plugin="org.thanlwinsoft.doccharconvert">
 
    <description url="http://www.thanlwinsoft.org/ThanLwinSoft/DocCharConvert/">
