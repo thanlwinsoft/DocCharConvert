@@ -6,10 +6,5 @@
 	<classpathentry kind="src" path="docs"/>
 	<classpathentry exported="true" kind="lib" path="lib/DocCharConvertSchema.jar" sourcepath="schemas/src"/>
 	<classpathentry exported="true" kind="lib" path="lib/SyllableParserSchema.jar" sourcepath="org.thanlwinsoft.doccharconvertsrc.zip"/>
-	<classpathentry exported="false" kind="lib" path="lib/resolver.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
-	<classpathentry exported="false" kind="lib" path="lib/xbean.jar" sourcepath="lib/xmlbeans-2.3.0-src.zip"/>
-	<classpathentry exported="false" kind="lib" path="lib/xbean_xpath.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
-	<classpathentry exported="false" kind="lib" path="lib/xmlpublic.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
-	<classpathentry exported="false" kind="lib" path="lib/xmlbeans-qname.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
