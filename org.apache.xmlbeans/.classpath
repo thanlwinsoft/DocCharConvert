@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry exported="true" kind="lib" path="resolver.jar"/>
+	<classpathentry exported="true" kind="lib" path="xbean.jar"/>
+	<classpathentry exported="true" kind="lib" path="xbean_xpath.jar"/>
+	<classpathentry exported="true" kind="lib" path="xmlbeans-qname.jar"/>
+	<classpathentry exported="true" kind="lib" path="xmlpublic.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
