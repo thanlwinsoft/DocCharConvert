@@ -1,7 +1,7 @@
 <project name="org.thanlwinsoft.doccharconvert.build" default="build" basedir=".">
 	<!--sets the path of the properties file-->
 	<path id="release.path.rel">
-		<pathelement path="${basedir}/../release"/>
+		<pathelement path="${basedir}/../doccharconvert"/>
 	</path>
 	<pathconvert refid="release.path.rel" targetos="unix" property="release.path"/> 
 	<property name="buildDirectory" value="${release.path}"/>
@@ -20,33 +20,44 @@
 		<mkdir dir="${release.path}/plugins"/>
 		<svn>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.apache.xmlbeans"
-				destPath="${release.path}/plugins/org.apache.xmlbeans"/>
+				destPath="${buildDirectory}/plugins/org.apache.xmlbeans"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert"
-				destPath="${release.path}/plugins/org.thanlwinsoft.doccharconvert"/>
+				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.converters.mien"
-				destPath="${release.path}/plugins/org.thanlwinsoft.doccharconvert.converters.mien"/>
+				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.converters.mien"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.converters.myanmar"
-				destPath="${release.path}/plugins/org.thanlwinsoft.doccharconvert.converters.myanmar"/>
+				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.converters.myanmar"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.teckit.win32.x86"
-				destPath="${release.path}/plugins/org.thanlwinsoft.doccharconvert.teckit.win32.x86"/>
+				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.teckit.win32.x86"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.teckit.linux.x86"
-				destPath="${release.path}/plugins/org.thanlwinsoft.doccharconvert.teckit.linux.x86"/>
+				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.teckit.linux.x86"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.teckit.linux.x86_64"
-				destPath="${release.path}/plugins/org.thanlwinsoft.doccharconvert.teckit.linux.x86_64"/>
+				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.teckit.linux.x86_64"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.feature.core"
-				destPath="${release.path}/features/org.thanlwinsoft.doccharconvert.feature.core"/>
+				destPath="${buildDirectory}/features/org.thanlwinsoft.doccharconvert.feature.core"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.feature.mien"
-				destPath="${release.path}/features/org.thanlwinsoft.doccharconvert.feature.mien"/>
+				destPath="${buildDirectory}/features/org.thanlwinsoft.doccharconvert.feature.mien"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.feature.myanmar"
-				destPath="${release.path}/features/org.thanlwinsoft.doccharconvert.feature.myanmar"/>
+				destPath="${buildDirectory}/features/org.thanlwinsoft.doccharconvert.feature.myanmar"/>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.update/headless-build/maps"
-							destPath="${release.path}/maps"/>
+							destPath="${buildDirectory}/maps"/>
 			
 		</svn>
 	</target>
+	
+	<target name="src-tar">
+		<tstamp/>
+		<tar compression="bzip2" destfile="${buildDirectory}/${buildBase}-${DSTAMP}${TSTAMP}.tar.bz2">
+			<tarfileset dir="${buildDirectory}/..">
+				<include name="${buildBase}/plugins/**/*"/>
+				<include name="${buildBase}/features/**/*"/>
+			</tarfileset>
+		</tar>
+	</target>
+	
 	<target name="dccSchemas">
-		<ant antfile="${release.path}/plugins/org.thanlwinsoft.doccharconvert/build-schemas.xml"
-				dir="${release.path}/plugins/org.thanlwinsoft.doccharconvert">
+		<ant antfile="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert/build-schemas.xml"
+				dir="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert">
 		</ant>
 	</target>
 	<!--
@@ -65,7 +76,6 @@
 			<arg value="org.eclipse.ant.core.antRunner" />
 			<arg value="-buildfile" />
 			<arg value="${eclipse.pdebuild.scripts}build.xml" />
-			<!--<arg value="${eclipse.pdebuild.scripts}productBuild/productBuild.xml" />-->
 			<arg value="-Dtimestamp=${timestamp}" />
 			<classpath>
 				<pathelement location="${eclipse.base}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
@@ -106,5 +116,5 @@
 	</target>
 
 	<!--This target defines the run-order of the targets-->
-	<target name="build" depends="clean,checkout,dccSchemas,pde-build,pde-product" />
+	<target name="build" depends="clean,checkout,src-tar,dccSchemas,pde-build,pde-product" />
 </project>
