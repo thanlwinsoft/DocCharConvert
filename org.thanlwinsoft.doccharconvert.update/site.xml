@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
    <description url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/">
-      Plugins for DocCharConvert hosted on ThanLwinSoft.org
+      Features &amp; Plugins for DocCharConvert hosted on ThanLwinSoft.org
    </description>
    <feature url="features/org.thanlwinsoft.doccharconvert.feature.mien_1.0.0.jar" id="org.thanlwinsoft.doccharconvert.feature.mien" version="1.0.0">
       <category name="Document Converters"/>
@@ -10,9 +10,6 @@
       <category name="Document Converters"/>
    </feature>
    <feature url="features/org.thanlwinsoft.doccharconvert.feature.myanmar_1.1.0.jar" id="org.thanlwinsoft.doccharconvert.feature.myanmar" version="1.1.0">
-      <category name="Document Converters"/>
-   </feature>
-   <feature url="features/org.apache.xmlbeans.feature_2.3.0.jar" id="org.apache.xmlbeans.feature" version="2.3.0">
       <category name="Document Converters"/>
    </feature>
    <category-def name="Document Converters" label="DocCharConvert">

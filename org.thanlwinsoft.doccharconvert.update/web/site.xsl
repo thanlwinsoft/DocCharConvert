@@ -17,10 +17,10 @@
 		<xsl:sort select="@name" order="ascending" case-order="upper-first"/>
 	<xsl:if test="count(key('cat',@name)) != 0">
 			<tr class="header">
-				<td class="sub-header" width="30%">
+				<td class="sub-header" width="50%">
 					<xsl:value-of select="@name"/>
 				</td>
-				<td class="sub-header" width="70%">
+				<td class="sub-header" width="50%">
 					<xsl:value-of select="@label"/>
 				</td>
 			</tr>
