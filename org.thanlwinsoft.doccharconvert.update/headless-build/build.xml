@@ -1,10 +1,11 @@
 <project name="org.thanlwinsoft.doccharconvert.build" default="build" basedir=".">
-	<!--sets the path of the properties file-->
+	<!--sets the path of the properties file
 	<path id="release.path.rel">
 		<pathelement path="${basedir}/../doccharconvert"/>
 	</path>
 	<pathconvert refid="release.path.rel" targetos="unix" property="release.path"/> 
-	<property name="buildDirectory" value="${release.path}"/>
+	<property name="buildDirectory" value="${release.path}"/>-->
+	<property file="build.${osgi.os}.${osgi.arch}.properties"/>
 	<property file="build.common.properties" />
 
 	<path id="svnant.class.path">
@@ -16,8 +17,8 @@
 			classpathref="svnant.class.path" onerror="fail"/>
 
 	<target name="checkout">
-		<mkdir dir="${release.path}/features"/>
-		<mkdir dir="${release.path}/plugins"/>
+		<mkdir dir="${buildDirectory}/features"/>
+		<mkdir dir="${buildDirectory}/plugins"/>
 		<svn>
 			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.apache.xmlbeans"
 				destPath="${buildDirectory}/plugins/org.apache.xmlbeans"/>
@@ -67,7 +68,7 @@
 	<target name="pde-build">
 		<concat destfile="${basedir}/build.properties" force="yes">
 		    <filelist dir="${basedir}"
-		         files="build.common.properties,build.features.properties"/>
+		         files="build.features.properties,build.common.properties,build.${osgi.os}.${osgi.arch}.properties"/>
 		</concat>
 		<echo message="Build Directory: ${buildDirectory}"/>
 		<echo message="${eclipse.base}plugins/org.eclipse.equinox.launcher.${osgi.os}.${osgi.ws}.${osgi.arch}_${equinoxLauncherPluginVersion}"/>
@@ -79,7 +80,7 @@
 			<arg value="-Dtimestamp=${timestamp}" />
 			<classpath>
 				<pathelement location="${eclipse.base}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
-				<fileset dir="${release.path}/plugins/org.apache.xmlbeans/lib">
+				<fileset dir="${buildDirectory}/plugins/org.apache.xmlbeans/lib">
 				     <include name="*.jar"/>
 				</fileset>
 			</classpath>
@@ -94,7 +95,7 @@
 	<target name="pde-product">
 		<concat destfile="${basedir}/build.properties" force="yes">
 		    <filelist dir="${basedir}"
-		         files="build.common.properties,build.product.properties"/>
+		         files="build.product.properties,build.common.properties,build.${osgi.os}.${osgi.arch}.properties"/>
 		</concat>
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
 			<arg value="-application" />
@@ -108,6 +109,19 @@
 		</java>
 	</target>
 	
+	<target name="nsis" description="Build NSIS Installer">
+		<unzip src="${buildDirectory}/I.DocCharConvert/DocCharConvert-win32.win32.x86.zip" dest="${buildDirectory}/DocCharConvert"/>
+		<exec executable="${nsisHome}/makensis.exe" dir="${basedir}/../nsis/">
+			<arg value="DocCharConvert.nsi"/>
+		</exec>
+		<delete dir="${buildDirectory}/DocCharConvert"/>
+	</target>
+	
+	<target name="test-installer" description="Test the NSIS Installer">
+		<exec executable="${buildDirectory}/DocCharConvert-${doccharconvert.version}.exe" vmlauncher="false">
+		</exec>
+	</target>
+	
 	<!--This target is responsible for cleaning up the build-directory-->
 	<target name="clean">
 		<delete dir="${release.path}/features"/>
@@ -116,5 +130,5 @@
 	</target>
 
 	<!--This target defines the run-order of the targets-->
-	<target name="build" depends="clean,checkout,src-tar,dccSchemas,pde-build,pde-product" />
+	<target name="build" depends="clean,checkout,src-tar,dccSchemas,pde-product,pde-build,nsis" />
 </project>
