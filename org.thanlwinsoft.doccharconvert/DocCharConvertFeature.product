@@ -33,7 +33,7 @@
       startupProgressRect="0,265,455,10"
       startupMessageRect="0,275,455,20"
       startupForegroundColor="FFFFFF" />
-   <launcher name="eclipse">
+   <launcher name="doccharconvert">
       <linux icon="/org.thanlwinsoft.doccharconvert/icons/Convert32.xpm"/>
       <solaris/>
       <win useIco="false">
