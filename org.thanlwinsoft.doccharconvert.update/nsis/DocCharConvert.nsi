@@ -16,7 +16,6 @@
 ;Include Modern UI
 
   !include "MUI.nsh"
-
 ;--------------------------------
 ;General
 
@@ -24,7 +23,7 @@
   Name "${APP_NAME} (${VERSION})"
   Caption "A Program for converting between different Character encodings."
 
-  OutFile "..\..\doccharconvert\${APP_NAME}-${VERSION}.exe"
+  OutFile "${APP_NAME}-${VERSION}.exe"
   ;OutFile "${FONT_REG_FILE}"
   ;OutFile "${FONT_BOLD_FILE}"
   InstallDir $PROGRAMFILES\${INSTALL_SUFFIX}
@@ -98,10 +97,10 @@ Section "-!${APP_NAME}" SecApp
   
   
   
-  IfFileExists "$INSTDIR\${APP_NAME}\Uninstall.exe" 0 BranchNoExist
+  IfFileExists "$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe" 0 BranchNoExist
     
-	# uninstall old version /S _?=$INSTDIR
-	ExecWait '"$INSTDIR\${APP_NAME}\Uninstall.exe"'
+	# uninstall old version
+	ExecWait '"$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe" /S _?=$INSTDIR\${APP_NAME}'
 
     ;MessageBox MB_YESNO|MB_ICONQUESTION "Would you like to overwrite existing ${APP_NAME} directory?" IDNO  NoOverwrite ; skipped if file doesn't exist
 
@@ -112,27 +111,19 @@ Section "-!${APP_NAME}" SecApp
 
 ; NoOverwrite:
 
-  
-  SetOutPath "$INSTDIR"
-  
-  ;File /r "..\release\win32.win32.x86\${APP_NAME}"
-  File /r "..\..\doccharconvert\DocCharConvert"
-  
-  ;File /r "..\release\${APP_NAME}"
-  
   SetOutPath "$INSTDIR\${APP_NAME}"
   File /oname=license.txt "lgpl-2.1.txt"
   File DocCharConvert.bat
-  File ..\..\org.thanlwinsoft.doccharconvert.teckit.win32.x86\TecKitJni.dll
   File "DocCharConvert32.ico"
   File "UninstallDCC32.ico"
   
-  ;CreateDirectory "$INSTDIR\${APP_NAME}\features"
-  ;SetOutPath "$INSTDIR\${APP_NAME}\features"
+  !cd "..\..\doccharconvert"
+  File ..\org.thanlwinsoft.doccharconvert.teckit.win32.x86\TecKitJni.dll
+
+  File /r "DocCharConvert\eclipse"
   
-  ;SetOutPath "$INSTDIR\${APP_NAME}\configuration\org.thanlwinsoft.doccharconvert\Converters"
-  ;File "/oname=TecKitJni.dll" "..\Converters\TecKitJni.dll" 
-  
+  ;File /r "..\release\${APP_NAME}"
+    
   ClearErrors
   ; write a batch file that sets the Java home
   FileOpen $0 "$INSTDIR\${APP_NAME}\setJavaHome.bat" w
@@ -149,7 +140,7 @@ Section "-!${APP_NAME}" SecApp
   ; set up shortcuts
   CreateDirectory "$SMPROGRAMS\${APP_NAME}"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
+	"$INSTDIR\${APP_NAME}\eclipse\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
 ;  CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}IDE.lnk" \
@@ -162,7 +153,7 @@ Section "-!${APP_NAME}" SecApp
 	"" "Uninstall ${APP_NAME}"
 
   CreateShortCut "$DESKTOP\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
+	"$INSTDIR\${APP_NAME}\eclipse\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
 	
@@ -171,40 +162,40 @@ Section "-!${APP_NAME}" SecApp
 
   
   ;Create uninstaller
-  WriteUninstaller "$INSTDIR\${APP_NAME}\Uninstall.exe"
+  WriteUninstaller "$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe"
 
   ; add keys for Add/Remove Programs entry
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" \
                  "DisplayName" "${APP_NAME} ${VERSION}"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" \
-                 "UninstallString" "$INSTDIR\${APP_NAME}\Uninstall.exe"
+                 "UninstallString" "$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe"
 				 
   
 
 SectionEnd
 
-Section /o "Mien" SecMien
+Section "Myanmar" SecMyanmar
 	SetOutPath "$INSTDIR\${APP_NAME}\eclipse\plugins"
-	File /r ..\..\doccharconvert\repository\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*
+	File /r repository\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*
 	SetOutPath "$INSTDIR\${APP_NAME}\eclipse\features"
-	File /r ..\..\doccharconvert\repository\features\org.thanlwinsoft.doccharconvert.feature.mien_*
-	SetOutPath "$INSTDIR\${APP_NAME}"
-	File DocCharConvertMien.bat
+	File /r repository\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*
+    SetOutPath "$INSTDIR\${APP_NAME}"
+	File ..\org.thanlwinsoft.doccharconvert.update\nsis\DocCharConvertMyanmar.bat
 SectionEnd
 
-Section /o "Myanmar" SecMyanmar
-	SetOutPath "$INSTDIR\${APP_NAME}\eclipse\plugins"
-	File /r ..\..\doccharconvert\repository\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*
-	SetOutPath "$INSTDIR\${APP_NAME}\eclipse\features"
-	File /r ..\..\doccharconvert\repository\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*
+Section /o "Mien" SecMien
+    SetOutPath "$INSTDIR\${APP_NAME}\eclipse\plugins"
+    File /r repository\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*
+    SetOutPath "$INSTDIR\${APP_NAME}\eclipse\features"
+    File /r repository\features\org.thanlwinsoft.doccharconvert.feature.mien_*
     SetOutPath "$INSTDIR\${APP_NAME}"
-	File DocCharConvertMyanmar.bat
+    File ..\org.thanlwinsoft.doccharconvert.update\nsis\DocCharConvertMien.bat
 SectionEnd
 
 ;Optional source - as a compressed archive
 Section /o "Source" SecSource
 	SetOutPath "$INSTDIR\${APP_NAME}"
-	File ..\..\doccharconvert\doccharconvert-*.tar.bz2
+	File doccharconvert-*.tar.bz2
 SectionEnd
 
 ;--------------------------------
@@ -222,7 +213,7 @@ SectionEnd
     !insertmacro MUI_DESCRIPTION_TEXT ${SecApp} $(DESC_SecApp)
 	!insertmacro MUI_DESCRIPTION_TEXT ${SecMyanmar} $(DESC_SecMyanmar)
     !insertmacro MUI_DESCRIPTION_TEXT ${SecMien} $(DESC_SecMien)
-    !insertmacro MUI_DESCRIPTION_TEXT ${SecSource} $(DESC_SecMien)
+    !insertmacro MUI_DESCRIPTION_TEXT ${SecSource} $(DESC_SecSource)
   !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Function .onInstFailed
@@ -232,7 +223,7 @@ FunctionEnd
 
 Function .onInstSuccess
 
-	Exec '"$INSTDIR\${APP_NAME}\eclipse.exe" -vm "$JAVA_HOME\bin\javaw.exe"  -product org.thanlwinsoft.doccharconvert.DocCharConvert'
+	Exec '"$INSTDIR\${APP_NAME}\eclipse\eclipse.exe" -vm "$JAVA_HOME\bin\javaw.exe"  -product org.thanlwinsoft.doccharconvert.DocCharConvert'
 
 FunctionEnd
 
@@ -246,14 +237,8 @@ Section "Uninstall"
     MessageBox MB_OK|MB_ICONEXCLAMATION "$INSTDIR\${APP_NAME} was not found! You may need to uninstall manually." 
 	
 AppFound:
-  RMDir /r "$INSTDIR\configuration"
-  RMDir /REBOOTOK /r "$INSTDIR\plugins"
-  RMDir /REBOOTOK /r "$INSTDIR\features"
-  Delete /REBOOTOK "$INSTDIR\eclipse.ini"
-  Delete /REBOOTOK "$INSTDIR\eclipse.exe"
+  RMDir /REBOOTOK /r "$INSTDIR\eclipse"
   Delete /REBOOTOK "$INSTDIR\TecKitJni.dll"
-  Delete /REBOOTOK "$INSTDIR\startup.jar"
-  Delete /REBOOTOK "$INSTDIR\.eclipseproduct"
   Delete /REBOOTOK "$INSTDIR\DocCharConvert*.*"
   Delete /REBOOTOK "$INSTDIR\UninstallDCC32.ico"
   Delete /REBOOTOK "$INSTDIR\setJavaHome.bat"
@@ -261,7 +246,7 @@ AppFound:
   Delete /REBOOTOK "$INSTDIR\license.txt"
   
   ;Delete "$INSTDIR\${SRC_ARCHIVE}"
-  Delete /REBOOTOK "$INSTDIR\Uninstall.exe"
+  Delete /REBOOTOK "$INSTDIR\${APP_NAME}Uninstall.exe"
 
   RMDir "$INSTDIR"
   
@@ -273,8 +258,6 @@ AppFound:
   
   IfFileExists "$INSTDIR\workspace" 0 end
     MessageBox MB_YESNO|MB_ICONEXCLAMATION "$INSTDIR\workspace exists. This may contain some of your own files. Do you want to remove it as well?" IDYES 0 IDNO end
-  
-  RMDir /REBOOTOK /r "$INSTDIR"
 
 end:
 
