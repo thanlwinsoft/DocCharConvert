@@ -3,11 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: org.apache.xmlbeans
 Bundle-SymbolicName: org.apache.xmlbeans;singleton:=true
 Bundle-Version: 2.4.0
-Bundle-ClassPath: resolver.jar,
- xbean.jar,
- xbean_xpath.jar,
- xmlbeans-qname.jar,
- xmlpublic.jar
+Bundle-ClassPath: lib/resolver.jar,
+ lib/xbean.jar,
+ lib/xbean_xpath.jar,
+ lib/xmlbeans-qname.jar,
+ lib/xmlpublic.jar
 Bundle-Vendor: thanlwinsoft.org
 Export-Package: javax.xml.namespace,
  org.apache.xml.resolver,

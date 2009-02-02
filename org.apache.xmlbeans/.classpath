@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry exported="true" kind="lib" path="resolver.jar"/>
-	<classpathentry exported="true" kind="lib" path="xbean.jar"/>
-	<classpathentry exported="true" kind="lib" path="xbean_xpath.jar"/>
-	<classpathentry exported="true" kind="lib" path="xmlbeans-qname.jar"/>
-	<classpathentry exported="true" kind="lib" path="xmlpublic.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/resolver.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/xbean.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/xbean_xpath.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlbeans-qname.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlpublic.jar" sourcepath="org.apache.xmlbeanssrc.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
