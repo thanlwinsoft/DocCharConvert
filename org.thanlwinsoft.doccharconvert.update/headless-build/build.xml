@@ -165,20 +165,28 @@
         <unzip src="${buildDirectory}/I.DocCharConvert/DocCharConvert-win32.win32.x86.zip" dest="${buildDirectory}/DocCharConvert"/>
 	</target>
 	
-	<target name="nsis" description="Build NSIS Installer">
+	<target name="nsis-init">
 		<path id="nsis.path.rel">
-		        <pathelement path="${basedir}/../nsis"/>
+		        <pathelement path="${basedir}/../nsis/DocCharConvert.nsi"/>
 		</path>
-		<pathconvert refid="nsis.path.rel" targetos="windows" property="nsis.path"/> 
-		    
-		<exec executable="${nsisHome}/makensis.exe" dir="${buildDirectory}"
+		<condition property="nsisPathType" value="windows" else="unix">
+			<os family="windows"/>
+		</condition>
+		<pathconvert refid="nsis.path.rel" targetos="${nsisPathType}" property="nsis.path"/> 
+		
+		<available filepath="${signtoolPath}" file="signtool.exe" property="nsis.sign"/>
+	</target>
+	
+	<target name="nsis-sign" if="nsis.sign">
+		<exec executable="${nsisHome}/makensis" dir="${buildDirectory}"
 			logerror="true" output="${buildDirectory}/nsis_win32_x86.log">
 			<env key="PATH" path="${signtoolPath}"/>
-			<arg value="${nsis.path}\DocCharConvert.nsi"/>
+			<arg value="/DSIGN"/>
+			<arg value="${nsis.path}"/>
 		</exec>
 		<!--<delete dir="${buildDirectory}/DocCharConvert"/>-->
 		
-		<exec executable="${signtoolPath}/signtool.exe" dir="${buildDirectory}">
+		<exec executable="${signtoolPath}/signtool" dir="${buildDirectory}">
 			<arg value="sign"/>
 			<arg value="/f"/>
 			<arg value="${certs}/code.thanlwinsoft.pfx"/>
@@ -188,7 +196,16 @@
 			<arg value="/d"/>
 			<arg value="DocCharConvert Installer"/>
             <arg value="${buildDirectory}/DocCharConvert-${doccharconvert.version}.exe"/>
+		</exec>		
+	</target>
+	<target name="nsis-nosign" unless="nsis.sign">
+		<exec executable="${nsisHome}/makensis" dir="${buildDirectory}"
+				logerror="true" output="${buildDirectory}/nsis_win32_x86.log">
+			<arg value="${nsis.path}"/>
 		</exec>
+	</target>
+	<target name="nsis" description="Build NSIS Installer" depends="nsis-init,nsis-sign,nsis-nosign">
+
 	</target>
 	
 	<target name="test-installer" description="Test the NSIS Installer">
