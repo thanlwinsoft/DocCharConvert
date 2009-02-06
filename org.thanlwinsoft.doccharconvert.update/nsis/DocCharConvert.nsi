@@ -23,12 +23,9 @@
   Name "${APP_NAME} (${VERSION})"
   Caption "A Program for converting between different Character encodings."
 
-  OutFile "${APP_NAME}-${VERSION}.exe"
   ;OutFile "${FONT_REG_FILE}"
   ;OutFile "${FONT_BOLD_FILE}"
   InstallDir $PROGRAMFILES\${INSTALL_SUFFIX}
-
-  RequestExecutionLevel admin
 
   ;Get installation folder from registry if available
   InstallDirRegKey HKLM "Software\${INSTALL_SUFFIX}\${APP_NAME}" ""
@@ -63,6 +60,40 @@
 ;--------------------------------
   Icon "InstallDCC32.ico"
   UninstallIcon "UninstallDCC32.ico"
+  
+!ifdef INNER
+  !echo "Inner invocation"                  ; just to see what's going on
+  OutFile "$%TEMP%\tempinstaller.exe"       ; not really important where this is
+  SetCompress off                           ; for speed
+  Section "-!${APP_NAME}" SecApp
+  WriteUninstaller "$%TEMP%\${APP_NAME}Uninstall.exe"
+  SectionEnd
+!else
+  !echo "Outer invocation"
+  RequestExecutionLevel admin
+ 
+!ifdef SIGN
+  ; Call makensis again, defining INNER.  This writes an installer for us which, when
+  ; it is invoked, will just write the uninstaller to some location, and then exit.
+  ; Be sure to substitute the name of this script here.
+ 
+  !system "$\"${NSISDIR}\makensis$\" /DINNER DocCharConvert.nsi" = 0
+ 
+  ; So now run that installer we just created as %TEMP%\tempinstaller.exe.  Since it
+  ; calls quit the return value isn't zero.
+ 
+  !system "$%TEMP%\tempinstaller.exe /S /D=$%TEMP%" = 0
+ 
+  ; That will have written an uninstaller binary for us.  Now we sign it with your
+  ; favourite code signing tool.
+ 
+ ; /t http://timestamp.verisign.com/scripts/timestamp.dll
+  !system "signtool sign /f ..\..\certs\code.thanlwinsoft.pfx /v /d 'DocCharConvert Uninstaller' $%TEMP%\${APP_NAME}Uninstall.exe" = 0
+
+!ENDIF 
+  ; Good.  Now we can carry on writing the real installer.
+  OutFile "${APP_NAME}-${VERSION}.exe"
+
 ;Installer Sections
 
 Function findJavaHome
@@ -116,8 +147,15 @@ Section "-!${APP_NAME}" SecApp
   File DocCharConvert.bat
   File "DocCharConvert32.ico"
   File "UninstallDCC32.ico"
+
+!ifdef SIGN
+  File "$%TEMP%\${APP_NAME}Uninstall.exe"
+!ELSE
+  ;Create uninstaller
+  ;WriteUninstaller "$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe"
+!ENDIF
   
-  !cd "..\..\doccharconvert"
+  !cd "../../doccharconvert"
   File ..\org.thanlwinsoft.doccharconvert.teckit.win32.x86\TecKitJni.dll
 
   File /r "DocCharConvert\eclipse"
@@ -140,29 +178,26 @@ Section "-!${APP_NAME}" SecApp
   ; set up shortcuts
   CreateDirectory "$SMPROGRAMS\${APP_NAME}"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
+	"$INSTDIR\${APP_NAME}\eclipse\launcher.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
 ;  CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}IDE.lnk" \
-;	"$INSTDIR\${APP_NAME}\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertIDEProduct' \
+;	"$INSTDIR\${APP_NAME}\launcher.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvertIDEProduct' \
 ;	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 ;	"" "${APP_NAME} - developer IDE"
   CreateShortCut "$SMPROGRAMS\${APP_NAME}\${APP_NAME}Uninstall.lnk" \
-	"$INSTDIR\${APP_NAME}\Uninstall.exe" "" \
+	"$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe" "" \
 	"$INSTDIR\${APP_NAME}\UninstallDCC32.ico" 0 SW_SHOWNORMAL \
 	"" "Uninstall ${APP_NAME}"
 
   CreateShortCut "$DESKTOP\${APP_NAME}.lnk" \
-	"$INSTDIR\${APP_NAME}\eclipse\eclipse.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
+	"$INSTDIR\${APP_NAME}\eclipse\launcher.exe" '-vm "$JAVA_HOME\bin\javaw.exe" -product org.thanlwinsoft.doccharconvert.DocCharConvert' \
 	"$INSTDIR\${APP_NAME}\DocCharConvert32.ico" 0 SW_SHOWNORMAL \
 	"" "${APP_NAME}"
 	
   ;Store installation folder
   WriteRegStr HKLM "Software\${INSTALL_SUFFIX}\${APP_NAME}" "" $INSTDIR
 
-  
-  ;Create uninstaller
-  WriteUninstaller "$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe"
 
   ; add keys for Add/Remove Programs entry
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}" \
@@ -223,16 +258,16 @@ FunctionEnd
 
 Function .onInstSuccess
 
-	Exec '"$INSTDIR\${APP_NAME}\eclipse\eclipse.exe" -vm "$JAVA_HOME\bin\javaw.exe"  -product org.thanlwinsoft.doccharconvert.DocCharConvert'
+	Exec '"$INSTDIR\${APP_NAME}\eclipse\launcher.exe" -vm "$JAVA_HOME\bin\javaw.exe"  -product org.thanlwinsoft.doccharconvert.DocCharConvert'
 
 FunctionEnd
 
+!endif
 ;--------------------------------
 ;Uninstaller Section
 
 Section "Uninstall"
   SetShellVarContext all
-  
   IfFileExists "$INSTDIR" AppFound 0
     MessageBox MB_OK|MB_ICONEXCLAMATION "$INSTDIR\${APP_NAME} was not found! You may need to uninstall manually." 
 	
