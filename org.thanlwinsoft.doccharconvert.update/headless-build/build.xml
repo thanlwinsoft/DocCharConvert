@@ -8,6 +8,7 @@
 	<property file="build.${osgi.os}.${osgi.arch}.properties"/>
 	<property file="build.common.properties" />
 
+<!--
 	<path id="svnant.class.path">
 			<fileset dir="../../org.tigris.subversion.svnant/lib">
 				<include name="**/*.jar"/>
@@ -45,18 +46,53 @@
 			
 		</svn>
 	</target>
-	
+-->
+	<pathconvert targetos="unix" property="hg.repository">
+		<path location="${buildDirectory}/../"/>
+	</pathconvert>
+	<target name="checkout">
+		<mkdir dir="${buildDirectory}"/>
+		<exec executable="hg" dir="${buildDirectory}">
+			<arg value="clone"/>
+			<arg value="${hg.repository}"/>
+			<arg value="${buildBase}-${doccharconvert.version}"/>
+		</exec>
+	</target>
+
 	<target name="src-tar">
 		<tstamp/>
+		<tar compression="bzip2" destfile="${buildDirectory}/${buildBase}-${DSTAMP}${TSTAMP}.tar.bz2" longfile="gnu">
+			<tarfileset dir="${buildDirectory}/${buildBase}-${doccharconvert.version}">
+				<include name="**/*"/>
+				<exclude name=".hg"/>
+				<exclude name=".hg/**/*"/>
+			</tarfileset>
+		</tar>
+		<!--
 		<tar compression="bzip2" destfile="${buildDirectory}/${buildBase}-${DSTAMP}${TSTAMP}.tar.bz2">
 			<tarfileset dir="${buildDirectory}/..">
 				<include name="${buildBase}/plugins/**/*"/>
 				<include name="${buildBase}/features/**/*"/>
 			</tarfileset>
 		</tar>
+		-->
 	</target>
 	
-	<target name="dccSchemas">
+	<target name="split-plugins-features">
+		<move todir="${buildDirectory}/features">
+		    <fileset dir="${buildDirectory}/${buildBase}-${doccharconvert.version}">
+		    	<include name="org.thanlwinsoft.doccharconvert.feature*/**/*"/>		    	
+			</fileset>
+		</move>
+		<move todir="${buildDirectory}/plugins">
+		    <fileset dir="${buildDirectory}/${buildBase}-${doccharconvert.version}">
+		    	<include name="org.thanlwinsoft.doccharconvert*/**/*"/>
+		    	<include name="org.apache.xmlbeans/**/*"/>
+			</fileset>
+		</move>
+	</target>
+	
+	<target name="dcc-schemas" depends="clean,checkout,src-tar,split-plugins-features">
 		<ant antfile="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert/build-schemas.xml"
 				dir="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert">
 		</ant>
@@ -71,7 +107,7 @@
 		         files="build.features.properties,build.common.properties,build.${osgi.os}.${osgi.arch}.properties"/>
 		</concat>
 		<echo message="Build Directory: ${buildDirectory}"/>
-		<echo message="${eclipse.base}plugins/org.eclipse.equinox.launcher.${osgi.os}.${osgi.ws}.${osgi.arch}_${equinoxLauncherPluginVersion}"/>
+		<echo message="${baseLocation}/plugins/org.eclipse.equinox.launcher.${osgi.os}.${osgi.ws}.${osgi.arch}_${equinoxLauncherPluginVersion}"/>
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
 			<arg value="-application" />
 			<arg value="org.eclipse.ant.core.antRunner" />
@@ -79,15 +115,15 @@
 			<arg value="${eclipse.pdebuild.scripts}build.xml" />
 			<arg value="-Dtimestamp=${timestamp}" />
 			<classpath>
-				<pathelement location="${eclipse.base}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
+				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
 				<fileset dir="${buildDirectory}/plugins/org.apache.xmlbeans/lib">
 				     <include name="*.jar"/>
 				</fileset>
 			</classpath>
 		</java>
-		<copy file="${basedir}/../site.xml" todir="${release.path}/repository"/>
-		<copy file="${basedir}/../index.html" todir="${release.path}/repository"/>
-		<copy todir="${release.path}/repository/web">
+		<copy file="${basedir}/../site.xml" todir="${buildDirectory}/repository"/>
+		<copy file="${basedir}/../index.html" todir="${buildDirectory}/repository"/>
+		<copy todir="${buildDirectory}/repository/web">
 			 <fileset dir="${basedir}/../web"/>
 		</copy>
 	</target>
@@ -104,7 +140,7 @@
 			<arg value="${eclipse.pdebuild.scripts}productBuild/productBuild.xml" />
 			<arg value="-Dtimestamp=${timestamp}" />
 			<classpath>
-				<pathelement location="${eclipse.base}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
+				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
 			</classpath>
 		</java>
 	</target>
@@ -137,9 +173,22 @@
 		    
 		<exec executable="${nsisHome}/makensis.exe" dir="${buildDirectory}"
 			logerror="true" output="${buildDirectory}/nsis_win32_x86.log">
+			<env key="PATH" path="${signtoolPath}"/>
 			<arg value="${nsis.path}\DocCharConvert.nsi"/>
 		</exec>
 		<!--<delete dir="${buildDirectory}/DocCharConvert"/>-->
+		
+		<exec executable="${signtoolPath}/signtool.exe" dir="${buildDirectory}">
+			<arg value="sign"/>
+			<arg value="/f"/>
+			<arg value="${certs}/code.thanlwinsoft.pfx"/>
+			<arg value="/v"/>
+			<arg value="/t"/>
+			<arg value="http://timestamp.verisign.com/scripts/timestamp.dll"/>
+			<arg value="/d"/>
+			<arg value="DocCharConvert Installer"/>
+            <arg value="${buildDirectory}/DocCharConvert-${doccharconvert.version}.exe"/>
+		</exec>
 	</target>
 	
 	<target name="test-installer" description="Test the NSIS Installer">
@@ -155,5 +204,5 @@
 	</target>
 
 	<!--This target defines the run-order of the targets-->
-	<target name="build" depends="clean,checkout,src-tar,dccSchemas,pde-product,add-executables,pde-build,nsis" />
+	<target name="build" depends="dcc-schemas,pde-product,add-executables,pde-build,nsis" />
 </project>
