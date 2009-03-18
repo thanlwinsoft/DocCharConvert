@@ -6,11 +6,9 @@ Bundle-Version: 2.4.0
 Bundle-ClassPath: lib/resolver.jar,
  lib/xbean.jar,
  lib/xbean_xpath.jar,
- lib/xmlbeans-qname.jar,
  lib/xmlpublic.jar
 Bundle-Vendor: thanlwinsoft.org
-Export-Package: javax.xml.namespace,
- org.apache.xml.resolver,
+Export-Package: org.apache.xml.resolver,
  org.apache.xml.resolver.apps,
  org.apache.xml.resolver.helpers,
  org.apache.xml.resolver.readers,
