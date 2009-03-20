@@ -147,8 +147,20 @@ public class ConverterXmlParser
     {
         this.converters = new Vector<ChildConverter>();
         this.errorLog = new StringBuffer();
-    }
+        final ClassLoader cl = this.getClass().getClassLoader();
+        this.mLoaderUtil = new IClassLoaderUtil()
+        {
 
+			@Override
+			public Class<?> loadClass(String className)
+					throws ClassNotFoundException
+			{
+				return cl.loadClass(className);
+			}
+        	
+        };
+    }
+   
     /**
      * 
      * @param converterDir

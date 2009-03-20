@@ -66,6 +66,7 @@
 				<include name="**/*"/>
 				<exclude name=".hg"/>
 				<exclude name=".hg/**/*"/>
+				<exclude name="org.apache.xmlbeans/**/*"/>
 			</tarfileset>
 		</tar>
 		<!--

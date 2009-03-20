@@ -15,4 +15,17 @@ doccharconvert
 .metadata
 org.thanlwinsoft.doccharconvert/bin
 org.thanlwinsoft.doccharconvert.update/headless-build/build.properties
+firefox-myanmar-converter/bin
+firefox-myanmar-converter/dist
+firefox-myanmar-converter/test/*/*
+firefox-myanmar-converter/tools/bin
+firefox-myanmar-converter/tools/javaFirefoxExtensionUtils.jar
 
+syntax: regexp
+\.xpi$
+syntax: regexp
+^dist$
+syntax: regexp
+^tools/bin$
+syntax: regexp
+^tools/javaFirefoxExtensionUtils\.jar$
