@@ -178,7 +178,7 @@
             name="%ConversionInputEditor.editor"/>
       <editor
             class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
-            default="false"
+            default="true"
             extensions="xml"
             icon="icons/ConversionTable16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
