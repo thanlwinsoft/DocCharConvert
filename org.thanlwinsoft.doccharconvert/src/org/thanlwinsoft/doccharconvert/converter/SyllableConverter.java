@@ -83,6 +83,7 @@ public class SyllableConverter extends ReversibleConverter
     private PrintStream debugStream = System.out;
     private Syllable previousSyl = null;
     private IClassLoaderUtil mLoader = null;
+    private SyllableXmlReader.Direction mConvDir = SyllableXmlReader.Direction.BIDIRECTIONAL;
 
     /**
      * Creates a new instance of SyllableConverter
@@ -714,6 +715,13 @@ public class SyllableConverter extends ReversibleConverter
         }
         return initOk;
     }
+    
+    public void setDirection(boolean isForwards)
+    {
+    	super.setDirection(isForwards);
+    	mConvDir = (isForwards())?  SyllableXmlReader.Direction.FORWARDS :
+        	 SyllableXmlReader.Direction.BACKWARDS;
+    }
 
     /**
      * Some converters may need to preinitialise some things
@@ -725,7 +733,7 @@ public class SyllableConverter extends ReversibleConverter
             filetime = xmlFile.lastModified();
         
         SyllableXmlReader reader = new SyllableXmlReader(xmlURL, mLoader, debug,
-                debugStream);
+                debugStream, mConvDir);
         if (mDoLogStatus) reader.logMapStatus();
         if (reader.parse())
         {

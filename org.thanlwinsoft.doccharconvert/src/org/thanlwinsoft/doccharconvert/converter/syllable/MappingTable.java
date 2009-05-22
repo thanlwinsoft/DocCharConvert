@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 import org.thanlwinsoft.doccharconvert.Config;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.converter.SyllableConverter;
+import org.thanlwinsoft.doccharconvert.converter.syllable.SyllableXmlReader.Direction;
 /**
  * The MappingTable represents how one or more components from one
  * script are mapped to one or more in another.
@@ -63,6 +64,7 @@ public class MappingTable
     boolean debug = false;
     boolean optional = false;
     boolean firstEntryWins = false;// ambiguous resolution mode
+    Direction mDirection = Direction.BIDIRECTIONAL;
     /**
      * unknown mapping - initial value
      */
@@ -81,11 +83,12 @@ public class MappingTable
      * @throws ConflictException 
     * 
     */
-    public MappingTable(String id, Component [] columns) 
+    public MappingTable(String id, Component [] columns, Direction dir) 
         throws IllegalArgumentException, ConflictException
     {
         this.id = id;
         this.columns = columns;
+        this.mDirection = dir;
         Script script = columns[0].getScript(); 
         int side = SyllableConverter.LEFT;
         leftSizes = new Vector<Integer>();
@@ -201,46 +204,54 @@ public class MappingTable
         for (int i = 0; i<rightEntry.length; i++) arrayR.add(i,rightEntry[i]);
 
         //if (leftMap[leftOffset] != UNKNOWN)
-        if (leftMap.containsKey(leftOffset))
+        if (mDirection != Direction.BACKWARDS)
         {
-            if (debug) debugStream.println(id + ":" + rowNum + "\t" +
-                    MessageUtil.getString("ambiguousForwards"));
-            status |= MappingStatus.AMBIGUOUS_FORWARDS.bit();
-            ambiguous = true;
-            if (!firstEntryWins)
-            {
-                arrayR = setAmbiguousFlag(arrayR, 
-                                      rightEntries.get(leftMap.get(leftOffset)));
-                leftMap.put(leftOffset, entryIndexL);
-            }
+	        if (leftMap.containsKey(leftOffset))
+	        {
+	            if (debug) debugStream.println(id + ":" + rowNum + "\t" +
+	                    MessageUtil.getString("ambiguousForwards"));
+	            status |= MappingStatus.AMBIGUOUS_FORWARDS.bit();
+	            ambiguous = true;
+	            if (!firstEntryWins)
+	            {
+	                arrayR = setAmbiguousFlag(arrayR, 
+	                                      rightEntries.get(leftMap.get(leftOffset)));
+	                leftMap.put(leftOffset, entryIndexL);
+	                rightEntries.add(arrayR);
+	            }
+	        }
+	        else
+	        {
+	            leftMap.put(leftOffset, entryIndexL);
+	            rightEntries.add(arrayR);
+	        }
         }
-        else
-        {
-            leftMap.put(leftOffset, entryIndexL);
-        }
-        rightEntries.add(arrayR);
-        
         List<Integer> arrayL = new ArrayList<Integer>(leftEntry.length);
         for (int i = 0; i<leftEntry.length; i++) arrayL.add(i,leftEntry[i]);
 
-        if (rightMap.containsKey(rightOffset))
+        if (mDirection != Direction.FORWARDS)
         {
-            if (debug) debugStream.println(id + ":" + rowNum + "\t" +
-                    MessageUtil.getString("ambiguousBackwards"));
-            status |= MappingStatus.AMBIGUOUS_BACKWARDS.bit();
-            ambiguous = true;
-            if (!firstEntryWins)
-            {
-                arrayL = setAmbiguousFlag(arrayL, 
-                                      leftEntries.get(rightMap.get(rightOffset)));
-                rightMap.put(rightOffset, entryIndexR);
-            }
+	        if (rightMap.containsKey(rightOffset))
+	        {
+	            if (debug) debugStream.println(id + ":" + rowNum + "\t" +
+	                    MessageUtil.getString("ambiguousBackwards"));
+	            status |= MappingStatus.AMBIGUOUS_BACKWARDS.bit();
+	            ambiguous = true;
+	            if (!firstEntryWins)
+	            {
+	                arrayL = setAmbiguousFlag(arrayL, 
+	                                      leftEntries.get(rightMap.get(rightOffset)));
+	                rightMap.put(rightOffset, entryIndexR);
+	                leftEntries.add(arrayL);
+	            }
+	        }
+	        else
+	        {
+	            rightMap.put(rightOffset, entryIndexR);
+	            leftEntries.add(arrayL);
+	        }
         }
-        else
-        {
-            rightMap.put(rightOffset, entryIndexR);
-        }
-        leftEntries.add(arrayL);
+
         if (debug && ambiguous)
             debugStream.println(id + ":" + rowNum + "\t" +
                     showEntry(0,leftEntry) + leftOffset + ":" + entryIndexL + 
@@ -483,7 +494,9 @@ public class MappingTable
     @Override
     public String toString()
     {
-        return id + " " + getNumLeftColumns() + "|" + getNumRightColumns();
+        return id + " " + getNumLeftColumns() + "|" + getNumRightColumns() + 
+        	" maps " + leftMap.size() + "," + rightMap.size() + " entries " +
+        	leftEntries.size() + "," + rightEntries.size();
     }
 }
 

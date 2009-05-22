@@ -105,7 +105,26 @@ public class SyllableXmlReader
     private boolean enableBacktrack = false;
     private PrintStream debugStream = System.out;
     private IClassLoaderUtil mLoader = null;
+    /**
+     * @author keith
+     * Enum for conversion direction to optimize size
+     */
+    public enum Direction {
+    	/**
+    	 * left to right
+    	 */
+    	FORWARDS,
+    	/**
+    	 * right to left
+    	 */
+    	BACKWARDS,
+    	/**
+    	 * both directions
+    	 */
+    	BIDIRECTIONAL
+    };
     private Map <String,Map<Integer,Integer> > mMapStatus = null;
+	private Direction mDirection = Direction.BIDIRECTIONAL;
     /**
      * Syllable Converter Schema Namespace
      */
@@ -142,14 +161,16 @@ public class SyllableXmlReader
      * @param loader
      * @param debug
      * @param ps
+     * @param isForwards 
      */
-    public SyllableXmlReader(URL xmlFile, IClassLoaderUtil loader, boolean debug, PrintStream ps)
+    public SyllableXmlReader(URL xmlFile, IClassLoaderUtil loader, boolean debug, PrintStream ps, Direction direction)
     {
         this.errorLog = new StringBuffer();
         this.mLoader = loader;
         this.xmlFile = xmlFile;
         this.debug = debug;
         this.debugStream = ps;
+        this.mDirection = direction;
         rb = Config.getCurrent().getMsgResource();
         mappingTable = new Vector<MappingTable>();
         checkers = new Vector<SyllableChecker>();
@@ -773,7 +794,7 @@ public class SyllableXmlReader
                 return false;
             }
             MappingTable table = new MappingTable(id, components
-                    .toArray(new Component[0]));
+                    .toArray(new Component[0]), mDirection);
             if (debug)
                 table.setDebug(debug, debugStream);
             if (tableElement.hasAttribute(OPTIONAL_ATTR)
@@ -932,7 +953,10 @@ public class SyllableXmlReader
                 }
             } // for (int j = 0; j<mapList.getLength(); j++)
             if (!initialPass)
+            {
+            	System.out.println("Loaded " + table);
                 mappingTable.add(table);
+            }
         } // for (int i = 0; i<tableList.getLength(); i++)
         return true;
     }
