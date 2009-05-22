@@ -19,6 +19,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 package org.thanlwinsoft.doccharconvert.eclipse.editors;
 
 import java.util.Iterator;
+import java.util.TreeSet;
 import java.util.Vector;
 
 import org.apache.xmlbeans.XmlException;
@@ -173,10 +174,16 @@ public class MappingTableEditorPart extends EditorPart
             @Override
             public void run()
             {
-                int mapIndex = getSelectedMapIndex();
-                if (mapIndex < 0)
-                    return;
-                mt.getMaps().removeM(mapIndex);
+                //int mapIndex = getSelectedMapIndex();
+                //if (mapIndex < 0)
+                //    return;
+                TreeSet <Integer> mapIndices = getSelectedMapIndices();
+                Iterator <Integer> mapI = mapIndices.descendingIterator();
+                while (mapI.hasNext())
+                {
+                	int mapIndex = mapI.next().intValue();
+                	mt.getMaps().removeM(mapIndex);
+                }
                 viewer.refresh();
                 parentEditor.setDirty(true);
             }
@@ -630,6 +637,31 @@ public class MappingTableEditorPart extends EditorPart
             }
         }
         return -1;
+    }
+    
+    protected TreeSet <Integer> getSelectedMapIndices()
+    {
+    	TreeSet <Integer> indices = new TreeSet<Integer>( );
+        if (!(viewer.getSelection() instanceof IStructuredSelection))
+            return null;
+        IStructuredSelection s = (IStructuredSelection) viewer.getSelection();
+        for (Object o : s.toArray())
+        {
+	        if (o instanceof Map)
+	        {
+	            Map selectedMap = (Map) o;
+	            for (int i = 0; i < mt.getMaps().sizeOfMArray(); i++)
+	            {
+	                if (mt.getMaps().getMArray(i) == selectedMap)
+	                {
+	                    indices.add(i);
+	                    break;
+	                }
+	            }
+	        }
+        }
+        
+        return indices;
     }
 
     /*
