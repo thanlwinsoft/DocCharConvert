@@ -20,6 +20,7 @@ firefox-myanmar-converter/dist
 firefox-myanmar-converter/test/*/*
 firefox-myanmar-converter/tools/bin
 firefox-myanmar-converter/tools/javaFirefoxExtensionUtils.jar
+firefox-myanmar-converter/lib/*.jar
 
 syntax: regexp
 \.xpi$
