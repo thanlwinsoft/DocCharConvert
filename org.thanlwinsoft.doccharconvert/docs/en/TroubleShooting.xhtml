@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,7 +9,7 @@
 <div class="topIcon">
 <a href="index.xhtml"><img src="styles/DocCharConvert.png" alt="DocCharConvert" /></a>
 </div>
-<div>
+<div id="body">
 <h1>DocCharConvert: Trouble Shooting</h1>
 
 <h2>Garbled Data</h2>
@@ -24,29 +23,10 @@ correctly. Old files created with legacy pre-Unicode fonts should probably be
 converted as Windows-1252 with the Output set to UTF-8. </p>
 <p>Some legacy fonts use code points that are undefined in Windows-1252. 
 In this case you may want to try the RawBytes encoding.</p>
-<h2>OpenOffice doesn't convert fonts specified in Word Documents</h2>
-<p>Sometimes if a document was forwarded in Microsoft word, the converter does 
-not identify the text to convert properly, even though the font is selected 
-correctly. Try openning the document in OpenOffice and resaving it from 
-OpenOffice before you do the conversion.</p>
-<h2>OpenOffice crashes</h2>
-<p>The interface that DocCharConvert uses to process documents in OpenOffice 
-is not very stable. Occasionally it crashes. DocCharConvert will attempt to 
-restart it automatically, but it does not always work. If all else fails you 
-can save the text to a plain text file and convert it that way - this is also 
-much faster.</p>
 
-<h2>TECkit on AMD64</h2>
-<p>The JNI supplied for TECkit will only work on 32 bit Windows and 32 bit Linux. 
-A 64 bit version is available in the Converter directory for Linux, but you will 
-have to rename <tt>libTecKitJni.amd64.so</tt> to <tt>libTecKitJni.so</tt>. 
-For other platforms you may need to build TECkit for yourself. The TECkit 
-source code is available from 
-<a href="http://scripts.sil.org/svn-public/teckit/">Subversion on scripts.sil.org</a> where you can download a tar ball of <a href="http://scripts.sil.org/svn-view/teckit/TRUNK.tar.gz?view=tar">trunk</a>.
-</p>
 <h2>Other Problems and Bugs</h2>
 <p>For other problems and bugs please send an email to 
-devel&#x40;thanlwinsoft.org.
+devel<span style="display:none">NO JUNK</span>&#x40;thanlwinsoft.org.
 Please try to be as explicit as possible in describing your problem. 
 If it is a case of incorrect conversion, then it is very hard to diagnose 
 problems unless I can reproduce it.
@@ -56,7 +36,7 @@ illustrate the problem.
 </div>
 <div class="footer">
 <span class="thanlwinsoft"><a href="http://www.thanlwinsoft.org/">www.ThanLwinSoft.org</a></span>
-<a href="http://org.eclipse.ui.intro/showPage?id=root">Help Index</a> 
+<a href="http://org.eclipse.ui.intro/showPage?id=root">Help Index</a> | <a href="CommandLine.xhtml">Command Line</a>
 </div>
 </body>
 </html>
