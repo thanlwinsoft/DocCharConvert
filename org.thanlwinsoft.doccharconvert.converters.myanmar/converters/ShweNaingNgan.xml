@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml-stylesheet type="text/xsl" href="utr_display.xsl"?>-->
+<!DOCTYPE characterMapping SYSTEM "CharacterMapping.dtd">
+ 
+<characterMapping
+    id="ShweNaing" 
+    version="0"
+    description="Mapping for ShweNaing-Ngan Myanmar, Type"
+    contact="mailto:devel@thanlwinsoft.org"
+    registrationAuthority="none"
+    registrationName=""
+    byte-font="ShweNaing"
+    normalization="NFD"
+>
+
+<history>
+    <modified version="0" date="2009-06-01">
+        Original
+    </modified>
+</history>
+
+
+<assignments sub="2D">
+    <range bFirst="00" bLast="1F" uFirst="0000" uLast="001F"/>
+
+    <a b="20" u="0020"/><!-- space -->
+    <a b="21" u="100d"/><!-- ! -->
+    <a b="22" u="1013"/><!-- " -->
+    <a b="23" u="100b"/><!-- # -->
+    <a b="24" u="1023"/><!-- $ -->
+    <a b="25" u="100e"/><!-- % -->
+    <a b="26" u="002d"/><!-- & -->
+    <a b="27" u="1012"/><!-- ' -->
+    <a b="28" u="0028"/><!-- ( -->
+    <a b="29" u="0029"/><!-- ) -->
+    <a b="2A" u="1002 1039 1002"/><!-- * -->
+    <a b="2B" u="201d"/><!-- + -->
+    <a b="2C" u="101a"/><!-- , -->
+    <!--<a b="2D" u=""/> - -->
+    <a b="2E" u="104f"/><!-- . -->
+    <a b="2F" u="104b"/><!-- / -->
+    <!-- wa and 0 are the same in the old encoding 
+    Assume that it is wa unless another number comes
+    before or after.
+    -->
+    <a b="30" u="1040" bbctxt="numbers"/><!-- 0 -->
+    <fbu b="30" u="101d"/>
+    <fbu b="30" u="1040" bactxt="numbers"/><!-- 0 -->
+    <fbu b="30" u="1040" bbctxt="space" bactxt="space"/><!-- 0 -->
+    <a b="31" u="1041"/><!-- 1 -->
+    <a b="32" u="1042"/><!-- 2 -->
+    <a b="33" u="1043"/><!-- 3 -->
+    <!-- it is common to be lazy and type aforementioned like this -->
+    <fbu b="34 69 66 3b" u="104e 1004 103A 1038"/>
+    <a b="34" u="1044"/><!-- 4 -->
+    <a b="35" u="1045"/><!-- 5 -->
+    <a b="36" u="1046"/><!-- 6 -->
+    <a b="37" u="1047"/><!-- 7 -->
+    <a b="38" u="1048"/><!-- 8 -->
+    <a b="39" u="1049"/><!-- 9 -->
+    <a b="3A" u="102b 103a"/><!-- : -->
+    <a b="3B" u="1038"/><!-- ; -->
+    <a b="3C" u="1012 1039 1013"/><!-- < -->
+    <a b="3D" u="101d"/><!-- = -->
+    <a b="3E" u="1005 1039 1006"/><!-- > -->
+    <a b="3F" u="104a"/><!-- ? -->
+
+    <a b="40" u="100f 1039 100d"/><!-- @ -->
+    <a b="41" u="1017"/><!-- A -->
+    <a b="42" u="1019 1039 1018"/><!-- B -->
+    <a b="43" u="1003"/><!-- C -->
+    <a b="44" u="102e"/><!-- D -->
+    <a b="45" u="100f"/><!-- E -->
+    <a b="46" u="1004 103A 1039"/><!-- F -->
+    <a b="47" u="103d"/><!-- G -->
+    <a b="48" u="1036"/><!-- H -->
+    <a b="49" u="104d"/><!-- I -->
+    <a b="4A" u="1032"/><!-- J -->
+    <a b="4B" u="102f" ubctxt="tallU"/><!-- K -->
+    <a b="4C" u="1030" ubctxt="tallUU"/><!-- L -->
+    <a b="4D" u="1014 1039 1010"/><!-- M -->
+    <a b="4E" u="1014 1039 1012"/><!-- N -->
+    <a b="4F" u="1025"/><!-- O -->
+    <a b="4F 44" u="1026"/><!-- Od -->
+	<a b="4F 66" u="1009 103a"/>
+
+    <a b="50" u="1005 1039 1005"/><!-- P -->
+    <a b="51" u="1000 1039 1001"/><!-- Q -->
+    <a b="52" u="1019 1039 1019"/><!-- R -->
+    <a b="53" u="103e"/><!-- S -->
+    <a b="54" u="1024"/><!-- T -->
+    <a b="55" u="1000 1039 1000" /><!-- U -->
+    <a b="56" u="1020"/><!-- V -->
+    <a b="57" u="1010 1039 1010"/><!-- W -->
+    <a b="58" u="100c"/><!-- X -->
+    <a b="59" u="104c"/><!-- Y -->
+    <a b="5A" u="1007"/><!-- Z -->
+    <a b="5B" u="101f"/><!-- [ -->
+    <a b="5C" u="101b"/><!-- \ -->
+    <a b="5D" u="103f"/><!-- ] -->
+    <a b="5E" u="002f"/><!-- ^ -->
+    <a b="5F" u="201c"/><!-- _ -->
+
+    <a b="60" u="1019 1039 1015"/><!-- ` -->
+    <a b="61" u="1031"/><!-- a -->
+    <a b="62" u="1018"/><!-- b -->
+    <a b="63" u="1001"/><!-- c -->
+    <a b="64" u="102d"/><!-- d -->
+    <a b="65" u="1014"/><!-- e -->
+    <a b="66" u="103a"/><!-- f -->
+    <a b="67" u="102b"/><!-- g -->
+    <a b="68" u="1037"/><!-- h -->
+    <a b="69" u="1004"/><!-- i -->
+
+    <a b="6A" u="103C" /><!-- j -->
+    <a b="6B" u="102f"/><!-- k -->
+    <a b="6C" u="1030"/><!-- l -->
+    <a b="6D" u="102C"/><!-- m -->
+    <a b="6E" u="100A"/><!-- n -->
+    <a b="6F" u="101E"/><!-- o -->
+    
+    <a b="6a 6F" u="1029"/>
+    <a b="60 6a 6F 6d 66" u="102a"/>
+    
+    <a b="70" u="1005"/><!-- p -->
+    <a b="71" u="1006"/><!-- q -->
+    <a b="72" u="1019"/><!-- r -->
+    <a b="73" u="103b"/><!-- s -->
+    <a b="74" u="1021"/><!-- t -->
+    <a b="75" u="1000"/><!-- u -->
+    <a b="76" u="101c"/><!-- v -->
+    <a b="77" u="1010"/><!-- w -->
+    <a b="78" u="1011"/><!-- x -->
+    <a b="79" u="1015"/><!-- y -->
+    <a b="7A" u="1016"/><!-- z -->
+    <a b="7B" u="1027"/><!-- { -->
+    <a b="7C" u="101b" uactxt="lower" /><!-- | -->
+    <a b="7D" u="1009 1039 1005"/><!-- } -->
+    <a b="7E" u="100d 1039 100e"/><!-- ~ -->
+
+    <!--<a b="82" u=""/> windows-1252 201a black telephone -->
+    <!--<fbu b="83" u=""/> - windows-1252 0192 -->
+    <!--<fbu b="84" u=""/> - windows-1252 201e -->
+    <!--<fbu b="85" u=""/> - windows-1252 2026 -->
+    <!--<fbu b="86" u=""/> - windows-1252 2020 -->
+    <!--<fbu b="87" u=""/> - windows-1252 2021 -->
+    <!--<fbu b="88" u=""/> - windows-1252 02c6 -->
+    <!--<fbu b="89" u=""/> - windows-1252 2030 -->
+    <!--<fbu b="8a" u=""/> - windows-1252 0160 -->
+    <!--<fbu b="8b" u=""/> - windows-1252 2039 -->
+
+    
+    <fbu b="BF" u="103c"/><!--  -->
+    <a b="C0" u="1004 103a 1039 102e"/><!--  -->
+    <a b="C1" u="100b 1039 100b"/><!--  -->
+    <a b="C2" u="102d 1036"/><!--   -->
+    <a b="C3" u="100f 1039 100b"/><!--  -->
+    <a b="C4" u="103b 103d 103e"/><!--  -->
+    <a b="C5" u="1039 1002"/><!--  -->
+    <a b="C6" u="002c"/><!--  -->
+    <a b="C7" u="1008"/><!--  -->
+    <a b="C8" u="1039 100b"/><!-- NO GLYPH  -->
+    <a b="C9" u="1039 100d"/><!--  -->
+    <a b="CA" u="1039 1014"/><!-- no glyph -->
+    <a b="CB" u="102f 1030"/><!--  no glyph -->
+    <a b="CC" u="1039 100c"/><!--  no glyph -->
+    <a b="CD" u="1039 100e"/><!--  -->
+    <a b="CE" u="1039 1010 103d"/><!-- no glyph -->
+    <a b="CF" u="103d 103e"/><!--  no glyph-->
+
+    <a b="D0" u="103c" uactxt="lower"/><!--  -->
+    <a b="D1" u="1039 1003"/><!--  -->
+    <a b="D2" u="1009 102c"/><!--  -->
+    <a b="D3" u="1039 100f"/><!--  --> 
+    <a b="D4" u="1039 1017"/><!--  -->
+    <a b="D5" u="007b"/><!--  -->
+    <a b="D6" u="1039 100b"/><!--  -->
+    <a b="D7" u="100b 1039 100c"/><!--  -->
+    <a b="D8" u="100f 1039 100e"/><!--  -->
+	<a b="D9" u="100f 1039 100f"/><!--  -->
+    <a b="DA" u="007d"/><!--  -->
+    <a b="DB" u="103e" ubctxt="smallH"/><!--  -->
+    <a b="DC" u="104e"/><!--  -->
+    <a b="DD" u="1039 1013"/><!--  -->
+    <a b="DE" u="100d 1039 100d"/><!--  -->
+    <a b="DF" u="1039 1007"/><!--  -->
+
+    <a b="E0" u="1004 103a 1039 1036"/><!--  -->
+    <a b="E1" u="1039 101a"/><!--  -->
+    <a b="E2" u="103b 102d"/><!--  -->
+    <a b="E3" u="1000 1039 1001 103b"/><!--  -->
+    <a b="E4" u="103d 103b"/><!--  -->
+    <a b="E5" u="1002"/><!--  -->
+    <a b="E6" u="1039 1008"/><!--  -->
+    <a b="E7" u="1039 1005"/><!--  -->
+    <a b="E8" u="1039 1018"/><!--  -->
+    <a b="E9" u="1039 1006"/><!--  -->
+    <a b="EA" u="1039 1019"/><!--  -->
+	<a b="EB" u="103e 102f"/><!--  -->
+    <a b="EC" u="1039 101c"/><!--  -->
+    <a b="ED" u="1039 1015"/><!--  -->
+    <a b="EE" u="103c" ubctxt="consNarr"/><!--  -->
+    <fbu b="EF" u="1037"/><!--  -->
+    
+
+    <a b="F0" u="103c" uactxt="uVowel"/><!--  -->
+    <a b="F1" u="1039 1001" /><!--  -->
+    <a b="F2" u="100a" uactxt="lower"/><!--  -->
+    <a b="F3" u="1014" uactxt="lower" /><!--  -->
+    <a b="F4" u="103b 103e"/><!--  -->
+    <a b="F5" u="1002 1039 1003"/><!--  -->
+    <a b="F6" u="1039 1010"/><!--  -->
+    <a b="F7" u="1039 1011"/><!--  -->
+    <a b="F8" u="1009 1039 100c"/><!--  -->
+    <a b="F9" u="1039 101e"/><!--  -->
+    <a b="FA" u="1015 1039 101c" /><!--  -->
+    <a b="FB" u="103c" uactxt="waha"/><!--  -->
+    <a b="FC" u="1009"/><!--  -->
+    <a b="FD" u="1039 1012"/><!--  -->
+    <a b="FE" u="002e"/><!--  -->
+    <a b="FF" u="1039 1006"/><!--  -->
+    
+
+    <ordering side="unicode"><!---->
+        <order b="reorderKinziB" u="reorderKinziU"/>
+    </ordering>
+    <ordering side="bytes">
+        <order b="reorderBytesB" u="reorderBytesU"/>
+    </ordering>
+
+</assignments>
+
+<contexts>
+
+<!-- byte side re-ordering contexts 
+NOTE: this font stores attachments BEFORE the base!
+-->
+
+    <group id="reorderBytesB">
+    	<class-ref name="eVowelB" id="e" min="0"/>
+        <class-ref name="rMedB" id="r" min="0"/>
+        <class-ref name="kinziB" id="k0"  min="0"/>
+        <class-ref name="upperVowelB" id="u0"  min="0"/>
+        <class-ref name="upperDotB" id="d0"  min="0"/>
+        <class-ref name="aVowelB" id="a0"  min="0"/>
+        <class-ref name="medConsB" id="m"  min="0"/>
+        <class-ref name="kinziB" id="k1"  min="0"/>
+        <class-ref name="upperVowelB" id="u1"  min="0"/>
+        <class-ref name="upperDotB" id="d1"  min="0"/>
+        <class-ref name="hMedB" id="h0"  min="0"/>
+        <class-ref name="wMedB" id="w0"  min="0"/>
+        <class-ref name="hMedB" id="h1"  min="0"/>
+        <class-ref name="yMedB" id="y"  min="0"/>
+        <class-ref name="kinziB" id="k2"  min="0"/>
+        <class-ref name="upperVowelB" id="u2"  min="0"/>
+        <class-ref name="upperDotB" id="d2"  min="0"/>
+        <class-ref name="toneB" id="t0"  min="0"/>
+        <class-ref name="lowerVowelB" id="l"  min="0"/>
+        <class-ref name="kinziB" id="k3"  min="0"/>
+        <class-ref name="upperVowelB" id="u3"  min="0"/>
+        <class-ref name="upperDotB" id="d3"  min="0"/>
+        <class-ref name="aVowelB" id="a1"  min="0"/>
+        <class-ref name="toneB" id="t1"  min="0"/>
+        <class-ref name="asatB" id="asat"  min="0"/>
+        <class-ref name="toneB" id="t2"  min="0"/>
+        <class-ref name="consB" id="c" />
+        <class-ref name="visB" id="v"  min="0"/>
+        
+	</group>
+<!-- Unicode side reordering -->
+    <group id="reorderBytesU">
+    	<context-ref name="reorderBytesB/c"/>
+    	<context-ref name="reorderBytesB/k0"/>
+    	<context-ref name="reorderBytesB/k1"/>
+    	<context-ref name="reorderBytesB/k2"/>
+    	<context-ref name="reorderBytesB/k3"/>
+    	<context-ref name="reorderBytesB/m"/>
+    	<context-ref name="reorderBytesB/y"/>
+    	<context-ref name="reorderBytesB/w0"/>
+    	<context-ref name="reorderBytesB/h0"/>
+    	<context-ref name="reorderBytesB/h1"/>
+    	<context-ref name="reorderBytesB/u0"/>
+    	<context-ref name="reorderBytesB/u1"/>
+    	<context-ref name="reorderBytesB/u2"/>
+    	<context-ref name="reorderBytesB/u3"/>
+    	<context-ref name="reorderBytesB/l"/>
+    	<context-ref name="reorderBytesB/d0"/>
+    	<context-ref name="reorderBytesB/d1"/>
+    	<context-ref name="reorderBytesB/d2"/>
+    	<context-ref name="reorderBytesB/d3"/>
+    	<context-ref name="reorderBytesB/a0"/>
+    	<context-ref name="reorderBytesB/a1"/>
+    	<context-ref name="reorderBytesB/asat"/>
+    	<context-ref name="reorderBytesB/t0"/>
+    	<context-ref name="reorderBytesB/t1"/>
+    	<context-ref name="reorderBytesB/t2"/>
+    	<context-ref name="reorderBytesB/v"/>
+    </group>
+    
+    <group id="reorderKinziB">
+    	<class-ref name="cons" min="1" id="uc"/>
+    	<class-ref name="nga" min="1" id="un"/>
+    	<class-ref name="asat" min="1" id="ua"/>
+    	<class-ref name="virama" min="1" id="uv"/>
+    	<class-ref name="upperVowel" min="0" id="uvow"/>
+    	<class-ref name="upperDot" min="0" id="ud"/>
+    	<class-ref name="yMed" min="0" id="uy"/>
+    	<class-ref name="rMed" min="0" id="ur"/>
+    	<class-ref name="wMed" min="0" id="uw"/>
+    	<class-ref name="hMed" min="0" id="uh"/>
+    	<class-ref name="lowerVowel" min="0" id="ul"/>
+    </group>
+    
+     <group id="reorderKinziU">
+    	<context-ref name="reorderKinziB/un"/>
+    	<context-ref name="reorderKinziB/ua"/>
+    	<context-ref name="reorderKinziB/uv"/>
+    	<context-ref name="reorderKinziB/uc"/>
+    	<context-ref name="reorderKinziB/uy"/>
+    	<context-ref name="reorderKinziB/ur"/>
+    	<context-ref name="reorderKinziB/uw"/>
+    	<context-ref name="reorderKinziB/uh"/>
+    	<context-ref name="reorderKinziB/uvow"/>
+    	<context-ref name="reorderKinziB/ul"/>
+    	<context-ref name="reorderKinziB/ud"/>
+    </group>
+    
+    <group id="lower" alt="1">
+    	<group>
+    		<class-ref name="virama"/>
+        	<class-ref name="cons"/>
+    	</group>
+    	<group>
+    		<class-ref name="wMed"/>
+    	</group>
+    	<group>
+    		<class-ref name="hMed"/>
+    	</group>
+    	<group>
+    		<class-ref name="lowerVowel"/>
+    	</group>
+    </group>
+    
+    <group id="tallU" alt="1">
+    	<group>
+            <class-ref name="virama"/>
+        	<class-ref name="cons"/>
+        </group>
+        <group>
+        	<class-ref name="yMed"/>
+        </group>
+        <group>
+        	<class-ref name="rMed"/>
+        	<class-ref name="cons"/>
+        	<class-ref name="wMed"/>
+        	<class-ref name="hMed" min="0"/>
+        </group>
+        <group>
+        	<class-ref name="rMed"/>
+        	<class-ref name="cons"/>
+        	<class-ref name="hMed"/>
+        </group>
+    </group>
+    <group id="tallUU" alt="1">
+    	<group>
+    		<class-ref name="cons"/>
+            <class-ref name="virama"/>
+        	<class-ref name="cons"/>
+        </group>
+        <group>
+    		<class-ref name="cons"/>
+        	<class-ref name="yMed"/>
+        </group>
+        <group>
+        	<class-ref name="rMed"/>
+        	<class-ref name="cons"/>
+        </group>
+        <group>
+        	<class-ref name="rMed"/>
+        	<class-ref name="cons"/>
+        	<class-ref name="wMed"/>
+        	<class-ref name="hMed" min="0"/>
+        </group>
+        <group>
+    		<class-ref name="cons"/>
+        	<class-ref name="rMed"/>
+        	<class-ref name="cons"/>
+        	<class-ref name="hMed"/>
+        </group>
+    </group>
+    
+    <group id="smallH">
+    	<class-ref name="rMed"/>
+    	<class-ref name="cons"/>
+    </group>
+    
+    <group id="numbers"><class-ref name="numbers"/></group>
+    <group id="space"><class-ref name="space"/></group>
+    <group id="waha"><class-ref name="waha"/></group>
+    
+    <!-- Unicode classes -->
+    <group id="uVowel"><class-ref name="uVowel"/></group>
+    <class name="uVowel">102f</class>
+    <class name="upperVowel">102d 102e 1032</class>
+    <class name="upperDot">1036</class>
+    <class name="lowerVowel">102f 1030</class>
+    <class name="virama">1039</class>
+    <class name="asat">103a</class>
+    <class name="nga">1004</class>
+    <group id="consNarr"><class-ref name="consNarr"/></group>				   
+    <class name="consNarr"> 1001 1002  1004 1005  1007 100e 
+    	1012 1013 1014 1015 1016 1017 1019 101b 101d </class>
+    <group id="cons"><class-ref name="cons"/></group>				   
+    <class name="cons">1000 1001 1002 1003 1004 1005 1006 1007
+    				   1008 1009 100a 100b 100c 100d 100e 100f
+    				   1010 1011 1012 1013 1014 1015 1016 1017
+    				   1018 1019 101a 101b 101c 101d 101e 101f 1021</class>
+    
+    <class name="yMed">103b</class>
+    <class name="rMed">103c</class>
+    <class name="wMed">103d</class>
+    <class name="waha">103d 103e</class>
+    <class name="hMed">103e</class>
+    <class name="space">09 20</class>
+    <class name="numbers">1040 1041 1042 1043 1044 1045 1046 1047 1048 1049</class>
+    
+    <!-- Ascii classes -->
+    <class name="eVowelB" size="bytes">61</class>
+    <class name="rMedB" size="bytes">6a bf d0 ee f0</class>
+    <class name="consB" size="bytes">21 22 23 25 27 2a 2c 3c 3d 3e 
+    40 41 42 43 45 4d 4e 4f 50 51 52 55 56 57 58 59 5a 5b 5c 5d 
+    60 61 62 63 65 69 6e 6f 70 71 72 74 75 76 77 78 79 7a 7c 7d 7e
+    c3 c7 d2 d7 d8 d9 dc de e3 e5 f2 f3 f5 f8 fa fc
+    </class>
+    <class name="kinziB" size="bytes">46 c0 e0</class>
+    <class name="upperVowelB" size="bytes">44 4a 64 c2</class>
+    <class name="upperDotB" size="bytes">48</class>
+    <class name="aVowelB" size="bytes">67 6d</class>
+    <class name="medConsB" size="bytes">c5 c8 c9 ca cc cd ce
+    d1 d3 d4 d6 dd df e1 e6 e7 e8 e9 ea ec ed f1 f6 f7 f9 fd ff
+    </class>
+    <class name="hMedB" size="bytes">53 cb db eb</class>
+    <class name="wMedB" size="bytes">47 cf</class>
+    <class name="yMedB" size="bytes">73 c4 e2 e4 f4 fb</class>
+    <class name="toneB" size="bytes">68 ef</class>
+    <class name="lowerVowelB" size="bytes">4b 4c 6b 6c</class>
+    <class name="asatB" size="bytes">66</class>
+    <class name="visB" size="bytes"></class>
+    
+    
+    </contexts>
+
+</characterMapping>
