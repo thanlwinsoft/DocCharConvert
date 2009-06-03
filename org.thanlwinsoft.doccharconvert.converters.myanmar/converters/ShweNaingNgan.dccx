@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocCharConverter name="ShweNaingNgan" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
+<Argument value="ShweNaingNgan.tec" type="File" />
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="ShweNaingNgan" type="old" script="latin" />
+<Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+<Font name="ShweNaingNgan" type="old" script="latin" />
+<Font name="Myanmar3" type="new" script="ctl"/>
+</Style>
+<Style>
+<Font name="Type" type="old" script="latin" />
+<Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+<Font name="Type" type="old" script="latin" />
+<Font name="Myanmar3" type="new" script="ctl"/>
+</Style>
+</Styles>
+</DocCharConverter>
