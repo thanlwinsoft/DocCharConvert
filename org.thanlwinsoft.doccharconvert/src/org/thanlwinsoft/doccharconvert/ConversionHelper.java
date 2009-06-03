@@ -187,6 +187,11 @@ public class ConversionHelper
     {
         for (int i = 0; i<text.length(); i++)
         {
+        	if (text.charAt(i) == 0xa)
+        	{
+        		buffer.append('\n');
+        		continue;
+        	}
             String hex = Integer.toHexString(text.charAt(i));
             if (hex.length() < 4) 
             {

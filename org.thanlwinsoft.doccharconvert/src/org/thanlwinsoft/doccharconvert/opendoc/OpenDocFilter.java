@@ -755,7 +755,8 @@ public class OpenDocFilter extends XMLFilterImpl
         // style which may have conversion if the containing paragraph is
         // converted, in which case we need a copy of the style for each
         // possible converted face
-        if (currentStyleDef.getConvertedStyle() == currentStyleDef &&
+        if (currentStyleDef != null &&
+        	currentStyleDef.getConvertedStyle() == currentStyleDef &&
             currentStyleDef.getFamily().equals(StyleFamily.TEXT))
         {
             for (TextStyle ts : converterMap.keySet())

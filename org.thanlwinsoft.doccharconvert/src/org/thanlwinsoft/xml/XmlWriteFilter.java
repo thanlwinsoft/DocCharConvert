@@ -220,7 +220,24 @@ public class XmlWriteFilter extends XMLFilterImpl
                 buffer.append(" ");
                 buffer.append(atts.getQName(a));
                 buffer.append("=\"");
-                buffer.append(atts.getValue(a));
+                String value = atts.getValue(a);
+                for (int i = 0; i < value.length(); i++)
+                {
+                    switch (value.charAt(i))
+                    { 
+                    case '&':
+                    	buffer.append("&amp;");
+                        break;
+                    case '>':
+                    	buffer.append("&gt;");
+                        break;
+                    case '<':
+                    	buffer.append("&lt;");
+                        break;
+                    default:
+                    	buffer.append(value.charAt(i));
+                    } 
+                }
                 buffer.append("\"");
             }
         }
