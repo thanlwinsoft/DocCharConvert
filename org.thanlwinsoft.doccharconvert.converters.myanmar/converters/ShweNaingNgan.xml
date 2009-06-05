@@ -36,7 +36,7 @@
     <a b="2A" u="1002 1039 1002"/><!-- * -->
     <a b="2B" u="201d"/><!-- + -->
     <a b="2C" u="101a"/><!-- , -->
-    <!--<a b="2D" u=""/> - -->
+    <fbu b="2D" u="002D"/><!-- - -->
     <a b="2E" u="104f"/><!-- . -->
     <a b="2F" u="104b"/><!-- / -->
     <!-- wa and 0 are the same in the old encoding 
@@ -139,13 +139,13 @@
     <a b="7E" u="100d 1039 100e"/><!-- ~ -->
 
     <!--<a b="82" u=""/> windows-1252 201a black telephone -->
-    <!--<fbu b="83" u=""/> - windows-1252 0192 -->
+    <fbu b="83" u="201c"/> <!-- windows-1252 0192 -->
     <!--<fbu b="84" u=""/> - windows-1252 201e -->
     <!--<fbu b="85" u=""/> - windows-1252 2026 -->
     <!--<fbu b="86" u=""/> - windows-1252 2020 -->
     <!--<fbu b="87" u=""/> - windows-1252 2021 -->
-    <!--<fbu b="88" u=""/> - windows-1252 02c6 -->
-    <!--<fbu b="89" u=""/> - windows-1252 2030 -->
+    <a b="88" u="2018"/> <!-- windows-1252 02c6 -->
+    <a b="89" u="2019"/> <!-- windows-1252 2030 -->
     <!--<fbu b="8a" u=""/> - windows-1252 0160 -->
     <!--<fbu b="8b" u=""/> - windows-1252 2039 -->
 
@@ -153,7 +153,9 @@
     <fbu b="92" u="1012"/><!-- windows-1252 2019 -->
     <fbu b="93" u="1013"/><!-- windows-1252 201c -->
     <fbu b="94" u="1013"/><!-- windows-1252 201d -->
-    
+    <a b="A0" u="00A0"/>
+    <a b="AD" u="00AD"/>
+    <!-- 2212 " =22-->
     <fbu b="BF" u="103c"/><!--  -->
     <a b="C0" u="1004 103a 1039 102e"/><!--  -->
     <a b="C1" u="100b 1039 100b"/><!--  -->
@@ -248,10 +250,13 @@ NOTE: this font stores attachments BEFORE the base!
     	<class-ref name="toneB" id="t1"  min="0"/>
     	<class-ref name="lowerVowelB" id="l0"  min="0"/>
     	<class-ref name="toneB" id="t2"  min="0"/>
-    	<class-ref name="upperVowelB" id="u1"  min="0"/>
+    	<class-ref name="hMedB" id="h0"  min="0"/>
+        <class-ref name="wMedB" id="w0"  min="0"/>
+        <class-ref name="upperVowelB" id="u1"  min="0"/>
         <class-ref name="upperDotB" id="d1"  min="0"/>
+    	<class-ref name="lowerVowelB" id="l1"  min="0"/>
     	<class-ref name="toneB" id="t3"  min="0"/>
-        <class-ref name="rMedB" id="r" min="0"/>
+    	<class-ref name="rMedB" id="r" min="0"/>
         <class-ref name="kinziB" id="k0"  min="0"/>
         <class-ref name="toneB" id="t4"  min="0"/>
         <class-ref name="upperVowelB" id="u2"  min="0"/>
@@ -261,23 +266,26 @@ NOTE: this font stores attachments BEFORE the base!
         <class-ref name="toneB" id="t5"  min="0"/>
         <class-ref name="upperVowelB" id="u3"  min="0"/>
         <class-ref name="upperDotB" id="d3"  min="0"/>
-        <class-ref name="hMedB" id="h0"  min="0"/>
-        <class-ref name="wMedB" id="w0"  min="0"/>
         <class-ref name="hMedB" id="h1"  min="0"/>
+        <class-ref name="wMedB" id="w1"  min="0"/>
+        <class-ref name="hMedB" id="h2"  min="0"/>
         <class-ref name="yMedB" id="y"  min="0"/>
+        <class-ref name="wMedB" id="w2"  min="0"/>
+        <class-ref name="hMedB" id="h3"  min="0"/>
         <class-ref name="kinziB" id="k2"  min="0"/>
         <class-ref name="upperVowelB" id="u4"  min="0"/>
         <class-ref name="upperDotB" id="d4"  min="0"/>
         <class-ref name="asatB" id="asat0"  min="0"/>
         <class-ref name="toneB" id="t6"  min="0"/>
-        <class-ref name="lowerVowelB" id="l1"  min="0"/>
+        <class-ref name="lowerVowelB" id="l2"  min="0"/>
+        <class-ref name="toneB" id="t7"  min="0"/>
         <class-ref name="kinziB" id="k3"  min="0"/>
         <class-ref name="upperVowelB" id="u5"  min="0"/>
         <class-ref name="upperDotB" id="d5"  min="0"/>
-        <class-ref name="toneB" id="t7"  min="0"/>
+        <class-ref name="toneB" id="t8"  min="0"/>
         <class-ref name="aTallB" id="a" min="0"/>
         <class-ref name="asatB" id="asat1"  min="0"/>
-        <class-ref name="toneB" id="t8"  min="0"/>
+        <class-ref name="toneB" id="t9"  min="0"/>
         <class-ref name="consB" id="c" />
         <class-ref name="visB" id="v"  min="0"/>
         
@@ -295,8 +303,12 @@ NOTE: this font stores attachments BEFORE the base!
     	<context-ref name="reorderBytesB/y"/>
     	<context-ref name="reorderBytesB/r"/>
     	<context-ref name="reorderBytesB/w0"/>
+    	<context-ref name="reorderBytesB/w1"/>
+    	<context-ref name="reorderBytesB/w2"/>
     	<context-ref name="reorderBytesB/h0"/>
     	<context-ref name="reorderBytesB/h1"/>
+    	<context-ref name="reorderBytesB/h2"/>
+    	<context-ref name="reorderBytesB/h3"/>
     	<context-ref name="reorderBytesB/e"/>
     	<context-ref name="reorderBytesB/u0"/>
     	<context-ref name="reorderBytesB/u1"/>
@@ -306,6 +318,7 @@ NOTE: this font stores attachments BEFORE the base!
     	<context-ref name="reorderBytesB/u5"/>
     	<context-ref name="reorderBytesB/l0"/>
     	<context-ref name="reorderBytesB/l1"/>
+    	<context-ref name="reorderBytesB/l2"/>
     	<context-ref name="reorderBytesB/d0"/>
     	<context-ref name="reorderBytesB/d1"/>
     	<context-ref name="reorderBytesB/d2"/>
@@ -322,6 +335,7 @@ NOTE: this font stores attachments BEFORE the base!
     	<context-ref name="reorderBytesB/t6"/>
     	<context-ref name="reorderBytesB/t7"/>
     	<context-ref name="reorderBytesB/t8"/>
+    	<context-ref name="reorderBytesB/t9"/>
     	<context-ref name="reorderBytesB/v"/>
     </group>
     
@@ -371,6 +385,7 @@ NOTE: this font stores attachments BEFORE the base!
     		<class-ref name="hMed"/>
     	</group>
     	<group>
+    		<class-ref name="upperVowel" min="0"/>
     		<class-ref name="lowerVowel"/>
     	</group>
     </group>
@@ -424,8 +439,8 @@ NOTE: this font stores attachments BEFORE the base!
     </group>
     
     <group id="smallH">
-    	<class-ref name="rMed"/>
     	<class-ref name="cons"/>
+    	<class-ref name="rMed"/>
     </group>
     
     <group id="uVowel">

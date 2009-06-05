@@ -5,19 +5,19 @@
 </ConverterClass>
 <Styles>
 <Style>
-<Font name="ShweNaingNgan" type="old" script="latin" />
+<Font name="Type" type="old" script="latin" />
 <Font name="Padauk" type="new" script="ctl"/>
 </Style>
 <Style>
-<Font name="ShweNaingNgan" type="old" script="latin" />
+<Font name="Type" type="old" script="latin" />
 <Font name="Myanmar3" type="new" script="ctl"/>
 </Style>
 <Style>
-<Font name="Type" type="old" script="latin" />
+<Font name="ShweNaingNgan" type="old" script="latin" />
 <Font name="Padauk" type="new" script="ctl"/>
 </Style>
 <Style>
-<Font name="Type" type="old" script="latin" />
+<Font name="ShweNaingNgan" type="old" script="latin" />
 <Font name="Myanmar3" type="new" script="ctl"/>
 </Style>
 </Styles>

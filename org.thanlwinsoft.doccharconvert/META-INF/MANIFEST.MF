@@ -23,18 +23,26 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime.compatibility;bundle-version="3.2.0",
  org.eclipse.ui.ide;bundle-version="3.4.0"
 Bundle-ActivationPolicy: lazy
-Export-Package: org.sil.scripts.teckit,org.thanlwinsoft.doccharconvert
- ,org.thanlwinsoft.doccharconvert.converter,org.thanlwinsoft.doccharco
- nvert.converter.syllable,org.thanlwinsoft.doccharconvert.converter.te
- st,org.thanlwinsoft.doccharconvert.eclipse,org.thanlwinsoft.doccharco
- nvert.eclipse.editors,org.thanlwinsoft.doccharconvert.eclipse.views,o
- rg.thanlwinsoft.doccharconvert.eclipse.wizard,org.thanlwinsoft.doccha
- rconvert.icons,org.thanlwinsoft.doccharconvert.opendoc,org.thanlwinso
- ft.doccharconvert.parser,org.thanlwinsoft.eclipse,org.thanlwinsoft.ec
- lipse.widgets,org.thanlwinsoft.schemas.docCharConvert,org.thanlwinsof
- t.schemas.docCharConvert.impl,org.thanlwinsoft.schemas.syllableParser
- ,org.thanlwinsoft.schemas.syllableParser.impl,org.thanlwinsoft.util,o
- rg.thanlwinsoft.xml
+Export-Package: org.sil.scripts.teckit,
+ org.thanlwinsoft.doccharconvert,
+ org.thanlwinsoft.doccharconvert.converter,
+ org.thanlwinsoft.doccharconvert.converter.syllable,
+ org.thanlwinsoft.doccharconvert.converter.test,
+ org.thanlwinsoft.doccharconvert.eclipse,
+ org.thanlwinsoft.doccharconvert.eclipse.editors,
+ org.thanlwinsoft.doccharconvert.eclipse.views,
+ org.thanlwinsoft.doccharconvert.eclipse.wizard,
+ org.thanlwinsoft.doccharconvert.icons,
+ org.thanlwinsoft.doccharconvert.opendoc,
+ org.thanlwinsoft.doccharconvert.parser,
+ org.thanlwinsoft.eclipse,
+ org.thanlwinsoft.eclipse.widgets,
+ org.thanlwinsoft.schemas.docCharConvert,
+ org.thanlwinsoft.schemas.docCharConvert.impl,
+ org.thanlwinsoft.schemas.syllableParser,
+ org.thanlwinsoft.schemas.syllableParser.impl,
+ org.thanlwinsoft.util,
+ org.thanlwinsoft.xml
 Bundle-Vendor: ThanLwinSoft.org
 Bundle-ClassPath: lib/DocCharConvertSchema.jar,
  lib/SyllableParserSchema.jar,
