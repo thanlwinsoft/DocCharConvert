@@ -7,5 +7,12 @@
             path="converters/">
       </converterDir>
    </extension>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.converter">
+      <converter
+            class="org.thanlwinsoft.doccharconvert.converters.myanmar.MyanmarUnicodeValidator"
+            name="%MyanmarUnicodeValidator">
+      </converter>
+   </extension>
 
 </plugin>

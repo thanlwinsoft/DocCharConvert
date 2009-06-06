@@ -18,6 +18,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 package org.thanlwinsoft.util;
 
 import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleException;
 
 /**
  * @author keith
@@ -41,6 +42,7 @@ public class BundleClassLoaderUtil implements IClassLoaderUtil
             {
                 try
                 {
+                	b.start();
                     Class <?> c = b.loadClass(className);
                     if (c != null)
                         return c;
@@ -48,6 +50,10 @@ public class BundleClassLoaderUtil implements IClassLoaderUtil
                 catch (ClassNotFoundException e)
                 {
                     // ignore
+                }
+                catch (BundleException e)
+                {
+                	e.printStackTrace();
                 }
             }
         }
