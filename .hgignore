@@ -7,13 +7,10 @@ syntax:glob
 # These lines are suggested according to the svn:ignore property
 # Feel free to enable them by uncommenting them
 syntax:glob
-#dist
-#test
-#Mien
 *~
-doccharconvert
+
 .metadata
-org.thanlwinsoft.doccharconvert/bin
+*/bin
 org.thanlwinsoft.doccharconvert.update/headless-build/build.properties
 firefox-myanmar-converter/bin
 firefox-myanmar-converter/dist
@@ -21,6 +18,7 @@ firefox-myanmar-converter/test/*/*
 firefox-myanmar-converter/tools/bin
 firefox-myanmar-converter/tools/javaFirefoxExtensionUtils.jar
 firefox-myanmar-converter/lib/*.jar
+org.thanlwinsoft.doccharconvert.converters.myanmar/lib/*.jar
 
 syntax: regexp
 \.xpi$
@@ -30,3 +28,4 @@ syntax: regexp
 ^tools/bin$
 syntax: regexp
 ^tools/javaFirefoxExtensionUtils\.jar$
+^doccharconvert/
