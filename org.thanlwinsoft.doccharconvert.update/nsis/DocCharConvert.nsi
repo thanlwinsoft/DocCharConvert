@@ -5,7 +5,7 @@
 
 ; Some useful definitions that may need changing for different font versions
 !ifndef VERSION
-  !define VERSION '1.2.2'
+  !define VERSION '1.3.0'
 !endif
 
 !define APP_NAME 'DocCharConvert'
@@ -152,7 +152,7 @@ Section "-!${APP_NAME}" SecApp
   File "$%TEMP%\${APP_NAME}Uninstall.exe"
 !ELSE
   ;Create uninstaller
-  ;WriteUninstaller "$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe"
+  WriteUninstaller "$INSTDIR\${APP_NAME}\${APP_NAME}Uninstall.exe"
 !ENDIF
   
   !cd "../../doccharconvert"
