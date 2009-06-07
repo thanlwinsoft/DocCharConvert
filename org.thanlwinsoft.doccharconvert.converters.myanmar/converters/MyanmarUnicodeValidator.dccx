@@ -1,0 +1,14 @@
+<DocCharConverter name="Myanmar Unicode Validator" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+<ConverterClass name="org.thanlwinsoft.doccharconvert.converters.myanmar.MyanmarUnicodeValidator">
+</ConverterClass>
+<Styles>
+<Style>
+<Font name="Padauk" type="old"  script="ctl"/>
+<Font name="Padauk" type="new"  script="ctl"/>
+</Style>
+<Style>
+<Font name="Myanmar3" type="old"  script="ctl"/>
+<Font name="Myanmar3" type="new"  script="ctl"/>
+</Style>
+</Styles>
+</DocCharConverter>

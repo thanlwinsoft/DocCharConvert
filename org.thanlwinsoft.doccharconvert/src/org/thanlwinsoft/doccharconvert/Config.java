@@ -96,9 +96,10 @@ public class Config
      * 
      * @param pref
      */
-    public Config(Preferences pref)
+    public Config(Preferences pref, ResourceBundle rb)
     {
         this.packagePref = pref;
+        this.i18nResource = rb;
         init();
         Config.instance = this;
     }
@@ -178,7 +179,8 @@ public class Config
         //if (!outputPath.isDirectory()) outputPath = null;
         try
         {
-            i18nResource = ResourceBundle.getBundle(resourceBase + "/Messages");
+        	if (i18nResource == null)
+        		i18nResource = ResourceBundle.getBundle("Messages");
         }
         catch (java.util.MissingResourceException mre)
         {

@@ -18,8 +18,15 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 package org.thanlwinsoft.doccharconvert.eclipse;
 
 
+import java.net.URL;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
+
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -58,8 +65,14 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
 		ConfigurationScope configScope = new ConfigurationScope();
 		Preferences configurationNode = 
             configScope.getNode(DocCharConvertEclipsePlugin.ID);
-		new org.thanlwinsoft.doccharconvert.Config
-            (new EclipseToJavaPrefAdapter(configurationNode));
+		IPath msgPath = new Path("$nl$/Messages.properties");
+		URL msgUrl = FileLocator.find(context.getBundle(), msgPath, null);
+		if (msgUrl != null)
+		{
+			ResourceBundle rb = new PropertyResourceBundle(msgUrl.openStream());
+			new org.thanlwinsoft.doccharconvert.Config
+            	(new EclipseToJavaPrefAdapter(configurationNode), rb);
+		}
 	}
 
 	/* (non-Javadoc)
