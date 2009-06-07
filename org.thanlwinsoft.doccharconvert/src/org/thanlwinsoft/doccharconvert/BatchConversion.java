@@ -123,7 +123,9 @@ public class BatchConversion implements Runnable
     public String toString()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append(MessageUtil.getString("BatchConversion"));
+        builder.append(MessageUtil.getString("BatchConversion",
+        		getConversionMode().toString()));
+        builder.append(" -");
         for(CharConverter cc : getConverters())
         {
             builder.append(' ');
