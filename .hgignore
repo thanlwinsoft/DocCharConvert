@@ -18,7 +18,6 @@ firefox-myanmar-converter/test/*/*
 firefox-myanmar-converter/tools/bin
 firefox-myanmar-converter/tools/javaFirefoxExtensionUtils.jar
 firefox-myanmar-converter/lib/*.jar
-org.thanlwinsoft.doccharconvert.converters.myanmar/lib/*.jar
 
 syntax: regexp
 \.xpi$
