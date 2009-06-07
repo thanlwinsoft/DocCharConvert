@@ -1,3 +1,21 @@
+/*
+Copyright (C) 2009 Keith Stribley http://www.thanlwinsoft.org/
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+------------------------------------------------------------------------------*/
+
 package org.thanlwinsoft.doccharconvert.odf;
 
 import java.io.File;
@@ -15,13 +33,10 @@ import org.openoffice.odf.doc.element.office.OdfDrawing;
 import org.openoffice.odf.doc.element.office.OdfFontFaceDecls;
 import org.openoffice.odf.doc.element.office.OdfPresentation;
 import org.openoffice.odf.doc.element.office.OdfSpreadsheet;
-import org.openoffice.odf.doc.element.office.OdfStyles;
 import org.openoffice.odf.doc.element.office.OdfText;
 import org.openoffice.odf.doc.element.office.OdfBody;
 import org.openoffice.odf.doc.element.style.OdfFontFace;
-import org.openoffice.odf.doc.element.style.OdfStyle;
 import org.openoffice.odf.doc.element.style.OdfTextProperties;
-import org.openoffice.odf.doc.element.text.OdfParagraph;
 import org.openoffice.odf.doc.element.text.OdfSpace;
 import org.openoffice.odf.doc.element.text.OdfSpan;
 import org.openoffice.odf.doc.element.text.OdfTab;
@@ -31,7 +46,6 @@ import org.openoffice.odf.dom.element.OdfElement;
 import org.openoffice.odf.dom.element.OdfStylableElement;
 import org.openoffice.odf.dom.element.OdfStyleBase;
 import org.openoffice.odf.dom.element.style.OdfStyleElement;
-import org.openoffice.odf.dom.element.text.OdfParagraphElementBase;
 import org.openoffice.odf.dom.style.OdfStyleFamily;
 import org.openoffice.odf.dom.style.props.OdfStylePropertiesSet;
 import org.thanlwinsoft.doccharconvert.ConversionMode;
@@ -51,29 +65,31 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
 /**
- * @author keith
  * Document Converter Interface using ODF DOM
+ * @author keith
  */
 public class OdfDocInterface implements DocInterface {
 
 	private HashMap<String, HashMap<CharConverter, String> > mConvertedStyles = new HashMap<String, HashMap<CharConverter, String> >(); 
 	private int mTextStyleCount = 0;
+	private ConversionMode mMode = null;
+	private boolean mAbort = false;
 	@Override
-	public void abort() {
-		// TODO Auto-generated method stub
-
+	public void abort()
+	{
+		mAbort = true;
 	}
 
 	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-
+	public void destroy()
+	{
+	
 	}
 
 	@Override
-	public ConversionMode getMode() {
-		// TODO Auto-generated method stub
-		return null;
+	public ConversionMode getMode()
+	{
+		return mMode;
 	}
 
 	@Override
@@ -83,9 +99,9 @@ public class OdfDocInterface implements DocInterface {
 	}
 
 	@Override
-	public void initialise() throws InterfaceException {
-		// TODO Auto-generated method stub
-
+	public void initialise() throws InterfaceException
+	{
+		mAbort = false;
 	}
 
 	@Override
@@ -105,7 +121,8 @@ public class OdfDocInterface implements DocInterface {
 			ConvertibleTextFragment prevText = null;
 
 			parseNodes(odfInput, body, converters, styleStack, textFrags, prevText);
-			convertNodes(odfInput, body, textFrags);
+			if (!mAbort)
+				convertNodes(odfInput, body, textFrags);
 			
 			odfInput.save(output);
 		}
@@ -698,114 +715,22 @@ public class OdfDocInterface implements DocInterface {
 		return conv;
 	}
 
-	private int compareStyles(OdfStyleBase a, OdfStyleBase b, ScriptType.Type type)
+	@Override
+	public void setInputEncoding(Charset enc)
 	{
-		if (a == null)
-		{
-			if (b == null) return 0;
-			else return -1;
-		}
-		else if (b == null)
-		{
-			return 1;
-		}
-		OdfTextProperties aProps = OdfElement.findFirstChildNode(OdfTextProperties.class, a);
-		OdfTextProperties bProps = OdfElement.findFirstChildNode(OdfTextProperties.class, b);
-		if (aProps == null && bProps == null) return 0;
-		if (aProps == null) return -1;
-		if (bProps == null) return 1;
-		String aFontSize = null;
-		String bFontSize = null;
-		String aFontName = null;
-		String bFontName = null;
-		String aFontWeight = null;
-		String bFontWeight = null;
-		if (type == ScriptType.Type.WEAK || type == ScriptType.Type.LATIN)
-		{
-			aFontName = aProps.getAttribute("style:font-name");
-			bFontName = bProps.getAttribute("style:font-name");
-			aFontSize = aProps.getAttribute("fo:font-size");
-			bFontSize = bProps.getAttribute("fo:font-size");
-			aFontWeight = aProps.getAttribute("fo:font-weight");
-			bFontWeight = bProps.getAttribute("fo:font-weight");
-		}
-		else if (type == ScriptType.Type.COMPLEX)
-		{
-			aFontName = aProps.getAttribute("style:font-name-complex");
-			bFontName = bProps.getAttribute("style:font-name-complex");
-			aFontSize = aProps.getAttribute("style:font-size-complex");
-			bFontSize = bProps.getAttribute("style:font-size-complex");
-			aFontWeight = aProps.getAttribute("style:font-weight-complex");
-			bFontWeight = bProps.getAttribute("style:font-weight-complex");
-		}
-		else if (type == ScriptType.Type.CJK)
-		{
-			aFontName = aProps.getAttribute("style:font-name-asian");
-			bFontName = bProps.getAttribute("style:font-name-asian");
-			aFontSize = aProps.getAttribute("style:font-size-asian");
-			bFontSize = bProps.getAttribute("style:font-size-asian");
-			aFontWeight = aProps.getAttribute("style:font-weight-asian");
-			bFontWeight = bProps.getAttribute("style:font-weight-asian");
-		}
-		int result = 0;
-		if (aFontName == null && bFontName == null)
-		{
-			result = 0;
-		}
-		else if (aFontName != null)
-		{
-			result = aFontName.compareTo(bFontName);
-		}
-		else
-		{
-			result = -1;
-		}
-		if (result != 0) return result;
-		if (aFontSize == null && bFontSize == null)
-		{
-			result = 0;
-		}
-		else if (aFontSize != null)
-		{
-			result = aFontSize.compareTo(bFontSize);
-		}
-		else
-		{
-			result = -1;
-		}
-		if (result != 0) return result;
-		if (aFontWeight == null && bFontWeight == null)
-		{
-			result = 0;
-		}
-		else if (aFontWeight != null)
-		{
-			result = aFontWeight.compareTo(bFontWeight);
-		}
-		else
-		{
-			result = -1;
-		}
-		if (result != 0) return result;
-		return 0;
+	
 	}
 
 	@Override
-	public void setInputEncoding(Charset enc) {
-		// TODO Auto-generated method stub
-
+	public void setMode(ConversionMode mode)
+	{
+		mMode = mode;
 	}
 
 	@Override
-	public void setMode(ConversionMode mode) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void setOutputEncoding(Charset enc) {
-		// TODO Auto-generated method stub
-
+	public void setOutputEncoding(Charset enc)
+	{
+	
 	}
 
 }

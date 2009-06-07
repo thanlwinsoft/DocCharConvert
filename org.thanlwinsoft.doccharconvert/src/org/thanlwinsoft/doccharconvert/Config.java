@@ -64,8 +64,8 @@ public class Config
     public static final String TEST_FONT_SIZE = "TestFontSize";
     //private int testFontSize = DEFAULT_FONT_SIZE;
     private ResourceBundle i18nResource = null;
-    private String resourceBase = 
-        this.getClass().getPackage().getName().replace(".","/");
+    //private String resourceBase = 
+    //    this.getClass().getPackage().getName().replace(".","/");
     /**
      * 
      * @return current configuration implementation
@@ -93,8 +93,9 @@ public class Config
         init();
     }
     /**
-     * 
+     * Constructor for use from eclipse plugin
      * @param pref
+     * @param rb 
      */
     public Config(Preferences pref, ResourceBundle rb)
     {

@@ -13,4 +13,3 @@ Require-Bundle: org.thanlwinsoft.doccharconvert;bundle-version="1.2.2",
 Bundle-ClassPath: libs/odfdom.jar,
  .
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.core.runtime

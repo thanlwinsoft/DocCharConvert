@@ -161,6 +161,7 @@ public class SyllableXmlReader
      * @param loader
      * @param debug
      * @param ps
+     * @param direction 
      * @param isForwards 
      */
     public SyllableXmlReader(URL xmlFile, IClassLoaderUtil loader, boolean debug, PrintStream ps, Direction direction)

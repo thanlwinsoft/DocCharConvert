@@ -19,6 +19,9 @@ public class MyanmarConverterActivator extends AbstractUIPlugin
 {
 	ResourceBundle mResource = null;
 	static MyanmarConverterActivator sInstance = null;
+	/**
+	 * Plugin Identifier
+	 */
 	public final static String ID = "org.thanlwinsoft.doccharconvert.converters.myanmar";
 	/**
 	 * Activator for Myanmar Converters - constructor

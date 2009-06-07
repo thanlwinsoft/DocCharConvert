@@ -79,6 +79,7 @@ public class MappingTable
     * @param id name of table identifier used in XML file
     * @param columns array of components in the table
     * there must be components present from 2 scripts
+     * @param dir 
      * @throws IllegalArgumentException 
      * @throws ConflictException 
     * 
