@@ -1,0 +1,4 @@
+"/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/calc.ods" "/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/calc_uni.ods"
+"/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/draw.odg" "/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/draw_uni.odg"
+"/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/impress.odp" "/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/impress_uni.odp"
+"/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/text.odt" "/home/keith/projects/DocCharConvert/org.thanlwinsoft.doccharconvert.odf/test/text_uni.odt"

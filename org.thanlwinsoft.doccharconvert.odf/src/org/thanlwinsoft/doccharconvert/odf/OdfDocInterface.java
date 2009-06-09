@@ -23,11 +23,14 @@ import java.nio.charset.Charset;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 
 import org.openoffice.odf.doc.OdfDocument;
 import org.openoffice.odf.doc.OdfFileDom;
+import org.openoffice.odf.doc.OdfDocument.OdfMediaType;
 import org.openoffice.odf.doc.element.office.OdfAutomaticStyles;
 import org.openoffice.odf.doc.element.office.OdfDrawing;
 import org.openoffice.odf.doc.element.office.OdfFontFaceDecls;
@@ -35,6 +38,7 @@ import org.openoffice.odf.doc.element.office.OdfPresentation;
 import org.openoffice.odf.doc.element.office.OdfSpreadsheet;
 import org.openoffice.odf.doc.element.office.OdfText;
 import org.openoffice.odf.doc.element.office.OdfBody;
+import org.openoffice.odf.doc.element.style.OdfDefaultStyle;
 import org.openoffice.odf.doc.element.style.OdfFontFace;
 import org.openoffice.odf.doc.element.style.OdfTextProperties;
 import org.openoffice.odf.doc.element.text.OdfSpace;
@@ -70,10 +74,12 @@ import org.w3c.dom.Text;
  */
 public class OdfDocInterface implements DocInterface {
 
-	private HashMap<String, HashMap<CharConverter, String> > mConvertedStyles = new HashMap<String, HashMap<CharConverter, String> >(); 
+	private HashMap<String, HashMap<CharConverter, String> > mConvertedStyles = null;
+	private HashMap<String, String> mFaceMap = null;
 	private int mTextStyleCount = 0;
 	private ConversionMode mMode = null;
 	private boolean mAbort = false;
+	private static Pattern sWhitespace = Pattern.compile("^\\s+$"); 
 	@Override
 	public void abort()
 	{
@@ -102,6 +108,9 @@ public class OdfDocInterface implements DocInterface {
 	public void initialise() throws InterfaceException
 	{
 		mAbort = false;
+		mTextStyleCount = 0;
+		mConvertedStyles = new HashMap<String, HashMap<CharConverter, String> >();
+		mFaceMap = new HashMap<String,String>();
 	}
 
 	@Override
@@ -112,19 +121,17 @@ public class OdfDocInterface implements DocInterface {
 		try
 		{
 			OdfDocument odfInput = OdfDocument.loadDocument(input);
-			OdfBody body = odfInput.getOfficeBody();
+			parseDocument(odfInput, converters);
 			
-			Deque <OdfStyleBase> styleStack = new ArrayDeque<OdfStyleBase>();
-			styleStack.push(odfInput.getDocumentStyles().getDefaultStyle(OdfStyleFamily.Paragraph));
+			List<OdfDocument> embedded = odfInput.getEmbeddedDocuments();
+			for (OdfDocument doc : embedded)
+			{
+				if (mAbort) break;
+				parseDocument(doc, converters);
+			}
 			
-			Deque <ConvertibleTextFragment> textFrags = new ArrayDeque <ConvertibleTextFragment>();
-			ConvertibleTextFragment prevText = null;
-
-			parseNodes(odfInput, body, converters, styleStack, textFrags, prevText);
 			if (!mAbort)
-				convertNodes(odfInput, body, textFrags);
-			
-			odfInput.save(output);
+				odfInput.save(output);
 		}
 		catch (Exception e)
 		{
@@ -133,6 +140,46 @@ public class OdfDocInterface implements DocInterface {
 		}
 	}
 	
+	private void parseDocument(OdfDocument doc, Map<TextStyle, CharConverter> converters) throws Exception
+	{
+		initialise();
+		OdfMediaType type = OdfMediaType.getOdfMediaType(doc.getMediaType());
+		if (type.equals(OdfMediaType.TEXT) || type.equals(OdfMediaType.SPREADSHEET))
+		{
+			parseFontFaces(doc);
+		}
+		
+		OdfBody body = doc.getOfficeBody();
+		
+		Deque <OdfStyleBase> styleStack = new ArrayDeque<OdfStyleBase>();
+		OdfDefaultStyle defaultStyle =
+			doc.getDocumentStyles().getDefaultStyle(OdfStyleFamily.Paragraph);
+		if (defaultStyle != null) styleStack.push(defaultStyle);
+		
+		Deque <ConvertibleTextFragment> textFrags = new ArrayDeque <ConvertibleTextFragment>();
+		ConvertibleTextFragment prevText = null;
+
+		parseNodes(doc, body, converters, styleStack, textFrags, prevText);
+		if (!mAbort)
+			convertNodes(doc, body, textFrags);
+	}
+	
+	private void parseFontFaces(OdfDocument doc) throws Exception
+	{
+		// check that there is a font-face element for the font-name
+		Element docElement = doc.getContentDom().getDocumentElement();
+		if (docElement instanceof OdfElement)
+		{
+			OdfFontFaceDecls faceDecls = OdfElement.findFirstChildNode(OdfFontFaceDecls.class, (OdfElement)docElement);
+			OdfFontFace face = OdfElement.findFirstChildNode(OdfFontFace.class, faceDecls);
+			while (face != null)
+			{
+				mFaceMap.put(face.getName(), face.getFontFamily());
+				face = OdfElement.findNextChildNode(OdfFontFace.class, face);
+			}
+		}
+	}
+
 	private void convertNodes(OdfDocument doc, OdfElement para,
 			Deque<ConvertibleTextFragment> textFrags) throws Exception
 	{
@@ -446,6 +493,7 @@ public class OdfDocInterface implements DocInterface {
 			if (mConvertedStyles.get(styleName).containsKey(converter))
 			{
 				String convertedStyle = mConvertedStyles.get(styleName).get(converter);
+				//System.out.println("Cached Orig:" + styleName + ">" + convertedStyle);
 				return convertedStyle;
 			}
 
@@ -469,6 +517,10 @@ public class OdfDocInterface implements DocInterface {
 			origStyle = doc.getOrCreateDocumentStyles().getStyle(styleName, OdfStyleFamily.Text);
 		if (origStyle == null)
 			origStyle = doc.getOrCreateDocumentStyles().getStyle(styleName, OdfStyleFamily.Paragraph);
+		if (origStyle == null)
+		{
+			//System.out.println("Warning: orig style not found - " + styleName);
+		}
 		String fontSize = "";
 		String fontSizeRel = "";
 		String fontPitch = "";
@@ -498,7 +550,14 @@ public class OdfDocInterface implements DocInterface {
 		}
 		
 		OdfStyleElement style = autoStyles.createStyle(OdfStyleFamily.Text);
-		style.setParentStyleName(styleName);
+		if (styleName.length() > 0)
+		{
+			style.setParentStyleName(styleName);
+		}
+		else
+		{
+			
+		}
 		style.setName(name);
 		OdfTextProperties props = (OdfTextProperties) style.getOrCreatePropertiesElement(OdfStylePropertiesSet.TextProperties);
 		// TODO support font-family
@@ -506,9 +565,14 @@ public class OdfDocInterface implements DocInterface {
 		String newFontName = converter.getNewStyle().getFontName();
 		int faceCount = 0;
 
+		boolean useFontFace = true;
+		OdfMediaType media = OdfMediaType.getOdfMediaType(doc.getMediaType());
+		if (media.equals(OdfDocument.OdfMediaType.PRESENTATION) ||
+			media.equals(OdfDocument.OdfMediaType.GRAPHICS))
+			useFontFace = false;
 		// check that there is a font-face element for the font-name
 		Element docElement = doc.getContentDom().getDocumentElement();
-		if (docElement instanceof OdfElement)
+		if (useFontFace && docElement instanceof OdfElement)
 		{
 			OdfFontFaceDecls faceDecls = OdfElement.findFirstChildNode(OdfFontFaceDecls.class, (OdfElement)docElement);
 			OdfFontFace face = OdfElement.findFirstChildNode(OdfFontFace.class, faceDecls);
@@ -538,17 +602,35 @@ public class OdfDocInterface implements DocInterface {
 			}
 		}
 		// set font name
-		if (type.equals(Type.LATIN))
+		if (useFontFace)
 		{
-			props.setOdfAttribute(OdfName.get(OdfNamespace.FO, "font-name"), newFontName);
+			if (type.equals(Type.LATIN))
+			{
+				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name"), newFontName);
+			}
+			else if (type.equals(Type.COMPLEX))
+			{
+				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name-complex"), newFontName);
+			}
+			else if (type.equals(Type.CJK))
+			{
+				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name-asian"), newFontName);
+			}
 		}
-		else if (type.equals(Type.COMPLEX))
+		else
 		{
-			props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name-complex"), newFontName);
-		}
-		else if (type.equals(Type.CJK))
-		{
-			props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name-asian"), newFontName);
+			if (type.equals(Type.LATIN))
+			{
+				props.setOdfAttribute(OdfName.get(OdfNamespace.FO, "font-family"), newFontName);
+			}
+			else if (type.equals(Type.COMPLEX))
+			{
+				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-family-complex"), newFontName);
+			}
+			else if (type.equals(Type.CJK))
+			{
+				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-family-asian"), newFontName);
+			}
 		}
 		setProperty(type, props, OdfNamespace.FO,
 				"font-size", fontSize);
@@ -565,9 +647,13 @@ public class OdfDocInterface implements DocInterface {
 		setProperty(type, props, OdfNamespace.FO,
 				"font-weight", fontWeight);
 
-		
+		if (style.getParentNode() != autoStyles)
+		{
+			autoStyles.appendChild(style);
+		}
 		
 		mConvertedStyles.get(styleName).put(converter, name);
+		//System.out.println("Orig:" + styleName + ">" + name);
 		return name;
 	}
 	
@@ -648,10 +734,13 @@ public class OdfDocInterface implements DocInterface {
 			{
 				Text text = (Text)n;
 				String textData = text.getData();
+				// don't process whitespace only nodes
+				if (sWhitespace.matcher(textData).matches())
+					continue;
 				ScriptSegment scriptSeg = ScriptType.find(textData.toCharArray(), 0, textData.length());
 				while (scriptSeg != null)
 				{
-					CharConverter conv = getConverter(styleStack, converters, scriptSeg.getType());
+					CharConverter conv = getConverter(doc, styleStack, converters, scriptSeg.getType());
 					if (conv == null)
 					{
 						prevText = null;
@@ -675,10 +764,17 @@ public class OdfDocInterface implements DocInterface {
 		return prevText;
 	}
 	
-	private CharConverter getConverter(Deque<OdfStyleBase> styleStack,
+	private CharConverter getConverter(OdfDocument doc, Deque<OdfStyleBase> styleStack,
 			Map<TextStyle, CharConverter> converters, Type type)
 	{
 		CharConverter conv = null;
+		boolean useFontFace = true;
+		OdfMediaType media = OdfMediaType.getOdfMediaType(doc.getMediaType());
+		if (media.equals(OdfDocument.OdfMediaType.PRESENTATION))
+			useFontFace = false;
+		if (media.equals(OdfDocument.OdfMediaType.GRAPHICS))
+			useFontFace = false;
+		
 		for (OdfStyleBase style : styleStack)
 		{
 			String fontName = "";
@@ -687,19 +783,44 @@ public class OdfDocInterface implements DocInterface {
 				OdfTextProperties textProps = OdfElement.findFirstChildNode(OdfTextProperties.class, style);
 				if (textProps != null)
 				{
-					if (type.equals(Type.LATIN))
-						fontName = textProps.getAttribute("style:font-name");
-					else if (type.equals(Type.COMPLEX))
-						fontName = textProps.getAttribute("style:font-name-complex");
-					else if (type.equals(Type.CJK))
-						fontName = textProps.getAttribute("style:font-name-asian");
+					if (useFontFace)
+					{
+						if (type.equals(Type.LATIN))
+							fontName = textProps.getAttribute("style:font-name");
+						else if (type.equals(Type.COMPLEX))
+							fontName = textProps.getAttribute("style:font-name-complex");
+						else if (type.equals(Type.CJK))
+							fontName = textProps.getAttribute("style:font-name-asian");
+						else
+							fontName = textProps.getAttribute("style:font-name");
+					}
 					else
-						fontName = textProps.getAttribute("style:font-name");
+					{
+						if (type.equals(Type.LATIN))
+							fontName = textProps.getAttribute("fo:font-family");
+						else if (type.equals(Type.COMPLEX))
+							fontName = textProps.getAttribute("style:font-family-complex");
+						else if (type.equals(Type.CJK))
+							fontName = textProps.getAttribute("style:font-family-asian");
+						else
+							fontName = textProps.getAttribute("fo:font-family");
+					}
 				}
 				style = style.getParentStyle();
 			} while((fontName.length() == 0) && style != null);
+
+			//final Pattern endsInNumber = Pattern.compile("^(.*?)\\d+");
 			if (fontName != null && fontName.length() > 0)
 			{
+				if (useFontFace)
+				{
+					fontName = mFaceMap.get(fontName);
+				}
+//				Matcher m = endsInNumber.matcher(fontName);
+//				if (m.matches())
+//				{
+//					altFontName = m.group(1);
+//				}
 				for (TextStyle convStyle : converters.keySet())
 				{
 					if (convStyle.getFontName().equalsIgnoreCase(fontName))
