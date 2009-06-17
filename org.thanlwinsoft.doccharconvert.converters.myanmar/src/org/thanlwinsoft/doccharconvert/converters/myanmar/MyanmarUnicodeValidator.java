@@ -30,8 +30,10 @@ public class MyanmarUnicodeValidator implements CharConverter
 	//private IClassLoaderUtil mClassLoader = null;
 	private boolean mDebug = false;
 	private File mLogFile = null;
+	private File mLogDir = null;
 	private BufferedWriter mLogWriter = null;
 	private String mName = "";
+	private String mPrev = "";
 
 	/**
 	 * Constructor
@@ -45,12 +47,11 @@ public class MyanmarUnicodeValidator implements CharConverter
 	public String convert(String oldText) throws FatalException,
 			RecoverableException
 	{
-		Validator mv = new MyanmarValidator();
+		MyanmarValidator mv = new MyanmarValidator();
         BufferedReader inReader = new BufferedReader(new StringReader(oldText));
         StringWriter outWriter = new StringWriter();
-        BufferedWriter bufferedOut = new BufferedWriter(outWriter); 
-        Validator.Status status = mv.validate(inReader, 
-                bufferedOut);
+        BufferedWriter bufferedOut = new BufferedWriter(outWriter);
+        Validator.Status status = mv.validate(inReader, bufferedOut);
         try
         {
             inReader.close();
@@ -58,6 +59,8 @@ public class MyanmarUnicodeValidator implements CharConverter
             if (mLogWriter != null && status == Validator.Status.Invalid)
             {
             	mLogWriter.append(MyanmarConverterActivator.msg("Invalid"));
+            	mLogWriter.append(mPrev);
+            	mLogWriter.newLine();
             	mLogWriter.append(oldText);
             	mLogWriter.newLine();
             }
@@ -68,7 +71,11 @@ public class MyanmarUnicodeValidator implements CharConverter
             e.printStackTrace();
             throw new RecoverableException(e.getLocalizedMessage());
         }
-		
+        String corrected = outWriter.toString(); 
+		if (corrected.length() > 20)
+			mPrev = corrected;
+		else
+			mPrev += corrected;
 		return outWriter.toString();
 	}
 
@@ -120,8 +127,8 @@ public class MyanmarUnicodeValidator implements CharConverter
 	@Override
 	public void initialize() throws FatalException
 	{
-		// nothing to do
-		
+		if (mDebug)
+			setDebug(mDebug, mLogDir);
 	}
 
 	@Override
@@ -142,7 +149,7 @@ public class MyanmarUnicodeValidator implements CharConverter
 	{
 		mDebug = on;
 		DateFormat df = new SimpleDateFormat("yyyyMMddHHmm");
-		
+		mLogDir = logDir;
 		mLogFile = new File(logDir, "MyanmarUnicodeValidator" +
 				df.format(new Date()) + ".log");
 		try

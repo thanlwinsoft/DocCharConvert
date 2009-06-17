@@ -168,7 +168,7 @@
     <a b="C8" u="1039 100b"/><!-- NO GLYPH  -->
     <a b="C9" u="1039 100d"/><!--  -->
     <a b="CA" u="1039 1014"/><!-- no glyph -->
-    <a b="CB" u="102f 1030"/><!--  no glyph -->
+    <a b="CB" u="103e 1030"/><!--  no glyph -->
     <a b="CC" u="1039 100c"/><!--  no glyph -->
     <a b="CD" u="1039 100e"/><!--  -->
     <a b="CE" u="1039 1010 103d"/><!-- no glyph -->
@@ -279,11 +279,12 @@ NOTE: this font stores attachments BEFORE the base!
         <class-ref name="toneB" id="t6"  min="0"/>
         <class-ref name="lowerVowelB" id="l2"  min="0"/>
         <class-ref name="toneB" id="t7"  min="0"/>
+        <class-ref name="aTallB" id="a0" min="0"/>
         <class-ref name="kinziB" id="k3"  min="0"/>
         <class-ref name="upperVowelB" id="u5"  min="0"/>
         <class-ref name="upperDotB" id="d5"  min="0"/>
         <class-ref name="toneB" id="t8"  min="0"/>
-        <class-ref name="aTallB" id="a" min="0"/>
+        <class-ref name="aTallB" id="a1" min="0"/>
         <class-ref name="asatB" id="asat1"  min="0"/>
         <class-ref name="toneB" id="t9"  min="0"/>
         <class-ref name="consB" id="c" />
@@ -325,7 +326,8 @@ NOTE: this font stores attachments BEFORE the base!
     	<context-ref name="reorderBytesB/d3"/>
     	<context-ref name="reorderBytesB/d4"/>
     	<context-ref name="reorderBytesB/d5"/>
-    	<context-ref name="reorderBytesB/a"/>
+    	<context-ref name="reorderBytesB/a0"/>
+    	<context-ref name="reorderBytesB/a1"/>
     	<context-ref name="reorderBytesB/t0"/>
     	<context-ref name="reorderBytesB/t1"/>
     	<context-ref name="reorderBytesB/t2"/>

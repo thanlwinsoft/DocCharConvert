@@ -118,6 +118,7 @@ public class OdfDocInterface implements DocInterface {
 			Map<TextStyle, CharConverter> converters, ProgressNotifier notifier)
 			throws FatalException, InterfaceException, WarningException
 	{
+		System.out.println(input);
 		try
 		{
 			OdfDocument odfInput = OdfDocument.loadDocument(input);
@@ -209,7 +210,31 @@ public class OdfDocInterface implements DocInterface {
 								.convert(text + cumulative + next.toString());
 							String nextConverted = frag.getConverter()
 								.convert(cumulative + next.toString());
-							if (combined.equals(converted + nextConverted) == true)
+							// assume that we are going to unicode most of the time
+							// check that we aren't breaking the style at a 
+							// character with unicode property 
+							int type = Character.OTHER_LETTER;
+							if (nextConverted.length() > 0)
+							{
+								type = Character.getType(nextConverted.charAt(0));
+								// HACK for Unicode 5.1 while java is on 5.0
+								switch (nextConverted.charAt(0))
+								{
+								case 0x102B:
+								case 0x103B:
+								case 0x103C:
+									type = Character.COMBINING_SPACING_MARK;
+									break;
+								case 0x103A:
+								case 0x103D:
+								case 0x103E:
+									type = Character.NON_SPACING_MARK;
+									break;
+								}
+							}
+							
+							if (!midSyllable(type) &&
+								combined.equals(converted + nextConverted) == true)
 							{
 								prevFrag = next;
 								cumulative += next.toString();
@@ -461,6 +486,17 @@ public class OdfDocInterface implements DocInterface {
 		}
 	}
 	
+	private boolean midSyllable(int type)
+	{
+		switch (type)
+		{
+		case Character.NON_SPACING_MARK:
+		case Character.COMBINING_SPACING_MARK:
+			return true;
+		}
+		return false;
+	}
+
 	private OdfElement getTopLevelParent(Node n)
 	{
 		Node paraLevelParent = n;
