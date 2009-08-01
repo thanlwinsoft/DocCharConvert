@@ -165,6 +165,52 @@
             </zipfileset>
         </zip>
         <unzip src="${buildDirectory}/I.DocCharConvert/DocCharConvert-win32.win32.x86.zip" dest="${buildDirectory}/DocCharConvert"/>
+		<!-- Create tar balls containing the executables -->
+		<unzip src="${buildDirectory}/I.DocCharConvert/DocCharConvert-linux.gtk.x86.zip" dest="${buildDirectory}/DocCharConvert-linux.gtk.x86"/>
+		<unzip src="${buildDirectory}/I.ThanLwinSoft.org/org.thanlwinsoft.doccharconvert.feature.myanmar-ThanLwinSoft.org-linux.gtk.x86.zip" dest="${buildDirectory}/DocCharConvert-linux.gtk.x86"/>
+		<unzip src="${buildDirectory}/I.ThanLwinSoft.org/org.thanlwinsoft.doccharconvert.feature.mien-ThanLwinSoft.org-linux.gtk.x86.zip" dest="${buildDirectory}/DocCharConvert-linux.gtk.x86"/>
+		<chmod file="${buildDirectory}/DocCharConvert-linux.gtk.x86/eclipse/launcher" perm="ugo+rx"/>
+		<tar compression="bzip2" destfile="${buildDirectory}/I.DocCharConvert/DocCharConvert-linux.gtk.x86.tar.bz2" longfile="gnu">
+			<tarfileset dir="${buildDirectory}/DocCharConvert-linux.gtk.x86">
+				<include name="**/*"/>
+				<exclude name="eclipse/launcher"/>
+			</tarfileset>
+			<tarfileset dir="${buildDirectory}/DocCharConvert-linux.gtk.x86" filemode="755">
+				<include name="eclipse/launcher"/>
+			</tarfileset>
+		</tar>
+		<!--<delete file="${buildDirectory}/I.${languagetest.productName}/${languagetest.productName}-linux.gtk.x86.zip"/>-->
+		<delete file="${buildDirectory}/DocCharConvert-linux.gtk.x86"/>
+		
+		<unzip src="${buildDirectory}/I.DocCharConvert/DocCharConvert-linux.gtk.x86_64.zip" dest="${buildDirectory}/DocCharConvert-linux.gtk.x86_64"/>
+		<unzip src="${buildDirectory}/I.ThanLwinSoft.org/org.thanlwinsoft.doccharconvert.feature.myanmar-ThanLwinSoft.org-linux.gtk.x86_64.zip" dest="${buildDirectory}/DocCharConvert-linux.gtk.x86_64"/>
+		<unzip src="${buildDirectory}/I.ThanLwinSoft.org/org.thanlwinsoft.doccharconvert.feature.mien-ThanLwinSoft.org-linux.gtk.x86_64.zip" dest="${buildDirectory}/DocCharConvert-linux.gtk.x86_64"/>
+		<chmod file="${buildDirectory}/DocCharConvert-linux.gtk.x86_64/eclipse/launcher" perm="ugo+rx"/>
+		<tar compression="bzip2" destfile="${buildDirectory}/I.DocCharConvert/DocCharConvert-linux.gtk.x86_64.tar.bz2" longfile="gnu">
+			<tarfileset dir="${buildDirectory}/DocCharConvert-linux.gtk.x86_64">
+				<include name="**/*"/>
+				<exclude name="eclipse/launcher"/>
+			</tarfileset>
+			<tarfileset dir="${buildDirectory}/DocCharConvert-linux.gtk.x86_64" filemode="755">
+				<include name="eclipse/launcher"/>
+			</tarfileset>
+		</tar>
+		<!--<delete file="${buildDirectory}/I.${languagetest.productName}/${languagetest.productName}-linux.gtk.x86.zip"/>-->
+		<delete file="${buildDirectory}/DocCharConvert-linux.gtk.x86_64"/>
+
+	</target>
+	
+	<target name="test-tar" description="Test out the build tar ball">
+		<mkdir dir="${buildDirectory}/tmp"/>
+		<!--
+		<untar compression="bzip2" src="${buildDirectory}/I.DocCharConvert/DocCharConvert-${osgi.os}.${osgi.ws}.${osgi.arch}.tar.bz2" dest="${buildDirectory}/tmp"/>
+		-->
+		<exec executable="tar" dir="${buildDirectory}/tmp">
+			<arg value="-jxf"/>
+			<arg value="${buildDirectory}/I.DocCharConvert/DocCharConvert-${osgi.os}.${osgi.ws}.${osgi.arch}.tar.bz2"/>
+		</exec>
+		<exec executable="${buildDirectory}/tmp/eclipse/launcher"
+			dir="${buildDirectory}/tmp/eclipse" />
 	</target>
 	
 	<target name="nsis-init">
@@ -223,5 +269,5 @@
 	</target>
 
 	<!--This target defines the run-order of the targets-->
-	<target name="build" depends="dcc-schemas,pde-product,add-executables,pde-build,nsis" />
+	<target name="build" depends="dcc-schemas,pde-product,pde-build,add-executables,nsis" />
 </project>

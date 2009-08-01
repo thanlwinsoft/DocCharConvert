@@ -61,7 +61,7 @@ public class Application implements IApplicationContext
      */
     public void applicationRunning()
     {
-        //TODO
+        
     }
 
     /* (non-Javadoc)
