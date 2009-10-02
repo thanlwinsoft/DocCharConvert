@@ -10,32 +10,40 @@
   <Font name="Padauk" type="new" script="ctl"/>
 </Style>
 <Style>
-  <Font name="WinInnwa" type="old" script="latin" />
-  <Font name="PadaukOT" type="new" script="ctl" />
+  <Font name="Win   Innwa" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
   <Font name="WinInnwa" type="old" script="latin" />
-  <Font name="Myanmar2" type="new" script="ctl"/>
+  <Font name="Myanmar3" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="Win   Innwa" type="old" script="latin" />
+  <Font name="Myanmar3" type="new" script="ctl"/>
 </Style>
 <Style>
   <Font name="WinResearcher" type="old" script="latin" />
-  <Font name="PadaukOT" type="new" script="ctl" />
+  <Font name="Padauk" type="new" script="ctl" />
+</Style>
+<Style>
+  <Font name="WinResearcher" type="old" script="latin" />
+  <Font name="Myanmar3" type="new" script="ctl" />
 </Style>
 <Style>
   <Font name="-Win---Researcher" type="old" script="latin" />
-  <Font name="PadaukOT" type="new" script="ctl" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
   <Font name="Win---Researcher" type="old" script="latin" />
-  <Font name="PadaukOT" type="new" script="ctl" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
   <Font name="WinMonotype" type="old" script="latin" />
-  <Font name="PadaukOT" type="new" script="ctl" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
   <Font name="WinMonotypeNew" type="old"  script="latin"/>
-  <Font name="PadaukOT" type="new" script="ctl" />
+  <Font name="Padauk" type="new" script="ctl" />
 </Style>
 </Styles>
 </DocCharConverter>
