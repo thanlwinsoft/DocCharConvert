@@ -3,9 +3,10 @@
 ;Written by Keith Stribley
 ;License: LGPL 2.1 or later
 
-; Some useful definitions that may need changing for different font versions
+; Some useful definitions that may need changing for different versions
+; also change the version in build.properties
 !ifndef VERSION
-  !define VERSION '1.3.1'
+  !define VERSION '1.3.2'
 !endif
 
 !define APP_NAME 'DocCharConvert'
@@ -158,7 +159,10 @@ Section "-!${APP_NAME}" SecApp
   !cd "../../doccharconvert"
   File ..\org.thanlwinsoft.doccharconvert.teckit.win32.x86\TecKitJni.dll
 
-  File /r "DocCharConvert\eclipse"
+  ; Note the exclusion may need adjusting if the optional converters don't start with m
+  File /r /x "DocCharConvert\eclipse\plugins\org.thanlwinsoft.doccharconvert.converters.*" \
+  	/x "DocCharConvert\eclipse\plugins\org.thanlwinsoft.doccharconvert.feature.m*" \
+  	"DocCharConvert\eclipse"
   
   ;File /r "..\release\${APP_NAME}"
     
@@ -211,18 +215,18 @@ SectionEnd
 
 Section "Myanmar" SecMyanmar
 	SetOutPath "$INSTDIR\${APP_NAME}\eclipse\plugins"
-	File /r repository\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*
+	File /r DocCharConvert\eclipse\plugins\org.thanlwinsoft.doccharconvert.converters.myanmar_*
 	SetOutPath "$INSTDIR\${APP_NAME}\eclipse\features"
-	File /r repository\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*
+	File /r DocCharConvert\eclipse\features\org.thanlwinsoft.doccharconvert.feature.myanmar_*
     SetOutPath "$INSTDIR\${APP_NAME}"
 	File ..\org.thanlwinsoft.doccharconvert.update\nsis\DocCharConvertMyanmar.bat
 SectionEnd
 
 Section /o "Mien" SecMien
     SetOutPath "$INSTDIR\${APP_NAME}\eclipse\plugins"
-    File /r repository\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*
+    File /r DocCharConvert\eclipse\plugins\org.thanlwinsoft.doccharconvert.converters.mien_*
     SetOutPath "$INSTDIR\${APP_NAME}\eclipse\features"
-    File /r repository\features\org.thanlwinsoft.doccharconvert.feature.mien_*
+    File /r DocCharConvert\eclipse\features\org.thanlwinsoft.doccharconvert.feature.mien_*
     SetOutPath "$INSTDIR\${APP_NAME}"
     File ..\org.thanlwinsoft.doccharconvert.update\nsis\DocCharConvertMien.bat
 SectionEnd

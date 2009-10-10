@@ -1,0 +1,333 @@
+Index: java/org/sil/scripts/teckit/TecKitJni.java
+===================================================================
+--- java/org/sil/scripts/teckit/TecKitJni.java	(revision 57)
++++ java/org/sil/scripts/teckit/TecKitJni.java	(working copy)
+@@ -5,7 +5,7 @@
+ Distributable under the terms of either the Common Public License or the
+ GNU Lesser General Public License, as specified in the LICENSING.txt file.
+ 
+-File: Engine.cp
++File: TecKitJni.java
+ Responsibility: Keith Stribley
+ Last reviewed: Not yet.
+ 
+@@ -14,7 +14,7 @@
+ -------------------------------------------------------------------------*/
+ 
+ package org.sil.scripts.teckit;
+-import java.net.URL;
++//import java.net.URL;
+ import java.io.File;
+ /**
+  *
+@@ -23,26 +23,60 @@
+ public class TecKitJni
+ {
+     private static final String LIBRARY = "TecKitJni";
++    private static final String [] LIB_PATHS = {
++    	"/usr/lib/",
++    	"/usr/local/lib/"
++    };
+     private static boolean libraryLoaded = false;
+     public static boolean loadLibrary(File libraryPath)
+     {
+         if (!libraryLoaded) 
+         {
++        	String systemLibName = System.mapLibraryName(LIBRARY);
++            File library = new File(libraryPath, systemLibName);
+             try
+             {
+-                File library = new File
+-                    (libraryPath, 
+-                    System.mapLibraryName(LIBRARY));
++                // try first with the specified library path
+                 System.load(library.getAbsolutePath());
+-                System.out.println("Loaded " + System.mapLibraryName(LIBRARY));
++                System.out.println("Loaded " + systemLibName);
+                 libraryLoaded = true;
+             }
+-            catch (UnsatisfiedLinkError e)
++            catch (UnsatisfiedLinkError eFirst)
+             {
+-                System.out.println(e);
+-                System.out.println(e.getMessage() + " " + 
+-                    System.mapLibraryName(LIBRARY) + " " + 
+-                    System.getProperty("java.library.path"));
++            	// only give a message if the file exists, but failed to load
++            	if (library.exists())
++            		System.out.println(eFirst.getMessage());	
++                // if that fails, see if it is in the system path
++                try
++                {
++                  System.loadLibrary(LIBRARY); 
++                  System.out.println("Loaded system library:" + LIBRARY);
++                  libraryLoaded = true;
++                }
++                catch (UnsatisfiedLinkError eSecond)
++                {
++                	for (int i = 0; i < LIB_PATHS.length; i++)
++                	{
++	                	try
++	                    {
++	                      System.load(LIB_PATHS[i] + systemLibName); 
++	                      System.out.println("Loaded system library:" + 
++	                    		             LIB_PATHS[i] +systemLibName);
++	                      libraryLoaded = true;
++	                    }
++	                    catch (UnsatisfiedLinkError e)
++	                    {
++	                    	//System.out.println(e.getMessage());	                    	
++	                    }
++                	}
++                	if (libraryLoaded == false)
++                    {
++                        System.out.println(eSecond.getMessage());
++                		System.out.println("Library:" + 
++                        	System.mapLibraryName(LIBRARY) + " not found in: " + 
++                        	System.getProperty("java.library.path"));
++                    }
++                }
+             }
+             catch (Exception e)
+             {
+@@ -72,6 +106,15 @@
+      */
+     public native long createConverter(String path, boolean toUnicode);
+     /**
++     * Creates a converter for a given tec file.
++     * @param the bytes from the .tec file
++     * @param toUnicode true if the direction is from bytes to Unicode
++     * false if the direction is from Unicode to bytes
++     * @return id of the converter created. This must be used in subsequent 
++     * invocations to convert.
++     */
++    public native long createConverterFromBuffer(byte [] tec, boolean toUnicode);
++    /**
+      * Converts the input byte array using the specified converter, which must
+      * have already be created with #createConverter.
+      * @param convId returned by #createConverter
+Index: src/org_sil_scripts_teckit_TecKitJni.h
+===================================================================
+--- src/org_sil_scripts_teckit_TecKitJni.h	(revision 57)
++++ src/org_sil_scripts_teckit_TecKitJni.h	(working copy)
+@@ -17,6 +17,14 @@
+ 
+ /*
+  * Class:     org_sil_scripts_teckit_TecKitJni
++ * Method:    createConverterFromBuffer
++ * Signature: ([BZ)J
++ */
++JNIEXPORT jlong JNICALL Java_org_sil_scripts_teckit_TecKitJni_createConverterFromBuffer
++  (JNIEnv *, jobject, jbyteArray, jboolean);
++
++/*
++ * Class:     org_sil_scripts_teckit_TecKitJni
+  * Method:    convert
+  * Signature: (J[B)[B
+  */
+Index: src/TecKitJni.cpp
+===================================================================
+--- src/TecKitJni.cpp	(revision 57)
++++ src/TecKitJni.cpp	(working copy)
+@@ -21,6 +21,7 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <assert.h>
++#include <algorithm>
+ #ifdef WIN32
+ #include <iostream>
+ #else
+@@ -38,8 +39,8 @@
+ //static TecKitJni * instance = NULL;
+ 
+ TecKitJni::TecKitJni()
+-: converter(NULL), mapBuffer(NULL), outputLength(0), maxOutputLength(8192), 
+-  maxInputLength(1024)
++: converter(NULL), mapBuffer(NULL), mapLength(0), outputLength(0), 
++  maxOutputLength(8192), maxInputLength(1024)
+ {
+     outputBuffer = new Byte[maxOutputLength];
+     inputBuffer = new char[maxInputLength];
+@@ -70,13 +71,70 @@
+         sourceForm = kForm_UTF8;
+         targetForm = kForm_Bytes;
+     }
+-    openMapping(fileName, toUni, sourceForm, targetForm);
++    if (loadMapArray(fileName))
++        return parseMapping(toUni, sourceForm, targetForm);
++    return false;
+ }
+ 
++bool TecKitJni::openMapping(const char * map, UInt32 length, bool toUni)
++{
++    UInt16 sourceForm;
++    UInt16 targetForm;
++    if (toUni) // backward so reverse parameters
++    {
++        sourceForm = kForm_Bytes;
++        targetForm = kForm_UTF8;
++    }
++    else
++    {   
++        sourceForm = kForm_UTF8;
++        targetForm = kForm_Bytes;
++    }
++    mapLength = length;
++    mapBuffer = new Byte[mapLength];
++    if (mapBuffer == NULL)
++        return false;
++    std::copy(&map[0], &map[length], mapBuffer);
++    return parseMapping(toUni, sourceForm, targetForm);
++}
+ 
+-bool TecKitJni::openMapping(const char* fileName, bool toUni, UInt16 sourceForm, UInt16 targetForm)
++
++bool TecKitJni::loadMapArray(const char* fileName)
+ {
+     bool success = false;
++    struct stat mapFileStats;
++    if (stat(fileName, &mapFileStats)) 
++    {
++        fprintf(stderr,"TecKitJni: FAILED to stat file %s\n",fileName);
++        return success;
++    }
++    FILE * mapFile = fopen(fileName, "rb");        
++    if (mapFile)
++    {
++        mapBuffer = new Byte[mapFileStats.st_size];
++        if (!mapBuffer)
++            return false;
++        mapLength = mapFileStats.st_size;
++        Byte * pBuffer = mapBuffer;
++        int read = 0;
++        do {
++            read = fread(pBuffer,1,1024,mapFile);
++            pBuffer += read;
++        } while (read > 0);
++        assert((pBuffer - mapBuffer) == mapFileStats.st_size);
++        fclose(mapFile);
++        
++    }
++    else
++    {
++        fprintf(stderr,"TecKitJni:Failed to open %s\n",fileName);
++    }
++    return success;
++}
++
++bool TecKitJni::parseMapping(bool toUni, UInt16 sourceForm, UInt16 targetForm)
++{
++    bool success = false;
+     // setup for forward
+     Byte mapForward = 1;
+     toUnicode = toUni;
+@@ -85,36 +143,13 @@
+        mapForward = 0;   
+     }
+     
+-    if (fileName)
++    if (mapLength > 0)
+     {
+-        struct stat mapFileStats;
+-        if (stat(fileName, &mapFileStats)) 
+-        {
+-            fprintf(stderr,"TecKitJni: FAILED to stat file %s\n",fileName);
+-            return success;
+-        }
+-        FILE * mapFile = fopen(fileName, "rb");        
+-        if (mapFile)
+-        {
+-            mapBuffer = new Byte[mapFileStats.st_size];
+-            assert(mapBuffer);
+-            Byte * pBuffer = mapBuffer;
+-            int read = 0;
+-            do {
+-                read = fread(pBuffer,1,1024,mapFile);
+-                pBuffer += read;
+-            } while (read > 0);
+-            assert((pBuffer - mapBuffer) == mapFileStats.st_size);
+-            fclose(mapFile);
+-            TECkit_Status status = TECkit_CreateConverter(mapBuffer, mapFileStats.st_size, 
+-                mapForward, sourceForm, targetForm, &converter);
+-            if (status == kStatus_NoError) success = true;
+-            else fprintf(stderr,"TecKitJni:Error reading %s: %d\n",fileName,status);
+-        }
+-        else
+-        {
+-            fprintf(stderr,"TecKitJni:Failed to open %s\n",fileName);
+-        }
++        
++        TECkit_Status status = TECkit_CreateConverter(mapBuffer, mapLength, 
++            mapForward, sourceForm, targetForm, &converter);
++        if (status == kStatus_NoError) success = true;
++        else fprintf(stderr,"TecKitJni:Error reading mapping: %d\n",status);
+     }
+     else
+     {
+@@ -195,14 +230,34 @@
+       
+       TecKitJni * instance = new TecKitJni();
+       const char *str = env->GetStringUTFChars(path, 0);
+-      success = instance->openMapping(str, toUnicode);
++      //fprintf(stderr,"TecKitJni:createConverter %s\n", str);
++      if (instance)
++          instance->openMapping(str, static_cast<bool>(toUnicode));
+       env->ReleaseStringUTFChars(path, str);
+       success = reinterpret_cast<jlong>(instance);
+       return success;
+   }
+   
++/*
++ * Class:     org_sil_scripts_teckit_TecKitJni
++ * Method:    createConverter
++ * Signature: ([BZ)J
++ */
++JNIEXPORT jlong JNICALL Java_org_sil_scripts_teckit_TecKitJni_createConverterFromBuffer
++  (JNIEnv * env, jobject, jbyteArray iArray, jboolean toUnicode)
++{
++    jlong success = 0;
++    jsize inLength = env->GetArrayLength(iArray);
++    jbyte * inData = env->GetByteArrayElements(iArray, 0);
++    TecKitJni * instance = new TecKitJni();
++    //fprintf(stderr,"TecKitJni:createConverter array [%d]\n", inLength);
++    if (instance)
++        instance->openMapping(reinterpret_cast<const char *>(inData), inLength, static_cast<bool>(toUnicode));
++    env->ReleaseByteArrayElements(iArray, inData, 0);
++    success = reinterpret_cast<jlong>(instance);
++    return success;
++}
+ 
+-
+ /*
+  * Class:     DocCharConvert_Converter_TecKitJni
+  * Method:    convert
+Index: src/TecKitJni.h
+===================================================================
+--- src/TecKitJni.h	(revision 57)
++++ src/TecKitJni.h	(working copy)
+@@ -24,17 +24,20 @@
+     TecKitJni();
+     ~TecKitJni() ;
+     bool openMapping(const char * fileName, bool toUnicode); 
+-    bool openMapping(const char* fileName, bool toUnicode, UInt16 sourceForm, UInt16 targetForm);
++    bool openMapping(const char* map, UInt32 length, bool toUni);
+     char * convert(const char * input);
+     char * convert(const char* input, UInt32 inLength);
+     void flush();
+     Byte * getOutputBuffer() { return outputBuffer;};
+     UInt32 getOutputLength() { return outputLength;};
+ private:
++    bool parseMapping(bool toUnicode, UInt16 sourceForm, UInt16 targetForm);
++    bool loadMapArray(const char* fileName);
+     TECkit_Converter converter;
+     bool toUnicode;
+     Byte * mapBuffer;
+     Byte * outputBuffer;
++    UInt32 mapLength;
+     UInt32 outputLength;
+     UInt32 maxOutputLength;
+     char * inputBuffer;
+Index: MSDev/TecKitJni.ncb
+===================================================================
+Cannot display: file marked as a binary type.
+svn:mime-type = application/octet-stream
