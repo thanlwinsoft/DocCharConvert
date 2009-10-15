@@ -10,15 +10,31 @@
   <Font name="Padauk" type="new" script="ctl"/>
 </Style>
 <Style>
-  <Font name="Win   Innwa" type="old" script="latin" />
-  <Font name="Padauk" type="new" script="ctl" />
-</Style>
-<Style>
   <Font name="WinInnwa" type="old" script="latin" />
   <Font name="Myanmar3" type="new" script="ctl"/>
 </Style>
 <Style>
   <Font name="Win   Innwa" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
+</Style>
+<Style>
+  <Font name="Win   Innwa" type="old" script="latin" />
+  <Font name="Myanmar3" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="Win---Innwa" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
+</Style>
+<Style>
+  <Font name="Win---Innwa" type="old" script="latin" />
+  <Font name="Myanmar3" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="-Win---Innwa" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
+</Style>
+<Style>
+  <Font name="-Win---Innwa" type="old" script="latin" />
   <Font name="Myanmar3" type="new" script="ctl"/>
 </Style>
 <Style>
