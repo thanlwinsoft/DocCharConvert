@@ -863,7 +863,19 @@ public class OdfDocInterface implements DocInterface {
 					{
 						conv = converters.get(convStyle);
 						break;
-					}	
+					}					
+				}
+				if (conv == null)
+				{
+					fontName = fontName.replaceAll("'", "");
+					for (TextStyle convStyle : converters.keySet())
+					{
+						if (convStyle.getFontName().equalsIgnoreCase(fontName))
+						{
+							conv = converters.get(convStyle);
+							break;
+						}					
+					}
 				}
 				break;
 			}

@@ -160,8 +160,8 @@ Section "-!${APP_NAME}" SecApp
   File ..\org.thanlwinsoft.doccharconvert.teckit.win32.x86\TecKitJni.dll
 
   ; Note the exclusion may need adjusting if the optional converters don't start with m
-  File /r /x "DocCharConvert\eclipse\plugins\org.thanlwinsoft.doccharconvert.converters.*" \
-  	/x "DocCharConvert\eclipse\plugins\org.thanlwinsoft.doccharconvert.feature.m*" \
+  File /r /x "org.thanlwinsoft.doccharconvert.converters.*" \
+  	/x "org.thanlwinsoft.doccharconvert.feature.m*" \
   	"DocCharConvert\eclipse"
   
   ;File /r "..\release\${APP_NAME}"
