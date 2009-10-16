@@ -61,5 +61,33 @@
   <Font name="WinMonotypeNew" type="old"  script="latin"/>
   <Font name="Padauk" type="new" script="ctl" />
 </Style>
+<Style>
+  <Font name="-Win---Innwa070%" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="-Win---Innwa080%" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="-Win---Innwa090%" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="-Win---Innwa110%" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="-Win---Innwa120%" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="-Win---Innwa130%" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
+</Style>
+<Style>
+  <Font name="-Win---Innwa250%" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl"/>
+</Style>
 </Styles>
 </DocCharConverter>
