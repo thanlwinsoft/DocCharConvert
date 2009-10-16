@@ -6,10 +6,11 @@ Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.odf;singleton:=true
 Bundle-Vendor: thanlwinsoft.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Localization: plugin
-Require-Bundle: org.thanlwinsoft.doccharconvert;bundle-version="1.2.2",
- org.apache.xerces;bundle-version="2.9.0",
+Require-Bundle: org.eclipse.ui;bundle-version="3.5.0",
+ org.eclipse.core.runtime;bundle-version="3.4.0",
  org.eclipse.equinox.common;bundle-version="3.4.0",
- org.eclipse.core.runtime;bundle-version="3.4.0"
+ org.thanlwinsoft.doccharconvert;bundle-version="1.2.2",
+ org.apache.xerces;bundle-version="2.9.0"
 Bundle-ClassPath: libs/odfdom.jar,
  .
 Bundle-ActivationPolicy: lazy
