@@ -1,1018 +1,1884 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xml" href="SyllableConverter.xsl"?>
 <syllableConverter xmlns="http://www.thanlwinsoft.org/schemas/SyllableParser">
-<script side="left" ignoreCase="true" font="Padauk Uni4">
-<name>Myanmar Uni4 UTN11</name>
-<cluster side="left" id="syllable">
-  <component id="cons4" min="1" priority="80">consonant</component>
-  <component id="d-atha4" min="0" priority="10">killer</component>
-  <component id="sub-cons4" min="0" priority="20">subjoined consonant</component>
-  <component id="med-ya4" min="0" priority="50">medial ya</component>
-  <component id="med-ra4" min="0" priority="50">medial ra</component>
-  <component id="med-wa4" min="0" priority="50">medial wa</component>
-  <component id="med-ha4" min="0" priority="50">medial ha</component>
-  <component id="v-e4" min="0" priority="50">e</component>
-  <component id="v-u4" min="0" priority="50">u,uu</component>
-  <component id="v-i4" min="0" priority="50">i,ii,ai</component>
-  <component id="v-uw4" min="0" priority="20">wrong u,uu</component>
-  <component id="v-aa4" min="0" priority="50">aa</component>
-  <component id="anusvara4" min="0" priority="50">anusvara</component>
-  <component id="atha4" min="0" priority="50">killer</component>
-  <component id="dot-b4" min="0" priority="50">dot below</component>
-  <component id="visarga4" min="0" priority="50">visarga</component>
-</cluster>
-</script>
-
-<script side="right" font="Padauk Unicode">
-<name>Myanmar Uni5</name>
-<cluster side="right" id="syllable">
-  <component id="cons5" min="1" priority="80">consonant</component>
-  <component id="d-atha5" min="0" priority="10">killer</component>
-  <component id="sub-cons5" min="0" priority="20">subjoined consonant</component>
-  <component id="med-ya5" min="0" priority="50">medial ya</component>
-  <component id="med-ra5" min="0" priority="50">medial ra</component>
-  <component id="med-wa5" min="0" priority="50">medial wa</component>
-  <component id="med-ha5" min="0" priority="50">medial ha</component>
-  <component id="v-e5" min="0" priority="50">e</component>
-  <component id="v-i5" min="0" priority="50">i,ii,ai</component>
-  <component id="v-u5" min="0" priority="50">u,uu</component>
-  <component id="v-aa5" min="0" priority="50">aa</component>
-  <component id="anusvara5" min="0" priority="50">anusvara</component>
-  <component id="atha5" min="0" priority="50">killer</component>
-  <component id="dot-b5" min="0" priority="50">dot below</component>
-  <component id="visarga5" min="0" priority="50">visarga</component>
-</cluster>
-</script>
-
-<checks>
-</checks>
-
-<classes>
-
-<!-- classes must be the same size on both sides -->
-<class id="cons">
-  <component r="cons4">
-    <c>က</c><c>ခ</c><c>ဂ</c><c>ဃ</c><c>င</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဒ</c><c>ဓ</c><c>န</c> 
-    <c>ပ</c><c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><c>ဝ</c><c>သ</c><c>သ</c>
-    <c>ဟ</c><c>ဠ</c><c>အ</c>
-    <c>၎</c>
-  </component>
-  <component r="cons5">
-    <c>က</c><c>ခ</c><c>ဂ</c><c>ဃ</c><c>င</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဒ</c><c>ဓ</c><c>န</c> 
-    <c>ပ</c><c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><c>ဝ</c><c>သ</c><c hex="103F" />
-    <c>ဟ</c><c>ဠ</c><c>အ</c> 
-    <c hex="104e 1004 103A 1038"/>
-  </component>
-</class>
-
-<class id="cons-no-nga"><!--  or sa -->
-  <component r="cons4">
-    <c>က</c><c>ခ</c><c>ဂ</c><c>ဃ</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဒ</c><c>ဓ</c><c>န</c> 
-    <c>ပ</c><c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><c>ဝ</c>
-    <c>ဟ</c><c>ဠ</c><c>အ</c> 
-    <c>၎</c>  
-  </component>
-  <component r="cons5">
-    <c>က</c><c>ခ</c><c>ဂ</c><c>ဃ</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဒ</c><c>ဓ</c><c>န</c> 
-    <c>ပ</c><c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><c>ဝ</c>
-    <c>ဟ</c><c>ဠ</c><c>အ</c>   
-    <c hex="104e 1004 103A 1038"/> 
-  </component>
-</class>
-
-<class id="cons-wide"><!-- all except ခ ဂ င ပ ဒ ဝ -->
-  <component r="cons4">
-    <c>က</c><c>ဃ</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဓ</c><c>န</c> 
-    <c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><!--<c>သ</c><c>သ</c>-->
-    <c>ဟ</c><c>ဠ</c><c>အ</c>   
-    <c>၎</c>
-  </component>
-  <component r="cons5">
-    <c>က</c><c>ဃ</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဓ</c><c>န</c> 
-    <c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><!--<c>သ</c><c hex="103F" />-->
-    <c>ဟ</c><c>ဠ</c><c>အ</c>
-    <c hex="104e 1004 103A 1038"/> 
-  </component>
-</class>
-
-
-<class id="cons-narrow"><!-- all except ခ ဂ င ပ ဒ ဝ -->
-  <component r="cons4">
-    <c>ခ</c><c>ဂ</c><c>င</c><c>ဒ</c><c>ပ</c><c>ဝ</c>
-  </component>
-  <component r="cons5">
-    <c>ခ</c><c>ဂ</c><c>င</c><c>ဒ</c><c>ပ</c><c>ဝ</c>
-  </component>
-</class>
-
-<!-- င also has a tall aa with medial, but it needs special care -->
-<class id="cn-med-short-aa">
-  <component r="cons4">
-    <c>ခ</c><c>ဂ</c><c>ပ</c>
-  </component>
-  <component r="cons5">
-    <c>ခ</c><c>ဂ</c><c>ပ</c>
-  </component>
-</class>
-
-<!-- င also has a tall aa with medial, but it needs special care -->
-<class id="cn-med-tall-aa">
-  <component r="cons4">
-    <c>ဒ</c><c>ဝ</c>
-  </component>
-  <component r="cons5">
-    <c>ဒ</c><c>ဝ</c>
-  </component>
-</class>
-
-<class id="cons-no-sa">
-  <component r="cons4">
-    <c>က</c><c>ခ</c><c>ဂ</c><c>ဃ</c><c>င</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဒ</c><c>ဓ</c><c>န</c> 
-    <c>ပ</c><c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><c>ဝ</c>
-    <c>ဟ</c><c>ဠ</c><c>အ</c>   
-    <c>၎</c>
-  </component>
-  <component r="cons5">
-    <c>က</c><c>ခ</c><c>ဂ</c><c>ဃ</c><c>င</c>
-    <c>စ</c><c>ဆ</c><c>ဇ</c><c>ဈ</c><c>ဉ</c><c>ည</c>     
-    <c>ဋ</c><c>ဌ</c><c>ဍ</c><c>ဎ</c><c>ဏ</c>
-    <c>တ</c><c>ထ</c><c>ဒ</c><c>ဓ</c><c>န</c> 
-    <c>ပ</c><c>ဖ</c><c>ဗ</c><c>ဘ</c><c>မ</c>   
-    <c>ယ</c><c>ရ</c><c>လ</c><c>ဝ</c>
-    <c>ဟ</c><c>ဠ</c><c>အ</c>
-    <c hex="104e 1004 103A 1038"/> 
-  </component>
-</class>
-
-<class id="sub-cons"><!-- note: excludes sa ္သ -->
-  <component r="sub-cons4">
-    <c>္က</c><c>္ခ</c><c>္ဂ</c><c>္ဃ</c>
-    <c>္စ</c><c>္ဆ</c><c>္ဇ</c><c>္ဈ</c>   
-    <c>္ဋ</c><c>္ဌ</c><c>⁠္ဍ</c><c>္ဎ</c><c>္ဏ</c>
-    <c>္တ</c><c>္ထ</c><c>္ဒ</c><c>္ဓ</c><c>္န</c> 
-    <c>္ပ</c><c>္ဖ</c><c>္ဗ</c><c>္ဘ</c><c>္မ</c>   
-    <c>္လ</c>
-    <c>္ဠ</c><c>္အ</c>   
-  </component>
-  <component r="sub-cons5">
-    <c>္က</c><c>္ခ</c><c>္ဂ</c><c>္ဃ</c>
-    <c>္စ</c><c>္ဆ</c><c>္ဇ</c><c>္ဈ</c>
-    <c>္ဋ</c><c>္ဌ</c><c>⁠္ဍ</c><c>္ဎ</c><c>္ဏ</c>
-    <c>္တ</c><c>္ထ</c><c>္ဒ</c><c>္ဓ</c><c>္န</c> 
-    <c>္ပ</c><c>္ဖ</c><c>္ဗ</c><c>္ဘ</c><c>္မ</c>   
-    <c>္လ</c>
-    <c>္ဠ</c><c>္အ</c>    
-  </component>
-</class>
-
-<class id="kinzi-nonmed-cons"><!-- kinzi + a cons that can be a medial -->
-  <component r="sub-cons4">
-    <c hex="1039 101A"/><c hex="1039 101B"/><c hex="1039 101D"/><c hex="1039 101F"/>
-  </component>
-  <component r="sub-cons5">
-    <c hex="1039 101A"/><c hex="1039 101B"/><c hex="1039 101D"/><c hex="1039 101F"/>
-  </component>
-</class>
-
-
-<class id="v-i">
-  <component r="v-e4">
-    <c>ိ</c><c>ီ</c><c>ဲ</c>
-  </component>
-  <component r="v-e5">
-    <c>ိ</c><c>ီ</c><c>ဲ</c>
-  </component>
-</class>
-
-<class id="v-u">
-  <component r="v-u4">
-    <c>ု</c><c>ူ</c>
-  </component>
-  <component r="v-u5">
-    <c>ု</c><c>ူ</c>
-  </component>
-</class>
-
-<class id="any-med-ya">
-  <component r="med-ya4">
-    <c/><c hex="1039 101A"/>
-  </component>
-  <component r="med-ya5">
-    <c/><c hex="103B"/>
-  </component>
-</class>
-
-<class id="any-med-ra">
-  <component r="med-ra4">
-    <c/><c hex="1039 101B"/>
-  </component>
-  <component r="med-ra5">
-    <c/><c hex="103C"/>
-  </component>
-</class>
-
-<class id="any-med-wa">
-  <component r="med-wa4">
-    <c/><c hex="1039 101D"/>
-  </component>
-  <component r="med-wa5">
-    <c/><c hex="103D"/>
-  </component>
-</class>
-
-<class id="any-med-ha">
-  <component r="med-ha4">
-    <c/><c hex="1039 101F"/>
-  </component>
-  <component r="med-ha5">
-    <c/><c hex="103E"/>
-  </component>
-</class>
-
-</classes>
-
-
-<mappingTable id="cons-med-ya">
-<columns>
-<component r="cons4"/>
-<component r="sub-cons4"/>
-<component r="med-ya4"/>
-<component r="cons5"/>
-<component r="sub-cons5"/>
-<component r="med-ya5"/>
-</columns>
-<maps>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="sub-cons4"/><c r="med-ya4" hex="1039 101A"/>
-  <c r="cons5" class="cons-no-nga"/><c r="sub-cons5"/><c r="med-ya5" hex="103B"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" hex="1039 101A"/>
-  <c r="cons5" class="cons-no-nga"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" hex="103B"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4" hex="1039 101A"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ya5" hex="103B"/>
-</m>
-<m><!-- I don't think you get great sa with medials -->
-  <c r="cons4" hex="101E"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4" hex="1039 101A"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/><c r="med-ya5" hex="103B"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4" hex="200D 1039 101A"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5" hex="103B"/>
-</m>
-<m><!-- no 200D when c is kinzi -->
-  <c r="cons4" hex="1004"/><c r="sub-cons4"  class="kinzi-nonmed-cons"/><c r="med-ya4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"  class="kinzi-nonmed-cons"/><c r="med-ya5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" hex="1039 101A"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" hex="103B"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4" hex="1039 101A"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ya5" hex="103B"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/><c r="med-ya5"/> 
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ya5"/> 
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4"/><c r="med-ya4"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5"/><c r="med-ya5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ya4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ya5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ya4" hex="1039 101A"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ya5" hex="103B"/> 
-</m>
-</maps>
-</mappingTable>
-
-
-<mappingTable id="cons-med-ra">
-<columns>
-<component r="cons4"/>
-<component r="sub-cons4"/>
-<component r="med-ra4"/><!-- c occurs with both medials, so have to combine in 1 table -->
-<component r="med-ha4"/>
-<component r="cons5"/>
-<component r="sub-cons5"/>
-<component r="med-ra5"/>
-<component r="med-ha5"/>
-</columns>
-<maps>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="sub-cons4"/>
-  <c r="med-ra4" hex="1039 101B"/><c r="med-ha4"/>
-  <c r="cons5" class="cons-no-nga"/><c r="sub-cons5"/>
-  <c r="med-ra5" hex="103C"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="sub-cons4"/>
-  <c r="med-ra4"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" class="cons-no-nga"/><c r="sub-cons5"/>
-  <c r="med-ra5"/><c r="med-ha5" hex="103E"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="sub-cons4"/>
-  <c r="med-ra4" hex="1039 101B"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" class="cons-no-nga"/><c r="sub-cons5"/>
-  <c r="med-ra5" hex="103C"/><c r="med-ha5" hex="103E"/>
-</m>
-<m><!-- no 200D when c is kinzi -->
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" class="sub-cons"/>
-  <c r="med-ra4" hex="1039 101B"/><c r="med-ha4"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" class="sub-cons"/>
-  <c r="med-ra5" hex="103C"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" class="sub-cons"/>
-  <c r="med-ra4"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" class="sub-cons"/>
-  <c r="med-ra5"/><c r="med-ha5" hex="103E"/>
-</m><!--
-<m>
+  <script side="left" ignoreCase="true" font="Padauk Uni4">
+    <name>Myanmar Uni4 UTN11</name>
+    <cluster side="left" id="syllable">
+      <component id="cons4" min="1" priority="80">consonant</component>
+      <component id="d-atha4" min="0" priority="10">killer</component>
+      <component id="sub-cons4" min="0" priority="20">subjoined consonant</component>
+      <component id="med-ya4" min="0" priority="50">medial ya</component>
+      <component id="med-ra4" min="0" priority="50">medial ra</component>
+      <component id="med-wa4" min="0" priority="50">medial wa</component>
+      <component id="med-ha4" min="0" priority="50">medial ha</component>
+      <component id="v-e4" min="0" priority="50">e</component>
+      <component id="v-u4" min="0" priority="50">u,uu</component>
+      <component id="v-i4" min="0" priority="50">i,ii,ai</component>
+      <component id="v-uw4" min="0" priority="20">wrong u,uu</component>
+      <component id="v-aa4" min="0" priority="50">aa</component>
+      <component id="anusvara4" min="0" priority="50">anusvara</component>
+      <component id="atha4" min="0" priority="50">killer</component>
+      <component id="dot-b4" min="0" priority="50">dot below</component>
+      <component id="visarga4" min="0" priority="50">visarga</component>
+    </cluster>
+  </script>
+  <script side="right" font="Padauk Unicode">
+    <name>Myanmar Uni5</name>
+    <cluster side="right" id="syllable">
+      <component id="cons5" min="1" priority="80">consonant</component>
+      <component id="d-atha5" min="0" priority="10">killer</component>
+      <component id="sub-cons5" min="0" priority="20">subjoined consonant</component>
+      <component id="med-ya5" min="0" priority="50">medial ya</component>
+      <component id="med-ra5" min="0" priority="50">medial ra</component>
+      <component id="med-wa5" min="0" priority="50">medial wa</component>
+      <component id="med-ha5" min="0" priority="50">medial ha</component>
+      <component id="v-e5" min="0" priority="50">e</component>
+      <component id="v-i5" min="0" priority="50">i,ii,ai</component>
+      <component id="v-u5" min="0" priority="50">u,uu</component>
+      <component id="v-aa5" min="0" priority="50">aa</component>
+      <component id="anusvara5" min="0" priority="50">anusvara</component>
+      <component id="atha5" min="0" priority="50">killer</component>
+      <component id="dot-b5" min="0" priority="50">dot below</component>
+      <component id="visarga5" min="0" priority="50">visarga</component>
+    </cluster>
+  </script>
+  <checks></checks>
+  <classes>
+    <!--classes must be the same size on both sides-->
+    <class id="cons">
+      <component r="cons4">
+        <c>က</c>
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ဃ</c>
+        <c>င</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဒ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ပ</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <c>ဝ</c>
+        <c>သ</c>
+        <c>သ</c>
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c>၎</c>
+      </component>
+      <component r="cons5">
+        <c>က</c>
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ဃ</c>
+        <c>င</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဒ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ပ</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <c>ဝ</c>
+        <c>သ</c>
+        <c hex="103F"/>
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c hex="104e 1004 103A 1038"/>
+      </component>
+    </class>
+    <class id="cons-no-nga">
+      <!--or sa-->
+      <component r="cons4">
+        <c>က</c>
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ဃ</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဒ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ပ</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <c>ဝ</c>
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c>၎</c>
+      </component>
+      <component r="cons5">
+        <c>က</c>
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ဃ</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဒ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ပ</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <c>ဝ</c>
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c hex="104e 1004 103A 1038"/>
+      </component>
+    </class>
+    <class id="cons-wide">
+      <!--all except ခ ဂ င ပ ဒ ဝ-->
+      <component r="cons4">
+        <c>က</c>
+        <c>ဃ</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <!--<c>သ</c><c>သ</c>-->
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c>၎</c>
+      </component>
+      <component r="cons5">
+        <c>က</c>
+        <c>ဃ</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <!--<c>သ</c><c hex="103F" />-->
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c hex="104e 1004 103A 1038"/>
+      </component>
+    </class>
+    <class id="cons-narrow">
+      <!--all except ခ ဂ င ပ ဒ ဝ-->
+      <component r="cons4">
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>င</c>
+        <c>ဒ</c>
+        <c>ပ</c>
+        <c>ဝ</c>
+      </component>
+      <component r="cons5">
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>င</c>
+        <c>ဒ</c>
+        <c>ပ</c>
+        <c>ဝ</c>
+      </component>
+    </class>
+    <!--င also has a tall aa with medial, but it needs special care-->
+    <class id="cn-med-short-aa">
+      <component r="cons4">
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ပ</c>
+      </component>
+      <component r="cons5">
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ပ</c>
+      </component>
+    </class>
+    <!--င also has a tall aa with medial, but it needs special care-->
+    <class id="cn-med-tall-aa">
+      <component r="cons4">
+        <c>ဒ</c>
+        <c>ဝ</c>
+      </component>
+      <component r="cons5">
+        <c>ဒ</c>
+        <c>ဝ</c>
+      </component>
+    </class>
+    <class id="cons-no-sa">
+      <component r="cons4">
+        <c>က</c>
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ဃ</c>
+        <c>င</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဒ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ပ</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <c>ဝ</c>
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c>၎</c>
+      </component>
+      <component r="cons5">
+        <c>က</c>
+        <c>ခ</c>
+        <c>ဂ</c>
+        <c>ဃ</c>
+        <c>င</c>
+        <c>စ</c>
+        <c>ဆ</c>
+        <c>ဇ</c>
+        <c>ဈ</c>
+        <c>ဉ</c>
+        <c>ည</c>
+        <c>ဋ</c>
+        <c>ဌ</c>
+        <c>ဍ</c>
+        <c>ဎ</c>
+        <c>ဏ</c>
+        <c>တ</c>
+        <c>ထ</c>
+        <c>ဒ</c>
+        <c>ဓ</c>
+        <c>န</c>
+        <c>ပ</c>
+        <c>ဖ</c>
+        <c>ဗ</c>
+        <c>ဘ</c>
+        <c>မ</c>
+        <c>ယ</c>
+        <c>ရ</c>
+        <c>လ</c>
+        <c>ဝ</c>
+        <c>ဟ</c>
+        <c>ဠ</c>
+        <c>အ</c>
+        <c hex="104e 1004 103A 1038"/>
+      </component>
+    </class>
+    <class id="sub-cons">
+      <!--note: excludes sa ္သ-->
+      <component r="sub-cons4">
+        <c>္က</c>
+        <c>္ခ</c>
+        <c>္ဂ</c>
+        <c>္ဃ</c>
+        <c>္စ</c>
+        <c>္ဆ</c>
+        <c>္ဇ</c>
+        <c>္ဈ</c>
+        <c>္ဋ</c>
+        <c>္ဌ</c>
+        <c>⁠္ဍ</c>
+        <c>္ဎ</c>
+        <c>္ဏ</c>
+        <c>္တ</c>
+        <c>္ထ</c>
+        <c>္ဒ</c>
+        <c>္ဓ</c>
+        <c>္န</c>
+        <c>္ပ</c>
+        <c>္ဖ</c>
+        <c>္ဗ</c>
+        <c>္ဘ</c>
+        <c>္မ</c>
+        <c>္လ</c>
+        <c>္ဠ</c>
+        <c>္အ</c>
+      </component>
+      <component r="sub-cons5">
+        <c>္က</c>
+        <c>္ခ</c>
+        <c>္ဂ</c>
+        <c>္ဃ</c>
+        <c>္စ</c>
+        <c>္ဆ</c>
+        <c>္ဇ</c>
+        <c>္ဈ</c>
+        <c>္ဋ</c>
+        <c>္ဌ</c>
+        <c>⁠္ဍ</c>
+        <c>္ဎ</c>
+        <c>္ဏ</c>
+        <c>္တ</c>
+        <c>္ထ</c>
+        <c>္ဒ</c>
+        <c>္ဓ</c>
+        <c>္န</c>
+        <c>္ပ</c>
+        <c>္ဖ</c>
+        <c>္ဗ</c>
+        <c>္ဘ</c>
+        <c>္မ</c>
+        <c>္လ</c>
+        <c>္ဠ</c>
+        <c>္အ</c>
+      </component>
+    </class>
+    <class id="kinzi-nonmed-cons">
+      <!--kinzi + a cons that can be a medial-->
+      <component r="sub-cons4">
+        <c hex="1039 101A"/>
+        <c hex="1039 101B"/>
+        <c hex="1039 101D"/>
+        <c hex="1039 101F"/>
+      </component>
+      <component r="sub-cons5">
+        <c hex="1039 101A"/>
+        <c hex="1039 101B"/>
+        <c hex="1039 101D"/>
+        <c hex="1039 101F"/>
+      </component>
+    </class>
+    <class id="v-i">
+      <component r="v-e4">
+        <c>ိ</c>
+        <c>ီ</c>
+        <c>ဲ</c>
+      </component>
+      <component r="v-e5">
+        <c>ိ</c>
+        <c>ီ</c>
+        <c>ဲ</c>
+      </component>
+    </class>
+    <class id="v-u">
+      <component r="v-u4">
+        <c>ု</c>
+        <c>ူ</c>
+      </component>
+      <component r="v-u5">
+        <c>ု</c>
+        <c>ူ</c>
+      </component>
+    </class>
+    <class id="any-med-ya">
+      <component r="med-ya4">
+        <c/>
+        <c hex="1039 101A"/>
+      </component>
+      <component r="med-ya5">
+        <c/>
+        <c hex="103B"/>
+      </component>
+    </class>
+    <class id="any-med-ra">
+      <component r="med-ra4">
+        <c/>
+        <c hex="1039 101B"/>
+      </component>
+      <component r="med-ra5">
+        <c/>
+        <c hex="103C"/>
+      </component>
+    </class>
+    <class id="any-med-wa">
+      <component r="med-wa4">
+        <c/>
+        <c hex="1039 101D"/>
+      </component>
+      <component r="med-wa5">
+        <c/>
+        <c hex="103D"/>
+      </component>
+    </class>
+    <class id="any-med-ha">
+      <component r="med-ha4">
+        <c/>
+        <c hex="1039 101F"/>
+      </component>
+      <component r="med-ha5">
+        <c/>
+        <c hex="103E"/>
+      </component>
+    </class>
+  </classes>
+  <mappingTable id="cons-med-ya" firstEntryWins="true">
+    <columns>
+      <component r="cons4"/>
+      <component r="sub-cons4"/>
+      <component r="med-ya4"/>
+      <component r="cons5"/>
+      <component r="sub-cons5"/>
+      <component r="med-ya5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+      <m>
+        <!--I don't think you get great sa with medials-->
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" hex="200D 1039 101A"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+      <m>
+        <!--no 200D when c is kinzi-->
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" class="kinzi-nonmed-cons"/>
+        <c r="med-ya4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" class="kinzi-nonmed-cons"/>
+        <c r="med-ya5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ya5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" hex="103B"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="cons-med-ra">
+    <columns>
+      <component r="cons4"/>
+      <component r="sub-cons4"/>
+      <component r="med-ra4"/>
+      <!--c occurs with both medials, so have to combine in 1 table-->
+      <component r="med-ha4"/>
+      <component r="cons5"/>
+      <component r="sub-cons5"/>
+      <component r="med-ra5"/>
+      <component r="med-ha5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-ha4"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <!--no 200D when c is kinzi-->
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-ha4"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <!--<m>
   <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/>
   <c r="med-ra4" hex="1039 101B"/><c r="med-ha4"/>
   <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/>
   <c r="med-ra5" hex="103C"/><c r="med-ha5"/>
 </m>-->
-<m><!-- no 200D when c is kinzi -->
-  <c r="cons4" hex="1004"/><c r="sub-cons4" class="kinzi-nonmed-cons"/><c r="med-ra4"/><c r="med-ha4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" class="kinzi-nonmed-cons"/><c r="med-ra5"/><c r="med-ha5"/>
-</m>
-
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/>
-  <c r="med-ra4"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/>
-  <c r="med-ra5"/><c r="med-ha5" hex="103E"/>
-</m>
-<m><!--  I don't think this case actually exists -->
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" class="sub-cons"/>
-  <c r="med-ra4" hex="1039 101B"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" class="sub-cons"/>
-  <c r="med-ra5" hex="103C"/><c r="med-ha5" hex="103E"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ra4" hex="1039 101B"/><c r="med-ha4"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ra5" hex="103C"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ra4"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ra5"/><c r="med-ha5" hex="103E"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ra4" hex="200D 1039 101B"/><c r="med-ha4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ra5" hex="103C"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ra4"/><c r="med-ha4" hex="200D 1039 101F"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ra5"/><c r="med-ha5" hex="103E"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/>
-  <c r="med-ra4" hex="200D 1039 101B"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/>
-  <c r="med-ra5" hex="103C"/><c r="med-ha5" hex="103E"/>
-</m>
-<m>
-  <c r="cons4" class="cons"/><c r="sub-cons4" class="sub-cons"/><c r="med-ra4"/><c r="med-ha4"/>
-  <c r="cons5" class="cons"/><c r="sub-cons5" class="sub-cons"/><c r="med-ra5"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" class="sub-cons"/><c r="med-ra4"/><c r="med-ha4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5" class="sub-cons"/><c r="med-ra5"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ra4"/><c r="med-ha4"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/><c r="med-ra5"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ra4"/><c r="med-ha4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ra5"/><c r="med-ha5"/> 
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4"/><c r="med-ra4"/><c r="med-ha4"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5"/><c r="med-ra5"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ra4"/><c r="med-ha4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ra5"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ra4" hex="1039 101B"/><c r="med-ha4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ra5" hex="103C"/><c r="med-ha5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ra4"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ra5"/><c r="med-ha5" hex="103E"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ra4" hex="1039 101B"/><c r="med-ha4" hex="1039 101F"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ra5" hex="103C"/><c r="med-ha5" hex="103E"/>
-</m>
-</maps>
-</mappingTable>
-
-
-
-<mappingTable id="cons-med-wa">
-<columns>
-<component r="cons4"/>
-<component r="sub-cons4"/>
-<component r="med-wa4"/>
-<component r="cons5"/>
-<component r="sub-cons5"/>
-<component r="med-wa5"/>
-</columns>
-<maps>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="sub-cons4"/><c r="med-wa4" hex="1039 101D"/>
-  <c r="cons5" class="cons-no-nga"/><c r="sub-cons5"/><c r="med-wa5" hex="103D"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="sub-cons4" class="sub-cons"/><c r="med-wa4" hex="1039 101D"/>
-  <c r="cons5" class="cons-no-nga"/><c r="sub-cons5" class="sub-cons"/><c r="med-wa5" hex="103D"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" hex="1039 101E"/><c r="med-wa4" hex="1039 101D"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" hex="1039 101E"/><c r="med-wa5" hex="103B"/>
-</m>
-<m><!-- I don't think you get great sa with medials -->
-  <c r="cons4" hex="101E"/><c r="sub-cons4" hex="1039 101E"/><c r="med-wa4" hex="1039 101D"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/><c r="med-wa5" hex="103B"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-wa4" hex="200D 1039 101D"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-wa5" hex="103D"/>
-</m><!--
-<m> no 200D when c is kinzi 
+      <m>
+        <!--no 200D when c is kinzi-->
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" class="kinzi-nonmed-cons"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" class="kinzi-nonmed-cons"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <!--I don't think this case actually exists-->
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-ha4"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4" hex="200D 1039 101B"/>
+        <c r="med-ha4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4" hex="200D 1039 101F"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4" hex="200D 1039 101B"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4"/>
+        <c r="cons5" class="cons"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-ha4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-ha5" hex="103E"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="cons-med-wa">
+    <columns>
+      <component r="cons4"/>
+      <component r="sub-cons4"/>
+      <component r="med-wa4"/>
+      <component r="cons5"/>
+      <component r="sub-cons5"/>
+      <component r="med-wa5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="sub-cons4"/>
+        <c r="med-wa4" hex="1039 101D"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="sub-cons5"/>
+        <c r="med-wa5" hex="103D"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-wa4" hex="1039 101D"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-wa5" hex="103D"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-wa4" hex="1039 101D"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-wa5" hex="103B"/>
+      </m>
+      <m>
+        <!--I don't think you get great sa with medials-->
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-wa4" hex="1039 101D"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+        <c r="med-wa5" hex="103B"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-wa4" hex="200D 1039 101D"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-wa5" hex="103D"/>
+      </m>
+      <!--<m> no 200D when c is kinzi 
   <c r="cons4" hex="1004"/><c r="sub-cons4" class="sub-cons"/><c r="med-wa4" hex="1039 101D"/>
   <c r="cons5" hex="1004"/><c r="sub-cons5" class="sub-cons"/><c r="med-wa5" hex="103D"/>
 </m>-->
-<m><!-- no 200D when c is kinzi -->
-  <c r="cons4" hex="1004"/><c r="sub-cons4" class="kinzi-nonmed-cons"/><c r="med-wa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" class="kinzi-nonmed-cons"/><c r="med-wa5"/>
-</m>
-<m><!-- no 200D when c is kinzi -->
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/><c r="med-wa4" hex="1039 101D"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/><c r="med-wa5" hex="103D"/>
-</m>
-<m>
-  <c r="cons4" class="cons"/><c r="sub-cons4" class="sub-cons"/><c r="med-wa4"/>
-  <c r="cons5" class="cons"/><c r="sub-cons5" class="sub-cons"/><c r="med-wa5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" class="sub-cons"/><c r="med-wa4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5" class="sub-cons"/><c r="med-wa5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" hex="1039 101E"/><c r="med-wa4"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/><c r="med-wa5"/> 
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/><c r="med-wa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/><c r="med-wa5"/> 
-</m>
-<m>
-  <c r="cons4" class="cons"/><c r="sub-cons4"/><c r="med-wa4"/>
-  <c r="cons5" class="cons"/><c r="sub-cons5"/><c r="med-wa5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-wa4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-wa5"/> 
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-wa4" hex="1039 101D"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-wa5" hex="103D"/> 
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="v-e">
-<columns>
-<component r="v-e4"/>
-<component r="v-e5"/>
-</columns>
-<maps>
-<m>
-  <c r="v-e4"/><c r="v-e5"/>
-</m>
-<m>
-  <c r="v-e4" hex="1031"/><c r="v-e5" hex="1031"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="v-i">
-<columns>
-<component r="v-i4"/>
-<component r="v-i5"/>
-</columns>
-<maps>
-<m>
-  <c r="v-i4"/><c r="v-i5"/>
-</m>
-<m>
-  <c r="v-i4" hex="102D"/><c r="v-i5" hex="102D"/>
-</m>
-<m>
-  <c r="v-i4" hex="102E"/><c r="v-i5" hex="102E"/>
-</m>
-<m>
-  <c r="v-i4" hex="1032"/><c r="v-i5" hex="1032"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="v-uwrong">
-<columns>
-<component r="v-u4"/>
-<component r="v-uw4"/>
-<component r="v-u5"/>
-</columns>
-<maps>
-<m>
-  <c r="v-u4"/><c r="v-uw4"/><c r="v-u5"/>
-</m>
-<m>
-  <c r="v-u4" hex="102F"/><c r="v-uw4"/><c r="v-u5" hex="102F"/>
-</m>
-<m>
-  <c r="v-u4" hex="1030"/><c r="v-uw4"/><c r="v-u5" hex="1030"/>
-</m>
-<m>
-  <c r="v-u4"/><c r="v-uw4" hex="102F"/><c r="v-u5" hex="102F"/>
-</m>
-<m>
-  <c r="v-u4"/><c r="v-uw4" hex="1030"/><c r="v-u5" hex="1030"/>
-</m>
-</maps>
-</mappingTable>
-
-<!-- fix ambiguity created by above table with an optional one with 
-     only the correct order -->
-<mappingTable id="v-u" optional="true">
-<columns>
-<component r="v-u4"/>
-<component r="v-uw4"/>
-<component r="v-u5"/>
-</columns>
-<maps>
-<m>
-  <c r="v-u4"/><c r="v-uw4"/><c r="v-u5"/>
-</m>
-<m>
-  <c r="v-u4" hex="102F"/><c r="v-uw4"/><c r="v-u5" hex="102F"/>
-</m>
-<m>
-  <c r="v-u4" hex="1030"/><c r="v-uw4"/><c r="v-u5" hex="1030"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="anusvara">
-<columns>
-<component r="anusvara4"/>
-<component r="anusvara5"/>
-</columns>
-<maps>
-<m>
-  <c r="anusvara4"/><c r="anusvara5"/>
-</m>
-<m>
-  <c r="anusvara4" hex="1036"/><c r="anusvara5" hex="1036"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="atha">
-<columns>
-<component r="atha4"/>
-<component r="atha5"/>
-</columns>
-<maps>
-<m>
-  <c r="atha4"/><c r="atha5"/>
-</m>
-<m>
-  <c r="atha4" hex="1039 200C"/><c r="atha5" hex="103A"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="atha-kinzi">
-<columns>
-<component r="cons4"/>
-<component r="d-atha4"/>
-<component r="sub-cons4"/>
-<component r="cons5"/>
-<component r="d-atha5"/>
-<component r="sub-cons5"/>
-</columns>
-<maps>
-<m>
-  <c r="cons4" class="cons"/><c r="d-atha4"/><c r="sub-cons4"/>
-  <c r="cons5" class="cons"/><c r="d-atha5"/><c r="sub-cons5"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="d-atha4" hex="1039 200C"/><c r="sub-cons4"/>
-  <c r="cons5" class="cons-no-nga"/><c r="d-atha5" hex="103A"/><c r="sub-cons5"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="d-atha4"/><c r="sub-cons4" class="sub-cons"/>
-  <c r="cons5" class="cons-no-nga"/><c r="d-atha5"/><c r="sub-cons5" class="sub-cons"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-nga"/><c r="d-atha4"/><c r="sub-cons4" hex="1039 101E"/>
-  <c r="cons5" class="cons-no-nga"/><c r="d-atha5"/><c r="sub-cons5" hex="1039 101E"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="d-atha4"/><c r="sub-cons4" hex="1039 101E"/>
-  <c r="cons5" hex="103F"/><c r="d-atha5"/><c r="sub-cons5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="d-atha4"/><c r="sub-cons4" class="sub-cons"/>
-  <c r="cons5" hex="101E"/><c r="d-atha5"/><c r="sub-cons5" class="sub-cons"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="d-atha4"/><c r="sub-cons4" class="sub-cons"/>
-  <c r="cons5" hex="1004"/><c r="d-atha5" hex="103A"/><c r="sub-cons5" class="sub-cons"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="d-atha4"/><c r="sub-cons4" hex="1039 101A"/>
-  <c r="cons5" hex="1004"/><c r="d-atha5" hex="103A"/><c r="sub-cons5" hex="1039 101A"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="d-atha4"/><c r="sub-cons4" hex="1039 101B"/>
-  <c r="cons5" hex="1004"/><c r="d-atha5" hex="103A"/><c r="sub-cons5" hex="1039 101B"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="d-atha4"/><c r="sub-cons4" hex="1039 101D"/>
-  <c r="cons5" hex="1004"/><c r="d-atha5" hex="103A"/><c r="sub-cons5" hex="1039 101D"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="d-atha4"/><c r="sub-cons4" hex="1039 101F"/>
-  <c r="cons5" hex="1004"/><c r="d-atha5" hex="103A"/><c r="sub-cons5" hex="1039 101F"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="d-atha4"/><c r="sub-cons4" hex="1039 101E"/>
-  <c r="cons5" hex="1004"/><c r="d-atha5" hex="103A"/><c r="sub-cons5" hex="1039 101E"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="d-atha4" hex="1039 200C"/><c r="sub-cons4"/>
-  <c r="cons5" hex="1004"/><c r="d-atha5" hex="103A"/><c r="sub-cons5"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="dot-b">
-<columns>
-<component r="dot-b4"/>
-<component r="dot-b5"/>
-</columns>
-<maps>
-<m>
-  <c r="dot-b4"/><c r="dot-b5"/>
-</m>
-<m>
-  <c r="dot-b4" hex="1037"/><c r="dot-b5" hex="1037"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="visarga">
-<columns>
-<component r="visarga4"/>
-<component r="visarga5"/>
-</columns>
-<maps>
-<m>
-  <c r="visarga4"/><c r="visarga5"/>
-</m>
-<m>
-  <c r="visarga4" hex="1038"/><c r="visarga5" hex="1038"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="a-context">
-<columns>
-<component r="cons4"/>
-<component r="sub-cons4"/>
-<component r="med-ya4"/>
-<component r="med-ra4"/>
-<component r="med-wa4"/>
-<component r="med-ha4"/>
-<component r="v-aa4"/>
-<component r="cons5"/>
-<component r="sub-cons5"/>
-<component r="med-ya5"/>
-<component r="med-ra5"/>
-<component r="med-wa5"/>
-<component r="med-ha5"/>
-<component r="v-aa5"/>
-</columns>
-<maps>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" class="kinzi-nonmed-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" class="kinzi-nonmed-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" class="kinzi-nonmed-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" class="kinzi-nonmed-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="101E"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="101E"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" class="cons-wide"/><c r="sub-cons4"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cons-wide"/><c r="sub-cons5"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" class="cons-wide"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cons-wide"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" class="cons-narrow"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cons-narrow"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102B"/>
-</m>
-<m>
-  <c r="cons4" class="cn-med-short-aa"/><c r="sub-cons4"/><c r="med-ya4" hex="1039 101A"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cn-med-short-aa"/><c r="sub-cons5"/><c r="med-ya5" hex="103B"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" class="cn-med-short-aa"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4" hex="1039 101B"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cn-med-short-aa"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5" hex="103C"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" class="cn-med-short-aa"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4" hex="1039 101D"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cn-med-short-aa"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5" hex="103D"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" class="cn-med-short-aa"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4" hex="1039 101F"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cn-med-short-aa"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5" hex="103E"/><c r="v-aa5" hex="102C"/>
-</m>
-<!-- there don't seem to be any narrow-cons + double/tripple medials + aa-->
-<m>
-  <c r="cons4" class="cn-med-tall-aa"/><c r="sub-cons4"/><c r="med-ya4" class="any-med-ya"/>
-  <c r="med-ra4" class="any-med-ra"/><c r="med-wa4" class="any-med-wa"/>
-  <c r="med-ha4" class="any-med-ha"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" class="cn-med-tall-aa"/><c r="sub-cons5"/><c r="med-ya5" class="any-med-ya"/>
-  <c r="med-ra5" class="any-med-ra"/><c r="med-wa5" class="any-med-wa"/>
-  <c r="med-ha5" class="any-med-ha"/><c r="v-aa5" hex="102B"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102B"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" class="sub-cons"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" class="sub-cons"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4" hex="1039 101E"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5" hex="1039 101E"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4" hex="200D 1039 101A"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5" hex="103B"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4" hex="200D 1039 101B"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5" hex="103C"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4" hex="200D 1039 101D"/><c r="med-ha4"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5" hex="103D"/><c r="med-ha5"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4" hex="200D 1039 101F"/><c r="v-aa4" hex="102C"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5" hex="103E"/><c r="v-aa5" hex="102C"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4" hex="200D 1039 101A"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5" hex="103B"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4" hex="200D 1039 101B"/>
-  <c r="med-wa4"/><c r="med-ha4"/><c r="v-aa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5" hex="103C"/>
-  <c r="med-wa5"/><c r="med-ha5"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4" hex="200D 1039 101D"/><c r="med-ha4"/><c r="v-aa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5" hex="103D"/><c r="med-ha5"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4"/>
-  <c r="med-wa4"/><c r="med-ha4" hex="200D 1039 101F"/><c r="v-aa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5"/>
-  <c r="med-wa5"/><c r="med-ha5" hex="103E"/><c r="v-aa5"/>
-</m>
-<m>
-  <c r="cons4" hex="1004"/><c r="sub-cons4"/><c r="med-ya4"/><c r="med-ra4" hex="200D 1039 101B"/>
-  <c r="med-wa4"/><c r="med-ha4" hex="1039 101F"/><c r="v-aa4"/>
-  <c r="cons5" hex="1004"/><c r="sub-cons5"/><c r="med-ya5"/><c r="med-ra5" hex="103C"/>
-  <c r="med-wa5"/><c r="med-ha5" hex="103E"/><c r="v-aa5"/>
-</m>
-</maps>
-</mappingTable>
-
-<mappingTable id="great-sa" optional="true">
-<columns>
-<component r="cons4"/>
-<component r="sub-cons4"/>
-<component r="cons5"/>
-<component r="sub-cons5"/>
-</columns>
-<maps>
-<m>
-  <c r="cons4">သ</c><c r="sub-cons4" hex="1039 101E"/>
-  <c r="cons5" hex="103F"/><c r="sub-cons5"/>
-</m>
-<m>
-  <c r="cons4" class="cons-no-sa"/><c r="sub-cons4" hex="1039 101E"/>
-  <c r="cons5" class="cons-no-sa"/><c r="sub-cons5" hex="1039 101E"/>
-</m>
-<m>
-  <c r="cons4">သ</c><c r="sub-cons4"/>
-  <c r="cons5">သ</c><c r="sub-cons5"/>
-</m>
-</maps>
-</mappingTable>
-
+      <m>
+        <!--no 200D when c is kinzi-->
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" class="kinzi-nonmed-cons"/>
+        <c r="med-wa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" class="kinzi-nonmed-cons"/>
+        <c r="med-wa5"/>
+      </m>
+      <m>
+        <!--no 200D when c is kinzi-->
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-wa4" hex="1039 101D"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-wa5" hex="103D"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-wa4"/>
+        <c r="cons5" class="cons"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-wa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-wa4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-wa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-wa4"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+        <c r="med-wa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-wa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-wa5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons"/>
+        <c r="sub-cons4"/>
+        <c r="med-wa4"/>
+        <c r="cons5" class="cons"/>
+        <c r="sub-cons5"/>
+        <c r="med-wa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-wa4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-wa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-wa4" hex="1039 101D"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-wa5" hex="103D"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="v-e">
+    <columns>
+      <component r="v-e4"/>
+      <component r="v-e5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="v-e4"/>
+        <c r="v-e5"/>
+      </m>
+      <m>
+        <c r="v-e4" hex="1031"/>
+        <c r="v-e5" hex="1031"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="v-i">
+    <columns>
+      <component r="v-i4"/>
+      <component r="v-i5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="v-i4"/>
+        <c r="v-i5"/>
+      </m>
+      <m>
+        <c r="v-i4" hex="102D"/>
+        <c r="v-i5" hex="102D"/>
+      </m>
+      <m>
+        <c r="v-i4" hex="102E"/>
+        <c r="v-i5" hex="102E"/>
+      </m>
+      <m>
+        <c r="v-i4" hex="1032"/>
+        <c r="v-i5" hex="1032"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="v-uwrong">
+    <columns>
+      <component r="v-u4"/>
+      <component r="v-uw4"/>
+      <component r="v-u5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="v-u4"/>
+        <c r="v-uw4"/>
+        <c r="v-u5"/>
+      </m>
+      <m>
+        <c r="v-u4" hex="102F"/>
+        <c r="v-uw4"/>
+        <c r="v-u5" hex="102F"/>
+      </m>
+      <m>
+        <c r="v-u4" hex="1030"/>
+        <c r="v-uw4"/>
+        <c r="v-u5" hex="1030"/>
+      </m>
+      <m>
+        <c r="v-u4"/>
+        <c r="v-uw4" hex="102F"/>
+        <c r="v-u5" hex="102F"/>
+      </m>
+      <m>
+        <c r="v-u4"/>
+        <c r="v-uw4" hex="1030"/>
+        <c r="v-u5" hex="1030"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <!--fix ambiguity created by above table with an optional one with 
+     only the correct order-->
+  <mappingTable id="v-u" optional="true">
+    <columns>
+      <component r="v-u4"/>
+      <component r="v-uw4"/>
+      <component r="v-u5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="v-u4"/>
+        <c r="v-uw4"/>
+        <c r="v-u5"/>
+      </m>
+      <m>
+        <c r="v-u4" hex="102F"/>
+        <c r="v-uw4"/>
+        <c r="v-u5" hex="102F"/>
+      </m>
+      <m>
+        <c r="v-u4" hex="1030"/>
+        <c r="v-uw4"/>
+        <c r="v-u5" hex="1030"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="anusvara">
+    <columns>
+      <component r="anusvara4"/>
+      <component r="anusvara5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="anusvara4"/>
+        <c r="anusvara5"/>
+      </m>
+      <m>
+        <c r="anusvara4" hex="1036"/>
+        <c r="anusvara5" hex="1036"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="atha">
+    <columns>
+      <component r="atha4"/>
+      <component r="atha5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="atha4"/>
+        <c r="atha5"/>
+      </m>
+      <m>
+        <c r="atha4" hex="1039 200C"/>
+        <c r="atha5" hex="103A"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="atha-kinzi">
+    <columns>
+      <component r="cons4"/>
+      <component r="d-atha4"/>
+      <component r="sub-cons4"/>
+      <component r="cons5"/>
+      <component r="d-atha5"/>
+      <component r="sub-cons5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="cons4" class="cons"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4"/>
+        <c r="cons5" class="cons"/>
+        <c r="d-atha5"/>
+        <c r="sub-cons5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="d-atha4" hex="1039 200C"/>
+        <c r="sub-cons4"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="d-atha5"/>
+        <c r="sub-cons5" class="sub-cons"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-nga"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="cons5" class="cons-no-nga"/>
+        <c r="d-atha5"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="cons5" hex="103F"/>
+        <c r="d-atha5"/>
+        <c r="sub-cons5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="cons5" hex="101E"/>
+        <c r="d-atha5"/>
+        <c r="sub-cons5" class="sub-cons"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="cons5" hex="1004"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5" class="sub-cons"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" hex="1039 101A"/>
+        <c r="cons5" hex="1004"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5" hex="1039 101A"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" hex="1039 101B"/>
+        <c r="cons5" hex="1004"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5" hex="1039 101B"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" hex="1039 101D"/>
+        <c r="cons5" hex="1004"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5" hex="1039 101D"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" hex="1039 101F"/>
+        <c r="cons5" hex="1004"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5" hex="1039 101F"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="d-atha4"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="cons5" hex="1004"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="d-atha4" hex="1039 200C"/>
+        <c r="sub-cons4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="d-atha5" hex="103A"/>
+        <c r="sub-cons5"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="dot-b">
+    <columns>
+      <component r="dot-b4"/>
+      <component r="dot-b5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="dot-b4"/>
+        <c r="dot-b5"/>
+      </m>
+      <m>
+        <c r="dot-b4" hex="1037"/>
+        <c r="dot-b5" hex="1037"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="visarga">
+    <columns>
+      <component r="visarga4"/>
+      <component r="visarga5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="visarga4"/>
+        <c r="visarga5"/>
+      </m>
+      <m>
+        <c r="visarga4" hex="1038"/>
+        <c r="visarga5" hex="1038"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="a-context">
+    <columns>
+      <component r="cons4"/>
+      <component r="sub-cons4"/>
+      <component r="med-ya4"/>
+      <component r="med-ra4"/>
+      <component r="med-wa4"/>
+      <component r="med-ha4"/>
+      <component r="v-aa4"/>
+      <component r="cons5"/>
+      <component r="sub-cons5"/>
+      <component r="med-ya5"/>
+      <component r="med-ra5"/>
+      <component r="med-wa5"/>
+      <component r="med-ha5"/>
+      <component r="v-aa5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" class="kinzi-nonmed-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" class="kinzi-nonmed-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" class="kinzi-nonmed-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" class="kinzi-nonmed-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="101E"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="101E"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-wide"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cons-wide"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-wide"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cons-wide"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-narrow"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cons-narrow"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102B"/>
+      </m>
+      <m>
+        <c r="cons4" class="cn-med-short-aa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" hex="1039 101A"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cn-med-short-aa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" hex="103B"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" class="cn-med-short-aa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4" hex="1039 101B"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cn-med-short-aa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" class="cn-med-short-aa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4" hex="1039 101D"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cn-med-short-aa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5" hex="103D"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" class="cn-med-short-aa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cn-med-short-aa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5" hex="103E"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <!--there don't seem to be any narrow-cons + double/tripple medials + aa-->
+      <m>
+        <c r="cons4" class="cn-med-tall-aa"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" class="any-med-ya"/>
+        <c r="med-ra4" class="any-med-ra"/>
+        <c r="med-wa4" class="any-med-wa"/>
+        <c r="med-ha4" class="any-med-ha"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" class="cn-med-tall-aa"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" class="any-med-ya"/>
+        <c r="med-ra5" class="any-med-ra"/>
+        <c r="med-wa5" class="any-med-wa"/>
+        <c r="med-ha5" class="any-med-ha"/>
+        <c r="v-aa5" hex="102B"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102B"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" class="sub-cons"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" class="sub-cons"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" hex="200D 1039 101A"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" hex="103B"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4" hex="200D 1039 101B"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4" hex="200D 1039 101D"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5" hex="103D"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4" hex="200D 1039 101F"/>
+        <c r="v-aa4" hex="102C"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5" hex="103E"/>
+        <c r="v-aa5" hex="102C"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4" hex="200D 1039 101A"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5" hex="103B"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4" hex="200D 1039 101B"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4" hex="200D 1039 101D"/>
+        <c r="med-ha4"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5" hex="103D"/>
+        <c r="med-ha5"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4" hex="200D 1039 101F"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5" hex="103E"/>
+        <c r="v-aa5"/>
+      </m>
+      <m>
+        <c r="cons4" hex="1004"/>
+        <c r="sub-cons4"/>
+        <c r="med-ya4"/>
+        <c r="med-ra4" hex="200D 1039 101B"/>
+        <c r="med-wa4"/>
+        <c r="med-ha4" hex="1039 101F"/>
+        <c r="v-aa4"/>
+        <c r="cons5" hex="1004"/>
+        <c r="sub-cons5"/>
+        <c r="med-ya5"/>
+        <c r="med-ra5" hex="103C"/>
+        <c r="med-wa5"/>
+        <c r="med-ha5" hex="103E"/>
+        <c r="v-aa5"/>
+      </m>
+    </maps>
+  </mappingTable>
+  <mappingTable id="great-sa" optional="true">
+    <columns>
+      <component r="cons4"/>
+      <component r="sub-cons4"/>
+      <component r="cons5"/>
+      <component r="sub-cons5"/>
+    </columns>
+    <maps>
+      <m>
+        <c r="cons4">သ</c>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="cons5" hex="103F"/>
+        <c r="sub-cons5"/>
+      </m>
+      <m>
+        <c r="cons4" class="cons-no-sa"/>
+        <c r="sub-cons4" hex="1039 101E"/>
+        <c r="cons5" class="cons-no-sa"/>
+        <c r="sub-cons5" hex="1039 101E"/>
+      </m>
+      <m>
+        <c r="cons4">သ</c>
+        <c r="sub-cons4"/>
+        <c r="cons5">သ</c>
+        <c r="sub-cons5"/>
+      </m>
+    </maps>
+  </mappingTable>
 </syllableConverter>

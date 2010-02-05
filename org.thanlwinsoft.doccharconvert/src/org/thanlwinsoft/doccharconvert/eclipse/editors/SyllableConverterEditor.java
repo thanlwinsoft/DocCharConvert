@@ -55,6 +55,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IURIEditorInput;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.thanlwinsoft.doccharconvert.ConverterXmlParser;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
@@ -317,7 +318,8 @@ public class SyllableConverterEditor extends MultiPageEditorPart
     public void doSave(IProgressMonitor monitor)
     {
 
-        if (this.getEditorInput() instanceof IFileEditorInput)
+        if (this.getEditorInput() instanceof IFileEditorInput ||
+        		this.getEditorInput() instanceof FileStoreEditorInput)
         {
             XmlOptions options = new XmlOptions();
             options.setCharacterEncoding("UTF-8");
@@ -329,7 +331,7 @@ public class SyllableConverterEditor extends MultiPageEditorPart
                 IFile wsFile = EditorUtils.getWsFileFromInput(this);
                 if (wsFile != null)
                     wsFile.refreshLocal(1, monitor);
-                URL fileUrl = wsFile.getLocationURI().toURL();
+                URL fileUrl = f.toURI().toURL();//wsFile.getLocationURI().toURL();
                 mConverter = new org.thanlwinsoft.doccharconvert.converter.SyllableConverter(
                         fileUrl);
                 monitor.beginTask(MessageUtil
