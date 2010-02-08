@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DocCharConverter name="Mien:NRM=&gt;ORM" rname="Mien:ORM=&gt;NRM"  xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
-<Argument value="Mien/nrm2orm.xml" type="File" />
+<Argument value="Mien/nrm2orm.sylx" type="File" />
 </ConverterClass>
 <Styles>
 <Style>

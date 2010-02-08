@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DocCharConverter name="Myanmar Unicode 4UTN11 to Unicode 5" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
-<Argument value="myUni4ToUni5.xml" type="File" />
+<Argument value="myUni4ToUni5.sylx" type="File" />
 </ConverterClass>
 <Styles>
 <Style>

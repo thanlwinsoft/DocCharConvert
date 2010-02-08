@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc:DocCharConverter name="ZawGyiOne to Unicode5.1" rname="Unicode 5.1 to ZawGyiOne" xmlns:doc="http://www.thanlwinsoft.org/schemas/DocCharConvert">
   <doc:ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
-    <doc:Argument type="File" value="ZawGyiOne.xml"/>
+    <doc:Argument type="File" value="ZawGyiOne.sylx"/>
   </doc:ConverterClass>
   <doc:Styles>
     <doc:Style>

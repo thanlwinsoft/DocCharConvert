@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc:DocCharConverter name="AChin to Unicode" rname="Unicode to AChin" xmlns:doc="http://www.thanlwinsoft.org/schemas/DocCharConvert">
   <doc:ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
-    <doc:Argument type="File" value="AChin.xml"/>
+    <doc:Argument type="File" value="AChin.sylx"/>
   </doc:ConverterClass>
   <doc:Styles>
     <doc:Style>
