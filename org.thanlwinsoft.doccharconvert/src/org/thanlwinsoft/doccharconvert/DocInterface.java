@@ -70,6 +70,14 @@ public interface DocInterface
         {
             super(msg);
         }
+        /**
+         * Wrap another exception
+         * @param e
+         */
+        public InterfaceException(Exception e)
+        {
+        	super(e);
+        }
     }
     /**
      * 

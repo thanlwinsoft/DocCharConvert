@@ -174,7 +174,7 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
 				TableItem [] rows = fileTable.getSelection();
 				for (int i = 0; i < rows.length; i++)
 				{
-					if (rows[i].getData() instanceof Map.Entry)
+					if (rows[i].getData() instanceof Map.Entry<?,?>)
 					{
 						Map.Entry<?,?> row = (Map.Entry<?,?>)rows[i].getData();
 						conversion.removeFilePair(row);
@@ -297,7 +297,7 @@ public class FileSelectionPage extends WizardPage implements ModifyListener
 		}
 
 		public String getColumnText(Object element, int columnIndex) {
-			if (element instanceof Map.Entry)
+			if (element instanceof Map.Entry<?,?>)
 			{
 				File f = null;
 				Map.Entry<?,?> entry = (Map.Entry<?,?>)element;

@@ -22,7 +22,9 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.TimeZone;
 import java.util.Vector;
 
@@ -36,8 +38,10 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.INewWizard;
@@ -58,12 +62,16 @@ import org.thanlwinsoft.doccharconvert.eclipse.ConversionInputEditor;
 import org.thanlwinsoft.doccharconvert.eclipse.ConversionRunnable;
 import org.thanlwinsoft.doccharconvert.eclipse.DocCharConvertEclipsePlugin;
 import org.thanlwinsoft.doccharconvert.eclipse.EclipseMessageDisplay;
+import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 import org.thanlwinsoft.doccharconvert.eclipse.Perspective;
 import org.thanlwinsoft.doccharconvert.eclipse.PreferencesInitializer;
 import org.thanlwinsoft.doccharconvert.eclipse.views.ConversionFileListView;
 import org.thanlwinsoft.doccharconvert.eclipse.wizard.DocumentParserPage;
+import org.thanlwinsoft.doccharconvert.parser.ParserConfiguration;
 import org.thanlwinsoft.doccharconvert.BatchConversion;
 import org.thanlwinsoft.doccharconvert.Config;
+import org.thanlwinsoft.doccharconvert.ConversionMode;
+import org.thanlwinsoft.doccharconvert.DocInterface;
 import org.thanlwinsoft.doccharconvert.MessageUtil;
 import org.thanlwinsoft.doccharconvert.ReverseConversion;
 /**
@@ -79,6 +87,7 @@ public class ConversionWizard extends Wizard implements INewWizard
     private IWorkbenchWindow wbWindow;
     private WizardDialog dialog;
     private ConversionRunnable runnable = null;
+    private Map<ConversionMode, String> parserPageMap = new HashMap<ConversionMode, String>();
     
     /**
      * name of default project to create
@@ -90,6 +99,7 @@ public class ConversionWizard extends Wizard implements INewWizard
     public final static String TXT_EXT = ".txt";
     
     static final String DOC_PARSER_PAGE = "DOC_PARSER_PAGE";
+    static final String PARSER_CONFIG_PAGE = "PARSER_CONFIG_PAGE";
     static final String CONVERTER_PAGE = "CONVERTER_PAGE";
     static final String FONT_CONVERTER_PAGE = "FONT_CONVERTER_PAGE";
     static final String ENCODING_PAGE = "ENCODING_PAGE";
@@ -115,6 +125,37 @@ public class ConversionWizard extends Wizard implements INewWizard
         conversion.setMessageDisplay(new EclipseMessageDisplay(wbWindow.getShell()));
         parserPage = new DocumentParserPage(conversion);
         addPage(parserPage);
+      	// currently only ExtensionConversionModes have their own wizard pages
+        
+        ConversionMode [] extMode = ExtensionConversionMode.getExtensionModes();
+        for (int i = 0; i < extMode.length; i++)
+        {
+        	DocInterface docInterface = ((ExtensionConversionMode)extMode[i]).getDocInterface();
+        	if (docInterface instanceof ParserConfiguration)
+        	{
+        		IWizardPage page = (IWizardPage)((ParserConfiguration)docInterface).getAdapter(IWizardPage.class);
+        		if (page != null)
+        		{
+        			if (this.getPage(page.getName()) == null)
+        			{
+        				if (page instanceof WizardPage)
+        				{
+        					((WizardPage)page).setPageComplete(true);
+        				}
+        					if (page.isPageComplete())
+        					{
+        						addPage(page);
+        					}
+        					else
+        					{
+        						DocCharConvertEclipsePlugin.log(IStatus.WARNING, "Document Parser configuration Wizard pages must return true when they are not visible and isPageComplete() is called otherwise they will prevent the wizard from exiting.");
+        						continue;
+        					}
+        			}
+        			parserPageMap.put(extMode[i], page.getName());
+        		}
+        	}
+        }
         converterPage = new ConverterPage(conversion);
         addPage(converterPage);
         fontPage = new FontConversionPage(converterPage, conversion);
@@ -123,6 +164,20 @@ public class ConversionWizard extends Wizard implements INewWizard
         addPage(new EncodingPage(conversion));
     }
 
+    /**
+     * Retrieves the page corresponding to the given parse mode.
+     * @param mode
+     * @return configuration page or null
+     */
+    public IWizardPage getParserConfigPage(ConversionMode mode)
+    {
+    	if (parserPageMap.containsKey(mode))
+    	{
+    	return this.getPage(parserPageMap.get(mode));
+    	}
+    	return null;
+    }
+    
     /* (non-Javadoc)
      * @see org.eclipse.jface.wizard.Wizard#performFinish()
      */
@@ -361,8 +416,8 @@ public class ConversionWizard extends Wizard implements INewWizard
     @Override
     public void createPageControls(Composite pageContainer)
     {
-        
-        super.createPageControls(pageContainer);
+        if (pageContainer != null)
+        	super.createPageControls(pageContainer);
     }
 
     /**
@@ -378,6 +433,10 @@ public class ConversionWizard extends Wizard implements INewWizard
     public void init(IWorkbench workbench, IStructuredSelection selection)
     {
         // TODO use selection to initialise file 
+    	for (ConversionMode m : parserPageMap.keySet())
+    	{
+    		this.getPage(parserPageMap.get(m)).setVisible(false);
+    	}
     }
     
 }

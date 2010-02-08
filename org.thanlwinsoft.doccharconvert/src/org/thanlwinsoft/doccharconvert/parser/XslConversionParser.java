@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.xml.transform.Source;
@@ -45,13 +46,15 @@ import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
  * @author keith
  * Conversion parser which is invoked from within an XSL transformation
  */
-public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocInterface
+public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocInterface, ParserConfiguration
 {
     private ConversionMode mMode = null;
     private InputStream mXslt = null;
     private TransformerFactory mTransformerFactory = null;
     private Source mXslSource = null;
     private static XslConversionParser theParser = null;
+    private Map<String, Object> mParameters = null;
+    protected static ArrayList<XslConversionConfiguration> configurable = new ArrayList<XslConversionConfiguration>();
     private Map<TextStyle, CharConverter> mConverters;
 
     /**
@@ -107,7 +110,10 @@ public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocI
             ExtensionConversionMode ecm = (ExtensionConversionMode)mMode;
             try
             {
+            		if (mXslt == null)
+            		{
                 mXslt = ecm.getPath(ecm.getOptions());
+            		}
                 if (mXslt != null)
                     mXslSource = new StreamSource(mXslt);
             }
@@ -132,6 +138,13 @@ public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocI
         {
             mConverters = converters;
             Transformer t = mTransformerFactory.newTransformer(mXslSource);
+            if (mParameters != null)
+            {
+            	for (String name : mParameters.keySet())
+            	{
+            t.setParameter(name, mParameters.get(name));
+            	}
+            }
             StreamSource in = new StreamSource(input);
             StreamResult out = new StreamResult(output);
             t.transform(in, out);
@@ -216,4 +229,34 @@ public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocI
         
     }
 
+	@Override
+	public Object getAdapter(Class<?> c)
+	{
+		for (XslConversionConfiguration a : configurable)
+		{
+			if (c.isInstance(a))
+				return a;
+		}
+		return null;
+	}
+
+	@Override
+	public void setConfiguration(Object o) throws InterfaceException
+	{
+		if (o instanceof XslConversionConfiguration)
+		{
+			XslConversionConfiguration config = (XslConversionConfiguration)o;
+			mXslt = config.xslStream();
+			mParameters = config.getParams();
+		}
+		else throw new IllegalArgumentException();
+	}
+
+	/** Register an XslConversionConfiguration implementation
+	 * @param config
+	 */
+	public static void addConfiguration(XslConversionConfiguration config)
+	{
+		configurable.add(config);
+	}
 }

@@ -33,6 +33,7 @@ import java.util.Hashtable;
 import org.thanlwinsoft.doccharconvert.converter.CharConverter;
 import org.thanlwinsoft.doccharconvert.eclipse.ExtensionConversionMode;
 import org.thanlwinsoft.doccharconvert.opendoc.OpenDocParser;
+import org.thanlwinsoft.doccharconvert.parser.ParserConfiguration;
 import org.thanlwinsoft.doccharconvert.parser.TeXParser;
 import org.thanlwinsoft.doccharconvert.parser.TextParser;
 /**
@@ -52,6 +53,7 @@ public class BatchConversion implements Runnable
     //boolean stop = false;
     boolean running = false;
     DocInterface docInterface = null;
+    Object parserConfig = null;
     boolean useFilePairs = false;
     TreeMap<File,File> filePairList = null;
     String status = "";
@@ -114,6 +116,7 @@ public class BatchConversion implements Runnable
                 docInterface.destroy();
             docInterface = null;
             this.mode = mode;
+            this.parserConfig = null;
         }
     }
     /* (non-Javadoc)
@@ -404,7 +407,20 @@ public class BatchConversion implements Runnable
             showWarning("Failed to intialise document interface");
             return;
         }
+        if (docInterface instanceof ParserConfiguration)
+        {
+        	((ParserConfiguration)docInterface).setConfiguration(parserConfig);
+        }
         docInterface.initialise();
+    }
+    
+    /**
+     *  Set configuration object which will have been returend by ParserConfiguration.getAdapter()
+     * @param config
+     */
+    public void setParserConfiguration(Object config)
+    {
+    	this.parserConfig = config;
     }
     
     public void run()

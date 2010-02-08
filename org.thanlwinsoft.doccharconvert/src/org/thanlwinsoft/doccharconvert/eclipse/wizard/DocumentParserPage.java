@@ -17,6 +17,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 ------------------------------------------------------------------------------*/
 package org.thanlwinsoft.doccharconvert.eclipse.wizard;
 
+import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -137,8 +138,23 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
             combo.setEnabled(true);
             if (combo.getSelectionIndex() > -1)
             {
+              IWizard w = getWizard();
+            	if (conversion.getConversionMode() != null &&
+            			w instanceof ConversionWizard)
+            	{
+            		ConversionMode oldMode = conversion.getConversionMode();
+            		// hide previous mode's page
+            		IWizardPage modePage = ((ConversionWizard)w).getParserConfigPage(oldMode);
+                	if (modePage != null) modePage.setVisible(false);
+            	}
                 conversion.setFileMode(true);
-                conversion.setConversionMode(ConversionMode.getById(combo.getSelectionIndex(), true));
+                ConversionMode mode = ConversionMode.getById(combo.getSelectionIndex(), true);
+                conversion.setConversionMode(mode);
+                if (w instanceof ConversionWizard)
+                {
+                	IWizardPage modePage = ((ConversionWizard)w).getParserConfigPage(mode);
+                	if (modePage != null) modePage.setVisible(true);
+                }
                 IWizardPage fileSelectPage = 
                     getWizard().getPage(ConversionWizard.FILE_SELECT_PAGE);
                 if (fileSelectPage instanceof FileSelectionPage)

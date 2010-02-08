@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.thanlwinsoft.doccharconvert">
+<schema targetNamespace="org.thanlwinsoft.doccharconvert" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
          <meta.schema plugin="org.thanlwinsoft.doccharconvert" id="org.thanlwinsoft.doccharconvert.parser" name="org.thanlwinsoft.doccharconvert.parser"/>
@@ -11,6 +11,11 @@
    </annotation>
 
    <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
       <complexType>
          <sequence minOccurs="0" maxOccurs="unbounded">
             <element ref="parser"/>
@@ -99,6 +104,16 @@
                   Specify the file extensions that the parser understands.
 e.g. .xml, .txt
                </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="wizardPage" type="string">
+            <annotation>
+               <documentation>
+                  A class that implements org.eclipse.jface.wizard.IWizardPage. In this case, the parser must implement org.thanlwinsoft.doccharconvert.parser.ParserConfiguration.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jface.wizard.IWizardPage"/>
+               </appInfo>
             </annotation>
          </attribute>
          <attribute name="options" type="string">

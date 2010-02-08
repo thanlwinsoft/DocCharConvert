@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doc:DocCharConverter name="EncodingOnly" rname="EncodingOnly (reversed)" xmlns:doc="http://www.thanlwinsoft.org/schemas/DocCharConvert">
   <doc:ConverterClass name="org.thanlwinsoft.doccharconvert.converter.NoChangeConverter"/>
+  <!-- Note: this only does something with text file input/output. -->
   <doc:Styles>
     <doc:Style>
       <doc:Font type="old" name="Tahoma"/>

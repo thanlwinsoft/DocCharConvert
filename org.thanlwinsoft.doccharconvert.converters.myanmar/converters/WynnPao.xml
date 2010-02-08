@@ -9,13 +9,20 @@
     contact="mailto:devel@thanlwinsoft.org"
     registrationAuthority="none"
     registrationName=""
-    byte-font="Winnwa"
+    byte-font="WynnPao"
     normalization="NFC"
 >
 
 <history>
-    <modified version="0" date="2010-02-05">
-        	Initial Version.
+    <modified version="0" date="2010-02-08">
+        	Initial Version. The problem with this font is that it doesn't seem
+        	to follow any standard encoding. This makes it a bit problematic
+        	for a conversion method which assumes a byte encoding on one side.
+        	The closest mapping appears to be macos-0_2-10.2 macroman.
+        	You may need to do a search and replace for the following sequences:
+        	0x017D => 0x25CA 0x00F6
+        	0xF000 => 0x00A9
+        	0x00A4 => undefined in macroman
     </modified>
 </history>
 
@@ -172,13 +179,14 @@
     	   1000 1039 1001 is 2260
     	   aa7b           is 2264
     	   2e             is 02c9
+    	        17d
     	-->
     <a b="A0" u="A0"/><!--  -->
     <!--<a b="A1" u=""/>  -->
     <a b="a2" u="1039 1003"/>
     <a b="a3" u="1023"/>
-    <a b="a4" u="100f 1039 100c"/>
-    <a b="a5" u="100b 1039 100b"/>
+    <!-- <a b="a4" u="100f 1039 100c"/> U00A4 is not in macroman  -->
+
     <fbu b="a6" u="103b"/>
     <a b="a7" u="103E" ubctxt="r-med"/>
     <a b="a8" u="1039 1013"/>
@@ -194,19 +202,21 @@
     <!--<a b="B1" u="00b1"/> no glyph -->
     <a b="B2" u="1014 1039 1010 103d"/><!--  -->
     <!--<a b="B3" u=""/>   -->       
+    <a b="b4" u="100b 1039 100b"/><!-- U00A5 -->
+    
     <a b="B4" u="1039 1012"/> <!--  -->       
     <a b="B5" u="0021"/> <!--  -->       
     <a b="B6" u="27a2"/> <!--  -->       
     <!--<a b="B7" u="00b7"/> no glyph  -->
     <!--<a b="B8" u="00b8"/> no glyph  -->
-    <!--<a b="B9" u=""/>-->
+     <!--<a b="B9" u="103C 103D"/>-->
     <fbu b="BB" u="201c"/>
-    <fbu b="BC" u="100d"/><!--  -->
+    <!--<fbu b="BC" u="100d"/>  BC is not in macroman -->
     <a b="BD" u="101b" uactxt="short-r"/><!--  -->
     <a b="BE" u="1039 1002"/><!--  -->
     <!--<a b="BF" u="003F"/>  -->
     <a b="C0" u="2666"/><!--  -->
-    <a b="C1" u="1039 1017"/><!--  -->
+    <!--<a b="C1" u=""/> U00A0 -->
     <a b="C2" u="2714"/><!--   -->
     <a b="C3" u="1004 103a 1039 102e"/><!--  -->
     <!-- <a b="C4" u="2734"/> -->
@@ -216,7 +226,7 @@
     <a b="C7" u="1039 1018"/><!--  -->
     <fbu b="C8" u="108f"/><!--  -->
     <fbu b="C9" u="aa7b"/><!--  -->
-    <a b="CA" u="1039 1011"/><!--  -->
+    <a b="CA" u="00A0"/><!-- U00A0  -->
     <a b="CB" u="1026"/><!--  -->
     <!--<a b="CC" u="00cc"/>  no glyph -->
     <!--<a b="CD" u=""/>  -->
@@ -252,8 +262,8 @@
 
     <a b="F1" u="100a" uactxt="below"/><!--  -->
     
-    <a b="F3" u="103F"/><!--  -->
-    
+    <a b="F3" u="103F"/><!--   -->
+    <a b="F5" u="1039 1018"/><!-- U0131 -->
     <a b="F6" u="1039 1005"/><!--  -->
     <a b="F7" u="00D7"/><!--  multiply in this font-->
     <fbu b="F8" u="aa7b"/><!--  -->
@@ -262,7 +272,7 @@
     
     <a b="FC" u="104c"/><!--  -->
     
-    <a b="FE" u="1024"/><!--  -->
+    <a b="FE" u="1024"/><!-- FE is not in macroman  -->
 
     <ordering side="unicode"><!---->
         <order b="reorder-kinzi-b" u="reorder-kinzi-u"/>

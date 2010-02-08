@@ -2,15 +2,15 @@
 <DocCharConverter name="WynnPao =&gt; Myanmar Unicode" rname="Myanmar Unicode =&gt; WynnPao" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
 <ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
 <Argument value="WynnPao.tec" type="File" />
-<Argument value="windows-1252" type="String" />
+<Argument value="macroman" type="String" />
 </ConverterClass>
 <Styles>
 <Style>
-  <Font name="WinInnwa" type="old" script="latin" />
+  <Font name="WynnPao" type="old" script="latin" />
   <Font name="Padauk" type="new" script="ctl"/>
 </Style>
 <Style>
-  <Font name="WinInnwa" type="old" script="latin" />
+  <Font name="WynnPao" type="old" script="latin" />
   <Font name="Myanmar3" type="new" script="ctl"/>
 </Style>
 </Styles>

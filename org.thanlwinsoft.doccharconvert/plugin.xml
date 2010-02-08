@@ -179,7 +179,7 @@
       <editor
             class="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             default="true"
-            extensions="xml"
+            filenames="*.sylx"
             icon="icons/ConversionTable16.png"
             id="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterEditor"
             matchingStrategy="org.thanlwinsoft.doccharconvert.eclipse.editors.SyllableConverterMatchingStrategy"
@@ -420,6 +420,16 @@
                toolbarPath="Bar/additions">
          </action>
       </editorContribution>
+   </extension>
+   <extension
+         point="org.thanlwinsoft.doccharconvert.parser">
+      <parser
+            class="org.thanlwinsoft.doccharconvert.parser.XslConversionParser"
+            extensions=".xml"
+            id="org.thanlwinsoft.doccharconvert.parser.XslConversionParser"
+            name="%XSLTBasedConversion"
+            styleSupport="true">
+      </parser>
    </extension>
    <!--
    <extension

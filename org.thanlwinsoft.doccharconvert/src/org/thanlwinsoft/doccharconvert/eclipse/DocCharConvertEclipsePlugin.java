@@ -33,6 +33,8 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.prefs.Preferences;
+import org.thanlwinsoft.doccharconvert.eclipse.wizard.XslParametersPage;
+import org.thanlwinsoft.doccharconvert.parser.XslConversionParser;
 import org.thanlwinsoft.eclipse.EclipseToJavaPrefAdapter;
 
 /**
@@ -73,6 +75,7 @@ public class DocCharConvertEclipsePlugin extends AbstractUIPlugin
 			new org.thanlwinsoft.doccharconvert.Config
             	(new EclipseToJavaPrefAdapter(configurationNode), rb);
 		}
+		XslConversionParser.addConfiguration(new XslParametersPage());
 	}
 
 	/* (non-Javadoc)

@@ -43,7 +43,7 @@ public class NewSyllableConverterPage extends WizardNewFileCreationPage
     /**
      * file extension of SyllableConverter configuration
      */
-    public static final String EXTENSION = "xml";
+    public static final String EXTENSION = "sylx";// was just xml
     final private NewDccxWizardPage mConfigPage;
     
     /**
