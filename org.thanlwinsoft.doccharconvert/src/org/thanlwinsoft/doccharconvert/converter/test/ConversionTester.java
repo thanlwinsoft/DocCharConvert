@@ -75,9 +75,10 @@ public class ConversionTester implements CharConverter
     public void test(String input, String output) throws FatalException, RecoverableException
     {
         String reversed = mBackwards.convert(output);
-        if (reversed.equalsIgnoreCase(input) == false)
+        //if (reversed.equalsIgnoreCase(input) == false)
+        if (reversed.equals(input) == false)
         {
-            logMismatch(input.toLowerCase(), output, reversed.toLowerCase());
+            logMismatch(input, output, reversed);
         }
     }
     /** Log a mismatched reverse conversion.
