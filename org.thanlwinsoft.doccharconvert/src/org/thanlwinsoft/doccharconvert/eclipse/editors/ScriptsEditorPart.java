@@ -32,6 +32,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.CellLabelProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -49,6 +50,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.CCombo;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
@@ -83,6 +85,7 @@ import org.thanlwinsoft.schemas.syllableParser.C;
 import org.thanlwinsoft.schemas.syllableParser.Checker;
 import org.thanlwinsoft.schemas.syllableParser.Checks;
 import org.thanlwinsoft.schemas.syllableParser.Class;
+import org.thanlwinsoft.schemas.syllableParser.Cluster;
 import org.thanlwinsoft.schemas.syllableParser.Columns;
 import org.thanlwinsoft.schemas.syllableParser.Component;
 import org.thanlwinsoft.schemas.syllableParser.ComponentRef;
@@ -746,7 +749,11 @@ public class ScriptsEditorPart extends EditorPart
                     switch (columnIndex)
                     {
                     case 0:
-                        return c.getId();
+                    		if (c.isSetId())
+                    			return c.getId();
+                    		else if (c.isSetRefId())
+                    				return "[" + c.getRefId() + "]";
+                    		else return "";
                     case 1:
                         StringBuilder builder = new StringBuilder();
                         for (int i = 0; i < c.getDomNode().getChildNodes()
@@ -802,6 +809,7 @@ public class ScriptsEditorPart extends EditorPart
             tvc.setEditingSupport(new EditingSupport(viewer)
             {
                 TextCellEditor tce = null;
+                ComboBoxCellEditor cbce = null;
 
                 @Override
                 protected boolean canEdit(Object element)
@@ -812,6 +820,27 @@ public class ScriptsEditorPart extends EditorPart
                 @Override
                 protected CellEditor getCellEditor(Object element)
                 {
+                	Component c = (Component)element;
+                	if (colNum == 0 && ! c.isSetId())
+                	{
+                		ArrayList<String>items = new ArrayList<String>();
+                		Cluster cluster = scriptArray.getCluster();
+                		for (int j = 0; j < cluster.sizeOfComponentArray(); j++)
+                		{
+                		if (cluster.getComponentArray(j).isSetId())
+                				items.add(cluster.getComponentArray(j).getId());
+                		}
+                		if (cbce == null)
+                			cbce = new ComboBoxCellEditor(table, items.toArray(new String[items.size()]));
+                		else cbce.setItems(items.toArray(new String[items.size()]));
+                		Control control = cbce.getControl();
+                    if (control instanceof CCombo)
+				                        {
+	                    CCombo cc = (CCombo) control;
+	                    cc.setEditable(true);
+				                        }
+                		return cbce;
+                	}
                     if (tce == null)
                         tce = new TextCellEditor(table);
                     return tce;
@@ -820,8 +849,24 @@ public class ScriptsEditorPart extends EditorPart
                 @Override
                 protected Object getValue(Object element)
                 {
-
-                    return labelProvider.getColumnText(element, colNum);
+                	if (colNum == 0 && element instanceof Component && 
+                			!(((Component)element).isSetId()))
+                	{
+                		int componentIndex = -1;
+                		for (int j = 0; j < scriptArray.getCluster().sizeOfComponentArray(); j++)
+                		{
+                			Component c =scriptArray.getCluster().getComponentArray(j); 
+                			if (c.isSetId())
+                			{
+                				++componentIndex;
+                				if (c.getId().equals(((Component)element).getRefId()))
+                						break;
+                			}
+                		}
+                		return new Integer(componentIndex);
+                	}
+                	
+                 return labelProvider.getColumnText(element, colNum);
                 }
 
                 @Override
@@ -836,12 +881,34 @@ public class ScriptsEditorPart extends EditorPart
                         switch (colNum)
                         {
                         case 0:
+                        	if (value instanceof Integer)
+                        	{
+                        		if (((Integer)value).intValue() < 0)
+                        		{
+                        			Control control = cbce.getControl();
+                                    if (control instanceof CCombo)
+                				                        {
+                                    	String id = ((CCombo)control).getText();
+                                    	if (id.length() < 1) break;
+                                    	c.setId(id.trim());
+                                    	if (c.isSetRefId()) c.unsetRefId();
+                                    	break;
+                				                        }
+                        		}
+                        		else
+                        		{
+                        			if (c.isSetId()) c.unsetId();
+                        			c.setRefId(cbce.getItems()[((Integer)value).intValue()]);
+                        			break;
+                        		}
+                        	}
                             if (c.getId() == null || !c.getId().equals(value.toString()))
                             {
                                 if (isUniqueComponentId(value.toString()))
                                 {
                                     switchComponentId(c.getId(), value.toString());
-                                    c.setId(value.toString());
+                                    c.setId(value.toString().trim());
+                                    if (c.isSetRefId()) c.unsetRefId();
                                 }
                             }
                             break;
@@ -942,7 +1009,7 @@ public class ScriptsEditorPart extends EditorPart
                                 }
                             }
                         }
-                    c.setId(id);
+                    //c.setId(id);
                 }
                 viewer.refresh();
                 parentEditor.setDirty(true);
@@ -1166,6 +1233,7 @@ public class ScriptsEditorPart extends EditorPart
             for (Component c : sc.getScriptArray(0).getCluster()
                     .getComponentArray())
             {
+            	if (c.isSetId())
                 leftComponentsArray.add(c.getId());
             }
             leftViewer.add(leftComponentsArray.toArray());
@@ -1189,6 +1257,7 @@ public class ScriptsEditorPart extends EditorPart
             for (Component c : sc.getScriptArray(1).getCluster()
                     .getComponentArray())
             {
+            	if (c.isSetId())
                 rightComponentsArray.add(c.getId());
             }
             rightViewer.add(rightComponentsArray.toArray());

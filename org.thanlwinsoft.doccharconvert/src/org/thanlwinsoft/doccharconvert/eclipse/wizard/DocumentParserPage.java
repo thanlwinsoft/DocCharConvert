@@ -45,6 +45,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     Button debug = null;
     Button wordLog = null;
     Button checkReverse = null;
+    IWizardPage nextPage = null;
     private BatchConversion conversion = null;
     /**
      * 
@@ -142,18 +143,18 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
             	if (conversion.getConversionMode() != null &&
             			w instanceof ConversionWizard)
             	{
-            		ConversionMode oldMode = conversion.getConversionMode();
+            		//ConversionMode oldMode = conversion.getConversionMode();
             		// hide previous mode's page
-            		IWizardPage modePage = ((ConversionWizard)w).getParserConfigPage(oldMode);
-                	if (modePage != null) modePage.setVisible(false);
+            		//IWizardPage modePage = ((ConversionWizard)w).getParserConfigPage(oldMode);
+                //	if (modePage != null) modePage.setVisible(false);
             	}
                 conversion.setFileMode(true);
                 ConversionMode mode = ConversionMode.getById(combo.getSelectionIndex(), true);
                 conversion.setConversionMode(mode);
                 if (w instanceof ConversionWizard)
                 {
-                	IWizardPage modePage = ((ConversionWizard)w).getParserConfigPage(mode);
-                	if (modePage != null) modePage.setVisible(true);
+                	nextPage = ((ConversionWizard)w).getParserConfigPage(mode);
+                	if (nextPage == null) nextPage = w.getPage(ConversionWizard.CONVERTER_PAGE);
                 }
                 IWizardPage fileSelectPage = 
                     getWizard().getPage(ConversionWizard.FILE_SELECT_PAGE);
@@ -188,7 +189,7 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
             {
                 ((FontConversionPage)fontConversionPage).validatePage();
             }
-            
+            nextPage = getWizard().getPage(ConversionWizard.CONVERTER_PAGE);
             return true;
         }
         return false;
@@ -207,5 +208,15 @@ public class DocumentParserPage extends WizardPage implements SelectionListener
     {
         // NOOP
     }
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.wizard.WizardPage#getNextPage()
+	 */
+	@Override
+	public IWizardPage getNextPage()
+	{
+		if (nextPage == null)
+			getWizard().getPage(ConversionWizard.CONVERTER_PAGE);
+		return nextPage;
+	}
 
 }

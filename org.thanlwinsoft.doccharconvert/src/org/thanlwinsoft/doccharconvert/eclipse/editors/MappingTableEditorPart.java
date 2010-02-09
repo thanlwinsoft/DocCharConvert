@@ -374,6 +374,7 @@ public class MappingTableEditorPart extends EditorPart
             menuManager.add(new Separator());
             for (Component c : script.getCluster().getComponentArray())
             {
+            	if (!c.isSetId()) continue;
                 boolean used = false;
                 for (ComponentRef cr : mt.getColumns().getComponentArray())
                 {
@@ -754,12 +755,14 @@ public class MappingTableEditorPart extends EditorPart
                 @Override
                 public Font getToolTipFont(Object element)
                 {
+                	/*
                     SyllableConverter sc = parentEditor.getDocument().getSyllableConverter();
                     C c = SyllableConverterUtils.getCFromMap((Map)element, colRef);
                     
                     int side = SyllableConverterUtils.getSide(sc, colRef);
                     if (c != null || SyllableConverterUtils.getCText(c).length() > 0)
                         return parentEditor.getFont(side);
+                        */
                     return null;
                 }
 

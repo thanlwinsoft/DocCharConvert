@@ -50,7 +50,7 @@ public class SyllableConverterUtils
         {
             for (Component c : s.getCluster().getComponentArray())
             {
-                if (c.getId().equals(ref))
+                if (c.isSetId() && c.getId().equals(ref))
                 {
                     StringBuilder sb = new StringBuilder();
                     Node n = c.getDomNode().getFirstChild();
@@ -79,7 +79,7 @@ public class SyllableConverterUtils
         {
             for (Component c : s.getCluster().getComponentArray())
             {
-                if (c.getId().equals(ref))
+                if (c.isSetId() && c.getId().equals(ref))
                 {
                     if (s.getSide() == Side.LEFT)
                         return 0;

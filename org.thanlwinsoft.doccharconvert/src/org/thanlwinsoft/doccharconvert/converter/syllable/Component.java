@@ -27,7 +27,7 @@ import org.thanlwinsoft.doccharconvert.converter.syllable.ComponentClass;
  *
  * @author keith
  */
-public class Component
+public class Component implements IComponent
 {
     private Script script = null; 
     private String id = null;
@@ -72,7 +72,7 @@ public class Component
     /** Description of component
      * @return description
     */
-    public String getDescripton()
+    public String getDescription()
     {
         return desc;
     }
@@ -159,4 +159,9 @@ public class Component
     {
         return priority;
     }
+	@Override
+	public Component getComponent()
+	{
+		return this;
+	}
 }

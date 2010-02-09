@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DocCharConverter name="WynnPao =&gt; Myanmar Unicode" rname="Myanmar Unicode =&gt; WynnPao" xmlns="http://www.thanlwinsoft.org/schemas/DocCharConvert">
-<ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
-<Argument value="WynnPao.tec" type="File" />
-<Argument value="macroman" type="String" />
-</ConverterClass>
-<Styles>
-<Style>
-  <Font name="WynnPao" type="old" script="latin" />
-  <Font name="Padauk" type="new" script="ctl"/>
-</Style>
-<Style>
-  <Font name="WynnPao" type="old" script="latin" />
-  <Font name="Myanmar3" type="new" script="ctl"/>
-</Style>
-</Styles>
-</DocCharConverter>
+<doc:DocCharConverter name="WynnPao" rname="WynnPao (reversed)" xmlns:doc="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+  <doc:ConverterClass name="org.thanlwinsoft.doccharconvert.converter.SyllableConverter">
+    <doc:Argument type="File" value="WynnPao.sylx"/>
+  </doc:ConverterClass>
+  <doc:Styles>
+    <doc:Style>
+      <doc:Font type="old" name="WynnPao" script="latin"/>
+      <doc:Font type="new" name="Padauk" script="ctl"/>
+    </doc:Style>
+  </doc:Styles>
+</doc:DocCharConverter>

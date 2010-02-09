@@ -80,6 +80,7 @@ public class SyllableXmlReader
 
     private final String SIDE_ATTR = "side";
     private final String ID_ATTR = "id";
+    private final String REFID_ATTR = "refId";
     // private final String MIN_ATTR = "min";
     private final String REF_ATTR = "r";
     private final String HEX_ATTR = "hex";
@@ -352,9 +353,18 @@ public class SyllableXmlReader
                     Node id = node.getAttributes().getNamedItem(ID_ATTR);
                     if (id == null)
                     {
+                    	id = node.getAttributes().getNamedItem(REFID_ATTR);
+                    	if (id == null)
+                    	{
                         Object[] args = { sideId, ID_ATTR, CLUSTER_NODE };
                         errorLog.append(MessageFormat.format(rb
-                                .getString("unexpectedAttribute"), args));
+                                .getString("missingAttribute"), args));
+                    	}
+                    	else
+                    	{
+                    		ComponentAlias cRef = new ComponentAlias(script[sideId], id.getNodeValue());
+                    		script[sideId].addComponentRef(cRef);
+                    	}
                     }
                     else
                     {

@@ -29,6 +29,10 @@
       <file-association
             content-type="org.eclipse.core.runtime.xml"
             file-extensions="dccx"/>
+      <file-association
+            content-type="org.eclipse.core.runtime.xml"
+            file-extensions="sylx">
+      </file-association>
    </extension>
    <extension
          point="org.eclipse.ui.newWizards">

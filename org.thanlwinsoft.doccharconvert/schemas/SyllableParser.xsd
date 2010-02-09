@@ -11,18 +11,21 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
 <!-- Top level SyllableConverter element-->
 <xsd:element name="syllableConverter" type="SyllableConverter"/>
 
-<xsd:complexType name="SyllableConverter">
-  <xsd:sequence>
-    <xsd:element name="script" minOccurs="2" maxOccurs="2" type="Script"/>
-    <xsd:element name="checks" type="Checks"/>
-    <xsd:element name="repeat" minOccurs="0" type="Repeat"/>
-    <xsd:element name="classes" type="Classes"/>
-    <xsd:element name="mappingTable" type="MappingTable" maxOccurs="unbounded"/>
-  </xsd:sequence>
-  <xsd:attribute name="backtrack" type="xsd:boolean"/>
-</xsd:complexType>
+	<xsd:complexType name="SyllableConverter">
+		<xsd:sequence>
+			<xsd:element name="script" minOccurs="2" maxOccurs="2"
+				type="Script" />
+			<xsd:element name="checks" type="Checks" />
+			<xsd:element name="repeat" minOccurs="0" type="Repeat" />
+			<xsd:element name="classes" type="Classes" />
+			<xsd:element name="mappingTable" type="MappingTable"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="version" type="version" use="optional" default="1.0"></xsd:attribute>
+		<xsd:attribute name="backtrack" type="xsd:boolean" />
+	</xsd:complexType>
 
-<!-- represents the information on the Syllable Structure in one script -->
+	<!-- represents the information on the Syllable Structure in one script -->
 <xsd:complexType name="Script">
   <xsd:sequence>
     <xsd:element name="name" type="xsd:string"/>
@@ -46,7 +49,8 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
 <xsd:complexType name="Component" mixed="true">
 	<xsd:simpleContent>
 		<xsd:extension base="xsd:string">
-			  <xsd:attribute name="id" type="xsd:NMTOKEN" use="required"/>
+			  <xsd:attribute name="id" type="xsd:NMTOKEN" use="optional"/>
+			  <xsd:attribute name="refId" type="xsd:NMTOKEN" use="optional"/>
   			<xsd:attribute name="min" type="xsd:nonNegativeInteger"  use="optional"/>
   			<xsd:attribute name="priority" type="xsd:positiveInteger" use="optional"/>
 		</xsd:extension>
@@ -209,4 +213,10 @@ Copyright 2005 www.thanlwinsoft.org. All rights reserved.
     </xsd:restriction>
 </xsd:simpleType>
 
+
+    <xsd:simpleType name="version">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:pattern value="\d+\.\d+"></xsd:pattern>
+    	</xsd:restriction>
+    </xsd:simpleType>
 </xsd:schema>

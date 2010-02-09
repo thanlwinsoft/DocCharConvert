@@ -113,7 +113,8 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor
 
             public void pageActivated(IWorkbenchPage page)
             {
-                DocCharConvertEclipsePlugin.getDefault().getPluginPreferences();
+                //DocCharConvertEclipsePlugin.getDefault().getPluginPreferences();
+                //Platform.getPreferencesService();
                 
             }
 

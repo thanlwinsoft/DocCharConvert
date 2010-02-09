@@ -504,6 +504,7 @@ public class ClassTableEditorPart extends EditorPart
                 @Override
                 public Font getToolTipFont(Object object)
                 {
+                	/*
                     if (object instanceof Triple<?,?,?>)
                     {
                         Object cValue = ((Triple<?,?,?>)object).get(col);
@@ -511,7 +512,7 @@ public class ClassTableEditorPart extends EditorPart
                         {
                             return (parentEditor.getFont(col-COL_OFFSET));
                         }
-                    }
+                    }*/
                     return super.getToolTipFont(object);
                 }
 

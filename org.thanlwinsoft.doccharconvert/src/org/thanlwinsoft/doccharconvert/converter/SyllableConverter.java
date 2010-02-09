@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.TreeSet;
 import java.util.SortedSet;
 
+import org.thanlwinsoft.doccharconvert.converter.syllable.IComponent;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Script;
 import org.thanlwinsoft.doccharconvert.converter.syllable.Component;
 import org.thanlwinsoft.doccharconvert.converter.syllable.ComponentClass;
@@ -500,7 +501,7 @@ public class SyllableConverter extends ReversibleConverter
     protected Vector<Vector<Integer>> parseSyllableComponent(Script script,
             String text, int offset, int cIndex, Vector<Integer> compValues)
     {
-        Component comp = script.getSyllableComponent(cIndex);
+        IComponent comp = script.getComponentAtPosition(cIndex);
         Vector<Vector<Integer>> candidates = new Vector<Vector<Integer>>();
         // find all possible matches for this component
         for (int i = offset; (i <= offset + comp.getMaxLength())
@@ -513,13 +514,26 @@ public class SyllableConverter extends ReversibleConverter
             if (valueIndex > -1)
             {
                 Vector<Integer> candidate = new Vector<Integer>(compValues);
-                candidate.add(valueIndex);
+                candidate.setSize(script.getNumComponents() + 1);
+                candidate.set(script.getComponentIndex(comp) + 1, valueIndex);
                 int length = compValues.elementAt(0) + i - offset;
                 candidate.set(0, length);
-                if (cIndex < script.getNumComponents() - 1)
+                // A component with aliases in multiple positions should only
+                // be allowed to match in one position
+                int nextCIndex = cIndex + 1;
+                while ((nextCIndex < script.getNumComponentPositions()) &&
+                		(candidate.get(script.getComponentIndex(
+                				script.getComponentAtPosition(nextCIndex)) + 1) != null) &&
+                		(candidate.get(script.getComponentIndex(
+                        		script.getComponentAtPosition(nextCIndex)) + 1) > 0))
+                {
+                	//System.out.println("Skipping position " + nextCIndex + " " + candidate);
+                	++nextCIndex;
+                }
+                if (nextCIndex < script.getNumComponentPositions())
                 {
                     Vector<Vector<Integer>> subCandidates = parseSyllableComponent(
-                            script, text, i, cIndex + 1, candidate);
+                            script, text, i, nextCIndex, candidate);
                     candidates.addAll(subCandidates);
                 }
                 else

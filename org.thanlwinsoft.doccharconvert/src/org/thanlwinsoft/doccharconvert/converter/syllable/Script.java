@@ -33,6 +33,7 @@ public class Script
     // need access both by id and by index
     private LinkedHashMap <String, Component> componentMap;
     private Vector <Component> componentVector;
+    private Vector <IComponent> componentPositionVector;
     private boolean repeater = false;
     // repeatChar is the character to designate a repeat if repeater = true
     // otherwise it is the repeat separator
@@ -46,7 +47,8 @@ public class Script
     {
         this.name = name;
         componentMap = new LinkedHashMap<String, Component>();
-        componentVector = new Vector<Component>(); 
+        componentVector = new Vector<Component>();
+        componentPositionVector = new Vector<IComponent>();
     }
     /** retreive the specified component object
     * @param id of component referenced in XML
@@ -65,16 +67,18 @@ public class Script
     {
         componentMap.put(id, component);
         componentVector.add(component);
+        componentPositionVector.add(component);
     }
     /**
     * Add a component to this script
     * @param component object
     * @return index of component
     */
-    public int getComponentIndex(Component component)
+    public int getComponentIndex(IComponent component)
     {
-        return componentVector.indexOf(component);
+        return componentVector.indexOf(component.getComponent());
     }
+    
     /**
     * Obtains an interator over the components in this script. 
     * The order returned should be the same in which the components 
@@ -109,12 +113,29 @@ public class Script
         return componentVector.elementAt(index);
     }
     /**
+     * Retrieves the Component or a ComponentRef at the specified position.
+     * @param pos
+     * @return
+     */
+    public IComponent getComponentAtPosition(int pos)
+    {
+    	return componentPositionVector.elementAt(pos);
+    }
+    /**
      * 
      * @return number of components in Script
      */
     public int getNumComponents()
     {
          return componentVector.size();
+    }
+    /**
+     * 
+     * @return number of component positions in Script
+     */
+    public int getNumComponentPositions()
+    {
+         return componentPositionVector.size();
     }
     /**
      * 
@@ -152,4 +173,12 @@ public class Script
     {
       caseInsensitive = ignore;
     }
+    /**
+     * Add a component ref at the given position
+     * @param cRef
+     */
+	public void addComponentRef(ComponentAlias cRef)
+	{
+		componentPositionVector.add(cRef);
+	}
 }

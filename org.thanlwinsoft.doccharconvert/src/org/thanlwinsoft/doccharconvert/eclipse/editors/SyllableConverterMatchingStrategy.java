@@ -61,7 +61,8 @@ public class SyllableConverterMatchingStrategy implements
                     String header = new String(buffer, 0, read);
                     if (header.indexOf(sNamespace) > -1)
                     {
-                        return true;
+                    	if (editorRef.getEditorInput().getName().equals(input.getName()))
+                    		return true;
                     }
                 }
             }
