@@ -112,7 +112,9 @@ public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocI
             {
             		if (mXslt == null)
             		{
-                mXslt = ecm.getPath(ecm.getOptions());
+            			String path = ecm.getOptions();
+            			if (path != null)
+            				mXslt = ecm.getPath(path);
             		}
                 if (mXslt != null)
                     mXslSource = new StreamSource(mXslt);
@@ -145,17 +147,28 @@ public class XslConversionParser implements org.thanlwinsoft.doccharconvert.DocI
             t.setParameter(name, mParameters.get(name));
             	}
             }
+            t.setParameter("inputFile", input.getCanonicalPath());
+            t.setParameter("inputDir", (input.getParentFile() != null)? 
+            		input.getParentFile().getCanonicalPath() + File.separator : "");
+            t.setParameter("outputFile", output.getCanonicalPath());
             StreamSource in = new StreamSource(input);
             StreamResult out = new StreamResult(output);
             t.transform(in, out);
             notifier.done();
         }
+        catch (IOException e)
+        {
+        	notifier.setFileStatus(input, e.getLocalizedMessage());
+            throw new FatalException(e.getMessage());
+        }
         catch (TransformerConfigurationException e)
         {
+        	notifier.setFileStatus(input, e.getLocalizedMessage());
             throw new FatalException(e.getMessage());
         }
         catch (TransformerException e)
         {
+        	notifier.setFileStatus(input, e.getLocalizedMessage());
             throw new FatalException(e.getMessage());
         }
         finally

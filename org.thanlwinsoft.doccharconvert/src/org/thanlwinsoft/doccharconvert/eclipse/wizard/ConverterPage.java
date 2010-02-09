@@ -151,7 +151,6 @@ public class ConverterPage extends WizardPage implements SelectionListener
             // conversion.addTestConverter(cc, availableConverters);
             // }
             selectedConverters.add(cc);
-            return true;
         }
         if (selection.size() > 0)
         {

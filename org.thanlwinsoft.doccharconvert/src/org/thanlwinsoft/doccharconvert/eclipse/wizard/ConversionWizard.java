@@ -246,6 +246,11 @@ public class ConversionWizard extends Wizard implements INewWizard
             }
             else
             {
+            	if (parserPageMap.containsKey(conversion.getConversionMode()))
+            	{
+            		String parserPageId = parserPageMap.get(conversion.getConversionMode());
+            		conversion.setParserConfiguration(getPage(parserPageId));
+            	}
                 IWorkbenchPage page = wbWindow.getActivePage();
                 String secondaryID = ConverterUtil.cononicalizeName(conversion.toString());
                 IViewPart fileList = page.showView(ConversionFileListView.ID, 

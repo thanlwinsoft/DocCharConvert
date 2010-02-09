@@ -407,7 +407,7 @@ public class BatchConversion implements Runnable
             showWarning("Failed to intialise document interface");
             return;
         }
-        if (docInterface instanceof ParserConfiguration)
+        if (docInterface instanceof ParserConfiguration && parserConfig != null)
         {
         	((ParserConfiguration)docInterface).setConfiguration(parserConfig);
         }
