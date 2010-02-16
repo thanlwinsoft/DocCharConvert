@@ -273,6 +273,7 @@
         <class-ref name="uvowel-b" id="vu1" min="0"/>
         <class-ref name="udot-b" id="udot1" min="0"/>
         <class-ref name="consm-b" id="cm" min="0"/>
+        <class-ref name="lvowel-dia-b" id="vul0" min="0"/>
         <class-ref name="wmed-b" id="w1" min="0"/>
         <class-ref name="hmed-b" id="h" min="0"/>
         <class-ref name="wmed-b" id="w2" min="0"/>
@@ -316,6 +317,7 @@
 		<context-ref name="reorder-bytes-b/vu2"/>
 		<context-ref name="reorder-bytes-b/vu1"/>
         <context-ref name="reorder-bytes-b/vul1"/>
+        <context-ref name="reorder-bytes-b/vul0"/>
         <context-ref name="reorder-bytes-b/vul2"/>
         <context-ref name="reorder-bytes-b/vul3"/>
         <context-ref name="reorder-bytes-b/vl"/>
@@ -629,7 +631,7 @@
         41 43 45 4f 50 56 58 5a 5b 62 63 65 69 6e 6f
         70 71 72 74 75 76 77 78 79 7a 7b a1 b1 b6 bd cd d3 da f1
         <!-- these are cons/medial ligatures, but it allows reordering --> 
-        f3 40 a5 b9 d7
+        f3 40 a5 b9 d7 7c
     </class>
     <class name="consm-b" size="bytes">
         a2 a6 a8 a9 ac ae b2 b3 b4 be c1 c5 c6 c7 c9 d1 d6 dc e4 e5 e6 e9 

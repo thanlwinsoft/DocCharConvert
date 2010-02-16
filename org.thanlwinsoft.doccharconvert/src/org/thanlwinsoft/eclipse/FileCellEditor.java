@@ -110,8 +110,21 @@ public class FileCellEditor extends DialogCellEditor {
 		super.updateContents(value);
 		if (getDefaultLabel() != null && value != null)
 		{
-			getDefaultLabel().setText(value.toString());
-			getDefaultLabel().setToolTipText(value.toString());
+			String basePath = "";
+			String filePath = value.toString();
+			if (moduleFile != null)
+			{
+				basePath = moduleFile.getRawLocation().toOSString();
+				if (basePath.length() > 0 && filePath.indexOf(basePath) == 0)
+				{
+					if (basePath.length() == filePath.length())
+						filePath = "";
+					else
+						filePath = filePath.substring(basePath.length() + 1);
+				}
+			}
+			getDefaultLabel().setText(filePath);
+			getDefaultLabel().setToolTipText(filePath);
 		}
 	}
     /* (non-Javadoc)

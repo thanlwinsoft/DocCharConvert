@@ -381,9 +381,13 @@ public class DccxEditor extends EditorPart
                     switch (columnIndex)
                     {
                     case 0:
+                    	if (a.isSetType())
                         return a.getType().toString();
+                    	else return "";
                     case 1:
+                    	if (a.isSetValue())
                         return a.getValue();
+                    	else return "";
                     }
                 }
                 return "-";
@@ -442,7 +446,7 @@ public class DccxEditor extends EditorPart
             protected CellEditor getCellEditor(Object element)
             {
                 Argument arg = (Argument)element;
-                if (arg.getType().equals("File"))
+                if (arg.getType().equals(org.thanlwinsoft.schemas.docCharConvert.ArgType.FILE))
                 {
                     if (getEditorInput() instanceof FileEditorInput)
                     {
@@ -459,6 +463,7 @@ public class DccxEditor extends EditorPart
                         }
                         else
                         {
+                        		fr = fei.getFile().getParent();
                             fce = new FileCellEditor(table, SWT.NONE, fr, new String[]{"*"});
                             return fce;
                         }

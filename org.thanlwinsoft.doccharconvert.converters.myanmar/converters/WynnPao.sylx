@@ -60,6 +60,7 @@
         <syl:c>q</syl:c>
         <syl:c>Z</syl:c>
         <syl:c>ps</syl:c>
+        <syl:c>Ú</syl:c>
         <syl:c>̂</syl:c>
         <syl:c>n</syl:c>
         <syl:c>!</syl:c>
@@ -98,6 +99,7 @@
         <syl:c>ဆ</syl:c>
         <syl:c>ဇ</syl:c>
         <syl:c>ဈ</syl:c>
+        <syl:c>ဉ</syl:c>
         <syl:c>ဉ</syl:c>
         <syl:c>ည</syl:c>
         <syl:c>ဋ</syl:c>
@@ -627,6 +629,16 @@
         <syl:c r="bAfterMed">T</syl:c>
         <syl:c r="uMedW">ွ</syl:c>
         <syl:c r="uMedH">ှ</syl:c>
+      </syl:m>
+      <syl:m>
+        <syl:c r="bAfterMed">I</syl:c>
+        <syl:c r="uMedH">ှ</syl:c>
+        <syl:c r="uLowerVowel">ု</syl:c>
+      </syl:m>
+      <syl:m>
+        <syl:c r="bAfterMed">×</syl:c>
+        <syl:c r="uMedH">ှ</syl:c>
+        <syl:c r="uLowerVowel">ူ</syl:c>
       </syl:m>
       <syl:m>
         <syl:c r="bAsat">f</syl:c>
@@ -1184,6 +1196,20 @@
         <syl:c r="uMedH">ှ</syl:c>
         <syl:c r="uLowerVowel" class="tallUVowel"/>
         <syl:c r="bLowerVowel" class="tallUVowel" xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      </syl:m>
+      <syl:m>
+        <syl:c r="uCons" class="cons"/>
+        <syl:c r="bCons" class="cons"/>
+        <syl:c r="bAfterMed">I</syl:c>
+        <syl:c r="uMedH">ှ</syl:c>
+        <syl:c r="uLowerVowel">ု</syl:c>
+      </syl:m>
+      <syl:m>
+        <syl:c r="uCons" class="cons"/>
+        <syl:c r="bAfterMed">×</syl:c>
+        <syl:c r="bCons" class="cons"/>
+        <syl:c r="uMedH">ှ</syl:c>
+        <syl:c r="uLowerVowel">ူ</syl:c>
       </syl:m>
       <syl:m>
         <syl:c r="uCons" class="cons"/>

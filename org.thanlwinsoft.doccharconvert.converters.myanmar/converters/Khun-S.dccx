@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc:DocCharConverter name="Khun-S" rname="Khun-S (reversed)" xmlns:doc="http://www.thanlwinsoft.org/schemas/DocCharConvert">
+  <doc:ConverterClass name="org.thanlwinsoft.doccharconvert.converter.TecKitConverter">
+    <doc:Argument type="File" value="Khun-S.tec"/>
+    <doc:Argument type="String" value="windows-1252"/>
+  </doc:ConverterClass>
+  <doc:Styles>
+    <doc:Style>
+      <doc:Font type="old" name="Khun-S" script="latin"/>
+      <doc:Font type="new" name="Padauk" script="ctl"/>
+    </doc:Style>
+  </doc:Styles>
+</doc:DocCharConverter>
