@@ -68,6 +68,10 @@
 		<xslt style="plugin-versions.xsl" in="${eclipse.home}/artifacts.xml" out="plugin-versions.properties"/>
 		<property file="plugin-versions.properties"/>
 		<property name="eclipse.pdebuild.scripts" value="${eclipse.home}/plugins/org.eclipse.pde.build_${eclipsePdeBuildVersion}/scripts/"/>
+		<exec executable="hg" dir="${buildDirectory}" outputproperty="hg.version">
+			<arg value="id"/>
+			<arg value="-n"/>
+		</exec>
 	</target>
 	<!--
 		This target actually executes the PDE Build process by launching the 
@@ -87,6 +91,7 @@
 			<arg value="-buildfile" />
 			<arg value="${eclipse.pdebuild.scripts}build.xml" />
 			<arg value="-Dtimestamp=${timestamp}" />
+			<arg value="-DforceContextQualifier=${hg.version}_${timestamp}" />
 			<classpath>
 				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
 				<fileset dir="${buildDirectory}/plugins/org.apache.xmlbeans/lib">
@@ -113,8 +118,9 @@
 			<arg value="-application" />
 			<arg value="org.eclipse.ant.core.antRunner" />
 			<arg value="-buildfile" />
-			<arg value="${eclipse.pdebuild.scripts}/productBuild/productBuild.xml" />
+			<arg value="${eclipse.pdebuild.scripts}productBuild/productBuild.xml" />
 			<arg value="-Dtimestamp=${timestamp}" />
+			<arg value="-DforceContextQualifier=${hg.version}_${timestamp}" />
 			<classpath>
 				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
 			</classpath>
