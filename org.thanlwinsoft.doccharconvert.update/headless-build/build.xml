@@ -11,48 +11,10 @@
 	    <format property="timestamp" pattern="yyyyMMddhhmm" locale="en,UK"/>
 	</tstamp>
 	<property name="forceQualifier" value="${timestamp}"/>
-<!--
-	<path id="svnant.class.path">
-			<fileset dir="../../org.tigris.subversion.svnant/lib">
-				<include name="**/*.jar"/>
-			</fileset>
-	</path>
-	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" 
-			classpathref="svnant.class.path" onerror="fail"/>
-
-	<target name="checkout">
-		<mkdir dir="${buildDirectory}/features"/>
-		<mkdir dir="${buildDirectory}/plugins"/>
-		<svn>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.apache.xmlbeans"
-				destPath="${buildDirectory}/plugins/org.apache.xmlbeans"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert"
-				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.converters.mien"
-				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.converters.mien"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.converters.myanmar"
-				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.converters.myanmar"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.teckit.win32.x86"
-				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.teckit.win32.x86"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.teckit.linux.x86"
-				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.teckit.linux.x86"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.teckit.linux.x86_64"
-				destPath="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert.teckit.linux.x86_64"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.feature.core"
-				destPath="${buildDirectory}/features/org.thanlwinsoft.doccharconvert.feature.core"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.feature.mien"
-				destPath="${buildDirectory}/features/org.thanlwinsoft.doccharconvert.feature.mien"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.feature.myanmar"
-				destPath="${buildDirectory}/features/org.thanlwinsoft.doccharconvert.feature.myanmar"/>
-			<export srcUrl="${svnUrl}/${svnDocCharConvert}/org.thanlwinsoft.doccharconvert.update/headless-build/maps"
-							destPath="${buildDirectory}/maps"/>
-			
-		</svn>
-	</target>
--->
 	<pathconvert targetos="unix" property="hg.repository">
 		<path location="${buildDirectory}/../"/>
 	</pathconvert>
+
 	<target name="checkout">
 		<mkdir dir="${buildDirectory}"/>
 		<exec executable="hg" dir="${buildDirectory}">
@@ -101,11 +63,17 @@
 				dir="${buildDirectory}/plugins/org.thanlwinsoft.doccharconvert">
 		</ant>
 	</target>
+	
+	<target name="init-eclipse-plugins">
+		<xslt style="plugin-versions.xsl" in="${eclipse.home}/artifacts.xml" out="plugin-versions.properties"/>
+		<property file="plugin-versions.properties"/>
+		<property name="eclipse.pdebuild.scripts" value="${eclipse.home}/plugins/org.eclipse.pde.build_${eclipsePdeBuildVersion}/scripts"/>
+	</target>
 	<!--
 		This target actually executes the PDE Build process by launching the 
 		Eclipse antRunner application.
 	-->
-	<target name="pde-build">
+	<target name="pde-build" depends="init-eclipse-plugins">
 		<concat destfile="${basedir}/build.properties" force="yes">
 		    <filelist dir="${basedir}"
 		         files="build.features.properties,build.common.properties,build.${osgi.os}.${osgi.arch}.properties"/>
@@ -133,7 +101,7 @@
 		</copy>
 	</target>
 
-	<target name="pde-product">
+	<target name="pde-product" depends="init-eclipse-plugins">
 		<concat destfile="${basedir}/build.properties" force="yes">
 		    <filelist dir="${basedir}"
 		         files="build.product.properties,build.common.properties,build.${osgi.os}.${osgi.arch}.properties"/>
@@ -145,7 +113,7 @@
 			<arg value="-application" />
 			<arg value="org.eclipse.ant.core.antRunner" />
 			<arg value="-buildfile" />
-			<arg value="${eclipse.pdebuild.scripts}productBuild/productBuild.xml" />
+			<arg value="${eclipse.pdebuild.scripts}/productBuild/productBuild.xml" />
 			<arg value="-Dtimestamp=${timestamp}" />
 			<classpath>
 				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
@@ -154,7 +122,9 @@
 	</target>
 	
 	<target name="add-executables">
-		<!-- Not sure why PDE doesn't add these itself, but this hack solves the problem -->
+		<!-- Not sure why PDE doesn't add these itself, but this hack solves the problem
+		Probably because the Product wasn't including the executable feature! 
+		-->
 		<zip destfile="${buildDirectory}/I.DocCharConvert/DocCharConvert-win32.win32.x86.zip" update="true">
 			<zipfileset prefix="eclipse" dir="${baseLocation}/features/org.eclipse.equinox.executable_${equinoxExecutableVersion}/bin/win32/win32/x86">
 			    <include name="*"/>
@@ -279,5 +249,5 @@
 	</target>
 
 	<!--This target defines the run-order of the targets-->
-	<target name="build" depends="dcc-schemas,pde-product,pde-build,add-executables,nsis" />
+	<target name="build" depends="dcc-schemas,pde-product,pde-build,nsis" />
 </project>
