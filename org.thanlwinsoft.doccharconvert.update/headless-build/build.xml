@@ -15,16 +15,36 @@
 		<path location="${buildDirectory}/../"/>
 	</pathconvert>
 
+	<target name="init">
+		<exec executable="hg" dir="${buildDirectory}" outputproperty="hg.version">
+				<arg value="id"/>
+				<arg value="-n"/>
+		</exec>
+		<property name="doccharconvert.version" value="${doccharconvert.major.version}.${hg.version}"/>
+	</target>
+	
 	<target name="checkout">
 		<mkdir dir="${buildDirectory}"/>
+		<exec executable="hg">
+			<arg value="archive"/>
+			<arg value="tbz2"/>
+			<arg value="-p"/>
+			<arg value="${buildBase}-${doccharconvert.version}"/>
+			<arg value="${buildDirectory}/${buildBase}-${doccharconvert.version}.tar.bz2"/>
+		</exec>
+		<!--
 		<exec executable="hg" dir="${buildDirectory}">
 			<arg value="clone"/>
 			<arg value="${hg.repository}"/>
 			<arg value="${buildBase}-${doccharconvert.version}"/>
 		</exec>
+		-->
 	</target>
 
 	<target name="src-tar">
+		<untar compression="bzip2" src="${buildDirectory}/${buildBase}-${doccharconvert.version}.${hg.version}.tar.bz2"
+			dest="${buildDirectory}"/>
+		<!--
 		<tstamp/>
 		<tar compression="bzip2" destfile="${buildDirectory}/${buildBase}-${DSTAMP}${TSTAMP}.tar.bz2" longfile="gnu">
 			<tarfileset dir="${buildDirectory}/${buildBase}-${doccharconvert.version}">
@@ -34,7 +54,6 @@
 				<exclude name="org.apache.xmlbeans/**/*"/>
 			</tarfileset>
 		</tar>
-		<!--
 		<tar compression="bzip2" destfile="${buildDirectory}/${buildBase}-${DSTAMP}${TSTAMP}.tar.bz2">
 			<tarfileset dir="${buildDirectory}/..">
 				<include name="${buildBase}/plugins/**/*"/>
@@ -64,14 +83,11 @@
 		</ant>
 	</target>
 	
-	<target name="init-eclipse-plugins">
+	<target name="init-eclipse-plugins" depends="init">
 		<xslt style="plugin-versions.xsl" in="${eclipse.home}/artifacts.xml" out="plugin-versions.properties"/>
 		<property file="plugin-versions.properties"/>
 		<property name="eclipse.pdebuild.scripts" value="${eclipse.home}/plugins/org.eclipse.pde.build_${eclipsePdeBuildVersion}/scripts/"/>
-		<exec executable="hg" dir="${buildDirectory}" outputproperty="hg.version">
-			<arg value="id"/>
-			<arg value="-n"/>
-		</exec>
+		
 	</target>
 	<!--
 		This target actually executes the PDE Build process by launching the 
