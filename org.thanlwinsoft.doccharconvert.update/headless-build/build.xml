@@ -67,7 +67,7 @@
 	<target name="init-eclipse-plugins">
 		<xslt style="plugin-versions.xsl" in="${eclipse.home}/artifacts.xml" out="plugin-versions.properties"/>
 		<property file="plugin-versions.properties"/>
-		<property name="eclipse.pdebuild.scripts" value="${eclipse.home}/plugins/org.eclipse.pde.build_${eclipsePdeBuildVersion}/scripts"/>
+		<property name="eclipse.pdebuild.scripts" value="${eclipse.home}/plugins/org.eclipse.pde.build_${eclipsePdeBuildVersion}/scripts/"/>
 	</target>
 	<!--
 		This target actually executes the PDE Build process by launching the 

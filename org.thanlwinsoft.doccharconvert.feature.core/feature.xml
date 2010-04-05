@@ -2,7 +2,7 @@
 <feature
       id="org.thanlwinsoft.doccharconvert.feature.core"
       label="DocCharConvert Core"
-      version="1.3.0"
+      version="1.4.0"
       provider-name="www.thanlwinsoft.org"
       plugin="org.thanlwinsoft.doccharconvert"
       os="linux,win32"
