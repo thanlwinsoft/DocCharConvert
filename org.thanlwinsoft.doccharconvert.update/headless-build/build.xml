@@ -7,7 +7,10 @@
 	<property name="buildDirectory" value="${release.path}"/>-->
 	<property file="build.${osgi.os}.${osgi.arch}.properties"/>
 	<property file="build.common.properties" />
-
+	<tstamp>
+	    <format property="timestamp" pattern="yyyyMMddhhmm" locale="en,UK"/>
+	</tstamp>
+	<property name="forceQualifier" value="${timestamp}"/>
 <!--
 	<path id="svnant.class.path">
 			<fileset dir="../../org.tigris.subversion.svnant/lib">
@@ -107,8 +110,9 @@
 		    <filelist dir="${basedir}"
 		         files="build.features.properties,build.common.properties,build.${osgi.os}.${osgi.arch}.properties"/>
 		</concat>
-		<echo message="Build Directory: ${buildDirectory}"/>
-		<echo message="${baseLocation}/plugins/org.eclipse.equinox.launcher.${osgi.os}.${osgi.ws}.${osgi.arch}_${equinoxLauncherPluginVersion}"/>
+		<echo message="Timestamp: ${timestamp}" level="info"/>
+		<echo message="Build Directory: ${buildDirectory}" level="info"/>
+		<echo message="${baseLocation}/plugins/org.eclipse.equinox.launcher.${osgi.os}.${osgi.ws}.${osgi.arch}_${equinoxLauncherPluginVersion}" level="info"/>
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
 			<arg value="-application" />
 			<arg value="org.eclipse.ant.core.antRunner" />
@@ -134,7 +138,9 @@
 		    <filelist dir="${basedir}"
 		         files="build.product.properties,build.common.properties,build.${osgi.os}.${osgi.arch}.properties"/>
 		</concat>
-		<echo message="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar"/>
+		<echo message="Timestamp: ${timestamp}" level="info"/>
+		<echo message="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" level="info"/>
+		<delete dir="${buildDirectory}/tmp" />
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
 			<arg value="-application" />
 			<arg value="org.eclipse.ant.core.antRunner" />
