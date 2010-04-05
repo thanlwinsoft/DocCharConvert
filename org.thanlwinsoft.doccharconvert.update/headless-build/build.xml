@@ -16,17 +16,18 @@
 	</pathconvert>
 
 	<target name="init">
-		<exec executable="hg" dir="${buildDirectory}" outputproperty="hg.version">
+		<exec executable="hg" outputproperty="hg.version">
 				<arg value="id"/>
 				<arg value="-n"/>
 		</exec>
 		<property name="doccharconvert.version" value="${doccharconvert.major.version}.${hg.version}"/>
 	</target>
 	
-	<target name="checkout">
+	<target name="checkout" depends="init">
 		<mkdir dir="${buildDirectory}"/>
 		<exec executable="hg">
 			<arg value="archive"/>
+			<arg value="-t"/>
 			<arg value="tbz2"/>
 			<arg value="-p"/>
 			<arg value="${buildBase}-${doccharconvert.version}"/>
@@ -41,8 +42,8 @@
 		-->
 	</target>
 
-	<target name="src-tar">
-		<untar compression="bzip2" src="${buildDirectory}/${buildBase}-${doccharconvert.version}.${hg.version}.tar.bz2"
+	<target name="src-tar" depends="init">
+		<untar compression="bzip2" src="${buildDirectory}/${buildBase}-${doccharconvert.version}.tar.bz2"
 			dest="${buildDirectory}"/>
 		<!--
 		<tstamp/>
