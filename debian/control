@@ -1,0 +1,23 @@
+Source: libdoccharconvert-java
+Priority: extra
+Maintainer: Keith Stribley <Keith Stribley <devel@thanlwinsoft.org>>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.1
+Section: libs
+Homepage: http://www.thanlwinsoft.org/ThanLwinSoft/DocCharConvert/
+
+Package: libdoccharconvert-java
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description:  Eclipse plugin to convert between different encoding formats and different scripts.
+    DocCharConvert is a tool to convert between different encoding formats and different scripts.
+    It currently supports the following types of converters:
+    * TECkit Converters [scripts.sil.org/TECkit]
+    * Syllable Converters
+    * External Programs
+    It allows conversion of the following file types:
+    * Plain text files
+    * OpenDocument files (OO native format)[www.OpenOffice.org]
+    * TeX Files - limited support
+
