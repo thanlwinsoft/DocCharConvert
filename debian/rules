@@ -12,7 +12,7 @@ export DH_VERBOSE=1
 build: build-stamp
 build-stamp:
 	dh_testdir  org.thanlwinsoft.doccharconvert.update
-	case "${DEB_BUILD_ARCH_CPU}" in i386 | i586 | i686) ECLIPSE_ARCH=x86;; amd64) ECLIPSE_ARCH=x86_64;; esac
+	case "${DEB_BUILD_ARCH_CPU}" in i386 | i486 | i586 | i686) ECLIPSE_ARCH=x86;; amd64) ECLIPSE_ARCH=x86_64;; arm) ECLIPSE_ARCH=arm;; parisc parisc64) ECLIPSE_ARCH=PA_RISC;; powerpc) ECLIPSE_ARCH=ppc;; *) ECLIPSE_ARCH=$(DEB_HOST_ARCH_CPU);; esac
 	# Add here commands to compile the package.
 	ant -f org.thanlwinsoft.doccharconvert.update/headless-build/build.xml -Declipse.home=/usr/lib/eclipse -Dosgi.ws=gtk -Dosgi.os=${DEB_BUILD_ARCH_OS} -Dosgi.arch -Dhg.version=432 pde-build
 
