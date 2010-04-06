@@ -7,20 +7,26 @@
 	<property name="buildDirectory" value="${release.path}"/>-->
 	<property file="build.${osgi.os}.${osgi.arch}.properties"/>
 	<property file="build.common.properties" />
+	
 	<tstamp>
 	    <format property="timestamp" pattern="yyyyMMddhhmm" locale="en,UK"/>
 	</tstamp>
 	<property name="forceQualifier" value="${timestamp}"/>
 	<pathconvert targetos="unix" property="hg.repository">
-		<path location="${buildDirectory}/../"/>
+		<path location="${baseDir}/../../"/>
 	</pathconvert>
+	
 
 	<target name="init">
 		<exec executable="hg" outputproperty="hg.version">
 				<arg value="id"/>
 				<arg value="-n"/>
 		</exec>
-		<property name="doccharconvert.version" value="${doccharconvert.major.version}.${hg.version}"/>
+		<basename file="${hg.version}" property="doccharconvert.minor.version" suffix="+"/>
+		<property name="doccharconvert.version" value="${doccharconvert.major.version}.${doccharconvert.minor.version}"/>
+		<pathconvert targetos="unix" property="buildDirectory">
+				<path location="${basedir}/../../${buildBase}"/>
+		</pathconvert>
 	</target>
 	
 	<target name="checkout" depends="init">
@@ -107,8 +113,9 @@
 			<arg value="org.eclipse.ant.core.antRunner" />
 			<arg value="-buildfile" />
 			<arg value="${eclipse.pdebuild.scripts}build.xml" />
+			<arg value="-DbuildDirectory=${buildDirectory}"/>
 			<arg value="-Dtimestamp=${timestamp}" />
-			<arg value="-DforceContextQualifier=${hg.version}_${timestamp}" />
+			<arg value="-DforceContextQualifier=${doccharconvert.minor.version}_${timestamp}" />
 			<classpath>
 				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
 				<fileset dir="${buildDirectory}/plugins/org.apache.xmlbeans/lib">
@@ -136,8 +143,9 @@
 			<arg value="org.eclipse.ant.core.antRunner" />
 			<arg value="-buildfile" />
 			<arg value="${eclipse.pdebuild.scripts}productBuild/productBuild.xml" />
+			<arg value="-DbuildDirectory=${buildDirectory}"/>
 			<arg value="-Dtimestamp=${timestamp}" />
-			<arg value="-DforceContextQualifier=${hg.version}_${timestamp}" />
+			<arg value="-DforceContextQualifier=${doccharconvert.minor.version}_${timestamp}" />
 			<classpath>
 				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
 			</classpath>
@@ -265,7 +273,8 @@
 	</target>
 	
 	<!--This target is responsible for cleaning up the build-directory-->
-	<target name="clean">
+	<target name="clean" depends="init">
+		<echo message="${buildDirectory}"/>
 		<delete dir="${release.path}/features"/>
 		<delete dir="${release.path}/plugins"/>
 		<delete dir="${buildDirectory}" />

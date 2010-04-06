@@ -26,10 +26,13 @@ DOCCHARCONVERT=`dirname $0`
 WEBDIR=/var/www/ThanLwinSoft/Downloads/Converters
 
 cd $DOCCHARCONVERT
-hg pull -u > /dev/null
+if test `hostname` = thanlwinsoft.co.uk;
+then
+    hg pull -u > /dev/null
+fi
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
 PATH=/usr/lib/jvm/java-6-sun/bin:$PATH
-if  ! test -f build.version || test `hg id -n` -gt `cat build.version`; 
+if  ! test -f build.version || test `hg id -n` != `cat build.version`; 
 then
     if nice ant -f ${DOCCHARCONVERT}/org.thanlwinsoft.doccharconvert.update/headless-build/build.xml -Dosgi.os=linux -Dosgi.arch=x86 -Dosgi.ws=gtk -Declipse.home=${ECLIPSE_HOME} -Dtimestamp=`date +%Y%m%d%H%m` $@;
     then

@@ -1,6 +1,6 @@
 Source: libdoccharconvert-java
 Priority: extra
-Maintainer: Keith Stribley <Keith Stribley <devel@thanlwinsoft.org>>
+Maintainer: Keith Stribley <devel@thanlwinsoft.org>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.8.1
 Section: libs
