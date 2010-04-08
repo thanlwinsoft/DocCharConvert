@@ -1,7 +1,7 @@
 Source: libdoccharconvert-java
 Priority: extra
 Maintainer: Keith Stribley <devel@thanlwinsoft.org>
-Build-Depends: debhelper (>= 7)
+Build-Depends: debhelper (>= 7), javahelper (>= 0.30), eclipse-pde (>=3.5.0)
 Standards-Version: 3.8.1
 Section: libs
 Homepage: http://www.thanlwinsoft.org/ThanLwinSoft/DocCharConvert/
@@ -9,7 +9,7 @@ Homepage: http://www.thanlwinsoft.org/ThanLwinSoft/DocCharConvert/
 Package: libdoccharconvert-java
 Section: libs
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, default-jre | java5-runtime | java6-runtime
 Description:  Eclipse plugin to convert between different encoding formats and different scripts.
     DocCharConvert is a tool to convert between different encoding formats and different scripts.
     It currently supports the following types of converters:

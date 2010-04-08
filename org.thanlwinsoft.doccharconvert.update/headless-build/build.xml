@@ -261,6 +261,7 @@
 		<exec executable="${nsisHome}/makensis" dir="${buildDirectory}" 
 				failonerror="true" logerror="true"
 				output="${buildDirectory}/nsis_win32_x86.log">
+			<arg value="-DVERSION=${doccharconvert.version}"/>
 			<arg value="${nsis.path}"/>
 		</exec>
 	</target>

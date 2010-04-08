@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="org.thanlwinsoft.doccharconvert.schemas" default="build.schemas" basedir=".">
+<available file="/usr/share/java/xmlbeans.jar" property="xmlbeans.jar" value="/usr/share/java/xmlbeans.jar"/>
+<condition property="xmlbeans.jar" value="../org.apache.xmlbeans/lib/xbean.jar">
+    <and>
+        <available file="../org.apache.xmlbeans/lib/xbean.jar" />
+        <not><isset property="xmlbeans.jar"/></not>
+    </and>
+</condition>
+<!-- ../org.apache.xmlbeans/lib/jsr173_1.0_api.jar -->
+
 <taskdef name="xmlbean"
      classname="org.apache.xmlbeans.impl.tool.XMLBean"
-     classpath="../org.apache.xmlbeans/lib/xbean.jar:../org.apache.xmlbeans/lib/jsr173_1.0_api.jar" />
+     classpath="${xmlbeans.jar}" />
 
 <target name="build.schemas" description="build schemas">
 	<delete dir="schemas/src"/>
-<xmlbean destfile="lib/DocCharConvertSchema.jar" 
-	srcgendir="schemas/src" failonerror="true" classpath="../org.apache.xmlbeans/lib/xbean.jar">
-  <fileset dir="schemas" includes="DocCharConverter.xsd"/>
-</xmlbean>
-<xmlbean destfile="lib/SyllableParserSchema.jar" 
-	srcgendir="schemas/src" failonerror="true"
-	classpath="../org.apache.xmlbeans/lib/xbean.jar">
-  <fileset dir="schemas" includes="SyllableParser.xsd"/>
-</xmlbean>
+    <xmlbean destfile="lib/DocCharConvertSchema.jar" 
+	    srcgendir="schemas/src" failonerror="true" classpath="${xmlbeans.jar}">
+      <fileset dir="schemas" includes="DocCharConverter.xsd"/>
+    </xmlbean>
 
+    <xmlbean destfile="lib/SyllableParserSchema.jar" 
+	    srcgendir="schemas/src" failonerror="true"
+	    classpath="${xmlbeans.jar}">
+      <fileset dir="schemas" includes="SyllableParser.xsd"/>
+    </xmlbean>
 </target>
-	
+
 <target name="build.spi" description="Build RawByteCharsetProvider">
     <jar destfile="lib/rawcharsetspi.jar" basedir="bin" includes="org/thanlwinsoft/doccharconvert/RawByteCharset*.class">
         <service type="java.nio.charset.spi.CharsetProvider" 

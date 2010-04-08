@@ -1,45 +1,17 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
-# Sample debian/rules that uses debhelper.
-# This file was originally written by Joey Hess and Craig Small.
-# As a special exception, when this file is copied by dh-make into a
-# dh-make output file, you may use that output file without restriction.
-# This special exception was added by Craig Small in version 0.37 of dh-make.
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
-build: build-stamp
-build-stamp:
-	dh_testdir  org.thanlwinsoft.doccharconvert.update
-	case "${DEB_BUILD_ARCH_CPU}" in i386 | i486 | i586 | i686) ECLIPSE_ARCH=x86;; amd64) ECLIPSE_ARCH=x86_64;; arm) ECLIPSE_ARCH=arm;; parisc parisc64) ECLIPSE_ARCH=PA_RISC;; powerpc) ECLIPSE_ARCH=ppc;; *) ECLIPSE_ARCH=$(DEB_HOST_ARCH_CPU);; esac
-	# Add here commands to compile the package.
-	ant -f org.thanlwinsoft.doccharconvert.update/headless-build/build.xml -Declipse.home=/usr/lib/eclipse -Dosgi.ws=gtk -Dosgi.os=${DEB_BUILD_ARCH_OS} -Dosgi.arch -Dhg.version=432 pde-build
+# Note: We use forceContextQualifier because the docs plugins use custom build
+#       scripts and don't work otherwise.
+BUILD_OPTIONS := -DjavacTarget=1.5 -DjavacSource=1.5 -DforceContextQualifier=201004072221
+DROPINS := usr/share/eclipse/dropins/
+export JAVA_HOME := /usr/lib/jvm/default-java
+%:
+	dh --with eclipse-helper $@
 
-	touch $@
+override_jh_compilefeatures:
+	jh_compilefeatures --build-opts '$(BUILD_OPTIONS)'
 
-clean: 
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp configure-stamp
-
-	# Add here commands to clean up after the build process.
-	# ant -f org.thanlwinsoft.doccharconvert.update/headless-build/build.xml clean
-
-	dh_clean
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_prep
-	dh_installdirs
-
-	# Add here commands to install the package into debian/tmp
-	#$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
-
-# Build architecture-independent files here.
-binary-indep: install
-# We have nothing to do by default.
-
-binary: binary-indep
-.PHONY: build clean binary-indep binary-arch binary install configure
