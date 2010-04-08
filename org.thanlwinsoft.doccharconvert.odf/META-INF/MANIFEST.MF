@@ -92,4 +92,4 @@ Export-Package: org.openoffice.odf.doc;
    org.osgi.framework,
    org.thanlwinsoft.doccharconvert,
    org.w3c.dom"
-Import-Package: org.apache.xerces.dom;version="2.9.0"
+Import-Package: org.apache.xerces.dom
