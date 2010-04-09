@@ -60,7 +60,7 @@
       <plugin id="org.apache.lucene"/>
       <plugin id="org.apache.lucene.analysis"/>
       <plugin id="org.apache.xerces"/>
-      <plugin id="org.apache.xml.resolver"/>
+      <plugin id="org.apache.xml.resolver" fragment=""/>
       <plugin id="org.apache.xmlbeans"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
@@ -136,10 +136,11 @@
    </plugins>
 
    <features>
-      <feature id="org.eclipse.rcp" />
-      <feature id="org.eclipse.platform" />
-      <feature id="org.eclipse.equinox.executable" />
-      <feature id="org.thanlwinsoft.doccharconvert.feature.core" />
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.equinox.executable"/>
+      <feature id="org.thanlwinsoft.doccharconvert.feature.core"/>
+      <feature id="org.thanlwinsoft.doccharconvert.feature.systemlibs"/>
    </features>
 
 
