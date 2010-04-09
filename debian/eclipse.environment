@@ -1,0 +1,10 @@
+org.thanlwinsoft.doccharconvert
+org.thanlwinsoft.doccharconvert.ide
+org.thanlwinsoft.doccharconvert.odf
+org.thanlwinsoft.doccharconvert.converters.mien
+org.thanlwinsoft.doccharconvert.converters.myanmar
+org.thanlwinsoft.doccharconvert.feature.*
+org.apache.xmlbeans
+org.apache.xerces
+org.odftoolkit.odfdom
+

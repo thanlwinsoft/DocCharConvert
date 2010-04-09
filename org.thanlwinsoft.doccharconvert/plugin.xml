@@ -25,7 +25,7 @@
       </perspective>
    </extension>
    <extension
-         point="org.eclipse.core.runtime.contentTypes">
+         point="org.eclipse.core.contenttype.contentTypes">
       <file-association
             content-type="org.eclipse.core.runtime.xml"
             file-extensions="dccx"/>

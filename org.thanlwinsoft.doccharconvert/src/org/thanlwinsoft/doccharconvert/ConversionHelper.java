@@ -158,7 +158,7 @@ public class ConversionHelper
           Object [] iFiles = conversion.getInputFileList();    
           if (iFiles.length > 0)
           {
-              if (iFiles[0] instanceof java.util.Map.Entry &&
+              if (iFiles[0] instanceof java.util.Map.Entry<?,?> &&
                   ((Map.Entry<?,?>)iFiles[0]).getKey() instanceof File)
               {
                   for (int i = 0; i< iFiles.length; i++)

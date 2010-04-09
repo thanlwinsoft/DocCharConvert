@@ -172,7 +172,7 @@ public class ConversionFileListProvider implements IStructuredContentProvider
             {
                 
                 TableItem ti = new TableItem(tv.getTable(), SWT.LEFT, i);
-                if (entries[i] instanceof Map.Entry)
+                if (entries[i] instanceof Map.Entry<?,?>)
                 {
                     Map.Entry<?,?> entry = (Map.Entry<?,?>)entries[i];
                     if (entry.getKey() instanceof File)

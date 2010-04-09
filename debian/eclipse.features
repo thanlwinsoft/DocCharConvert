@@ -1,0 +1,5 @@
+org.thanlwinsoft.doccharconvert.feature.systemlibs
+org.thanlwinsoft.doccharconvert.feature.core org.thanlwinsoft.doccharconvert.feature.systemlibs
+org.thanlwinsoft.doccharconvert.feature.myanmar org.thanlwinsoft.doccharconvert.feature.core
+org.thanlwinsoft.doccharconvert.feature.mien org.thanlwinsoft.doccharconvert.feature.core
+

@@ -1,0 +1,102 @@
+<project name="org.thanlwinsoft.doccharconvert" default="build" basedir=".">
+
+<tstamp>
+<format property="timestamp" pattern="yyyyMMddhhmm" locale="en,UK"/>
+</tstamp>
+<property name="forceQualifier" value="${timestamp}"/>
+<!--
+<property file="org.thanlwinsoft.doccharconvert.update/headless-build/build.common.properties" />
+-->
+<target name="init" unless="eclipse.home">
+    <property name="eclipse.home" value="/usr/lib/eclipse"/>
+    <property name="baseLocation" value="${eclipse.home}"/>
+</target>
+
+<target name="init-eclipse-plugins" depends="init">
+	<xslt style="org.thanlwinsoft.doccharconvert.update/headless-build/plugin-versions.xsl" in="${eclipse.home}/artifacts.xml" out="plugin-versions.properties"/>
+	<property file="plugin-versions.properties"/>
+	<property name="eclipse.pdebuild.scripts" value="${eclipse.home}/plugins/org.eclipse.pde.build_${eclipsePdeBuildVersion}/scripts"/>
+</target>
+
+<target name="split-plugins-features">
+		<mkdir dir="${basedir}/plugins"/>
+		<mkdir dir="${basedir}/features"/>
+
+		<symlink link="${basedir}/plugins/org.thanlwinsoft.doccharconvert"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert"/>
+		<symlink link="${basedir}/plugins/org.thanlwinsoft.doccharconvert.converters.myanmar"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.converters.myanmar"/>
+		<symlink link="${basedir}/plugins/org.thanlwinsoft.doccharconvert.converters.mien"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.converters.mien"/>
+		<symlink link="${basedir}/plugins/org.thanlwinsoft.doccharconvert.teckit"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.teckit"/>
+		<symlink link="${basedir}/plugins/org.thanlwinsoft.doccharconvert.odf"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.odf"/>
+		<symlink link="${basedir}/plugins/org.thanlwinsoft.doccharconvert.ide"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.ide"/>
+        <symlink link="${basedir}/plugins/org.thanlwinsoft.doccharconvert.systemlibs"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.systemlibs"/>
+
+		<symlink link="${basedir}/features/org.thanlwinsoft.doccharconvert.feature.core"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.feature.core"/>
+		<symlink link="${basedir}/features/org.thanlwinsoft.doccharconvert.feature.myanmar"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.feature.myanmar"/>
+		<symlink link="${basedir}/features/org.thanlwinsoft.doccharconvert.feature.mien"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.feature.mien"/>
+        <symlink link="${basedir}/features/org.thanlwinsoft.doccharconvert.feature.systemlibs"
+			resource="${basedir}/org.thanlwinsoft.doccharconvert.feature.systemlibs"/>
+
+        <symlink link="${basedir}/org.thanlwinsoft.doccharconvert.systemlibs/odfdom.jar"
+            resource="/usr/share/java/odfdom.jar" overwrite="true"/>
+        <symlink link="${basedir}/org.thanlwinsoft.doccharconvert.systemlibs/xmlbeans.jar"
+            resource="/usr/share/java/xmlbeans.jar" overwrite="true"/>
+        <symlink link="${basedir}/org.thanlwinsoft.doccharconvert.systemlibs/xmlbeans-qname.jar"
+            resource="/usr/share/java/xmlbeans-qname.jar" overwrite="true"/>
+        <symlink link="${basedir}/org.thanlwinsoft.doccharconvert.systemlibs/xmlbeans_xpath.jar"
+            resource="/usr/share/java/xmlbeans_xpath.jar" overwrite="true"/>
+
+</target>
+
+<target name="dcc-schemas" depends="init-eclipse-plugins, split-plugins-features">
+		<ant antfile="build-schemas.xml" dir="plugins/org.thanlwinsoft.doccharconvert">
+		</ant>
+</target>
+
+
+<macrodef name="plugin-build">
+<attribute name="pluginName" default="NOT SET"/>
+<sequential>
+    <java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.ant.core.antRunner" />
+			<arg value="-buildfile" />
+			<arg value="${eclipse.pdebuild.scripts}/build.xml" />
+			<arg value="-DbuildDirectory=${basedir}"/>
+			<arg value="-Dtimestamp=${timestamp}" />
+			<arg value="-DskipMaps=true"/>
+			<arg value="-DskipBase=true"/>
+			<arg value="-DskipFetch=true"/>
+			<arg value="-DbaseLocation=${eclipse.home}"/>
+			<arg value="-DforceContextQualifier=${forceQualifier}" />
+			<classpath>
+				<pathelement location="${eclipse.home}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
+			</classpath>
+	</java>
+</sequential>
+</macrodef>
+
+<target name="libdoccharconvert-java" depends="dcc-schemas">
+    <plugin-build pluginName="org.thanwlinsoft.doccharconvert"/>
+</target>
+
+<target name="clean">
+    <delete dir="${basedir}/plugins"/>
+    <delete dir="${basedir}/features"/>
+    <delete dir="${basedir}/org.thanlwinsoft.doccharconvert.systemlibs/*.jar"/>
+</target>
+
+<target name="build" depends="dcc-schemas">
+</target>
+
+</project>
+

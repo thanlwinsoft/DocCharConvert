@@ -963,11 +963,11 @@ public class ScriptsEditorPart extends EditorPart
                 int insertRowCount = Math.max(1, table.getSelectionCount());
                 for (int i = 0; i < insertRowCount; i++)
                 {
-                    Component c;
+                    //Component c;
                     if (mapIndex + i < scriptArray.getCluster().sizeOfComponentArray())
-                        c = scriptArray.getCluster()
+                        scriptArray.getCluster()
                             .insertNewComponent(mapIndex + i);
-                    else c= scriptArray.getCluster().addNewComponent();
+                    else scriptArray.getCluster().addNewComponent();
                     int numComponents = scriptArray.getCluster()
                             .sizeOfComponentArray();
                     String id = "Side" + scriptArray.getSide() + numComponents;

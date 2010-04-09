@@ -18,8 +18,13 @@ firefox-myanmar-converter/test/*/*
 firefox-myanmar-converter/tools/bin
 firefox-myanmar-converter/tools/javaFirefoxExtensionUtils.jar
 firefox-myanmar-converter/lib/*.jar
+firefox-myanmar-converter/java_firefox_extension*
 org.thanlwinsoft.doccharconvert.odf/test/*_uni.*
 org.thanlwinsoft.doccharconvert/schemas/src/*
+classes
+build/private
+org.apache.xmlbeans/src
+org.apache.xmlbeans/build/src
 
 syntax: regexp
 \.xpi$

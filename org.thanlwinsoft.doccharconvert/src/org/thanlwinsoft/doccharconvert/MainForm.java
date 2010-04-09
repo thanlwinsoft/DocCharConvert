@@ -845,7 +845,7 @@ public class MainForm extends javax.swing.JFrame
         {
             if (individualOutput.isSelected())
             {
-                assert (files[j] instanceof Map.Entry);
+                assert (files[j] instanceof Map.Entry<?,?>);
                 conversion.removeFilePair((Map.Entry<?,?>)files[j]);
             }
             else

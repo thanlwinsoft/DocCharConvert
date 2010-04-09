@@ -79,3 +79,4 @@ Export-Package: org.odftoolkit.odfdom;version="0.8.0",
  org.odftoolkit.odfdom.pkg.manifest;version="0.8.0",
  org.odftoolkit.odfdom.type;version="0.8.0"
 Require-Bundle: org.apache.xerces;bundle-version="2.9.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

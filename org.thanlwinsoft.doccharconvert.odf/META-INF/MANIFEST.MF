@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: DocCharConvert Odf Plug-in
+Bundle-Name: org.thanlwinsoft.doccharconvert.odf
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.thanlwinsoft.doccharconvert.odf;singleton:=true
 Bundle-Vendor: thanlwinsoft.org
@@ -9,9 +9,9 @@ Bundle-Localization: plugin
 Require-Bundle: 
  org.eclipse.ui;bundle-version="3.5.1",
  org.eclipse.core.runtime;bundle-version="3.5.0",
- org.odftoolkit.odfdom;bundle-version="0.8.0"
+ org.odftoolkit.odfdom;bundle-version="0.8.0",
+ org.thanlwinsoft.doccharconvert;bundle-version="1.2.4"
 Bundle-ClassPath: .
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.thanlwinsoft.doccharconvert.odf.OdfActivator
 Export-Package: org.thanlwinsoft.doccharconvert.odf
-Import-Package: 
