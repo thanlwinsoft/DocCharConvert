@@ -4,19 +4,19 @@
    <extension
          point="org.eclipse.ant.core.extraClasspathEntries">
       <extraClasspathEntry
-            library="lib/resolver.jar">
+            library="build/lib/resolver.jar">
       </extraClasspathEntry>
       <extraClasspathEntry
-            library="lib/xbean.jar">
+            library="build/lib/xbean.jar">
       </extraClasspathEntry>
       <extraClasspathEntry
-            library="lib/xbean_xpath.jar">
+            library="build/lib/xbean_xpath.jar">
       </extraClasspathEntry>
       <extraClasspathEntry
-            library="lib/xmlbeans-qname.jar">
+            library="build/lib/xmlbeans-qname.jar">
       </extraClasspathEntry>
       <extraClasspathEntry
-            library="lib/xmlpublic.jar">
+            library="build/lib/xmlpublic.jar">
       </extraClasspathEntry>
    </extension>
 

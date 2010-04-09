@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.thanlwinsoft.doccharconvert.feature.systemlibs"
+      label="org.thanlwinsoft.doccharconvert.feature.systemlibs"
+      version="1.0.0.qualifier"
+      provider-name="ThanLwinSoft.org"
+      os="linux">
+
+   <description url="http://www.thanlwinsoft.org/">
+      Plugin linking to system libraries.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="ThanLwinSoft.org" url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/"/>
+   </url>
+
+   <plugin
+         id="org.thanlwinsoft.doccharconvert.systemlibs"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

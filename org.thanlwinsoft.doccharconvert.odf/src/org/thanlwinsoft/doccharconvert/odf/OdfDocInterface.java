@@ -27,31 +27,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-
-import org.openoffice.odf.doc.OdfDocument;
-import org.openoffice.odf.doc.OdfFileDom;
-import org.openoffice.odf.doc.OdfDocument.OdfMediaType;
-import org.openoffice.odf.doc.element.office.OdfAutomaticStyles;
-import org.openoffice.odf.doc.element.office.OdfDrawing;
-import org.openoffice.odf.doc.element.office.OdfFontFaceDecls;
-import org.openoffice.odf.doc.element.office.OdfPresentation;
-import org.openoffice.odf.doc.element.office.OdfSpreadsheet;
-import org.openoffice.odf.doc.element.office.OdfText;
-import org.openoffice.odf.doc.element.office.OdfBody;
-import org.openoffice.odf.doc.element.style.OdfDefaultStyle;
-import org.openoffice.odf.doc.element.style.OdfFontFace;
-import org.openoffice.odf.doc.element.style.OdfTextProperties;
-import org.openoffice.odf.doc.element.text.OdfSpace;
-import org.openoffice.odf.doc.element.text.OdfSpan;
-import org.openoffice.odf.doc.element.text.OdfTab;
-import org.openoffice.odf.dom.OdfName;
-import org.openoffice.odf.dom.OdfNamespace;
-import org.openoffice.odf.dom.element.OdfElement;
-import org.openoffice.odf.dom.element.OdfStylableElement;
-import org.openoffice.odf.dom.element.OdfStyleBase;
-import org.openoffice.odf.dom.element.style.OdfStyleElement;
-import org.openoffice.odf.dom.style.OdfStyleFamily;
-import org.openoffice.odf.dom.style.props.OdfStylePropertiesSet;
+import org.odftoolkit.odfdom.doc.OdfDocument;
+import org.odftoolkit.odfdom.OdfFileDom;
+import org.odftoolkit.odfdom.doc.OdfDocument.OdfMediaType;
+import org.odftoolkit.odfdom.doc.office.OdfOfficeDrawing;
+import org.odftoolkit.odfdom.doc.office.OdfOfficeFontFaceDecls;
+import org.odftoolkit.odfdom.doc.office.OdfOfficePresentation;
+import org.odftoolkit.odfdom.doc.office.OdfOfficeSpreadsheet;
+import org.odftoolkit.odfdom.doc.office.OdfOfficeText;
+import org.odftoolkit.odfdom.doc.office.OdfOfficeBody;
+import org.odftoolkit.odfdom.doc.style.OdfDefaultStyle;
+import org.odftoolkit.odfdom.doc.style.OdfStyle;
+import org.odftoolkit.odfdom.doc.style.OdfStyleFontFace;
+import org.odftoolkit.odfdom.doc.text.OdfTextSpace;
+import org.odftoolkit.odfdom.doc.text.OdfTextSpan;
+import org.odftoolkit.odfdom.doc.text.OdfTextTab;
+import org.odftoolkit.odfdom.doc.office.OdfOfficeAutomaticStyles;
+import org.odftoolkit.odfdom.OdfName;
+import org.odftoolkit.odfdom.OdfNamespace;
+import org.odftoolkit.odfdom.OdfElement;
+import org.odftoolkit.odfdom.dom.OdfNamespaceNames;
+import org.odftoolkit.odfdom.dom.element.OdfStylableElement;
+import org.odftoolkit.odfdom.dom.element.OdfStyleBase;
+import org.odftoolkit.odfdom.dom.element.style.StyleTextPropertiesElement;
+import org.odftoolkit.odfdom.dom.style.OdfStyleFamily;
+import org.odftoolkit.odfdom.dom.style.props.OdfStylePropertiesSet;
 import org.thanlwinsoft.doccharconvert.ConversionMode;
 import org.thanlwinsoft.doccharconvert.DocInterface;
 import org.thanlwinsoft.doccharconvert.ProgressNotifier;
@@ -150,7 +150,7 @@ public class OdfDocInterface implements DocInterface {
 			parseFontFaces(doc);
 		}
 		
-		OdfBody body = doc.getOfficeBody();
+		OdfOfficeBody body = doc.getOfficeBody();
 		
 		Deque <OdfStyleBase> styleStack = new ArrayDeque<OdfStyleBase>();
 		OdfDefaultStyle defaultStyle =
@@ -171,12 +171,12 @@ public class OdfDocInterface implements DocInterface {
 		Element docElement = doc.getContentDom().getDocumentElement();
 		if (docElement instanceof OdfElement)
 		{
-			OdfFontFaceDecls faceDecls = OdfElement.findFirstChildNode(OdfFontFaceDecls.class, (OdfElement)docElement);
-			OdfFontFace face = OdfElement.findFirstChildNode(OdfFontFace.class, faceDecls);
+			OdfOfficeFontFaceDecls faceDecls = OdfElement.findFirstChildNode(OdfOfficeFontFaceDecls.class, (OdfElement)docElement);
+			OdfStyleFontFace face = OdfElement.findFirstChildNode(OdfStyleFontFace.class, faceDecls);
 			while (face != null)
 			{
-				mFaceMap.put(face.getName(), face.getFontFamily());
-				face = OdfElement.findNextChildNode(OdfFontFace.class, face);
+				mFaceMap.put(face.getStyleNameAttribute(), face.getSvgFontFamilyAttribute());
+				face = OdfElement.findNextChildNode(OdfStyleFontFace.class, face);
 			}
 		}
 	}
@@ -257,14 +257,14 @@ public class OdfDocInterface implements DocInterface {
 					}
 				}
 				Node parent = frag.getNode().getParentNode();
-				if (parent instanceof OdfSpan)
+				if (parent instanceof OdfTextSpan)
 				{
 					// easy case - whole of text span
 					if (parent.getChildNodes().getLength() == 1 &&
 						frag.getStart() == 0 &&
 						frag.getLength() == frag.getNode().getLength())
 					{
-						OdfSpan span = (OdfSpan)parent;
+						OdfTextSpan span = (OdfTextSpan)parent;
 						Text convertedNode = parent.getOwnerDocument()
 							.createTextNode(converted);
 						span.replaceChild(convertedNode, frag.getNode());
@@ -275,12 +275,12 @@ public class OdfDocInterface implements DocInterface {
 					{
 						// span <span>xyz</span>
 						// to   <span>x</span><span>Y</span><span>z</span>
-						OdfSpan span = (OdfSpan)parent;
-						OdfSpan convertedSpan = new OdfSpan(dom);
+						OdfTextSpan span = (OdfTextSpan)parent;
+						OdfTextSpan convertedSpan = new OdfTextSpan(dom);
 						convertedSpan.setStyleName(getConvertedStyle(doc, 
 								frag.getConverter(), span.getStyleName()));
 						
-						OdfSpan postSpan = null;
+						OdfTextSpan postSpan = null;
 						int textNodeIndex;
 						for (textNodeIndex = 0; textNodeIndex <
 							 span.getChildNodes().getLength();
@@ -297,7 +297,7 @@ public class OdfDocInterface implements DocInterface {
 							frag.getStart() + frag.getLength() <
 							frag.getNode().getLength())
 						{
-							postSpan = new OdfSpan(dom);
+							postSpan = new OdfTextSpan(dom);
 							postSpan.setStyleName(span.getStyleName());
 						}
 						
@@ -422,7 +422,7 @@ public class OdfDocInterface implements DocInterface {
 				{
 					// paragraph case <p>xyz</p>
 					// to <p>x<span>Y</span>z</p>
-					OdfSpan convertedSpan = new OdfSpan(dom);
+					OdfTextSpan convertedSpan = new OdfTextSpan(dom);
 					String styleName = "";
 					if (frag.getNode() instanceof OdfStylableElement)
 					{
@@ -501,10 +501,10 @@ public class OdfDocInterface implements DocInterface {
 	{
 		Node paraLevelParent = n;
 		while (paraLevelParent != null &&
-			   !(paraLevelParent.getParentNode() instanceof OdfText) &&
-			   !(paraLevelParent.getParentNode() instanceof OdfPresentation) &&
-			   !(paraLevelParent.getParentNode() instanceof OdfDrawing) &&
-			   !(paraLevelParent.getParentNode() instanceof OdfSpreadsheet))
+			   !(paraLevelParent.getParentNode() instanceof OdfOfficeText) &&
+			   !(paraLevelParent.getParentNode() instanceof OdfOfficePresentation) &&
+			   !(paraLevelParent.getParentNode() instanceof OdfOfficeDrawing) &&
+			   !(paraLevelParent.getParentNode() instanceof OdfOfficeSpreadsheet))
 		{
 			paraLevelParent = paraLevelParent.getParentNode();
 		}
@@ -540,7 +540,7 @@ public class OdfDocInterface implements DocInterface {
 		}
 		// need to create a new style
 		//OdfStyles styles = doc.getOrCreateDocumentStyles();
-		OdfAutomaticStyles autoStyles = doc.getContentDom().getAutomaticStyles();
+		OdfOfficeAutomaticStyles autoStyles = doc.getContentDom().getAutomaticStyles();
 		String name = "T" + (++mTextStyleCount);
 		while (autoStyles.getStyle(name, OdfStyleFamily.Text) != null)
 		{
@@ -566,41 +566,46 @@ public class OdfDocInterface implements DocInterface {
 		String fontWeight = "";
 		while (origStyle != null)
 		{
-			OdfTextProperties oldProps = (OdfTextProperties)origStyle.getOrCreatePropertiesElement(OdfStylePropertiesSet.TextProperties);
-			fontSize = parseProperty(converter, oldProps, OdfNamespace.FO,
+			StyleTextPropertiesElement oldProps = (StyleTextPropertiesElement)origStyle.getOrCreatePropertiesElement(OdfStylePropertiesSet.TextProperties);
+			final OdfNamespace fo = OdfNamespace.newNamespace(OdfNamespaceNames.FO);
+			final OdfNamespace style = OdfNamespace.newNamespace(OdfNamespaceNames.STYLE);
+			fontSize = parseProperty(converter, oldProps, fo,
 					"font-size", fontSize);
-			fontSizeRel = parseProperty(converter, oldProps, OdfNamespace.FO,
+			fontSizeRel = parseProperty(converter, oldProps, fo,
 					"font-size-rel", fontSizeRel);
-			fontPitch = parseProperty(converter, oldProps, OdfNamespace.STYLE, 
+			fontPitch = parseProperty(converter, oldProps, style, 
 					"font-pitch", fontPitch);
-			fontStyleName = parseProperty(converter, oldProps, OdfNamespace.STYLE, 
+			fontStyleName = parseProperty(converter, oldProps, style, 
 					"font-style-name", fontStyleName);
-			fontFamilyGeneric = parseProperty(converter, oldProps, OdfNamespace.STYLE, 
+			fontFamilyGeneric = parseProperty(converter, oldProps, style, 
 					"font-family-generic", fontFamilyGeneric);
-			fontStyle = parseProperty(converter, oldProps, OdfNamespace.FO, 
+			fontStyle = parseProperty(converter, oldProps, fo, 
 					"font-style", fontStyle);
-			fontWeight = parseProperty(converter, oldProps, OdfNamespace.FO, 
+			fontWeight = parseProperty(converter, oldProps, fo, 
 					"font-weight", fontWeight);
 			
 			origStyle = origStyle.getParentStyle();
 		}
 		
-		OdfStyleElement style = autoStyles.createStyle(OdfStyleFamily.Text);
+		OdfStyle style = autoStyles.newStyle(OdfStyleFamily.Text);
 		if (styleName.length() > 0)
 		{
-			style.setParentStyleName(styleName);
+			style.setStyleParentStyleNameAttribute(styleName);
 		}
 		else
 		{
 			
 		}
-		style.setName(name);
-		OdfTextProperties props = (OdfTextProperties) style.getOrCreatePropertiesElement(OdfStylePropertiesSet.TextProperties);
+		style.setStyleNameAttribute(name);
+		StyleTextPropertiesElement props = (StyleTextPropertiesElement) style.getOrCreatePropertiesElement(OdfStylePropertiesSet.TextProperties);
 		// TODO support font-family
 		Type type = converter.getNewStyle().getScriptType();
 		String newFontName = converter.getNewStyle().getFontName();
 		int faceCount = 0;
 
+		OdfNamespace styleNS = OdfNamespace.newNamespace(OdfNamespaceNames.STYLE);
+		OdfNamespace svgNS = OdfNamespace.newNamespace(OdfNamespaceNames.SVG);
+		OdfNamespace foNS = OdfNamespace.newNamespace(OdfNamespaceNames.FO);
 		boolean useFontFace = true;
 		OdfMediaType media = OdfMediaType.getOdfMediaType(doc.getMediaType());
 		if (media.equals(OdfDocument.OdfMediaType.PRESENTATION) ||
@@ -610,29 +615,29 @@ public class OdfDocInterface implements DocInterface {
 		Element docElement = doc.getContentDom().getDocumentElement();
 		if (useFontFace && docElement instanceof OdfElement)
 		{
-			OdfFontFaceDecls faceDecls = OdfElement.findFirstChildNode(OdfFontFaceDecls.class, (OdfElement)docElement);
-			OdfFontFace face = OdfElement.findFirstChildNode(OdfFontFace.class, faceDecls);
+			OdfOfficeFontFaceDecls faceDecls = OdfElement.findFirstChildNode(OdfOfficeFontFaceDecls.class, (OdfElement)docElement);
+			OdfStyleFontFace face = OdfElement.findFirstChildNode(OdfStyleFontFace.class, faceDecls);
 			while (face != null)
 			{
-				if (face.getFontFamily().equals(converter.getNewStyle().getFontName()))
+				if (face.getSvgFontFamilyAttribute().equals(converter.getNewStyle().getFontName()))
 				{
-					newFontName = face.getName();
+					newFontName = face.getStyleNameAttribute();
 					break;
 				}
-				if (face.getName().equals(newFontName))
+				if (face.getStyleNameAttribute().equals(newFontName))
 				{
 					// same name, different font!
 					newFontName = converter.getNewStyle().getFontName() + 
 						(++faceCount);
 				}
-				face = OdfElement.findNextChildNode(OdfFontFace.class, face);
+				face = OdfElement.findNextChildNode(OdfStyleFontFace.class, face);
 			}
 			if (face == null)
 			{
-				face = new OdfFontFace(doc.getContentDom());
-				face.setOdfAttribute(OdfName.get(OdfNamespace.STYLE,"name"),
+				face = new OdfStyleFontFace(doc.getContentDom());
+				face.setOdfAttributeValue(OdfName.newName(styleNS,"name"),
 						newFontName);
-				face.setOdfAttribute(OdfName.get(OdfNamespace.SVG,"font-family"),
+				face.setOdfAttributeValue(OdfName.newName(svgNS,"font-family"),
 						converter.getNewStyle().getFontName());
 				faceDecls.appendChild(face);
 			}
@@ -642,45 +647,45 @@ public class OdfDocInterface implements DocInterface {
 		{
 			if (type.equals(Type.LATIN))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name"), newFontName);
+				props.setOdfAttributeValue(OdfName.newName(styleNS, "font-name"), newFontName);
 			}
 			else if (type.equals(Type.COMPLEX))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name-complex"), newFontName);
+				props.setOdfAttributeValue(OdfName.newName(styleNS, "font-name-complex"), newFontName);
 			}
 			else if (type.equals(Type.CJK))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-name-asian"), newFontName);
+				props.setOdfAttributeValue(OdfName.newName(styleNS, "font-name-asian"), newFontName);
 			}
 		}
 		else
 		{
 			if (type.equals(Type.LATIN))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.FO, "font-family"), newFontName);
+				props.setOdfAttributeValue(OdfName.newName(foNS, "font-family"), newFontName);
 			}
 			else if (type.equals(Type.COMPLEX))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-family-complex"), newFontName);
+				props.setOdfAttributeValue(OdfName.newName(styleNS, "font-family-complex"), newFontName);
 			}
 			else if (type.equals(Type.CJK))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, "font-family-asian"), newFontName);
+				props.setOdfAttributeValue(OdfName.newName(styleNS, "font-family-asian"), newFontName);
 			}
 		}
-		setProperty(type, props, OdfNamespace.FO,
+		setProperty(type, props, foNS,
 				"font-size", fontSize);
-		setProperty(type, props, OdfNamespace.FO,
+		setProperty(type, props, foNS,
 				"font-size-rel", fontSizeRel);
-		setProperty(type, props, OdfNamespace.STYLE,
+		setProperty(type, props, styleNS,
 				"font-pitch", fontPitch);
-		setProperty(type, props, OdfNamespace.STYLE, 
+		setProperty(type, props, styleNS, 
 				"font-style-name", fontStyleName);
-		setProperty(type, props, OdfNamespace.STYLE, 
+		setProperty(type, props, styleNS, 
 				"font-family-generic", fontFamilyGeneric);
-		setProperty(type, props, OdfNamespace.FO,
+		setProperty(type, props, foNS,
 				"font-style", fontStyle);
-		setProperty(type, props, OdfNamespace.FO,
+		setProperty(type, props, foNS,
 				"font-weight", fontWeight);
 
 		if (style.getParentNode() != autoStyles)
@@ -693,37 +698,39 @@ public class OdfDocInterface implements DocInterface {
 		return name;
 	}
 	
-	private String parseProperty(CharConverter converter, OdfTextProperties oldProps,
+	private String parseProperty(CharConverter converter, StyleTextPropertiesElement oldProps,
 			OdfNamespace ns, String attrib, String value)
 	{
 		if (value.length() > 0) return value;
+		OdfNamespace styleNS = OdfNamespace.newNamespace(OdfNamespaceNames.STYLE);
 		if (converter.getOldStyle().getScriptType().equals(Type.LATIN))
-			value = oldProps.getOdfAttribute(OdfName.get(ns, attrib));
+			value = oldProps.getOdfAttributeValue(OdfName.newName(ns, attrib));
 		else if (converter.getOldStyle().getScriptType().equals(Type.COMPLEX))
-			value = oldProps.getOdfAttribute(OdfName.get(OdfNamespace.STYLE, 
+			value = oldProps.getOdfAttributeValue(OdfName.newName(styleNS, 
 					attrib + "-complex"));
 		else if (converter.getOldStyle().getScriptType().equals(Type.CJK))
-			value = oldProps.getOdfAttribute(OdfName.get(OdfNamespace.STYLE,
+			value = oldProps.getOdfAttributeValue(OdfName.newName(styleNS,
 					attrib + "-asian"));
 		return value;
 	}
 	
-	private void setProperty(Type type, OdfTextProperties props, OdfNamespace ns, String attrib, String value)
+	private void setProperty(Type type, StyleTextPropertiesElement props, OdfNamespace ns, String attrib, String value)
 	{
+		OdfNamespace styleNS = OdfNamespace.newNamespace(OdfNamespaceNames.STYLE);
 		if (value.length() > 0)
 		{
 			if (type.equals(Type.LATIN))
 			{
-				props.setOdfAttribute(OdfName.get(ns, attrib), value);
+				props.setOdfAttributeValue(OdfName.newName(ns, attrib), value);
 			}
 			else if (type.equals(Type.COMPLEX))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, attrib +
+				props.setOdfAttributeValue(OdfName.newName(styleNS, attrib +
 						"-complex"), value);
 			}
 			else if (type.equals(Type.CJK))
 			{
-				props.setOdfAttribute(OdfName.get(OdfNamespace.STYLE, attrib +
+				props.setOdfAttributeValue(OdfName.newName(styleNS, attrib +
 						"-asian"), value);
 			}
 		}
@@ -756,8 +763,8 @@ public class OdfDocInterface implements DocInterface {
 			else if (n instanceof OdfElement)
 			{
 				OdfElement childElement = (OdfElement)n;
-				if (childElement instanceof OdfTab ||
-					childElement instanceof OdfSpace)
+				if (childElement instanceof OdfTextTab ||
+					childElement instanceof OdfTextSpace)
 				{
 					prevText = null;
 				}
@@ -816,7 +823,7 @@ public class OdfDocInterface implements DocInterface {
 			String fontName = "";
 			do
 			{
-				OdfTextProperties textProps = OdfElement.findFirstChildNode(OdfTextProperties.class, style);
+				StyleTextPropertiesElement textProps = OdfElement.findFirstChildNode(StyleTextPropertiesElement.class, style);
 				if (textProps != null)
 				{
 					if (useFontFace)

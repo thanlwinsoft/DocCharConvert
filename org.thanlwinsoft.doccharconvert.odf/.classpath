@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="libs/odfdom.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.thanlwinsoft.doccharconvert"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.apache.xerces"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.odftoolkit.odfdom"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

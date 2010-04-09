@@ -6,11 +6,12 @@ export DH_VERBOSE=1
 
 # Note: We use forceContextQualifier because the docs plugins use custom build
 #       scripts and don't work otherwise.
-BUILD_OPTIONS := -DjavacTarget=1.5 -DjavacSource=1.5 -DforceContextQualifier=201004072221 -o org.thanlwinsoft.doccharconvert.systemlibs
-DROPINS := usr/share/eclipse/dropins/
+# -DorbitDepsDir=org.thanlwinsoft.doccharconvert.systemlibs ?
+BUILD_OPTIONS := -DjavacTarget=1.5 -DjavacSource=1.5 -DforceContextQualifier=201004072221 
+DROPINS := usr/share/eclipse/plugins/
 export JAVA_HOME := /usr/lib/jvm/default-java
 %:
-	dh --with eclipse-helper $@
+	dh --with eclipse-helper --with quilt $@
 
 override_jh_compilefeatures:
 	jh_compilefeatures --build-opts '$(BUILD_OPTIONS)'

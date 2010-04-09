@@ -506,9 +506,6 @@ DAMAGES.
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.core.runtime" version="3.4.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.equinox.common" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.thanlwinsoft.doccharconvert" version="1.2.2" match="greaterOrEqual"/>
-      <import plugin="org.apache.xerces" version="2.9.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.xmlbeans"/>
    </requires>
 
    <plugin

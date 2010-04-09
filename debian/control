@@ -1,7 +1,7 @@
 Source: libdoccharconvert-java
 Priority: extra
 Maintainer: Keith Stribley <devel@thanlwinsoft.org>
-Build-Depends: debhelper (>= 7), javahelper (>= 0.30), eclipse-pde (>=3.5.0)
+Build-Depends: debhelper (>= 7), javahelper (>= 0.30), eclipse-pde (>=3.5.0), quilt
 Standards-Version: 3.8.1
 Section: libs
 Homepage: http://www.thanlwinsoft.org/ThanLwinSoft/DocCharConvert/
