@@ -198,8 +198,6 @@ public class Config
         if (path.isDirectory()) return path;
         //DocCharConvertEclipsePlugin.log(IStatus.WARNING,"No converter path: " +
         //                path.getAbsolutePath(), null);
-        System.out.println("No converter path: " +
-                           path.getAbsolutePath());
         // try making a guess based on where the windows installer puts it
         path = new File("configuration" + File.separator + 
                         "org.thanlwinsoft.doccharconvert" + File.separator +

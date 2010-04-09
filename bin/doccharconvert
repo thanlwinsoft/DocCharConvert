@@ -1,0 +1,11 @@
+#!/bin/sh
+if test -z "$DOCCHARCONVERT_HOME";
+then
+DOCCHARCONVERT_HOME=$HOME/.doccharconvert
+fi
+
+if ! test -d "$DOCCHARCONVERT_HOME";
+then mkdir "$DOCCHARCONVERT_HOME";
+fi
+/usr/lib/eclipse/eclipse -product org.thanlwinsoft.doccharconvert.DocCharConvertProduct -application org.thanlwinsoft.doccharconvert.DocCharConvertApp -data "$DOCCHARCONVERT_HOME"
+

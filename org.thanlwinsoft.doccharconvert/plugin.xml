@@ -264,8 +264,7 @@
                >
             <implementation
                   kind="html"
-                  os="win32,linux,macosx"
-                  style="styles/DocCharConvert.css">
+                  os="win32,linux,macosx">
             </implementation>
          </presentation>
       </config>

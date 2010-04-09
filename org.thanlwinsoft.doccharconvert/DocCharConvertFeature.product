@@ -34,7 +34,7 @@
       startupMessageRect="0,275,455,20"
       startupForegroundColor="FFFFFF" />
    <launcher>
-      <linux icon="/org.thanlwinsoft.doccharconvert/icons/Convert32.xpm"/>
+      <linux icon="/org.thanlwinsoft.doccharconvert/icons/doccharconvert.xpm"/>
       <solaris/>
       <win useIco="false">
          <bmp
