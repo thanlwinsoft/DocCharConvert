@@ -23,7 +23,19 @@
    </url>
 
    <plugin
-         id="org.thanlwinsoft.doccharconvert.systemlibs"
+         id="org.apache.xerces"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.apache.xmlbeans"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.odftoolkit.odfdom"
          download-size="0"
          install-size="0"
          version="0.0.0"/>
