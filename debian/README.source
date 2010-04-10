@@ -1,0 +1,5 @@
+The debian package is using the javahelper install scripts to run PDE build.
+
+The systemlibs feature is a temporary work around until I find a solution to 
+using non-Eclipse jars as plugins.
+

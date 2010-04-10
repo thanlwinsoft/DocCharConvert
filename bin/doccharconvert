@@ -7,5 +7,5 @@ fi
 if ! test -d "$DOCCHARCONVERT_HOME";
 then mkdir "$DOCCHARCONVERT_HOME";
 fi
-/usr/lib/eclipse/eclipse -product org.thanlwinsoft.doccharconvert.DocCharConvertProduct -application org.thanlwinsoft.doccharconvert.DocCharConvertApp -data "$DOCCHARCONVERT_HOME"
+/usr/lib/eclipse/eclipse -product org.thanlwinsoft.doccharconvert.DocCharConvertProduct -application org.thanlwinsoft.doccharconvert.DocCharConvertApp -data "$DOCCHARCONVERT_HOME" $@
 

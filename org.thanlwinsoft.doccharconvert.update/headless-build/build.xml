@@ -80,6 +80,8 @@
 		    <fileset dir="${buildDirectory}/${buildBase}-${doccharconvert.version}">
 		    	<include name="org.thanlwinsoft.doccharconvert*/**/*"/>
 		    	<include name="org.apache.xmlbeans/**/*"/>
+		    	<include name="org.apache.xerces/**/*"/>
+		    	<include name="org.odftoolkit.odfdom/**/*"/>
 			</fileset>
 		</move>
 	</target>

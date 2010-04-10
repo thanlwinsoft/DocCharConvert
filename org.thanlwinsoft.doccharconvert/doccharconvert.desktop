@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=doccharconvert
+GenericName=Document Character Converter
+Comment=Edit text files
+Exec=doccharconvert
+Terminal=false
+Type=Application
+StartupNotify=true
+Icon=doccharconvert
+Categories=Utility;TextTools;Java;
+

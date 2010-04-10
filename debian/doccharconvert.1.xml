@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+
+<!--
+
+`xsltproc -''-nonet \
+          -''-param man.charmap.use.subset "0" \
+          -''-param make.year.ranges "1" \
+          -''-param make.single.year.ranges "1" \
+          /usr/share/xml/docbook/stylesheet/nwalsh/manpages/docbook.xsl \
+          manpage.xml'
+
+A manual page <package>.<section> will be generated. You may view the
+manual page with: nroff -man <package>.<section> | less'. A typical entry
+in a Makefile or Makefile.am is:
+
+DB2MAN = /usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
+XP     = xsltproc -''-nonet -''-param man.charmap.use.subset "0"
+
+manpage.1: manpage.xml
+        $(XP) $(DB2MAN) $<
+
+The xsltproc binary is found in the xsltproc package. The XSL files are in
+docbook-xsl. A description of the parameters you can use can be found in the
+docbook-xsl-doc-* packages. Please remember that if you create the nroff
+version in one of the debian/rules file targets (such as build), you will need
+to include xsltproc and docbook-xsl in your Build-Depends control field.
+Alternatively use the xmlto command/package. That will also automatically
+pull in xsltproc and docbook-xsl.
+
+Notes for using docbook2x: docbook2x-man does not automatically create the
+AUTHOR(S) and COPYRIGHT sections. In this case, please add them manually as
+<refsect1> ... </refsect1>.
+
+To disable the automatic creation of the AUTHOR(S) and COPYRIGHT sections
+read /usr/share/doc/docbook-xsl/doc/manpages/authors.html. This file can be
+found in the docbook-xsl-doc-html package.
+
+Validation can be done using: `xmllint -''-noout -''-valid manpage.xml`
+
+General documentation about man-pages and man-page-formatting:
+man(1), man(7), http://www.tldp.org/HOWTO/Man-Page/
+
+-->
+
+  <!-- Fill in your name for FIRSTNAME and SURNAME. -->
+  <!ENTITY dhfirstname "Keith">
+  <!ENTITY dhsurname   "Stribley">
+  <!-- dhusername could also be set to "&firstname; &surname;". -->
+  <!ENTITY dhusername  "Keith Stribley">
+  <!ENTITY dhemail     "devel@thanlwinsoft.org">
+  <!-- SECTION should be 1-8, maybe w/ subsection other parameters are
+       allowed: see man(7), man(1) and
+       http://www.tldp.org/HOWTO/Man-Page/q2.html. -->
+  <!ENTITY dhsection   "1">
+  <!-- TITLE should be something like "User commands" or similar (see
+       http://www.tldp.org/HOWTO/Man-Page/q2.html). -->
+  <!ENTITY dhtitle     "DocCharConvert User Manual">
+  <!ENTITY dhucpackage "libdoccharconvert-java">
+  <!ENTITY dhpackage   "doccharconvert">
+]>
+
+<refentry>
+  <refentryinfo>
+    <title>&dhtitle;</title>
+    <productname>&dhpackage;</productname>
+    <authorgroup>
+      <author>
+       <firstname>&dhfirstname;</firstname>
+        <surname>&dhsurname;</surname>
+        <contrib>Wrote this manpage for the Debian system.</contrib>
+        <address>
+          <email>&dhemail;</email>
+        </address>
+      </author>
+    </authorgroup>
+    <copyright>
+      <year>2010</year>
+      <holder>&dhusername;</holder>
+    </copyright>
+    <legalnotice>
+      <para>This manual page was written for the Debian system
+        (and may be used by others).</para>
+      <para>Permission is granted to copy, distribute and/or modify this
+        document under the terms of the GNU General Public License,
+        Version 2 or (at your option) any later version published by
+        the Free Software Foundation.</para>
+      <para>On Debian systems, the complete text of the GNU General Public
+        License can be found in
+        <filename>/usr/share/common-licenses/GPL</filename>.</para>
+    </legalnotice>
+  </refentryinfo>
+  <refmeta>
+    <refentrytitle>&dhucpackage;</refentrytitle>
+    <manvolnum>&dhsection;</manvolnum>
+  </refmeta>
+  <refnamediv>
+    <refname>&dhpackage;</refname>
+    <refpurpose>a program to convert between different character encodings and unicode</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>&dhpackage;</command>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1 id="description">
+    <title>Document Character Converter</title>
+    <para>The <command>&dhpackage;</command> command runs the DocCharConvert Eclipse application. 
+    This provides a wizard for converting between different character encodings.
+    </para>
+    <para><command>&dhpackage;</command> supports the following types of converters:</para>
+    <itemizedlist>
+        <listitem><para>TECkit Converters &#8211; <ulink url="http://scripts.sil.org/TECkit">SIL TECkit</ulink></para></listitem>
+        <listitem><para>Syllable Converters &#8211; an XML based converter built into <command>&dhpackage;</command>. A GUI editor is included.</para></listitem>
+    </itemizedlist>
+    <para><command>&dhpackage;</command> supports conversion of data in the following file formats:
+    </para>
+    <itemizedlist>
+        <listitem><para>Plain text files.</para></listitem>
+        <listitem><para>OpenDocument Format files as used by <ulink url="http://www.openoffice.org/">OpenOffice</ulink> and some other Office software.</para></listitem>
+        <listitem><para>XML using an XSLT with <command>&dhpackage;</command> extension &#8211; see below.</para></listitem>
+        <listitem><para>TeX files &#8211; very limited support.</para></listitem>
+    </itemizedlist>
+    <para>To start a conversion, use the Conversion Wizard from the menu: 
+            <menuchoice>
+                <guimenu>File</guimenu>
+                <guimenuitem>Document Conversion Wizard</guimenuitem>
+            </menuchoice>.
+    </para>
+    <para>An example of a simple XSLT using <command>&dhpackage;</command> is shown below. The font name can be
+    specified as an extra argument to the <function>convert()</function> method if needed. 
+    </para>
+    <programlisting><![CDATA[
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+    xmlns:java="http://xml.apache.org/xalan/java" exclude-result-prefixes="java">
+
+    <xsl:template match="text()">
+        <xsl:value-of select="java:org.thanlwinsoft.doccharconvert.parser.XslConversionParser.convert(string(.))"/>
+    </xsl:template>
+
+</xsl:stylesheet>]]>
+    </programlisting>
+  </refsect1>
+  <refsect1 id="options">
+    <title>OPTIONS</title>
+    <para>The program is just a wrapper around the <command>eclipse</command> command setting the <option>-product</option>, <option>-application</option> and <option>-data</option> options. Other <command>eclipse</command> options can be specified if necessary. For a complete description, see the
+      <citerefentry>
+        <refentrytitle>eclipse</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </citerefentry> documentation.</para>
+  </refsect1>
+  <refsect1 id="files">
+    <title>FILES</title>
+    <variablelist>
+      <varlistentry>
+        <term><filename>${HOME}/.doccharconvert</filename></term>
+        <listitem>
+          <para>The default eclipse workspace used by <application>&dhpackage;</application>. See
+            <citerefentry>
+              <refentrytitle>eclipse</refentrytitle>
+              <manvolnum>1</manvolnum>
+            </citerefentry> for further details.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="environment">
+    <title>ENVIRONMENT</title>
+    <variablelist>
+      <varlistentry>
+        <term><envar>DOCCHARCONVERT_HOME</envar></term>
+        <listitem>
+          <para>If used, this specifies the eclipse workspace to use. The default is 
+            <filename>~/.doccharconvert</filename>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1 id="bugs">
+    <!-- Or use this section to tell about upstream BTS. -->
+    <title>BUGS</title>
+    <para>The program depends on the <package>eclipse</package> platform, which is a large dependency.</para>
+    <para>Please report bugs in DocCharConvert's Issue tracker, which can be found
+      at <ulink url="http://www.thanlwinsoft.org/indefero/index.php/p/DocCharConvert/issues/"/>.</para>
+  </refsect1>
+  <refsect1 id="see_also">
+    <title>SEE ALSO</title>
+    <!-- In alpabetical order. -->
+    <para><citerefentry>
+        <refentrytitle>eclipse</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </citerefentry></para>
+    <para>DocCharConvert includes its own documentation available from the Help menu.</para>
+  </refsect1>
+</refentry>
+

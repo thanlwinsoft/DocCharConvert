@@ -1,0 +1,5 @@
+bin/doccharconvert usr/bin
+org.thanlwinsoft.doccharconvert/icons/doccharconvert.xpm usr/share/icons/hicolor/32x32/apps
+org.thanlwinsoft.doccharconvert/icons/doccharconvert.png usr/share/icons/hicolor/32x32/apps
+org.thanlwinsoft.doccharconvert/doccharconvert.desktop usr/share/applications
+

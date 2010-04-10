@@ -1,0 +1,6 @@
+?package(libdoccharconvert-java):needs="X11" section="Applications/Accessories"\
+  title="DocCharConvert" \
+  longtitle="Eclipse based character converter" \
+  command="/usr/bin/oowriter" \
+  icon="/usr/share/icons/hicolor/32x32/apps/doccharconvert.xpm"
+
