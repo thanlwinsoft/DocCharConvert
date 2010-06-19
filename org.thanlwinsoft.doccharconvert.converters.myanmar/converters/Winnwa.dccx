@@ -50,7 +50,15 @@
   <Font name="Padauk" type="new" script="ctl" />
 </Style>
 <Style>
+  <Font name="Win Researcher" type="old" script="latin" />
+  <Font name="Padauk" type="new" script="ctl" />
+</Style>
+<Style>
   <Font name="WinResearcher" type="old" script="latin" />
+  <Font name="Myanmar3" type="new" script="ctl" />
+</Style>
+<Style>
+  <Font name="Win Researcher" type="old" script="latin" />
   <Font name="Myanmar3" type="new" script="ctl" />
 </Style>
 <Style>
