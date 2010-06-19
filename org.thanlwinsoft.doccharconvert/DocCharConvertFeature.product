@@ -138,9 +138,7 @@
    <features>
       <feature id="org.eclipse.rcp"/>
       <feature id="org.eclipse.platform"/>
-      <feature id="org.eclipse.equinox.executable"/>
       <feature id="org.thanlwinsoft.doccharconvert.feature.core"/>
-      <feature id="org.thanlwinsoft.doccharconvert.feature.systemlibs"/>
    </features>
 
 

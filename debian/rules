@@ -17,12 +17,11 @@ override_jh_compilefeatures:
 	jh_compilefeatures --build-opts '$(BUILD_OPTIONS)'
 
 override_dh_auto_build:
-             xsltproc --nonet \
-              --param make.year.ranges 1 \
-              --param make.single.year.ranges 1 \
-              --param man.charmap.use.subset 0 \
-              -o debian/ \
-       /usr/share/xml/docbook/stylesheet/nwalsh/manpages/docbook.xsl \
-             debian/doccharconvert.1.xml
-             dh_auto_build
+	xsltproc --nonet \
+		--param make.year.ranges 1 \
+		--param make.single.year.ranges 1 \
+		--param man.charmap.use.subset 0 -o debian/ \
+		/usr/share/xml/docbook/stylesheet/nwalsh/manpages/docbook.xsl \
+		debian/doccharconvert.1.xml
+	dh_auto_build
 

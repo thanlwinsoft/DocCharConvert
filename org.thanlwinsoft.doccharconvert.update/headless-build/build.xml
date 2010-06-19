@@ -120,7 +120,7 @@
 			<arg value="-DforceContextQualifier=${doccharconvert.minor.version}_${timestamp}" />
 			<classpath>
 				<pathelement location="${baseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
-				<fileset dir="${buildDirectory}/plugins/org.apache.xmlbeans/lib">
+				<fileset dir="${buildDirectory}/plugins/org.apache.xmlbeans/build/lib">
 				     <include name="*.jar"/>
 				</fileset>
 			</classpath>

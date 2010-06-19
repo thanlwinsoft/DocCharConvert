@@ -22,6 +22,10 @@
       <update label="ThanLwinSoft.org" url="http://www.thanlwinsoft.org/ThanLwinSoft/Downloads/updates/"/>
    </url>
 
+   <requires>
+      <import plugin="org.apache.xerces" version="2.9.1" match="greaterOrEqual"/>
+   </requires>
+
    <plugin
          id="org.apache.xerces"
          download-size="0"

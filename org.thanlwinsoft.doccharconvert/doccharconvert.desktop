@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=doccharconvert
+Name=DocCharConvert
 GenericName=Document Character Converter
-Comment=Edit text files
+Comment=Convert between different Character Encodings
 Exec=doccharconvert
 Terminal=false
 Type=Application

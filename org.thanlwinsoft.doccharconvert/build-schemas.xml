@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="org.thanlwinsoft.doccharconvert.schemas" default="build.schemas" basedir=".">
 <available file="/usr/share/java/xmlbeans.jar" property="xmlbeans.jar" value="/usr/share/java/xmlbeans.jar"/>
-<condition property="xmlbeans.jar" value="../org.apache.xmlbeans/lib/xbean.jar">
+<condition property="xmlbeans.jar" value="../org.apache.xmlbeans/build/lib/xbean.jar">
     <and>
-        <available file="../org.apache.xmlbeans/lib/xbean.jar" />
+        <available file="../org.apache.xmlbeans/build/lib/xbean.jar" />
         <not><isset property="xmlbeans.jar"/></not>
     </and>
 </condition>
