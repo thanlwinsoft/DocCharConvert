@@ -39,6 +39,7 @@ import org.odftoolkit.odfdom.doc.office.OdfOfficeBody;
 import org.odftoolkit.odfdom.doc.style.OdfDefaultStyle;
 import org.odftoolkit.odfdom.doc.style.OdfStyle;
 import org.odftoolkit.odfdom.doc.style.OdfStyleFontFace;
+import org.odftoolkit.odfdom.doc.text.OdfTextParagraph;
 import org.odftoolkit.odfdom.doc.text.OdfTextSpace;
 import org.odftoolkit.odfdom.doc.text.OdfTextSpan;
 import org.odftoolkit.odfdom.doc.text.OdfTextTab;
@@ -746,6 +747,11 @@ public class OdfDocInterface implements DocInterface {
 		for (int i = 0; i < element.getLength(); i++)
 		{
 			Node n = paraChildren.item(i);
+			if (n instanceof OdfTextParagraph)
+			{
+				// set the previous text to null between paragraphs - essential for performance
+				prevText = null;
+			}
 			if (n instanceof OdfStylableElement)
 			{
 				OdfStylableElement stylable = (OdfStylableElement)n;
