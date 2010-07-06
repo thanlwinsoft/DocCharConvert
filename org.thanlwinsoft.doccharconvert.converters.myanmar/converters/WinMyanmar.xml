@@ -255,6 +255,7 @@
 
     <ordering side="unicode"><!---->
         <order b="reorder-kinzi-b" u="reorder-kinzi-u"/>
+        <order b="normalize-b" u="normalize-u"/>
     </ordering>
     <ordering side="bytes">
         <order b="reorder-bytes-b" u="reorder-bytes-u"/>
@@ -325,10 +326,10 @@
         <context-ref name="reorder-bytes-b/a"/>
         <context-ref name="reorder-bytes-b/udot2"/>
         <context-ref name="reorder-bytes-b/udot1"/>
-        <context-ref name="reorder-bytes-b/kill"/>
         <context-ref name="reorder-bytes-b/ldot3"/>
         <context-ref name="reorder-bytes-b/ldot2"/>
-        <context-ref name="reorder-bytes-b/ldot1"/>  
+        <context-ref name="reorder-bytes-b/ldot1"/>
+        <context-ref name="reorder-bytes-b/kill"/>
         <context-ref name="reorder-bytes-b/colon"/> 
         <!--<context-ref name="reorder-bytes-b/section"/>    -->
     </group>
@@ -370,6 +371,15 @@
       <context-ref name="reorder-kinzi-u/vd"/>
     </group>
 
+	<group id="normalize-b">
+		<context-ref name="normalize-u/killer"/>
+		<context-ref name="normalize-u/ldot"/>
+	</group>
+	
+	<group id="normalize-u">
+		<class-ref name="ldot" id="ldot"/>
+		<class-ref name="killer" id="killer"/>
+	</group>
 
     <group id="reorder-u-us">
         <group id="y" min="0">
@@ -388,7 +398,6 @@
     </group>
 
 <!-- constraint contexts: unicode -->
-
 
     <group id="base-narrow">
         <group alt="1">
