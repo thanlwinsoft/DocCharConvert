@@ -31,6 +31,10 @@ then
     hg pull -u > /dev/null
 fi
 export JAVA_HOME=/usr/lib/jvm/java-6-sun
+if ! test -f $JAVA_HOME/lib/tools.jar ;
+then
+	JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+fi
 PATH=/usr/lib/jvm/java-6-sun/bin:$PATH
 if  ! test -f build.version || test `hg id -n` != `cat build.version`; 
 then

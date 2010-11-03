@@ -22,6 +22,7 @@ import java.io.File;
 
 import java.net.URL;
 import java.util.prefs.Preferences;
+import java.util.Locale;
 import java.util.ResourceBundle;
 /**
  *
@@ -181,7 +182,17 @@ public class Config
         try
         {
         	if (i18nResource == null)
-        		i18nResource = ResourceBundle.getBundle("Messages");
+        	{
+        		try
+        		{
+        			i18nResource = ResourceBundle.getBundle("Messages");
+        		}
+        		catch (java.util.MissingResourceException mre)
+                {
+        			i18nResource = ResourceBundle.getBundle("Messages", new Locale("en","US"));
+                }
+        	}
+        		
         }
         catch (java.util.MissingResourceException mre)
         {

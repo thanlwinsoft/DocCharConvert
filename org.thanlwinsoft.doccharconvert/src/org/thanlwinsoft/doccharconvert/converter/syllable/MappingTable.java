@@ -20,6 +20,9 @@ package org.thanlwinsoft.doccharconvert.converter.syllable;
 
 import java.io.PrintStream;
 import java.text.MessageFormat;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.Vector;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -406,7 +409,7 @@ public class MappingTable
     public int getNumColumns(int side)
     {
         int result = 0;
-         switch (side)
+        switch (side)
         {
             case SyllableConverter.LEFT:
                 result = getNumLeftColumns();
@@ -461,6 +464,46 @@ public class MappingTable
     {
       return leftColumnMap.keySet().toArray(new String[0])[index];
     }
+    
+    public Set<Integer[]> getEntries(int side)
+    {
+    	Set<Integer[]> entries = new HashSet<Integer[]>();
+    	Iterator <Integer> iEntries = null;
+    	Vector<Integer> sizes = null;
+    	if (side == 0)
+    	{
+    		iEntries = leftMap.keySet().iterator();
+    		sizes = leftSizes;
+    	}
+    	else 
+    	{
+    		iEntries = rightMap.keySet().iterator();
+    		sizes = rightSizes;
+    	}
+    	Vector <Integer>factors = new Vector<Integer>(sizes.size(), 0);
+    	int factor = 1;
+    	for (int i = 0; i< sizes.size(); i++)
+        {
+    		factors.add(factor);
+    		factor *= sizes.get(i);
+        }
+    	
+    	while (iEntries.hasNext())
+    	{
+    		int offset = iEntries.next();
+    		Integer [] entry = new Integer[sizes.size()];
+    		for (int i = sizes.size() - 1; i >= 0; i--)
+    		{
+    			entry[i] = (int)Math.floor(offset / factors.get(i));
+    			offset -= entry[i] * factors.get(i);
+    		}
+    		entries.add(entry);
+    		assert(offset == getMapOffset(sizes, entry));
+    	}
+    	
+    	return entries;
+    }
+    
     /**
      * 
      * @param on
