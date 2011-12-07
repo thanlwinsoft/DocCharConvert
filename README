@@ -1,0 +1,13 @@
+Document Character Converter is a tool to convert between different encoding formats and different scripts.
+
+It currently supports the following types of converters:
+
+    TECkit Converters [scripts.sil.org/TECkit]
+    Syllable Converters
+    External Programs
+
+It currently allows conversion of the following file types:
+
+    Plain text files
+    OpenDocument files (OpenOffice.org native format)
+    TeX Files - limited support
